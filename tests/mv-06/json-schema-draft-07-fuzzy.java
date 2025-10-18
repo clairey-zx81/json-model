@@ -112,10 +112,6 @@ public class json_schema_draft_07_fuzzy extends ModelChecker
         boolean res;
         // .'$schema#ObjectSchema'.const
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$schema#ObjectSchema'.const]", path);
-        }
         return res;
     }
 
@@ -151,10 +147,6 @@ public class json_schema_draft_07_fuzzy extends ModelChecker
         boolean res;
         // .'$schema#ObjectSchema'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$schema#ObjectSchema'.default]", path);
-        }
         return res;
     }
 

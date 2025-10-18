@@ -797,10 +797,6 @@ sub json_model_9($$$)
             # handle 1 re props
             # .'$metas'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1019,10 +1015,6 @@ sub json_model_10($$$)
             # handle 1 re props
             # .'$String'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1246,10 +1238,6 @@ sub json_model_11($$$)
             # handle 1 re props
             # .'$Array'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1505,10 +1493,6 @@ sub json_model_12($$$)
             # handle 1 re props
             # .'$Object'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1706,10 +1690,6 @@ sub json_model_13($$$)
             # handle 1 re props
             # .'$Integer'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1907,10 +1887,6 @@ sub json_model_14($$$)
             # handle 1 re props
             # .'$Number'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2088,10 +2064,6 @@ sub json_model_15($$$)
             # handle 1 re props
             # .'$Bool'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2269,10 +2241,6 @@ sub json_model_16($$$)
             # handle 1 re props
             # .'$Null'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2450,10 +2418,6 @@ sub json_model_17($$$)
             # handle 1 re props
             # .'$AllOf'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2631,10 +2595,6 @@ sub json_model_18($$$)
             # handle 1 re props
             # .'$AnyOf'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2812,10 +2772,6 @@ sub json_model_19($$$)
             # handle 1 re props
             # .'$OneOf'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2993,10 +2949,6 @@ sub json_model_20($$$)
             # handle 1 re props
             # .'$Enum'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3174,10 +3126,6 @@ sub json_model_21($$$)
             # handle 1 re props
             # .'$Const'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3355,10 +3303,6 @@ sub json_model_22($$$)
             # handle 1 re props
             # .'$Ref'.'/^x-.*/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {

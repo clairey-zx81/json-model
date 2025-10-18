@@ -380,10 +380,6 @@ sub json_model_2($$$)
             # handle 1 re props
             # .'$OpenAPI'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -484,10 +480,6 @@ sub json_model_3($$$)
             # handle 1 re props
             # .'$Info'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -545,10 +537,6 @@ sub json_model_4($$$)
             # handle 1 re props
             # .'$Contact'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -605,10 +593,6 @@ sub _jm_obj_0($$$)
             # handle 1 re props
             # .'$License'.'|'.1.'/^x\\-.*$/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -658,10 +642,6 @@ sub _jm_obj_1($$$)
             # handle 1 re props
             # .'$License'.'|'.0.'/^x\\-.*$/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -764,10 +744,6 @@ sub json_model_6($$$)
             # handle 1 re props
             # .'$Server'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -840,10 +816,6 @@ sub json_model_7($$$)
             # handle 1 re props
             # .'$ServerVariable'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1175,10 +1147,6 @@ sub json_model_8($$$)
             # handle 1 re props
             # .'$Components'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1216,10 +1184,6 @@ sub json_model_9($$$)
             # handle 2 re props
             # .'$Paths'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1339,10 +1303,6 @@ sub json_model_10($$$)
             # handle 1 re props
             # .'$PathItem'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1564,10 +1524,6 @@ sub json_model_11($$$)
             # handle 1 re props
             # .'$Operation'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1617,10 +1573,6 @@ sub json_model_12($$$)
             # handle 1 re props
             # .'$ExternalDocumentation'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1688,10 +1640,6 @@ sub json_model_13($$$)
             # handle 1 re props
             # .'$parameterShare'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1783,10 +1731,6 @@ sub json_model_14($$$)
             # handle 1 re props
             # .'$commonParameter'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2066,10 +2010,6 @@ sub _jm_obj_4($$$)
             # handle 1 re props
             # .'$Parameter'.'|'.1.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2230,10 +2170,6 @@ sub _jm_obj_6($$$)
             # handle 1 re props
             # .'$Parameter'.'|'.0.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2334,10 +2270,6 @@ sub json_model_19($$$)
             # handle 1 re props
             # .'$RequestBody'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2427,10 +2359,6 @@ sub json_model_20($$$)
             # handle may example property
             # .'$MediaType'.example
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'examples')
         {
@@ -2457,10 +2385,6 @@ sub json_model_20($$$)
             # handle 1 re props
             # .'$MediaType'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2567,10 +2491,6 @@ sub json_model_21($$$)
             # handle 1 re props
             # .'$Encoding'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2637,10 +2557,6 @@ sub json_model_22($$$)
             # handle 2 re props
             # .'$Responses'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2789,10 +2705,6 @@ sub json_model_23($$$)
             # handle 1 re props
             # .'$Response'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2836,10 +2748,6 @@ sub json_model_24($$$)
             # handle 1 re props
             # .'$Callback'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2887,10 +2795,6 @@ sub json_model_25($$$)
             # handle may value property
             # .'$Example'.value
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'externalValue')
         {
@@ -2907,10 +2811,6 @@ sub json_model_25($$$)
             # handle 1 re props
             # .'$Example'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2977,10 +2877,6 @@ sub _jm_obj_14($$$)
             # handle may requestBody property
             # .'$Link'.'|'.1.requestBody
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'description')
         {
@@ -3007,10 +2903,6 @@ sub _jm_obj_14($$$)
             # handle 1 re props
             # .'$Link'.'|'.1.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3067,10 +2959,6 @@ sub _jm_obj_16($$$)
             # handle may requestBody property
             # .'$Link'.'|'.0.requestBody
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'description')
         {
@@ -3097,10 +2985,6 @@ sub _jm_obj_16($$$)
             # handle 1 re props
             # .'$Link'.'|'.0.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3220,10 +3104,6 @@ sub _jm_obj_18($$$)
             # handle 1 re props
             # .'$Header'.'|'.1.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3360,10 +3240,6 @@ sub _jm_obj_20($$$)
             # handle 1 re props
             # .'$Header'.'|'.0.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3444,10 +3320,6 @@ sub json_model_29($$$)
             # handle 1 re props
             # .'$Tag'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4009,10 +3881,6 @@ sub json_model_33($$$)
             # handle 1 re props
             # .'$Discriminator'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4090,10 +3958,6 @@ sub json_model_34($$$)
             # handle 1 re props
             # .'$xml'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4640,10 +4504,6 @@ sub _jm_obj_27($$$)
             # handle 1 re props
             # .'$SecurityScheme'.'|'.5.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4753,10 +4613,6 @@ sub json_model_41($$$)
             # handle 1 re props
             # .'$OAuthFlows'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4851,10 +4707,6 @@ sub json_model_42($$$)
             # handle 1 re props
             # .'$OAuthFlow'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4919,10 +4771,6 @@ sub json_model_44($$$)
             # handle 1 re props
             # .'$Extension'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {

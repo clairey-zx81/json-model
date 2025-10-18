@@ -17,10 +17,7 @@ function json_model_2(val, path, rep)
     let res;
     // .'$n0'
     res = false;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $NONE [.'$n0']", path])
-    }
+    rep !== null && rep.push(["unexpected $NONE [.'$n0']", path])
     return res;
 }
 
@@ -30,10 +27,7 @@ function json_model_3(val, path, rep)
     let res;
     // .'$n1'
     res = false;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $NONE [.'$n1']", path])
-    }
+    rep !== null && rep.push(["unexpected $NONE [.'$n1']", path])
     return res;
 }
 
@@ -43,10 +37,7 @@ function json_model_4(val, path, rep)
     let res;
     // .'$n2'
     res = false;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $NONE [.'$n2']", path])
-    }
+    rep !== null && rep.push(["unexpected $NONE [.'$n2']", path])
     return res;
 }
 
@@ -56,10 +47,7 @@ function json_model_1(val, path, rep)
     let res;
     // .
     res = false;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $NONE [.]", path])
-    }
+    rep !== null && rep.push(["unexpected $NONE [.]", path])
     return res;
 }
 

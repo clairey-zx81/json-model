@@ -25,10 +25,7 @@ public class and_str01 extends ModelChecker
         boolean res;
         // .
         res = false;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $NONE [.]", path);
-        }
+        if (rep != null) rep.addEntry("unexpected $NONE [.]", path);
         return res;
     }
 

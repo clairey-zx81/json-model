@@ -2876,10 +2876,6 @@ static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .predefs.ANY
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.predefs.ANY]", path);
-    }
     return res;
 }
 
@@ -3071,10 +3067,7 @@ static bool _jm_f_85(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .predefs.NONE
     res = false;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $NONE [.predefs.NONE]", path);
-    }
+    if (rep) jm_report_add_entry(rep, "unexpected $NONE [.predefs.NONE]", path);
     return res;
 }
 

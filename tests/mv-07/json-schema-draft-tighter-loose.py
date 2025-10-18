@@ -207,8 +207,6 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#metas'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#metas'.default]", path))
     return res
 
 # check json_model_11_map_definitions (.'$tight#metas'.definitions)
@@ -334,8 +332,6 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#String'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#String'.default]", path))
     return res
 
 # check json_model_12_map_definitions (.'$tight#String'.definitions)
@@ -513,8 +509,6 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Array'.default]", path))
     return res
 
 # check json_model_13_map_definitions (.'$tight#Array'.definitions)
@@ -718,8 +712,6 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Object'.default]", path))
     return res
 
 # check json_model_14_map_definitions (.'$tight#Object'.definitions)
@@ -915,8 +907,6 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Integer'.default]", path))
     return res
 
 # check json_model_15_map_definitions (.'$tight#Integer'.definitions)
@@ -1075,8 +1065,6 @@ def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Number'.default]", path))
     return res
 
 # check json_model_16_map_definitions (.'$tight#Number'.definitions)
@@ -1235,8 +1223,6 @@ def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Bool'.default]", path))
     return res
 
 # check json_model_17_map_definitions (.'$tight#Bool'.definitions)
@@ -1377,8 +1363,6 @@ def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Null'.default]", path))
     return res
 
 # check json_model_18_map_definitions (.'$tight#Null'.definitions)
@@ -1519,8 +1503,6 @@ def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#AllOf'.default]", path))
     return res
 
 # check json_model_19_map_definitions (.'$tight#AllOf'.definitions)
@@ -1661,8 +1643,6 @@ def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#AnyOf'.default]", path))
     return res
 
 # check json_model_20_map_definitions (.'$tight#AnyOf'.definitions)
@@ -1803,8 +1783,6 @@ def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#OneOf'.default]", path))
     return res
 
 # check json_model_21_map_definitions (.'$tight#OneOf'.definitions)
@@ -1945,8 +1923,6 @@ def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Enum'.default]", path))
     return res
 
 # check json_model_22_map_definitions (.'$tight#Enum'.definitions)
@@ -2133,8 +2109,6 @@ def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Const'.default]", path))
     return res
 
 # check json_model_23_map_definitions (.'$tight#Const'.definitions)
@@ -2309,8 +2283,6 @@ def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#Ref'.default]", path))
     return res
 
 # check json_model_24_map_definitions (.'$tight#Ref'.definitions)
@@ -2470,8 +2442,6 @@ def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#EnumString'.default]", path))
     return res
 
 # check json_model_28_map_definitions (.'$tight#EnumString'.definitions)
@@ -2631,8 +2601,6 @@ def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#EnumNum'.default]", path))
     return res
 
 # check json_model_29_map_definitions (.'$tight#EnumNum'.definitions)
@@ -2792,8 +2760,6 @@ def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#EnumInt'.default]", path))
     return res
 
 # check json_model_30_map_definitions (.'$tight#EnumInt'.definitions)
@@ -2953,8 +2919,6 @@ def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#ConstString'.default]", path))
     return res
 
 # check json_model_31_map_definitions (.'$tight#ConstString'.definitions)
@@ -3106,8 +3070,6 @@ def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#ConstNum'.default]", path))
     return res
 
 # check json_model_32_map_definitions (.'$tight#ConstNum'.definitions)
@@ -3259,8 +3221,6 @@ def _jm_f_209(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#ConstInt'.default]", path))
     return res
 
 # check json_model_33_map_definitions (.'$tight#ConstInt'.definitions)
@@ -3412,8 +3372,6 @@ def _jm_f_219(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$tight#ConstBool'.default]", path))
     return res
 
 # check json_model_34_map_definitions (.'$tight#ConstBool'.definitions)

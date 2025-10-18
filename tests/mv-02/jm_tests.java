@@ -59,10 +59,6 @@ public class jm_tests extends ModelChecker
                             lpath_1 = new Path(1, (path != null ? arr_0_lpath : null));
                             // .0.'|'.1.1
                             res = true;
-                            if (! res)
-                            {
-                                if (rep != null) rep.addEntry("unexpected $ANY [.0.'|'.1.1]", ((path != null ? arr_0_lpath : null) != null ? lpath_1 : null));
-                            }
                         }
                     }
                     if (! res)
@@ -96,10 +92,6 @@ public class jm_tests extends ModelChecker
                                     lpath_0 = new Path(2, (path != null ? arr_0_lpath : null));
                                     // .0.'|'.2.2
                                     res = true;
-                                    if (! res)
-                                    {
-                                        if (rep != null) rep.addEntry("unexpected $ANY [.0.'|'.2.2]", ((path != null ? arr_0_lpath : null) != null ? lpath_0 : null));
-                                    }
                                 }
                             }
                         }

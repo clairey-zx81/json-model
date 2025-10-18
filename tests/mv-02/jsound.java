@@ -693,12 +693,6 @@ public class jsound extends ModelChecker
                 // handle may default property
                 // .'$Fields'.default
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Fields'.default]", (path != null ? lpath_4 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.default]", (path != null ? lpath_4 : null));
-                    return false;
-                }
             }
             else if (prop.compareTo("unique") == 0)
             {

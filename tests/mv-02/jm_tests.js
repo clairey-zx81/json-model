@@ -48,10 +48,6 @@ function json_model_1(val, path, rep)
                         lpath_1 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null;
                         // .0.'|'.1.1
                         res = true;
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["unexpected $ANY [.0.'|'.1.1]", ((path ? arr_0_lpath : null) ? lpath_1 : null)])
-                        }
                     }
                 }
                 if (! res)
@@ -85,10 +81,6 @@ function json_model_1(val, path, rep)
                                 lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([2]) : null;
                                 // .0.'|'.2.2
                                 res = true;
-                                if (! res)
-                                {
-                                    rep !== null && rep.push(["unexpected $ANY [.0.'|'.2.2]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
-                                }
                             }
                         }
                     }

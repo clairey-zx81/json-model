@@ -27,8 +27,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.]", path))
     return res
 
 

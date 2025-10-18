@@ -591,9 +591,6 @@ BEGIN
       -- handle 1 re props
       -- .'$metas'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -846,9 +843,6 @@ BEGIN
       -- handle 1 re props
       -- .'$String'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1097,9 +1091,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Array'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1371,9 +1362,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Object'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1593,9 +1581,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Integer'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1815,9 +1800,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Number'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2013,9 +1995,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Bool'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2211,9 +2190,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Null'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2409,9 +2385,6 @@ BEGIN
       -- handle 1 re props
       -- .'$AllOf'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2607,9 +2580,6 @@ BEGIN
       -- handle 1 re props
       -- .'$AnyOf'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2805,9 +2775,6 @@ BEGIN
       -- handle 1 re props
       -- .'$OneOf'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3003,9 +2970,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Enum'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3201,9 +3165,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Const'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3399,9 +3360,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Ref'.'/^x-.*/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;

@@ -37,9 +37,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # .'|'.1.'/a/'
             res = False
-            if not res:
-                rep is None or rep.append(("unexpected $NONE [.'|'.1.'/a/']", lpath_0 if path is not None else None))
-                return False
+            rep is None or rep.append(("unexpected $NONE [.'|'.1.'/a/']", lpath_0 if path is not None else None))
+            return False
         else:
             # handle other props
             # .'|'.1.''

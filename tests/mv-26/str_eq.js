@@ -29,36 +29,18 @@ function json_model_1(val, path, rep)
             // handle may  property
             // .''
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'']", (path ? lpath_0 : null)])
-                return false;
-            }
         }
         else if (prop == "hello")
         {
             // handle may hello property
             // .hello
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.hello]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.hello]", (path ? lpath_0 : null)])
-                return false;
-            }
         }
         else if (prop == "quite-a-long-property-name")
         {
             // handle may quite-a-long-property-name property
             // .'quite-a-long-property-name'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'quite-a-long-property-name']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'quite-a-long-property-name']", (path ? lpath_0 : null)])
-                return false;
-            }
         }
         else
         {

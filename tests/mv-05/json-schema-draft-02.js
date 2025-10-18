@@ -127,10 +127,6 @@ function _jm_f_3(val, path, rep)
     let res;
     // .default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.default]", path])
-    }
     return res;
 }
 

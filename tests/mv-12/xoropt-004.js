@@ -31,11 +31,8 @@ function _jm_obj_0(val, path, rep)
             // handle 1 re props
             // .'|'.1.'/a/'
             res = false;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $NONE [.'|'.1.'/a/']", (path ? lpath_0 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["unexpected $NONE [.'|'.1.'/a/']", (path ? lpath_0 : null)])
+            return false;
         }
         else
         {

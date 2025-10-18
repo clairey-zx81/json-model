@@ -154,9 +154,6 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # .'$Provide'.'/^[Xx]_/'
             res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$Provide'.'/^[Xx]_/']", lpath_0 if path is not None else None))
-                return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Provide']", lpath_0 if path is not None else None))
             return False
@@ -207,9 +204,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # .'$Resources'.bugtracker.'/^[Xx]_/'
             res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$Resources'.bugtracker.'/^[Xx]_/']", lpath_2 if path is not None else None))
-                return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Resources'.bugtracker]", lpath_2 if path is not None else None))
             return False
@@ -409,9 +403,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # .'$Prereqs'.'$Phase'.'/^[Xx]_/'
             res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$Prereqs'.'$Phase'.'/^[Xx]_/']", lpath_6 if path is not None else None))
-                return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Prereqs'.'$Phase']", lpath_6 if path is not None else None))
             return False
@@ -437,9 +428,6 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # .'$Prereqs'.'/^[Xx]_/'
             res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$Prereqs'.'/^[Xx]_/']", lpath_5 if path is not None else None))
-                return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Prereqs']", lpath_5 if path is not None else None))
             return False
@@ -544,9 +532,6 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # .'meta-spec'.'/^[Xx]_/'
             res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'meta-spec'.'/^[Xx]_/']", lpath_9 if path is not None else None))
-                return False
         else:
             rep is None or rep.append(("unexpected prop [.'meta-spec']", lpath_9 if path is not None else None))
             return False
@@ -669,9 +654,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # .'/^[Xx]_/'
             res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'/^[Xx]_/']", lpath_7 if path is not None else None))
-                return False
         else:
             rep is None or rep.append(("unexpected prop [.]", lpath_7 if path is not None else None))
             return False

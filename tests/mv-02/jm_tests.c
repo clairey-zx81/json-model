@@ -52,10 +52,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         lpath_1 = (jm_path_t) { NULL, 1, (path ? &arr_0_lpath : NULL), NULL };
                         // .0.'|'.1.1
                         res = true;
-                        if (! res)
-                        {
-                            if (rep) jm_report_add_entry(rep, "unexpected $ANY [.0.'|'.1.1]", ((path ? &arr_0_lpath : NULL) ? &lpath_1 : NULL));
-                        }
                     }
                 }
                 if (! res)
@@ -89,10 +85,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                 lpath_0 = (jm_path_t) { NULL, 2, (path ? &arr_0_lpath : NULL), NULL };
                                 // .0.'|'.2.2
                                 res = true;
-                                if (! res)
-                                {
-                                    if (rep) jm_report_add_entry(rep, "unexpected $ANY [.0.'|'.2.2]", ((path ? &arr_0_lpath : NULL) ? &lpath_0 : NULL));
-                                }
                             }
                         }
                     }

@@ -253,11 +253,6 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 1 re props
             // .'$Provide'.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Provide'.'/^[Xx]_/']", (path ? &lpath_0 : NULL));
-                return false;
-            }
         }
         else
         {
@@ -340,11 +335,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle 1 re props
             // .'$Resources'.bugtracker.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Resources'.bugtracker.'/^[Xx]_/']", (path ? &lpath_2 : NULL));
-                return false;
-            }
         }
         else
         {
@@ -669,11 +659,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle 1 re props
             // .'$Prereqs'.'$Phase'.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Prereqs'.'$Phase'.'/^[Xx]_/']", (path ? &lpath_6 : NULL));
-                return false;
-            }
         }
         else
         {
@@ -715,11 +700,6 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 1 re props
             // .'$Prereqs'.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Prereqs'.'/^[Xx]_/']", (path ? &lpath_5 : NULL));
-                return false;
-            }
         }
         else
         {
@@ -886,11 +866,6 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 1 re props
             // .'meta-spec'.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'meta-spec'.'/^[Xx]_/']", (path ? &lpath_9 : NULL));
-                return false;
-            }
         }
         else
         {
@@ -1093,11 +1068,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 1 re props
             // .'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'/^[Xx]_/']", (path ? &lpath_7 : NULL));
-                return false;
-            }
         }
         else
         {

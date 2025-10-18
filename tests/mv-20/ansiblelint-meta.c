@@ -6822,10 +6822,6 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$GalaxyInfoModelCollection'.cloud_platforms
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$GalaxyInfoModelCollection'.cloud_platforms]", path);
-    }
     return res;
 }
 
@@ -7111,10 +7107,6 @@ static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$GalaxyInfoModelStandalone'.cloud_platforms
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$GalaxyInfoModelStandalone'.cloud_platforms]", path);
-    }
     return res;
 }
 
@@ -7391,10 +7383,6 @@ static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$GalaxyInfoModel'.'|'.1.cloud_platforms]", path);
-    }
     return res;
 }
 
@@ -7645,10 +7633,6 @@ static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path);
-    }
     return res;
 }
 

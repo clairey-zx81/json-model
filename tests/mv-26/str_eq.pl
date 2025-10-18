@@ -32,30 +32,18 @@ sub json_model_1($$$)
             # handle may  property
             # .''
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'hello')
         {
             # handle may hello property
             # .hello
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'quite-a-long-property-name')
         {
             # handle may quite-a-long-property-name property
             # .'quite-a-long-property-name'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {

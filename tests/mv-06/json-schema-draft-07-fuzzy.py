@@ -86,8 +86,6 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$schema#ObjectSchema'.const
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$schema#ObjectSchema'.const]", path))
     return res
 
 # check json_model_8_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -113,8 +111,6 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$schema#ObjectSchema'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$schema#ObjectSchema'.default]", path))
     return res
 
 # check json_model_8_map_definitions (.'$schema#ObjectSchema'.definitions)

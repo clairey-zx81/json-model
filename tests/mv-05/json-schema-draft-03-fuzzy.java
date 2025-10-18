@@ -115,10 +115,6 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         boolean res;
         // .'$schema'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$schema'.default]", path);
-        }
         return res;
     }
 

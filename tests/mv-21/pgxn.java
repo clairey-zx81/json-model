@@ -222,11 +222,6 @@ public class pgxn extends ModelChecker
                 // handle 1 re props
                 // .'$Provide'.'/^[Xx]_/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Provide'.'/^[Xx]_/']", (path != null ? lpath_0 : null));
-                    return false;
-                }
             }
             else
             {
@@ -310,11 +305,6 @@ public class pgxn extends ModelChecker
                 // handle 1 re props
                 // .'$Resources'.bugtracker.'/^[Xx]_/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Resources'.bugtracker.'/^[Xx]_/']", (path != null ? lpath_2 : null));
-                    return false;
-                }
             }
             else
             {
@@ -640,11 +630,6 @@ public class pgxn extends ModelChecker
                 // handle 1 re props
                 // .'$Prereqs'.'$Phase'.'/^[Xx]_/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Prereqs'.'$Phase'.'/^[Xx]_/']", (path != null ? lpath_6 : null));
-                    return false;
-                }
             }
             else
             {
@@ -687,11 +672,6 @@ public class pgxn extends ModelChecker
                 // handle 1 re props
                 // .'$Prereqs'.'/^[Xx]_/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Prereqs'.'/^[Xx]_/']", (path != null ? lpath_5 : null));
-                    return false;
-                }
             }
             else
             {
@@ -860,11 +840,6 @@ public class pgxn extends ModelChecker
                 // handle 1 re props
                 // .'meta-spec'.'/^[Xx]_/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'meta-spec'.'/^[Xx]_/']", (path != null ? lpath_9 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1062,11 +1037,6 @@ public class pgxn extends ModelChecker
                 // handle 1 re props
                 // .'/^[Xx]_/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'/^[Xx]_/']", (path != null ? lpath_7 : null));
-                    return false;
-                }
             }
             else
             {

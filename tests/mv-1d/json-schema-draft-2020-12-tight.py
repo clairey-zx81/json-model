@@ -127,8 +127,6 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$meta'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$meta'.default]", path))
     return res
 
 # check json_model_4_map_deprecated (.'$meta'.deprecated)
@@ -791,8 +789,6 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Misc'.const
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Misc'.const]", path))
     return res
 
 # check json_model_14_map_enum (.'$Misc'.enum)
@@ -885,8 +881,6 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.0.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.0.default]", path))
     return res
 
 # check _jm_obj_0_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
@@ -1039,8 +1033,6 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.1.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.1.default]", path))
     return res
 
 # check _jm_obj_1_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
@@ -1193,8 +1185,6 @@ def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.2.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.2.default]", path))
     return res
 
 # check _jm_obj_2_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
@@ -1442,8 +1432,6 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.3.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.3.default]", path))
     return res
 
 # check _jm_obj_3_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
@@ -1659,8 +1647,6 @@ def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.4.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.4.default]", path))
     return res
 
 # check _jm_obj_4_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
@@ -1849,8 +1835,6 @@ def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.5.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.5.default]", path))
     return res
 
 # check _jm_obj_5_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
@@ -2048,8 +2032,6 @@ def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.6.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.6.default]", path))
     return res
 
 # check _jm_obj_6_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
@@ -2292,8 +2274,6 @@ def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.7.const
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.7.const]", path))
     return res
 
 # check _jm_obj_7_map_default (.'$TightSchema'.'|'.7.default)
@@ -2301,8 +2281,6 @@ def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$TightSchema'.'|'.7.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$TightSchema'.'|'.7.default]", path))
     return res
 
 # check _jm_obj_7_map_deprecated (.'$TightSchema'.'|'.7.deprecated)

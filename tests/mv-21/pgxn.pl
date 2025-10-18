@@ -204,10 +204,6 @@ sub json_model_6($$$)
             # handle 1 re props
             # .'$Provide'.'/^[Xx]_/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -265,10 +261,6 @@ sub _jm_obj_0($$$)
             # handle 1 re props
             # .'$Resources'.bugtracker.'/^[Xx]_/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -529,10 +521,6 @@ sub _jm_obj_2($$$)
             # handle 1 re props
             # .'$Prereqs'.'$Phase'.'/^[Xx]_/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -570,10 +558,6 @@ sub json_model_16($$$)
             # handle 1 re props
             # .'$Prereqs'.'/^[Xx]_/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -693,10 +677,6 @@ sub _jm_f_3($$$)
             # handle 1 re props
             # .'meta-spec'.'/^[Xx]_/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -853,10 +833,6 @@ sub json_model_1($$$)
             # handle 1 re props
             # .'/^[Xx]_/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {

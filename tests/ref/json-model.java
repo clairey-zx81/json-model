@@ -162,11 +162,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$ObjectComment'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$ObjectComment'.'/^#/']", (path != null ? lpath_0 : null));
-                    return false;
-                }
             }
             else
             {
@@ -503,10 +498,6 @@ public class json_model extends ModelChecker
         boolean res;
         // .'$Any'
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Any']", path);
-        }
         return res;
     }
 
@@ -516,10 +507,7 @@ public class json_model extends ModelChecker
         boolean res;
         // .'$None'
         res = false;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $NONE [.'$None']", path);
-        }
+        if (rep != null) rep.addEntry("unexpected $NONE [.'$None']", path);
         return res;
     }
 
@@ -1123,11 +1111,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Element'.'|'.5.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Element'.'|'.5.'/^#/']", (path != null ? lpath_3 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1202,11 +1185,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Element'.'|'.4.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Element'.'|'.4.'/^#/']", (path != null ? lpath_4 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1292,11 +1270,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Element'.'|'.3.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Element'.'|'.3.'/^#/']", (path != null ? lpath_5 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1382,11 +1355,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Element'.'|'.2.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Element'.'|'.2.'/^#/']", (path != null ? lpath_6 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1472,11 +1440,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Element'.'|'.1.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Element'.'|'.1.'/^#/']", (path != null ? lpath_7 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1556,11 +1519,6 @@ public class json_model extends ModelChecker
                 // handle 3 re props
                 // .'$Element'.'|'.0.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Element'.'|'.0.'/^#/']", (path != null ? lpath_8 : null));
-                    return false;
-                }
             }
             else if (_jm_re_7(prop, path, rep))
             {
@@ -1770,12 +1728,6 @@ public class json_model extends ModelChecker
                 // handle may * property
                 // .'$Trafo'.'*'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Trafo'.'*']", (path != null ? lpath_9 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Trafo'.'*']", (path != null ? lpath_9 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1887,23 +1839,12 @@ public class json_model extends ModelChecker
                 // handle may * property
                 // .'$Transformation'.'|'.1.'*'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Transformation'.'|'.1.'*']", (path != null ? lpath_11 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Transformation'.'|'.1.'*']", (path != null ? lpath_11 : null));
-                    return false;
-                }
             }
             else if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Transformation'.'|'.1.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Transformation'.'|'.1.'/^#/']", (path != null ? lpath_11 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2275,11 +2216,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$RootOnly'.'$'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$RootOnly'.'$'.'/^#/']", (path != null ? lpath_18 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2382,11 +2318,6 @@ public class json_model extends ModelChecker
                 // handle 2 re props
                 // .'$RootOnly'.'%'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$RootOnly'.'%'.'/^#/']", (path != null ? lpath_19 : null));
-                    return false;
-                }
             }
             else if (_jm_re_11(prop, path, rep))
             {
@@ -2525,11 +2456,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.5.'$'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.5.'$'.'/^#/']", (path != null ? lpath_21 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2632,11 +2558,6 @@ public class json_model extends ModelChecker
                 // handle 2 re props
                 // .'$Root'.'|'.5.'%'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.5.'%'.'/^#/']", (path != null ? lpath_22 : null));
-                    return false;
-                }
             }
             else if (_jm_re_11(prop, path, rep))
             {
@@ -2737,11 +2658,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.5.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.5.'/^#/']", (path != null ? lpath_20 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2807,11 +2723,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.4.'$'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.4.'$'.'/^#/']", (path != null ? lpath_24 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2914,11 +2825,6 @@ public class json_model extends ModelChecker
                 // handle 2 re props
                 // .'$Root'.'|'.4.'%'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.4.'%'.'/^#/']", (path != null ? lpath_25 : null));
-                    return false;
-                }
             }
             else if (_jm_re_11(prop, path, rep))
             {
@@ -3040,11 +2946,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.4.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.4.'/^#/']", (path != null ? lpath_23 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3121,11 +3022,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.3.'$'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.3.'$'.'/^#/']", (path != null ? lpath_27 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3228,11 +3124,6 @@ public class json_model extends ModelChecker
                 // handle 2 re props
                 // .'$Root'.'|'.3.'%'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.3.'%'.'/^#/']", (path != null ? lpath_28 : null));
-                    return false;
-                }
             }
             else if (_jm_re_11(prop, path, rep))
             {
@@ -3354,11 +3245,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.3.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.3.'/^#/']", (path != null ? lpath_26 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3435,11 +3321,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.2.'$'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.2.'$'.'/^#/']", (path != null ? lpath_30 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3542,11 +3423,6 @@ public class json_model extends ModelChecker
                 // handle 2 re props
                 // .'$Root'.'|'.2.'%'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.2.'%'.'/^#/']", (path != null ? lpath_31 : null));
-                    return false;
-                }
             }
             else if (_jm_re_11(prop, path, rep))
             {
@@ -3668,11 +3544,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.2.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.2.'/^#/']", (path != null ? lpath_29 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3749,11 +3620,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.1.'$'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.1.'$'.'/^#/']", (path != null ? lpath_33 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3856,11 +3722,6 @@ public class json_model extends ModelChecker
                 // handle 2 re props
                 // .'$Root'.'|'.1.'%'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.1.'%'.'/^#/']", (path != null ? lpath_34 : null));
-                    return false;
-                }
             }
             else if (_jm_re_11(prop, path, rep))
             {
@@ -3982,11 +3843,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.1.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.1.'/^#/']", (path != null ? lpath_32 : null));
-                    return false;
-                }
             }
             else
             {
@@ -4063,11 +3919,6 @@ public class json_model extends ModelChecker
                 // handle 1 re props
                 // .'$Root'.'|'.0.'$'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.0.'$'.'/^#/']", (path != null ? lpath_36 : null));
-                    return false;
-                }
             }
             else
             {
@@ -4170,11 +4021,6 @@ public class json_model extends ModelChecker
                 // handle 2 re props
                 // .'$Root'.'|'.0.'%'.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.0.'%'.'/^#/']", (path != null ? lpath_37 : null));
-                    return false;
-                }
             }
             else if (_jm_re_11(prop, path, rep))
             {
@@ -4290,11 +4136,6 @@ public class json_model extends ModelChecker
                 // handle 3 re props
                 // .'$Root'.'|'.0.'/^#/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Root'.'|'.0.'/^#/']", (path != null ? lpath_35 : null));
-                    return false;
-                }
             }
             else if (_jm_re_7(prop, path, rep))
             {

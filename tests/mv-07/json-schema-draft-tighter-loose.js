@@ -290,10 +290,6 @@ function _jm_f_4(val, path, rep)
     let res;
     // .'$tight#metas'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#metas'.default]", path])
-    }
     return res;
 }
 
@@ -477,10 +473,6 @@ function _jm_f_14(val, path, rep)
     let res;
     // .'$tight#String'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#String'.default]", path])
-    }
     return res;
 }
 
@@ -742,10 +734,6 @@ function _jm_f_28(val, path, rep)
     let res;
     // .'$tight#Array'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Array'.default]", path])
-    }
     return res;
 }
 
@@ -1052,10 +1040,6 @@ function _jm_f_42(val, path, rep)
     let res;
     // .'$tight#Object'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Object'.default]", path])
-    }
     return res;
 }
 
@@ -1350,10 +1334,6 @@ function _jm_f_55(val, path, rep)
     let res;
     // .'$tight#Integer'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Integer'.default]", path])
-    }
     return res;
 }
 
@@ -1588,10 +1568,6 @@ function _jm_f_67(val, path, rep)
     let res;
     // .'$tight#Number'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Number'.default]", path])
-    }
     return res;
 }
 
@@ -1826,10 +1802,6 @@ function _jm_f_79(val, path, rep)
     let res;
     // .'$tight#Bool'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Bool'.default]", path])
-    }
     return res;
 }
 
@@ -2038,10 +2010,6 @@ function _jm_f_89(val, path, rep)
     let res;
     // .'$tight#Null'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Null'.default]", path])
-    }
     return res;
 }
 
@@ -2250,10 +2218,6 @@ function _jm_f_99(val, path, rep)
     let res;
     // .'$tight#AllOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#AllOf'.default]", path])
-    }
     return res;
 }
 
@@ -2462,10 +2426,6 @@ function _jm_f_109(val, path, rep)
     let res;
     // .'$tight#AnyOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#AnyOf'.default]", path])
-    }
     return res;
 }
 
@@ -2674,10 +2634,6 @@ function _jm_f_119(val, path, rep)
     let res;
     // .'$tight#OneOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#OneOf'.default]", path])
-    }
     return res;
 }
 
@@ -2886,10 +2842,6 @@ function _jm_f_129(val, path, rep)
     let res;
     // .'$tight#Enum'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Enum'.default]", path])
-    }
     return res;
 }
 
@@ -3179,10 +3131,6 @@ function _jm_f_139(val, path, rep)
     let res;
     // .'$tight#Const'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Const'.default]", path])
-    }
     return res;
 }
 
@@ -3449,10 +3397,6 @@ function _jm_f_149(val, path, rep)
     let res;
     // .'$tight#Ref'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#Ref'.default]", path])
-    }
     return res;
 }
 
@@ -3692,10 +3636,6 @@ function _jm_f_159(val, path, rep)
     let res;
     // .'$tight#EnumString'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#EnumString'.default]", path])
-    }
     return res;
 }
 
@@ -3936,10 +3876,6 @@ function _jm_f_169(val, path, rep)
     let res;
     // .'$tight#EnumNum'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#EnumNum'.default]", path])
-    }
     return res;
 }
 
@@ -4180,10 +4116,6 @@ function _jm_f_179(val, path, rep)
     let res;
     // .'$tight#EnumInt'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#EnumInt'.default]", path])
-    }
     return res;
 }
 
@@ -4424,10 +4356,6 @@ function _jm_f_189(val, path, rep)
     let res;
     // .'$tight#ConstString'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#ConstString'.default]", path])
-    }
     return res;
 }
 
@@ -4653,10 +4581,6 @@ function _jm_f_199(val, path, rep)
     let res;
     // .'$tight#ConstNum'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#ConstNum'.default]", path])
-    }
     return res;
 }
 
@@ -4882,10 +4806,6 @@ function _jm_f_209(val, path, rep)
     let res;
     // .'$tight#ConstInt'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#ConstInt'.default]", path])
-    }
     return res;
 }
 
@@ -5111,10 +5031,6 @@ function _jm_f_219(val, path, rep)
     let res;
     // .'$tight#ConstBool'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$tight#ConstBool'.default]", path])
-    }
     return res;
 }
 

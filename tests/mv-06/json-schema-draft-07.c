@@ -192,10 +192,6 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$ObjectSchema'.const
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$ObjectSchema'.const]", path);
-    }
     return res;
 }
 
@@ -231,10 +227,6 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$ObjectSchema'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$ObjectSchema'.default]", path);
-    }
     return res;
 }
 

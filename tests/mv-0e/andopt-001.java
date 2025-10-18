@@ -37,10 +37,6 @@ public class andopt_001 extends ModelChecker
             {
                 // .'&'.1
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'&'.1]", path);
-                }
             }
         }
         if (res)

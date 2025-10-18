@@ -705,12 +705,6 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may default property
             // .'$Fields'.default
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Fields'.default]", (path ? &lpath_4 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Fields'.default]", (path ? &lpath_4 : NULL));
-                return false;
-            }
         }
         else if (jm_str_eq_7(prop, 0x0000657571696e75LL))
         {

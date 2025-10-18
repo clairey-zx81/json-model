@@ -29,9 +29,7 @@ BEGIN
       -- handle 1 re props
       -- .'|'.1.'/a/'
       res := FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      RETURN FALSE;
     ELSE
       -- handle other props
       -- .'|'.1.''

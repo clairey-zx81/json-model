@@ -252,10 +252,6 @@ public class json_schema_draft_04 extends ModelChecker
         boolean res;
         // .default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.default]", path);
-        }
         return res;
     }
 

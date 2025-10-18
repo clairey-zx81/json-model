@@ -630,10 +630,6 @@ function _jm_f_8(val, path, rep)
     let res;
     // .'$metas'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$metas'.default]", path])
-    }
     return res;
 }
 
@@ -746,11 +742,6 @@ function json_model_9(val, path, rep)
             // handle 1 re props
             // .'$metas'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$metas'.'/^x-.*/']", (path ? lpath_6 : null)])
-                return false;
-            }
         }
         else
         {
@@ -831,10 +822,6 @@ function _jm_f_18(val, path, rep)
     let res;
     // .'$String'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$String'.default]", path])
-    }
     return res;
 }
 
@@ -1011,11 +998,6 @@ function json_model_10(val, path, rep)
             // handle 1 re props
             // .'$String'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$String'.'/^x-.*/']", (path ? lpath_9 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1107,10 +1089,6 @@ function _jm_f_32(val, path, rep)
     let res;
     // .'$Array'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Array'.default]", path])
-    }
     return res;
 }
 
@@ -1304,11 +1282,6 @@ function json_model_11(val, path, rep)
             // handle 1 re props
             // .'$Array'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Array'.'/^x-.*/']", (path ? lpath_12 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1400,10 +1373,6 @@ function _jm_f_46(val, path, rep)
     let res;
     // .'$Object'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Object'.default]", path])
-    }
     return res;
 }
 
@@ -1613,11 +1582,6 @@ function json_model_12(val, path, rep)
             // handle 1 re props
             // .'$Object'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Object'.'/^x-.*/']", (path ? lpath_15 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1709,10 +1673,6 @@ function _jm_f_59(val, path, rep)
     let res;
     // .'$Integer'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Integer'.default]", path])
-    }
     return res;
 }
 
@@ -1862,11 +1822,6 @@ function json_model_13(val, path, rep)
             // handle 1 re props
             // .'$Integer'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Integer'.'/^x-.*/']", (path ? lpath_20 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1958,10 +1913,6 @@ function _jm_f_71(val, path, rep)
     let res;
     // .'$Number'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Number'.default]", path])
-    }
     return res;
 }
 
@@ -2111,11 +2062,6 @@ function json_model_14(val, path, rep)
             // handle 1 re props
             // .'$Number'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Number'.'/^x-.*/']", (path ? lpath_23 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2207,10 +2153,6 @@ function _jm_f_83(val, path, rep)
     let res;
     // .'$Bool'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Bool'.default]", path])
-    }
     return res;
 }
 
@@ -2334,11 +2276,6 @@ function json_model_15(val, path, rep)
             // handle 1 re props
             // .'$Bool'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Bool'.'/^x-.*/']", (path ? lpath_26 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2430,10 +2367,6 @@ function _jm_f_93(val, path, rep)
     let res;
     // .'$Null'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Null'.default]", path])
-    }
     return res;
 }
 
@@ -2557,11 +2490,6 @@ function json_model_16(val, path, rep)
             // handle 1 re props
             // .'$Null'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Null'.'/^x-.*/']", (path ? lpath_29 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2653,10 +2581,6 @@ function _jm_f_103(val, path, rep)
     let res;
     // .'$AllOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$AllOf'.default]", path])
-    }
     return res;
 }
 
@@ -2780,11 +2704,6 @@ function json_model_17(val, path, rep)
             // handle 1 re props
             // .'$AllOf'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$AllOf'.'/^x-.*/']", (path ? lpath_32 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2876,10 +2795,6 @@ function _jm_f_113(val, path, rep)
     let res;
     // .'$AnyOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$AnyOf'.default]", path])
-    }
     return res;
 }
 
@@ -3003,11 +2918,6 @@ function json_model_18(val, path, rep)
             // handle 1 re props
             // .'$AnyOf'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$AnyOf'.'/^x-.*/']", (path ? lpath_35 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3099,10 +3009,6 @@ function _jm_f_123(val, path, rep)
     let res;
     // .'$OneOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$OneOf'.default]", path])
-    }
     return res;
 }
 
@@ -3226,11 +3132,6 @@ function json_model_19(val, path, rep)
             // handle 1 re props
             // .'$OneOf'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$OneOf'.'/^x-.*/']", (path ? lpath_38 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3322,10 +3223,6 @@ function _jm_f_133(val, path, rep)
     let res;
     // .'$Enum'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Enum'.default]", path])
-    }
     return res;
 }
 
@@ -3449,11 +3346,6 @@ function json_model_20(val, path, rep)
             // handle 1 re props
             // .'$Enum'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Enum'.'/^x-.*/']", (path ? lpath_41 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3545,10 +3437,6 @@ function _jm_f_143(val, path, rep)
     let res;
     // .'$Const'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Const'.default]", path])
-    }
     return res;
 }
 
@@ -3672,11 +3560,6 @@ function json_model_21(val, path, rep)
             // handle 1 re props
             // .'$Const'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Const'.'/^x-.*/']", (path ? lpath_44 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3768,10 +3651,6 @@ function _jm_f_153(val, path, rep)
     let res;
     // .'$Ref'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Ref'.default]", path])
-    }
     return res;
 }
 
@@ -3895,11 +3774,6 @@ function json_model_22(val, path, rep)
             // handle 1 re props
             // .'$Ref'.'/^x-.*/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Ref'.'/^x-.*/']", (path ? lpath_47 : null)])
-                return false;
-            }
         }
         else
         {

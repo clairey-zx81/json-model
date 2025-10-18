@@ -740,10 +740,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$metas'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$metas'.default]", path);
-        }
         return res;
     }
 
@@ -1037,10 +1033,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$String'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$String'.default]", path);
-        }
         return res;
     }
 
@@ -1412,10 +1404,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Array'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Array'.default]", path);
-        }
         return res;
     }
 
@@ -1804,10 +1792,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Object'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Object'.default]", path);
-        }
         return res;
     }
 
@@ -2247,10 +2231,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Integer'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Integer'.default]", path);
-        }
         return res;
     }
 
@@ -2595,10 +2575,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Number'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Number'.default]", path);
-        }
         return res;
     }
 
@@ -2943,10 +2919,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Bool'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Bool'.default]", path);
-        }
         return res;
     }
 
@@ -3265,10 +3237,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Null'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Null'.default]", path);
-        }
         return res;
     }
 
@@ -3587,10 +3555,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$AllOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$AllOf'.default]", path);
-        }
         return res;
     }
 
@@ -3909,10 +3873,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$AnyOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$AnyOf'.default]", path);
-        }
         return res;
     }
 
@@ -4231,10 +4191,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$OneOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$OneOf'.default]", path);
-        }
         return res;
     }
 
@@ -4553,10 +4509,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Enum'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Enum'.default]", path);
-        }
         return res;
     }
 
@@ -4875,10 +4827,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Const'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Const'.default]", path);
-        }
         return res;
     }
 
@@ -5197,10 +5145,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$Ref'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Ref'.default]", path);
-        }
         return res;
     }
 
@@ -5519,10 +5463,6 @@ public class json_schema_draft_tight extends ModelChecker
         boolean res;
         // .'$DynRef'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$DynRef'.default]", path);
-        }
         return res;
     }
 

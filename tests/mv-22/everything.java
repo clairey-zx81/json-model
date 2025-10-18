@@ -2765,10 +2765,6 @@ public class everything extends ModelChecker
         boolean res;
         // .predefs.ANY
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.predefs.ANY]", path);
-        }
         return res;
     }
 
@@ -2960,10 +2956,7 @@ public class everything extends ModelChecker
         boolean res;
         // .predefs.NONE
         res = false;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $NONE [.predefs.NONE]", path);
-        }
+        if (rep != null) rep.addEntry("unexpected $NONE [.predefs.NONE]", path);
         return res;
     }
 

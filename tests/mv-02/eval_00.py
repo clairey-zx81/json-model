@@ -27,8 +27,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$false'
     res = False
-    if not res:
-        rep is None or rep.append(("unexpected $NONE [.'$false']", path))
+    rep is None or rep.append(("unexpected $NONE [.'$false']", path))
     return res
 
 # check $true (.'$true')
@@ -36,8 +35,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$true'
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$true']", path))
     return res
 
 # check $ (.)
@@ -45,8 +42,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.]", path))
     return res
 
 

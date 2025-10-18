@@ -66,8 +66,6 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$schema'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$schema'.default]", path))
     return res
 
 # check json_model_3_map_description (.'$schema'.description)

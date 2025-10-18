@@ -29,10 +29,6 @@ function json_model_1(val, path, rep)
         {
             // .'&'.1
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'&'.1]", path])
-            }
         }
     }
     if (res)

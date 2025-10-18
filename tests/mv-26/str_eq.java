@@ -40,36 +40,18 @@ public class str_eq extends ModelChecker
                 // handle may  property
                 // .''
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'']", (path != null ? lpath_0 : null));
-                    return false;
-                }
             }
             else if (prop.compareTo("hello") == 0)
             {
                 // handle may hello property
                 // .hello
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.hello]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.hello]", (path != null ? lpath_0 : null));
-                    return false;
-                }
             }
             else if (prop.compareTo("quite-a-long-property-name") == 0)
             {
                 // handle may quite-a-long-property-name property
                 // .'quite-a-long-property-name'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'quite-a-long-property-name']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'quite-a-long-property-name']", (path != null ? lpath_0 : null));
-                    return false;
-                }
             }
             else
             {

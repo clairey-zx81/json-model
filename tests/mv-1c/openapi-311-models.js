@@ -244,11 +244,6 @@ function json_model_4(val, path, rep)
             // handle 1 re props
             // .'$openapi#OpenAPI'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#OpenAPI'.'/^x-/']", (path ? lpath_0 : null)])
-                return false;
-            }
         }
         else
         {
@@ -379,11 +374,6 @@ function json_model_5(val, path, rep)
             // handle 1 re props
             // .'$openapi#Info'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Info'.'/^x-/']", (path ? lpath_2 : null)])
-                return false;
-            }
         }
         else
         {
@@ -463,11 +453,6 @@ function json_model_6(val, path, rep)
             // handle 1 re props
             // .'$openapi#Contact'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Contact'.'/^x-/']", (path ? lpath_3 : null)])
-                return false;
-            }
         }
         else
         {
@@ -524,11 +509,6 @@ function _jm_obj_0(val, path, rep)
             // handle 1 re props
             // .'$openapi#License'.'|'.1.'/^x\\-.*$/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#License'.'|'.1.'/^x\\\\-.*$/']", (path ? lpath_4 : null)])
-                return false;
-            }
         }
         else
         {
@@ -598,11 +578,6 @@ function _jm_obj_1(val, path, rep)
             // handle 1 re props
             // .'$openapi#License'.'|'.0.'/^x\\-.*$/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#License'.'|'.0.'/^x\\\\-.*$/']", (path ? lpath_5 : null)])
-                return false;
-            }
         }
         else
         {
@@ -747,11 +722,6 @@ function json_model_8(val, path, rep)
             // handle 1 re props
             // .'$openapi#Server'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Server'.'/^x-/']", (path ? lpath_6 : null)])
-                return false;
-            }
         }
         else
         {
@@ -844,11 +814,6 @@ function json_model_9(val, path, rep)
             // handle 1 re props
             // .'$openapi#ServerVariable'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#ServerVariable'.'/^x-/']", (path ? lpath_8 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1311,11 +1276,6 @@ function json_model_10(val, path, rep)
             // handle 1 re props
             // .'$openapi#Components'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Components'.'/^x-/']", (path ? lpath_9 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1355,11 +1315,6 @@ function json_model_11(val, path, rep)
             // handle 2 re props
             // .'$openapi#Paths'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Paths'.'/^x-/']", (path ? lpath_20 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1512,11 +1467,6 @@ function json_model_12(val, path, rep)
             // handle 1 re props
             // .'$openapi#PathItem'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#PathItem'.'/^x-/']", (path ? lpath_21 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1812,11 +1762,6 @@ function json_model_13(val, path, rep)
             // handle 1 re props
             // .'$openapi#Operation'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Operation'.'/^x-/']", (path ? lpath_22 : null)])
-                return false;
-            }
         }
         else
         {
@@ -1871,11 +1816,6 @@ function json_model_14(val, path, rep)
             // handle 1 re props
             // .'$openapi#ExternalDocumentation'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#ExternalDocumentation'.'/^x-/']", (path ? lpath_24 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2026,11 +1966,6 @@ function _jm_obj_3(val, path, rep)
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.1.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Parameter'.'|'.1.'/^x-/']", (path ? lpath_25 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2115,10 +2050,6 @@ function _jm_f_34(val, path, rep)
     let res;
     // .'$openapi#Parameter'.'|'.0.example
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$openapi#Parameter'.'|'.0.example]", path])
-    }
     return res;
 }
 
@@ -2246,11 +2177,6 @@ function _jm_obj_5(val, path, rep)
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.0.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Parameter'.'|'.0.'/^x-/']", (path ? lpath_27 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2408,11 +2334,6 @@ function json_model_21(val, path, rep)
             // handle 1 re props
             // .'$openapi#RequestBody'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#RequestBody'.'/^x-/']", (path ? lpath_29 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2507,12 +2428,6 @@ function json_model_22(val, path, rep)
             // handle may example property
             // .'$openapi#MediaType'.example
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#MediaType'.example]", (path ? lpath_31 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$openapi#MediaType'.example]", (path ? lpath_31 : null)])
-                return false;
-            }
         }
         else if (prop == "examples")
         {
@@ -2555,11 +2470,6 @@ function json_model_22(val, path, rep)
             // handle 1 re props
             // .'$openapi#MediaType'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#MediaType'.'/^x-/']", (path ? lpath_31 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2690,11 +2600,6 @@ function json_model_23(val, path, rep)
             // handle 1 re props
             // .'$openapi#Encoding'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Encoding'.'/^x-/']", (path ? lpath_34 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2784,11 +2689,6 @@ function json_model_24(val, path, rep)
             // handle 2 re props
             // .'$openapi#Responses'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Responses'.'/^x-/']", (path ? lpath_36 : null)])
-                return false;
-            }
         }
         else
         {
@@ -2973,11 +2873,6 @@ function json_model_25(val, path, rep)
             // handle 1 re props
             // .'$openapi#Response'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Response'.'/^x-/']", (path ? lpath_37 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3035,11 +2930,6 @@ function json_model_26(val, path, rep)
             // handle 1 re props
             // .'$openapi#Callback'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Callback'.'/^x-/']", (path ? lpath_41 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3092,12 +2982,6 @@ function json_model_27(val, path, rep)
             // handle may value property
             // .'$openapi#Example'.value
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Example'.value]", (path ? lpath_42 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$openapi#Example'.value]", (path ? lpath_42 : null)])
-                return false;
-            }
         }
         else if (prop == "externalValue")
         {
@@ -3116,11 +3000,6 @@ function json_model_27(val, path, rep)
             // handle 1 re props
             // .'$openapi#Example'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Example'.'/^x-/']", (path ? lpath_42 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3199,12 +3078,6 @@ function _jm_obj_13(val, path, rep)
             // handle may requestBody property
             // .'$openapi#Link'.'|'.1.requestBody
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Link'.'|'.1.requestBody]", (path ? lpath_43 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.1.requestBody]", (path ? lpath_43 : null)])
-                return false;
-            }
         }
         else if (prop == "description")
         {
@@ -3235,11 +3108,6 @@ function _jm_obj_13(val, path, rep)
             // handle 1 re props
             // .'$openapi#Link'.'|'.1.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Link'.'|'.1.'/^x-/']", (path ? lpath_43 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3316,12 +3184,6 @@ function _jm_obj_15(val, path, rep)
             // handle may requestBody property
             // .'$openapi#Link'.'|'.0.requestBody
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Link'.'|'.0.requestBody]", (path ? lpath_44 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.0.requestBody]", (path ? lpath_44 : null)])
-                return false;
-            }
         }
         else if (prop == "description")
         {
@@ -3352,11 +3214,6 @@ function _jm_obj_15(val, path, rep)
             // handle 1 re props
             // .'$openapi#Link'.'|'.0.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Link'.'|'.0.'/^x-/']", (path ? lpath_44 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3518,11 +3375,6 @@ function _jm_obj_17(val, path, rep)
             // handle 1 re props
             // .'$openapi#Header'.'|'.1.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Header'.'|'.1.'/^x-/']", (path ? lpath_45 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3591,10 +3443,6 @@ function _jm_f_42(val, path, rep)
     let res;
     // .'$openapi#Header'.'|'.0.example
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$openapi#Header'.'|'.0.example]", path])
-    }
     return res;
 }
 
@@ -3695,11 +3543,6 @@ function _jm_obj_19(val, path, rep)
             // handle 1 re props
             // .'$openapi#Header'.'|'.0.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Header'.'|'.0.'/^x-/']", (path ? lpath_47 : null)])
-                return false;
-            }
         }
         else
         {
@@ -3806,11 +3649,6 @@ function json_model_31(val, path, rep)
             // handle 1 re props
             // .'$openapi#Tag'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#Tag'.'/^x-/']", (path ? lpath_49 : null)])
-                return false;
-            }
         }
         else
         {
@@ -4340,11 +4178,6 @@ function _jm_obj_25(val, path, rep)
             // handle 1 re props
             // .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#SecurityScheme'.'|'.5.'/^x-/']", (path ? lpath_56 : null)])
-                return false;
-            }
         }
         else
         {
@@ -4476,11 +4309,6 @@ function json_model_43(val, path, rep)
             // handle 1 re props
             // .'$openapi#OAuthFlows'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#OAuthFlows'.'/^x-/']", (path ? lpath_57 : null)])
-                return false;
-            }
         }
         else
         {
@@ -4585,11 +4413,6 @@ function json_model_44(val, path, rep)
             // handle 1 re props
             // .'$openapi#OAuthFlow'.'/^x-/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#OAuthFlow'.'/^x-/']", (path ? lpath_58 : null)])
-                return false;
-            }
         }
         else
         {
@@ -4825,11 +4648,6 @@ function _jm_obj_27(val, path, rep)
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.5.'/^#/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#model#Element'.'|'.5.'/^#/']", (path ? lpath_61 : null)])
-                return false;
-            }
         }
         else
         {
@@ -4898,11 +4716,6 @@ function _jm_obj_28(val, path, rep)
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.4.'/^#/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#model#Element'.'|'.4.'/^#/']", (path ? lpath_62 : null)])
-                return false;
-            }
         }
         else
         {
@@ -4982,11 +4795,6 @@ function _jm_obj_29(val, path, rep)
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.3.'/^#/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#model#Element'.'|'.3.'/^#/']", (path ? lpath_63 : null)])
-                return false;
-            }
         }
         else
         {
@@ -5066,11 +4874,6 @@ function _jm_obj_30(val, path, rep)
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.2.'/^#/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#model#Element'.'|'.2.'/^#/']", (path ? lpath_64 : null)])
-                return false;
-            }
         }
         else
         {
@@ -5150,11 +4953,6 @@ function _jm_obj_31(val, path, rep)
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.1.'/^#/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#model#Element'.'|'.1.'/^#/']", (path ? lpath_65 : null)])
-                return false;
-            }
         }
         else
         {
@@ -5235,11 +5033,6 @@ function _jm_obj_32(val, path, rep)
             // handle 3 re props
             // .'$openapi#model#Element'.'|'.0.'/^#/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$openapi#model#Element'.'|'.0.'/^#/']", (path ? lpath_66 : null)])
-                return false;
-            }
         }
         else if (_jm_re_4(prop, path, rep))
         {

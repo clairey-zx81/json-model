@@ -178,10 +178,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$meta'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$meta'.default]", path);
-        }
         return res;
     }
 
@@ -1238,10 +1234,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$Misc'.const
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Misc'.const]", path);
-        }
         return res;
     }
 
@@ -1389,10 +1381,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.0.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.0.default]", path);
-        }
         return res;
     }
 
@@ -1630,10 +1618,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.1.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.1.default]", path);
-        }
         return res;
     }
 
@@ -1871,10 +1855,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.2.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.2.default]", path);
-        }
         return res;
     }
 
@@ -2267,10 +2247,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.3.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.3.default]", path);
-        }
         return res;
     }
 
@@ -2599,10 +2575,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.4.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.4.default]", path);
-        }
         return res;
     }
 
@@ -2892,10 +2864,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.5.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.5.default]", path);
-        }
         return res;
     }
 
@@ -3198,10 +3166,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.6.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.6.default]", path);
-        }
         return res;
     }
 
@@ -3585,10 +3549,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.7.const
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.7.const]", path);
-        }
         return res;
     }
 
@@ -3598,10 +3558,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res;
         // .'$TightSchema'.'|'.7.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$TightSchema'.'|'.7.default]", path);
-        }
         return res;
     }
 

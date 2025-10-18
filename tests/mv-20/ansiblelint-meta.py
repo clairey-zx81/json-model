@@ -4102,8 +4102,6 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.cloud_platforms
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModelCollection'.cloud_platforms]", path))
     return res
 
 # check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
@@ -4279,8 +4277,6 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.cloud_platforms
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModelStandalone'.cloud_platforms]", path))
     return res
 
 # check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
@@ -4459,8 +4455,6 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.cloud_platforms
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModel'.'|'.1.cloud_platforms]", path))
     return res
 
 # check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
@@ -4623,8 +4617,6 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.cloud_platforms
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path))
     return res
 
 # check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)

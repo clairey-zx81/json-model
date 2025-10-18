@@ -173,9 +173,6 @@ BEGIN
       -- handle 1 re props
       -- .'$OpenAPI'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -254,9 +251,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Info'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -303,9 +297,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Contact'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -356,9 +347,6 @@ BEGIN
       -- handle 1 re props
       -- .'$License'.'|'.1.'/^x\\-.*$/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -401,9 +389,6 @@ BEGIN
       -- handle 1 re props
       -- .'$License'.'|'.0.'/^x\\-.*$/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -496,9 +481,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Server'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -560,9 +542,6 @@ BEGIN
       -- handle 1 re props
       -- .'$ServerVariable'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -889,9 +868,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Components'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -924,9 +900,6 @@ BEGIN
       -- handle 2 re props
       -- .'$Paths'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1057,9 +1030,6 @@ BEGIN
       -- handle 1 re props
       -- .'$PathItem'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1296,9 +1266,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Operation'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1341,9 +1308,6 @@ BEGIN
       -- handle 1 re props
       -- .'$ExternalDocumentation'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1397,9 +1361,6 @@ BEGIN
       -- handle 1 re props
       -- .'$parameterShare'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1480,9 +1441,6 @@ BEGIN
       -- handle 1 re props
       -- .'$commonParameter'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1766,9 +1724,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Parameter'.'|'.1.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1949,9 +1904,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Parameter'.'|'.0.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2041,9 +1993,6 @@ BEGIN
       -- handle 1 re props
       -- .'$RequestBody'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2127,9 +2076,6 @@ BEGIN
       -- handle may example property
       -- .'$MediaType'.example
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$MediaType'.examples
@@ -2148,9 +2094,6 @@ BEGIN
       -- handle 1 re props
       -- .'$MediaType'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2239,9 +2182,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Encoding'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2299,9 +2239,6 @@ BEGIN
       -- handle 2 re props
       -- .'$Responses'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2434,9 +2371,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Response'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2474,9 +2408,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Callback'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2516,9 +2447,6 @@ BEGIN
       -- handle may value property
       -- .'$Example'.value
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'externalValue' THEN
       -- handle may externalValue property
       -- .'$Example'.externalValue
@@ -2530,9 +2458,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Example'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2595,9 +2520,6 @@ BEGIN
       -- handle may requestBody property
       -- .'$Link'.'|'.1.requestBody
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Link'.'|'.1.description
@@ -2616,9 +2538,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Link'.'|'.1.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2669,9 +2588,6 @@ BEGIN
       -- handle may requestBody property
       -- .'$Link'.'|'.0.requestBody
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Link'.'|'.0.description
@@ -2690,9 +2606,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Link'.'|'.0.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2795,9 +2708,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Header'.'|'.1.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2951,9 +2861,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Header'.'|'.0.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3024,9 +2931,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Tag'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3620,9 +3524,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Discriminator'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3683,9 +3584,6 @@ BEGIN
       -- handle 1 re props
       -- .'$xml'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -4176,9 +4074,6 @@ BEGIN
       -- handle 1 re props
       -- .'$SecurityScheme'.'|'.5.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -4270,9 +4165,6 @@ BEGIN
       -- handle 1 re props
       -- .'$OAuthFlows'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -4354,9 +4246,6 @@ BEGIN
       -- handle 1 re props
       -- .'$OAuthFlow'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -4418,9 +4307,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Extension'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;

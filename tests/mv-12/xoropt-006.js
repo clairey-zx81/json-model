@@ -18,10 +18,7 @@ function json_model_2(val, path, rep)
     let res;
     // .'$None'
     res = false;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $NONE [.'$None']", path])
-    }
+    rep !== null && rep.push(["unexpected $NONE [.'$None']", path])
     return res;
 }
 
@@ -44,11 +41,8 @@ function _jm_obj_0(val, path, rep)
             // handle 1 re props
             // .'|'.2.'/^[ab]$/'
             res = false;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $NONE [.'|'.2.'/^[ab]$/']", (path ? lpath_0 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["unexpected $NONE [.'|'.2.'/^[ab]$/']", (path ? lpath_0 : null)])
+            return false;
         }
         else
         {

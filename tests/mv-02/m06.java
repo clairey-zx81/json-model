@@ -25,10 +25,6 @@ public class m06 extends ModelChecker
         boolean res;
         // .
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.]", path);
-        }
         return res;
     }
 

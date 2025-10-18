@@ -144,10 +144,6 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$schema'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$schema'.default]", path);
-    }
     return res;
 }
 

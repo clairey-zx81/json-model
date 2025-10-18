@@ -25,10 +25,6 @@ public class base_027 extends ModelChecker
         boolean res;
         // .
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.]", path);
-        }
         return res;
     }
 

@@ -197,9 +197,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#OpenAPI'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -278,9 +275,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Info'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -327,9 +321,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Contact'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -380,9 +371,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#License'.'|'.1.'/^x\\-.*$/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -425,9 +413,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#License'.'|'.0.'/^x\\-.*$/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -520,9 +505,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Server'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -584,9 +566,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#ServerVariable'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -913,9 +892,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Components'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -948,9 +924,6 @@ BEGIN
       -- handle 2 re props
       -- .'$openapi#Paths'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1081,9 +1054,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#PathItem'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1320,9 +1290,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Operation'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1365,9 +1332,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#ExternalDocumentation'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1477,9 +1441,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Parameter'.'|'.1.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1660,9 +1621,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Parameter'.'|'.0.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1774,9 +1732,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#RequestBody'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1853,9 +1808,6 @@ BEGIN
       -- handle may example property
       -- .'$openapi#MediaType'.example
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$openapi#MediaType'.examples
@@ -1881,9 +1833,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#MediaType'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1972,9 +1921,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Encoding'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2032,9 +1978,6 @@ BEGIN
       -- handle 2 re props
       -- .'$openapi#Responses'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2167,9 +2110,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Response'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2207,9 +2147,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Callback'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2249,9 +2186,6 @@ BEGIN
       -- handle may value property
       -- .'$openapi#Example'.value
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'externalValue' THEN
       -- handle may externalValue property
       -- .'$openapi#Example'.externalValue
@@ -2263,9 +2197,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Example'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2328,9 +2259,6 @@ BEGIN
       -- handle may requestBody property
       -- .'$openapi#Link'.'|'.1.requestBody
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Link'.'|'.1.description
@@ -2349,9 +2277,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Link'.'|'.1.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2402,9 +2327,6 @@ BEGIN
       -- handle may requestBody property
       -- .'$openapi#Link'.'|'.0.requestBody
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Link'.'|'.0.description
@@ -2423,9 +2345,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Link'.'|'.0.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2528,9 +2447,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Header'.'|'.1.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2684,9 +2600,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Header'.'|'.0.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2757,9 +2670,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#Tag'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3094,9 +3004,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3188,9 +3095,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#OAuthFlows'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3272,9 +3176,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#OAuthFlow'.'/^x-/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3436,9 +3337,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.5.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3492,9 +3390,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.4.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3548,9 +3443,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.3.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3604,9 +3496,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.2.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3660,9 +3549,6 @@ BEGIN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.1.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -3727,9 +3613,6 @@ BEGIN
       -- handle 3 re props
       -- .'$openapi#model#Element'.'|'.0.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)$/'

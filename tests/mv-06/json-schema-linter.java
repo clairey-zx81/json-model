@@ -674,10 +674,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$metas'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$metas'.default]", path);
-        }
         return res;
     }
 
@@ -799,11 +795,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$metas'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$metas'.'/^x-.*/']", (path != null ? lpath_6 : null));
-                    return false;
-                }
             }
             else
             {
@@ -887,10 +878,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$String'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$String'.default]", path);
-        }
         return res;
     }
 
@@ -1073,11 +1060,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$String'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$String'.'/^x-.*/']", (path != null ? lpath_9 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1172,10 +1154,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Array'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Array'.default]", path);
-        }
         return res;
     }
 
@@ -1375,11 +1353,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Array'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Array'.'/^x-.*/']", (path != null ? lpath_12 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1474,10 +1447,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Object'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Object'.default]", path);
-        }
         return res;
     }
 
@@ -1702,11 +1671,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Object'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Object'.'/^x-.*/']", (path != null ? lpath_15 : null));
-                    return false;
-                }
             }
             else
             {
@@ -1801,10 +1765,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Integer'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Integer'.default]", path);
-        }
         return res;
     }
 
@@ -1960,11 +1920,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Integer'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Integer'.'/^x-.*/']", (path != null ? lpath_20 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2059,10 +2014,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Number'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Number'.default]", path);
-        }
         return res;
     }
 
@@ -2218,11 +2169,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Number'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Number'.'/^x-.*/']", (path != null ? lpath_23 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2317,10 +2263,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Bool'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Bool'.default]", path);
-        }
         return res;
     }
 
@@ -2450,11 +2392,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Bool'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Bool'.'/^x-.*/']", (path != null ? lpath_26 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2549,10 +2486,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Null'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Null'.default]", path);
-        }
         return res;
     }
 
@@ -2682,11 +2615,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Null'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Null'.'/^x-.*/']", (path != null ? lpath_29 : null));
-                    return false;
-                }
             }
             else
             {
@@ -2781,10 +2709,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$AllOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$AllOf'.default]", path);
-        }
         return res;
     }
 
@@ -2914,11 +2838,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$AllOf'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$AllOf'.'/^x-.*/']", (path != null ? lpath_32 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3013,10 +2932,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$AnyOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$AnyOf'.default]", path);
-        }
         return res;
     }
 
@@ -3146,11 +3061,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$AnyOf'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$AnyOf'.'/^x-.*/']", (path != null ? lpath_35 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3245,10 +3155,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$OneOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$OneOf'.default]", path);
-        }
         return res;
     }
 
@@ -3378,11 +3284,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$OneOf'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$OneOf'.'/^x-.*/']", (path != null ? lpath_38 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3477,10 +3378,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Enum'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Enum'.default]", path);
-        }
         return res;
     }
 
@@ -3610,11 +3507,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Enum'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Enum'.'/^x-.*/']", (path != null ? lpath_41 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3709,10 +3601,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Const'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Const'.default]", path);
-        }
         return res;
     }
 
@@ -3842,11 +3730,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Const'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Const'.'/^x-.*/']", (path != null ? lpath_44 : null));
-                    return false;
-                }
             }
             else
             {
@@ -3941,10 +3824,6 @@ public class json_schema_linter extends ModelChecker
         boolean res;
         // .'$Ref'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$Ref'.default]", path);
-        }
         return res;
     }
 
@@ -4074,11 +3953,6 @@ public class json_schema_linter extends ModelChecker
                 // handle 1 re props
                 // .'$Ref'.'/^x-.*/'
                 res = true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Ref'.'/^x-.*/']", (path != null ? lpath_47 : null));
-                    return false;
-                }
             }
             else
             {

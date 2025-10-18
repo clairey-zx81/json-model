@@ -122,9 +122,6 @@ BEGIN
       -- handle 1 re props
       -- .'$ObjectComment'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -813,9 +810,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Element'.'|'.5.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -869,9 +863,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Element'.'|'.4.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -925,9 +916,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Element'.'|'.3.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -981,9 +969,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Element'.'|'.2.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1037,9 +1022,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Element'.'|'.1.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1088,9 +1070,6 @@ BEGIN
       -- handle 3 re props
       -- .'$Element'.'|'.0.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_7(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$Element'.'|'.0.'/^(<=|>=|<|>)$/'
@@ -1209,9 +1188,6 @@ BEGIN
       -- handle may * property
       -- .'$Trafo'.'*'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1285,16 +1261,10 @@ BEGIN
       -- handle may * property
       -- .'$Transformation'.'|'.1.'*'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Transformation'.'|'.1.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1548,9 +1518,6 @@ BEGIN
       -- handle 1 re props
       -- .'$RootOnly'.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1614,9 +1581,6 @@ BEGIN
       -- handle 2 re props
       -- .'$RootOnly'.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$RootOnly'.'%'.'/^\\$.*$/'
@@ -1712,9 +1676,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.5.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1778,9 +1739,6 @@ BEGIN
       -- handle 2 re props
       -- .'$Root'.'|'.5.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.5.'%'.'/^\\$.*$/'
@@ -1847,9 +1805,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.5.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1895,9 +1850,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.4.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1961,9 +1913,6 @@ BEGIN
       -- handle 2 re props
       -- .'$Root'.'|'.4.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.4.'%'.'/^\\$.*$/'
@@ -2045,9 +1994,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.4.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2093,9 +2039,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.3.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2159,9 +2102,6 @@ BEGIN
       -- handle 2 re props
       -- .'$Root'.'|'.3.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.3.'%'.'/^\\$.*$/'
@@ -2243,9 +2183,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.3.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2291,9 +2228,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.2.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2357,9 +2291,6 @@ BEGIN
       -- handle 2 re props
       -- .'$Root'.'|'.2.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.2.'%'.'/^\\$.*$/'
@@ -2441,9 +2372,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.2.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2489,9 +2417,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.1.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2555,9 +2480,6 @@ BEGIN
       -- handle 2 re props
       -- .'$Root'.'|'.1.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.1.'%'.'/^\\$.*$/'
@@ -2639,9 +2561,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.1.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2687,9 +2606,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Root'.'|'.0.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -2753,9 +2669,6 @@ BEGIN
       -- handle 2 re props
       -- .'$Root'.'|'.0.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.0.'%'.'/^\\$.*$/'
@@ -2832,9 +2745,6 @@ BEGIN
       -- handle 3 re props
       -- .'$Root'.'|'.0.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_7(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$Root'.'|'.0.'/^(<=|>=|<|>)$/'

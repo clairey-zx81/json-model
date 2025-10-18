@@ -41,9 +41,7 @@ BEGIN
       -- handle 1 re props
       -- .'|'.2.'/^[ab]$/'
       res := FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      RETURN FALSE;
     ELSE
       -- handle other props
       -- .'|'.2.''

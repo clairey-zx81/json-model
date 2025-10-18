@@ -180,10 +180,6 @@ public class json_schema_draft_06 extends ModelChecker
         boolean res;
         // .'$ObjectSchema'.const
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$ObjectSchema'.const]", path);
-        }
         return res;
     }
 
@@ -193,10 +189,6 @@ public class json_schema_draft_06 extends ModelChecker
         boolean res;
         // .'$ObjectSchema'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$ObjectSchema'.default]", path);
-        }
         return res;
     }
 

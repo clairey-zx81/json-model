@@ -44,10 +44,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may a property
             # .'|'.1.a
             res = False
-            if not res:
-                rep is None or rep.append(("unexpected $NONE [.'|'.1.a]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'|'.1.a]", lpath_0 if path is not None else None))
-                return False
+            rep is None or rep.append(("unexpected $NONE [.'|'.1.a]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("invalid optional prop value [.'|'.1.a]", lpath_0 if path is not None else None))
+            return False
         else:
             # handle other props
             # .'|'.1.''
@@ -84,10 +83,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may b property
             # .'|'.0.b
             res = False
-            if not res:
-                rep is None or rep.append(("unexpected $NONE [.'|'.0.b]", lpath_1 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'|'.0.b]", lpath_1 if path is not None else None))
-                return False
+            rep is None or rep.append(("unexpected $NONE [.'|'.0.b]", lpath_1 if path is not None else None))
+            rep is None or rep.append(("invalid optional prop value [.'|'.0.b]", lpath_1 if path is not None else None))
+            return False
         else:
             # handle other props
             # .'|'.0.''

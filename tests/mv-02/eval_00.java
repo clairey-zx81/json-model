@@ -25,10 +25,7 @@ public class eval_00 extends ModelChecker
         boolean res;
         // .'$false'
         res = false;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $NONE [.'$false']", path);
-        }
+        if (rep != null) rep.addEntry("unexpected $NONE [.'$false']", path);
         return res;
     }
 
@@ -38,10 +35,6 @@ public class eval_00 extends ModelChecker
         boolean res;
         // .'$true'
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$true']", path);
-        }
         return res;
     }
 
@@ -51,10 +44,6 @@ public class eval_00 extends ModelChecker
         boolean res;
         // .
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.]", path);
-        }
         return res;
     }
 

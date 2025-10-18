@@ -6894,10 +6894,6 @@ public class ansiblelint_meta extends ModelChecker
         boolean res;
         // .'$GalaxyInfoModelCollection'.cloud_platforms
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$GalaxyInfoModelCollection'.cloud_platforms]", path);
-        }
         return res;
     }
 
@@ -7177,10 +7173,6 @@ public class ansiblelint_meta extends ModelChecker
         boolean res;
         // .'$GalaxyInfoModelStandalone'.cloud_platforms
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$GalaxyInfoModelStandalone'.cloud_platforms]", path);
-        }
         return res;
     }
 
@@ -7456,10 +7448,6 @@ public class ansiblelint_meta extends ModelChecker
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$GalaxyInfoModel'.'|'.1.cloud_platforms]", path);
-        }
         return res;
     }
 
@@ -7709,10 +7697,6 @@ public class ansiblelint_meta extends ModelChecker
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path);
-        }
         return res;
     }
 

@@ -344,10 +344,6 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$meta'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$meta'.default]", path);
-    }
     return res;
 }
 
@@ -1406,10 +1402,6 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Misc'.const
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Misc'.const]", path);
-    }
     return res;
 }
 
@@ -1558,10 +1550,6 @@ static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.0.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.0.default]", path);
-    }
     return res;
 }
 
@@ -1800,10 +1788,6 @@ static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.1.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.1.default]", path);
-    }
     return res;
 }
 
@@ -2042,10 +2026,6 @@ static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.2.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.2.default]", path);
-    }
     return res;
 }
 
@@ -2439,10 +2419,6 @@ static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.3.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.3.default]", path);
-    }
     return res;
 }
 
@@ -2772,10 +2748,6 @@ static bool _jm_f_90(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.4.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.4.default]", path);
-    }
     return res;
 }
 
@@ -3066,10 +3038,6 @@ static bool _jm_f_105(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.5.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.5.default]", path);
-    }
     return res;
 }
 
@@ -3373,10 +3341,6 @@ static bool _jm_f_121(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.6.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.6.default]", path);
-    }
     return res;
 }
 
@@ -3757,10 +3721,6 @@ static bool _jm_f_138(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.7.const
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.7.const]", path);
-    }
     return res;
 }
 
@@ -3770,10 +3730,6 @@ static bool _jm_f_139(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$TightSchema'.'|'.7.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$TightSchema'.'|'.7.default]", path);
-    }
     return res;
 }
 

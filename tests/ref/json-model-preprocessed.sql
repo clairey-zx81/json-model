@@ -384,9 +384,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Element'.'|'.4.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -440,9 +437,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Element'.'|'.3.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -496,9 +490,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Element'.'|'.2.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -552,9 +543,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Element'.'|'.1.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -619,9 +607,6 @@ BEGIN
       -- handle 3 re props
       -- .'$Model#Element'.'|'.0.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$Model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
@@ -818,9 +803,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.4.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -892,9 +874,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.4.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -954,9 +933,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.4.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1002,9 +978,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.3.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1068,9 +1041,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.3.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1145,9 +1115,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.3.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1193,9 +1160,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.2.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1259,9 +1223,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.2.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1336,9 +1297,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.2.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1384,9 +1342,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.1.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1450,9 +1405,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.1.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1527,9 +1479,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.1.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1575,9 +1524,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.0.'$'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1641,9 +1587,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.0.'%'.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -1713,9 +1656,6 @@ BEGIN
       -- handle 3 re props
       -- .'$Model#Root'.'|'.0.'/^#/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$Model#Root'.'|'.0.'/^(<=|>=|<|>)$/'

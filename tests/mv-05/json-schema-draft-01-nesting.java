@@ -84,10 +84,6 @@ public class json_schema_draft_01_nesting extends ModelChecker
         boolean res;
         // .'$schema'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$schema'.default]", path);
-        }
         return res;
     }
 

@@ -1017,10 +1017,6 @@ static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$metas'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$metas'.default]", path);
-    }
     return res;
 }
 
@@ -1314,10 +1310,6 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$String'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$String'.default]", path);
-    }
     return res;
 }
 
@@ -1689,10 +1681,6 @@ static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Array'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Array'.default]", path);
-    }
     return res;
 }
 
@@ -2081,10 +2069,6 @@ static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Object'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Object'.default]", path);
-    }
     return res;
 }
 
@@ -2520,10 +2504,6 @@ static bool _jm_f_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Integer'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Integer'.default]", path);
-    }
     return res;
 }
 
@@ -2868,10 +2848,6 @@ static bool _jm_f_111(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Number'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Number'.default]", path);
-    }
     return res;
 }
 
@@ -3216,10 +3192,6 @@ static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Bool'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Bool'.default]", path);
-    }
     return res;
 }
 
@@ -3538,10 +3510,6 @@ static bool _jm_f_145(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Null'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Null'.default]", path);
-    }
     return res;
 }
 
@@ -3860,10 +3828,6 @@ static bool _jm_f_161(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$AllOf'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$AllOf'.default]", path);
-    }
     return res;
 }
 
@@ -4182,10 +4146,6 @@ static bool _jm_f_177(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$AnyOf'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$AnyOf'.default]", path);
-    }
     return res;
 }
 
@@ -4504,10 +4464,6 @@ static bool _jm_f_193(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$OneOf'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$OneOf'.default]", path);
-    }
     return res;
 }
 
@@ -4826,10 +4782,6 @@ static bool _jm_f_209(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Enum'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Enum'.default]", path);
-    }
     return res;
 }
 
@@ -5148,10 +5100,6 @@ static bool _jm_f_225(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Const'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Const'.default]", path);
-    }
     return res;
 }
 
@@ -5470,10 +5418,6 @@ static bool _jm_f_241(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Ref'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Ref'.default]", path);
-    }
     return res;
 }
 
@@ -5792,10 +5736,6 @@ static bool _jm_f_257(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$DynRef'.default
     res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$DynRef'.default]", path);
-    }
     return res;
 }
 

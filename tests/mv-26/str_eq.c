@@ -34,36 +34,18 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may  property
             // .''
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'']", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'']", (path ? &lpath_0 : NULL));
-                return false;
-            }
         }
         else if (jm_str_eq_6(prop, 0x0000006f6c6c6568LL))
         {
             // handle may hello property
             // .hello
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.hello]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.hello]", (path ? &lpath_0 : NULL));
-                return false;
-            }
         }
         else if (jm_str_eq_8(prop, 0x2d612d6574697571LL) && jm_str_eq_8(prop + 8, 0x6f72702d676e6f6cLL) && jm_str_eq_8(prop + 16, 0x616e2d7974726570LL) && jm_str_eq_3(prop + 24, 0x0000656d))
         {
             // handle may quite-a-long-property-name property
             // .'quite-a-long-property-name'
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'quite-a-long-property-name']", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'quite-a-long-property-name']", (path ? &lpath_0 : NULL));
-                return false;
-            }
         }
         else
         {

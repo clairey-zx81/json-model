@@ -7,10 +7,11 @@
 - [x] c-backend: add _optimized_ str comparison code for eq and ne, enabled by default
 - [x] c-backend: consider big endian for strcmp runtime and code generation
 - [x] perf: allow running over a subset of tools only
+- [x] static: remove unexpected `$ANY` messages (irep dead code elimination)
 - [ ] c-backend: add number of chunks limit to strcmp optimization
-- [ ] static: remove unexpected `$ANY` messages (irep dead code elimination)
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
+- [ ] static: add likely/unlikely hints
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
 - [ ] tests: add pytest ir tests

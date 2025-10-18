@@ -658,12 +658,6 @@ function json_model_8(val, path, rep)
             // handle may default property
             // .'$Fields'.default
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Fields'.default]", (path ? lpath_4 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Fields'.default]", (path ? lpath_4 : null)])
-                return false;
-            }
         }
         else if (prop == "unique")
         {

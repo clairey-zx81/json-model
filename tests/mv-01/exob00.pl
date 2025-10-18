@@ -45,10 +45,7 @@ sub _jm_obj_0($$$)
             # handle may a property
             # .'|'.1.a
             $res = 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
         else
         {
@@ -93,10 +90,7 @@ sub _jm_obj_1($$$)
             # handle may b property
             # .'|'.0.b
             $res = 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
         else
         {

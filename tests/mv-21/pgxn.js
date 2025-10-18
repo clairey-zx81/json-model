@@ -199,11 +199,6 @@ function json_model_6(val, path, rep)
             // handle 1 re props
             // .'$Provide'.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Provide'.'/^[Xx]_/']", (path ? lpath_0 : null)])
-                return false;
-            }
         }
         else
         {
@@ -284,11 +279,6 @@ function _jm_obj_0(val, path, rep)
             // handle 1 re props
             // .'$Resources'.bugtracker.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Resources'.bugtracker.'/^[Xx]_/']", (path ? lpath_2 : null)])
-                return false;
-            }
         }
         else
         {
@@ -593,11 +583,6 @@ function _jm_obj_2(val, path, rep)
             // handle 1 re props
             // .'$Prereqs'.'$Phase'.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Prereqs'.'$Phase'.'/^[Xx]_/']", (path ? lpath_6 : null)])
-                return false;
-            }
         }
         else
         {
@@ -637,11 +622,6 @@ function json_model_16(val, path, rep)
             // handle 1 re props
             // .'$Prereqs'.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'$Prereqs'.'/^[Xx]_/']", (path ? lpath_5 : null)])
-                return false;
-            }
         }
         else
         {
@@ -804,11 +784,6 @@ function _jm_f_3(val, path, rep)
             // handle 1 re props
             // .'meta-spec'.'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'meta-spec'.'/^[Xx]_/']", (path ? lpath_9 : null)])
-                return false;
-            }
         }
         else
         {
@@ -997,11 +972,6 @@ function json_model_1(val, path, rep)
             // handle 1 re props
             // .'/^[Xx]_/'
             res = true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ANY [.'/^[Xx]_/']", (path ? lpath_7 : null)])
-                return false;
-            }
         }
         else
         {

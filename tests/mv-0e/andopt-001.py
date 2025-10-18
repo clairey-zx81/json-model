@@ -35,8 +35,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         if res:
             # .'&'.1
             res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'&'.1]", path))
     if res:
         rep is None or rep.clear()
     else:

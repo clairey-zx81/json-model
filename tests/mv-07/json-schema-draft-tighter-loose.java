@@ -300,10 +300,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#metas'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#metas'.default]", path);
-        }
         return res;
     }
 
@@ -496,10 +492,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#String'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#String'.default]", path);
-        }
         return res;
     }
 
@@ -770,10 +762,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Array'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Array'.default]", path);
-        }
         return res;
     }
 
@@ -1092,10 +1080,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Object'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Object'.default]", path);
-        }
         return res;
     }
 
@@ -1408,10 +1392,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Integer'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Integer'.default]", path);
-        }
         return res;
     }
 
@@ -1655,10 +1635,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Number'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Number'.default]", path);
-        }
         return res;
     }
 
@@ -1902,10 +1878,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Bool'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Bool'.default]", path);
-        }
         return res;
     }
 
@@ -2123,10 +2095,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Null'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Null'.default]", path);
-        }
         return res;
     }
 
@@ -2344,10 +2312,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#AllOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#AllOf'.default]", path);
-        }
         return res;
     }
 
@@ -2565,10 +2529,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#AnyOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#AnyOf'.default]", path);
-        }
         return res;
     }
 
@@ -2786,10 +2746,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#OneOf'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#OneOf'.default]", path);
-        }
         return res;
     }
 
@@ -3007,10 +2963,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Enum'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Enum'.default]", path);
-        }
         return res;
     }
 
@@ -3318,10 +3270,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Const'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Const'.default]", path);
-        }
         return res;
     }
 
@@ -3597,10 +3545,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#Ref'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#Ref'.default]", path);
-        }
         return res;
     }
 
@@ -3849,10 +3793,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#EnumString'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#EnumString'.default]", path);
-        }
         return res;
     }
 
@@ -4105,10 +4045,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#EnumNum'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#EnumNum'.default]", path);
-        }
         return res;
     }
 
@@ -4361,10 +4297,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#EnumInt'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#EnumInt'.default]", path);
-        }
         return res;
     }
 
@@ -4617,10 +4549,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#ConstString'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#ConstString'.default]", path);
-        }
         return res;
     }
 
@@ -4855,10 +4783,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#ConstNum'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#ConstNum'.default]", path);
-        }
         return res;
     }
 
@@ -5093,10 +5017,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#ConstInt'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#ConstInt'.default]", path);
-        }
         return res;
     }
 
@@ -5331,10 +5251,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         boolean res;
         // .'$tight#ConstBool'.default
         res = true;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$tight#ConstBool'.default]", path);
-        }
         return res;
     }
 

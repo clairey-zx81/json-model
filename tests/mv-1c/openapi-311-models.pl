@@ -337,10 +337,6 @@ sub json_model_4($$$)
             # handle 1 re props
             # .'$openapi#OpenAPI'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -441,10 +437,6 @@ sub json_model_5($$$)
             # handle 1 re props
             # .'$openapi#Info'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -502,10 +494,6 @@ sub json_model_6($$$)
             # handle 1 re props
             # .'$openapi#Contact'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -562,10 +550,6 @@ sub _jm_obj_0($$$)
             # handle 1 re props
             # .'$openapi#License'.'|'.1.'/^x\\-.*$/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -615,10 +599,6 @@ sub _jm_obj_1($$$)
             # handle 1 re props
             # .'$openapi#License'.'|'.0.'/^x\\-.*$/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -721,10 +701,6 @@ sub json_model_8($$$)
             # handle 1 re props
             # .'$openapi#Server'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -797,10 +773,6 @@ sub json_model_9($$$)
             # handle 1 re props
             # .'$openapi#ServerVariable'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1132,10 +1104,6 @@ sub json_model_10($$$)
             # handle 1 re props
             # .'$openapi#Components'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1173,10 +1141,6 @@ sub json_model_11($$$)
             # handle 2 re props
             # .'$openapi#Paths'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1296,10 +1260,6 @@ sub json_model_12($$$)
             # handle 1 re props
             # .'$openapi#PathItem'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1521,10 +1481,6 @@ sub json_model_13($$$)
             # handle 1 re props
             # .'$openapi#Operation'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1574,10 +1530,6 @@ sub json_model_14($$$)
             # handle 1 re props
             # .'$openapi#ExternalDocumentation'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1701,10 +1653,6 @@ sub _jm_obj_3($$$)
             # handle 1 re props
             # .'$openapi#Parameter'.'|'.1.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1865,10 +1813,6 @@ sub _jm_obj_5($$$)
             # handle 1 re props
             # .'$openapi#Parameter'.'|'.0.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -1981,10 +1925,6 @@ sub json_model_21($$$)
             # handle 1 re props
             # .'$openapi#RequestBody'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2064,10 +2004,6 @@ sub json_model_22($$$)
             # handle may example property
             # .'$openapi#MediaType'.example
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'examples')
         {
@@ -2104,10 +2040,6 @@ sub json_model_22($$$)
             # handle 1 re props
             # .'$openapi#MediaType'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2214,10 +2146,6 @@ sub json_model_23($$$)
             # handle 1 re props
             # .'$openapi#Encoding'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2284,10 +2212,6 @@ sub json_model_24($$$)
             # handle 2 re props
             # .'$openapi#Responses'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2436,10 +2360,6 @@ sub json_model_25($$$)
             # handle 1 re props
             # .'$openapi#Response'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2483,10 +2403,6 @@ sub json_model_26($$$)
             # handle 1 re props
             # .'$openapi#Callback'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2534,10 +2450,6 @@ sub json_model_27($$$)
             # handle may value property
             # .'$openapi#Example'.value
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'externalValue')
         {
@@ -2554,10 +2466,6 @@ sub json_model_27($$$)
             # handle 1 re props
             # .'$openapi#Example'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2624,10 +2532,6 @@ sub _jm_obj_13($$$)
             # handle may requestBody property
             # .'$openapi#Link'.'|'.1.requestBody
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'description')
         {
@@ -2654,10 +2558,6 @@ sub _jm_obj_13($$$)
             # handle 1 re props
             # .'$openapi#Link'.'|'.1.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2714,10 +2614,6 @@ sub _jm_obj_15($$$)
             # handle may requestBody property
             # .'$openapi#Link'.'|'.0.requestBody
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'description')
         {
@@ -2744,10 +2640,6 @@ sub _jm_obj_15($$$)
             # handle 1 re props
             # .'$openapi#Link'.'|'.0.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -2867,10 +2759,6 @@ sub _jm_obj_17($$$)
             # handle 1 re props
             # .'$openapi#Header'.'|'.1.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3007,10 +2895,6 @@ sub _jm_obj_19($$$)
             # handle 1 re props
             # .'$openapi#Header'.'|'.0.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3091,10 +2975,6 @@ sub json_model_31($$$)
             # handle 1 re props
             # .'$openapi#Tag'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3479,10 +3359,6 @@ sub _jm_obj_25($$$)
             # handle 1 re props
             # .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3592,10 +3468,6 @@ sub json_model_43($$$)
             # handle 1 re props
             # .'$openapi#OAuthFlows'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3690,10 +3562,6 @@ sub json_model_44($$$)
             # handle 1 re props
             # .'$openapi#OAuthFlow'.'/^x-/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3858,10 +3726,6 @@ sub _jm_obj_27($$$)
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.5.'/^#/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3923,10 +3787,6 @@ sub _jm_obj_28($$$)
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.4.'/^#/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -3988,10 +3848,6 @@ sub _jm_obj_29($$$)
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.3.'/^#/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4053,10 +3909,6 @@ sub _jm_obj_30($$$)
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.2.'/^#/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4118,10 +3970,6 @@ sub _jm_obj_31($$$)
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.1.'/^#/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         else
         {
@@ -4194,10 +4042,6 @@ sub _jm_obj_32($$$)
             # handle 3 re props
             # .'$openapi#model#Element'.'|'.0.'/^#/'
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif (_jm_re_4($prop, $path, $rep))
         {

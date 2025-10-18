@@ -118,8 +118,6 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$meta'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$meta'.default]", path))
     return res
 
 # check json_model_5_map_deprecated (.'$meta'.deprecated)
@@ -355,8 +353,6 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$validation'.const
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$validation'.const]", path))
     return res
 
 # check json_model_13_map_dependentRequired (.'$validation'.dependentRequired)
@@ -660,8 +656,6 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.const
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$ObjectSchema'.const]", path))
     return res
 
 # check json_model_16_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -687,8 +681,6 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$ObjectSchema'.default]", path))
     return res
 
 # check json_model_16_map_definitions (.'$ObjectSchema'.definitions)

@@ -164,9 +164,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Provide'.'/^[Xx]_/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -226,9 +223,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Resources'.bugtracker.'/^[Xx]_/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -495,9 +489,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Prereqs'.'$Phase'.'/^[Xx]_/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -530,9 +521,6 @@ BEGIN
       -- handle 1 re props
       -- .'$Prereqs'.'/^[Xx]_/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -648,9 +636,6 @@ BEGIN
       -- handle 1 re props
       -- .'meta-spec'.'/^[Xx]_/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;
@@ -817,9 +802,6 @@ BEGIN
       -- handle 1 re props
       -- .'/^[Xx]_/'
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSE
       RETURN FALSE;
     END IF;

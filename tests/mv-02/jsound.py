@@ -438,10 +438,6 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may default property
             # .'$Fields'.default
             res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$Fields'.default]", lpath_4 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$Fields'.default]", lpath_4 if path is not None else None))
-                return False
         elif prop == "unique":
             # handle may unique property
             # .'$Fields'.unique

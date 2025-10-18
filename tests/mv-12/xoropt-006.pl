@@ -52,10 +52,7 @@ sub _jm_obj_0($$$)
             # handle 1 re props
             # .'|'.2.'/^[ab]$/'
             $res = 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
         else
         {

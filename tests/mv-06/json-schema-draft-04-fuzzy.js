@@ -107,10 +107,6 @@ function _jm_f_4(val, path, rep)
     let res;
     // .'$schema'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$schema'.default]", path])
-    }
     return res;
 }
 

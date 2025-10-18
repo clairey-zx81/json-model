@@ -178,10 +178,6 @@ function _jm_f_5(val, path, rep)
     let res;
     // .'$meta'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$meta'.default]", path])
-    }
     return res;
 }
 
@@ -495,10 +491,6 @@ function _jm_f_12(val, path, rep)
     let res;
     // .'$validation'.const
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$validation'.const]", path])
-    }
     return res;
 }
 
@@ -981,10 +973,6 @@ function _jm_f_32(val, path, rep)
     let res;
     // .'$ObjectSchema'.const
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$ObjectSchema'.const]", path])
-    }
     return res;
 }
 
@@ -1020,10 +1008,6 @@ function _jm_f_35(val, path, rep)
     let res;
     // .'$ObjectSchema'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$ObjectSchema'.default]", path])
-    }
     return res;
 }
 

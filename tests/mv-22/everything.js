@@ -2715,10 +2715,6 @@ function _jm_f_70(val, path, rep)
     let res;
     // .predefs.ANY
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.predefs.ANY]", path])
-    }
     return res;
 }
 
@@ -2910,10 +2906,7 @@ function _jm_f_85(val, path, rep)
     let res;
     // .predefs.NONE
     res = false;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $NONE [.predefs.NONE]", path])
-    }
+    rep !== null && rep.push(["unexpected $NONE [.predefs.NONE]", path])
     return res;
 }
 

@@ -48,8 +48,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                         lpath_1 = ((arr_0_lpath if path is not None else None) + [ 1 ]) if (arr_0_lpath if path is not None else None) is not None else None
                         # .0.'|'.1.1
                         res = True
-                        if not res:
-                            rep is None or rep.append(("unexpected $ANY [.0.'|'.1.1]", lpath_1 if (arr_0_lpath if path is not None else None) is not None else None))
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.0.'|'.1]", arr_0_lpath if path is not None else None))
                 if not res:
@@ -71,8 +69,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                                 lpath_0 = ((arr_0_lpath if path is not None else None) + [ 2 ]) if (arr_0_lpath if path is not None else None) is not None else None
                                 # .0.'|'.2.2
                                 res = True
-                                if not res:
-                                    rep is None or rep.append(("unexpected $ANY [.0.'|'.2.2]", lpath_0 if (arr_0_lpath if path is not None else None) is not None else None))
                     if not res:
                         rep is None or rep.append(("not array or unexpected array [.0.'|'.2]", arr_0_lpath if path is not None else None))
             if res:

@@ -537,10 +537,6 @@ sub json_model_8($$$)
             # handle may default property
             # .'$Fields'.default
             $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
         }
         elsif ($prop eq 'unique')
         {

@@ -148,10 +148,6 @@ function _jm_f_2(val, path, rep)
     let res;
     // .'$ObjectSchema'.const
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$ObjectSchema'.const]", path])
-    }
     return res;
 }
 
@@ -187,10 +183,6 @@ function _jm_f_5(val, path, rep)
     let res;
     // .'$ObjectSchema'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$ObjectSchema'.default]", path])
-    }
     return res;
 }
 

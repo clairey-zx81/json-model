@@ -17,10 +17,7 @@ function json_model_2(val, path, rep)
     let res;
     // .'$false'
     res = false;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $NONE [.'$false']", path])
-    }
+    rep !== null && rep.push(["unexpected $NONE [.'$false']", path])
     return res;
 }
 
@@ -30,10 +27,6 @@ function json_model_3(val, path, rep)
     let res;
     // .'$true'
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$true']", path])
-    }
     return res;
 }
 
@@ -43,10 +36,6 @@ function json_model_1(val, path, rep)
     let res;
     // .
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.]", path])
-    }
     return res;
 }
 

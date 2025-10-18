@@ -80,6 +80,12 @@ def _getEffect(op: Jsonable, bool_vars: set[str], reporting: bool) -> Effect:
             op["val"] is not None and write.add(var)
             if isinstance(op["val"], bool):
                 value[var] = op["val"]
+            elif _isOp(op["val"], "pre"):
+                predef = op["val"]["name"]
+                if predef == "$ANY":
+                    value[var] = True
+                elif predef == "$NONE":
+                    value[var] = False
             elif var in value:
                 del value[var]
         # expressions

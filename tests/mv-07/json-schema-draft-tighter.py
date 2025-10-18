@@ -422,8 +422,6 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$metas'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$metas'.default]", path))
     return res
 
 # check json_model_9_map_definitions (.'$metas'.definitions)
@@ -549,8 +547,6 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$String'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$String'.default]", path))
     return res
 
 # check json_model_10_map_definitions (.'$String'.definitions)
@@ -728,8 +724,6 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Array'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Array'.default]", path))
     return res
 
 # check json_model_11_map_definitions (.'$Array'.definitions)
@@ -916,8 +910,6 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Object'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Object'.default]", path))
     return res
 
 # check json_model_12_map_definitions (.'$Object'.definitions)
@@ -1113,8 +1105,6 @@ def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Integer'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Integer'.default]", path))
     return res
 
 # check json_model_13_map_definitions (.'$Integer'.definitions)
@@ -1273,8 +1263,6 @@ def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Number'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Number'.default]", path))
     return res
 
 # check json_model_14_map_definitions (.'$Number'.definitions)
@@ -1433,8 +1421,6 @@ def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Bool'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Bool'.default]", path))
     return res
 
 # check json_model_15_map_definitions (.'$Bool'.definitions)
@@ -1575,8 +1561,6 @@ def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Null'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Null'.default]", path))
     return res
 
 # check json_model_16_map_definitions (.'$Null'.definitions)
@@ -1717,8 +1701,6 @@ def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$AllOf'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$AllOf'.default]", path))
     return res
 
 # check json_model_17_map_definitions (.'$AllOf'.definitions)
@@ -1859,8 +1841,6 @@ def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$AnyOf'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$AnyOf'.default]", path))
     return res
 
 # check json_model_18_map_definitions (.'$AnyOf'.definitions)
@@ -2001,8 +1981,6 @@ def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$OneOf'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$OneOf'.default]", path))
     return res
 
 # check json_model_19_map_definitions (.'$OneOf'.definitions)
@@ -2143,8 +2121,6 @@ def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Enum'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Enum'.default]", path))
     return res
 
 # check json_model_20_map_definitions (.'$Enum'.definitions)
@@ -2285,8 +2261,6 @@ def _jm_f_143(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Const'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Const'.default]", path))
     return res
 
 # check json_model_21_map_definitions (.'$Const'.definitions)
@@ -2427,8 +2401,6 @@ def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Ref'.default
     res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Ref'.default]", path))
     return res
 
 # check json_model_22_map_definitions (.'$Ref'.definitions)

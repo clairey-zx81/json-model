@@ -31,9 +31,7 @@ BEGIN
       -- handle may a property
       -- .'|'.1.a
       res := FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      RETURN FALSE;
     ELSE
       -- handle other props
       -- .'|'.1.''
@@ -73,9 +71,7 @@ BEGIN
       -- handle may b property
       -- .'|'.0.b
       res := FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      RETURN FALSE;
     ELSE
       -- handle other props
       -- .'|'.0.''

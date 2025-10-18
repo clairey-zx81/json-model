@@ -493,9 +493,6 @@ BEGIN
       -- handle may default property
       -- .'$Fields'.default
       res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'unique' THEN
       -- handle may unique property
       -- .'$Fields'.unique

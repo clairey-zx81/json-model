@@ -6554,10 +6554,6 @@ function _jm_f_0(val, path, rep)
     let res;
     // .'$GalaxyInfoModelCollection'.cloud_platforms
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$GalaxyInfoModelCollection'.cloud_platforms]", path])
-    }
     return res;
 }
 
@@ -6822,10 +6818,6 @@ function _jm_f_12(val, path, rep)
     let res;
     // .'$GalaxyInfoModelStandalone'.cloud_platforms
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$GalaxyInfoModelStandalone'.cloud_platforms]", path])
-    }
     return res;
 }
 
@@ -7095,10 +7087,6 @@ function _jm_f_22(val, path, rep)
     let res;
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$GalaxyInfoModel'.'|'.1.cloud_platforms]", path])
-    }
     return res;
 }
 
@@ -7342,10 +7330,6 @@ function _jm_f_34(val, path, rep)
     let res;
     // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path])
-    }
     return res;
 }
 

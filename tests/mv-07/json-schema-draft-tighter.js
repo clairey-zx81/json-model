@@ -629,10 +629,6 @@ function _jm_f_8(val, path, rep)
     let res;
     // .'$metas'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$metas'.default]", path])
-    }
     return res;
 }
 
@@ -816,10 +812,6 @@ function _jm_f_18(val, path, rep)
     let res;
     // .'$String'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$String'.default]", path])
-    }
     return res;
 }
 
@@ -1081,10 +1073,6 @@ function _jm_f_32(val, path, rep)
     let res;
     // .'$Array'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Array'.default]", path])
-    }
     return res;
 }
 
@@ -1363,10 +1351,6 @@ function _jm_f_46(val, path, rep)
     let res;
     // .'$Object'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Object'.default]", path])
-    }
     return res;
 }
 
@@ -1661,10 +1645,6 @@ function _jm_f_59(val, path, rep)
     let res;
     // .'$Integer'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Integer'.default]", path])
-    }
     return res;
 }
 
@@ -1899,10 +1879,6 @@ function _jm_f_71(val, path, rep)
     let res;
     // .'$Number'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Number'.default]", path])
-    }
     return res;
 }
 
@@ -2137,10 +2113,6 @@ function _jm_f_83(val, path, rep)
     let res;
     // .'$Bool'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Bool'.default]", path])
-    }
     return res;
 }
 
@@ -2349,10 +2321,6 @@ function _jm_f_93(val, path, rep)
     let res;
     // .'$Null'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Null'.default]", path])
-    }
     return res;
 }
 
@@ -2561,10 +2529,6 @@ function _jm_f_103(val, path, rep)
     let res;
     // .'$AllOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$AllOf'.default]", path])
-    }
     return res;
 }
 
@@ -2773,10 +2737,6 @@ function _jm_f_113(val, path, rep)
     let res;
     // .'$AnyOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$AnyOf'.default]", path])
-    }
     return res;
 }
 
@@ -2985,10 +2945,6 @@ function _jm_f_123(val, path, rep)
     let res;
     // .'$OneOf'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$OneOf'.default]", path])
-    }
     return res;
 }
 
@@ -3197,10 +3153,6 @@ function _jm_f_133(val, path, rep)
     let res;
     // .'$Enum'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Enum'.default]", path])
-    }
     return res;
 }
 
@@ -3409,10 +3361,6 @@ function _jm_f_143(val, path, rep)
     let res;
     // .'$Const'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Const'.default]", path])
-    }
     return res;
 }
 
@@ -3621,10 +3569,6 @@ function _jm_f_153(val, path, rep)
     let res;
     // .'$Ref'.default
     res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$Ref'.default]", path])
-    }
     return res;
 }
 

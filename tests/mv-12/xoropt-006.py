@@ -29,8 +29,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$None'
     res = False
-    if not res:
-        rep is None or rep.append(("unexpected $NONE [.'$None']", path))
+    rep is None or rep.append(("unexpected $NONE [.'$None']", path))
     return res
 
 
@@ -46,9 +45,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # .'|'.2.'/^[ab]$/'
             res = False
-            if not res:
-                rep is None or rep.append(("unexpected $NONE [.'|'.2.'/^[ab]$/']", lpath_0 if path is not None else None))
-                return False
+            rep is None or rep.append(("unexpected $NONE [.'|'.2.'/^[ab]$/']", lpath_0 if path is not None else None))
+            return False
         else:
             # handle other props
             # .'|'.2.''
