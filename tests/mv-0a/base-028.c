@@ -30,11 +30,11 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "country") == 0)
+        if (jm_str_eq_8(prop, 0x007972746e756f63LL))
         {
             // handle may country property
             // .country
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "South Africa") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6641206874756f53LL) && jm_str_eq_5(json_string_value(pval) + 8, 0x0000000061636972LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _South Africa [.country]", (path ? &lpath_0 : NULL));

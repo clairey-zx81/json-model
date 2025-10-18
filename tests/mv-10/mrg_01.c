@@ -22,7 +22,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$t'
-    res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
+    res = json_is_string(val) && jm_str_eq_7(json_string_value(val), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$t']", path);
@@ -55,7 +55,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
     // .'$x'.a
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$x'.a]", (path ? &lpath : NULL));
@@ -69,7 +69,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
     // .'$x'.b
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$x'.b]", (path ? &lpath : NULL));
@@ -104,7 +104,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
     // .'$y'.c
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$y'.c]", (path ? &lpath : NULL));
@@ -118,7 +118,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "d", 0, path, NULL };
     // .'$y'.d
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$y'.d]", (path ? &lpath : NULL));
@@ -153,7 +153,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
     // .a
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.a]", (path ? &lpath : NULL));
@@ -167,7 +167,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
     // .b
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.b]", (path ? &lpath : NULL));
@@ -181,7 +181,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
     // .c
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.c]", (path ? &lpath : NULL));
@@ -195,7 +195,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "d", 0, path, NULL };
     // .d
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.d]", (path ? &lpath : NULL));

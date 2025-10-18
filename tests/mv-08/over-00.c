@@ -30,11 +30,11 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "foo") == 0)
+        if (jm_str_eq_4(prop, 0x006f6f66))
         {
             // handle may foo property
             // .'$Foo'.foo
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "initial foo") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x206c616974696e69LL) && jm_str_eq_4(json_string_value(pval) + 8, 0x006f6f66);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _initial foo [.'$Foo'.foo]", (path ? &lpath_0 : NULL));

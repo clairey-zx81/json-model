@@ -43,7 +43,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .movie.'|'.0.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "fr") == 0;
+    res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00007266);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected fr [.movie.'|'.0.t]", (path ? &lpath : NULL));
@@ -91,7 +91,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .movie.'|'.1.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "en") == 0;
+    res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00006e65);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected en [.movie.'|'.1.t]", (path ? &lpath : NULL));
@@ -139,7 +139,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .movie.'|'.2.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "de") == 0;
+    res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00006564);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected de [.movie.'|'.2.t]", (path ? &lpath : NULL));
@@ -187,7 +187,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .movie.'|'.3.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "ru") == 0;
+    res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00007572);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected ru [.movie.'|'.3.t]", (path ? &lpath : NULL));

@@ -379,7 +379,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "contentEncoding") == 0)
+        if (jm_str_eq_8(prop, 0x45746e65746e6f63LL) && jm_str_eq_8(prop + 8, 0x00676e69646f636eLL))
         {
             // handle may contentEncoding property
             // .'$content'.contentEncoding
@@ -391,7 +391,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "contentMediaType") == 0)
+        else if (jm_str_eq_8(prop, 0x4d746e65746e6f63LL) && jm_str_eq_8(prop + 8, 0x6570795461696465LL) && jm_str_eq_1(prop + 16))
         {
             // handle may contentMediaType property
             // .'$content'.contentMediaType
@@ -403,7 +403,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "contentSchema") == 0)
+        else if (jm_str_eq_8(prop, 0x53746e65746e6f63LL) && jm_str_eq_6(prop + 8, 0x000000616d656863LL))
         {
             // handle may contentSchema property
             // .'$content'.contentSchema
@@ -439,7 +439,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "unevaluatedItems") == 0)
+        if (jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x736d657449646574LL) && jm_str_eq_1(prop + 16))
         {
             // handle may unevaluatedItems property
             // .'$unevaluated'.unevaluatedItems
@@ -451,7 +451,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "unevaluatedProperties") == 0)
+        else if (jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x65706f7250646574LL) && jm_str_eq_6(prop + 16, 0x0000007365697472LL))
         {
             // handle may unevaluatedProperties property
             // .'$unevaluated'.unevaluatedProperties
@@ -487,7 +487,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "format") == 0)
+        if (jm_str_eq_7(prop, 0x000074616d726f66LL))
         {
             // handle may format property
             // .'$format'.format
@@ -1708,7 +1708,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "definitions") == 0)
+        if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
         {
             // handle may definitions property
             // .'$deprecated'.definitions
@@ -1720,7 +1720,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "dependencies") == 0)
+        else if (jm_str_eq_8(prop, 0x6e65646e65706564LL) && jm_str_eq_5(prop + 8, 0x0000000073656963LL))
         {
             // handle may dependencies property
             // .'$deprecated'.dependencies
@@ -1732,7 +1732,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "$recursiveAnchor") == 0)
+        else if (jm_str_eq_8(prop, 0x6973727563657224LL) && jm_str_eq_8(prop + 8, 0x726f68636e416576LL) && jm_str_eq_1(prop + 16))
         {
             // handle may $recursiveAnchor property
             // .'$deprecated'.'$recursiveAnchor'
@@ -1744,7 +1744,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "$recursiveRef") == 0)
+        else if (jm_str_eq_8(prop, 0x6973727563657224LL) && jm_str_eq_6(prop + 8, 0x0000006665526576LL))
         {
             // handle may $recursiveRef property
             // .'$deprecated'.'$recursiveRef'

@@ -21,7 +21,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$a'
-    res = json_is_string(val) && strcmp(json_string_value(val), "a") == 0;
+    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000061);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _a [.'$a']", path);
@@ -57,7 +57,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "a") == 0)
+        if (jm_str_eq_2(prop, 0x00000061))
         {
             // handle may a property
             // .a

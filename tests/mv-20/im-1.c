@@ -22,7 +22,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$c'
-    res = json_is_string(val) && strcmp(json_string_value(val), "c") == 0;
+    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000063);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _c [.'$c']", path);
@@ -35,7 +35,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$a'
-    res = json_is_string(val) && strcmp(json_string_value(val), "a") == 0;
+    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000061);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _a [.'$a']", path);
@@ -48,7 +48,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$b'
-    res = json_is_string(val) && strcmp(json_string_value(val), "b") == 0;
+    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000062);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _b [.'$b']", path);

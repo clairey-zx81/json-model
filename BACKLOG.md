@@ -4,9 +4,10 @@
 
 - [x] pr: improve bench page
 - [x] command: set default to compile on `-F language` instead of model preprocessing
-- [x] c-backend: add _optimized_ str comparison code for eq and ne
+- [x] c-backend: add _optimized_ str comparison code for eq and ne, enabled by default
 - [x] c-backend: consider big endian for strcmp runtime and code generation
 - [x] perf: allow running over a subset of tools only
+- [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] static: remove unexpected `$ANY` messages (irep dead code elimination)
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?

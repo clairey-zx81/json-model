@@ -275,11 +275,11 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AIXPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "AIX") == 0;
+            res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00584941);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _AIX [.'$AIXPlatformModel'.name]", (path ? &lpath_0 : NULL));
@@ -287,7 +287,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$AIXPlatformModel'.versions
@@ -339,11 +339,11 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AlpinePlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Alpine") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000656e69706c41LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Alpine [.'$AlpinePlatformModel'.name]", (path ? &lpath_1 : NULL));
@@ -351,7 +351,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$AlpinePlatformModel'.versions
@@ -364,7 +364,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, (path ? &lpath_1 : NULL), NULL };
                     // .'$AlpinePlatformModel'.versions.0
-                    res = json_is_string(arr_1_item) && strcmp(json_string_value(arr_1_item), "all") == 0;
+                    res = json_is_string(arr_1_item) && jm_str_eq_4(json_string_value(arr_1_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$AlpinePlatformModel'.versions.0]", ((path ? &lpath_1 : NULL) ? &arr_1_lpath : NULL));
@@ -404,11 +404,11 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AmazonLinuxPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Amazon Linux") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x4c206e6f7a616d41LL) && jm_str_eq_5(json_string_value(pval) + 8, 0x0000000078756e69LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Amazon Linux [.'$AmazonLinuxPlatformModel'.name]", (path ? &lpath_2 : NULL));
@@ -416,7 +416,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$AmazonLinuxPlatformModel'.versions
@@ -469,11 +469,11 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AmazonPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Amazon") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6f7a616d41LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Amazon [.'$AmazonPlatformModel'.name]", (path ? &lpath_3 : NULL));
@@ -481,7 +481,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$AmazonPlatformModel'.versions
@@ -533,11 +533,11 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$ArchLinuxPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "ArchLinux") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x756e694c68637241LL) && jm_str_eq_2(json_string_value(pval) + 8, 0x00000078);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _ArchLinux [.'$ArchLinuxPlatformModel'.name]", (path ? &lpath_4 : NULL));
@@ -545,7 +545,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$ArchLinuxPlatformModel'.versions
@@ -558,7 +558,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_4_lpath = (jm_path_t) { NULL, arr_4_idx, (path ? &lpath_4 : NULL), NULL };
                     // .'$ArchLinuxPlatformModel'.versions.0
-                    res = json_is_string(arr_4_item) && strcmp(json_string_value(arr_4_item), "all") == 0;
+                    res = json_is_string(arr_4_item) && jm_str_eq_4(json_string_value(arr_4_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? &lpath_4 : NULL) ? &arr_4_lpath : NULL));
@@ -598,11 +598,11 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AstraLinuxPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Astra Linux") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x694c206172747341LL) && jm_str_eq_4(json_string_value(pval) + 8, 0x0078756e);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Astra Linux [.'$AstraLinuxPlatformModel'.name]", (path ? &lpath_5 : NULL));
@@ -610,7 +610,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$AstraLinuxPlatformModel'.versions
@@ -662,11 +662,11 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$ClearLinuxPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "ClearLinux") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6e694c7261656c43LL) && jm_str_eq_3(json_string_value(pval) + 8, 0x00007875);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _ClearLinux [.'$ClearLinuxPlatformModel'.name]", (path ? &lpath_6 : NULL));
@@ -674,7 +674,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$ClearLinuxPlatformModel'.versions
@@ -687,7 +687,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_6_lpath = (jm_path_t) { NULL, arr_6_idx, (path ? &lpath_6 : NULL), NULL };
                     // .'$ClearLinuxPlatformModel'.versions.0
-                    res = json_is_string(arr_6_item) && strcmp(json_string_value(arr_6_item), "all") == 0;
+                    res = json_is_string(arr_6_item) && jm_str_eq_4(json_string_value(arr_6_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? &lpath_6 : NULL) ? &arr_6_lpath : NULL));
@@ -727,11 +727,11 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$CumulusPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Cumulus") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0073756c756d7543LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Cumulus [.'$CumulusPlatformModel'.name]", (path ? &lpath_7 : NULL));
@@ -739,7 +739,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$CumulusPlatformModel'.versions
@@ -792,11 +792,11 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$DebianPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Debian") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6169626544LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Debian [.'$DebianPlatformModel'.name]", (path ? &lpath_8 : NULL));
@@ -804,7 +804,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$DebianPlatformModel'.versions
@@ -857,11 +857,11 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$DellOSPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "DellOS") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000534f6c6c6544LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _DellOS [.'$DellOSPlatformModel'.name]", (path ? &lpath_9 : NULL));
@@ -869,7 +869,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$DellOSPlatformModel'.versions
@@ -922,11 +922,11 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$DevuanPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Devuan") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6175766544LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Devuan [.'$DevuanPlatformModel'.name]", (path ? &lpath_10 : NULL));
@@ -934,7 +934,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$DevuanPlatformModel'.versions
@@ -987,11 +987,11 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$DragonFlyBSDPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "DragonFlyBSD") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6c466e6f67617244LL) && jm_str_eq_5(json_string_value(pval) + 8, 0x0000000044534279LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _DragonFlyBSD [.'$DragonFlyBSDPlatformModel'.name]", (path ? &lpath_11 : NULL));
@@ -999,7 +999,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$DragonFlyBSDPlatformModel'.versions
@@ -1052,11 +1052,11 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$ELPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "EL") == 0;
+            res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00004c45);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _EL [.'$ELPlatformModel'.name]", (path ? &lpath_12 : NULL));
@@ -1064,7 +1064,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$ELPlatformModel'.versions
@@ -1117,11 +1117,11 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$FedoraPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Fedora") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000061726f646546LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Fedora [.'$FedoraPlatformModel'.name]", (path ? &lpath_13 : NULL));
@@ -1129,7 +1129,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$FedoraPlatformModel'.versions
@@ -1182,11 +1182,11 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$FreeBSDPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "FreeBSD") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0044534265657246LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _FreeBSD [.'$FreeBSDPlatformModel'.name]", (path ? &lpath_14 : NULL));
@@ -1194,7 +1194,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$FreeBSDPlatformModel'.versions
@@ -1246,11 +1246,11 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$GenericBSDPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericBSD") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x42636972656e6547LL) && jm_str_eq_3(json_string_value(pval) + 8, 0x00004453);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _GenericBSD [.'$GenericBSDPlatformModel'.name]", (path ? &lpath_15 : NULL));
@@ -1258,7 +1258,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$GenericBSDPlatformModel'.versions
@@ -1271,7 +1271,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, (path ? &lpath_15 : NULL), NULL };
                     // .'$GenericBSDPlatformModel'.versions.0
-                    res = json_is_string(arr_15_item) && strcmp(json_string_value(arr_15_item), "all") == 0;
+                    res = json_is_string(arr_15_item) && jm_str_eq_4(json_string_value(arr_15_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericBSDPlatformModel'.versions.0]", ((path ? &lpath_15 : NULL) ? &arr_15_lpath : NULL));
@@ -1310,11 +1310,11 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$GenericLinuxPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericLinux") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x4c636972656e6547LL) && jm_str_eq_5(json_string_value(pval) + 8, 0x0000000078756e69LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _GenericLinux [.'$GenericLinuxPlatformModel'.name]", (path ? &lpath_16 : NULL));
@@ -1322,7 +1322,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$GenericLinuxPlatformModel'.versions
@@ -1335,7 +1335,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_16_lpath = (jm_path_t) { NULL, arr_16_idx, (path ? &lpath_16 : NULL), NULL };
                     // .'$GenericLinuxPlatformModel'.versions.0
-                    res = json_is_string(arr_16_item) && strcmp(json_string_value(arr_16_item), "all") == 0;
+                    res = json_is_string(arr_16_item) && jm_str_eq_4(json_string_value(arr_16_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? &lpath_16 : NULL) ? &arr_16_lpath : NULL));
@@ -1374,11 +1374,11 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$GenericUNIXPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericUNIX") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x55636972656e6547LL) && jm_str_eq_4(json_string_value(pval) + 8, 0x0058494e);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _GenericUNIX [.'$GenericUNIXPlatformModel'.name]", (path ? &lpath_17 : NULL));
@@ -1386,7 +1386,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$GenericUNIXPlatformModel'.versions
@@ -1399,7 +1399,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_17_lpath = (jm_path_t) { NULL, arr_17_idx, (path ? &lpath_17 : NULL), NULL };
                     // .'$GenericUNIXPlatformModel'.versions.0
-                    res = json_is_string(arr_17_item) && strcmp(json_string_value(arr_17_item), "all") == 0;
+                    res = json_is_string(arr_17_item) && jm_str_eq_4(json_string_value(arr_17_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? &lpath_17 : NULL) ? &arr_17_lpath : NULL));
@@ -1438,11 +1438,11 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$GentooPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Gentoo") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006f6f746e6547LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Gentoo [.'$GentooPlatformModel'.name]", (path ? &lpath_18 : NULL));
@@ -1450,7 +1450,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$GentooPlatformModel'.versions
@@ -1463,7 +1463,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_18_lpath = (jm_path_t) { NULL, arr_18_idx, (path ? &lpath_18 : NULL), NULL };
                     // .'$GentooPlatformModel'.versions.0
-                    res = json_is_string(arr_18_item) && strcmp(json_string_value(arr_18_item), "all") == 0;
+                    res = json_is_string(arr_18_item) && jm_str_eq_4(json_string_value(arr_18_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GentooPlatformModel'.versions.0]", ((path ? &lpath_18 : NULL) ? &arr_18_lpath : NULL));
@@ -1503,11 +1503,11 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$HardenedBSDPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "HardenedBSD") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x64656e6564726148LL) && jm_str_eq_4(json_string_value(pval) + 8, 0x00445342);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _HardenedBSD [.'$HardenedBSDPlatformModel'.name]", (path ? &lpath_19 : NULL));
@@ -1515,7 +1515,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$HardenedBSDPlatformModel'.versions
@@ -1567,11 +1567,11 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$IOSPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "IOS") == 0;
+            res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00534f49);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _IOS [.'$IOSPlatformModel'.name]", (path ? &lpath_20 : NULL));
@@ -1579,7 +1579,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$IOSPlatformModel'.versions
@@ -1592,7 +1592,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_20_lpath = (jm_path_t) { NULL, arr_20_idx, (path ? &lpath_20 : NULL), NULL };
                     // .'$IOSPlatformModel'.versions.0
-                    res = json_is_string(arr_20_item) && strcmp(json_string_value(arr_20_item), "all") == 0;
+                    res = json_is_string(arr_20_item) && jm_str_eq_4(json_string_value(arr_20_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$IOSPlatformModel'.versions.0]", ((path ? &lpath_20 : NULL) ? &arr_20_lpath : NULL));
@@ -1631,11 +1631,11 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$JunosPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Junos") == 0;
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000736f6e754aLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Junos [.'$JunosPlatformModel'.name]", (path ? &lpath_21 : NULL));
@@ -1643,7 +1643,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$JunosPlatformModel'.versions
@@ -1656,7 +1656,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_21_lpath = (jm_path_t) { NULL, arr_21_idx, (path ? &lpath_21 : NULL), NULL };
                     // .'$JunosPlatformModel'.versions.0
-                    res = json_is_string(arr_21_item) && strcmp(json_string_value(arr_21_item), "all") == 0;
+                    res = json_is_string(arr_21_item) && jm_str_eq_4(json_string_value(arr_21_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$JunosPlatformModel'.versions.0]", ((path ? &lpath_21 : NULL) ? &arr_21_lpath : NULL));
@@ -1696,11 +1696,11 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$KaliPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Kali") == 0;
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000696c614bLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Kali [.'$KaliPlatformModel'.name]", (path ? &lpath_22 : NULL));
@@ -1708,7 +1708,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$KaliPlatformModel'.versions
@@ -1761,11 +1761,11 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$MacOSXPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Kali") == 0;
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000696c614bLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Kali [.'$MacOSXPlatformModel'.name]", (path ? &lpath_23 : NULL));
@@ -1773,7 +1773,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$MacOSXPlatformModel'.versions
@@ -1826,11 +1826,11 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$MageiaPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Megeia") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000061696567654dLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Megeia [.'$MageiaPlatformModel'.name]", (path ? &lpath_24 : NULL));
@@ -1838,7 +1838,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$MageiaPlatformModel'.versions
@@ -1890,11 +1890,11 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_25 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$NXOSPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "NXOS") == 0;
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000534f584eLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _NXOS [.'$NXOSPlatformModel'.name]", (path ? &lpath_25 : NULL));
@@ -1902,7 +1902,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$NXOSPlatformModel'.versions
@@ -1915,7 +1915,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_25_lpath = (jm_path_t) { NULL, arr_25_idx, (path ? &lpath_25 : NULL), NULL };
                     // .'$NXOSPlatformModel'.versions.0
-                    res = json_is_string(arr_25_item) && strcmp(json_string_value(arr_25_item), "all") == 0;
+                    res = json_is_string(arr_25_item) && jm_str_eq_4(json_string_value(arr_25_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$NXOSPlatformModel'.versions.0]", ((path ? &lpath_25 : NULL) ? &arr_25_lpath : NULL));
@@ -1955,11 +1955,11 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$NetBSDPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "NetBSD") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000044534274654eLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _NetBSD [.'$NetBSDPlatformModel'.name]", (path ? &lpath_26 : NULL));
@@ -1967,7 +1967,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$NetBSDPlatformModel'.versions
@@ -2020,11 +2020,11 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$OpenBSDPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "OpenBSD") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x004453426e65704fLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _OpenBSD [.'$OpenBSDPlatformModel'.name]", (path ? &lpath_27 : NULL));
@@ -2032,7 +2032,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$OpenBSDPlatformModel'.versions
@@ -2085,11 +2085,11 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$OpenWrtPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "OpenWrt") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x007472576e65704fLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _OpenWrt [.'$OpenWrtPlatformModel'.name]", (path ? &lpath_28 : NULL));
@@ -2097,7 +2097,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$OpenWrtPlatformModel'.versions
@@ -2150,11 +2150,11 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$OracleLinuxPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "OracleLinux") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x694c656c6361724fLL) && jm_str_eq_4(json_string_value(pval) + 8, 0x0078756e);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _OracleLinux [.'$OracleLinuxPlatformModel'.name]", (path ? &lpath_29 : NULL));
@@ -2162,7 +2162,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$OracleLinuxPlatformModel'.versions
@@ -2215,11 +2215,11 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$PAN-OSPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "PAN-OS") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000534f2d4e4150LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _PAN-OS [.'$PAN-OSPlatformModel'.name]", (path ? &lpath_30 : NULL));
@@ -2227,7 +2227,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$PAN-OSPlatformModel'.versions
@@ -2280,11 +2280,11 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$RockyLinuxPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Rocky") == 0;
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000796b636f52LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Rocky [.'$RockyLinuxPlatformModel'.name]", (path ? &lpath_31 : NULL));
@@ -2292,7 +2292,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$RockyLinuxPlatformModel'.versions
@@ -2345,11 +2345,11 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_32 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$SLESPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "SLES") == 0;
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x0000000053454c53LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _SLES [.'$SLESPlatformModel'.name]", (path ? &lpath_32 : NULL));
@@ -2357,7 +2357,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$SLESPlatformModel'.versions
@@ -2409,11 +2409,11 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_33 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$SmartOSPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "SmartOS") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x00534f7472616d53LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _SmartOS [.'$SmartOSPlatformModel'.name]", (path ? &lpath_33 : NULL));
@@ -2421,7 +2421,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$SmartOSPlatformModel'.versions
@@ -2434,7 +2434,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_33_lpath = (jm_path_t) { NULL, arr_33_idx, (path ? &lpath_33 : NULL), NULL };
                     // .'$SmartOSPlatformModel'.versions.0
-                    res = json_is_string(arr_33_item) && strcmp(json_string_value(arr_33_item), "all") == 0;
+                    res = json_is_string(arr_33_item) && jm_str_eq_4(json_string_value(arr_33_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$SmartOSPlatformModel'.versions.0]", ((path ? &lpath_33 : NULL) ? &arr_33_lpath : NULL));
@@ -2474,11 +2474,11 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_34 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$SolarisPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Solaris") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x00736972616c6f53LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Solaris [.'$SolarisPlatformModel'.name]", (path ? &lpath_34 : NULL));
@@ -2486,7 +2486,7 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$SolarisPlatformModel'.versions
@@ -2539,11 +2539,11 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_35 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$SynologyPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Synology") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x79676f6c6f6e7953LL) && jm_str_eq_1(json_string_value(pval) + 8);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Synology [.'$SynologyPlatformModel'.name]", (path ? &lpath_35 : NULL));
@@ -2551,7 +2551,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$SynologyPlatformModel'.versions
@@ -2604,11 +2604,11 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$TMOSPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "TMOS") == 0;
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000534f4d54LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _TMOS [.'$TMOSPlatformModel'.name]", (path ? &lpath_36 : NULL));
@@ -2616,7 +2616,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$TMOSPlatformModel'.versions
@@ -2669,11 +2669,11 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_37 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$UbuntuPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Ubuntu") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000075746e756255LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Ubuntu [.'$UbuntuPlatformModel'.name]", (path ? &lpath_37 : NULL));
@@ -2681,7 +2681,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$UbuntuPlatformModel'.versions
@@ -2733,11 +2733,11 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_38 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$Void_LinuxPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Void Linux") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6e694c2064696f56LL) && jm_str_eq_3(json_string_value(pval) + 8, 0x00007875);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Void Linux [.'$Void_LinuxPlatformModel'.name]", (path ? &lpath_38 : NULL));
@@ -2745,7 +2745,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$Void_LinuxPlatformModel'.versions
@@ -2758,7 +2758,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_38_lpath = (jm_path_t) { NULL, arr_38_idx, (path ? &lpath_38 : NULL), NULL };
                     // .'$Void_LinuxPlatformModel'.versions.0
-                    res = json_is_string(arr_38_item) && strcmp(json_string_value(arr_38_item), "all") == 0;
+                    res = json_is_string(arr_38_item) && jm_str_eq_4(json_string_value(arr_38_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? &lpath_38 : NULL) ? &arr_38_lpath : NULL));
@@ -2798,11 +2798,11 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_39 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$WindowsPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Windows") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0073776f646e6957LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Windows [.'$WindowsPlatformModel'.name]", (path ? &lpath_39 : NULL));
@@ -2810,7 +2810,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$WindowsPlatformModel'.versions
@@ -2862,11 +2862,11 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_40 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$aosPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "aos") == 0;
+            res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00736f61);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _aos [.'$aosPlatformModel'.name]", (path ? &lpath_40 : NULL));
@@ -2874,7 +2874,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$aosPlatformModel'.versions
@@ -2887,7 +2887,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_40_lpath = (jm_path_t) { NULL, arr_40_idx, (path ? &lpath_40 : NULL), NULL };
                     // .'$aosPlatformModel'.versions.0
-                    res = json_is_string(arr_40_item) && strcmp(json_string_value(arr_40_item), "all") == 0;
+                    res = json_is_string(arr_40_item) && jm_str_eq_4(json_string_value(arr_40_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$aosPlatformModel'.versions.0]", ((path ? &lpath_40 : NULL) ? &arr_40_lpath : NULL));
@@ -2926,11 +2926,11 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_41 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$eosPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "eos") == 0;
+            res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00736f65);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _eos [.'$eosPlatformModel'.name]", (path ? &lpath_41 : NULL));
@@ -2938,7 +2938,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$eosPlatformModel'.versions
@@ -2951,7 +2951,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_41_lpath = (jm_path_t) { NULL, arr_41_idx, (path ? &lpath_41 : NULL), NULL };
                     // .'$eosPlatformModel'.versions.0
-                    res = json_is_string(arr_41_item) && strcmp(json_string_value(arr_41_item), "all") == 0;
+                    res = json_is_string(arr_41_item) && jm_str_eq_4(json_string_value(arr_41_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$eosPlatformModel'.versions.0]", ((path ? &lpath_41 : NULL) ? &arr_41_lpath : NULL));
@@ -2991,11 +2991,11 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$macOSPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "macOS") == 0;
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000534f63616dLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _macOS [.'$macOSPlatformModel'.name]", (path ? &lpath_42 : NULL));
@@ -3003,7 +3003,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$macOSPlatformModel'.versions
@@ -3056,11 +3056,11 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_43 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$opensusePlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "opensuse") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x657375736e65706fLL) && jm_str_eq_1(json_string_value(pval) + 8);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _opensuse [.'$opensusePlatformModel'.name]", (path ? &lpath_43 : NULL));
@@ -3068,7 +3068,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$opensusePlatformModel'.versions
@@ -3120,11 +3120,11 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_44 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$os10PlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "os10") == 0;
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000003031736fLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _os10 [.'$os10PlatformModel'.name]", (path ? &lpath_44 : NULL));
@@ -3132,7 +3132,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$os10PlatformModel'.versions
@@ -3145,7 +3145,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_44_lpath = (jm_path_t) { NULL, arr_44_idx, (path ? &lpath_44 : NULL), NULL };
                     // .'$os10PlatformModel'.versions.0
-                    res = json_is_string(arr_44_item) && strcmp(json_string_value(arr_44_item), "all") == 0;
+                    res = json_is_string(arr_44_item) && jm_str_eq_4(json_string_value(arr_44_item), 0x006c6c61);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _all [.'$os10PlatformModel'.versions.0]", ((path ? &lpath_44 : NULL) ? &arr_44_lpath : NULL));
@@ -3185,11 +3185,11 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_45 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$vCenterPlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "vCenter") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x007265746e654376LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _vCenter [.'$vCenterPlatformModel'.name]", (path ? &lpath_45 : NULL));
@@ -3197,7 +3197,7 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$vCenterPlatformModel'.versions
@@ -3250,11 +3250,11 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_46 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "name") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$vSpherePlatformModel'.name
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "vSphere") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0065726568705376LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _vSphere [.'$vSpherePlatformModel'.name]", (path ? &lpath_46 : NULL));
@@ -3262,7 +3262,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "versions") == 0)
+        else if (jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8))
         {
             // handle may versions property
             // .'$vSpherePlatformModel'.versions
@@ -3753,7 +3753,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.46.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Windows") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0073776f646e6957LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Windows [.'$platforms'.0.'|'.46.name]", (path ? &lpath : NULL));
@@ -3809,7 +3809,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.45.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "vSphere") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0065726568705376LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _vSphere [.'$platforms'.0.'|'.45.name]", (path ? &lpath : NULL));
@@ -3864,7 +3864,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.44.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Void Linux") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6e694c2064696f56LL) && jm_str_eq_3(json_string_value(pval) + 8, 0x00007875);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", (path ? &lpath : NULL));
@@ -3885,7 +3885,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_50_lpath = (jm_path_t) { NULL, arr_50_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.44.versions.0
-                res = json_is_string(arr_50_item) && strcmp(json_string_value(arr_50_item), "all") == 0;
+                res = json_is_string(arr_50_item) && jm_str_eq_4(json_string_value(arr_50_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.44.versions.0]", ((path ? &lpath : NULL) ? &arr_50_lpath : NULL));
@@ -3920,7 +3920,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.43.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "vCenter") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x007265746e654376LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _vCenter [.'$platforms'.0.'|'.43.name]", (path ? &lpath : NULL));
@@ -3976,7 +3976,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.42.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Ubuntu") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000075746e756255LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", (path ? &lpath : NULL));
@@ -4032,7 +4032,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.41.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "TMOS") == 0;
+        res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000534f4d54LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _TMOS [.'$platforms'.0.'|'.41.name]", (path ? &lpath : NULL));
@@ -4088,7 +4088,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.40.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Synology") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x79676f6c6f6e7953LL) && jm_str_eq_1(json_string_value(pval) + 8);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Synology [.'$platforms'.0.'|'.40.name]", (path ? &lpath : NULL));
@@ -4144,7 +4144,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.39.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Solaris") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x00736972616c6f53LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Solaris [.'$platforms'.0.'|'.39.name]", (path ? &lpath : NULL));
@@ -4199,7 +4199,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.38.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "SmartOS") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x00534f7472616d53LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", (path ? &lpath : NULL));
@@ -4220,7 +4220,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_56_lpath = (jm_path_t) { NULL, arr_56_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.38.versions.0
-                res = json_is_string(arr_56_item) && strcmp(json_string_value(arr_56_item), "all") == 0;
+                res = json_is_string(arr_56_item) && jm_str_eq_4(json_string_value(arr_56_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.38.versions.0]", ((path ? &lpath : NULL) ? &arr_56_lpath : NULL));
@@ -4255,7 +4255,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.37.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "SLES") == 0;
+        res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x0000000053454c53LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _SLES [.'$platforms'.0.'|'.37.name]", (path ? &lpath : NULL));
@@ -4311,7 +4311,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.36.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Rocky") == 0;
+        res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000796b636f52LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Rocky [.'$platforms'.0.'|'.36.name]", (path ? &lpath : NULL));
@@ -4367,7 +4367,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.35.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "PAN-OS") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000534f2d4e4150LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", (path ? &lpath : NULL));
@@ -4422,7 +4422,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.34.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "os10") == 0;
+        res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000003031736fLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _os10 [.'$platforms'.0.'|'.34.name]", (path ? &lpath : NULL));
@@ -4443,7 +4443,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_60_lpath = (jm_path_t) { NULL, arr_60_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.34.versions.0
-                res = json_is_string(arr_60_item) && strcmp(json_string_value(arr_60_item), "all") == 0;
+                res = json_is_string(arr_60_item) && jm_str_eq_4(json_string_value(arr_60_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.34.versions.0]", ((path ? &lpath : NULL) ? &arr_60_lpath : NULL));
@@ -4478,7 +4478,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.33.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "OracleLinux") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x694c656c6361724fLL) && jm_str_eq_4(json_string_value(pval) + 8, 0x0078756e);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", (path ? &lpath : NULL));
@@ -4534,7 +4534,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.32.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "OpenWrt") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x007472576e65704fLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", (path ? &lpath : NULL));
@@ -4590,7 +4590,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.31.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "opensuse") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x657375736e65706fLL) && jm_str_eq_1(json_string_value(pval) + 8);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _opensuse [.'$platforms'.0.'|'.31.name]", (path ? &lpath : NULL));
@@ -4646,7 +4646,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.30.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "OpenBSD") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x004453426e65704fLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", (path ? &lpath : NULL));
@@ -4701,7 +4701,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.29.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "NXOS") == 0;
+        res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000534f584eLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _NXOS [.'$platforms'.0.'|'.29.name]", (path ? &lpath : NULL));
@@ -4722,7 +4722,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_65_lpath = (jm_path_t) { NULL, arr_65_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.29.versions.0
-                res = json_is_string(arr_65_item) && strcmp(json_string_value(arr_65_item), "all") == 0;
+                res = json_is_string(arr_65_item) && jm_str_eq_4(json_string_value(arr_65_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.29.versions.0]", ((path ? &lpath : NULL) ? &arr_65_lpath : NULL));
@@ -4757,7 +4757,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.28.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Megeia") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000061696567654dLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Megeia [.'$platforms'.0.'|'.28.name]", (path ? &lpath : NULL));
@@ -4813,7 +4813,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.27.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Kali") == 0;
+        res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000696c614bLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Kali [.'$platforms'.0.'|'.27.name]", (path ? &lpath : NULL));
@@ -4869,7 +4869,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.26.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "macOS") == 0;
+        res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000534f63616dLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _macOS [.'$platforms'.0.'|'.26.name]", (path ? &lpath : NULL));
@@ -4925,7 +4925,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.25.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Kali") == 0;
+        res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000696c614bLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Kali [.'$platforms'.0.'|'.25.name]", (path ? &lpath : NULL));
@@ -4980,7 +4980,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.24.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Junos") == 0;
+        res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000736f6e754aLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Junos [.'$platforms'.0.'|'.24.name]", (path ? &lpath : NULL));
@@ -5001,7 +5001,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_70_lpath = (jm_path_t) { NULL, arr_70_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.24.versions.0
-                res = json_is_string(arr_70_item) && strcmp(json_string_value(arr_70_item), "all") == 0;
+                res = json_is_string(arr_70_item) && jm_str_eq_4(json_string_value(arr_70_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.24.versions.0]", ((path ? &lpath : NULL) ? &arr_70_lpath : NULL));
@@ -5035,7 +5035,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.23.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "IOS") == 0;
+        res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00534f49);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _IOS [.'$platforms'.0.'|'.23.name]", (path ? &lpath : NULL));
@@ -5056,7 +5056,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_71_lpath = (jm_path_t) { NULL, arr_71_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.23.versions.0
-                res = json_is_string(arr_71_item) && strcmp(json_string_value(arr_71_item), "all") == 0;
+                res = json_is_string(arr_71_item) && jm_str_eq_4(json_string_value(arr_71_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.23.versions.0]", ((path ? &lpath : NULL) ? &arr_71_lpath : NULL));
@@ -5091,7 +5091,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.22.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "HardenedBSD") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x64656e6564726148LL) && jm_str_eq_4(json_string_value(pval) + 8, 0x00445342);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", (path ? &lpath : NULL));
@@ -5146,7 +5146,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.21.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Gentoo") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006f6f746e6547LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", (path ? &lpath : NULL));
@@ -5167,7 +5167,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_73_lpath = (jm_path_t) { NULL, arr_73_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.21.versions.0
-                res = json_is_string(arr_73_item) && strcmp(json_string_value(arr_73_item), "all") == 0;
+                res = json_is_string(arr_73_item) && jm_str_eq_4(json_string_value(arr_73_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.21.versions.0]", ((path ? &lpath : NULL) ? &arr_73_lpath : NULL));
@@ -5201,7 +5201,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.20.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericUNIX") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x55636972656e6547LL) && jm_str_eq_4(json_string_value(pval) + 8, 0x0058494e);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", (path ? &lpath : NULL));
@@ -5222,7 +5222,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_74_lpath = (jm_path_t) { NULL, arr_74_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.20.versions.0
-                res = json_is_string(arr_74_item) && strcmp(json_string_value(arr_74_item), "all") == 0;
+                res = json_is_string(arr_74_item) && jm_str_eq_4(json_string_value(arr_74_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.20.versions.0]", ((path ? &lpath : NULL) ? &arr_74_lpath : NULL));
@@ -5256,7 +5256,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.19.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericLinux") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x4c636972656e6547LL) && jm_str_eq_5(json_string_value(pval) + 8, 0x0000000078756e69LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", (path ? &lpath : NULL));
@@ -5277,7 +5277,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_75_lpath = (jm_path_t) { NULL, arr_75_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.19.versions.0
-                res = json_is_string(arr_75_item) && strcmp(json_string_value(arr_75_item), "all") == 0;
+                res = json_is_string(arr_75_item) && jm_str_eq_4(json_string_value(arr_75_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.19.versions.0]", ((path ? &lpath : NULL) ? &arr_75_lpath : NULL));
@@ -5311,7 +5311,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.18.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericBSD") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x42636972656e6547LL) && jm_str_eq_3(json_string_value(pval) + 8, 0x00004453);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", (path ? &lpath : NULL));
@@ -5332,7 +5332,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_76_lpath = (jm_path_t) { NULL, arr_76_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.18.versions.0
-                res = json_is_string(arr_76_item) && strcmp(json_string_value(arr_76_item), "all") == 0;
+                res = json_is_string(arr_76_item) && jm_str_eq_4(json_string_value(arr_76_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.18.versions.0]", ((path ? &lpath : NULL) ? &arr_76_lpath : NULL));
@@ -5367,7 +5367,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.17.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "FreeBSD") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0044534265657246LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", (path ? &lpath : NULL));
@@ -5423,7 +5423,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.16.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Fedora") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000061726f646546LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Fedora [.'$platforms'.0.'|'.16.name]", (path ? &lpath : NULL));
@@ -5478,7 +5478,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.15.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "eos") == 0;
+        res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00736f65);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _eos [.'$platforms'.0.'|'.15.name]", (path ? &lpath : NULL));
@@ -5499,7 +5499,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_79_lpath = (jm_path_t) { NULL, arr_79_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.15.versions.0
-                res = json_is_string(arr_79_item) && strcmp(json_string_value(arr_79_item), "all") == 0;
+                res = json_is_string(arr_79_item) && jm_str_eq_4(json_string_value(arr_79_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.15.versions.0]", ((path ? &lpath : NULL) ? &arr_79_lpath : NULL));
@@ -5534,7 +5534,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.14.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "EL") == 0;
+        res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00004c45);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _EL [.'$platforms'.0.'|'.14.name]", (path ? &lpath : NULL));
@@ -5590,7 +5590,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.13.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "DragonFlyBSD") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6c466e6f67617244LL) && jm_str_eq_5(json_string_value(pval) + 8, 0x0000000044534279LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", (path ? &lpath : NULL));
@@ -5646,7 +5646,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.12.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Devuan") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6175766544LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Devuan [.'$platforms'.0.'|'.12.name]", (path ? &lpath : NULL));
@@ -5702,7 +5702,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.11.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "DellOS") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000534f6c6c6544LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _DellOS [.'$platforms'.0.'|'.11.name]", (path ? &lpath : NULL));
@@ -5758,7 +5758,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.10.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Debian") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6169626544LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Debian [.'$platforms'.0.'|'.10.name]", (path ? &lpath : NULL));
@@ -5814,7 +5814,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.9.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "NetBSD") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000044534274654eLL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", (path ? &lpath : NULL));
@@ -5870,7 +5870,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.8.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Cumulus") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0073756c756d7543LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", (path ? &lpath : NULL));
@@ -5925,7 +5925,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.7.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "ClearLinux") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6e694c7261656c43LL) && jm_str_eq_3(json_string_value(pval) + 8, 0x00007875);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", (path ? &lpath : NULL));
@@ -5946,7 +5946,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_87_lpath = (jm_path_t) { NULL, arr_87_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.7.versions.0
-                res = json_is_string(arr_87_item) && strcmp(json_string_value(arr_87_item), "all") == 0;
+                res = json_is_string(arr_87_item) && jm_str_eq_4(json_string_value(arr_87_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.7.versions.0]", ((path ? &lpath : NULL) ? &arr_87_lpath : NULL));
@@ -5981,7 +5981,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.6.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Astra Linux") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x694c206172747341LL) && jm_str_eq_4(json_string_value(pval) + 8, 0x0078756e);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", (path ? &lpath : NULL));
@@ -6036,7 +6036,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.5.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "ArchLinux") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x756e694c68637241LL) && jm_str_eq_2(json_string_value(pval) + 8, 0x00000078);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", (path ? &lpath : NULL));
@@ -6057,7 +6057,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_89_lpath = (jm_path_t) { NULL, arr_89_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.5.versions.0
-                res = json_is_string(arr_89_item) && strcmp(json_string_value(arr_89_item), "all") == 0;
+                res = json_is_string(arr_89_item) && jm_str_eq_4(json_string_value(arr_89_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.5.versions.0]", ((path ? &lpath : NULL) ? &arr_89_lpath : NULL));
@@ -6091,7 +6091,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.4.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "aos") == 0;
+        res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00736f61);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _aos [.'$platforms'.0.'|'.4.name]", (path ? &lpath : NULL));
@@ -6112,7 +6112,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_90_lpath = (jm_path_t) { NULL, arr_90_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.4.versions.0
-                res = json_is_string(arr_90_item) && strcmp(json_string_value(arr_90_item), "all") == 0;
+                res = json_is_string(arr_90_item) && jm_str_eq_4(json_string_value(arr_90_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.4.versions.0]", ((path ? &lpath : NULL) ? &arr_90_lpath : NULL));
@@ -6147,7 +6147,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.3.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Amazon Linux") == 0;
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x4c206e6f7a616d41LL) && jm_str_eq_5(json_string_value(pval) + 8, 0x0000000078756e69LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", (path ? &lpath : NULL));
@@ -6203,7 +6203,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.2.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Amazon") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6f7a616d41LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Amazon [.'$platforms'.0.'|'.2.name]", (path ? &lpath : NULL));
@@ -6258,7 +6258,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.1.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "Alpine") == 0;
+        res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000656e69706c41LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Alpine [.'$platforms'.0.'|'.1.name]", (path ? &lpath : NULL));
@@ -6279,7 +6279,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_93_lpath = (jm_path_t) { NULL, arr_93_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.1.versions.0
-                res = json_is_string(arr_93_item) && strcmp(json_string_value(arr_93_item), "all") == 0;
+                res = json_is_string(arr_93_item) && jm_str_eq_4(json_string_value(arr_93_item), 0x006c6c61);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.1.versions.0]", ((path ? &lpath : NULL) ? &arr_93_lpath : NULL));
@@ -6314,7 +6314,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.0.name
-        res = json_is_string(pval) && strcmp(json_string_value(pval), "AIX") == 0;
+        res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00584941);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected _AIX [.'$platforms'.0.'|'.0.name]", (path ? &lpath : NULL));
@@ -7063,7 +7063,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_48 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "description") == 0)
+        if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
             // handle must description property
             must_count += 1;
@@ -7262,7 +7262,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_49 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "standalone") == 0)
+        if (jm_str_eq_8(prop, 0x6f6c61646e617473LL) && jm_str_eq_3(prop + 8, 0x0000656e))
         {
             // handle must standalone property
             must_count += 1;
@@ -7275,7 +7275,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "description") == 0)
+        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
             // handle must description property
             must_count += 1;
@@ -7288,7 +7288,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "author") == 0)
+        else if (jm_str_eq_7(prop, 0x0000726f68747561LL))
         {
             // handle must author property
             must_count += 1;
@@ -7301,7 +7301,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "license") == 0)
+        else if (jm_str_eq_8(prop, 0x0065736e6563696cLL))
         {
             // handle must license property
             must_count += 1;
@@ -7314,7 +7314,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "min_ansible_version") == 0)
+        else if (jm_str_eq_8(prop, 0x69736e615f6e696dLL) && jm_str_eq_8(prop + 8, 0x737265765f656c62LL) && jm_str_eq_4(prop + 16, 0x006e6f69))
         {
             // handle must min_ansible_version property
             must_count += 1;
@@ -7567,7 +7567,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_50 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "standalone") == 0)
+        if (jm_str_eq_8(prop, 0x6f6c61646e617473LL) && jm_str_eq_3(prop + 8, 0x0000656e))
         {
             // handle must standalone property
             must_count += 1;
@@ -7580,7 +7580,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "description") == 0)
+        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
             // handle must description property
             must_count += 1;
@@ -7821,7 +7821,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_51 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "description") == 0)
+        if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
             // handle must description property
             must_count += 1;
@@ -8360,7 +8360,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_53 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "allow_duplicates") == 0)
+        if (jm_str_eq_8(prop, 0x75645f776f6c6c61LL) && jm_str_eq_8(prop + 8, 0x7365746163696c70LL) && jm_str_eq_1(prop + 16))
         {
             // handle may allow_duplicates property
             // .'$AnsibleMetaObj'.allow_duplicates
@@ -8372,7 +8372,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "collections") == 0)
+        else if (jm_str_eq_8(prop, 0x697463656c6c6f63LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
         {
             // handle may collections property
             // .'$AnsibleMetaObj'.collections
@@ -8384,7 +8384,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "dependencies") == 0)
+        else if (jm_str_eq_8(prop, 0x6e65646e65706564LL) && jm_str_eq_5(prop + 8, 0x0000000073656963LL))
         {
             // handle may dependencies property
             // .'$AnsibleMetaObj'.dependencies
@@ -8430,7 +8430,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "galaxy_info") == 0)
+        else if (jm_str_eq_8(prop, 0x695f7978616c6167LL) && jm_str_eq_4(prop + 8, 0x006f666e))
         {
             // handle may galaxy_info property
             // .'$AnsibleMetaObj'.galaxy_info

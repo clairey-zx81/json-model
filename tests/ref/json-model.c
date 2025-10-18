@@ -241,7 +241,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$ObjectComment'.'#'
@@ -594,7 +594,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     if (! res)
                     {
                         // .'$StrModel'.'|'.5
-                        res = json_is_string(val) && strcmp(json_string_value(val), "") == 0;
+                        res = json_is_string(val) && jm_str_eq_1(json_string_value(val));
                         if (! res)
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected _ [.'$StrModel'.'|'.5]", path);
@@ -742,7 +742,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "@") == 0)
+        if (jm_str_eq_2(prop, 0x00000040))
         {
             // handle must @ property
             must_count += 1;
@@ -755,7 +755,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "!") == 0)
+        else if (jm_str_eq_2(prop, 0x00000021))
         {
             // handle may ! property
             // .'$Constraint'.'!'
@@ -1066,7 +1066,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     if (! res)
                     {
                         // .'$Prop'.'|'.5
-                        res = json_is_string(val) && strcmp(json_string_value(val), "") == 0;
+                        res = json_is_string(val) && jm_str_eq_1(json_string_value(val));
                         if (! res)
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected _ [.'$Prop'.'|'.5]", path);
@@ -1203,7 +1203,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Element'.'|'.5.'#'
@@ -1261,7 +1261,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "+") == 0)
+        if (jm_str_eq_2(prop, 0x0000002b))
         {
             // handle must + property
             must_count += 1;
@@ -1290,7 +1290,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Element'.'|'.4.'#'
@@ -1348,7 +1348,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "^") == 0)
+        if (jm_str_eq_2(prop, 0x0000005e))
         {
             // handle must ^ property
             must_count += 1;
@@ -1377,7 +1377,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Element'.'|'.3.'#'
@@ -1435,7 +1435,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "&") == 0)
+        if (jm_str_eq_2(prop, 0x00000026))
         {
             // handle must & property
             must_count += 1;
@@ -1464,7 +1464,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Element'.'|'.2.'#'
@@ -1522,7 +1522,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "|") == 0)
+        if (jm_str_eq_2(prop, 0x0000007c))
         {
             // handle must | property
             must_count += 1;
@@ -1551,7 +1551,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Element'.'|'.1.'#'
@@ -1609,7 +1609,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "@") == 0)
+        if (jm_str_eq_2(prop, 0x00000040))
         {
             // handle must @ property
             must_count += 1;
@@ -1622,7 +1622,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Element'.'|'.0.'#'
@@ -1634,7 +1634,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "!") == 0)
+        else if (jm_str_eq_2(prop, 0x00000021))
         {
             // handle may ! property
             // .'$Element'.'|'.0.'!'
@@ -1816,7 +1816,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "/") == 0)
+        if (jm_str_eq_2(prop, 0x0000002f))
         {
             // handle may / property
             // .'$Trafo'.'/'
@@ -1846,7 +1846,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Trafo'.'~'
@@ -1858,7 +1858,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "*") == 0)
+        else if (jm_str_eq_2(prop, 0x0000002a))
         {
             // handle may * property
             // .'$Trafo'.'*'
@@ -1919,7 +1919,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Transformation'.'|'.1.'#'
@@ -1931,7 +1931,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "/") == 0)
+        else if (jm_str_eq_2(prop, 0x0000002f))
         {
             // handle may / property
             // .'$Transformation'.'|'.1.'/'
@@ -1961,7 +1961,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Transformation'.'|'.1.'~'
@@ -1973,7 +1973,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "*") == 0)
+        else if (jm_str_eq_2(prop, 0x0000002a))
         {
             // handle may * property
             // .'$Transformation'.'|'.1.'*'
@@ -2122,7 +2122,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "") == 0)
+        if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Defs'.''
@@ -2252,7 +2252,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "<") == 0)
+        if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Import'.'<'
@@ -2321,7 +2321,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$RootOnly'.'$'.'#'
@@ -2333,7 +2333,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$RootOnly'.'$'.''
@@ -2390,7 +2390,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$RootOnly'.'%'.'#'
@@ -2402,7 +2402,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$RootOnly'.'%'.'<'
@@ -2507,7 +2507,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "~") == 0)
+        if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$RootOnly'.'~'
@@ -2519,7 +2519,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$RootOnly'.'$'
@@ -2531,7 +2531,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$RootOnly'.'%'
@@ -2566,7 +2566,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.5.'$'.'#'
@@ -2578,7 +2578,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Root'.'|'.5.'$'.''
@@ -2635,7 +2635,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.5.'%'.'#'
@@ -2647,7 +2647,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Root'.'|'.5.'%'.'<'
@@ -2750,7 +2750,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "~") == 0)
+        if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Root'.'|'.5.'~'
@@ -2762,7 +2762,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Root'.'|'.5.'$'
@@ -2774,7 +2774,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Root'.'|'.5.'%'
@@ -2786,7 +2786,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.5.'#'
@@ -2843,7 +2843,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.4.'$'.'#'
@@ -2855,7 +2855,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Root'.'|'.4.'$'.''
@@ -2912,7 +2912,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_25 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.4.'%'.'#'
@@ -2924,7 +2924,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Root'.'|'.4.'%'.'<'
@@ -3028,7 +3028,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "+") == 0)
+        if (jm_str_eq_2(prop, 0x0000002b))
         {
             // handle must + property
             must_count += 1;
@@ -3057,7 +3057,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Root'.'|'.4.'~'
@@ -3069,7 +3069,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Root'.'|'.4.'$'
@@ -3081,7 +3081,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Root'.'|'.4.'%'
@@ -3093,7 +3093,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.4.'#'
@@ -3150,7 +3150,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.3.'$'.'#'
@@ -3162,7 +3162,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Root'.'|'.3.'$'.''
@@ -3219,7 +3219,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.3.'%'.'#'
@@ -3231,7 +3231,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Root'.'|'.3.'%'.'<'
@@ -3335,7 +3335,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "^") == 0)
+        if (jm_str_eq_2(prop, 0x0000005e))
         {
             // handle must ^ property
             must_count += 1;
@@ -3364,7 +3364,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Root'.'|'.3.'~'
@@ -3376,7 +3376,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Root'.'|'.3.'$'
@@ -3388,7 +3388,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Root'.'|'.3.'%'
@@ -3400,7 +3400,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.3.'#'
@@ -3457,7 +3457,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.2.'$'.'#'
@@ -3469,7 +3469,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Root'.'|'.2.'$'.''
@@ -3526,7 +3526,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.2.'%'.'#'
@@ -3538,7 +3538,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Root'.'|'.2.'%'.'<'
@@ -3642,7 +3642,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "&") == 0)
+        if (jm_str_eq_2(prop, 0x00000026))
         {
             // handle must & property
             must_count += 1;
@@ -3671,7 +3671,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Root'.'|'.2.'~'
@@ -3683,7 +3683,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Root'.'|'.2.'$'
@@ -3695,7 +3695,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Root'.'|'.2.'%'
@@ -3707,7 +3707,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.2.'#'
@@ -3764,7 +3764,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_33 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.1.'$'.'#'
@@ -3776,7 +3776,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Root'.'|'.1.'$'.''
@@ -3833,7 +3833,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_34 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.1.'%'.'#'
@@ -3845,7 +3845,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Root'.'|'.1.'%'.'<'
@@ -3949,7 +3949,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_32 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "|") == 0)
+        if (jm_str_eq_2(prop, 0x0000007c))
         {
             // handle must | property
             must_count += 1;
@@ -3978,7 +3978,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Root'.'|'.1.'~'
@@ -3990,7 +3990,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Root'.'|'.1.'$'
@@ -4002,7 +4002,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Root'.'|'.1.'%'
@@ -4014,7 +4014,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.1.'#'
@@ -4071,7 +4071,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.0.'$'.'#'
@@ -4083,7 +4083,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Root'.'|'.0.'$'.''
@@ -4140,7 +4140,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_37 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.0.'%'.'#'
@@ -4152,7 +4152,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Root'.'|'.0.'%'.'<'
@@ -4256,7 +4256,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_35 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "@") == 0)
+        if (jm_str_eq_2(prop, 0x00000040))
         {
             // handle must @ property
             must_count += 1;
@@ -4269,7 +4269,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Root'.'|'.0.'~'
@@ -4281,7 +4281,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Root'.'|'.0.'$'
@@ -4293,7 +4293,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Root'.'|'.0.'%'
@@ -4305,7 +4305,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Root'.'|'.0.'#'
@@ -4317,7 +4317,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "!") == 0)
+        else if (jm_str_eq_2(prop, 0x00000021))
         {
             // handle may ! property
             // .'$Root'.'|'.0.'!'

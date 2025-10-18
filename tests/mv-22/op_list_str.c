@@ -42,7 +42,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'|'.0.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _a [.'|'.0.t]", (path ? &lpath : NULL));

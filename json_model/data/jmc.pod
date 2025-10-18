@@ -19,7 +19,7 @@ B<jmc> - JSON Model Compiler
      [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
      [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
-     [--map-threshold THRESHOLD] [--map-share]
+     [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
      [--unroll-may-ratioi RATIO] [--unroll-may-threshold THRESHOLD]
      [-[-no]-predef] [--short-version]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
@@ -211,6 +211,14 @@ generate a statically linked executable.
 =item B<--inline> B<--no-inline>
 
 generate inline hints.
+
+=item B<--strcmp-optimize> B<--no-strcmp-optimize>
+
+whether to optimize string comparisons in some cases.
+
+=item B<--byte-order ORDER>
+
+set byte order for string comparison, either C<le> (little endian) or C<be> (big endian).
 
 =back
 

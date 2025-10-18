@@ -137,7 +137,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "Y") == 0)
+        if (jm_str_eq_2(prop, 0x00000059))
         {
             // handle must Y property
             must_count += 1;
@@ -150,7 +150,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "Z") == 0)
+        else if (jm_str_eq_2(prop, 0x0000005a))
         {
             // handle may Z property
             // .'$Ee'.'|'.1.Z
@@ -197,7 +197,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "X") == 0)
+        if (jm_str_eq_2(prop, 0x00000058))
         {
             // handle must X property
             must_count += 1;
@@ -210,7 +210,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "Z") == 0)
+        else if (jm_str_eq_2(prop, 0x0000005a))
         {
             // handle may Z property
             // .'$Ee'.'|'.0.Z

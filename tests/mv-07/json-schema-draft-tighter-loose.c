@@ -912,12 +912,12 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#String'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "string") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#String'.type]", (path ? &lpath_3 : NULL));
@@ -1204,12 +1204,12 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#Array'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "array") == 0;
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007961727261LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected array [.'$tight#Array'.type]", (path ? &lpath_6 : NULL));
@@ -1546,12 +1546,12 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#Object'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "object") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007463656a626fLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected object [.'$tight#Object'.type]", (path ? &lpath_9 : NULL));
@@ -1794,12 +1794,12 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#Integer'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "integer") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#Integer'.type]", (path ? &lpath_14 : NULL));
@@ -2042,12 +2042,12 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#Number'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "number") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#Number'.type]", (path ? &lpath_17 : NULL));
@@ -2264,12 +2264,12 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#Bool'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "boolean") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006e61656c6f6f62LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected boolean [.'$tight#Bool'.type]", (path ? &lpath_20 : NULL));
@@ -2486,12 +2486,12 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#Null'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "null") == 0;
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000006c6c756eLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected null [.'$tight#Null'.type]", (path ? &lpath_23 : NULL));
@@ -2708,7 +2708,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "allOf") == 0)
+        if (jm_str_eq_6(prop, 0x000000664f6c6c61LL))
         {
             // handle must allOf property
             must_count += 1;
@@ -2930,7 +2930,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "anyOf") == 0)
+        if (jm_str_eq_6(prop, 0x000000664f796e61LL))
         {
             // handle must anyOf property
             must_count += 1;
@@ -3152,7 +3152,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_32 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "oneOf") == 0)
+        if (jm_str_eq_6(prop, 0x000000664f656e6fLL))
         {
             // handle must oneOf property
             must_count += 1;
@@ -3374,7 +3374,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_35 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "enum") == 0)
+        if (jm_str_eq_5(prop, 0x000000006d756e65LL))
         {
             // handle must enum property
             must_count += 1;
@@ -3680,7 +3680,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_38 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "const") == 0)
+        if (jm_str_eq_6(prop, 0x00000074736e6f63LL))
         {
             // handle must const property
             must_count += 1;
@@ -3960,7 +3960,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_41 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "$ref") == 0)
+        if (jm_str_eq_5(prop, 0x0000000066657224LL))
         {
             // handle must $ref property
             must_count += 1;
@@ -4213,7 +4213,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_44 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "enum") == 0)
+        if (jm_str_eq_5(prop, 0x000000006d756e65LL))
         {
             // handle must enum property
             must_count += 1;
@@ -4242,12 +4242,12 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "type") == 0)
+        else if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#EnumString'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "string") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#EnumString'.type]", (path ? &lpath_44 : NULL));
@@ -4468,7 +4468,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_47 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "enum") == 0)
+        if (jm_str_eq_5(prop, 0x000000006d756e65LL))
         {
             // handle must enum property
             must_count += 1;
@@ -4497,12 +4497,12 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "type") == 0)
+        else if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#EnumNum'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "number") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#EnumNum'.type]", (path ? &lpath_47 : NULL));
@@ -4723,7 +4723,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_50 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "enum") == 0)
+        if (jm_str_eq_5(prop, 0x000000006d756e65LL))
         {
             // handle must enum property
             must_count += 1;
@@ -4752,12 +4752,12 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "type") == 0)
+        else if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#EnumInt'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "integer") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#EnumInt'.type]", (path ? &lpath_50 : NULL));
@@ -4978,7 +4978,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_53 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "const") == 0)
+        if (jm_str_eq_6(prop, 0x00000074736e6f63LL))
         {
             // handle must const property
             must_count += 1;
@@ -4991,12 +4991,12 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "type") == 0)
+        else if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#ConstString'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "string") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#ConstString'.type]", (path ? &lpath_53 : NULL));
@@ -5217,7 +5217,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_56 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "const") == 0)
+        if (jm_str_eq_6(prop, 0x00000074736e6f63LL))
         {
             // handle must const property
             must_count += 1;
@@ -5230,12 +5230,12 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "type") == 0)
+        else if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#ConstNum'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "number") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#ConstNum'.type]", (path ? &lpath_56 : NULL));
@@ -5456,7 +5456,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_59 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "const") == 0)
+        if (jm_str_eq_6(prop, 0x00000074736e6f63LL))
         {
             // handle must const property
             must_count += 1;
@@ -5469,12 +5469,12 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "type") == 0)
+        else if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#ConstInt'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "integer") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#ConstInt'.type]", (path ? &lpath_59 : NULL));
@@ -5695,7 +5695,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_62 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "const") == 0)
+        if (jm_str_eq_6(prop, 0x00000074736e6f63LL))
         {
             // handle must const property
             must_count += 1;
@@ -5708,12 +5708,12 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "type") == 0)
+        else if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$tight#ConstBool'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "boolean") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006e61656c6f6f62LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected boolean [.'$tight#ConstBool'.type]", (path ? &lpath_62 : NULL));

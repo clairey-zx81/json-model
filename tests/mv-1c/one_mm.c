@@ -30,7 +30,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "must") == 0)
+        if (jm_str_eq_5(prop, 0x000000007473756dLL))
         {
             // handle must must property
             must_count += 1;
@@ -43,7 +43,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "may") == 0)
+        else if (jm_str_eq_4(prop, 0x0079616d))
         {
             // handle may may property
             // .may

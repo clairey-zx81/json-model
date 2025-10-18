@@ -1589,7 +1589,7 @@ def xstatic_compile(
         inline: bool = True,
         predef: bool = True,
         ir_optimize: bool = True,
-        strcmp: bool = False,
+        strcmp: bool = True,
         byte_order: str = "le",
     ) -> Code:
     """Generate the check source code for a model.

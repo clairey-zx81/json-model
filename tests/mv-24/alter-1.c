@@ -32,7 +32,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$g'
-    res = json_is_string(val) && strcmp(json_string_value(val), "g") == 0;
+    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000067);
     return res;
 }
 
@@ -66,7 +66,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$d'.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "d") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
     if (! res)
     {
         return false;
@@ -134,7 +134,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     // .'$alternative'.'|'.0.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
     if (! res)
     {
         return false;
@@ -201,7 +201,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     // .'$alternative'.'|'.2.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "g") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000067);
     if (! res)
     {
         return false;

@@ -152,7 +152,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$a'
-    res = json_is_string(val) && strcmp(json_string_value(val), "A") == 0;
+    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000041);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _A [.'$a']", path);
@@ -165,7 +165,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$b'
-    res = json_is_string(val) && strcmp(json_string_value(val), "A") == 0;
+    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000041);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _A [.'$b']", path);
@@ -287,7 +287,7 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "a0") == 0)
+        if (jm_str_eq_3(prop, 0x00003061))
         {
             // handle may a0 property
             // .and.a0
@@ -347,7 +347,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "a0") == 0)
+        if (jm_str_eq_3(prop, 0x00003061))
         {
             // handle may a0 property
             // .array.a0
@@ -375,7 +375,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "a1") == 0)
+        else if (jm_str_eq_3(prop, 0x00003161))
         {
             // handle may a1 property
             // .array.a1
@@ -403,7 +403,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "a2") == 0)
+        else if (jm_str_eq_3(prop, 0x00003261))
         {
             // handle may a2 property
             // .array.a2
@@ -431,7 +431,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "a3") == 0)
+        else if (jm_str_eq_3(prop, 0x00003361))
         {
             // handle may a3 property
             // .array.a3
@@ -459,7 +459,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "a4") == 0)
+        else if (jm_str_eq_3(prop, 0x00003461))
         {
             // handle may a4 property
             // .array.a4
@@ -1150,7 +1150,7 @@ static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         const char * sval_0 = json_string_value(val);
-        res = strcmp(sval_0, "Susie") == 0;
+        res = jm_str_eq_6(sval_0, 0x0000006569737553LL);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.css0]", path);
@@ -1173,7 +1173,7 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         const char * sval_1 = json_string_value(val);
-        res = jm_str_ne(sval_1, "Hobbes") && strcmp(sval_1, "Z") <= 0 && strcmp(sval_1, "A") >= 0;
+        res = (jm_str_ne_7(sval_1, 0x0000736562626f48LL)) && strcmp(sval_1, "Z") <= 0 && strcmp(sval_1, "A") >= 0;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.css1]", path);
@@ -1291,7 +1291,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "e0") == 0)
+        if (jm_str_eq_3(prop, 0x00003065))
         {
             // handle may e0 property
             // .enum.e0
@@ -1303,7 +1303,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "e1") == 0)
+        else if (jm_str_eq_3(prop, 0x00003165))
         {
             // handle may e1 property
             // .enum.e1
@@ -1315,7 +1315,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "e2") == 0)
+        else if (jm_str_eq_3(prop, 0x00003265))
         {
             // handle may e2 property
             // .enum.e2
@@ -1327,7 +1327,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "e3") == 0)
+        else if (jm_str_eq_3(prop, 0x00003365))
         {
             // handle may e3 property
             // .enum.e3
@@ -1701,7 +1701,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "a") == 0)
+        if (jm_str_eq_2(prop, 0x00000061))
         {
             // handle must a property
             must_count += 1;
@@ -1714,7 +1714,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "b") == 0)
+        else if (jm_str_eq_2(prop, 0x00000062))
         {
             // handle may b property
             // .merge.m0.b
@@ -2222,7 +2222,7 @@ static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "m0") == 0)
+        if (jm_str_eq_3(prop, 0x0000306d))
         {
             // handle may m0 property
             // .merge.m0
@@ -2234,7 +2234,7 @@ static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "m1") == 0)
+        else if (jm_str_eq_3(prop, 0x0000316d))
         {
             // handle may m1 property
             // .merge.m1
@@ -2275,7 +2275,7 @@ static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "m2") == 0)
+        else if (jm_str_eq_3(prop, 0x0000326d))
         {
             // handle may m2 property
             // .merge.m2
@@ -2316,7 +2316,7 @@ static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "m3") == 0)
+        else if (jm_str_eq_3(prop, 0x0000336d))
         {
             // handle may m3 property
             // .merge.m3
@@ -2375,7 +2375,7 @@ static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "m4") == 0)
+        else if (jm_str_eq_3(prop, 0x0000346d))
         {
             // handle may m4 property
             // .merge.m4
@@ -2412,7 +2412,7 @@ static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "n0") == 0)
+        if (jm_str_eq_3(prop, 0x0000306e))
         {
             // handle may n0 property
             // .null.n0
@@ -2424,7 +2424,7 @@ static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "n1") == 0)
+        else if (jm_str_eq_3(prop, 0x0000316e))
         {
             // handle may n1 property
             // .null.n1
@@ -2436,7 +2436,7 @@ static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "n2") == 0)
+        else if (jm_str_eq_3(prop, 0x0000326e))
         {
             // handle may n2 property
             // .null.n2
@@ -2555,7 +2555,7 @@ static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "a") == 0)
+        if (jm_str_eq_2(prop, 0x00000061))
         {
             // handle may a property
             // .object.o2.a
@@ -2753,7 +2753,7 @@ static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "o0") == 0)
+        if (jm_str_eq_3(prop, 0x0000306f))
         {
             // handle may o0 property
             // .or.o0
@@ -2783,7 +2783,7 @@ static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "o1") == 0)
+        else if (jm_str_eq_3(prop, 0x0000316f))
         {
             // handle may o1 property
             // .or.o1
@@ -2813,7 +2813,7 @@ static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "o2") == 0)
+        else if (jm_str_eq_3(prop, 0x0000326f))
         {
             // handle may o2 property
             // .or.o2
@@ -3269,7 +3269,7 @@ static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "s0") == 0)
+        if (jm_str_eq_3(prop, 0x00003073))
         {
             // handle may s0 property
             // .string.s0
@@ -3281,7 +3281,7 @@ static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "s1") == 0)
+        else if (jm_str_eq_3(prop, 0x00003173))
         {
             // handle may s1 property
             // .string.s1
@@ -3293,11 +3293,11 @@ static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "s2") == 0)
+        else if (jm_str_eq_3(prop, 0x00003273))
         {
             // handle may s2 property
             // .string.s2
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Susie") == 0;
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000006569737553LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected Susie [.string.s2]", (path ? &lpath_18 : NULL));
@@ -3305,11 +3305,11 @@ static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "s3") == 0)
+        else if (jm_str_eq_3(prop, 0x00003373))
         {
             // handle may s3 property
             // .string.s3
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Calvin") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e69766c6143LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Calvin [.string.s3]", (path ? &lpath_18 : NULL));
@@ -3317,7 +3317,7 @@ static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "s4") == 0)
+        else if (jm_str_eq_3(prop, 0x00003473))
         {
             // handle may s4 property
             // .string.s4
@@ -3355,7 +3355,7 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "t0") == 0)
+        if (jm_str_eq_3(prop, 0x00003074))
         {
             // handle may t0 property
             // .tuple.t0
@@ -3367,7 +3367,7 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "t1") == 0)
+        else if (jm_str_eq_3(prop, 0x00003174))
         {
             // handle may t1 property
             // .tuple.t1
@@ -3408,7 +3408,7 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "t2") == 0)
+        else if (jm_str_eq_3(prop, 0x00003274))
         {
             // handle may t2 property
             // .tuple.t2
@@ -3440,7 +3440,7 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "t3") == 0)
+        else if (jm_str_eq_3(prop, 0x00003374))
         {
             // handle may t3 property
             // .tuple.t3
@@ -3482,7 +3482,7 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "t4") == 0)
+        else if (jm_str_eq_3(prop, 0x00003474))
         {
             // handle may t4 property
             // .tuple.t4
@@ -3561,7 +3561,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "x0") == 0)
+        if (jm_str_eq_3(prop, 0x00003078))
         {
             // handle may x0 property
             // .xor.x0
@@ -3591,7 +3591,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "x1") == 0)
+        else if (jm_str_eq_3(prop, 0x00003178))
         {
             // handle may x1 property
             // .xor.x1
@@ -3632,7 +3632,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "x2") == 0)
+        else if (jm_str_eq_3(prop, 0x00003278))
         {
             // handle may x2 property
             // .xor.x2
@@ -3671,7 +3671,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "x3") == 0)
+        else if (jm_str_eq_3(prop, 0x00003378))
         {
             // handle may x3 property
             // .xor.x3

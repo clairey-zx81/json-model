@@ -384,7 +384,7 @@ def jmc_script():
         help="unroll if optional props under this ratio, default 0.5")
     arg("--unroll-may-threshold", "-umt", default=5, type=int,
         help="unroll if number of optional props less than threshold, default 5")
-    arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=False, action="store_true",
+    arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
         help="optimize some string comparisons")
     arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
         help="do not optimize string comparisons")

@@ -198,7 +198,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "file") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656c6966LL))
         {
             // handle must file property
             must_count += 1;
@@ -211,7 +211,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "version") == 0)
+        else if (jm_str_eq_8(prop, 0x006e6f6973726576LL))
         {
             // handle must version property
             must_count += 1;
@@ -224,7 +224,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "abstract") == 0)
+        else if (jm_str_eq_8(prop, 0x7463617274736261LL) && jm_str_eq_1(prop + 8))
         {
             // handle may abstract property
             // .'$Provide'.abstract
@@ -236,7 +236,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "docfile") == 0)
+        else if (jm_str_eq_8(prop, 0x00656c6966636f64LL))
         {
             // handle may docfile property
             // .'$Provide'.docfile
@@ -311,7 +311,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "web") == 0)
+        if (jm_str_eq_4(prop, 0x00626577))
         {
             // handle may web property
             // .'$Resources'.bugtracker.web
@@ -323,7 +323,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "mailto") == 0)
+        else if (jm_str_eq_7(prop, 0x00006f746c69616dLL))
         {
             // handle may mailto property
             // .'$Resources'.bugtracker.mailto
@@ -369,7 +369,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "url") == 0)
+        if (jm_str_eq_4(prop, 0x006c7275))
         {
             // handle may url property
             // .'$Resources'.repository.url
@@ -381,7 +381,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "web") == 0)
+        else if (jm_str_eq_4(prop, 0x00626577))
         {
             // handle may web property
             // .'$Resources'.repository.web
@@ -393,7 +393,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "type") == 0)
+        else if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle may type property
             // .'$Resources'.repository.type
@@ -430,7 +430,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "homepage") == 0)
+        if (jm_str_eq_8(prop, 0x65676170656d6f68LL) && jm_str_eq_1(prop + 8))
         {
             // handle may homepage property
             // .'$Resources'.homepage
@@ -442,7 +442,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "bugtracker") == 0)
+        else if (jm_str_eq_8(prop, 0x6b63617274677562LL) && jm_str_eq_3(prop + 8, 0x00007265))
         {
             // handle may bugtracker property
             // .'$Resources'.bugtracker
@@ -454,7 +454,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "repository") == 0)
+        else if (jm_str_eq_8(prop, 0x6f7469736f706572LL) && jm_str_eq_3(prop + 8, 0x00007972))
         {
             // handle may repository property
             // .'$Resources'.repository
@@ -856,12 +856,12 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "version") == 0)
+        if (jm_str_eq_8(prop, 0x006e6f6973726576LL))
         {
             // handle must version property
             must_count += 1;
             // .'meta-spec'.version
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "1.0.0") == 0;
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000302e302e31LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _1.0.0 [.'meta-spec'.version]", (path ? &lpath_9 : NULL));
@@ -869,7 +869,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "url") == 0)
+        else if (jm_str_eq_4(prop, 0x006c7275))
         {
             // handle may url property
             // .'meta-spec'.url
@@ -998,7 +998,7 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "file") == 0)
+        if (jm_str_eq_5(prop, 0x00000000656c6966LL))
         {
             // handle may file property
             // .no_index.file
@@ -1010,7 +1010,7 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "directory") == 0)
+        else if (jm_str_eq_8(prop, 0x726f746365726964LL) && jm_str_eq_2(prop + 8, 0x00000079))
         {
             // handle may directory property
             // .no_index.directory

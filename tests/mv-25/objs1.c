@@ -138,7 +138,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$objs0#table'.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "table") == 0;
+    res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000656c626174LL);
     if (! res)
     {
         return false;
@@ -172,7 +172,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$objs0#chair'.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "chair") == 0;
+    res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007269616863LL);
     if (! res)
     {
         return false;

@@ -22,7 +22,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$t'
-    res = json_is_string(val) && strcmp(json_string_value(val), "cst_02") == 0;
+    res = json_is_string(val) && jm_str_eq_7(json_string_value(val), 0x000032305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.'$t']", path);
@@ -55,7 +55,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
     // .'$r'.a
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.a]", (path ? &lpath : NULL));
@@ -69,7 +69,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
     // .'$r'.b
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.b]", (path ? &lpath : NULL));
@@ -83,7 +83,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
     // .'$r'.c
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.c]", (path ? &lpath : NULL));
@@ -97,7 +97,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "d", 0, path, NULL };
     // .'$r'.d
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.d]", (path ? &lpath : NULL));
@@ -132,7 +132,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "e", 0, path, NULL };
     // .'$z'.e
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000032305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.'$z'.e]", (path ? &lpath : NULL));
@@ -146,7 +146,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "f", 0, path, NULL };
     // .'$z'.f
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000032305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.'$z'.f]", (path ? &lpath : NULL));
@@ -181,7 +181,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
     // .a
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.a]", (path ? &lpath : NULL));
@@ -195,7 +195,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
     // .b
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.b]", (path ? &lpath : NULL));
@@ -209,7 +209,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "e", 0, path, NULL };
     // .e
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000032305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.e]", (path ? &lpath : NULL));
@@ -223,7 +223,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "f", 0, path, NULL };
     // .f
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000032305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.f]", (path ? &lpath : NULL));
@@ -237,7 +237,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
     // .c
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.c]", (path ? &lpath : NULL));
@@ -251,7 +251,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "d", 0, path, NULL };
     // .d
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.d]", (path ? &lpath : NULL));

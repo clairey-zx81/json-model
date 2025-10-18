@@ -146,7 +146,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$core'.'$schema'
-    res = json_is_string(val) && strcmp(json_string_value(val), "https://json-schema.org/draft/2020-12/schema") == 0;
+    res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x2f2f3a7370747468LL) && jm_str_eq_8(json_string_value(val) + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(json_string_value(val) + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(json_string_value(val) + 24, 0x30322f7466617264LL) && jm_str_eq_8(json_string_value(val) + 32, 0x63732f32312d3032LL) && jm_str_eq_5(json_string_value(val) + 40, 0x00000000616d6568LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _https://json-schema.org/draft/2020-12/schema [.'$core'.'$schema']", path);
@@ -371,7 +371,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "contentEncoding") == 0)
+        if (jm_str_eq_8(prop, 0x45746e65746e6f63LL) && jm_str_eq_8(prop + 8, 0x00676e69646f636eLL))
         {
             // handle may contentEncoding property
             // .'$content'.contentEncoding
@@ -383,7 +383,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "contentMediaType") == 0)
+        else if (jm_str_eq_8(prop, 0x4d746e65746e6f63LL) && jm_str_eq_8(prop + 8, 0x6570795461696465LL) && jm_str_eq_1(prop + 16))
         {
             // handle may contentMediaType property
             // .'$content'.contentMediaType
@@ -395,7 +395,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "contentSchema") == 0)
+        else if (jm_str_eq_8(prop, 0x53746e65746e6f63LL) && jm_str_eq_6(prop + 8, 0x000000616d656863LL))
         {
             // handle may contentSchema property
             // .'$content'.contentSchema
@@ -431,7 +431,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "unevaluatedItems") == 0)
+        if (jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x736d657449646574LL) && jm_str_eq_1(prop + 16))
         {
             // handle may unevaluatedItems property
             // .'$unevaluated'.unevaluatedItems
@@ -443,7 +443,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "unevaluatedProperties") == 0)
+        else if (jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x65706f7250646574LL) && jm_str_eq_6(prop + 16, 0x0000007365697472LL))
         {
             // handle may unevaluatedProperties property
             // .'$unevaluated'.unevaluatedProperties
@@ -479,7 +479,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "format") == 0)
+        if (jm_str_eq_7(prop, 0x000074616d726f66LL))
         {
             // handle may format property
             // .'$format'.format
@@ -1028,7 +1028,7 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$ObjectSchema'.'$schema'
-    res = json_is_string(val) && strcmp(json_string_value(val), "https://json-schema.org/draft/2020-12/schema") == 0;
+    res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x2f2f3a7370747468LL) && jm_str_eq_8(json_string_value(val) + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(json_string_value(val) + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(json_string_value(val) + 24, 0x30322f7466617264LL) && jm_str_eq_8(json_string_value(val) + 32, 0x63732f32312d3032LL) && jm_str_eq_5(json_string_value(val) + 40, 0x00000000616d6568LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _https://json-schema.org/draft/2020-12/schema [.'$ObjectSchema'.'$schema']", path);

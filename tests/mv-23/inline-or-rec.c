@@ -42,7 +42,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'$ab'.'|'.0.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected a [.'$ab'.'|'.0.t]", (path ? &lpath : NULL));
@@ -90,7 +90,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'$ab'.'|'.1.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "b") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000062);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected b [.'$ab'.'|'.1.t]", (path ? &lpath : NULL));

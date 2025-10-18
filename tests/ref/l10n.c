@@ -37,12 +37,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "Model") == 0)
+        if (jm_str_eq_6(prop, 0x0000006c65646f4dLL))
         {
             // handle must Model property
             must_count += 1;
             // .'$'.Model
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "$https://json-model.org/models/json-model") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x2f3a737074746824LL) && jm_str_eq_8(json_string_value(pval) + 8, 0x6f6d2d6e6f736a2fLL) && jm_str_eq_8(json_string_value(pval) + 16, 0x2f67726f2e6c6564LL) && jm_str_eq_8(json_string_value(pval) + 24, 0x6a2f736c65646f6dLL) && jm_str_eq_8(json_string_value(pval) + 32, 0x65646f6d2d6e6f73LL) && jm_str_eq_2(json_string_value(pval) + 40, 0x0000006c);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _$https://json-model.org/models/json-model [.'$'.Model]", (path ? &lpath_1 : NULL));
@@ -50,7 +50,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$'.''
@@ -157,7 +157,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "$") == 0)
+        if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle must $ property
             must_count += 1;
@@ -170,12 +170,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle must ~ property
             must_count += 1;
             // .'~'
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "https://json-model.org/models/l10n") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x2f2f3a7370747468LL) && jm_str_eq_8(json_string_value(pval) + 8, 0x646f6d2d6e6f736aLL) && jm_str_eq_8(json_string_value(pval) + 16, 0x6d2f67726f2e6c65LL) && jm_str_eq_8(json_string_value(pval) + 24, 0x316c2f736c65646fLL) && jm_str_eq_3(json_string_value(pval) + 32, 0x00006e30);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _https://json-model.org/models/l10n [.'~']", (path ? &lpath_0 : NULL));
@@ -183,7 +183,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle must % property
             must_count += 1;
@@ -197,12 +197,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "@") == 0)
+        else if (jm_str_eq_2(prop, 0x00000040))
         {
             // handle must @ property
             must_count += 1;
             // .'@'
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "$Model") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006c65646f4d24LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _$Model [.'@']", (path ? &lpath_0 : NULL));

@@ -38,7 +38,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "all") == 0)
+        if (jm_str_eq_4(prop, 0x006c6c61))
         {
             // handle may all property
             // .all
@@ -51,7 +51,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "nz") == 0)
+        else if (jm_str_eq_3(prop, 0x00007a6e))
         {
             // handle may nz property
             // .nz
@@ -64,7 +64,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "some") == 0)
+        else if (jm_str_eq_5(prop, 0x00000000656d6f73LL))
         {
             // handle may some property
             // .some

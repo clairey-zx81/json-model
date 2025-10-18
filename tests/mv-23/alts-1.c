@@ -57,7 +57,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'$oA'.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _a [.'$oA'.t]", (path ? &lpath : NULL));
@@ -189,7 +189,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'$oL'.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "d") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _d [.'$oL'.t]", (path ? &lpath : NULL));

@@ -513,7 +513,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "pattern") == 0)
+        if (jm_str_eq_8(prop, 0x006e726574746170LL))
         {
             // handle may pattern property
             // .'$stringKeywords'.pattern
@@ -525,7 +525,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "minLength") == 0)
+        else if (jm_str_eq_8(prop, 0x74676e654c6e696dLL) && jm_str_eq_2(prop + 8, 0x00000068))
         {
             // handle may minLength property
             // .'$stringKeywords'.minLength
@@ -537,7 +537,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "maxLength") == 0)
+        else if (jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068))
         {
             // handle may maxLength property
             // .'$stringKeywords'.maxLength
@@ -549,7 +549,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "format") == 0)
+        else if (jm_str_eq_7(prop, 0x000074616d726f66LL))
         {
             // handle may format property
             // .'$stringKeywords'.format
@@ -851,7 +851,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "minimum") == 0)
+        if (jm_str_eq_8(prop, 0x006d756d696e696dLL))
         {
             // handle may minimum property
             // .'$numberKeywords'.minimum
@@ -863,7 +863,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "maximum") == 0)
+        else if (jm_str_eq_8(prop, 0x006d756d6978616dLL))
         {
             // handle may maximum property
             // .'$numberKeywords'.maximum
@@ -1514,12 +1514,12 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$String'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "string") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.type]", (path ? &lpath_10 : NULL));
@@ -1906,12 +1906,12 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$Array'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "array") == 0;
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007961727261LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected array [.'$Array'.type]", (path ? &lpath_14 : NULL));
@@ -2345,12 +2345,12 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$Object'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "object") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007463656a626fLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected object [.'$Object'.type]", (path ? &lpath_18 : NULL));
@@ -2693,12 +2693,12 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$Integer'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "integer") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected integer [.'$Integer'.type]", (path ? &lpath_24 : NULL));
@@ -3041,12 +3041,12 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$Number'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "number") == 0;
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected number [.'$Number'.type]", (path ? &lpath_28 : NULL));
@@ -3363,12 +3363,12 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_32 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$Bool'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "boolean") == 0;
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006e61656c6f6f62LL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected boolean [.'$Bool'.type]", (path ? &lpath_32 : NULL));
@@ -3685,12 +3685,12 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (jm_str_eq_5(prop, 0x0000000065707974LL))
         {
             // handle must type property
             must_count += 1;
             // .'$Null'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "null") == 0;
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000006c6c756eLL);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected null [.'$Null'.type]", (path ? &lpath_36 : NULL));
@@ -4007,7 +4007,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_40 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "allOf") == 0)
+        if (jm_str_eq_6(prop, 0x000000664f6c6c61LL))
         {
             // handle must allOf property
             must_count += 1;
@@ -4329,7 +4329,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_44 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "anyOf") == 0)
+        if (jm_str_eq_6(prop, 0x000000664f796e61LL))
         {
             // handle must anyOf property
             must_count += 1;
@@ -4651,7 +4651,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_48 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "oneOf") == 0)
+        if (jm_str_eq_6(prop, 0x000000664f656e6fLL))
         {
             // handle must oneOf property
             must_count += 1;
@@ -4973,7 +4973,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_52 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "enum") == 0)
+        if (jm_str_eq_5(prop, 0x000000006d756e65LL))
         {
             // handle must enum property
             must_count += 1;
@@ -5295,7 +5295,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_56 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "const") == 0)
+        if (jm_str_eq_6(prop, 0x00000074736e6f63LL))
         {
             // handle must const property
             must_count += 1;
@@ -5617,7 +5617,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_60 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "$ref") == 0)
+        if (jm_str_eq_5(prop, 0x0000000066657224LL))
         {
             // handle must $ref property
             must_count += 1;
@@ -5939,7 +5939,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_64 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "$dynamicRef") == 0)
+        if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_4(prop + 8, 0x00666552))
         {
             // handle must $dynamicRef property
             must_count += 1;

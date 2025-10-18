@@ -167,7 +167,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$Point'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "Point") == 0;
+    res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000746e696f50LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected Point [.'$Point'.type]", (path ? &lpath : NULL));
@@ -239,7 +239,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$MultiPoint'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiPoint") == 0;
+    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x696f5069746c754dLL) && jm_str_eq_3(json_string_value(pval) + 8, 0x0000746e);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected MultiPoint [.'$MultiPoint'.type]", (path ? &lpath : NULL));
@@ -327,7 +327,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$LineString'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "LineString") == 0;
+    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x69727453656e694cLL) && jm_str_eq_3(json_string_value(pval) + 8, 0x0000676e);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected LineString [.'$LineString'.type]", (path ? &lpath : NULL));
@@ -399,7 +399,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$MultiLineString'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiLineString") == 0;
+    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6e694c69746c754dLL) && jm_str_eq_8(json_string_value(pval) + 8, 0x00676e6972745365LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected MultiLineString [.'$MultiLineString'.type]", (path ? &lpath : NULL));
@@ -487,7 +487,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$Polygon'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "Polygon") == 0;
+    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006e6f67796c6f50LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected Polygon [.'$Polygon'.type]", (path ? &lpath : NULL));
@@ -575,7 +575,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$MultiPolygon'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiPolygon") == 0;
+    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6c6f5069746c754dLL) && jm_str_eq_5(json_string_value(pval) + 8, 0x000000006e6f6779LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected MultiPolygon [.'$MultiPolygon'.type]", (path ? &lpath : NULL));
@@ -722,7 +722,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$GeometryCollection'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "GeometryCollection") == 0;
+    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x797274656d6f6547LL) && jm_str_eq_8(json_string_value(pval) + 8, 0x697463656c6c6f43LL) && jm_str_eq_3(json_string_value(pval) + 16, 0x00006e6f);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected GeometryCollection [.'$GeometryCollection'.type]", (path ? &lpath : NULL));
@@ -822,7 +822,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$Feature'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "Feature") == 0;
+    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0065727574616546LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected Feature [.'$Feature'.type]", (path ? &lpath : NULL));
@@ -983,7 +983,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$FeatureCollection'.type
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "FeatureCollection") == 0;
+    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x4365727574616546LL) && jm_str_eq_8(json_string_value(pval) + 8, 0x6f697463656c6c6fLL) && jm_str_eq_2(json_string_value(pval) + 16, 0x0000006e);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected FeatureCollection [.'$FeatureCollection'.type]", (path ? &lpath : NULL));

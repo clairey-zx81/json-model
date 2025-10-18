@@ -376,7 +376,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     if (! res)
                     {
                         // .'$Model#StrModel'.'|'.5
-                        res = json_is_string(val) && strcmp(json_string_value(val), "") == 0;
+                        res = json_is_string(val) && jm_str_eq_1(json_string_value(val));
                         if (! res)
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected _ [.'$Model#StrModel'.'|'.5]", path);
@@ -632,7 +632,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Element'.'|'.5.'#'
@@ -644,7 +644,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.5.'.schema'
@@ -714,7 +714,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "+") == 0)
+        if (jm_str_eq_2(prop, 0x0000002b))
         {
             // handle must + property
             must_count += 1;
@@ -743,7 +743,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Element'.'|'.4.'#'
@@ -755,7 +755,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.4.'.schema'
@@ -825,7 +825,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "^") == 0)
+        if (jm_str_eq_2(prop, 0x0000005e))
         {
             // handle must ^ property
             must_count += 1;
@@ -854,7 +854,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Element'.'|'.3.'#'
@@ -866,7 +866,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.3.'.schema'
@@ -936,7 +936,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "&") == 0)
+        if (jm_str_eq_2(prop, 0x00000026))
         {
             // handle must & property
             must_count += 1;
@@ -965,7 +965,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Element'.'|'.2.'#'
@@ -977,7 +977,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.2.'.schema'
@@ -1047,7 +1047,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "|") == 0)
+        if (jm_str_eq_2(prop, 0x0000007c))
         {
             // handle must | property
             must_count += 1;
@@ -1076,7 +1076,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Element'.'|'.1.'#'
@@ -1088,7 +1088,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.1.'.schema'
@@ -1170,7 +1170,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "@") == 0)
+        if (jm_str_eq_2(prop, 0x00000040))
         {
             // handle must @ property
             must_count += 1;
@@ -1183,7 +1183,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Element'.'|'.0.'#'
@@ -1195,7 +1195,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.0.'.schema'
@@ -1207,7 +1207,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "!") == 0)
+        else if (jm_str_eq_2(prop, 0x00000021))
         {
             // handle may ! property
             // .'$Model#Element'.'|'.0.'!'
@@ -1219,7 +1219,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".mo") == 0)
+        else if (jm_str_eq_4(prop, 0x006f6d2e))
         {
             // handle may .mo property
             // .'$Model#Element'.'|'.0.'.mo'
@@ -1231,7 +1231,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".in") == 0)
+        else if (jm_str_eq_4(prop, 0x006e692e))
         {
             // handle may .in property
             // .'$Model#Element'.'|'.0.'.in'
@@ -1504,7 +1504,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     if (! res)
                     {
                         // .'$Model#Prop'.'|'.5
-                        res = json_is_string(val) && strcmp(json_string_value(val), "") == 0;
+                        res = json_is_string(val) && jm_str_eq_1(json_string_value(val));
                         if (! res)
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected _ [.'$Model#Prop'.'|'.5]", path);
@@ -1571,7 +1571,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.5.'$'.'#'
@@ -1583,7 +1583,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.5.'$'.'.schema'
@@ -1595,7 +1595,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Model#Root'.'|'.5.'$'.''
@@ -1676,7 +1676,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.5.'%'.'#'
@@ -1688,7 +1688,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.5.'%'.'.schema'
@@ -1700,7 +1700,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Model#Root'.'|'.5.'%'.'<'
@@ -1815,7 +1815,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "~") == 0)
+        if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Model#Root'.'|'.5.'~'
@@ -1827,7 +1827,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Model#Root'.'|'.5.'$'
@@ -1839,7 +1839,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Model#Root'.'|'.5.'%'
@@ -1851,7 +1851,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.5.'#'
@@ -1863,7 +1863,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.5.'.schema'
@@ -1932,7 +1932,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.4.'$'.'#'
@@ -1944,7 +1944,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.4.'$'.'.schema'
@@ -1956,7 +1956,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Model#Root'.'|'.4.'$'.''
@@ -2025,7 +2025,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.4.'%'.'#'
@@ -2037,7 +2037,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.4.'%'.'.schema'
@@ -2049,7 +2049,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Model#Root'.'|'.4.'%'.'<'
@@ -2165,7 +2165,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "+") == 0)
+        if (jm_str_eq_2(prop, 0x0000002b))
         {
             // handle must + property
             must_count += 1;
@@ -2194,7 +2194,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Model#Root'.'|'.4.'~'
@@ -2206,7 +2206,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Model#Root'.'|'.4.'$'
@@ -2218,7 +2218,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Model#Root'.'|'.4.'%'
@@ -2230,7 +2230,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.4.'#'
@@ -2242,7 +2242,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.4.'.schema'
@@ -2311,7 +2311,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.3.'$'.'#'
@@ -2323,7 +2323,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.3.'$'.'.schema'
@@ -2335,7 +2335,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Model#Root'.'|'.3.'$'.''
@@ -2404,7 +2404,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.3.'%'.'#'
@@ -2416,7 +2416,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.3.'%'.'.schema'
@@ -2428,7 +2428,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Model#Root'.'|'.3.'%'.'<'
@@ -2544,7 +2544,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "^") == 0)
+        if (jm_str_eq_2(prop, 0x0000005e))
         {
             // handle must ^ property
             must_count += 1;
@@ -2573,7 +2573,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Model#Root'.'|'.3.'~'
@@ -2585,7 +2585,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Model#Root'.'|'.3.'$'
@@ -2597,7 +2597,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Model#Root'.'|'.3.'%'
@@ -2609,7 +2609,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.3.'#'
@@ -2621,7 +2621,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.3.'.schema'
@@ -2690,7 +2690,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.2.'$'.'#'
@@ -2702,7 +2702,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.2.'$'.'.schema'
@@ -2714,7 +2714,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Model#Root'.'|'.2.'$'.''
@@ -2783,7 +2783,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.2.'%'.'#'
@@ -2795,7 +2795,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.2.'%'.'.schema'
@@ -2807,7 +2807,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Model#Root'.'|'.2.'%'.'<'
@@ -2923,7 +2923,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "&") == 0)
+        if (jm_str_eq_2(prop, 0x00000026))
         {
             // handle must & property
             must_count += 1;
@@ -2952,7 +2952,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Model#Root'.'|'.2.'~'
@@ -2964,7 +2964,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Model#Root'.'|'.2.'$'
@@ -2976,7 +2976,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Model#Root'.'|'.2.'%'
@@ -2988,7 +2988,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.2.'#'
@@ -3000,7 +3000,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.2.'.schema'
@@ -3069,7 +3069,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.1.'$'.'#'
@@ -3081,7 +3081,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.1.'$'.'.schema'
@@ -3093,7 +3093,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Model#Root'.'|'.1.'$'.''
@@ -3162,7 +3162,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.1.'%'.'#'
@@ -3174,7 +3174,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.1.'%'.'.schema'
@@ -3186,7 +3186,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Model#Root'.'|'.1.'%'.'<'
@@ -3302,7 +3302,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "|") == 0)
+        if (jm_str_eq_2(prop, 0x0000007c))
         {
             // handle must | property
             must_count += 1;
@@ -3331,7 +3331,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Model#Root'.'|'.1.'~'
@@ -3343,7 +3343,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "$") == 0)
+        else if (jm_str_eq_2(prop, 0x00000024))
         {
             // handle may $ property
             // .'$Model#Root'.'|'.1.'$'
@@ -3355,7 +3355,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "%") == 0)
+        else if (jm_str_eq_2(prop, 0x00000025))
         {
             // handle may % property
             // .'$Model#Root'.'|'.1.'%'
@@ -3367,7 +3367,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.1.'#'
@@ -3379,7 +3379,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.1.'.schema'
@@ -3475,7 +3475,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.0.'$'.'#'
@@ -3487,7 +3487,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.0.'$'.'.schema'
@@ -3499,7 +3499,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "") == 0)
+        else if (jm_str_eq_1(prop))
         {
             // handle may  property
             // .'$Model#Root'.'|'.0.'$'.''
@@ -3569,7 +3569,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Root'.'|'.0.'%'.'#'
@@ -3581,7 +3581,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.0.'%'.'.schema'
@@ -3593,7 +3593,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (strcmp(prop, "<") == 0)
+        else if (jm_str_eq_2(prop, 0x0000003c))
         {
             // handle may < property
             // .'$Model#Root'.'|'.0.'%'.'<'
@@ -3729,7 +3729,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "@") == 0)
+        if (jm_str_eq_2(prop, 0x00000040))
         {
             // handle must @ property
             must_count += 1;
@@ -4000,7 +4000,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Model#Transformation'.'|'.1.'#'
@@ -4012,7 +4012,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, ".schema") == 0)
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Transformation'.'|'.1.'.schema'
@@ -4024,7 +4024,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "/") == 0)
+        else if (jm_str_eq_2(prop, 0x0000002f))
         {
             // handle may / property
             // .'$Model#Transformation'.'|'.1.'/'
@@ -4054,7 +4054,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "~") == 0)
+        else if (jm_str_eq_2(prop, 0x0000007e))
         {
             // handle may ~ property
             // .'$Model#Transformation'.'|'.1.'~'
@@ -4066,7 +4066,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (strcmp(prop, "*") == 0)
+        else if (jm_str_eq_2(prop, 0x0000002a))
         {
             // handle may * property
             // .'$Model#Transformation'.'|'.1.'*'
