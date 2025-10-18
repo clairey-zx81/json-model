@@ -272,6 +272,7 @@ Cases are sorted per decreasing performance of the fastest tools.
 - **cap python:** $cap_py (whether to reduce iterations for python runs)
 - **debug:** $debug
 - **format:** $JMC_BENCH_TIME_FMT
+- **tasks:** $tasks
 - **exported environment variables:** $JMC_ENV
 $(for var in $JMC_ENV ; do echo "  - $var: \`${!var}\`" ; done)
 
