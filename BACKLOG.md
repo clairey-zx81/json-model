@@ -2,13 +2,6 @@
 
 ## Current Tasks
 
-- [x] pr: improve bench page
-- [x] command: set default to compile on `-F language` instead of model preprocessing
-- [x] c-backend: add _optimized_ str comparison code for eq and ne, enabled by default
-- [x] c-backend: consider big endian for strcmp runtime and code generation
-- [x] perf: allow running over a subset of tools only
-- [x] static: remove unexpected `$ANY` messages (irep dead code elimination)
-- [x] pr: add new artifact
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
@@ -661,3 +654,10 @@
 - [x] backend: shamefully ignore bad json due to strange prop names
 - [x] static: fix disjunct analysis issue
 - [x] optim: fix infinite loop between xor-to-or and partial eval
+- [x] pr: improve bench page
+- [x] command: set default to compile on `-F language` instead of model preprocessing
+- [x] c-backend: add _optimized_ str comparison code for eq and ne, enabled by default
+- [x] c-backend: consider big endian for strcmp runtime and code generation
+- [x] perf: allow running over a subset of tools only
+- [x] static: remove unexpected `$ANY` messages (irep dead code elimination)
+- [x] pr: add new artifact (2025101808)
