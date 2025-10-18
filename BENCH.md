@@ -1,4 +1,4 @@
-# JSON Model Compiler Benchmarking Artifacts
+# JSON Model Compiler Benchmark Artifacts
 
 These artifacts compare
 [JSON Model Compiler](https://github.com/clairey-zx81/json-model) generated code in
