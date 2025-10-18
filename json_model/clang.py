@@ -2,8 +2,64 @@ import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number
+# from .utils import log
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
+
+#
+# Attempt at optimizing string equality tests with chuncked comparisons,
+# avoiding a function call and a loop. It is unclear whether it is a good idea.
+# See runtime/c/json-model.h for the generated macro definitions.
+#
+# TODO add max chunks?
+# TODO generate likely/unlikely hints? likely on must, unlikely on may??
+#
+def _str_cmp_chunk(s: str, chunk: bytes, size: int,
+                   little: bool = True, eq: bool = True) -> BoolExpr:
+    """Generate a chunck of byte string comparison."""
+    cmp_fun = "jm_str_eq" if eq else "jm_str_ne"
+    assert 1 <= size <= 8, "valid number of bytes"
+    if size == 1:
+        return f"{cmp_fun}_1({s})"
+    else:
+        x: str = ""
+        for b in chunk:
+            if little:
+                x = hex(b)[2:] + x
+            else:
+                x += hex(b)[2:]
+        # adjust to 4/8 byte boundary
+        zeros = "00" * ((8 if size > 4 else 4) - len(x) // 2)
+        x = "0x" + ((zeros + x) if little else (x + zeros)) + ("LL" if size > 4 else "")
+        return f"{cmp_fun}_{size}({s}, {x})"
+
+def _str_cmp(s: str, cst: str, little: bool = True, eq: bool = True) -> BoolExpr:
+    """Generate a fast byte string comparison for known constants."""
+    bcst = json.loads(cst).encode("UTF8")
+    remain = len(bcst) + 1  # add implicit null termination
+    # filter out multiple array call
+    if "json_array_get(" in s and remain > 8:
+        cmp_fun = "jm_str_eq" if eq else "jm_str_ne"
+        return f"{cmp_fun}({s}, {cst})"
+    # generate chuncked comparison expression
+    index = 0
+    expr = ""
+    while remain > 0:
+        if remain >= 8:
+            size = 8
+        elif remain > 4:
+            size = remain % 8
+        elif remain == 4:
+            size = 4
+        else:
+            size = remain % 4
+        ptr = s if index == 0 else f"{s} + {index}"
+        if expr:
+            expr += " && " if eq else " || "
+        expr += _str_cmp_chunk(ptr, bcst[index:index+size], size, little, eq)
+        index += size
+        remain -= size
+    return expr
 
 class CLangJansson(Language):
     """Generate JSON value checker in C with Jansson and PCRE2.
@@ -15,7 +71,7 @@ class CLangJansson(Language):
     def __init__(self, *,
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-                 with_predef: bool = True, streq_optim: bool = True,
+                 with_predef: bool = True, strcmp_opt: bool = True, byte_order: str = "le",
                  inline: bool = True, relib: str = "pcre2", int_t: str = "int64_t"):
 
         super().__init__(
@@ -28,13 +84,15 @@ class CLangJansson(Language):
              eoi=";", relib=relib, debug=debug, with_predef=with_predef,
              set_caps=(type(None), bool, int, float, str))  # type: ignore
 
+        assert byte_order in ("le", "be"), f"expecting little (le) or big (be) endian: {byte_order}"
         assert relib in ("pcre2", "re2"), f"regex engine {relib} is not supported, try: pcre2/re2"
 
         # we keep 2 ints: "int64_t" and "int"
         self._int: str = int_t
         self._json_esc_table = str.maketrans(_ESC_TABLE)
         self._inline = "INLINE " if inline else ""
-        self._streq_optim = streq_optim
+        self._strcmp_opt = strcmp_opt
+        self._byte_order = byte_order
 
     #
     # file
@@ -142,7 +200,7 @@ class CLangJansson(Language):
             return f"jm_is_valid_json({val}, {path}, rep)"
         else:
             return super().predef(var, name, path, is_str)
-    
+
     def value(self, var: Var, tvar: type) -> Expr:
         """Known type value extraction."""
         if tvar is type(None):
@@ -225,19 +283,15 @@ class CLangJansson(Language):
     def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
         assert op in ("=", "!=", "<", "<=", ">=", ">")
         if op == "=":
-            if self._streq_optim and len(e2) >= 2 and e2[0] == '"' and e2[-1] == '"':
-                le2 = len(e2) - 2
-                if le2 == 0:
-                    return f"(*{e1}) == '\\0')"
-                elif le2 >= 1 and le2 < 4:
-                    return f"jm_str_eq({e1}, {e2})"
-                elif le2 >= 4 and le2 < 8:
-                    return f"jm_str_eq_4({e1}, {e2})"
-                else:
-                    return f"jm_str_eq_8({e1}, {e2})"
-            # else
-            return f"strcmp({e1}, {e2}) == 0"
+            if self._strcmp_opt and len(e2) >= 2 and e2[0] == '"' and e2[-1] == '"':
+                return _str_cmp(e1, e2, self._byte_order == "le", True)
+            else:
+                return f"strcmp({e1}, {e2}) == 0"
         elif op == "!=":
+            if self._strcmp_opt and len(e2) >= 2 and e2[0] == '"' and e2[-1] == '"':
+                return "(" + _str_cmp(e1, e2, self._byte_order == "le", False) + ")"
+            else:
+                return f"strcmp({e1}, {e2}) != 0"
             return f"strcmp({e1}, {e2}) != 0"
         elif op == ">=":
             return f"strcmp({e1}, {e2}) >= 0"

@@ -43,7 +43,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'|'.0.t
-    res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
+    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected a [.'|'.0.t]", (path ? &lpath : NULL));
@@ -126,7 +126,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected string [.'|'.2.t.'^'.0]", (path ? &lpath : NULL));
     }
     // .'|'.2.t.'^'.1
-    xr_0 = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
+    xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
     if (xr_0)
     {
         xc_0 += 1;
@@ -138,7 +138,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     if (xc_0 <= 1)
     {
         // .'|'.2.t.'^'.2
-        xr_0 = json_is_string(pval) && strcmp(json_string_value(pval), "b") == 0;
+        xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000062);
         if (xr_0)
         {
             xc_0 += 1;
@@ -151,7 +151,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     if (xc_0 <= 1)
     {
         // .'|'.2.t.'^'.3
-        xr_0 = json_is_string(pval) && strcmp(json_string_value(pval), "c") == 0;
+        xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000063);
         if (xr_0)
         {
             xc_0 += 1;

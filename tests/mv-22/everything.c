@@ -1173,7 +1173,7 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         const char * sval_1 = json_string_value(val);
-        res = strcmp(sval_1, "Hobbes") != 0 && strcmp(sval_1, "Z") <= 0 && strcmp(sval_1, "A") >= 0;
+        res = jm_str_ne(sval_1, "Hobbes") && strcmp(sval_1, "Z") <= 0 && strcmp(sval_1, "A") >= 0;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.css1]", path);

@@ -1,0 +1,21 @@
+[
+  [ true,  {} ],
+  [ true,  {"": 0} ],
+  [ true,  {"hello": 42} ],
+  [ true,  {"quite-a-long-property-name": 42} ],
+  [ true,  {"": "Hobbes", "hello": "Susie", "quite-a-long-property-name": "Calvin"} ],
+  [ false, {"hello": 42, "whatever": "NO"} ],
+  [ false, {"whatever": "Hobbes"} ],
+  [ false, {"quite-a-long-property-name!": 18} ],
+  [ false, {"quite-a-long-property-namE": 18} ],
+  [ false, {"quite-a-long-property-nam": 18} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

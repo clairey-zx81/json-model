@@ -375,6 +375,8 @@ def jmc_script():
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
+
+    # code generation settings
     # NOTE mostly a bad idea: it can trigger an large code size expansion
     arg("--map-threshold", "-mt", default=5, type=int, help="property map threshold, default 5")
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
@@ -382,6 +384,11 @@ def jmc_script():
         help="unroll if optional props under this ratio, default 0.5")
     arg("--unroll-may-threshold", "-umt", default=5, type=int,
         help="unroll if number of optional props less than threshold, default 5")
+    arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=False, action="store_true",
+        help="optimize some string comparisons")
+    arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
+        help="do not optimize string comparisons")
+    arg("--byte-order", choices=["le", "be", "dpd"], default="le", help="set endian-ness")
 
     # IR optimizations (if simplification, call skipping?)
     arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=True,
@@ -647,7 +654,8 @@ def jmc_script():
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting, relib=args.regex_engine,
                                short_version=args.short_version, package=args.package,
-                               predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize)
+                               predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize,
+                               strcmp=args.strcmp_opt, byte_order=args.byte_order)
         source = str(code)
 
         # source to executable for C and java

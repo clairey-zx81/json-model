@@ -1589,6 +1589,8 @@ def xstatic_compile(
         inline: bool = True,
         predef: bool = True,
         ir_optimize: bool = True,
+        strcmp: bool = False,
+        byte_order: str = "le",
     ) -> Code:
     """Generate the check source code for a model.
 
@@ -1607,6 +1609,8 @@ def xstatic_compile(
     - inline: enable function inlining (for C).
     - predef: enable string content predef checks.
     - ir_optimize: enable IR optimizations.
+    - strcmp: whether to optimize some string comparisons
+    - byte_order: le, be or dpd
     """
     # target language
     if lang == "py":
@@ -1616,7 +1620,8 @@ def xstatic_compile(
     elif lang == "c":
         from .clang import CLangJansson
         language = CLangJansson(debug=debug, with_report=report, with_path=report,
-                                with_predef=predef, relib=relib or "re2", inline=inline)
+                                with_predef=predef, relib=relib or "re2",
+                                inline=inline, strcmp_opt=strcmp, byte_order=byte_order)
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report, with_path=report,

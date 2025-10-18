@@ -1,0 +1,8 @@
+[
+  {
+    "?": "$ANY",
+    "?hello": "$ANY",
+    "?quite-a-long-property-name": "$ANY",
+    "#": "JsonModel 1"
+  }
+]

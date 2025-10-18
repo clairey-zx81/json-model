@@ -218,8 +218,9 @@ EXPECT: dict[str, int] = {
     "mv-25:values": 134,
     "mv-25:verrors:schema": 4,
     # mv-26
-    "mv-26:models": 6,
-    "mv-26:values": 90,
+    "mv-26:cmp-opts": {"strcmp": True},
+    "mv-26:models": 7,
+    "mv-26:values": 109,
     # miscellaneous tests
     "bads:models": 58,
     # tests json models of json schema versions
@@ -452,13 +453,13 @@ def test_schema(directory):
 def test_lang(directory, language):
     """Check compiled sources."""
     resolver = Resolver(None, dirmap(directory))
-    mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
-    cmp_opts = EXPECT.get(f"{directory}:cmp-opts", {})
+    mod_opts = dict(EXPECT.get(f"{directory}:mod-opts", {}))
+    cmp_opts = dict(EXPECT.get(f"{directory}:cmp-opts", {}))
     suffix = f".{language}"
 
     # default are different for PL/pgSQL
     if "report" not in cmp_opts:
-        cmp_opts["report"] = True if language != "sql" else False
+        cmp_opts["report"] = language != "sql"
 
     def generate_language(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **mod_opts)

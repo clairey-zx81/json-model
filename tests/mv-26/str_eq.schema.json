@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "": true,
+    "hello": true,
+    "quite-a-long-property-name": true
+  },
+  "additionalProperties": false
+}
