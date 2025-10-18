@@ -19,7 +19,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="benchmark" cap_py= debug=
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap_py= debug=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV JMC_BENCH_TIME_FMT='%e'
 
 # get options
@@ -44,6 +44,7 @@ while [[ "$1" == -* ]] ; do
       # NOTE setting %U does not work through docker and with subprocesses
       # there is no simple way to collect cumulated user and system cpu usage through docker
       echo " --time|-t FMT: time format for performance collection, default is '%e'"
+      echo " --task|-T TASK: comparisons to perform ($TASK)"
       exit 0
       ;;
     -v|--version)
@@ -69,6 +70,8 @@ while [[ "$1" == -* ]] ; do
     --time|-t) JMC_BENCH_TIME_FMT=$1 ; shift ;;
     --cap-py) cap_py=1 ;;
     -d|--debug) debug=1 ;;
+    --task=*) TASK=${opt#*=} ;;
+    --task|-T) TASK=$1 ; shift ;;
     --) break ;;
     *) err 1 "unexpected option: $opt" ;;
   esac
@@ -165,7 +168,12 @@ done
 # RUN (189 parallel tasks with default settings)
 #
 # slowest first
-tasks="jmc-py jmc-java jmc-js blaze jmc-c"
+tasks=""
+[[ $TASK =~ y ]] && tasks+=" jmc-py"
+[[ $TASK =~ v ]] && tasks+=" jmc-java"
+[[ $TASK =~ s ]] && tasks+=" jmc-js"
+[[ $TASK =~ b ]] && tasks+=" blaze"
+[[ $TASK =~ c ]] && tasks+=" jmc-c"
 
 echo "# validation runs (include at least one compilation each)"
 

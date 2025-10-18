@@ -6,11 +6,11 @@
 - [x] command: set default to compile on `-F language` instead of model preprocessing
 - [x] c-backend: add _optimized_ str comparison code for eq and ne
 - [x] c-backend: consider big endian for strcmp runtime and code generation
+- [x] perf: allow running over a subset of tools only
 - [ ] static: remove unexpected `$ANY` messages (irep dead code elimination)
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
 - [ ] perf: compute performance overhead globally instead of per run
-- [ ] perf: allow running over a subset of tools only
 - [ ] tests: add ir optimized output (too large?)
 - [ ] tests: add pytest ir tests
 - [ ] tests: add generated ir model check
