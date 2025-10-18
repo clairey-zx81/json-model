@@ -8,6 +8,7 @@
 - [x] c-backend: consider big endian for strcmp runtime and code generation
 - [x] perf: allow running over a subset of tools only
 - [x] static: remove unexpected `$ANY` messages (irep dead code elimination)
+- [x] pr: add new artifact
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
