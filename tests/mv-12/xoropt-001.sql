@@ -8,60 +8,45 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $Nn (.'$Nn')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Nn'
-  res := JSONB_TYPEOF(val) = 'null';
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'null';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Bb (.'$Bb')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Bb'
-  res := JSONB_TYPEOF(val) = 'boolean';
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Ii (.'$Ii')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Ii'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Ff (.'$Ff')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Ff'
-  res := JSONB_TYPEOF(val) = 'number';
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Ss (.'$Ss')
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Ss'
-  res := JSONB_TYPEOF(val) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -153,12 +138,9 @@ $$ LANGUAGE PLpgSQL;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := json_model_9(val, path, rep);
-  RETURN res;
+  RETURN json_model_9(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -54,8 +54,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'a'};
     # .'$ab'.'|'.0.a
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 # object .'$ab'.'|'.1
@@ -90,8 +89,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'b'};
     # .'$ab'.'|'.1.b
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 
@@ -122,6 +120,10 @@ sub json_model_2($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }
@@ -158,8 +160,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'c'};
     # .'$cd'.'|'.0.c
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 # object .'$cd'.'|'.1
@@ -194,8 +195,7 @@ sub _jm_obj_3($$$)
     }
     $pval = $$val{'d'};
     # .'$cd'.'|'.1.d
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 
@@ -227,6 +227,10 @@ sub json_model_3($$$)
             $res = 0;
         }
     }
+    else
+    {
+        ;
+    }
     if (! $res)
     {
         $res = json_model_2($val, $path, $rep);
@@ -238,10 +242,8 @@ sub json_model_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_3($val, $path, $rep);
-    return $res;
+    return json_model_3($val, $path, $rep);
 }
 
 

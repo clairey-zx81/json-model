@@ -50,8 +50,7 @@ sub json_model_2($$$)
     }
     $pval = $$val{'a'};
     # .'$Aa'.a
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 # check $Bb (.'$Bb')
@@ -87,8 +86,7 @@ sub json_model_3($$$)
     }
     $pval = $$val{'b'};
     # .'$Bb'.b
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 
@@ -119,6 +117,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }

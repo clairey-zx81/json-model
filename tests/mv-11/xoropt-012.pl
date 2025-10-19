@@ -26,30 +26,24 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$n'
-    $res = !defined($val);
-    return $res;
+    return !defined($val);
 }
 
 # check $x (.'$x')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$x'
-    $res = jm_is_numeric($val) && $val == 10.0;
-    return $res;
+    return jm_is_numeric($val) && $val == 10.0;
 }
 
 # check $f (.'$f')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$f'
-    $res = jm_is_boolean($val) && $val == 0;
-    return $res;
+    return jm_is_boolean($val) && $val == 0;
 }
 
 # object .'|'.4
@@ -73,8 +67,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'a'};
     # .'|'.4.a
-    $res = jm_is_boolean($pval) && $pval == 0;
-    return $res;
+    return jm_is_boolean($pval) && $pval == 0;
 }
 
 # object .'|'.3
@@ -98,8 +91,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'a'};
     # .'|'.3.a
-    $res = jm_is_boolean($pval) && $pval == 1;
-    return $res;
+    return jm_is_boolean($pval) && $pval == 1;
 }
 
 # object .'|'.2
@@ -123,8 +115,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'a'};
     # .'|'.2.a
-    $res = jm_is_numeric($pval) && $pval == 1.0;
-    return $res;
+    return jm_is_numeric($pval) && $pval == 1.0;
 }
 
 # object .'|'.1
@@ -148,8 +139,7 @@ sub _jm_obj_3($$$)
     }
     $pval = $$val{'a'};
     # .'|'.1.a
-    $res = jm_is_numeric($pval) && $pval == 10.0;
-    return $res;
+    return jm_is_numeric($pval) && $pval == 10.0;
 }
 
 # object .'|'.0
@@ -173,8 +163,7 @@ sub _jm_obj_4($$$)
     }
     $pval = $$val{'a'};
     # .'|'.0.a
-    $res = !defined($pval);
-    return $res;
+    return !defined($pval);
 }
 
 # check $ (.)

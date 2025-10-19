@@ -22,10 +22,8 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$None'
-    $res = 0;
-    return $res;
+    return 0;
 }
 
 sub _jm_re_0($$$)
@@ -89,8 +87,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'b'};
     # .'|'.1.b
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 # object .'|'.0
@@ -114,8 +111,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'a'};
     # .'|'.0.a
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 # check $ (.)

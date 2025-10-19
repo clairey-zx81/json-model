@@ -22,20 +22,16 @@ my %check_model_map;
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Zz'
-    $res = json_model_6($val, $path, $rep);
-    return $res;
+    return json_model_6($val, $path, $rep);
 }
 
 # check $z (.'$z')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$z'
-    $res = json_model_6($val, $path, $rep);
-    return $res;
+    return json_model_6($val, $path, $rep);
 }
 
 # check $l (.'$l')
@@ -65,10 +61,8 @@ sub json_model_4($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_4($val, $path, $rep);
-    return $res;
+    return json_model_4($val, $path, $rep);
 }
 
 # check $Zz#zero (.'$Zz#zero')
@@ -104,8 +98,7 @@ sub json_model_6($$$)
     }
     $pval = $$val{'zb'};
     # .'$Zz#zero'.zb
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 

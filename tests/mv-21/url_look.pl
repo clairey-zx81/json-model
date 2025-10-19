@@ -21,20 +21,16 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$u1'
-    $res = jm_is_string($val) && $val eq 'https://json-model.org/models/json-model';
-    return $res;
+    return jm_is_string($val) && $val eq 'https://json-model.org/models/json-model';
 }
 
 # check $u2 (.'$u2')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$u2'
-    $res = jm_is_string($val) && $val eq 'file://./url_looking.model.json';
-    return $res;
+    return jm_is_string($val) && $val eq 'file://./url_looking.model.json';
 }
 
 
@@ -42,11 +38,9 @@ sub json_model_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # trigger a warning on url-looking definitions
     # .
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 

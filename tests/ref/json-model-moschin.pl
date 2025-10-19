@@ -99,20 +99,16 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model'
-    $res = json_model_42($val, $path, $rep);
-    return $res;
+    return json_model_42($val, $path, $rep);
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_42($val, $path, $rep);
-    return $res;
+    return json_model_42($val, $path, $rep);
 }
 
 # check $Model#RootModel (.'$Model#RootModel')
@@ -179,11 +175,9 @@ sub json_model_20($$$)
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#ArrayComment'
     # "/^#/"
-    $res = jm_is_string($val) && jm_starts_with($val, '#');
-    return $res;
+    return jm_is_string($val) && jm_starts_with($val, '#');
 }
 
 # check $Model#ScalarModel (.'$Model#ScalarModel')
@@ -289,10 +283,8 @@ sub json_model_17($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#PreDef'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 sub _jm_re_0($$$)
@@ -306,11 +298,9 @@ sub _jm_re_0($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Ref'
     # "/^\\$./"
-    $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 sub _jm_re_1($$$)
@@ -324,11 +314,9 @@ sub _jm_re_1($$$)
 sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#ValConst'
     # "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-    $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_1($val, $path, $rep);
 }
 
 sub _jm_re_2($$$)
@@ -342,11 +330,9 @@ sub _jm_re_2($$$)
 sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#StrConst'
     # "/^[A-Za-z0-9_]/"
-    $res = jm_is_string($val) && _jm_re_2($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_2($val, $path, $rep);
 }
 
 sub _jm_xre_0_re($$$)
@@ -1087,11 +1073,9 @@ sub _jm_re_6($$$)
 sub json_model_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Name'
     # "/^\\..+$/"
-    $res = jm_is_string($val) && _jm_re_6($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_6($val, $path, $rep);
 }
 
 # object .'$Model#Root'.'|'.5.'$'.'.schema'
@@ -2532,20 +2516,16 @@ sub _jm_obj_36($$$)
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Root'.'|'.0.'!'
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_obj_42_map_# (.'$Model#Root'.'|'.0.'#')
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Root'.'|'.0.'#'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # object .'$Model#Root'.'|'.0.'$'.'.schema'
@@ -2732,10 +2712,8 @@ sub _jm_f_3($$$)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Root'.'|'.0.'.mo'
-    $res = jm_is_integer($val) && $val >= 1;
-    return $res;
+    return jm_is_integer($val) && $val >= 1;
 }
 
 # check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
@@ -2866,11 +2844,9 @@ sub _jm_re_9($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Url'
     # "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-    $res = jm_is_string($val) && _jm_re_9($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_9($val, $path, $rep);
 }
 
 sub _jm_re_10($$$)

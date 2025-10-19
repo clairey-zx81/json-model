@@ -51,8 +51,7 @@ sub json_model_1($$$)
     $pval = $$val{'world'};
     # .world
     # "/^!/"
-    $res = jm_is_string($pval) && jm_starts_with($pval, '!');
-    return $res;
+    return jm_is_string($pval) && jm_starts_with($pval, '!');
 }
 
 

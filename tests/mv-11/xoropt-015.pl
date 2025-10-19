@@ -59,8 +59,7 @@ sub json_model_3($$$)
     }
     $pval = $$val{'X'};
     # .'$Xx'.X
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # check $Yy (.'$Yy')
@@ -85,8 +84,7 @@ sub json_model_4($$$)
     }
     $pval = $$val{'Y'};
     # .'$Yy'.Y
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'$Ee'.'|'.1
@@ -213,10 +211,8 @@ sub json_model_6($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_6($val, $path, $rep);
-    return $res;
+    return json_model_6($val, $path, $rep);
 }
 
 

@@ -20,11 +20,9 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # flatten and xor to or test
     # .
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 

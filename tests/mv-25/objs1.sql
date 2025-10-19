@@ -62,8 +62,7 @@ BEGIN
   END IF;
   pval := val -> 'foo';
   -- .foo
-  res := json_model_3(pval, NULL, rep);
-  RETURN res;
+  RETURN json_model_3(pval, NULL, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -92,6 +91,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   RETURN res;
 END;
@@ -126,8 +127,7 @@ BEGIN
   END IF;
   pval := val -> 'legs';
   -- .'$objs0#table'.legs
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -160,8 +160,7 @@ BEGIN
   END IF;
   pval := val -> 'color';
   -- .'$objs0#chair'.color
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 

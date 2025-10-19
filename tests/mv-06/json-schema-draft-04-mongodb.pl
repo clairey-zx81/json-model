@@ -142,10 +142,8 @@ sub _jm_f_3($$$)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_3_map_enum (.'$schema'.enum)
@@ -168,20 +166,16 @@ sub _jm_f_5($$$)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.exclusiveMaximum
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_3_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.exclusiveMinimum
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_3_map_items (.'$schema'.items)
@@ -204,100 +198,80 @@ sub _jm_f_8($$$)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.maxItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_3_map_maxLength (.'$schema'.maxLength)
 sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.maxLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_3_map_maxProperties (.'$schema'.maxProperties)
 sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.maxProperties
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_3_map_maximum (.'$schema'.maximum)
 sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.maximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_3_map_minItems (.'$schema'.minItems)
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.minItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_3_map_minLength (.'$schema'.minLength)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.minLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_3_map_minProperties (.'$schema'.minProperties)
 sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.minProperties
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_3_map_minimum (.'$schema'.minimum)
 sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.minimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_3_map_multipleOf (.'$schema'.multipleOf)
 sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.multipleOf
-    $res = jm_is_numeric($val) && $val > 0.0;
-    return $res;
+    return jm_is_numeric($val) && $val > 0.0;
 }
 
 # check json_model_3_map_pattern (.'$schema'.pattern)
 sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.pattern
-    $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
 }
 
 # check json_model_3_map_patternProperties (.'$schema'.patternProperties)
@@ -352,10 +326,8 @@ sub _jm_f_20($$$)
 sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_3_map_type (.'$schema'.type)
@@ -378,10 +350,8 @@ sub _jm_f_22($$$)
 sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema'.uniqueItems
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -419,10 +389,8 @@ sub json_model_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_3($val, $path, $rep);
-    return $res;
+    return json_model_3($val, $path, $rep);
 }
 
 # check $schema#schemaArray (.'$schema#schemaArray')
@@ -459,10 +427,8 @@ sub json_model_4($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#simpleTypes'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $schema#stringArray (.'$schema#stringArray')
@@ -528,11 +494,9 @@ sub json_model_7($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # add a definition for BSON types
     # .'$schema#bsonType'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 

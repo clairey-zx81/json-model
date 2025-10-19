@@ -18,12 +18,10 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # JSON_MODEL_LOOSE_INT
     # .
     # .'@'
-    $res = jm_is_integer($val);
-    return $res;
+    return jm_is_integer($val);
 }
 
 

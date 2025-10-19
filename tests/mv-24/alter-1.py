@@ -28,18 +28,14 @@ check_model_map: PropMap
 
 # check $g (.'$g')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$g'
-    res = isinstance(val, str) and val == "g"
-    return res
+    return isinstance(val, str) and val == "g"
 
 
 # check $h_ou_i (.'$h_ou_i')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$h_ou_i'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
-    return res
+    return ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
 
 # check $d (.'$d')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -60,8 +56,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("d", UNDEFINED)) != UNDEFINED):
         return False
     # .'$d'.d
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 
 # check $ef (.'$ef')
@@ -83,8 +78,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("ef", UNDEFINED)) != UNDEFINED):
         return False
     # .'$ef'.ef
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 # object .'$alternative'.'|'.0
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -104,8 +98,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         return False
     # .'$alternative'.'|'.0.a
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 
 # object .'$alternative'.'|'.1
@@ -126,8 +119,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("bc", UNDEFINED)) != UNDEFINED):
         return False
     # .'$alternative'.'|'.1.bc
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 # object .'$alternative'.'|'.2
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -147,8 +139,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("g", UNDEFINED)) != UNDEFINED):
         return False
     # .'$alternative'.'|'.2.g
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 # object .'$alternative'.'|'.3
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -168,8 +159,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("hi", UNDEFINED)) != UNDEFINED):
         return False
     # .'$alternative'.'|'.3.hi
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 
 # check $alternative (.'$alternative')
@@ -189,14 +179,14 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = False
         else:
             res = False
+    else:
+        pass
     return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_6(val, path, rep)
-    return res
+    return json_model_6(val, path, rep)
 
 
 # initialization guard

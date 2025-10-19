@@ -26,8 +26,7 @@ BEGIN
   END IF;
   pval := val -> 'li';
   -- .li
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::FLOAT8 >= 0;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::FLOAT8 >= 0;
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -24,8 +24,7 @@ BEGIN
   END IF;
   pval := val -> 'name';
   -- .'|'.1.name
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 

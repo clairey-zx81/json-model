@@ -46,8 +46,7 @@ function json_model_2(val, path, rep)
     }
     pval = val["d"];
     // .'$d'.d
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 
@@ -83,8 +82,7 @@ function json_model_3(val, path, rep)
     }
     pval = val["ef"];
     // .'$ef'.ef
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 // object .'$alternative'.'|'.0
@@ -118,8 +116,7 @@ function _jm_obj_0(val, path, rep)
     }
     pval = val["a"];
     // .'$alternative'.'|'.0.a
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 
@@ -154,8 +151,7 @@ function _jm_obj_1(val, path, rep)
     }
     pval = val["bc"];
     // .'$alternative'.'|'.1.bc
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 
@@ -193,10 +189,8 @@ function json_model_4(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_4(val, path, rep);
-    return res;
+    return json_model_4(val, path, rep);
 }
 
 

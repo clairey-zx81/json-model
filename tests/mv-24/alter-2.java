@@ -53,8 +53,7 @@ public class alter_2 extends ModelChecker
             return false;
         }
         // .'$d'.d
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
 
@@ -88,8 +87,7 @@ public class alter_2 extends ModelChecker
             return false;
         }
         // .'$efg'.efg
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
     // object .'$alternative'.'|'.0
@@ -121,8 +119,7 @@ public class alter_2 extends ModelChecker
             return false;
         }
         // .'$alternative'.'|'.0.a
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
 
@@ -155,8 +152,7 @@ public class alter_2 extends ModelChecker
             return false;
         }
         // .'$alternative'.'|'.1.bc
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
 
@@ -219,10 +215,8 @@ public class alter_2 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_4(val, path, rep);
-        return res;
+        return json_model_4(val, path, rep);
     }
 
 

@@ -18,12 +18,10 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # to serve as an external reference
     # .
     # .'@'
-    $res = jm_is_string($val) && $val eq 'Susie';
-    return $res;
+    return jm_is_string($val) && $val eq 'Susie';
 }
 
 

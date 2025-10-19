@@ -8,24 +8,18 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $Model (.'$Model')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model'
-  res := json_model_42(val, path, rep);
-  RETURN res;
+  RETURN json_model_42(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := json_model_42(val, path, rep);
-  RETURN res;
+  RETURN json_model_42(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -94,13 +88,10 @@ $$ LANGUAGE PLpgSQL;
 -- check $Model#ArrayComment (.'$Model#ArrayComment')
 CREATE OR REPLACE FUNCTION json_model_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model#ArrayComment'
   -- "/^#/"
-  res := JSONB_TYPEOF(val) = 'string' AND STARTS_WITH(JSON_VALUE(val, '$' RETURNING TEXT), '#');
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'string' AND STARTS_WITH(JSON_VALUE(val, '$' RETURNING TEXT), '#');
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -133,12 +124,9 @@ $$ LANGUAGE plpgsql;
 -- check $Model#ValModel (.'$Model#ValModel')
 CREATE OR REPLACE FUNCTION json_model_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model#ValModel'
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -187,12 +175,9 @@ $$ LANGUAGE plpgsql;
 -- check $Model#PreDef (.'$Model#PreDef')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model#PreDef'
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -207,13 +192,10 @@ $$ LANGUAGE plpgsql;
 -- check $Model#Ref (.'$Model#Ref')
 CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model#Ref'
   -- "/^\\$./"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -228,13 +210,10 @@ $$ LANGUAGE plpgsql;
 -- check $Model#ValConst (.'$Model#ValConst')
 CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model#ValConst'
   -- "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -249,13 +228,10 @@ $$ LANGUAGE plpgsql;
 -- check $Model#StrConst (.'$Model#StrConst')
 CREATE OR REPLACE FUNCTION json_model_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model#StrConst'
   -- "/^[A-Za-z0-9_]/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_2(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_2(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -756,13 +732,10 @@ $$ LANGUAGE plpgsql;
 -- check $Model#Name (.'$Model#Name')
 CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model#Name'
   -- "/^\\..+$/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_6(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_6(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1721,13 +1694,10 @@ $$ LANGUAGE plpgsql;
 -- check $Model#Url (.'$Model#Url')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model#Url'
   -- "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_8(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_8(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -49,10 +49,8 @@ sub json_model_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_5($val, $path, $rep);
-    return $res;
+    return json_model_5($val, $path, $rep);
 }
 
 # check $foo#li0 (.'$foo#li0')

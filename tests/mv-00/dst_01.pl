@@ -63,8 +63,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'f'};
     # .'|'.5.f
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.4
@@ -110,8 +109,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'e'};
     # .'|'.4.e
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.3
@@ -157,8 +155,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'d'};
     # .'|'.3.d
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.2
@@ -204,8 +201,7 @@ sub _jm_obj_3($$$)
     }
     $pval = $$val{'f'};
     # .'|'.2.f
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.1
@@ -251,8 +247,7 @@ sub _jm_obj_4($$$)
     }
     $pval = $$val{'e'};
     # .'|'.1.e
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.0
@@ -298,8 +293,7 @@ sub _jm_obj_5($$$)
     }
     $pval = $$val{'d'};
     # .'|'.0.d
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # check $ (.)

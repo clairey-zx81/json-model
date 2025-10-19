@@ -22,20 +22,16 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Val'
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check $Key (.'$Key')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Key'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
 }
 
 # check $map (.'$map')
@@ -94,10 +90,8 @@ sub json_model_5($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_5($val, $path, $rep);
-    return $res;
+    return json_model_5($val, $path, $rep);
 }
 
 

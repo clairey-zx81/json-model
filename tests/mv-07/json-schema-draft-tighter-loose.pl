@@ -295,20 +295,16 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight'
-    $res = json_model_27($val, $path, $rep);
-    return $res;
+    return json_model_27($val, $path, $rep);
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_27($val, $path, $rep);
-    return $res;
+    return json_model_27($val, $path, $rep);
 }
 
 # object .'$tight#RootSchema'.'&'.0
@@ -328,8 +324,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'$schema'};
     # .'$tight#RootSchema'.'&'.0.'$schema'
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # check $tight#RootSchema (.'$tight#RootSchema')
@@ -382,6 +377,10 @@ sub json_model_25($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     if (! $res)
     {
@@ -446,10 +445,8 @@ sub json_model_25($$$)
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#metas'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_$defs (.'$tight#metas'.'$defs')
@@ -480,30 +477,24 @@ sub _jm_f_1($$$)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#metas'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_$schema (.'$tight#metas'.'$schema')
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#metas'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_default (.'$tight#metas'.default)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#metas'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_11_map_definitions (.'$tight#metas'.definitions)
@@ -534,40 +525,32 @@ sub _jm_f_5($$$)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#metas'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_examples (.'$tight#metas'.examples)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#metas'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_11_map_id (.'$tight#metas'.id)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#metas'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_title (.'$tight#metas'.title)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#metas'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -605,10 +588,8 @@ sub json_model_11($$$)
 sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_$defs (.'$tight#String'.'$defs')
@@ -639,30 +620,24 @@ sub _jm_f_11($$$)
 sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_$schema (.'$tight#String'.'$schema')
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_default (.'$tight#String'.default)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_12_map_definitions (.'$tight#String'.definitions)
@@ -693,20 +668,16 @@ sub _jm_f_15($$$)
 sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_examples (.'$tight#String'.examples)
 sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 
@@ -714,60 +685,48 @@ sub _jm_f_17($$$)
 sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.format
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check json_model_12_map_id (.'$tight#String'.id)
 sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_maxLength (.'$tight#String'.maxLength)
 sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.maxLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_12_map_minLength (.'$tight#String'.minLength)
 sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.minLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_12_map_pattern (.'$tight#String'.pattern)
 sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.pattern
-    $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
 }
 
 # check json_model_12_map_title (.'$tight#String'.title)
 sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#String'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -817,10 +776,8 @@ sub json_model_12($$$)
 sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_$defs (.'$tight#Array'.'$defs')
@@ -851,30 +808,24 @@ sub _jm_f_25($$$)
 sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_$schema (.'$tight#Array'.'$schema')
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_default (.'$tight#Array'.default)
 sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_13_map_definitions (.'$tight#Array'.definitions)
@@ -905,30 +856,24 @@ sub _jm_f_29($$$)
 sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_examples (.'$tight#Array'.examples)
 sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_13_map_id (.'$tight#Array'.id)
 sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_items (.'$tight#Array'.items)
@@ -951,40 +896,32 @@ sub _jm_f_33($$$)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.maxItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_13_map_minItems (.'$tight#Array'.minItems)
 sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.minItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_13_map_title (.'$tight#Array'.title)
 sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_uniqueItems (.'$tight#Array'.uniqueItems)
 sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.uniqueItems
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1057,10 +994,8 @@ sub json_model_6($$$)
 sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_$defs (.'$tight#Object'.'$defs')
@@ -1091,30 +1026,24 @@ sub _jm_f_39($$$)
 sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_$schema (.'$tight#Object'.'$schema')
 sub _jm_f_41($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_default (.'$tight#Object'.default)
 sub _jm_f_42($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_14_map_definitions (.'$tight#Object'.definitions)
@@ -1145,30 +1074,24 @@ sub _jm_f_43($$$)
 sub _jm_f_44($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_examples (.'$tight#Object'.examples)
 sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_14_map_id (.'$tight#Object'.id)
 sub _jm_f_46($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_patternProperties (.'$tight#Object'.patternProperties)
@@ -1253,10 +1176,8 @@ sub _jm_f_49($$$)
 sub _jm_f_50($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -1306,10 +1227,8 @@ sub json_model_14($$$)
 sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_$defs (.'$tight#Integer'.'$defs')
@@ -1340,30 +1259,24 @@ sub _jm_f_52($$$)
 sub _jm_f_53($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_$schema (.'$tight#Integer'.'$schema')
 sub _jm_f_54($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_default (.'$tight#Integer'.default)
 sub _jm_f_55($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_15_map_definitions (.'$tight#Integer'.definitions)
@@ -1394,60 +1307,48 @@ sub _jm_f_56($$$)
 sub _jm_f_57($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_examples (.'$tight#Integer'.examples)
 sub _jm_f_58($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_15_map_id (.'$tight#Integer'.id)
 sub _jm_f_59($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_maximum (.'$tight#Integer'.maximum)
 sub _jm_f_60($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.maximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_15_map_minimum (.'$tight#Integer'.minimum)
 sub _jm_f_61($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.minimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_15_map_title (.'$tight#Integer'.title)
 sub _jm_f_62($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Integer'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -1497,10 +1398,8 @@ sub json_model_15($$$)
 sub _jm_f_63($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$defs (.'$tight#Number'.'$defs')
@@ -1531,30 +1430,24 @@ sub _jm_f_64($$$)
 sub _jm_f_65($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$schema (.'$tight#Number'.'$schema')
 sub _jm_f_66($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_default (.'$tight#Number'.default)
 sub _jm_f_67($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_16_map_definitions (.'$tight#Number'.definitions)
@@ -1585,60 +1478,48 @@ sub _jm_f_68($$$)
 sub _jm_f_69($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_examples (.'$tight#Number'.examples)
 sub _jm_f_70($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_16_map_id (.'$tight#Number'.id)
 sub _jm_f_71($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_maximum (.'$tight#Number'.maximum)
 sub _jm_f_72($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.maximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_16_map_minimum (.'$tight#Number'.minimum)
 sub _jm_f_73($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.minimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_16_map_title (.'$tight#Number'.title)
 sub _jm_f_74($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Number'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -1688,10 +1569,8 @@ sub json_model_16($$$)
 sub _jm_f_75($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Bool'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_$defs (.'$tight#Bool'.'$defs')
@@ -1722,30 +1601,24 @@ sub _jm_f_76($$$)
 sub _jm_f_77($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Bool'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_$schema (.'$tight#Bool'.'$schema')
 sub _jm_f_78($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Bool'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_default (.'$tight#Bool'.default)
 sub _jm_f_79($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Bool'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_17_map_definitions (.'$tight#Bool'.definitions)
@@ -1776,40 +1649,32 @@ sub _jm_f_80($$$)
 sub _jm_f_81($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Bool'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_examples (.'$tight#Bool'.examples)
 sub _jm_f_82($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Bool'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_17_map_id (.'$tight#Bool'.id)
 sub _jm_f_83($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Bool'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_title (.'$tight#Bool'.title)
 sub _jm_f_84($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Bool'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -1859,10 +1724,8 @@ sub json_model_17($$$)
 sub _jm_f_85($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Null'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_$defs (.'$tight#Null'.'$defs')
@@ -1893,30 +1756,24 @@ sub _jm_f_86($$$)
 sub _jm_f_87($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Null'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_$schema (.'$tight#Null'.'$schema')
 sub _jm_f_88($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Null'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_default (.'$tight#Null'.default)
 sub _jm_f_89($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Null'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_18_map_definitions (.'$tight#Null'.definitions)
@@ -1947,40 +1804,32 @@ sub _jm_f_90($$$)
 sub _jm_f_91($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Null'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_examples (.'$tight#Null'.examples)
 sub _jm_f_92($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Null'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_18_map_id (.'$tight#Null'.id)
 sub _jm_f_93($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Null'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_title (.'$tight#Null'.title)
 sub _jm_f_94($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Null'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -2030,10 +1879,8 @@ sub json_model_18($$$)
 sub _jm_f_95($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AllOf'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_$defs (.'$tight#AllOf'.'$defs')
@@ -2064,30 +1911,24 @@ sub _jm_f_96($$$)
 sub _jm_f_97($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AllOf'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_$schema (.'$tight#AllOf'.'$schema')
 sub _jm_f_98($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AllOf'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_default (.'$tight#AllOf'.default)
 sub _jm_f_99($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AllOf'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_19_map_definitions (.'$tight#AllOf'.definitions)
@@ -2118,40 +1959,32 @@ sub _jm_f_100($$$)
 sub _jm_f_101($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AllOf'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_examples (.'$tight#AllOf'.examples)
 sub _jm_f_102($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AllOf'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_19_map_id (.'$tight#AllOf'.id)
 sub _jm_f_103($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AllOf'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_title (.'$tight#AllOf'.title)
 sub _jm_f_104($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AllOf'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -2201,10 +2034,8 @@ sub json_model_19($$$)
 sub _jm_f_105($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AnyOf'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_$defs (.'$tight#AnyOf'.'$defs')
@@ -2235,30 +2066,24 @@ sub _jm_f_106($$$)
 sub _jm_f_107($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AnyOf'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_$schema (.'$tight#AnyOf'.'$schema')
 sub _jm_f_108($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AnyOf'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_default (.'$tight#AnyOf'.default)
 sub _jm_f_109($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AnyOf'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_20_map_definitions (.'$tight#AnyOf'.definitions)
@@ -2289,40 +2114,32 @@ sub _jm_f_110($$$)
 sub _jm_f_111($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AnyOf'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_examples (.'$tight#AnyOf'.examples)
 sub _jm_f_112($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AnyOf'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_20_map_id (.'$tight#AnyOf'.id)
 sub _jm_f_113($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AnyOf'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_title (.'$tight#AnyOf'.title)
 sub _jm_f_114($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#AnyOf'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -2372,10 +2189,8 @@ sub json_model_20($$$)
 sub _jm_f_115($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#OneOf'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_$defs (.'$tight#OneOf'.'$defs')
@@ -2406,30 +2221,24 @@ sub _jm_f_116($$$)
 sub _jm_f_117($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#OneOf'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_$schema (.'$tight#OneOf'.'$schema')
 sub _jm_f_118($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#OneOf'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_default (.'$tight#OneOf'.default)
 sub _jm_f_119($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#OneOf'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_21_map_definitions (.'$tight#OneOf'.definitions)
@@ -2460,40 +2269,32 @@ sub _jm_f_120($$$)
 sub _jm_f_121($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#OneOf'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_examples (.'$tight#OneOf'.examples)
 sub _jm_f_122($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#OneOf'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_21_map_id (.'$tight#OneOf'.id)
 sub _jm_f_123($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#OneOf'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_title (.'$tight#OneOf'.title)
 sub _jm_f_124($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#OneOf'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -2543,10 +2344,8 @@ sub json_model_21($$$)
 sub _jm_f_125($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Enum'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_$defs (.'$tight#Enum'.'$defs')
@@ -2577,30 +2376,24 @@ sub _jm_f_126($$$)
 sub _jm_f_127($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Enum'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_$schema (.'$tight#Enum'.'$schema')
 sub _jm_f_128($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Enum'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_default (.'$tight#Enum'.default)
 sub _jm_f_129($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Enum'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_22_map_definitions (.'$tight#Enum'.definitions)
@@ -2631,40 +2424,32 @@ sub _jm_f_130($$$)
 sub _jm_f_131($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Enum'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_examples (.'$tight#Enum'.examples)
 sub _jm_f_132($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Enum'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_22_map_id (.'$tight#Enum'.id)
 sub _jm_f_133($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Enum'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_title (.'$tight#Enum'.title)
 sub _jm_f_134($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Enum'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -2766,10 +2551,8 @@ sub json_model_5($$$)
 sub _jm_f_135($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Const'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_$defs (.'$tight#Const'.'$defs')
@@ -2800,30 +2583,24 @@ sub _jm_f_136($$$)
 sub _jm_f_137($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Const'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_$schema (.'$tight#Const'.'$schema')
 sub _jm_f_138($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Const'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_default (.'$tight#Const'.default)
 sub _jm_f_139($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Const'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_23_map_definitions (.'$tight#Const'.definitions)
@@ -2854,40 +2631,32 @@ sub _jm_f_140($$$)
 sub _jm_f_141($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Const'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_examples (.'$tight#Const'.examples)
 sub _jm_f_142($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Const'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_23_map_id (.'$tight#Const'.id)
 sub _jm_f_143($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Const'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_title (.'$tight#Const'.title)
 sub _jm_f_144($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Const'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -2968,10 +2737,8 @@ sub json_model_4($$$)
 sub _jm_f_145($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Ref'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_24_map_$defs (.'$tight#Ref'.'$defs')
@@ -3002,30 +2769,24 @@ sub _jm_f_146($$$)
 sub _jm_f_147($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Ref'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_24_map_$schema (.'$tight#Ref'.'$schema')
 sub _jm_f_148($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Ref'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_24_map_default (.'$tight#Ref'.default)
 sub _jm_f_149($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Ref'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_24_map_definitions (.'$tight#Ref'.definitions)
@@ -3056,40 +2817,32 @@ sub _jm_f_150($$$)
 sub _jm_f_151($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Ref'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_24_map_examples (.'$tight#Ref'.examples)
 sub _jm_f_152($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Ref'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_24_map_id (.'$tight#Ref'.id)
 sub _jm_f_153($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Ref'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_24_map_title (.'$tight#Ref'.title)
 sub _jm_f_154($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Ref'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -3155,10 +2908,8 @@ sub json_model_26($$$)
 sub _jm_f_155($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumString'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_28_map_$defs (.'$tight#EnumString'.'$defs')
@@ -3189,30 +2940,24 @@ sub _jm_f_156($$$)
 sub _jm_f_157($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumString'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_28_map_$schema (.'$tight#EnumString'.'$schema')
 sub _jm_f_158($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumString'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_28_map_default (.'$tight#EnumString'.default)
 sub _jm_f_159($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumString'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_28_map_definitions (.'$tight#EnumString'.definitions)
@@ -3243,40 +2988,32 @@ sub _jm_f_160($$$)
 sub _jm_f_161($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumString'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_28_map_examples (.'$tight#EnumString'.examples)
 sub _jm_f_162($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumString'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_28_map_id (.'$tight#EnumString'.id)
 sub _jm_f_163($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumString'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_28_map_title (.'$tight#EnumString'.title)
 sub _jm_f_164($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumString'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -3350,10 +3087,8 @@ sub json_model_28($$$)
 sub _jm_f_165($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumNum'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_29_map_$defs (.'$tight#EnumNum'.'$defs')
@@ -3384,30 +3119,24 @@ sub _jm_f_166($$$)
 sub _jm_f_167($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumNum'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_29_map_$schema (.'$tight#EnumNum'.'$schema')
 sub _jm_f_168($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumNum'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_29_map_default (.'$tight#EnumNum'.default)
 sub _jm_f_169($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumNum'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_29_map_definitions (.'$tight#EnumNum'.definitions)
@@ -3438,40 +3167,32 @@ sub _jm_f_170($$$)
 sub _jm_f_171($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumNum'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_29_map_examples (.'$tight#EnumNum'.examples)
 sub _jm_f_172($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumNum'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_29_map_id (.'$tight#EnumNum'.id)
 sub _jm_f_173($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumNum'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_29_map_title (.'$tight#EnumNum'.title)
 sub _jm_f_174($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumNum'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -3545,10 +3266,8 @@ sub json_model_29($$$)
 sub _jm_f_175($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumInt'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_30_map_$defs (.'$tight#EnumInt'.'$defs')
@@ -3579,30 +3298,24 @@ sub _jm_f_176($$$)
 sub _jm_f_177($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumInt'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_30_map_$schema (.'$tight#EnumInt'.'$schema')
 sub _jm_f_178($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumInt'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_30_map_default (.'$tight#EnumInt'.default)
 sub _jm_f_179($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumInt'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_30_map_definitions (.'$tight#EnumInt'.definitions)
@@ -3633,40 +3346,32 @@ sub _jm_f_180($$$)
 sub _jm_f_181($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumInt'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_30_map_examples (.'$tight#EnumInt'.examples)
 sub _jm_f_182($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumInt'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_30_map_id (.'$tight#EnumInt'.id)
 sub _jm_f_183($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumInt'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_30_map_title (.'$tight#EnumInt'.title)
 sub _jm_f_184($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#EnumInt'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -3740,10 +3445,8 @@ sub json_model_30($$$)
 sub _jm_f_185($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstString'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_31_map_$defs (.'$tight#ConstString'.'$defs')
@@ -3774,30 +3477,24 @@ sub _jm_f_186($$$)
 sub _jm_f_187($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstString'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_31_map_$schema (.'$tight#ConstString'.'$schema')
 sub _jm_f_188($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstString'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_31_map_default (.'$tight#ConstString'.default)
 sub _jm_f_189($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstString'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_31_map_definitions (.'$tight#ConstString'.definitions)
@@ -3828,40 +3525,32 @@ sub _jm_f_190($$$)
 sub _jm_f_191($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstString'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_31_map_examples (.'$tight#ConstString'.examples)
 sub _jm_f_192($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstString'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_31_map_id (.'$tight#ConstString'.id)
 sub _jm_f_193($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstString'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_31_map_title (.'$tight#ConstString'.title)
 sub _jm_f_194($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstString'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -3922,10 +3611,8 @@ sub json_model_31($$$)
 sub _jm_f_195($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstNum'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_32_map_$defs (.'$tight#ConstNum'.'$defs')
@@ -3956,30 +3643,24 @@ sub _jm_f_196($$$)
 sub _jm_f_197($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstNum'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_32_map_$schema (.'$tight#ConstNum'.'$schema')
 sub _jm_f_198($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstNum'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_32_map_default (.'$tight#ConstNum'.default)
 sub _jm_f_199($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstNum'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_32_map_definitions (.'$tight#ConstNum'.definitions)
@@ -4010,40 +3691,32 @@ sub _jm_f_200($$$)
 sub _jm_f_201($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstNum'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_32_map_examples (.'$tight#ConstNum'.examples)
 sub _jm_f_202($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstNum'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_32_map_id (.'$tight#ConstNum'.id)
 sub _jm_f_203($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstNum'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_32_map_title (.'$tight#ConstNum'.title)
 sub _jm_f_204($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstNum'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -4104,10 +3777,8 @@ sub json_model_32($$$)
 sub _jm_f_205($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstInt'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_33_map_$defs (.'$tight#ConstInt'.'$defs')
@@ -4138,30 +3809,24 @@ sub _jm_f_206($$$)
 sub _jm_f_207($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstInt'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_33_map_$schema (.'$tight#ConstInt'.'$schema')
 sub _jm_f_208($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstInt'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_33_map_default (.'$tight#ConstInt'.default)
 sub _jm_f_209($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstInt'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_33_map_definitions (.'$tight#ConstInt'.definitions)
@@ -4192,40 +3857,32 @@ sub _jm_f_210($$$)
 sub _jm_f_211($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstInt'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_33_map_examples (.'$tight#ConstInt'.examples)
 sub _jm_f_212($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstInt'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_33_map_id (.'$tight#ConstInt'.id)
 sub _jm_f_213($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstInt'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_33_map_title (.'$tight#ConstInt'.title)
 sub _jm_f_214($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstInt'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -4286,10 +3943,8 @@ sub json_model_33($$$)
 sub _jm_f_215($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstBool'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_34_map_$defs (.'$tight#ConstBool'.'$defs')
@@ -4320,30 +3975,24 @@ sub _jm_f_216($$$)
 sub _jm_f_217($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstBool'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_34_map_$schema (.'$tight#ConstBool'.'$schema')
 sub _jm_f_218($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstBool'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_34_map_default (.'$tight#ConstBool'.default)
 sub _jm_f_219($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstBool'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_34_map_definitions (.'$tight#ConstBool'.definitions)
@@ -4374,40 +4023,32 @@ sub _jm_f_220($$$)
 sub _jm_f_221($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstBool'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_34_map_examples (.'$tight#ConstBool'.examples)
 sub _jm_f_222($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstBool'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_34_map_id (.'$tight#ConstBool'.id)
 sub _jm_f_223($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstBool'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_34_map_title (.'$tight#ConstBool'.title)
 sub _jm_f_224($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#ConstBool'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 

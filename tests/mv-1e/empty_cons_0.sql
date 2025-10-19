@@ -8,48 +8,36 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $n0 (.'$n0')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$n0'
-  res := FALSE;
-  RETURN res;
+  RETURN FALSE;
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $n1 (.'$n1')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$n1'
-  res := FALSE;
-  RETURN res;
+  RETURN FALSE;
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $n2 (.'$n2')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$n2'
-  res := FALSE;
-  RETURN res;
+  RETURN FALSE;
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := FALSE;
-  RETURN res;
+  RETURN FALSE;
 END;
 $$ LANGUAGE PLpgSQL;
 

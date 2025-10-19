@@ -50,38 +50,31 @@ sub json_model_2($$$)
     }
     $pval = $$val{'y'};
     # .'$bla'.y
-    $res = jm_is_numeric($pval);
-    return $res;
+    return jm_is_numeric($pval);
 }
 
 # check $foo (.'$foo')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$foo'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
+    return json_model_2($val, $path, $rep);
 }
 
 # check $ob (.'$ob')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ob'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
+    return json_model_2($val, $path, $rep);
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_2($val, $path, $rep);
-    return $res;
+    return json_model_2($val, $path, $rep);
 }
 
 

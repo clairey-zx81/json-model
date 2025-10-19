@@ -60,10 +60,8 @@ sub json_model_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_3($val, $path, $rep);
-    return $res;
+    return json_model_3($val, $path, $rep);
 }
 
 

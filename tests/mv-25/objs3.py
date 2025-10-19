@@ -41,8 +41,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("author", UNDEFINED)) != UNDEFINED):
         return False
     # .'$book'.author
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:

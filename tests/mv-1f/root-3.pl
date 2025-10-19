@@ -21,20 +21,16 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$foo'
-    $res = json_model_5($val, $path, $rep);
-    return $res;
+    return json_model_5($val, $path, $rep);
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_5($val, $path, $rep);
-    return $res;
+    return json_model_5($val, $path, $rep);
 }
 
 # check $foo#Foo (.'$foo#Foo')
@@ -59,8 +55,7 @@ sub json_model_5($$$)
     }
     $pval = $$val{'rt'};
     # .'$foo#Foo'.rt
-    $res = json_model_12($pval, undef, $rep);
-    return $res;
+    return json_model_12($pval, undef, $rep);
 }
 
 # check $foo#root#root#Root (.'$foo#root#root#Root')
@@ -96,8 +91,7 @@ sub json_model_12($$$)
     }
     $pval = $$val{'name'};
     # .'$foo#root#root#Root'.name
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 

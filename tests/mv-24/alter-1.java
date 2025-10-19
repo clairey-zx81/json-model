@@ -26,20 +26,16 @@ public class alter_1 extends ModelChecker
     // check $g (.'$g')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$g'
-        res = json.isString(val) && json.asString(val).compareTo("g") == 0;
-        return res;
+        return json.isString(val) && json.asString(val).compareTo("g") == 0;
     }
 
 
     // check $h_ou_i (.'$h_ou_i')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$h_ou_i'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
-        return res;
+        return json.isScalar(val) && _jm_cst_0_set.contains(val);
     }
 
     // check $d (.'$d')
@@ -72,8 +68,7 @@ public class alter_1 extends ModelChecker
             return false;
         }
         // .'$d'.d
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
 
@@ -107,8 +102,7 @@ public class alter_1 extends ModelChecker
             return false;
         }
         // .'$ef'.ef
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
     // object .'$alternative'.'|'.0
@@ -140,8 +134,7 @@ public class alter_1 extends ModelChecker
             return false;
         }
         // .'$alternative'.'|'.0.a
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
 
@@ -174,8 +167,7 @@ public class alter_1 extends ModelChecker
             return false;
         }
         // .'$alternative'.'|'.1.bc
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
     // object .'$alternative'.'|'.2
@@ -207,8 +199,7 @@ public class alter_1 extends ModelChecker
             return false;
         }
         // .'$alternative'.'|'.2.g
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
     // object .'$alternative'.'|'.3
@@ -240,8 +231,7 @@ public class alter_1 extends ModelChecker
             return false;
         }
         // .'$alternative'.'|'.3.hi
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
 
@@ -279,10 +269,8 @@ public class alter_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_6(val, path, rep);
-        return res;
+        return json_model_6(val, path, rep);
     }
 
 

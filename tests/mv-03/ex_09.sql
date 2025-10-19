@@ -8,24 +8,18 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $ex08 (.'$ex08')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$ex08'
-  res := json_model_9(val, path, rep);
-  RETURN res;
+  RETURN json_model_9(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Ex08 (.'$Ex08')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Ex08'
-  res := json_model_9(val, path, rep);
-  RETURN res;
+  RETURN json_model_9(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -67,24 +61,18 @@ $$ LANGUAGE PLpgSQL;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := json_model_4(val, path, rep);
-  RETURN res;
+  RETURN json_model_4(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $ex08#Val (.'$ex08#Val')
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$ex08#Val'
-  res := JSONB_TYPEOF(val) = 'boolean';
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 

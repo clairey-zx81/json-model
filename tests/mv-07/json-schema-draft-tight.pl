@@ -514,30 +514,24 @@ sub _jm_f_0($$$)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$arrayKeywords'.maxItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_6_map_minItems (.'$arrayKeywords'.minItems)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$arrayKeywords'.minItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_6_map_uniqueItems (.'$arrayKeywords'.uniqueItems)
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$arrayKeywords'.uniqueItems
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -575,20 +569,16 @@ sub json_model_6($$$)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$objectKeywords'.maxProperties
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_7_map_minProperties (.'$objectKeywords'.minProperties)
 sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$objectKeywords'.minProperties
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_7_map_patternProperties (.'$objectKeywords'.patternProperties)
@@ -746,20 +736,16 @@ sub json_model_8($$$)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_9_map_$comment (.'$metas'.'$comment')
 sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_9_map_$defs (.'$metas'.'$defs')
@@ -790,30 +776,24 @@ sub _jm_f_11($$$)
 sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_9_map_$id (.'$metas'.'$id')
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_9_map_$schema (.'$metas'.'$schema')
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_9_map_$vocabulary (.'$metas'.'$vocabulary')
@@ -851,10 +831,8 @@ sub _jm_f_15($$$)
 sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_9_map_definitions (.'$metas'.definitions)
@@ -885,70 +863,56 @@ sub _jm_f_17($$$)
 sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_9_map_description (.'$metas'.description)
 sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_9_map_examples (.'$metas'.examples)
 sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_9_map_id (.'$metas'.id)
 sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_9_map_readOnly (.'$metas'.readOnly)
 sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_9_map_title (.'$metas'.title)
 sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_9_map_writeOnly (.'$metas'.writeOnly)
 sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$metas'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -986,20 +950,16 @@ sub json_model_9($$$)
 sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_10_map_$comment (.'$String'.'$comment')
 sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_10_map_$defs (.'$String'.'$defs')
@@ -1030,30 +990,24 @@ sub _jm_f_27($$$)
 sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_10_map_$id (.'$String'.'$id')
 sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_10_map_$schema (.'$String'.'$schema')
 sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_10_map_$vocabulary (.'$String'.'$vocabulary')
@@ -1091,10 +1045,8 @@ sub _jm_f_31($$$)
 sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_10_map_definitions (.'$String'.definitions)
@@ -1125,30 +1077,24 @@ sub _jm_f_33($$$)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_10_map_description (.'$String'.description)
 sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_10_map_examples (.'$String'.examples)
 sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 
@@ -1156,80 +1102,64 @@ sub _jm_f_36($$$)
 sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.format
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check json_model_10_map_id (.'$String'.id)
 sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_10_map_maxLength (.'$String'.maxLength)
 sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.maxLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_10_map_minLength (.'$String'.minLength)
 sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.minLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_10_map_pattern (.'$String'.pattern)
 sub _jm_f_41($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.pattern
-    $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
 }
 
 # check json_model_10_map_readOnly (.'$String'.readOnly)
 sub _jm_f_42($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_10_map_title (.'$String'.title)
 sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_10_map_writeOnly (.'$String'.writeOnly)
 sub _jm_f_44($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$String'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1279,20 +1209,16 @@ sub json_model_10($$$)
 sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_$comment (.'$Array'.'$comment')
 sub _jm_f_46($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_$defs (.'$Array'.'$defs')
@@ -1323,30 +1249,24 @@ sub _jm_f_47($$$)
 sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_$id (.'$Array'.'$id')
 sub _jm_f_49($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_$schema (.'$Array'.'$schema')
 sub _jm_f_50($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_$vocabulary (.'$Array'.'$vocabulary')
@@ -1384,10 +1304,8 @@ sub _jm_f_51($$$)
 sub _jm_f_52($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_11_map_definitions (.'$Array'.definitions)
@@ -1418,40 +1336,32 @@ sub _jm_f_53($$$)
 sub _jm_f_54($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_11_map_description (.'$Array'.description)
 sub _jm_f_55($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_examples (.'$Array'.examples)
 sub _jm_f_56($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_11_map_id (.'$Array'.id)
 sub _jm_f_57($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_items (.'$Array'.items)
@@ -1474,60 +1384,48 @@ sub _jm_f_58($$$)
 sub _jm_f_59($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.maxItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_11_map_minItems (.'$Array'.minItems)
 sub _jm_f_60($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.minItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_11_map_readOnly (.'$Array'.readOnly)
 sub _jm_f_61($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_11_map_title (.'$Array'.title)
 sub _jm_f_62($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_11_map_uniqueItems (.'$Array'.uniqueItems)
 sub _jm_f_63($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.uniqueItems
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_11_map_writeOnly (.'$Array'.writeOnly)
 sub _jm_f_64($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1577,20 +1475,16 @@ sub json_model_11($$$)
 sub _jm_f_65($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_$comment (.'$Object'.'$comment')
 sub _jm_f_66($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_$defs (.'$Object'.'$defs')
@@ -1621,30 +1515,24 @@ sub _jm_f_67($$$)
 sub _jm_f_68($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_$id (.'$Object'.'$id')
 sub _jm_f_69($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_$schema (.'$Object'.'$schema')
 sub _jm_f_70($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_$vocabulary (.'$Object'.'$vocabulary')
@@ -1682,10 +1570,8 @@ sub _jm_f_71($$$)
 sub _jm_f_72($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_12_map_definitions (.'$Object'.definitions)
@@ -1716,60 +1602,48 @@ sub _jm_f_73($$$)
 sub _jm_f_74($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_12_map_description (.'$Object'.description)
 sub _jm_f_75($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_examples (.'$Object'.examples)
 sub _jm_f_76($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_12_map_id (.'$Object'.id)
 sub _jm_f_77($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_maxProperties (.'$Object'.maxProperties)
 sub _jm_f_78($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.maxProperties
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_12_map_minProperties (.'$Object'.minProperties)
 sub _jm_f_79($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.minProperties
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_12_map_patternProperties (.'$Object'.patternProperties)
@@ -1831,10 +1705,8 @@ sub _jm_f_81($$$)
 sub _jm_f_82($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_12_map_required (.'$Object'.required)
@@ -1864,20 +1736,16 @@ sub _jm_f_83($$$)
 sub _jm_f_84($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_12_map_writeOnly (.'$Object'.writeOnly)
 sub _jm_f_85($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1927,20 +1795,16 @@ sub json_model_12($$$)
 sub _jm_f_86($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_$comment (.'$Integer'.'$comment')
 sub _jm_f_87($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_$defs (.'$Integer'.'$defs')
@@ -1971,30 +1835,24 @@ sub _jm_f_88($$$)
 sub _jm_f_89($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_$id (.'$Integer'.'$id')
 sub _jm_f_90($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_$schema (.'$Integer'.'$schema')
 sub _jm_f_91($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_$vocabulary (.'$Integer'.'$vocabulary')
@@ -2032,10 +1890,8 @@ sub _jm_f_92($$$)
 sub _jm_f_93($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_13_map_definitions (.'$Integer'.definitions)
@@ -2066,90 +1922,72 @@ sub _jm_f_94($$$)
 sub _jm_f_95($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_13_map_description (.'$Integer'.description)
 sub _jm_f_96($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_examples (.'$Integer'.examples)
 sub _jm_f_97($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_13_map_id (.'$Integer'.id)
 sub _jm_f_98($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_maximum (.'$Integer'.maximum)
 sub _jm_f_99($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.maximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_13_map_minimum (.'$Integer'.minimum)
 sub _jm_f_100($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.minimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_13_map_readOnly (.'$Integer'.readOnly)
 sub _jm_f_101($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_13_map_title (.'$Integer'.title)
 sub _jm_f_102($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_writeOnly (.'$Integer'.writeOnly)
 sub _jm_f_103($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Integer'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -2199,20 +2037,16 @@ sub json_model_13($$$)
 sub _jm_f_104($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_$comment (.'$Number'.'$comment')
 sub _jm_f_105($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_$defs (.'$Number'.'$defs')
@@ -2243,30 +2077,24 @@ sub _jm_f_106($$$)
 sub _jm_f_107($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_$id (.'$Number'.'$id')
 sub _jm_f_108($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_$schema (.'$Number'.'$schema')
 sub _jm_f_109($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_$vocabulary (.'$Number'.'$vocabulary')
@@ -2304,10 +2132,8 @@ sub _jm_f_110($$$)
 sub _jm_f_111($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_14_map_definitions (.'$Number'.definitions)
@@ -2338,90 +2164,72 @@ sub _jm_f_112($$$)
 sub _jm_f_113($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_14_map_description (.'$Number'.description)
 sub _jm_f_114($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_examples (.'$Number'.examples)
 sub _jm_f_115($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_14_map_id (.'$Number'.id)
 sub _jm_f_116($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_maximum (.'$Number'.maximum)
 sub _jm_f_117($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.maximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_14_map_minimum (.'$Number'.minimum)
 sub _jm_f_118($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.minimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_14_map_readOnly (.'$Number'.readOnly)
 sub _jm_f_119($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_14_map_title (.'$Number'.title)
 sub _jm_f_120($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_14_map_writeOnly (.'$Number'.writeOnly)
 sub _jm_f_121($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Number'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -2471,20 +2279,16 @@ sub json_model_14($$$)
 sub _jm_f_122($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_$comment (.'$Bool'.'$comment')
 sub _jm_f_123($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_$defs (.'$Bool'.'$defs')
@@ -2515,30 +2319,24 @@ sub _jm_f_124($$$)
 sub _jm_f_125($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_$id (.'$Bool'.'$id')
 sub _jm_f_126($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_$schema (.'$Bool'.'$schema')
 sub _jm_f_127($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_$vocabulary (.'$Bool'.'$vocabulary')
@@ -2576,10 +2374,8 @@ sub _jm_f_128($$$)
 sub _jm_f_129($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_15_map_definitions (.'$Bool'.definitions)
@@ -2610,70 +2406,56 @@ sub _jm_f_130($$$)
 sub _jm_f_131($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_15_map_description (.'$Bool'.description)
 sub _jm_f_132($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_examples (.'$Bool'.examples)
 sub _jm_f_133($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_15_map_id (.'$Bool'.id)
 sub _jm_f_134($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_readOnly (.'$Bool'.readOnly)
 sub _jm_f_135($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_15_map_title (.'$Bool'.title)
 sub _jm_f_136($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_15_map_writeOnly (.'$Bool'.writeOnly)
 sub _jm_f_137($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bool'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -2723,20 +2505,16 @@ sub json_model_15($$$)
 sub _jm_f_138($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$comment (.'$Null'.'$comment')
 sub _jm_f_139($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$defs (.'$Null'.'$defs')
@@ -2767,30 +2545,24 @@ sub _jm_f_140($$$)
 sub _jm_f_141($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$id (.'$Null'.'$id')
 sub _jm_f_142($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$schema (.'$Null'.'$schema')
 sub _jm_f_143($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$vocabulary (.'$Null'.'$vocabulary')
@@ -2828,10 +2600,8 @@ sub _jm_f_144($$$)
 sub _jm_f_145($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_16_map_definitions (.'$Null'.definitions)
@@ -2862,70 +2632,56 @@ sub _jm_f_146($$$)
 sub _jm_f_147($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_16_map_description (.'$Null'.description)
 sub _jm_f_148($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_examples (.'$Null'.examples)
 sub _jm_f_149($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_16_map_id (.'$Null'.id)
 sub _jm_f_150($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_readOnly (.'$Null'.readOnly)
 sub _jm_f_151($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_16_map_title (.'$Null'.title)
 sub _jm_f_152($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_writeOnly (.'$Null'.writeOnly)
 sub _jm_f_153($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Null'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -2975,20 +2731,16 @@ sub json_model_16($$$)
 sub _jm_f_154($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_$comment (.'$AllOf'.'$comment')
 sub _jm_f_155($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_$defs (.'$AllOf'.'$defs')
@@ -3019,30 +2771,24 @@ sub _jm_f_156($$$)
 sub _jm_f_157($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_$id (.'$AllOf'.'$id')
 sub _jm_f_158($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_$schema (.'$AllOf'.'$schema')
 sub _jm_f_159($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_$vocabulary (.'$AllOf'.'$vocabulary')
@@ -3080,10 +2826,8 @@ sub _jm_f_160($$$)
 sub _jm_f_161($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_17_map_definitions (.'$AllOf'.definitions)
@@ -3114,70 +2858,56 @@ sub _jm_f_162($$$)
 sub _jm_f_163($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_17_map_description (.'$AllOf'.description)
 sub _jm_f_164($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_examples (.'$AllOf'.examples)
 sub _jm_f_165($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_17_map_id (.'$AllOf'.id)
 sub _jm_f_166($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_readOnly (.'$AllOf'.readOnly)
 sub _jm_f_167($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_17_map_title (.'$AllOf'.title)
 sub _jm_f_168($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_17_map_writeOnly (.'$AllOf'.writeOnly)
 sub _jm_f_169($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AllOf'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -3227,20 +2957,16 @@ sub json_model_17($$$)
 sub _jm_f_170($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_$comment (.'$AnyOf'.'$comment')
 sub _jm_f_171($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_$defs (.'$AnyOf'.'$defs')
@@ -3271,30 +2997,24 @@ sub _jm_f_172($$$)
 sub _jm_f_173($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_$id (.'$AnyOf'.'$id')
 sub _jm_f_174($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_$schema (.'$AnyOf'.'$schema')
 sub _jm_f_175($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_$vocabulary (.'$AnyOf'.'$vocabulary')
@@ -3332,10 +3052,8 @@ sub _jm_f_176($$$)
 sub _jm_f_177($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_18_map_definitions (.'$AnyOf'.definitions)
@@ -3366,70 +3084,56 @@ sub _jm_f_178($$$)
 sub _jm_f_179($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_18_map_description (.'$AnyOf'.description)
 sub _jm_f_180($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_examples (.'$AnyOf'.examples)
 sub _jm_f_181($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_18_map_id (.'$AnyOf'.id)
 sub _jm_f_182($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_readOnly (.'$AnyOf'.readOnly)
 sub _jm_f_183($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_18_map_title (.'$AnyOf'.title)
 sub _jm_f_184($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_18_map_writeOnly (.'$AnyOf'.writeOnly)
 sub _jm_f_185($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$AnyOf'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -3479,20 +3183,16 @@ sub json_model_18($$$)
 sub _jm_f_186($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_$comment (.'$OneOf'.'$comment')
 sub _jm_f_187($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_$defs (.'$OneOf'.'$defs')
@@ -3523,30 +3223,24 @@ sub _jm_f_188($$$)
 sub _jm_f_189($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_$id (.'$OneOf'.'$id')
 sub _jm_f_190($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_$schema (.'$OneOf'.'$schema')
 sub _jm_f_191($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_$vocabulary (.'$OneOf'.'$vocabulary')
@@ -3584,10 +3278,8 @@ sub _jm_f_192($$$)
 sub _jm_f_193($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_19_map_definitions (.'$OneOf'.definitions)
@@ -3618,70 +3310,56 @@ sub _jm_f_194($$$)
 sub _jm_f_195($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_19_map_description (.'$OneOf'.description)
 sub _jm_f_196($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_examples (.'$OneOf'.examples)
 sub _jm_f_197($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_19_map_id (.'$OneOf'.id)
 sub _jm_f_198($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_readOnly (.'$OneOf'.readOnly)
 sub _jm_f_199($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_19_map_title (.'$OneOf'.title)
 sub _jm_f_200($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_19_map_writeOnly (.'$OneOf'.writeOnly)
 sub _jm_f_201($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OneOf'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -3731,20 +3409,16 @@ sub json_model_19($$$)
 sub _jm_f_202($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_$comment (.'$Enum'.'$comment')
 sub _jm_f_203($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_$defs (.'$Enum'.'$defs')
@@ -3775,30 +3449,24 @@ sub _jm_f_204($$$)
 sub _jm_f_205($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_$id (.'$Enum'.'$id')
 sub _jm_f_206($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_$schema (.'$Enum'.'$schema')
 sub _jm_f_207($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_$vocabulary (.'$Enum'.'$vocabulary')
@@ -3836,10 +3504,8 @@ sub _jm_f_208($$$)
 sub _jm_f_209($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_20_map_definitions (.'$Enum'.definitions)
@@ -3870,70 +3536,56 @@ sub _jm_f_210($$$)
 sub _jm_f_211($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_20_map_description (.'$Enum'.description)
 sub _jm_f_212($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_examples (.'$Enum'.examples)
 sub _jm_f_213($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_20_map_id (.'$Enum'.id)
 sub _jm_f_214($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_readOnly (.'$Enum'.readOnly)
 sub _jm_f_215($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_20_map_title (.'$Enum'.title)
 sub _jm_f_216($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_20_map_writeOnly (.'$Enum'.writeOnly)
 sub _jm_f_217($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Enum'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -3983,20 +3635,16 @@ sub json_model_20($$$)
 sub _jm_f_218($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_$comment (.'$Const'.'$comment')
 sub _jm_f_219($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_$defs (.'$Const'.'$defs')
@@ -4027,30 +3675,24 @@ sub _jm_f_220($$$)
 sub _jm_f_221($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_$id (.'$Const'.'$id')
 sub _jm_f_222($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_$schema (.'$Const'.'$schema')
 sub _jm_f_223($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_$vocabulary (.'$Const'.'$vocabulary')
@@ -4088,10 +3730,8 @@ sub _jm_f_224($$$)
 sub _jm_f_225($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_21_map_definitions (.'$Const'.definitions)
@@ -4122,70 +3762,56 @@ sub _jm_f_226($$$)
 sub _jm_f_227($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_21_map_description (.'$Const'.description)
 sub _jm_f_228($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_examples (.'$Const'.examples)
 sub _jm_f_229($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_21_map_id (.'$Const'.id)
 sub _jm_f_230($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_readOnly (.'$Const'.readOnly)
 sub _jm_f_231($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_21_map_title (.'$Const'.title)
 sub _jm_f_232($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_21_map_writeOnly (.'$Const'.writeOnly)
 sub _jm_f_233($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Const'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -4235,20 +3861,16 @@ sub json_model_21($$$)
 sub _jm_f_234($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_$comment (.'$Ref'.'$comment')
 sub _jm_f_235($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_$defs (.'$Ref'.'$defs')
@@ -4279,30 +3901,24 @@ sub _jm_f_236($$$)
 sub _jm_f_237($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_$id (.'$Ref'.'$id')
 sub _jm_f_238($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_$schema (.'$Ref'.'$schema')
 sub _jm_f_239($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_$vocabulary (.'$Ref'.'$vocabulary')
@@ -4340,10 +3956,8 @@ sub _jm_f_240($$$)
 sub _jm_f_241($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_22_map_definitions (.'$Ref'.definitions)
@@ -4374,70 +3988,56 @@ sub _jm_f_242($$$)
 sub _jm_f_243($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_22_map_description (.'$Ref'.description)
 sub _jm_f_244($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_examples (.'$Ref'.examples)
 sub _jm_f_245($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_22_map_id (.'$Ref'.id)
 sub _jm_f_246($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_readOnly (.'$Ref'.readOnly)
 sub _jm_f_247($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_22_map_title (.'$Ref'.title)
 sub _jm_f_248($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_22_map_writeOnly (.'$Ref'.writeOnly)
 sub _jm_f_249($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -4487,20 +4087,16 @@ sub json_model_22($$$)
 sub _jm_f_250($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.'$anchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_$comment (.'$DynRef'.'$comment')
 sub _jm_f_251($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_$defs (.'$DynRef'.'$defs')
@@ -4531,30 +4127,24 @@ sub _jm_f_252($$$)
 sub _jm_f_253($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.'$dynamicAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_$id (.'$DynRef'.'$id')
 sub _jm_f_254($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.'$id'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_$schema (.'$DynRef'.'$schema')
 sub _jm_f_255($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.'$schema'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_$vocabulary (.'$DynRef'.'$vocabulary')
@@ -4592,10 +4182,8 @@ sub _jm_f_256($$$)
 sub _jm_f_257($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_23_map_definitions (.'$DynRef'.definitions)
@@ -4626,70 +4214,56 @@ sub _jm_f_258($$$)
 sub _jm_f_259($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_23_map_description (.'$DynRef'.description)
 sub _jm_f_260($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_examples (.'$DynRef'.examples)
 sub _jm_f_261($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_23_map_id (.'$DynRef'.id)
 sub _jm_f_262($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.id
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_readOnly (.'$DynRef'.readOnly)
 sub _jm_f_263($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_23_map_title (.'$DynRef'.title)
 sub _jm_f_264($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_23_map_writeOnly (.'$DynRef'.writeOnly)
 sub _jm_f_265($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DynRef'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -4765,6 +4339,10 @@ sub json_model_24($$$)
             $res = 0;
         }
     }
+    else
+    {
+        ;
+    }
     if (! $res)
     {
         $res = json_model_9($val, $path, $rep);
@@ -4833,8 +4411,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'$schema'};
     # .'$RootSchema'.'&'.0.'$schema'
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # check $RootSchema (.'$RootSchema')
@@ -4862,10 +4439,8 @@ sub json_model_26($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_26($val, $path, $rep);
-    return $res;
+    return json_model_26($val, $path, $rep);
 }
 
 

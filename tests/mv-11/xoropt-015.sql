@@ -42,8 +42,7 @@ BEGIN
   END IF;
   pval := val -> 'X';
   -- .'$Xx'.X
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -67,8 +66,7 @@ BEGIN
   END IF;
   pval := val -> 'Y';
   -- .'$Yy'.Y
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -186,12 +184,9 @@ $$ LANGUAGE PLpgSQL;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := json_model_6(val, path, rep);
-  RETURN res;
+  RETURN json_model_6(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

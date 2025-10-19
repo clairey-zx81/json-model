@@ -17,12 +17,9 @@ $$ LANGUAGE plpgsql;
 -- check $p1 (.'$p1')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$p1'
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -38,12 +35,9 @@ $$ LANGUAGE plpgsql;
 -- check $p2 (.'$p2')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$p2'
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -69,8 +63,7 @@ BEGIN
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
-  res := xc_0 = 1;
-  RETURN res;
+  RETURN xc_0 = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 

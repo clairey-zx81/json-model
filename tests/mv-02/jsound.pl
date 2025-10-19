@@ -196,6 +196,10 @@ sub json_model_3($$$)
             $res = 0;
         }
     }
+    else
+    {
+        ;
+    }
     return $res;
 }
 
@@ -204,10 +208,8 @@ sub json_model_3($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$atomic-types'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $atomic (.'$atomic')
@@ -269,80 +271,64 @@ sub _jm_f_0($$$)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.explicitTypeZone
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.fractionDigits
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_6_map_length (.'$Atomic'.length)
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.length
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_6_map_maxLength (.'$Atomic'.maxLength)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.maxLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_6_map_minLength (.'$Atomic'.minLength)
 sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.minLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_6_map_name (.'$Atomic'.name)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.name
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_6_map_pattern (.'$Atomic'.pattern)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.pattern
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.totalDigits
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 
@@ -739,10 +725,8 @@ sub json_model_11($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_2($val, $path, $rep);
-    return $res;
+    return json_model_2($val, $path, $rep);
 }
 
 

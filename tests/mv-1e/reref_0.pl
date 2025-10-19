@@ -22,10 +22,8 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$character'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 sub _jm_xre_0_re($$$)
@@ -61,11 +59,9 @@ sub _jm_xre_0($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # "/'($character:\\w+)'.*'($character:\\w+)'/X"
-    $res = jm_is_string($val) && _jm_xre_0($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_xre_0($val, $path, $rep);
 }
 
 

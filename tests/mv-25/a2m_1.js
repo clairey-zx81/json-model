@@ -113,8 +113,7 @@ function _jm_obj_0(val, path, rep)
     }
     pval = val["c"];
     // .'$nomerge'.'&'.1.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    return res;
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
 }
 
 // check $nomerge (.'$nomerge')

@@ -58,8 +58,7 @@ sub json_model_1($$$)
     }
     $pval = $$val{'c'};
     # .c
-    $res = jm_is_numeric($pval) && $pval > 0.0;
-    return $res;
+    return jm_is_numeric($pval) && $pval > 0.0;
 }
 
 

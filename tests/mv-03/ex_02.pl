@@ -22,40 +22,32 @@ my %check_model_map;
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$x1'
-    $res = jm_is_string($val) && $val eq 'Susie';
-    return $res;
+    return jm_is_string($val) && $val eq 'Susie';
 }
 
 # check $x2 (.'$x2')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$x2'
-    $res = jm_is_string($val) && $val eq 'Susie';
-    return $res;
+    return jm_is_string($val) && $val eq 'Susie';
 }
 
 # check $x3 (.'$x3')
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$x3'
-    $res = jm_is_string($val) && $val eq 'Susie';
-    return $res;
+    return jm_is_string($val) && $val eq 'Susie';
 }
 
 # check $__external_0 (.'$__external_0')
 sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$__external_0'
-    $res = jm_is_string($val) && $val eq 'Susie';
-    return $res;
+    return jm_is_string($val) && $val eq 'Susie';
 }
 
 # check $ (.)

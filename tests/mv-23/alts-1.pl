@@ -52,8 +52,7 @@ sub json_model_2($$$)
     }
     $pval = $$val{'t'};
     # .'$oA'.t
-    $res = jm_is_string($pval) && $pval eq 'a';
-    return $res;
+    return jm_is_string($pval) && $pval eq 'a';
 }
 
 
@@ -86,8 +85,7 @@ sub json_model_3($$$)
     }
     $pval = $$val{'t'};
     # .'$oB'.t
-    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
-    return $res;
+    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
 }
 
 
@@ -118,6 +116,10 @@ sub json_model_4($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }
@@ -151,8 +153,7 @@ sub json_model_5($$$)
     }
     $pval = $$val{'t'};
     # .'$oL'.t
-    $res = jm_is_string($pval) && $pval eq 'd';
-    return $res;
+    return jm_is_string($pval) && $pval eq 'd';
 }
 
 
@@ -185,8 +186,7 @@ sub json_model_6($$$)
     }
     $pval = $$val{'t'};
     # .'$oX'.t
-    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
-    return $res;
+    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
 }
 
 
@@ -217,6 +217,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     if (! $res)
     {

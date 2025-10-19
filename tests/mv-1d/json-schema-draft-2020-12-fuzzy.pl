@@ -100,20 +100,16 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$URI-REFERENCE'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_4_map_$comment (.'$core'.'$comment')
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$core'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_4_map_$defs (.'$core'.'$defs')
@@ -144,10 +140,8 @@ sub _jm_f_1($$$)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$core'.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
 }
 
 # check json_model_4_map_$vocabulary (.'$core'.'$vocabulary')
@@ -215,70 +209,56 @@ sub json_model_4($$$)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$meta'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_5_map_deprecated (.'$meta'.deprecated)
 sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$meta'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_5_map_description (.'$meta'.description)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$meta'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_5_map_examples (.'$meta'.examples)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$meta'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_5_map_readOnly (.'$meta'.readOnly)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$meta'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_5_map_title (.'$meta'.title)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$meta'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_5_map_writeOnly (.'$meta'.writeOnly)
 sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$meta'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -439,10 +419,8 @@ sub json_model_8($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$simpleTypes'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $simpleTypesArray (.'$simpleTypesArray')
@@ -506,20 +484,16 @@ sub json_model_11($$$)
 sub json_model_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$nonNegativeInteger'
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check json_model_13_map_const (.'$validation'.const)
 sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.const
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_13_map_dependentRequired (.'$validation'.dependentRequired)
@@ -550,70 +524,56 @@ sub _jm_f_12($$$)
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.enum
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_13_map_exclusiveMaximum (.'$validation'.exclusiveMaximum)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.exclusiveMaximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_13_map_exclusiveMinimum (.'$validation'.exclusiveMinimum)
 sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.exclusiveMinimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_13_map_maximum (.'$validation'.maximum)
 sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.maximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_13_map_minimum (.'$validation'.minimum)
 sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.minimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_13_map_multipleOf (.'$validation'.multipleOf)
 sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.multipleOf
-    $res = jm_is_numeric($val) && $val > 0.0;
-    return $res;
+    return jm_is_numeric($val) && $val > 0.0;
 }
 
 # check json_model_13_map_pattern (.'$validation'.pattern)
 sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.pattern
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_13_map_type (.'$validation'.type)
@@ -636,10 +596,8 @@ sub _jm_f_20($$$)
 sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$validation'.uniqueItems
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -807,10 +765,8 @@ sub json_model_15($$$)
 sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.'$comment'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$defs (.'$ObjectSchema'.'$defs')
@@ -841,30 +797,24 @@ sub _jm_f_26($$$)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.'$recursiveAnchor'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$recursiveRef (.'$ObjectSchema'.'$recursiveRef')
 sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.'$recursiveRef'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_$schema (.'$ObjectSchema'.'$schema')
 sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
 }
 
 # check json_model_16_map_$vocabulary (.'$ObjectSchema'.'$vocabulary')
@@ -902,40 +852,32 @@ sub _jm_f_30($$$)
 sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.const
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_16_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
 sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.contentEncoding
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_contentMediaType (.'$ObjectSchema'.contentMediaType)
 sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.contentMediaType
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_default (.'$ObjectSchema'.default)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.default
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check json_model_16_map_definitions (.'$ObjectSchema'.definitions)
@@ -1044,110 +986,88 @@ sub _jm_f_38($$$)
 sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_16_map_description (.'$ObjectSchema'.description)
 sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_enum (.'$ObjectSchema'.enum)
 sub _jm_f_41($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.enum
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_16_map_examples (.'$ObjectSchema'.examples)
 sub _jm_f_42($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.examples
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check json_model_16_map_exclusiveMaximum (.'$ObjectSchema'.exclusiveMaximum)
 sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.exclusiveMaximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_16_map_exclusiveMinimum (.'$ObjectSchema'.exclusiveMinimum)
 sub _jm_f_44($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.exclusiveMinimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_16_map_format (.'$ObjectSchema'.format)
 sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.format
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_maximum (.'$ObjectSchema'.maximum)
 sub _jm_f_46($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.maximum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_16_map_minimum (.'$ObjectSchema'.minimum)
 sub _jm_f_47($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.minimum
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check json_model_16_map_multipleOf (.'$ObjectSchema'.multipleOf)
 sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.multipleOf
-    $res = jm_is_numeric($val) && $val > 0.0;
-    return $res;
+    return jm_is_numeric($val) && $val > 0.0;
 }
 
 # check json_model_16_map_pattern (.'$ObjectSchema'.pattern)
 sub _jm_f_49($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.pattern
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_patternProperties (.'$ObjectSchema'.patternProperties)
@@ -1202,20 +1122,16 @@ sub _jm_f_51($$$)
 sub _jm_f_52($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_16_map_title (.'$ObjectSchema'.title)
 sub _jm_f_53($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.title
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_16_map_type (.'$ObjectSchema'.type)
@@ -1238,20 +1154,16 @@ sub _jm_f_54($$$)
 sub _jm_f_55($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.uniqueItems
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_16_map_writeOnly (.'$ObjectSchema'.writeOnly)
 sub _jm_f_56($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1427,10 +1339,8 @@ sub json_model_19($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_17($val, $path, $rep);
-    return $res;
+    return json_model_17($val, $path, $rep);
 }
 
 

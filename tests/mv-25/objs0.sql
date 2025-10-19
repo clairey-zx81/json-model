@@ -34,8 +34,7 @@ BEGIN
   END IF;
   pval := val -> 'legs';
   -- .'$table'.legs
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -68,8 +67,7 @@ BEGIN
   END IF;
   pval := val -> 'color';
   -- .'$chair'.color
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -98,6 +96,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   RETURN res;
 END;

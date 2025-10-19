@@ -33,8 +33,7 @@ BEGIN
   END IF;
   pval := val -> 'pi';
   -- .'|'.0.pi
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -66,8 +65,7 @@ BEGIN
   END IF;
   pval := val -> 'one';
   -- .'|'.1.one
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -99,8 +97,7 @@ BEGIN
   END IF;
   pval := val -> 'half';
   -- .'|'.2.half
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -130,6 +127,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   RETURN res;
 END;

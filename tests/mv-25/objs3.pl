@@ -48,8 +48,7 @@ sub json_model_2($$$)
     }
     $pval = $$val{'author'};
     # .'$book'.author
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # check $ (.)

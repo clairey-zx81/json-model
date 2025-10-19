@@ -41,29 +41,22 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("y", UNDEFINED)) != UNDEFINED):
         return False
     # .'$bla'.y
-    res = isinstance(pval, float)
-    return res
+    return isinstance(pval, float)
 
 # check $foo (.'$foo')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$foo'
-    res = json_model_2(val, path, rep)
-    return res
+    return json_model_2(val, path, rep)
 
 # check $ob (.'$ob')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ob'
-    res = json_model_2(val, path, rep)
-    return res
+    return json_model_2(val, path, rep)
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_2(val, path, rep)
-    return res
+    return json_model_2(val, path, rep)
 
 
 # initialization guard

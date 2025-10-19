@@ -21,10 +21,8 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$t'
-    $res = jm_is_string($val) && $val eq 'cst_02';
-    return $res;
+    return jm_is_string($val) && $val eq 'cst_02';
 }
 
 # check $r (.'$r')
@@ -82,8 +80,7 @@ sub json_model_5($$$)
     }
     $pval = $$val{'d'};
     # .'$r'.d
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
-    return $res;
+    return jm_is_string($pval) && $pval eq 'cst_01';
 }
 
 # check $z (.'$z')
@@ -119,8 +116,7 @@ sub json_model_4($$$)
     }
     $pval = $$val{'f'};
     # .'$z'.f
-    $res = jm_is_string($pval) && $pval eq 'cst_02';
-    return $res;
+    return jm_is_string($pval) && $pval eq 'cst_02';
 }
 
 # check $ (.)
@@ -200,8 +196,7 @@ sub json_model_1($$$)
     }
     $pval = $$val{'d'};
     # .d
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
-    return $res;
+    return jm_is_string($pval) && $pval eq 'cst_01';
 }
 
 

@@ -38,10 +38,8 @@ sub json_model_4($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ex06'
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check $ (.)
@@ -73,20 +71,16 @@ sub json_model_1($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ex5#Ex05a'
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check $ex5#Ex05b (.'$ex5#Ex05b')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ex5#Ex05b'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 

@@ -50,8 +50,7 @@ public class objs0 extends ModelChecker
             return false;
         }
         // .'$table'.legs
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        return res;
+        return json.isInteger(pval) && json.asLong(pval) >= 1;
     }
 
     // check $chair (.'$chair')
@@ -84,8 +83,7 @@ public class objs0 extends ModelChecker
             return false;
         }
         // .'$chair'.color
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
 

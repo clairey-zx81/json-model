@@ -42,8 +42,7 @@ BEGIN
   END IF;
   pval := val -> 'f';
   -- .'|'.5.f
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -84,8 +83,7 @@ BEGIN
   END IF;
   pval := val -> 'e';
   -- .'|'.4.e
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -126,8 +124,7 @@ BEGIN
   END IF;
   pval := val -> 'd';
   -- .'|'.3.d
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -168,8 +165,7 @@ BEGIN
   END IF;
   pval := val -> 'f';
   -- .'|'.2.f
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -210,8 +206,7 @@ BEGIN
   END IF;
   pval := val -> 'e';
   -- .'|'.1.e
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -252,8 +247,7 @@ BEGIN
   END IF;
   pval := val -> 'd';
   -- .'|'.0.d
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 

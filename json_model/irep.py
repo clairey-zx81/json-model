@@ -355,7 +355,9 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
     # if (C) ret X ; ret Y
     prev_if_ret: int|None = None
+
     for (idx, op) in enumerate(seq):
+
         if _isOp(op, "co") or _isOp(op, "no") or (not reporting and _isOp(op, "rep")):
             pass
         elif _isOp(op, "if") and not op["false"] and _isRet(op["true"], reporting):
@@ -384,6 +386,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 # set return on latter instruction
                 ifop.clear()
                 ifop["o"] = "no"
+                ifop["#"] = "IRO if ret ret"
                 op.clear()
                 op.update(newop)
             else:
@@ -393,6 +396,38 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
         else:
             # reset previous if return
             prev_if_ret = None
+
+    # remove intermediate variable on return
+    # res = X; return res;  -> return X;
+    # TODO improve if not reporting and reporting-only stuff
+    prev: int|None = None
+    for i, op in enumerate(seq):
+        if _isOp(op, "no") or _isOp(op, "co"):
+            pass
+        elif _isOp(op, "bv") and op["val"] is not None:
+            prev = i
+        elif prev is not None and _isOp(op, "ret") and op["res"] == seq[prev]["var"]:
+            op["res"] = seq[prev]["val"]
+            seq[prev].clear()
+            seq[prev]["o"] = "no"
+            seq[prev]["#"] = "IRO assignment moved to return"
+        else:
+            prev = None
+
+    # remove unused boolean declaration in a trivial case: bool v; ret X; -> ret X
+    # TODO improve
+    decl: int|None = None
+    for i, op in enumerate(seq):
+        if _isOp(op, "no") or _isOp(op, "co"):
+            pass
+        elif _isOp(op, "bv") and op["val"] is None:
+            decl = i
+        elif _isOp(op, "ret") and decl is not None:
+            seq[decl].clear()
+            seq[decl]["o"] = "no"
+            seq[decl]["#"] = "# IRO unused boolean declaration"
+        else:
+            decl = None
 
     # TODO look for more optimizable patterns in the generated code
     # TODO and(..., T, ...) -> and(..., ...)
@@ -434,7 +469,7 @@ def recurseIR(code: Jsonable,
 def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
     """Update check function calls based on shortcuts."""
 
-    # shortcut shortcut replacements
+    # shortcut replacements
     if not shortcuts:
         return 0
 
@@ -463,7 +498,50 @@ def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
 
     return changes
 
-def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str],
+SCALAR_TYPES = { "int", "float", "bool", "str" }
+
+def partialEval(code: Jsonable, reporting: bool) -> int:
+    changes = 0
+
+    def peRwt(code: Jsonable, _: Path) -> Jsonable:
+        nonlocal changes
+        if not reporting and _isOp(code, "rep"):
+            code.clear()
+            code["o"] = "no"
+            code["#"] = "# IRO no reporting"
+            changes += 1
+        elif _isOp(code, "&"):
+            ands = code["exprs"]
+            # log.warning(f"&: {ands}")
+            assert isinstance(ands, list)
+            if len(ands) < 2:
+                pass
+            elif (_isOp(ands[0], "is") and _isOp(ands[1], "isa") and
+                  ands[0]["var"] == ands[1]["var"] and ands[1]["tval"] in SCALAR_TYPES):
+                # NOTE no instance found
+                # is_scalar(V) && is_a(V, scalar_type)
+                ands[0].clear()
+                ands[0]["o"] = "cst"
+                ands[0]["c"] = True
+                ands[0]["#"] = "# IRO simplified scalar test"
+                ands.pop(0)
+                changes += 1
+            # NOTE too optimistic, see mv-01/enum_00
+            # elif _isOp(ands[0], "is") and _isOp(ands[1], "incs"):
+            #     # is_scalar(V) && in_cst(V, ...)
+            #     ands[0].clear()
+            #     ands[0]["o"] = "cst"
+            #     ands[0]["c"] = True
+            #     ands[0]["#"] = "# IRO simplified scalar test"
+            #     ands.pop(0)
+            #     changes += 1
+        return code
+
+    recurseIR(code, lambda c, p: True, peRwt)
+
+    return changes
+
+def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool = True,
                if_optim: bool = True, reporting: bool = True) -> Jsonable:
     """Optimize IR code."""
 
@@ -477,11 +555,15 @@ def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str],
             continue
         changed: bool = False
         ins = json.loads(c)
-        if if_optim and isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
+        if isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
+            if partial:
+                changes = partialEval(ins, reporting)
+                changed &= changes > 0
             # if statement simplification
-            optimized += 1
-            _optimSeq(ins["body"], set(), reporting=reporting)
-            changed = True  # maybe
+            if if_optim:
+                optimized += 1
+                _optimSeq(ins["body"], set(), reporting=reporting)
+                changed = True  # maybe
         if shortcuts:
             # call shortcuts
             changes = callShortcuts(ins, shortcuts)

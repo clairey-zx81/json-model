@@ -18,12 +18,10 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # JSON_MODEL_SIGNED_INT
     # .
     # .'@'
-    $res = jm_is_integer($val) && $val >= 1;
-    return $res;
+    return jm_is_integer($val) && $val >= 1;
 }
 
 

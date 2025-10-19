@@ -33,8 +33,7 @@ BEGIN
   END IF;
   pval := val -> 'cal';
   -- .'$cs'.'|'.0.cal
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -66,8 +65,7 @@ BEGIN
   END IF;
   pval := val -> 'sus';
   -- .'$cs'.'|'.1.sus
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -96,6 +94,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   RETURN res;
 END;
@@ -129,8 +129,7 @@ BEGIN
   END IF;
   pval := val -> 'moe';
   -- .'|'.0.moe
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -162,8 +161,7 @@ BEGIN
   END IF;
   pval := val -> 'hob';
   -- .'|'.1.hob
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -192,6 +190,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   IF NOT res THEN
     res := json_model_2(val, path, rep);

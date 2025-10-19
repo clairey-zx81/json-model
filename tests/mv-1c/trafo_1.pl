@@ -48,18 +48,15 @@ sub json_model_2($$$)
     }
     $pval = $$val{'ub'};
     # .'$un'.ub
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_2($val, $path, $rep);
-    return $res;
+    return json_model_2($val, $path, $rep);
 }
 
 

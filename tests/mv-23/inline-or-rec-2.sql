@@ -33,8 +33,7 @@ BEGIN
   END IF;
   pval := val -> 'a';
   -- .'$ab'.'|'.0.a
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -66,8 +65,7 @@ BEGIN
   END IF;
   pval := val -> 'b';
   -- .'$ab'.'|'.1.b
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -96,6 +94,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   RETURN res;
 END;
@@ -129,8 +129,7 @@ BEGIN
   END IF;
   pval := val -> 'c';
   -- .'$cd'.'|'.0.c
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -162,8 +161,7 @@ BEGIN
   END IF;
   pval := val -> 'd';
   -- .'$cd'.'|'.1.d
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -192,6 +190,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   IF NOT res THEN
     res := json_model_2(val, path, rep);
@@ -203,12 +203,9 @@ $$ LANGUAGE PLpgSQL;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := json_model_3(val, path, rep);
-  RETURN res;
+  RETURN json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

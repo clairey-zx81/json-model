@@ -42,8 +42,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("legs", UNDEFINED)) != UNDEFINED):
         return False
     # .'$table'.legs
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-    return res
+    return isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
 
 # check $chair (.'$chair')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -64,8 +63,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("color", UNDEFINED)) != UNDEFINED):
         return False
     # .'$chair'.color
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 
 # check $furniture (.'$furniture')
@@ -84,6 +82,8 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = False
         else:
             res = False
+    else:
+        pass
     return res
 
 # check $ (.)

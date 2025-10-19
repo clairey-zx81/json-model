@@ -21,40 +21,32 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$n0'
-    $res = 0;
-    return $res;
+    return 0;
 }
 
 # check $n1 (.'$n1')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$n1'
-    $res = 0;
-    return $res;
+    return 0;
 }
 
 # check $n2 (.'$n2')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$n2'
-    $res = 0;
-    return $res;
+    return 0;
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = 0;
-    return $res;
+    return 0;
 }
 
 

@@ -26,8 +26,7 @@ BEGIN
   -- .'^'.1
   -- "/^[a-z]+$/i"
   is_0 := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  res := NOT is_0;
-  RETURN res;
+  RETURN NOT is_0;
 END;
 $$ LANGUAGE PLpgSQL;
 

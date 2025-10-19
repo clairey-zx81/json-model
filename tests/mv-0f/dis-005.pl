@@ -37,8 +37,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'a'};
     # .'|'.1.a
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 # object .'|'.0
@@ -73,8 +72,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'b'};
     # .'|'.0.b
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 # check $ (.)

@@ -47,35 +47,28 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$bla'.y
-    res = json_is_real(pval);
-    return res;
+    return json_is_real(pval);
 }
 
 // check $foo (.'$foo')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$foo'
-    res = json_model_2(val, path, rep);
-    return res;
+    return json_model_2(val, path, rep);
 }
 
 // check $ob (.'$ob')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ob'
-    res = json_model_2(val, path, rep);
-    return res;
+    return json_model_2(val, path, rep);
 }
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_2(val, path, rep);
-    return res;
+    return json_model_2(val, path, rep);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

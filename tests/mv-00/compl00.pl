@@ -33,8 +33,7 @@ sub json_model_1($$$)
     # .'^'.1
     # "/^[a-z]+$/i"
     $is_0 = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    $res = ! $is_0;
-    return $res;
+    return ! $is_0;
 }
 
 

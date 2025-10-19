@@ -48,11 +48,9 @@ sub _jm_re_0($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ex07'
     # "/[a-z]/"
-    $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 # check $__external_0 (.'$__external_0')
@@ -100,40 +98,32 @@ sub json_model_1($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ex5#Ex05a'
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check $ex5#Ex05b (.'$ex5#Ex05b')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ex5#Ex05b'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check $__external_0#Ex05a (.'$__external_0#Ex05a')
 sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$__external_0#Ex05a'
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check $__external_0#Ex05b (.'$__external_0#Ex05b')
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$__external_0#Ex05b'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 

@@ -8,36 +8,27 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $root (.'$root')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$root'
-  res := json_model_5(val, path, rep);
-  RETURN res;
+  RETURN json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Root (.'$Root')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Root'
-  res := json_model_5(val, path, rep);
-  RETURN res;
+  RETURN json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := json_model_5(val, path, rep);
-  RETURN res;
+  RETURN json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -70,8 +61,7 @@ BEGIN
   END IF;
   pval := val -> 'name';
   -- .'$root#Root'.name
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 

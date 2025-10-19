@@ -19,20 +19,16 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$one'
-    $res = jm_is_integer($val) && $val == 1;
-    return $res;
+    return jm_is_integer($val) && $val == 1;
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = jm_is_integer($val) && $val == 1;
-    return $res;
+    return jm_is_integer($val) && $val == 1;
 }
 
 

@@ -37,8 +37,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'name'};
     # .'|'.1.name
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.0

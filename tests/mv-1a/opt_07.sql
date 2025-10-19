@@ -33,8 +33,7 @@ BEGIN
   END IF;
   pval := val -> 'val';
   -- .'|'.0.val
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -66,8 +65,7 @@ BEGIN
   END IF;
   pval := val -> 'val';
   -- .'|'.1.val
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -99,8 +97,7 @@ BEGIN
   END IF;
   pval := val -> 'val';
   -- .'|'.2.val
-  res := JSONB_TYPEOF(pval) = 'boolean';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -130,6 +127,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   RETURN res;
 END;

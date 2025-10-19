@@ -56,8 +56,7 @@ sub json_model_2($$$)
     }
     $pval = $$val{'d'};
     # .'$d'.d
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -94,8 +93,7 @@ sub json_model_3($$$)
     }
     $pval = $$val{'efg'};
     # .'$efg'.efg
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'$alternative'.'|'.0
@@ -130,8 +128,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'a'};
     # .'$alternative'.'|'.0.a
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -167,8 +164,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'bc'};
     # .'$alternative'.'|'.1.bc
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -202,6 +198,10 @@ sub json_model_4($$$)
             $res = 0;
         }
     }
+    else
+    {
+        ;
+    }
     if (! $res)
     {
         $res = $iso_0;
@@ -225,6 +225,10 @@ sub json_model_4($$$)
                 $res = 0;
             }
         }
+        else
+        {
+            ;
+        }
     }
     return $res;
 }
@@ -233,10 +237,8 @@ sub json_model_4($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_4($val, $path, $rep);
-    return $res;
+    return json_model_4($val, $path, $rep);
 }
 
 

@@ -60,11 +60,9 @@ sub _jm_re_0($$$)
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$neStr'
     # "/./"
-    $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 # check $neStrList (.'$neStrList')
@@ -101,10 +99,8 @@ sub json_model_3($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$License'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $LicenseList (.'$LicenseList')
@@ -218,10 +214,8 @@ sub json_model_6($$$)
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Status'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # object .'$Resources'.bugtracker
@@ -383,11 +377,9 @@ sub _jm_re_2($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$SemVer'
     # "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
-    $res = jm_is_string($val) && _jm_re_2($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_2($val, $path, $rep);
 }
 
 # check $Version (.'$Version')
@@ -417,11 +409,9 @@ sub _jm_re_3($$$)
 sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ops'
     # "/^(<=|<|>=|>|!=|==)$/"
-    $res = jm_is_string($val) && _jm_re_3($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_3($val, $path, $rep);
 }
 
 sub _jm_re_4($$$)
@@ -435,11 +425,9 @@ sub _jm_re_4($$$)
 sub json_model_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$VersionRange'
     # "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
-    $res = jm_is_string($val) && _jm_re_4($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_4($val, $path, $rep);
 }
 
 
@@ -447,10 +435,8 @@ sub json_model_12($$$)
 sub json_model_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Phase'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_2{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_2{$val};
 }
 
 
@@ -458,10 +444,8 @@ sub json_model_13($$$)
 sub json_model_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Relation'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_3{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_3{$val};
 }
 
 # check $Prereq (.'$Prereq')
@@ -571,10 +555,8 @@ sub json_model_16($$$)
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .abstract
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # object .license.'|'.2
@@ -714,10 +696,8 @@ sub _jm_f_4($$$)
 sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .version
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -725,20 +705,16 @@ sub _jm_f_5($$$)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_1_map_generated_by (.generated_by)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .generated_by
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check json_model_1_map_no_index (.no_index)
@@ -786,10 +762,8 @@ sub _jm_f_8($$$)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .url
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
 }
 
 

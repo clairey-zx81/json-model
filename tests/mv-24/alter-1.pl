@@ -31,10 +31,8 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$g'
-    $res = jm_is_string($val) && $val eq 'g';
-    return $res;
+    return jm_is_string($val) && $val eq 'g';
 }
 
 
@@ -42,10 +40,8 @@ sub json_model_2($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$h_ou_i'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $d (.'$d')
@@ -81,8 +77,7 @@ sub json_model_4($$$)
     }
     $pval = $$val{'d'};
     # .'$d'.d
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -119,8 +114,7 @@ sub json_model_5($$$)
     }
     $pval = $$val{'ef'};
     # .'$ef'.ef
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'$alternative'.'|'.0
@@ -155,8 +149,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'a'};
     # .'$alternative'.'|'.0.a
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -192,8 +185,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'bc'};
     # .'$alternative'.'|'.1.bc
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'$alternative'.'|'.2
@@ -228,8 +220,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'g'};
     # .'$alternative'.'|'.2.g
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'$alternative'.'|'.3
@@ -264,8 +255,7 @@ sub _jm_obj_3($$$)
     }
     $pval = $$val{'hi'};
     # .'$alternative'.'|'.3.hi
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -298,6 +288,10 @@ sub json_model_6($$$)
             $res = 0;
         }
     }
+    else
+    {
+        ;
+    }
     return $res;
 }
 
@@ -305,10 +299,8 @@ sub json_model_6($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_6($val, $path, $rep);
-    return $res;
+    return json_model_6($val, $path, $rep);
 }
 
 

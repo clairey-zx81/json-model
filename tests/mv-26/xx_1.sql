@@ -41,8 +41,7 @@ BEGIN
       xc_0 := xc_0 + 1;
     END IF;
   END IF;
-  res := xc_0 = 1;
-  RETURN res;
+  RETURN xc_0 = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 

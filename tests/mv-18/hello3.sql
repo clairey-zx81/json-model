@@ -34,8 +34,7 @@ BEGIN
   END IF;
   pval := val -> 'world';
   -- .world
-  res := JSONB_TYPEOF(pval) = 'boolean';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -44,8 +44,7 @@ function json_model_2(val, path, rep)
     }
     pval = val["legs"];
     // .'$table'.legs
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    return res;
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
 }
 
 // check $chair (.'$chair')
@@ -80,8 +79,7 @@ function json_model_3(val, path, rep)
     }
     pval = val["color"];
     // .'$chair'.color
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 

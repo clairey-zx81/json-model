@@ -58,8 +58,7 @@ sub json_model_1($$$)
     }
     $pval = $$val{'c'};
     # .c
-    $res = jm_is_integer($pval);
-    return $res;
+    return jm_is_integer($pval);
 }
 
 

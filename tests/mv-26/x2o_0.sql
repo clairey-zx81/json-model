@@ -24,8 +24,7 @@ BEGIN
   END IF;
   pval := val -> 't';
   -- .'|'.0.t
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -57,8 +56,7 @@ BEGIN
   END IF;
   pval := val -> 't';
   -- .'|'.1.t
-  res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -109,8 +107,7 @@ BEGIN
       xc_0 := xc_0 + 1;
     END IF;
   END IF;
-  res := xc_0 = 1;
-  RETURN res;
+  RETURN xc_0 = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -140,6 +137,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   IF NOT res THEN
     -- .'|'.2

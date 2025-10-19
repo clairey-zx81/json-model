@@ -51,8 +51,7 @@ sub json_model_2($$$)
     }
     $pval = $$val{'legs'};
     # .'$table'.legs
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 # check $chair (.'$chair')
@@ -88,8 +87,7 @@ sub json_model_3($$$)
     }
     $pval = $$val{'color'};
     # .'$chair'.color
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -120,6 +118,10 @@ sub json_model_4($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }

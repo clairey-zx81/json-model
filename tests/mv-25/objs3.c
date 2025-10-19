@@ -45,8 +45,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$book'.author
-    res = json_is_string(pval);
-    return res;
+    return json_is_string(pval);
 }
 
 // check $ (.)

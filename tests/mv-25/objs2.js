@@ -43,35 +43,28 @@ function json_model_2(val, path, rep)
     }
     pval = val["y"];
     // .'$bla'.y
-    res = (typeof pval === 'number' || pval instanceof Number);
-    return res;
+    return (typeof pval === 'number' || pval instanceof Number);
 }
 
 // check $foo (.'$foo')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$foo'
-    res = json_model_2(val, path, rep);
-    return res;
+    return json_model_2(val, path, rep);
 }
 
 // check $ob (.'$ob')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$ob'
-    res = json_model_2(val, path, rep);
-    return res;
+    return json_model_2(val, path, rep);
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_2(val, path, rep);
-    return res;
+    return json_model_2(val, path, rep);
 }
 
 

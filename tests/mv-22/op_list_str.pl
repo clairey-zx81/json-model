@@ -50,8 +50,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'foo'};
     # .'|'.0.foo
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 
@@ -87,8 +86,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'bla'};
     # .'|'.1.bla
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 
@@ -119,6 +117,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }

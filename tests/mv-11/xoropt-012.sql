@@ -8,36 +8,27 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $n (.'$n')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$n'
-  res := JSONB_TYPEOF(val) = 'null';
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'null';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $x (.'$x')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$x'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 = 10.0;
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 = 10.0;
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $f (.'$f')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$f'
-  res := JSONB_TYPEOF(val) = 'boolean' AND (val)::BOOL = FALSE;
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'boolean' AND (val)::BOOL = FALSE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -60,8 +51,7 @@ BEGIN
   END IF;
   pval := val -> 'a';
   -- .'|'.4.a
-  res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -84,8 +74,7 @@ BEGIN
   END IF;
   pval := val -> 'a';
   -- .'|'.3.a
-  res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -108,8 +97,7 @@ BEGIN
   END IF;
   pval := val -> 'a';
   -- .'|'.2.a
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 = 1.0;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 = 1.0;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -132,8 +120,7 @@ BEGIN
   END IF;
   pval := val -> 'a';
   -- .'|'.1.a
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 = 10.0;
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 = 10.0;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -156,8 +143,7 @@ BEGIN
   END IF;
   pval := val -> 'a';
   -- .'|'.0.a
-  res := JSONB_TYPEOF(pval) = 'null';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'null';
 END;
 $$ LANGUAGE PLpgSQL;
 

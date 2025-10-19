@@ -50,8 +50,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'val'};
     # .'|'.0.val
-    $res = jm_is_integer($pval);
-    return $res;
+    return jm_is_integer($pval);
 }
 
 # object .'|'.1
@@ -86,8 +85,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'val'};
     # .'|'.1.val
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.2
@@ -122,8 +120,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'val'};
     # .'|'.2.val
-    $res = jm_is_boolean($pval);
-    return $res;
+    return jm_is_boolean($pval);
 }
 
 
@@ -155,6 +152,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }

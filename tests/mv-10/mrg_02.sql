@@ -8,12 +8,9 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $t (.'$t')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$t'
-  res := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_02';
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_02';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -64,8 +61,7 @@ BEGIN
   END IF;
   pval := val -> 'd';
   -- .'$r'.d
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -98,8 +94,7 @@ BEGIN
   END IF;
   pval := val -> 'f';
   -- .'$z'.f
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -168,8 +163,7 @@ BEGIN
   END IF;
   pval := val -> 'd';
   -- .d
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
 END;
 $$ LANGUAGE PLpgSQL;
 

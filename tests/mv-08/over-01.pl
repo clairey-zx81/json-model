@@ -20,20 +20,16 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$over'
-    $res = json_model_4($val, $path, $rep);
-    return $res;
+    return json_model_4($val, $path, $rep);
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_4($val, $path, $rep);
-    return $res;
+    return json_model_4($val, $path, $rep);
 }
 
 # check $over#Foo (.'$over#Foo')

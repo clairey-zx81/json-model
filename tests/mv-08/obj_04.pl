@@ -19,20 +19,16 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$bla'
-    $res = jm_is_string($val) && jm_is_valid_date($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_date($val, $path, $rep);
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_3($val, $path, $rep);
-    return $res;
+    return json_model_3($val, $path, $rep);
 }
 
 

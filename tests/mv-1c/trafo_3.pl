@@ -22,20 +22,16 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Dd'
-    $res = json_model_6($val, $path, $rep);
-    return $res;
+    return json_model_6($val, $path, $rep);
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_6($val, $path, $rep);
-    return $res;
+    return json_model_6($val, $path, $rep);
 }
 
 # check $Dd#l (.'$Dd#l')
@@ -65,10 +61,8 @@ sub json_model_6($$$)
 sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Dd#u'
-    $res = json_model_12($val, $path, $rep);
-    return $res;
+    return json_model_12($val, $path, $rep);
 }
 
 # check $Dd#Uu#un (.'$Dd#Uu#un')
@@ -104,8 +98,7 @@ sub json_model_12($$$)
     }
     $pval = $$val{'ub'};
     # .'$Dd#Uu#un'.ub
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 

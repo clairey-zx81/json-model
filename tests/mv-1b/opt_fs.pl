@@ -18,12 +18,10 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # JSON_MODEL_STRICT_FLOAT
     # .
     # .'@'
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 

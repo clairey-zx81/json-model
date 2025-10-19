@@ -48,11 +48,9 @@ sub _jm_re_0($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$s'
     # "/[a-z]/"
-    $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 # check $ (.)
@@ -83,11 +81,9 @@ sub _jm_re_1($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$r#s'
     # "/[0-9]/"
-    $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_1($val, $path, $rep);
 }
 
 

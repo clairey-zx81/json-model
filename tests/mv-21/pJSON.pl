@@ -18,10 +18,8 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = jm_is_string($val) && jm_is_valid_json($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && jm_is_valid_json($val, $path, $rep);
 }
 
 

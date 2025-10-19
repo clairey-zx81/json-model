@@ -1038,6 +1038,10 @@ sub json_model_11($$$)
             $res = 0;
         }
     }
+    else
+    {
+        ;
+    }
     return $res;
 }
 
@@ -1328,6 +1332,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     if (! $res)
     {

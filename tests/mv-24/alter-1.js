@@ -18,20 +18,16 @@ var check_model_map = new Map()
 // check $g (.'$g')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$g'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "g";
-    return res;
+    return ((typeof val === 'string' || val instanceof String)) && val == "g";
 }
 
 
 // check $h_ou_i (.'$h_ou_i')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$h_ou_i'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
-    return res;
+    return ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
 }
 
 // check $d (.'$d')
@@ -66,8 +62,7 @@ function json_model_4(val, path, rep)
     }
     pval = val["d"];
     // .'$d'.d
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 
@@ -103,8 +98,7 @@ function json_model_5(val, path, rep)
     }
     pval = val["ef"];
     // .'$ef'.ef
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 // object .'$alternative'.'|'.0
@@ -138,8 +132,7 @@ function _jm_obj_0(val, path, rep)
     }
     pval = val["a"];
     // .'$alternative'.'|'.0.a
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 
@@ -174,8 +167,7 @@ function _jm_obj_1(val, path, rep)
     }
     pval = val["bc"];
     // .'$alternative'.'|'.1.bc
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 // object .'$alternative'.'|'.2
@@ -209,8 +201,7 @@ function _jm_obj_2(val, path, rep)
     }
     pval = val["g"];
     // .'$alternative'.'|'.2.g
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 // object .'$alternative'.'|'.3
@@ -244,8 +235,7 @@ function _jm_obj_3(val, path, rep)
     }
     pval = val["hi"];
     // .'$alternative'.'|'.3.hi
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 
@@ -283,10 +273,8 @@ function json_model_6(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_6(val, path, rep);
-    return res;
+    return json_model_6(val, path, rep);
 }
 
 

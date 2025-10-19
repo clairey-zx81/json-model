@@ -31,8 +31,7 @@ BEGIN
   END IF;
   pval := val -> 't';
   -- .'$oA'.t
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -71,8 +70,7 @@ BEGIN
   END IF;
   pval := val -> 't';
   -- .'$oB'.t
-  res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -101,6 +99,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   RETURN res;
 END;
@@ -132,8 +132,7 @@ BEGIN
   END IF;
   pval := val -> 't';
   -- .'$oL'.t
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'd';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'd';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -172,8 +171,7 @@ BEGIN
   END IF;
   pval := val -> 't';
   -- .'$oX'.t
-  res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(pval);
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(pval);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -202,6 +200,8 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
+  ELSE
+    NULL;
   END IF;
   IF NOT res THEN
     res := json_model_4(val, path, rep);

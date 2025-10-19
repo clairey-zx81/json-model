@@ -43,8 +43,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("d", UNDEFINED)) != UNDEFINED):
         return False
     # .'$d'.d
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 # object .'$alternative'.'|'.0
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -64,8 +63,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         return False
     # .'$alternative'.'|'.0.a
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 
 # object .'$alternative'.'|'.1
@@ -86,8 +84,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("bc", UNDEFINED)) != UNDEFINED):
         return False
     # .'$alternative'.'|'.1.bc
-    res = isinstance(pval, str)
-    return res
+    return isinstance(pval, str)
 
 
 # check $alternative (.'$alternative')
@@ -107,6 +104,8 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = False
         else:
             res = False
+    else:
+        pass
     if not res:
         # .'$alternative'.'|'.0
         res = _jm_obj_0(val, path, rep)
@@ -114,10 +113,8 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_3(val, path, rep)
-    return res
+    return json_model_3(val, path, rep)
 
 
 # initialization guard

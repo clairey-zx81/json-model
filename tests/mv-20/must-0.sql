@@ -32,8 +32,7 @@ BEGIN
   END IF;
   pval := val -> 'born';
   -- .born
-  res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

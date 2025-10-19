@@ -20,30 +20,24 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$false'
-    $res = 0;
-    return $res;
+    return 0;
 }
 
 # check $true (.'$true')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$true'
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 

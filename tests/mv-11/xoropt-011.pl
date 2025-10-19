@@ -39,8 +39,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'a'};
     # .'|'.0.a
-    $res = jm_is_integer($pval) && $pval == 10;
-    return $res;
+    return jm_is_integer($pval) && $pval == 10;
 }
 
 # object .'|'.1
@@ -64,8 +63,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'a'};
     # .'|'.1.a
-    $res = jm_is_integer($pval) && $pval == 1;
-    return $res;
+    return jm_is_integer($pval) && $pval == 1;
 }
 
 # object .'|'.2
@@ -89,8 +87,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'a'};
     # .'|'.2.a
-    $res = jm_is_integer($pval) && $pval == 0;
-    return $res;
+    return jm_is_integer($pval) && $pval == 0;
 }
 
 
@@ -122,6 +119,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }

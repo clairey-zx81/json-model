@@ -45,8 +45,7 @@ public class a2m_0 extends ModelChecker
             return false;
         }
         // .b
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
-        return res;
+        return json.isInteger(pval) && json.asLong(pval) >= 0;
     }
 
 

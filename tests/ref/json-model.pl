@@ -96,11 +96,9 @@ sub _jm_re_0($$$)
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Url'
     # "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-    $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 
@@ -108,10 +106,8 @@ sub json_model_2($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$PreDef'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 sub _jm_re_1($$$)
@@ -154,11 +150,9 @@ sub json_model_4($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ArrayComment'
     # "/^#/"
-    $res = jm_is_string($val) && jm_starts_with($val, '#');
-    return $res;
+    return jm_is_string($val) && jm_starts_with($val, '#');
 }
 
 # check $ObjectComment (.'$ObjectComment')
@@ -209,11 +203,9 @@ sub _jm_re_3($$$)
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ref'
     # "/^\\$./"
-    $res = jm_is_string($val) && _jm_re_3($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_3($val, $path, $rep);
 }
 
 sub _jm_re_4($$$)
@@ -227,11 +219,9 @@ sub _jm_re_4($$$)
 sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ValConst'
     # "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-    $res = jm_is_string($val) && _jm_re_4($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_4($val, $path, $rep);
 }
 
 sub _jm_re_5($$$)
@@ -245,11 +235,9 @@ sub _jm_re_5($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$StrConst'
     # "/^[A-Za-z0-9_]/"
-    $res = jm_is_string($val) && _jm_re_5($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_5($val, $path, $rep);
 }
 
 sub _jm_xre_0_re($$$)
@@ -333,11 +321,9 @@ sub _jm_re_6($$$)
 sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Name'
     # "/^\\..+$/"
-    $res = jm_is_string($val) && _jm_re_6($val, $path, $rep);
-    return $res;
+    return jm_is_string($val) && _jm_re_6($val, $path, $rep);
 }
 
 # check $CmpValue (.'$CmpValue')
@@ -468,20 +454,16 @@ sub json_model_15($$$)
 sub json_model_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Any'
-    $res = 1;
-    return $res;
+    return 1;
 }
 
 # check $None (.'$None')
 sub json_model_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$None'
-    $res = 0;
-    return $res;
+    return 0;
 }
 
 # check $CModel (.'$CModel')
@@ -527,10 +509,8 @@ sub json_model_19($$$)
 sub json_model_20($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Common'
-    $res = json_model_6($val, $path, $rep);
-    return $res;
+    return json_model_6($val, $path, $rep);
 }
 
 sub _jm_re_7($$$)
@@ -3333,10 +3313,8 @@ sub json_model_40($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_40($val, $path, $rep);
-    return $res;
+    return json_model_40($val, $path, $rep);
 }
 
 

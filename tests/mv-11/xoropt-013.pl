@@ -123,8 +123,7 @@ sub json_model_1($$$)
     {
         $xc_0++;
     }
-    $res = $xc_0 == 1;
-    return $res;
+    return $xc_0 == 1;
 }
 
 

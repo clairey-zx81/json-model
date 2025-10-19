@@ -34,44 +34,34 @@ BEGIN
   END IF;
   pval := val -> 'y';
   -- .'$bla'.y
-  res := JSONB_TYPEOF(pval) = 'number';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $foo (.'$foo')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$foo'
-  res := json_model_2(val, path, rep);
-  RETURN res;
+  RETURN json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $ob (.'$ob')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$ob'
-  res := json_model_2(val, path, rep);
-  RETURN res;
+  RETURN json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := json_model_2(val, path, rep);
-  RETURN res;
+  RETURN json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

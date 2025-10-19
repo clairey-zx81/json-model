@@ -18,11 +18,9 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # "/^S/"
-    $res = jm_is_string($val) && jm_starts_with($val, 'S');
-    return $res;
+    return jm_is_string($val) && jm_starts_with($val, 'S');
 }
 
 

@@ -50,8 +50,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'pi'};
     # .'|'.0.pi
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.1
@@ -86,8 +85,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'one'};
     # .'|'.1.one
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.2
@@ -122,8 +120,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'half'};
     # .'|'.2.half
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -155,6 +152,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }

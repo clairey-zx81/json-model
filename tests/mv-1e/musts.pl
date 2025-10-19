@@ -80,8 +80,7 @@ sub json_model_1($$$)
     }
     $pval = $$val{'e'};
     # .e
-    $res = jm_is_integer($pval) && $pval >= 0;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 0;
 }
 
 

@@ -71,8 +71,7 @@ function json_model_1(val, path, rep)
     }
     pval = val["foo"];
     // .foo
-    res = json_model_3(pval, null, rep);
-    return res;
+    return json_model_3(pval, null, rep);
 }
 
 
@@ -138,8 +137,7 @@ function json_model_4(val, path, rep)
     }
     pval = val["legs"];
     // .'$objs0#table'.legs
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    return res;
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
 }
 
 // check $objs0#chair (.'$objs0#chair')
@@ -174,8 +172,7 @@ function json_model_5(val, path, rep)
     }
     pval = val["color"];
     // .'$objs0#chair'.color
-    res = (typeof pval === 'string' || pval instanceof String);
-    return res;
+    return (typeof pval === 'string' || pval instanceof String);
 }
 
 

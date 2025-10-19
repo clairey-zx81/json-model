@@ -49,35 +49,28 @@ public class objs2 extends ModelChecker
             return false;
         }
         // .'$bla'.y
-        res = json.isDouble(pval);
-        return res;
+        return json.isDouble(pval);
     }
 
     // check $foo (.'$foo')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$foo'
-        res = json_model_2(val, path, rep);
-        return res;
+        return json_model_2(val, path, rep);
     }
 
     // check $ob (.'$ob')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ob'
-        res = json_model_2(val, path, rep);
-        return res;
+        return json_model_2(val, path, rep);
     }
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_2(val, path, rep);
-        return res;
+        return json_model_2(val, path, rep);
     }
 
 

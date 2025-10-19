@@ -60,8 +60,7 @@ BEGIN
   END IF;
   pval := val -> 'a';
   -- .'|'.1.a
-  res := JSONB_TYPEOF(pval) = 'string';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -84,8 +83,7 @@ BEGIN
   END IF;
   pval := val -> 'a';
   -- .'|'.0.a
-  res := JSONB_TYPEOF(pval) = 'boolean';
-  RETURN res;
+  RETURN JSONB_TYPEOF(pval) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 

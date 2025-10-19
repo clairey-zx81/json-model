@@ -17,8 +17,7 @@ BEGIN
   -- not-case xor list
   -- .'^'.1
   is_0 := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
-  res := NOT is_0;
-  RETURN res;
+  RETURN NOT is_0;
 END;
 $$ LANGUAGE PLpgSQL;
 

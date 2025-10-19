@@ -80,8 +80,7 @@ sub json_model_1($$$)
     }
     $pval = $$val{'foo'};
     # .foo
-    $res = json_model_3($pval, undef, $rep);
-    return $res;
+    return json_model_3($pval, undef, $rep);
 }
 
 
@@ -112,6 +111,10 @@ sub json_model_6($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }
@@ -149,8 +152,7 @@ sub json_model_4($$$)
     }
     $pval = $$val{'legs'};
     # .'$objs0#table'.legs
-    $res = jm_is_integer($pval) && $pval >= 1;
-    return $res;
+    return jm_is_integer($pval) && $pval >= 1;
 }
 
 # check $objs0#chair (.'$objs0#chair')
@@ -186,8 +188,7 @@ sub json_model_5($$$)
     }
     $pval = $$val{'color'};
     # .'$objs0#chair'.color
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 

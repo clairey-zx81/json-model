@@ -3,6 +3,12 @@
 ## Current Tasks
 
 - [x] pr: improve radar chart responsiveness and sorting
+- [x] backend: remove intermediate variable on return
+- [x] backend: remove unused boolean variable declaration on simple direct return
+- [x] ~backend: remove redundant scalar test in some cases~
+- [x] backend: remove reporting instructions under no reporting
+- [ ] backend: add late code filtering to catch some backend-specific stuff
+- [ ] backend: remove reporting expressions under no reporting
 - [ ] perf: add launcher script
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] static: partial discriminator with else?

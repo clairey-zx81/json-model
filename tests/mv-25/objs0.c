@@ -48,8 +48,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$table'.legs
-    res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-    return res;
+    return json_is_integer(pval) && json_integer_value(pval) >= 1;
 }
 
 // check $chair (.'$chair')
@@ -82,8 +81,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$chair'.color
-    res = json_is_string(pval);
-    return res;
+    return json_is_string(pval);
 }
 
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)

@@ -219,30 +219,24 @@ sub json_model_4($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$custom-commands-prompts-type-property'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check $custom-commands-prompts-title-property (.'$custom-commands-prompts-title-property')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$custom-commands-prompts-title-property'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check $custom-commands-prompts-key-property (.'$custom-commands-prompts-key-property')
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$custom-commands-prompts-key-property'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check $neString (.'$neString')
@@ -310,8 +304,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'command'};
     # .'$Prompts'.'|'.0.suggestions.'|'.1.command
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -336,8 +329,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'preset'};
     # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
-    return $res;
+    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
 }
 
 # object .'$Prompts'.'|'.0
@@ -740,6 +732,10 @@ sub json_model_10($$$)
             $res = 0;
         }
     }
+    else
+    {
+        ;
+    }
     return $res;
 }
 
@@ -747,10 +743,8 @@ sub json_model_10($$$)
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .confirmOnQuit
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -789,20 +783,16 @@ sub _jm_f_2($$$)
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .customCommands.'@'.0.description
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .customCommands.'@'.0.loadingText
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
@@ -832,30 +822,24 @@ sub _jm_f_5($$$)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .customCommands.'@'.0.showOutput
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .customCommands.'@'.0.stream
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .customCommands.'@'.0.subprocess
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -954,50 +938,40 @@ sub _jm_f_1($$$)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .disableStartupPopups
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
 sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.allBranchesLogCmd
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_f_10_map_autoFetch (.git.autoFetch)
 sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.autoFetch
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_10_map_autoRefresh (.git.autoRefresh)
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.autoRefresh
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.branchLogCmd
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_f_10_map_commit (.git.commit)
@@ -1070,8 +1044,7 @@ sub _jm_obj_8($$$)
     }
     $pval = $$val{'replace'};
     # .git.commitPrefixes.'/./'.replace
-    $res = json_model_8($pval, undef, $rep);
-    return $res;
+    return json_model_8($pval, undef, $rep);
 }
 
 # check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
@@ -1109,30 +1082,24 @@ sub _jm_f_16($$$)
 sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.diffContextSize
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
 sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.disableForcePushing
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_10_map_fetchAll (.git.fetchAll)
 sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.fetchAll
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1233,10 +1200,8 @@ sub _jm_f_21($$$)
 sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.overrideGpg
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1301,20 +1266,16 @@ sub _jm_f_23($$$)
 sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.parseEmoji
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
 sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .git.skipHookPrefix
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -1351,10 +1312,8 @@ sub _jm_f_10($$$)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.animateExplosion
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_authorColors (.gui.authorColors)
@@ -1393,10 +1352,8 @@ sub _jm_f_28($$$)
 sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.border
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_7{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_7{$val};
 }
 
 # check _jm_f_26_map_branchColors (.gui.branchColors)
@@ -1434,10 +1391,8 @@ sub _jm_f_30($$$)
 sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.commandLogSize
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 # check _jm_f_26_map_commitLength (.gui.commitLength)
@@ -1475,10 +1430,8 @@ sub _jm_f_32($$$)
 sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.expandFocusedSidePanel
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1486,10 +1439,8 @@ sub _jm_f_33($$$)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.language
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_8{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_8{$val};
 }
 
 
@@ -1497,20 +1448,16 @@ sub _jm_f_34($$$)
 sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.mainPanelSplitMode
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_9{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_9{$val};
 }
 
 # check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
 sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.mouseEvents
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1537,90 +1484,72 @@ sub _jm_f_37($$$)
 sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.scrollHeight
-    $res = jm_is_integer($val) && $val >= 1;
-    return $res;
+    return jm_is_integer($val) && $val >= 1;
 }
 
 # check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
 sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.scrollPastBottom
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
 sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.shortTimeFormat
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
 sub _jm_f_41($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.showBottomLine
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
 sub _jm_f_42($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.showBranchCommitHash
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
 sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.showCommandLog
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_showFileTree (.gui.showFileTree)
 sub _jm_f_44($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.showFileTree
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_showListFooter (.gui.showListFooter)
 sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.showListFooter
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
 sub _jm_f_46($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.showRandomTip
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
@@ -1643,30 +1572,24 @@ sub _jm_f_47($$$)
 sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.skipDiscardChangeWarning
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
 sub _jm_f_49($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.skipRewordInEditorWarning
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
 sub _jm_f_50($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.skipStashWarning
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 
@@ -1674,10 +1597,8 @@ sub _jm_f_50($$$)
 sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.splitDiff
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_11{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_11{$val};
 }
 
 
@@ -1714,10 +1635,8 @@ sub _jm_f_52($$$)
 sub _jm_f_53($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.timeFormat
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -1725,10 +1644,8 @@ sub _jm_f_53($$$)
 sub _jm_f_54($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.windowSize
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_12{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_12{$val};
 }
 
 
@@ -2080,20 +1997,16 @@ sub _jm_f_63($$$)
 sub _jm_f_65($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .keybinding.universal.jumpToBlock
-    $res = jm_is_array($val);
-    return $res;
+    return jm_is_array($val);
 }
 
 # check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
 sub _jm_f_66($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .keybinding.universal.optionMenu
-    $res = !defined($val);
-    return $res;
+    return !defined($val);
 }
 
 
@@ -2161,50 +2074,40 @@ sub _jm_f_55($$$)
 sub _jm_f_67($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .notARepository
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_13{$val};
-    return $res;
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_13{$val};
 }
 
 # check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
 sub _jm_f_69($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .os.copyToClipboardCmd
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_f_68_map_edit (.os.edit)
 sub _jm_f_70($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .os.edit
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_f_68_map_editAtLine (.os.editAtLine)
 sub _jm_f_71($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .os.editAtLine
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
 sub _jm_f_72($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .os.editAtLineAndWait
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -2231,20 +2134,16 @@ sub _jm_f_73($$$)
 sub _jm_f_74($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .os.open
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check _jm_f_68_map_openLink (.os.openLink)
 sub _jm_f_75($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .os.openLink
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 
@@ -2281,20 +2180,16 @@ sub _jm_f_68($$$)
 sub _jm_f_76($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .promptToReturnFromSubprocess
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
 sub _jm_f_77($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .quitOnTopLevelReturn
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check json_model_1_map_refresher (.refresher)

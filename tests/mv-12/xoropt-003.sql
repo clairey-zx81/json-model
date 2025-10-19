@@ -42,12 +42,9 @@ $$ LANGUAGE PLpgSQL;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := json_model_2(val, path, rep);
-  RETURN res;
+  RETURN json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

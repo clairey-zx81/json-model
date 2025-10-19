@@ -40,8 +40,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'t'};
     # .'|'.0.t
-    $res = jm_is_string($pval) && $pval eq 'a';
-    return $res;
+    return jm_is_string($pval) && $pval eq 'a';
 }
 
 
@@ -66,8 +65,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'t'};
     # .'|'.1.t
-    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
-    return $res;
+    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
 }
 
 # object .'|'.2
@@ -124,8 +122,7 @@ sub _jm_obj_2($$$)
             $xc_0++;
         }
     }
-    $res = $xc_0 == 1;
-    return $res;
+    return $xc_0 == 1;
 }
 
 
@@ -157,6 +154,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     if (! $res)
     {

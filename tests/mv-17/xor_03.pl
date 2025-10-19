@@ -25,8 +25,7 @@ sub json_model_1($$$)
     my $is_0;
     # .'^'.1
     $is_0 = jm_is_integer($val) && $val >= 0;
-    $res = ! $is_0;
-    return $res;
+    return ! $is_0;
 }
 
 

@@ -26,50 +26,40 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Nn'
-    $res = !defined($val);
-    return $res;
+    return !defined($val);
 }
 
 # check $Bb (.'$Bb')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bb'
-    $res = jm_is_boolean($val);
-    return $res;
+    return jm_is_boolean($val);
 }
 
 # check $Ii (.'$Ii')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ii'
-    $res = jm_is_integer($val);
-    return $res;
+    return jm_is_integer($val);
 }
 
 # check $Ff (.'$Ff')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ff'
-    $res = jm_is_numeric($val);
-    return $res;
+    return jm_is_numeric($val);
 }
 
 # check $Ss (.'$Ss')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ss'
-    $res = jm_is_string($val);
-    return $res;
+    return jm_is_string($val);
 }
 
 # check $Aa (.'$Aa')
@@ -164,10 +154,8 @@ sub json_model_9($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = json_model_9($val, $path, $rep);
-    return $res;
+    return json_model_9($val, $path, $rep);
 }
 
 

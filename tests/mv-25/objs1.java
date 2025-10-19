@@ -80,8 +80,7 @@ public class objs1 extends ModelChecker
             return false;
         }
         // .foo
-        res = json_model_3(pval, null, rep);
-        return res;
+        return json_model_3(pval, null, rep);
     }
 
 
@@ -145,8 +144,7 @@ public class objs1 extends ModelChecker
             return false;
         }
         // .'$objs0#table'.legs
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        return res;
+        return json.isInteger(pval) && json.asLong(pval) >= 1;
     }
 
     // check $objs0#chair (.'$objs0#chair')
@@ -179,8 +177,7 @@ public class objs1 extends ModelChecker
             return false;
         }
         // .'$objs0#chair'.color
-        res = json.isString(pval);
-        return res;
+        return json.isString(pval);
     }
 
 

@@ -49,8 +49,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'x'};
     # .'|'.0.x
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 # object .'|'.1
@@ -85,8 +84,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'y'};
     # .'|'.1.y
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 
@@ -118,6 +116,10 @@ sub json_model_1($$$)
         {
             $res = 0;
         }
+    }
+    else
+    {
+        ;
     }
     return $res;
 }

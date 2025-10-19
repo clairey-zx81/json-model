@@ -30,20 +30,16 @@ const size_t check_model_map_size = 6;
 // check $g (.'$g')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$g'
-    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000067);
-    return res;
+    return json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000067);
 }
 
 
 // check $h_ou_i (.'$h_ou_i')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$h_ou_i'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);;
-    return res;
+    return jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);;
 }
 
 // check $d (.'$d')
@@ -76,8 +72,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$d'.d
-    res = json_is_string(pval);
-    return res;
+    return json_is_string(pval);
 }
 
 
@@ -111,8 +106,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     // .'$ef'.ef
-    res = json_is_string(pval);
-    return res;
+    return json_is_string(pval);
 }
 
 // object .'$alternative'.'|'.0
@@ -144,8 +138,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     // .'$alternative'.'|'.0.a
-    res = json_is_string(pval);
-    return res;
+    return json_is_string(pval);
 }
 
 
@@ -178,8 +171,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     // .'$alternative'.'|'.1.bc
-    res = json_is_string(pval);
-    return res;
+    return json_is_string(pval);
 }
 
 // object .'$alternative'.'|'.2
@@ -211,8 +203,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     // .'$alternative'.'|'.2.g
-    res = json_is_string(pval);
-    return res;
+    return json_is_string(pval);
 }
 
 // object .'$alternative'.'|'.3
@@ -244,8 +235,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     // .'$alternative'.'|'.3.hi
-    res = json_is_string(pval);
-    return res;
+    return json_is_string(pval);
 }
 
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)
@@ -289,10 +279,8 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_6(val, path, rep);
-    return res;
+    return json_model_6(val, path, rep);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

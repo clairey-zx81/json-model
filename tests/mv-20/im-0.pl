@@ -20,20 +20,16 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$a'
-    $res = jm_is_string($val) && $val eq 'a';
-    return $res;
+    return jm_is_string($val) && $val eq 'a';
 }
 
 # check $b (.'$b')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$b'
-    $res = jm_is_string($val) && $val eq 'b';
-    return $res;
+    return jm_is_string($val) && $val eq 'b';
 }
 
 # check $ (.)

@@ -47,8 +47,7 @@ sub json_model_1($$$)
     }
     $pval = $$val{'b'};
     # .b
-    $res = jm_is_string($pval);
-    return $res;
+    return jm_is_string($pval);
 }
 
 

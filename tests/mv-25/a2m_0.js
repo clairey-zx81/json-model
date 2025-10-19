@@ -39,8 +39,7 @@ function json_model_1(val, path, rep)
     }
     pval = val["b"];
     // .b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-    return res;
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
 }
 
 
