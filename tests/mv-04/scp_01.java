@@ -22,9 +22,8 @@ public class scp_01 extends ModelChecker
     // check $b (.'$b')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$b'
-        res = json.isString(val) && json.asString(val).compareTo("b") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("b") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _b [.'$b']", path);
@@ -35,9 +34,8 @@ public class scp_01 extends ModelChecker
     // check $Bb (.'$Bb')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Bb'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$Bb']", path);
@@ -159,9 +157,8 @@ public class scp_01 extends ModelChecker
     // check $Rr#Aa (.'$Rr#Aa')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Rr#Aa'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$Rr#Aa']", path);

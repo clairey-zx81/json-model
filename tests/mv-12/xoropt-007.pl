@@ -109,9 +109,8 @@ sub json_model_1($$$)
     # .
     # generic xor list
     my $xc_0 = 0;
-    my $xr_0;
     # .'^'.0
-    $xr_0 = _jm_obj_0($val, $path, $rep);
+    my $xr_0 = _jm_obj_0($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;

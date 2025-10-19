@@ -24,9 +24,8 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = is_valid_json(val, path, rep)
+    res: bool = is_valid_json(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $JSON [.]", path))
     return res

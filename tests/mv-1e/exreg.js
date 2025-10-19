@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = runtime.jm_is_valid_regex(val, true);
+    let res = runtime.jm_is_valid_regex(val, true);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $EXREG [.]", path])

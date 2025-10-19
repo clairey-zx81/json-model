@@ -66,9 +66,8 @@ sub json_model_6($$$)
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Aa'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -113,10 +112,9 @@ sub json_model_8($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Any'
     # .'$Any'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$Any'.'|'.1

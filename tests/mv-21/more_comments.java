@@ -22,9 +22,8 @@ public class more_comments extends ModelChecker
     // check $Pp (.'$Pp')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Pp'
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Pp']", path);
@@ -35,9 +34,8 @@ public class more_comments extends ModelChecker
     // check $Qq (.'$Qq')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Qq'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;

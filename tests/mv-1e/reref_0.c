@@ -24,9 +24,8 @@ const size_t check_model_map_size = 2;
 // check $character (.'$character')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$character'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$character'.'|']", path);
@@ -65,10 +64,9 @@ static INLINE bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
     // "/'($character:\\w+)'.*'($character:\\w+)'/X"
-    res = json_is_string(val) && _jm_xre_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_xre_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /'($character:\\w+)'.*'($character:\\w+)'/X [.]", path);

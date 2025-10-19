@@ -33,10 +33,9 @@ function _jm_xre_0(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // "/^X-($DATE)-Y$/X"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^X-($DATE)-Y$/X [.]", path])

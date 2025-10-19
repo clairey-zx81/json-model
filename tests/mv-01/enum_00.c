@@ -22,9 +22,8 @@ const size_t check_model_map_size = 3;
 // check $p1 (.'$p1')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$p1'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 5);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 5);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$p1'.'|']", path);
@@ -36,9 +35,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $p2 (.'$p2')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$p2'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 5);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 5);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$p2'.'|']", path);
@@ -54,9 +52,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // generic xor list
     int64_t xc_0 = 0;
-    bool xr_0;
     // .'^'.0
-    xr_0 = json_model_2(val, path, rep);
+    bool xr_0 = json_model_2(val, path, rep);
     if (xr_0)
         xc_0 += 1;
     else

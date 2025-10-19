@@ -29,10 +29,9 @@ sub json_model_1($$$)
     # not a word
     # .
     # not-case xor list
-    my $is_0;
     # .'^'.1
     # "/^[a-z]+$/i"
-    $is_0 = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    my $is_0 = jm_is_string($val) && _jm_re_0($val, $path, $rep);
     return ! $is_0;
 }
 

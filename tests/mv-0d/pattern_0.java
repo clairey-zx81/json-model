@@ -28,10 +28,9 @@ public class pattern_0 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // "/^[A-Z].*/"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[A-Z].*/ [.]", path);

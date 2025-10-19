@@ -71,9 +71,8 @@ public class trafo_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $un [.]", path);

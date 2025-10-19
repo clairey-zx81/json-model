@@ -53,10 +53,9 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schemaArray'
     # .'$schemaArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -91,10 +90,9 @@ sub json_model_3($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$stringArray'
     # .'$stringArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -120,10 +118,9 @@ sub json_model_4($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$typeArray'
     # .'$typeArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$val)
@@ -165,10 +162,9 @@ sub _jm_f_1($$$)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .additionalItems
     # .additionalItems.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .additionalItems.'|'.1
@@ -181,10 +177,9 @@ sub _jm_f_2($$$)
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .additionalProperties
     # .additionalProperties.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .additionalProperties.'|'.1
@@ -267,10 +262,9 @@ sub _jm_f_7($$$)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .enum
     # .enum.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         my $ival_3 = scalar @$val;
@@ -315,10 +309,9 @@ sub _jm_f_12($$$)
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .items
     # .items.'|'.0
-    $res = json_model_1($val, $path, $rep);
+    my $res = json_model_1($val, $path, $rep);
     if (! $res)
     {
         # .items.'|'.1
@@ -467,10 +460,9 @@ sub _jm_f_26($$$)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .type
     # .type.'|'.0
-    $res = json_model_3($val, $path, $rep);
+    my $res = json_model_3($val, $path, $rep);
     if (! $res)
     {
         # .type.'|'.1

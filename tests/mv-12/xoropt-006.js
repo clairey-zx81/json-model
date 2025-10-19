@@ -15,9 +15,8 @@ var check_model_map = new Map()
 // check $None (.'$None')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$None'
-    res = false;
+    let res = false;
     rep !== null && rep.push(["unexpected $NONE [.'$None']", path])
     return res;
 }
@@ -132,9 +131,8 @@ function _jm_obj_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])

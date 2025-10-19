@@ -104,10 +104,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # ^ to | based on distinct types on same property
     # .
-    res = isinstance(val, dict)
+    res: bool = isinstance(val, dict)
     if not res:
         rep is None or rep.append(("unexpected type [.'|']", path))
     if res:

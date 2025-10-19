@@ -24,9 +24,8 @@ public class scope_1 extends ModelChecker
     // check $r (.'$r')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$r'
-        res = json.isArray(val) && json.arrayLength(val) == 2;
+        boolean res = json.isArray(val) && json.arrayLength(val) == 2;
         if (res)
         {
             Path lpath_0 = new Path(0, path);
@@ -62,10 +61,9 @@ public class scope_1 extends ModelChecker
     // check $s (.'$s')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$s'
         // "/[a-z]/"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'$s']", path);
@@ -76,11 +74,10 @@ public class scope_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // a string with a lower case later or a digit
         // .
         // .'|'.0
-        res = json_model_3(val, path, rep);
+        boolean res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $s [.'|'.0]", path);
@@ -113,10 +110,9 @@ public class scope_1 extends ModelChecker
     // check $r#s (.'$r#s')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$r#s'
         // "/[0-9]/"
-        res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'$r#s']", path);

@@ -22,10 +22,9 @@ public class or_07 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // .'|'.0
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'|'.0]", path);

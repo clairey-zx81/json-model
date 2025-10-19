@@ -41,9 +41,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_0_idx;

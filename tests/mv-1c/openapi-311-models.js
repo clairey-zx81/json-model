@@ -40,9 +40,8 @@ var check_model_map = new Map()
 // check $openapi (.'$openapi')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$openapi'
-    res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $OpenAPI [.'$openapi']", path])
@@ -53,9 +52,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $openapi [.]", path])
@@ -68,9 +66,8 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check json_model_4_map_jsonModelVersion (.'$openapi#OpenAPI'.jsonModelVersion)
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .'$openapi#OpenAPI'.jsonModelVersion
-    res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $URL [.'$openapi#OpenAPI'.jsonModelVersion]", path])
@@ -81,9 +78,8 @@ function _jm_f_0(val, path, rep)
 // check json_model_4_map_security (.'$openapi#OpenAPI'.security)
 function _jm_f_1(val, path, rep)
 {
-    let res;
     // .'$openapi#OpenAPI'.security
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -109,9 +105,8 @@ function _jm_f_1(val, path, rep)
 // check json_model_4_map_servers (.'$openapi#OpenAPI'.servers)
 function _jm_f_2(val, path, rep)
 {
-    let res;
     // .'$openapi#OpenAPI'.servers
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
@@ -137,9 +132,8 @@ function _jm_f_2(val, path, rep)
 // check json_model_4_map_tags (.'$openapi#OpenAPI'.tags)
 function _jm_f_3(val, path, rep)
 {
-    let res;
     // .'$openapi#OpenAPI'.tags
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
@@ -606,9 +600,8 @@ function _jm_obj_1(val, path, rep)
 // check $openapi#License (.'$openapi#License')
 function json_model_7(val, path, rep)
 {
-    let res;
     // .'$openapi#License'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$openapi#License'.'|']", path])
@@ -1328,9 +1321,8 @@ function json_model_11(val, path, rep)
 // check json_model_12_map_$ref (.'$openapi#PathItem'.'$ref')
 function _jm_f_15(val, path, rep)
 {
-    let res;
     // .'$openapi#PathItem'.'$ref'
-    res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $URI [.'$openapi#PathItem'.'$ref']", path])
@@ -1341,9 +1333,8 @@ function _jm_f_15(val, path, rep)
 // check json_model_12_map_description (.'$openapi#PathItem'.description)
 function _jm_f_16(val, path, rep)
 {
-    let res;
     // .'$openapi#PathItem'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#PathItem'.description]", path])
@@ -1354,9 +1345,8 @@ function _jm_f_16(val, path, rep)
 // check json_model_12_map_parameters (.'$openapi#PathItem'.parameters)
 function _jm_f_17(val, path, rep)
 {
-    let res;
     // .'$openapi#PathItem'.parameters
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_4_idx = 0; arr_4_idx < val.length; arr_4_idx++)
@@ -1400,9 +1390,8 @@ function _jm_f_17(val, path, rep)
 // check json_model_12_map_servers (.'$openapi#PathItem'.servers)
 function _jm_f_18(val, path, rep)
 {
-    let res;
     // .'$openapi#PathItem'.servers
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_5_idx = 0; arr_5_idx < val.length; arr_5_idx++)
@@ -1428,9 +1417,8 @@ function _jm_f_18(val, path, rep)
 // check json_model_12_map_summary (.'$openapi#PathItem'.summary)
 function _jm_f_19(val, path, rep)
 {
-    let res;
     // .'$openapi#PathItem'.summary
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#PathItem'.summary]", path])
@@ -1523,9 +1511,8 @@ function _jm_f_20(val, path, rep)
 // check json_model_13_map_deprecated (.'$openapi#Operation'.deprecated)
 function _jm_f_21(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.deprecated
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Operation'.deprecated]", path])
@@ -1536,9 +1523,8 @@ function _jm_f_21(val, path, rep)
 // check json_model_13_map_description (.'$openapi#Operation'.description)
 function _jm_f_22(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#Operation'.description]", path])
@@ -1549,9 +1535,8 @@ function _jm_f_22(val, path, rep)
 // check json_model_13_map_operationId (.'$openapi#Operation'.operationId)
 function _jm_f_23(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.operationId
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#Operation'.operationId]", path])
@@ -1562,9 +1547,8 @@ function _jm_f_23(val, path, rep)
 // check json_model_13_map_parameters (.'$openapi#Operation'.parameters)
 function _jm_f_24(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.parameters
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_6_idx = 0; arr_6_idx < val.length; arr_6_idx++)
@@ -1608,10 +1592,9 @@ function _jm_f_24(val, path, rep)
 // check json_model_13_map_requestBody (.'$openapi#Operation'.requestBody)
 function _jm_f_25(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.requestBody
     // .'$openapi#Operation'.requestBody.'|'.0
-    res = json_model_21(val, path, rep);
+    let res = json_model_21(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $RequestBody [.'$openapi#Operation'.requestBody.'|'.0]", path])
@@ -1639,9 +1622,8 @@ function _jm_f_25(val, path, rep)
 // check json_model_13_map_security (.'$openapi#Operation'.security)
 function _jm_f_26(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.security
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_7_idx = 0; arr_7_idx < val.length; arr_7_idx++)
@@ -1667,9 +1649,8 @@ function _jm_f_26(val, path, rep)
 // check json_model_13_map_servers (.'$openapi#Operation'.servers)
 function _jm_f_27(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.servers
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_8_idx = 0; arr_8_idx < val.length; arr_8_idx++)
@@ -1695,9 +1676,8 @@ function _jm_f_27(val, path, rep)
 // check json_model_13_map_summary (.'$openapi#Operation'.summary)
 function _jm_f_28(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.summary
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#Operation'.summary]", path])
@@ -1708,9 +1688,8 @@ function _jm_f_28(val, path, rep)
 // check json_model_13_map_tags (.'$openapi#Operation'.tags)
 function _jm_f_29(val, path, rep)
 {
-    let res;
     // .'$openapi#Operation'.tags
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_9_idx = 0; arr_9_idx < val.length; arr_9_idx++)
@@ -1995,9 +1974,8 @@ function _jm_obj_3(val, path, rep)
 // check _jm_obj_5_map_allowEmptyValue (.'$openapi#Parameter'.'|'.0.allowEmptyValue)
 function _jm_f_30(val, path, rep)
 {
-    let res;
     // .'$openapi#Parameter'.'|'.0.allowEmptyValue
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.allowEmptyValue]", path])
@@ -2008,9 +1986,8 @@ function _jm_f_30(val, path, rep)
 // check _jm_obj_5_map_allowReserved (.'$openapi#Parameter'.'|'.0.allowReserved)
 function _jm_f_31(val, path, rep)
 {
-    let res;
     // .'$openapi#Parameter'.'|'.0.allowReserved
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.allowReserved]", path])
@@ -2021,9 +1998,8 @@ function _jm_f_31(val, path, rep)
 // check _jm_obj_5_map_deprecated (.'$openapi#Parameter'.'|'.0.deprecated)
 function _jm_f_32(val, path, rep)
 {
-    let res;
     // .'$openapi#Parameter'.'|'.0.deprecated
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.deprecated]", path])
@@ -2034,9 +2010,8 @@ function _jm_f_32(val, path, rep)
 // check _jm_obj_5_map_description (.'$openapi#Parameter'.'|'.0.description)
 function _jm_f_33(val, path, rep)
 {
-    let res;
     // .'$openapi#Parameter'.'|'.0.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#Parameter'.'|'.0.description]", path])
@@ -2047,9 +2022,8 @@ function _jm_f_33(val, path, rep)
 // check _jm_obj_5_map_example (.'$openapi#Parameter'.'|'.0.example)
 function _jm_f_34(val, path, rep)
 {
-    let res;
     // .'$openapi#Parameter'.'|'.0.example
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -2099,9 +2073,8 @@ function _jm_f_35(val, path, rep)
 // check _jm_obj_5_map_explode (.'$openapi#Parameter'.'|'.0.explode)
 function _jm_f_36(val, path, rep)
 {
-    let res;
     // .'$openapi#Parameter'.'|'.0.explode
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.explode]", path])
@@ -2112,9 +2085,8 @@ function _jm_f_36(val, path, rep)
 // check _jm_obj_5_map_required (.'$openapi#Parameter'.'|'.0.required)
 function _jm_f_37(val, path, rep)
 {
-    let res;
     // .'$openapi#Parameter'.'|'.0.required
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.required]", path])
@@ -2205,9 +2177,8 @@ function _jm_obj_5(val, path, rep)
 // check $openapi#Parameter (.'$openapi#Parameter')
 function json_model_20(val, path, rep)
 {
-    let res;
     // .'$openapi#Parameter'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$openapi#Parameter'.'|']", path])
@@ -2245,10 +2216,9 @@ function json_model_20(val, path, rep)
 // check $openapi#Style (.'$openapi#Style')
 function json_model_17(val, path, rep)
 {
-    let res;
     // serialization styles
     // .'$openapi#Style'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_2.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_2.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$openapi#Style'.'|']", path])
@@ -3013,9 +2983,8 @@ function json_model_27(val, path, rep)
 // check $openapi#Expression (.'$openapi#Expression')
 function json_model_28(val, path, rep)
 {
-    let res;
     // .'$openapi#Expression'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#Expression']", path])
@@ -3238,9 +3207,8 @@ function _jm_obj_15(val, path, rep)
 // check $openapi#Link (.'$openapi#Link')
 function json_model_29(val, path, rep)
 {
-    let res;
     // .'$openapi#Link'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$openapi#Link'.'|']", path])
@@ -3388,9 +3356,8 @@ function _jm_obj_17(val, path, rep)
 // check _jm_obj_19_map_allowEmptyValue (.'$openapi#Header'.'|'.0.allowEmptyValue)
 function _jm_f_38(val, path, rep)
 {
-    let res;
     // .'$openapi#Header'.'|'.0.allowEmptyValue
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.allowEmptyValue]", path])
@@ -3401,9 +3368,8 @@ function _jm_f_38(val, path, rep)
 // check _jm_obj_19_map_allowReserved (.'$openapi#Header'.'|'.0.allowReserved)
 function _jm_f_39(val, path, rep)
 {
-    let res;
     // .'$openapi#Header'.'|'.0.allowReserved
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.allowReserved]", path])
@@ -3414,9 +3380,8 @@ function _jm_f_39(val, path, rep)
 // check _jm_obj_19_map_deprecated (.'$openapi#Header'.'|'.0.deprecated)
 function _jm_f_40(val, path, rep)
 {
-    let res;
     // .'$openapi#Header'.'|'.0.deprecated
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.deprecated]", path])
@@ -3427,9 +3392,8 @@ function _jm_f_40(val, path, rep)
 // check _jm_obj_19_map_description (.'$openapi#Header'.'|'.0.description)
 function _jm_f_41(val, path, rep)
 {
-    let res;
     // .'$openapi#Header'.'|'.0.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#Header'.'|'.0.description]", path])
@@ -3440,9 +3404,8 @@ function _jm_f_41(val, path, rep)
 // check _jm_obj_19_map_example (.'$openapi#Header'.'|'.0.example)
 function _jm_f_42(val, path, rep)
 {
-    let res;
     // .'$openapi#Header'.'|'.0.example
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -3492,9 +3455,8 @@ function _jm_f_43(val, path, rep)
 // check _jm_obj_19_map_explode (.'$openapi#Header'.'|'.0.explode)
 function _jm_f_44(val, path, rep)
 {
-    let res;
     // .'$openapi#Header'.'|'.0.explode
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.explode]", path])
@@ -3505,9 +3467,8 @@ function _jm_f_44(val, path, rep)
 // check _jm_obj_19_map_required (.'$openapi#Header'.'|'.0.required)
 function _jm_f_45(val, path, rep)
 {
-    let res;
     // .'$openapi#Header'.'|'.0.required
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.required]", path])
@@ -3556,10 +3517,9 @@ function _jm_obj_19(val, path, rep)
 // check $openapi#Header (.'$openapi#Header')
 function json_model_30(val, path, rep)
 {
-    let res;
     // more or less a parameter but without name and in
     // .'$openapi#Header'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$openapi#Header'.'|']", path])
@@ -4485,9 +4445,8 @@ function json_model_45(val, path, rep)
 // check $openapi#Model (.'$openapi#Model')
 function json_model_64(val, path, rep)
 {
-    let res;
     // .'$openapi#Model'
-    res = json_model_97(val, path, rep);
+    let res = json_model_97(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $model#Model [.'$openapi#Model']", path])
@@ -4498,10 +4457,9 @@ function json_model_64(val, path, rep)
 // check $openapi#model#Model (.'$openapi#model#Model')
 function json_model_97(val, path, rep)
 {
-    let res;
     // .'$openapi#model#Model'
     // .'$openapi#model#Model'.'|'.0
-    res = json_model_96(val, path, rep);
+    let res = json_model_96(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ScalarModel [.'$openapi#model#Model'.'|'.0]", path])
@@ -4538,9 +4496,8 @@ function json_model_97(val, path, rep)
 // check $openapi#model#Array (.'$openapi#model#Array')
 function json_model_83(val, path, rep)
 {
-    let res;
     // .'$openapi#model#Array'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_11_idx = 0; arr_11_idx < val.length; arr_11_idx++)
@@ -4566,10 +4523,9 @@ function json_model_83(val, path, rep)
 // check $openapi#model#CModel (.'$openapi#model#CModel')
 function json_model_82(val, path, rep)
 {
-    let res;
     // .'$openapi#model#CModel'
     // .'$openapi#model#CModel'.'|'.0
-    res = json_model_97(val, path, rep);
+    let res = json_model_97(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Model [.'$openapi#model#CModel'.'|'.0]", path])
@@ -4597,10 +4553,9 @@ function json_model_82(val, path, rep)
 // check $openapi#model#ArrayComment (.'$openapi#model#ArrayComment')
 function json_model_69(val, path, rep)
 {
-    let res;
     // .'$openapi#model#ArrayComment'
     // "/^#/"
-    res = ((typeof val === 'string' || val instanceof String)) && val.startsWith("#");
+    let res = ((typeof val === 'string' || val instanceof String)) && val.startsWith("#");
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^#/ [.'$openapi#model#ArrayComment']", path])
@@ -5079,9 +5034,8 @@ function _jm_obj_32(val, path, rep)
 // check $openapi#model#Element (.'$openapi#model#Element')
 function json_model_93(val, path, rep)
 {
-    let res;
     // .'$openapi#model#Element'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$openapi#model#Element'.'|']", path])
@@ -5154,10 +5108,9 @@ function json_model_93(val, path, rep)
 // check $openapi#model#CmpValue (.'$openapi#model#CmpValue')
 function json_model_76(val, path, rep)
 {
-    let res;
     // .'$openapi#model#CmpValue'
     // .'$openapi#model#CmpValue'.'|'.0
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$openapi#model#CmpValue'.'|'.0]", path])
@@ -5194,10 +5147,9 @@ function json_model_76(val, path, rep)
 // check $openapi#model#EqValue (.'$openapi#model#EqValue')
 function json_model_77(val, path, rep)
 {
-    let res;
     // .'$openapi#model#EqValue'
     // .'$openapi#model#EqValue'.'|'.0
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$openapi#model#EqValue'.'|'.0]", path])
@@ -5236,11 +5188,10 @@ const _jm_re_6 = (s) => _jm_re_6_re.exec(s) !== null
 // check $openapi#model#Prop (.'$openapi#model#Prop')
 function json_model_90(val, path, rep)
 {
-    let res;
     // .'$openapi#model#Prop'
     // .'$openapi#model#Prop'.'|'.0
     // "/^[?!]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_6(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[?!]/ [.'$openapi#model#Prop'.'|'.0]", path])
@@ -5306,10 +5257,9 @@ const _jm_re_7 = (s) => _jm_re_7_re.exec(s) !== null
 // check $openapi#model#Ref (.'$openapi#model#Ref')
 function json_model_71(val, path, rep)
 {
-    let res;
     // .'$openapi#model#Ref'
     // "/^\\$./"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_7(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_7(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^\\$./ [.'$openapi#model#Ref']", path])
@@ -5322,10 +5272,9 @@ const _jm_re_8 = (s) => _jm_re_8_re.exec(s) !== null
 // check $openapi#model#StrConst (.'$openapi#model#StrConst')
 function json_model_73(val, path, rep)
 {
-    let res;
     // .'$openapi#model#StrConst'
     // "/^[A-Za-z0-9_]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_8(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_8(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[A-Za-z0-9_]/ [.'$openapi#model#StrConst']", path])
@@ -5372,9 +5321,8 @@ function _jm_xre_1(val, path, rep)
 // check $openapi#model#Regex (.'$openapi#model#Regex')
 function json_model_74(val, path, rep)
 {
-    let res;
     // .'$openapi#model#Regex'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$openapi#model#Regex'.'|']", path])
@@ -5415,10 +5363,9 @@ const _jm_re_9 = (s) => _jm_re_9_re.exec(s) !== null
 // check $openapi#model#Name (.'$openapi#model#Name')
 function json_model_75(val, path, rep)
 {
-    let res;
     // .'$openapi#model#Name'
     // "/^\\..+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_9(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^\\..+$/ [.'$openapi#model#Name']", path])
@@ -5429,10 +5376,9 @@ function json_model_75(val, path, rep)
 // check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
 function json_model_96(val, path, rep)
 {
-    let res;
     // .'$openapi#model#ScalarModel'
     // .'$openapi#model#ScalarModel'.'|'.0
-    res = json_model_78(val, path, rep);
+    let res = json_model_78(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ValModel [.'$openapi#model#ScalarModel'.'|'.0]", path])
@@ -5461,9 +5407,8 @@ function json_model_96(val, path, rep)
 // check $openapi#model#ValModel (.'$openapi#model#ValModel')
 function json_model_78(val, path, rep)
 {
-    let res;
     // .'$openapi#model#ValModel'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_4.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_4.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$openapi#model#ValModel'.'|']", path])
@@ -5474,10 +5419,9 @@ function json_model_78(val, path, rep)
 // check $openapi#model#StrModel (.'$openapi#model#StrModel')
 function json_model_79(val, path, rep)
 {
-    let res;
     // .'$openapi#model#StrModel'
     // .'$openapi#model#StrModel'.'|'.0
-    res = json_model_73(val, path, rep);
+    let res = json_model_73(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $StrConst [.'$openapi#model#StrModel'.'|'.0]", path])
@@ -5542,9 +5486,8 @@ function json_model_79(val, path, rep)
 // check $openapi#model#PreDef (.'$openapi#model#PreDef')
 function json_model_67(val, path, rep)
 {
-    let res;
     // .'$openapi#model#PreDef'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_5.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_5.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$openapi#model#PreDef'.'|']", path])
@@ -5557,10 +5500,9 @@ const _jm_re_10 = (s) => _jm_re_10_re.exec(s) !== null
 // check $openapi#model#ValConst (.'$openapi#model#ValConst')
 function json_model_72(val, path, rep)
 {
-    let res;
     // .'$openapi#model#ValConst'
     // "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_10(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_10(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/ [.'$openapi#model#ValConst']", path])

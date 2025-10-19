@@ -24,11 +24,10 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $schema (.'$schema')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
         // .'$schema'
         // .'$schema'.'@'
-        res = json_model_18(val, path, rep);
+        boolean res = json_model_18(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.'@']", path);
@@ -39,9 +38,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        boolean res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $schema [.]", path);
@@ -52,10 +50,9 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $schema#Schema (.'$schema#Schema')
     public boolean json_model_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#Schema'
         // .'$schema#Schema'.'|'.0
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema#Schema'.'|'.0]", path);
@@ -83,9 +80,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_$comment (.'$schema#ObjectSchema'.'$comment')
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.'$comment']", path);
@@ -124,9 +120,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_$schema (.'$schema#ObjectSchema'.'$schema')
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$schema#ObjectSchema'.'$schema']", path);
@@ -173,18 +168,16 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_const (.'$schema#ObjectSchema'.const)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.const
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check json_model_17_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.contentEncoding
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.contentEncoding]", path);
@@ -195,9 +188,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_contentMediaType (.'$schema#ObjectSchema'.contentMediaType)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.contentMediaType
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.contentMediaType]", path);
@@ -208,9 +200,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_default (.'$schema#ObjectSchema'.default)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -347,9 +338,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_deprecated (.'$schema#ObjectSchema'.deprecated)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema#ObjectSchema'.deprecated]", path);
@@ -360,9 +350,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_description (.'$schema#ObjectSchema'.description)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.description]", path);
@@ -373,9 +362,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_enum (.'$schema#ObjectSchema'.enum)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.enum
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$schema#ObjectSchema'.enum]", path);
@@ -386,9 +374,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_examples (.'$schema#ObjectSchema'.examples)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$schema#ObjectSchema'.examples]", path);
@@ -399,9 +386,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_exclusiveMaximum (.'$schema#ObjectSchema'.exclusiveMaximum)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.exclusiveMaximum
-        res = json.isNumber(val);
+        boolean res = json.isNumber(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema#ObjectSchema'.exclusiveMaximum]", path);
@@ -412,9 +398,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_exclusiveMinimum (.'$schema#ObjectSchema'.exclusiveMinimum)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.exclusiveMinimum
-        res = json.isNumber(val);
+        boolean res = json.isNumber(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema#ObjectSchema'.exclusiveMinimum]", path);
@@ -425,9 +410,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_format (.'$schema#ObjectSchema'.format)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.format
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.format]", path);
@@ -438,9 +422,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_maximum (.'$schema#ObjectSchema'.maximum)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.maximum
-        res = json.isNumber(val);
+        boolean res = json.isNumber(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema#ObjectSchema'.maximum]", path);
@@ -451,9 +434,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_minimum (.'$schema#ObjectSchema'.minimum)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.minimum
-        res = json.isNumber(val);
+        boolean res = json.isNumber(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema#ObjectSchema'.minimum]", path);
@@ -464,9 +446,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_multipleOf (.'$schema#ObjectSchema'.multipleOf)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.multipleOf
-        res = json.isNumber(val) && json.asNumber(val) > 0.0;
+        boolean res = json.isNumber(val) && json.asNumber(val) > 0.0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1.0 loose float [.'$schema#ObjectSchema'.multipleOf]", path);
@@ -477,9 +458,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_pattern (.'$schema#ObjectSchema'.pattern)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.pattern
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.pattern]", path);
@@ -601,9 +581,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_readOnly (.'$schema#ObjectSchema'.readOnly)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema#ObjectSchema'.readOnly]", path);
@@ -614,9 +593,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_title (.'$schema#ObjectSchema'.title)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.title]", path);
@@ -627,10 +605,9 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_type (.'$schema#ObjectSchema'.type)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.type
         // .'$schema#ObjectSchema'.type.'|'.0
-        res = json_model_10(val, path, rep);
+        boolean res = json_model_10(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$schema#ObjectSchema'.type.'|'.0]", path);
@@ -658,9 +635,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.uniqueItems
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema#ObjectSchema'.uniqueItems]", path);
@@ -671,9 +647,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check json_model_17_map_writeOnly (.'$schema#ObjectSchema'.writeOnly)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema#ObjectSchema'.writeOnly]", path);
@@ -718,9 +693,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $schema#URI-REFERENCE (.'$schema#URI-REFERENCE')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#URI-REFERENCE'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema#URI-REFERENCE']", path);
@@ -732,9 +706,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $schema#simpleTypes (.'$schema#simpleTypes')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#simpleTypes'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$schema#simpleTypes'.'|']", path);
@@ -745,10 +718,9 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $schema#simpleTypesArray (.'$schema#simpleTypesArray')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#simpleTypesArray'
         // .'$schema#simpleTypesArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -786,10 +758,9 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $schema#stringArray (.'$schema#stringArray')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#stringArray'
         // .'$schema#stringArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -826,9 +797,8 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $schema#nonNegativeInteger (.'$schema#nonNegativeInteger')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#nonNegativeInteger'
-        res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$schema#nonNegativeInteger']", path);
@@ -839,10 +809,9 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     // check $schema#schemaArray (.'$schema#schemaArray')
     public boolean json_model_15(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#schemaArray'
         // .'$schema#schemaArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_2_idx = -1;

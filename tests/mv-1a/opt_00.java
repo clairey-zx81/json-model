@@ -24,10 +24,9 @@ public class opt_00 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // flatten and xor to or test
         // .
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'|']", path);

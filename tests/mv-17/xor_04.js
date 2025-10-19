@@ -17,11 +17,10 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // xor to or simplification, float vs string
     // .
     // .'|'.0
-    res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0.0 strict float [.'|'.0]", path])

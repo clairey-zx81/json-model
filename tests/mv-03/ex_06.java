@@ -22,10 +22,9 @@ public class ex_06 extends ModelChecker
     // check $ex5 (.'$ex5')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ex5'
         // .'$ex5'.'|'.0
-        res = json_model_5(val, path, rep);
+        boolean res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex05a [.'$ex5'.'|'.0]", path);
@@ -53,9 +52,8 @@ public class ex_06 extends ModelChecker
     // check $Ex06 (.'$Ex06')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Ex06'
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Ex06']", path);
@@ -66,9 +64,8 @@ public class ex_06 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isArray(val) && json.arrayLength(val) == 3;
+        boolean res = json.isArray(val) && json.arrayLength(val) == 3;
         if (res)
         {
             Path lpath_0 = new Path(0, path);
@@ -109,9 +106,8 @@ public class ex_06 extends ModelChecker
     // check $ex5#Ex05a (.'$ex5#Ex05a')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ex5#Ex05a'
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$ex5#Ex05a']", path);
@@ -122,9 +118,8 @@ public class ex_06 extends ModelChecker
     // check $ex5#Ex05b (.'$ex5#Ex05b')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ex5#Ex05b'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$ex5#Ex05b']", path);

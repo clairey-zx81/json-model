@@ -132,9 +132,8 @@ sub _jm_obj_0($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$nomerge'
-    $res = 1;
+    my $res = 1;
     if ($res)
     {
         # .'$nomerge'.'&'.0
@@ -152,10 +151,9 @@ sub json_model_5($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # .'|'.0
-    $res = json_model_4($val, $path, $rep);
+    my $res = json_model_4($val, $path, $rep);
     if (! $res)
     {
         # .'|'.1

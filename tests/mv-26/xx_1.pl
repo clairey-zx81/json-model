@@ -23,9 +23,8 @@ sub json_model_1($$$)
     # .
     # generic xor list
     my $xc_0 = 0;
-    my $xr_0;
     # .'^'.0
-    $xr_0 = jm_is_string($val);
+    my $xr_0 = jm_is_string($val);
     if ($xr_0)
     {
         $xc_0++;

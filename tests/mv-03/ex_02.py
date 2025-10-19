@@ -24,45 +24,40 @@ check_model_map: PropMap
 
 # check $x1 (.'$x1')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$x1'
-    res = isinstance(val, str) and val == "Susie"
+    res: bool = isinstance(val, str) and val == "Susie"
     if not res:
         rep is None or rep.append(("unexpected _Susie [.'$x1']", path))
     return res
 
 # check $x2 (.'$x2')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$x2'
-    res = isinstance(val, str) and val == "Susie"
+    res: bool = isinstance(val, str) and val == "Susie"
     if not res:
         rep is None or rep.append(("unexpected _Susie [.'$x2']", path))
     return res
 
 # check $x3 (.'$x3')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$x3'
-    res = isinstance(val, str) and val == "Susie"
+    res: bool = isinstance(val, str) and val == "Susie"
     if not res:
         rep is None or rep.append(("unexpected _Susie [.'$x3']", path))
     return res
 
 # check $__external_0 (.'$__external_0')
 def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$__external_0'
-    res = isinstance(val, str) and val == "Susie"
+    res: bool = isinstance(val, str) and val == "Susie"
     if not res:
         rep is None or rep.append(("unexpected _Susie [.'$__external_0']", path))
     return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = isinstance(val, list) and len(val) == 4
+    res: bool = isinstance(val, list) and len(val) == 4
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # .0

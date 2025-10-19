@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $bla (.'$bla')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$bla'
-    res = runtime.jm_is_valid_date(val, path, rep);
+    let res = runtime.jm_is_valid_date(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $DATE [.'$bla']", path])
@@ -27,9 +26,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_3(val, path, rep);
+    let res = json_model_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $bla [.]", path])

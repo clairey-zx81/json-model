@@ -20,9 +20,8 @@ const size_t check_model_map_size = 4;
 // check $t (.'$t')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$t'
-    res = json_is_string(val) && jm_str_eq_7(json_string_value(val), 0x000031305f747363LL);
+    bool res = json_is_string(val) && jm_str_eq_7(json_string_value(val), 0x000031305f747363LL);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$t']", path);

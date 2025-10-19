@@ -18,9 +18,8 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = 1;
+    my $res = 1;
     if ($res)
     {
         # .'&'.0

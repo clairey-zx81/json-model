@@ -22,9 +22,8 @@ public class arr_2 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isArray(val) && json.arrayLength(val) == 2;
+        boolean res = json.isArray(val) && json.arrayLength(val) == 2;
         if (res)
         {
             Path lpath_0 = new Path(0, path);

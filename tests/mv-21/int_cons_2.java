@@ -22,9 +22,8 @@ public class int_cons_2 extends ModelChecker
     // check $forty-two (.'$forty-two')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$forty-two'
-        res = json.isInteger(val) && json.asLong(val) == 42;
+        boolean res = json.isInteger(val) && json.asLong(val) == 42;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected =42 [.'$forty-two']", path);
@@ -35,9 +34,8 @@ public class int_cons_2 extends ModelChecker
     // check $positif (.'$positif')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$positif'
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$positif']", path);

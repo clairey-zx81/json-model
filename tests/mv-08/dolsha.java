@@ -22,9 +22,8 @@ public class dolsha extends ModelChecker
     // check $array (.'$array')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$array'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;

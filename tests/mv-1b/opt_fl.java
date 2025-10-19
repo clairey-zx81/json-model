@@ -22,11 +22,10 @@ public class opt_fl extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // JSON_MODEL_LOOSE_FLOAT
         // .
         // .'@'
-        res = json.isNumber(val);
+        boolean res = json.isNumber(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 loose float [.'@']", path);

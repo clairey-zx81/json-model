@@ -340,10 +340,9 @@ public class pmap_shared_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // .'|'.0
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Oo0 [.'|'.0]", path);

@@ -21,10 +21,9 @@ const size_t check_model_map_size = 3;
 // check $ex5 (.'$ex5')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex5'
     // .'$ex5'.'|'.0
-    res = json_model_5(val, path, rep);
+    bool res = json_model_5(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex05a [.'$ex5'.'|'.0]", path);
@@ -52,9 +51,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Ex06 (.'$Ex06')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Ex06'
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$Ex06']", path);
@@ -65,9 +63,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_is_array(val) && json_array_size(val) == 3;
+    bool res = json_is_array(val) && json_array_size(val) == 3;
     if (res)
     {
         jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
@@ -108,9 +105,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ex5#Ex05a (.'$ex5#Ex05a')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex5#Ex05a'
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$ex5#Ex05a']", path);
@@ -121,9 +117,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ex5#Ex05b (.'$ex5#Ex05b')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex5#Ex05b'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ex5#Ex05b']", path);

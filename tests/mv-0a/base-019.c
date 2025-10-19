@@ -17,10 +17,9 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
     // .'@'
-    res = json_is_real(val) && json_real_value(val) >= 0.0;
+    bool res = json_is_real(val) && json_real_value(val) >= 0.0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'@']", path);

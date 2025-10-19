@@ -18,9 +18,8 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = jm_is_array($val) && scalar @$val == 4;
+    my $res = jm_is_array($val) && scalar @$val == 4;
     if ($res)
     {
         # .0

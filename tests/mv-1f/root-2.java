@@ -22,9 +22,8 @@ public class root_2 extends ModelChecker
     // check $root (.'$root')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$root'
-        res = json_model_5(val, path, rep);
+        boolean res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Root [.'$root']", path);
@@ -70,9 +69,8 @@ public class root_2 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        boolean res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Foo [.]", path);

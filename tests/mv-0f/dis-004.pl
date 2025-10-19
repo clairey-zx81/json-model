@@ -71,9 +71,8 @@ sub _jm_obj_1($$$)
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Aa'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Aa'.'|'.0
@@ -115,10 +114,9 @@ sub _jm_obj_2($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bb'
     # .'$Bb'.'|'.0
-    $res = _jm_obj_2($val, $path, $rep);
+    my $res = _jm_obj_2($val, $path, $rep);
     if (! $res)
     {
         # .'$Bb'.'|'.1

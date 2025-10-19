@@ -24,9 +24,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_$ref (.'$schema'.'$ref')
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.'$ref'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.'$ref']", path);
@@ -37,9 +36,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_$schema (.'$schema'.'$schema')
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.'$schema']", path);
@@ -50,10 +48,9 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_additionalItems (.'$schema'.additionalItems)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.additionalItems
         // .'$schema'.additionalItems.'|'.0
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema'.additionalItems.'|'.0]", path);
@@ -81,10 +78,9 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.additionalProperties
         // .'$schema'.additionalProperties.'|'.0
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema'.additionalProperties.'|'.0]", path);
@@ -112,9 +108,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_default (.'$schema'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -195,9 +190,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_description (.'$schema'.description)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.description]", path);
@@ -208,10 +202,9 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_enum (.'$schema'.enum)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.enum
         // .'$schema'.enum.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.enum.'@']", path);
@@ -231,9 +224,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.exclusiveMaximum
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema'.exclusiveMaximum]", path);
@@ -244,9 +236,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.exclusiveMinimum
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema'.exclusiveMinimum]", path);
@@ -257,9 +248,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_format (.'$schema'.format)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.format
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.format]", path);
@@ -270,9 +260,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_id (.'$schema'.id)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.id]", path);
@@ -283,10 +272,9 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_items (.'$schema'.items)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.items
         // .'$schema'.items.'|'.0
-        res = json_model_3(val, path, rep);
+        boolean res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.items.'|'.0]", path);
@@ -314,9 +302,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_maxItems (.'$schema'.maxItems)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.maxItems
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxItems]", path);
@@ -327,9 +314,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_maxLength (.'$schema'.maxLength)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.maxLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxLength]", path);
@@ -340,9 +326,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_maxProperties (.'$schema'.maxProperties)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.maxProperties
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxProperties]", path);
@@ -353,9 +338,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_maximum (.'$schema'.maximum)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.maximum
-        res = json.isNumber(val);
+        boolean res = json.isNumber(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema'.maximum]", path);
@@ -366,9 +350,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_minItems (.'$schema'.minItems)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.minItems
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minItems]", path);
@@ -379,9 +362,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_minLength (.'$schema'.minLength)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.minLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minLength]", path);
@@ -392,9 +374,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_minProperties (.'$schema'.minProperties)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.minProperties
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minProperties]", path);
@@ -405,9 +386,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_minimum (.'$schema'.minimum)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.minimum
-        res = json.isNumber(val);
+        boolean res = json.isNumber(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema'.minimum]", path);
@@ -418,9 +398,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_multipleOf (.'$schema'.multipleOf)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.multipleOf
-        res = json.isNumber(val) && json.asNumber(val) > 0.0;
+        boolean res = json.isNumber(val) && json.asNumber(val) > 0.0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1.0 loose float [.'$schema'.multipleOf]", path);
@@ -431,9 +410,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_pattern (.'$schema'.pattern)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.pattern
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.pattern]", path);
@@ -500,9 +478,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_title (.'$schema'.title)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.title]", path);
@@ -513,10 +490,9 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_type (.'$schema'.type)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.type
         // .'$schema'.type.'|'.0
-        res = json_model_5(val, path, rep);
+        boolean res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$schema'.type.'|'.0]", path);
@@ -544,9 +520,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check json_model_3_map_uniqueItems (.'$schema'.uniqueItems)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema'.uniqueItems
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema'.uniqueItems]", path);
@@ -592,9 +567,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        boolean res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $schema [.]", path);
@@ -605,10 +579,9 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check $schema#schemaArray (.'$schema#schemaArray')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#schemaArray'
         // .'$schema#schemaArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -647,9 +620,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check $schema#simpleTypes (.'$schema#simpleTypes')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#simpleTypes'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$schema#simpleTypes'.'|']", path);
@@ -660,10 +632,9 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check $schema#stringArray (.'$schema#stringArray')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#stringArray'
         // .'$schema#stringArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -701,10 +672,9 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     // check $schema#typeArray (.'$schema#typeArray')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#typeArray'
         // .'$schema#typeArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_2_idx = -1;

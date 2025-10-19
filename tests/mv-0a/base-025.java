@@ -34,10 +34,9 @@ public class base_025 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // .'@'
-        res = _jm_obj_0(val, path, rep);
+        boolean res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'@']", path);

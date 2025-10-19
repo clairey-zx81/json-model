@@ -27,9 +27,8 @@ check_model_map: PropMap
 
 # check $p1 (.'$p1')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$p1'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$p1'.'|']", path))
     return res
@@ -37,9 +36,8 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $p2 (.'$p2')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$p2'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
     if not res:
         rep is None or rep.append(("value not in enum [.'$p2'.'|']", path))
     return res
@@ -50,9 +48,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     # generic xor list
     xc_0: int = 0
-    xr_0: bool
     # .'^'.0
-    xr_0 = json_model_2(val, path, rep)
+    xr_0: bool = json_model_2(val, path, rep)
     if xr_0:
         xc_0 += 1
     else:

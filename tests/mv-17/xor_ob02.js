@@ -84,9 +84,8 @@ function _jm_obj_1(val, path, rep)
 // check $Aa (.'$Aa')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$Aa'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$Aa'.'|']", path])
@@ -193,9 +192,8 @@ function _jm_obj_3(val, path, rep)
 // check $Bb (.'$Bb')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Bb'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$Bb'.'|']", path])
@@ -302,9 +300,8 @@ function _jm_obj_5(val, path, rep)
 // check $Cc (.'$Cc')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$Cc'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$Cc'.'|']", path])
@@ -556,10 +553,9 @@ function _jm_obj_9(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // props: a/b a/c b/c
     // .
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])

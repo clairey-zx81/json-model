@@ -24,18 +24,16 @@ check_model_map: PropMap
 
 # check $forty-two (.'$forty-two')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$forty-two'
-    res = isinstance(val, int) and not isinstance(val, bool) and val == 42
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val == 42
     if not res:
         rep is None or rep.append(("unexpected =42 [.'$forty-two']", path))
     return res
 
 # check $positif (.'$positif')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$positif'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$positif']", path))
     return res

@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = Array.isArray(val) && val.length == 2;
+    let res = Array.isArray(val) && val.length == 2;
     if (res)
     {
         let lpath_0 = path ? path.concat([0]) : null;

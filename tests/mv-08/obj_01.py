@@ -24,18 +24,16 @@ check_model_map: PropMap
 
 # check $bla (.'$bla')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$bla'
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $BOOLEAN [.'$bla']", path))
     return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $BOOLEAN [.]", path))
     return res

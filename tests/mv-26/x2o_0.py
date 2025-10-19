@@ -92,9 +92,8 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'|'.2.t
     # generic xor list
     xc_0: int = 0
-    xr_0: bool
     # .'|'.2.t.'^'.0
-    xr_0 = isinstance(pval, str)
+    xr_0: bool = isinstance(pval, str)
     if xr_0:
         xc_0 += 1
     else:

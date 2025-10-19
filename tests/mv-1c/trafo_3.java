@@ -22,9 +22,8 @@ public class trafo_3 extends ModelChecker
     // check $Dd (.'$Dd')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Dd'
-        res = json_model_6(val, path, rep);
+        boolean res = json_model_6(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $l [.'$Dd']", path);
@@ -35,9 +34,8 @@ public class trafo_3 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_6(val, path, rep);
+        boolean res = json_model_6(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Dd [.]", path);
@@ -48,9 +46,8 @@ public class trafo_3 extends ModelChecker
     // check $Dd#l (.'$Dd#l')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Dd#l'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -79,9 +76,8 @@ public class trafo_3 extends ModelChecker
     // check $Dd#u (.'$Dd#u')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Dd#u'
-        res = json_model_12(val, path, rep);
+        boolean res = json_model_12(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Uu#un [.'$Dd#u']", path);

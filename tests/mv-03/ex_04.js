@@ -14,11 +14,10 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_3(val, path, rep)
 {
-    let res;
     // to serve as an external reference
     // .
     // .'@'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
     if (! res)
     {
         rep !== null && rep.push(["unexpected _Susie [.'@']", path])

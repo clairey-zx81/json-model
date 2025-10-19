@@ -94,9 +94,8 @@ sub json_model_4($$$)
     # .'$Nabc'.t
     # generic xor list
     my $xc_0 = 0;
-    my $xr_0;
     # .'$Nabc'.t.'^'.0
-    $xr_0 = jm_is_string($pval);
+    my $xr_0 = jm_is_string($pval);
     if ($xr_0)
     {
         $xc_0++;

@@ -18,10 +18,9 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # flatten and xor to or test
     # .
-    $res = jm_is_integer($val);
+    my $res = jm_is_integer($val);
     if ($res)
     {
         # .'|'.0

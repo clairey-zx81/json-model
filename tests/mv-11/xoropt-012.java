@@ -22,9 +22,8 @@ public class xoropt_012 extends ModelChecker
     // check $n (.'$n')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$n'
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected =null [.'$n']", path);
@@ -35,9 +34,8 @@ public class xoropt_012 extends ModelChecker
     // check $x (.'$x')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$x'
-        res = json.isDouble(val) && json.asDouble(val) == 10.0;
+        boolean res = json.isDouble(val) && json.asDouble(val) == 10.0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected =10.0 [.'$x']", path);
@@ -48,9 +46,8 @@ public class xoropt_012 extends ModelChecker
     // check $f (.'$f')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$f'
-        res = json.isBoolean(val) && json.asBoolean(val) == false;
+        boolean res = json.isBoolean(val) && json.asBoolean(val) == false;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected =false [.'$f']", path);
@@ -231,10 +228,9 @@ public class xoropt_012 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // ^ to | on constants
         // .
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'|']", path);

@@ -97,10 +97,9 @@ sub json_model_6($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ex08#Ex08'
     # .'$ex08#Ex08'.'|'.0
-    $res = json_model_8($val, $path, $rep);
+    my $res = json_model_8($val, $path, $rep);
     if (! $res)
     {
         # .'$ex08#Ex08'.'|'.1

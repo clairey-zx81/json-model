@@ -114,9 +114,8 @@ function json_model_4(val, path, rep)
     // .'$Nabc'.t
     // generic xor list
     let xc_0 = 0;
-    let xr_0;
     // .'$Nabc'.t.'^'.0
-    xr_0 = (typeof pval === 'string' || pval instanceof String);
+    let xr_0 = (typeof pval === 'string' || pval instanceof String);
     if (xr_0)
     {
         xc_0 += 1;

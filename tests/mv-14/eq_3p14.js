@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = ((typeof val === 'number' || val instanceof Number)) && val == 3.14;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val == 3.14;
     if (! res)
     {
         rep !== null && rep.push(["unexpected =3.14 [.]", path])

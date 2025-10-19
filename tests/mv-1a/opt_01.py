@@ -26,10 +26,9 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # flatten and xor to or test
     # .
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'|']", path))
     return res

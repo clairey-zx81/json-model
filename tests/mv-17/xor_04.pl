@@ -25,11 +25,10 @@ sub _jm_re_0($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # xor to or simplification, float vs string
     # .
     # .'|'.0
-    $res = jm_is_numeric($val) && $val >= 0.0;
+    my $res = jm_is_numeric($val) && $val >= 0.0;
     if (! $res)
     {
         # .'|'.1

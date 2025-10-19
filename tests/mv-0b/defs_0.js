@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $an_int (.'$an_int')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$an_int'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$an_int']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $an_int [.]", path])

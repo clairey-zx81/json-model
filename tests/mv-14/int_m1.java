@@ -22,9 +22,8 @@ public class int_m1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.]", path);

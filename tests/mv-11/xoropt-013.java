@@ -145,9 +145,8 @@ public class xoropt_013 extends ModelChecker
         // .
         // generic xor list
         long xc_0 = 0;
-        boolean xr_0;
         // .'^'.0
-        xr_0 = _jm_obj_0(val, path, rep);
+        boolean xr_0 = _jm_obj_0(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;

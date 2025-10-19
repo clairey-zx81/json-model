@@ -315,10 +315,9 @@ function _jm_obj_5(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // multi-type discriminator
     // .
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])

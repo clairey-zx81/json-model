@@ -17,9 +17,8 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_is_array(val) && json_array_size(val) == 4;
+    bool res = json_is_array(val) && json_array_size(val) == 4;
     if (res)
     {
         jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };

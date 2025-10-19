@@ -24,11 +24,10 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # require generic unique implementation
     # .
     # .'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'@']", path))
     if res:

@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $bla (.'$bla')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$bla'
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $BOOLEAN [.'$bla']", path])
@@ -27,9 +26,8 @@ function json_model_4(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $BOOLEAN [.]", path])

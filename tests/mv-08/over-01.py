@@ -24,18 +24,16 @@ check_model_map: PropMap
 
 # check $over (.'$over')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$over'
-    res = json_model_4(val, path, rep)
+    res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Foo [.'$over']", path))
     return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_4(val, path, rep)
+    res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $over#Foo [.]", path))
     return res

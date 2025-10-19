@@ -27,10 +27,9 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $Aa (.'$Aa')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Aa'
     // .'$Aa'.'|'.0
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$Aa'.'|'.0]", path);
@@ -77,9 +76,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_2(val, path, rep);
+    bool res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Aa [.]", path);

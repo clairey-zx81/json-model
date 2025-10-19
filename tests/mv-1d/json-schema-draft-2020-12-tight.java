@@ -37,9 +37,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check $URI-REFERENCE (.'$URI-REFERENCE')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$URI-REFERENCE'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$URI-REFERENCE']", path);
@@ -50,9 +49,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_3_map_$comment (.'$core'.'$comment')
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$core'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$core'.'$comment']", path);
@@ -91,9 +89,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_3_map_$schema (.'$core'.'$schema')
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$core'.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$core'.'$schema']", path);
@@ -175,18 +172,16 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_4_map_default (.'$meta'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$meta'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check json_model_4_map_deprecated (.'$meta'.deprecated)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$meta'.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$meta'.deprecated]", path);
@@ -197,9 +192,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_4_map_description (.'$meta'.description)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$meta'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$meta'.description]", path);
@@ -210,9 +204,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_4_map_examples (.'$meta'.examples)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$meta'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$meta'.examples]", path);
@@ -223,9 +216,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_4_map_readOnly (.'$meta'.readOnly)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$meta'.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$meta'.readOnly]", path);
@@ -236,9 +228,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_4_map_title (.'$meta'.title)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$meta'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$meta'.title]", path);
@@ -249,9 +240,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_4_map_writeOnly (.'$meta'.writeOnly)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$meta'.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$meta'.writeOnly]", path);
@@ -677,9 +667,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_9_map_contentEncoding (.'$String'.contentEncoding)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$String'.contentEncoding
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$String'.contentEncoding]", path);
@@ -690,9 +679,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_9_map_contentMediaType (.'$String'.contentMediaType)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$String'.contentMediaType
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$String'.contentMediaType]", path);
@@ -703,9 +691,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_9_map_format (.'$String'.format)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$String'.format
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$String'.format]", path);
@@ -716,9 +703,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_9_map_maxLength (.'$String'.maxLength)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$String'.maxLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$String'.maxLength]", path);
@@ -729,9 +715,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_9_map_minLength (.'$String'.minLength)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$String'.minLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$String'.minLength]", path);
@@ -742,9 +727,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_9_map_pattern (.'$String'.pattern)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$String'.pattern
-        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$String'.pattern]", path);
@@ -816,10 +800,9 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check $stringArray (.'$stringArray')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$stringArray'
         // .'$stringArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -857,10 +840,9 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check $schemaArray (.'$schemaArray')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schemaArray'
         // .'$schemaArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -898,9 +880,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_12_map_maxContains (.'$Array'.maxContains)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Array'.maxContains
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.maxContains]", path);
@@ -911,9 +892,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_12_map_maxItems (.'$Array'.maxItems)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Array'.maxItems
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.maxItems]", path);
@@ -924,9 +904,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_12_map_minContains (.'$Array'.minContains)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Array'.minContains
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.minContains]", path);
@@ -937,9 +916,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_12_map_minItems (.'$Array'.minItems)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Array'.minItems
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.minItems]", path);
@@ -950,9 +928,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_12_map_uniqueItems (.'$Array'.uniqueItems)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Array'.uniqueItems
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Array'.uniqueItems]", path);
@@ -1080,9 +1057,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_13_map_maxProperties (.'$Object'.maxProperties)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Object'.maxProperties
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Object'.maxProperties]", path);
@@ -1093,9 +1069,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_13_map_minProperties (.'$Object'.minProperties)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Object'.minProperties
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Object'.minProperties]", path);
@@ -1231,18 +1206,16 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check json_model_14_map_const (.'$Misc'.const)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Misc'.const
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check json_model_14_map_enum (.'$Misc'.enum)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Misc'.enum
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$Misc'.enum]", path);
@@ -1288,9 +1261,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_0_map_$comment (.'$TightSchema'.'|'.0.'$comment')
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.0.'$comment']", path);
@@ -1329,9 +1301,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_0_map_$schema (.'$TightSchema'.'|'.0.'$schema')
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.0.'$schema']", path);
@@ -1378,18 +1349,16 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_0_map_default (.'$TightSchema'.'|'.0.default)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_0_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.0.deprecated]", path);
@@ -1400,9 +1369,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_0_map_description (.'$TightSchema'.'|'.0.description)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.0.description]", path);
@@ -1413,9 +1381,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_0_map_examples (.'$TightSchema'.'|'.0.examples)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.0.examples]", path);
@@ -1426,9 +1393,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_0_map_readOnly (.'$TightSchema'.'|'.0.readOnly)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.0.readOnly]", path);
@@ -1439,9 +1405,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_0_map_title (.'$TightSchema'.'|'.0.title)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.0.title]", path);
@@ -1452,9 +1417,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_0_map_writeOnly (.'$TightSchema'.'|'.0.writeOnly)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.0.writeOnly]", path);
@@ -1525,9 +1489,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_1_map_$comment (.'$TightSchema'.'|'.1.'$comment')
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.1.'$comment']", path);
@@ -1566,9 +1529,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_1_map_$schema (.'$TightSchema'.'|'.1.'$schema')
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.1.'$schema']", path);
@@ -1615,18 +1577,16 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_1_map_default (.'$TightSchema'.'|'.1.default)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_1_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.1.deprecated]", path);
@@ -1637,9 +1597,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_1_map_description (.'$TightSchema'.'|'.1.description)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.1.description]", path);
@@ -1650,9 +1609,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_1_map_examples (.'$TightSchema'.'|'.1.examples)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.1.examples]", path);
@@ -1663,9 +1621,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_1_map_readOnly (.'$TightSchema'.'|'.1.readOnly)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.1.readOnly]", path);
@@ -1676,9 +1633,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_1_map_title (.'$TightSchema'.'|'.1.title)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.1.title]", path);
@@ -1689,9 +1645,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_1_map_writeOnly (.'$TightSchema'.'|'.1.writeOnly)
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.1.writeOnly]", path);
@@ -1762,9 +1717,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_$comment (.'$TightSchema'.'|'.2.'$comment')
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.2.'$comment']", path);
@@ -1803,9 +1757,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_$schema (.'$TightSchema'.'|'.2.'$schema')
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.2.'$schema']", path);
@@ -1852,18 +1805,16 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_default (.'$TightSchema'.'|'.2.default)
     public boolean _jm_f_56(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_2_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.2.deprecated]", path);
@@ -1874,9 +1825,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_description (.'$TightSchema'.'|'.2.description)
     public boolean _jm_f_58(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.2.description]", path);
@@ -1887,9 +1837,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_examples (.'$TightSchema'.'|'.2.examples)
     public boolean _jm_f_59(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.2.examples]", path);
@@ -1900,10 +1849,9 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
     public boolean _jm_f_60(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.exclusiveMaximum
         // .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0]", path);
@@ -1931,10 +1879,9 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
     public boolean _jm_f_61(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.exclusiveMinimum
         // .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0]", path);
@@ -1962,10 +1909,9 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_maximum (.'$TightSchema'.'|'.2.maximum)
     public boolean _jm_f_62(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.maximum
         // .'$TightSchema'.'|'.2.maximum.'|'.0
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.2.maximum.'|'.0]", path);
@@ -1993,10 +1939,9 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_minimum (.'$TightSchema'.'|'.2.minimum)
     public boolean _jm_f_63(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.minimum
         // .'$TightSchema'.'|'.2.minimum.'|'.0
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.2.minimum.'|'.0]", path);
@@ -2024,10 +1969,9 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
     public boolean _jm_f_64(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.multipleOf
         // .'$TightSchema'.'|'.2.multipleOf.'|'.0
-        res = json.isInteger(val) && json.asLong(val) >= 1;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$TightSchema'.'|'.2.multipleOf.'|'.0]", path);
@@ -2055,9 +1999,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
     public boolean _jm_f_65(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.2.readOnly]", path);
@@ -2068,9 +2011,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_title (.'$TightSchema'.'|'.2.title)
     public boolean _jm_f_66(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.2.title]", path);
@@ -2081,9 +2023,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_2_map_writeOnly (.'$TightSchema'.'|'.2.writeOnly)
     public boolean _jm_f_67(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.2.writeOnly]", path);
@@ -2154,9 +2095,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_$comment (.'$TightSchema'.'|'.3.'$comment')
     public boolean _jm_f_68(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.3.'$comment']", path);
@@ -2195,9 +2135,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_$schema (.'$TightSchema'.'|'.3.'$schema')
     public boolean _jm_f_70(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.3.'$schema']", path);
@@ -2244,18 +2183,16 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_default (.'$TightSchema'.'|'.3.default)
     public boolean _jm_f_72(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_3_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
     public boolean _jm_f_73(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.3.deprecated]", path);
@@ -2266,9 +2203,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_description (.'$TightSchema'.'|'.3.description)
     public boolean _jm_f_74(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.3.description]", path);
@@ -2279,9 +2215,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_examples (.'$TightSchema'.'|'.3.examples)
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.3.examples]", path);
@@ -2292,9 +2227,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_exclusiveMaximum (.'$TightSchema'.'|'.3.exclusiveMaximum)
     public boolean _jm_f_76(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.exclusiveMaximum
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.3.exclusiveMaximum]", path);
@@ -2305,9 +2239,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_exclusiveMinimum (.'$TightSchema'.'|'.3.exclusiveMinimum)
     public boolean _jm_f_77(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.exclusiveMinimum
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.3.exclusiveMinimum]", path);
@@ -2318,9 +2251,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_maximum (.'$TightSchema'.'|'.3.maximum)
     public boolean _jm_f_78(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.maximum
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.3.maximum]", path);
@@ -2331,9 +2263,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_minimum (.'$TightSchema'.'|'.3.minimum)
     public boolean _jm_f_79(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.minimum
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.3.minimum]", path);
@@ -2344,9 +2275,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_multipleOf (.'$TightSchema'.'|'.3.multipleOf)
     public boolean _jm_f_80(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.multipleOf
-        res = json.isInteger(val) && json.asLong(val) >= 1;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$TightSchema'.'|'.3.multipleOf]", path);
@@ -2357,9 +2287,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_readOnly (.'$TightSchema'.'|'.3.readOnly)
     public boolean _jm_f_81(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.3.readOnly]", path);
@@ -2370,9 +2299,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_title (.'$TightSchema'.'|'.3.title)
     public boolean _jm_f_82(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.3.title]", path);
@@ -2383,9 +2311,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_3_map_writeOnly (.'$TightSchema'.'|'.3.writeOnly)
     public boolean _jm_f_83(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.3.writeOnly]", path);
@@ -2456,9 +2383,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_$comment (.'$TightSchema'.'|'.4.'$comment')
     public boolean _jm_f_84(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.'$comment']", path);
@@ -2497,9 +2423,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_$schema (.'$TightSchema'.'|'.4.'$schema')
     public boolean _jm_f_86(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.4.'$schema']", path);
@@ -2546,9 +2471,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_contentEncoding (.'$TightSchema'.'|'.4.contentEncoding)
     public boolean _jm_f_88(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.contentEncoding
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.contentEncoding]", path);
@@ -2559,9 +2483,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_contentMediaType (.'$TightSchema'.'|'.4.contentMediaType)
     public boolean _jm_f_89(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.contentMediaType
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.contentMediaType]", path);
@@ -2572,18 +2495,16 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_default (.'$TightSchema'.'|'.4.default)
     public boolean _jm_f_90(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_4_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
     public boolean _jm_f_91(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.4.deprecated]", path);
@@ -2594,9 +2515,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_description (.'$TightSchema'.'|'.4.description)
     public boolean _jm_f_92(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.description]", path);
@@ -2607,9 +2527,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_examples (.'$TightSchema'.'|'.4.examples)
     public boolean _jm_f_93(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.4.examples]", path);
@@ -2620,9 +2539,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_format (.'$TightSchema'.'|'.4.format)
     public boolean _jm_f_94(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.format
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.format]", path);
@@ -2633,9 +2551,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_maxLength (.'$TightSchema'.'|'.4.maxLength)
     public boolean _jm_f_95(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.maxLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$TightSchema'.'|'.4.maxLength]", path);
@@ -2646,9 +2563,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_minLength (.'$TightSchema'.'|'.4.minLength)
     public boolean _jm_f_96(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.minLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$TightSchema'.'|'.4.minLength]", path);
@@ -2659,9 +2575,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_pattern (.'$TightSchema'.'|'.4.pattern)
     public boolean _jm_f_97(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.pattern
-        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$TightSchema'.'|'.4.pattern]", path);
@@ -2672,9 +2587,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_readOnly (.'$TightSchema'.'|'.4.readOnly)
     public boolean _jm_f_98(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.4.readOnly]", path);
@@ -2685,9 +2599,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_title (.'$TightSchema'.'|'.4.title)
     public boolean _jm_f_99(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.title]", path);
@@ -2698,9 +2611,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_4_map_writeOnly (.'$TightSchema'.'|'.4.writeOnly)
     public boolean _jm_f_100(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.4.writeOnly]", path);
@@ -2771,9 +2683,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_$comment (.'$TightSchema'.'|'.5.'$comment')
     public boolean _jm_f_101(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.5.'$comment']", path);
@@ -2812,9 +2723,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_$schema (.'$TightSchema'.'|'.5.'$schema')
     public boolean _jm_f_103(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.5.'$schema']", path);
@@ -2861,18 +2771,16 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_default (.'$TightSchema'.'|'.5.default)
     public boolean _jm_f_105(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_5_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
     public boolean _jm_f_106(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.5.deprecated]", path);
@@ -2883,9 +2791,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_description (.'$TightSchema'.'|'.5.description)
     public boolean _jm_f_107(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.5.description]", path);
@@ -2896,9 +2803,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_examples (.'$TightSchema'.'|'.5.examples)
     public boolean _jm_f_108(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.5.examples]", path);
@@ -2909,9 +2815,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_maxContains (.'$TightSchema'.'|'.5.maxContains)
     public boolean _jm_f_109(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.maxContains
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$TightSchema'.'|'.5.maxContains]", path);
@@ -2922,9 +2827,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_maxItems (.'$TightSchema'.'|'.5.maxItems)
     public boolean _jm_f_110(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.maxItems
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$TightSchema'.'|'.5.maxItems]", path);
@@ -2935,9 +2839,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_minContains (.'$TightSchema'.'|'.5.minContains)
     public boolean _jm_f_111(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.minContains
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$TightSchema'.'|'.5.minContains]", path);
@@ -2948,9 +2851,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_minItems (.'$TightSchema'.'|'.5.minItems)
     public boolean _jm_f_112(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.minItems
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$TightSchema'.'|'.5.minItems]", path);
@@ -2961,9 +2863,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_readOnly (.'$TightSchema'.'|'.5.readOnly)
     public boolean _jm_f_113(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.5.readOnly]", path);
@@ -2974,9 +2875,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_title (.'$TightSchema'.'|'.5.title)
     public boolean _jm_f_114(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.5.title]", path);
@@ -2987,9 +2887,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_uniqueItems (.'$TightSchema'.'|'.5.uniqueItems)
     public boolean _jm_f_115(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.uniqueItems
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.5.uniqueItems]", path);
@@ -3000,9 +2899,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_5_map_writeOnly (.'$TightSchema'.'|'.5.writeOnly)
     public boolean _jm_f_116(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.5.writeOnly]", path);
@@ -3073,9 +2971,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_$comment (.'$TightSchema'.'|'.6.'$comment')
     public boolean _jm_f_117(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.6.'$comment']", path);
@@ -3114,9 +3011,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_$schema (.'$TightSchema'.'|'.6.'$schema')
     public boolean _jm_f_119(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.6.'$schema']", path);
@@ -3163,9 +3059,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_default (.'$TightSchema'.'|'.6.default)
     public boolean _jm_f_121(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -3228,9 +3123,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_deprecated (.'$TightSchema'.'|'.6.deprecated)
     public boolean _jm_f_124(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.6.deprecated]", path);
@@ -3241,9 +3135,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_description (.'$TightSchema'.'|'.6.description)
     public boolean _jm_f_125(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.6.description]", path);
@@ -3254,9 +3147,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_examples (.'$TightSchema'.'|'.6.examples)
     public boolean _jm_f_126(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.6.examples]", path);
@@ -3267,9 +3159,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_maxProperties (.'$TightSchema'.'|'.6.maxProperties)
     public boolean _jm_f_127(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.maxProperties
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$TightSchema'.'|'.6.maxProperties]", path);
@@ -3280,9 +3171,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_minProperties (.'$TightSchema'.'|'.6.minProperties)
     public boolean _jm_f_128(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.minProperties
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$TightSchema'.'|'.6.minProperties]", path);
@@ -3357,9 +3247,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_readOnly (.'$TightSchema'.'|'.6.readOnly)
     public boolean _jm_f_131(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.6.readOnly]", path);
@@ -3370,9 +3259,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_title (.'$TightSchema'.'|'.6.title)
     public boolean _jm_f_132(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.6.title]", path);
@@ -3383,9 +3271,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_writeOnly (.'$TightSchema'.'|'.6.writeOnly)
     public boolean _jm_f_133(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.6.writeOnly]", path);
@@ -3456,9 +3343,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_$comment (.'$TightSchema'.'|'.7.'$comment')
     public boolean _jm_f_134(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.7.'$comment']", path);
@@ -3497,9 +3383,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_$schema (.'$TightSchema'.'|'.7.'$schema')
     public boolean _jm_f_136(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.'$schema'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.7.'$schema']", path);
@@ -3546,27 +3431,24 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_const (.'$TightSchema'.'|'.7.const)
     public boolean _jm_f_138(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.const
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_7_map_default (.'$TightSchema'.'|'.7.default)
     public boolean _jm_f_139(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_7_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
     public boolean _jm_f_140(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.deprecated
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.7.deprecated]", path);
@@ -3577,9 +3459,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_description (.'$TightSchema'.'|'.7.description)
     public boolean _jm_f_141(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.7.description]", path);
@@ -3590,9 +3471,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_enum (.'$TightSchema'.'|'.7.enum)
     public boolean _jm_f_142(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.enum
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.7.enum]", path);
@@ -3603,9 +3483,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_examples (.'$TightSchema'.'|'.7.examples)
     public boolean _jm_f_143(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.7.examples]", path);
@@ -3616,9 +3495,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_readOnly (.'$TightSchema'.'|'.7.readOnly)
     public boolean _jm_f_144(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.readOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.7.readOnly]", path);
@@ -3629,9 +3507,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_title (.'$TightSchema'.'|'.7.title)
     public boolean _jm_f_145(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.7.title]", path);
@@ -3642,9 +3519,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_writeOnly (.'$TightSchema'.'|'.7.writeOnly)
     public boolean _jm_f_146(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.writeOnly
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.7.writeOnly]", path);
@@ -3735,10 +3611,9 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check $Schema (.'$Schema')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Schema'
         // .'$Schema'.'|'.0
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Schema'.'|'.0]", path);
@@ -3766,9 +3641,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_16(val, path, rep);
+        boolean res = json_model_16(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.]", path);

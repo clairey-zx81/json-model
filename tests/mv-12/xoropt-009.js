@@ -87,9 +87,8 @@ function json_model_1(val, path, rep)
     // .
     // generic xor list
     let xc_0 = 0;
-    let xr_0;
     // .'^'.0
-    xr_0 = _jm_obj_0(val, path, rep);
+    let xr_0 = _jm_obj_0(val, path, rep);
     if (xr_0)
     {
         xc_0 += 1;

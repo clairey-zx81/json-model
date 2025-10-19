@@ -24,9 +24,8 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("unexpected $U64 [.]", path))
     return res

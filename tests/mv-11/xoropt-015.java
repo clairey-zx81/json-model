@@ -22,10 +22,9 @@ public class xoropt_015 extends ModelChecker
     // check $Vv (.'$Vv')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Vv'
         // .'$Vv'.'|'.0
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$Vv'.'|'.0]", path);
@@ -245,9 +244,8 @@ public class xoropt_015 extends ModelChecker
     // check $Ee (.'$Ee')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Ee'
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$Ee'.'|']", path);
@@ -284,10 +282,9 @@ public class xoropt_015 extends ModelChecker
     // check $Mm (.'$Mm')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Mm'
         // .'$Mm'.'|'.0
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Vv [.'$Mm'.'|'.0]", path);
@@ -315,9 +312,8 @@ public class xoropt_015 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_6(val, path, rep);
+        boolean res = json_model_6(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Mm [.]", path);

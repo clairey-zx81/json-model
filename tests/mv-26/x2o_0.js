@@ -111,9 +111,8 @@ function _jm_obj_2(val, path, rep)
     // .'|'.2.t
     // generic xor list
     let xc_0 = 0;
-    let xr_0;
     // .'|'.2.t.'^'.0
-    xr_0 = (typeof pval === 'string' || pval instanceof String);
+    let xr_0 = (typeof pval === 'string' || pval instanceof String);
     if (xr_0)
     {
         xc_0 += 1;

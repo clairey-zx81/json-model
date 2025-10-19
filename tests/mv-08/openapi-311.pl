@@ -237,9 +237,8 @@ sub _jm_f_0($$$)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OpenAPI'.security
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -260,9 +259,8 @@ sub _jm_f_1($$$)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OpenAPI'.servers
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -283,9 +281,8 @@ sub _jm_f_2($$$)
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$OpenAPI'.tags
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$val)
@@ -653,9 +650,8 @@ sub _jm_obj_1($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$License'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$License'.'|'.0
@@ -1211,9 +1207,8 @@ sub _jm_f_16($$$)
 sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$PathItem'.parameters
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_4_idx (0 .. $#$val)
@@ -1240,9 +1235,8 @@ sub _jm_f_17($$$)
 sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$PathItem'.servers
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_5_idx (0 .. $#$val)
@@ -1362,9 +1356,8 @@ sub _jm_f_23($$$)
 sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Operation'.parameters
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_6_idx (0 .. $#$val)
@@ -1391,10 +1384,9 @@ sub _jm_f_24($$$)
 sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Operation'.requestBody
     # .'$Operation'.requestBody.'|'.0
-    $res = json_model_19($val, $path, $rep);
+    my $res = json_model_19($val, $path, $rep);
     if (! $res)
     {
         # .'$Operation'.requestBody.'|'.1
@@ -1407,9 +1399,8 @@ sub _jm_f_25($$$)
 sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Operation'.security
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_7_idx (0 .. $#$val)
@@ -1430,9 +1421,8 @@ sub _jm_f_26($$$)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Operation'.servers
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_8_idx (0 .. $#$val)
@@ -1461,9 +1451,8 @@ sub _jm_f_28($$$)
 sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Operation'.tags
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_9_idx (0 .. $#$val)
@@ -2145,9 +2134,8 @@ sub _jm_obj_6($$$)
 sub json_model_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Parameter'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Parameter'.'|'.0
@@ -2958,9 +2946,8 @@ sub _jm_obj_16($$$)
 sub json_model_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Link'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Link'.'|'.0
@@ -3199,10 +3186,9 @@ sub _jm_obj_20($$$)
 sub json_model_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # more or less a parameter but without name and in
     # .'$Header'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Header'.'|'.0
@@ -3660,10 +3646,9 @@ sub _jm_f_75($$$)
 sub _jm_f_76($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Schema'.type
     # .'$Schema'.type.'|'.0
-    $res = json_model_52($val, $path, $rep);
+    my $res = json_model_52($val, $path, $rep);
     if (! $res)
     {
         # .'$Schema'.type.'|'.1
@@ -4702,10 +4687,9 @@ sub json_model_52($$$)
 sub json_model_53($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#simpleTypesArray'
     # .'$schema#simpleTypesArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_11_idx (0 .. $#$val)
@@ -4731,10 +4715,9 @@ sub json_model_53($$$)
 sub json_model_54($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#stringArray'
     # .'$schema#stringArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_12_idx (0 .. $#$val)
@@ -4767,10 +4750,9 @@ sub json_model_55($$$)
 sub json_model_57($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#schemaArray'
     # .'$schema#schemaArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_13_idx (0 .. $#$val)
@@ -4796,10 +4778,9 @@ sub json_model_57($$$)
 sub json_model_60($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#Schema'
     # .'$schema#Schema'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$schema#Schema'.'|'.1
@@ -5122,10 +5103,9 @@ sub _jm_f_103($$$)
 sub _jm_f_104($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#ObjectSchema'.type
     # .'$schema#ObjectSchema'.type.'|'.0
-    $res = json_model_52($val, $path, $rep);
+    my $res = json_model_52($val, $path, $rep);
     if (! $res)
     {
         # .'$schema#ObjectSchema'.type.'|'.1

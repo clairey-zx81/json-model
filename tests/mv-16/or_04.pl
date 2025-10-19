@@ -34,10 +34,9 @@ sub _jm_re_1($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # deux chaînes constantes et deux re, séparation possible ; constantes matchent re…
     # .
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
     if (! $res)
     {
         $res = jm_is_string($val);

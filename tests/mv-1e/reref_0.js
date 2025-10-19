@@ -17,9 +17,8 @@ var check_model_map = new Map()
 // check $character (.'$character')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$character'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$character'.'|']", path])
@@ -53,10 +52,9 @@ function _jm_xre_0(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // "/'($character:\\w+)'.*'($character:\\w+)'/X"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /'($character:\\w+)'.*'($character:\\w+)'/X [.]", path])

@@ -22,9 +22,8 @@ public class opt_05 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = false;
+        boolean res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.]", path);
         return res;
     }

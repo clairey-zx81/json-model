@@ -22,9 +22,8 @@ public class base_023 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (res)
         {
             // .'&'.0

@@ -153,9 +153,8 @@ sub _jm_re_0($$$)
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$color'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
     if (! $res)
     {
         $res = jm_is_string($val);
@@ -173,10 +172,9 @@ sub json_model_2($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$colorArray'
     # .'$colorArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -202,10 +200,9 @@ sub json_model_3($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$keybinding'
     # .'$keybinding'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$keybinding'.'|'.1
@@ -243,10 +240,9 @@ sub json_model_7($$$)
 sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$neString'
     # .'$neString'.'@'
-    $res = jm_is_string($val);
+    my $res = jm_is_string($val);
     if ($res)
     {
         my $ival_1 = length $val;
@@ -259,10 +255,9 @@ sub json_model_8($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$stringArray'
     # .'$stringArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -792,9 +787,8 @@ sub _jm_f_4($$$)
 sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .customCommands.'@'.0.prompts
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_4_idx (0 .. $#$val)
@@ -903,10 +897,9 @@ sub _jm_obj_7($$$)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .customCommands
     # .customCommands.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_3_idx (0 .. $#$val)
@@ -1458,9 +1451,8 @@ sub _jm_f_36($$$)
 sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.nerdFontsVersion
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_10{$val};
+    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_10{$val};
     if (! $res)
     {
         $res = jm_is_string($val);
@@ -1549,10 +1541,9 @@ sub _jm_f_46($$$)
 sub _jm_f_47($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .gui.sidePanelWidth
     # .gui.sidePanelWidth.'@'
-    $res = jm_is_numeric($val) && $val >= 0.0;
+    my $res = jm_is_numeric($val) && $val >= 0.0;
     if ($res)
     {
         my $fval_0 = $val;
@@ -2108,9 +2099,8 @@ sub _jm_f_72($$$)
 sub _jm_f_73($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .os.editPreset
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_14{$val};
+    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_14{$val};
     if (! $res)
     {
         $res = jm_is_string($val);

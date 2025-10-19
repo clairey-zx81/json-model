@@ -19,9 +19,8 @@ const size_t check_model_map_size = 2;
 // check $over (.'$over')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$over'
-    res = json_model_4(val, path, rep);
+    bool res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Foo [.'$over']", path);
@@ -32,9 +31,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_4(val, path, rep);
+    bool res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $over#Foo [.]", path);

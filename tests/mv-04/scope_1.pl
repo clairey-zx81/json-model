@@ -21,9 +21,8 @@ my %check_model_map;
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$r'
-    $res = jm_is_array($val) && scalar @$val == 2;
+    my $res = jm_is_array($val) && scalar @$val == 2;
     if ($res)
     {
         # .'$r'.0
@@ -57,11 +56,10 @@ sub json_model_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # a string with a lower case later or a digit
     # .
     # .'|'.0
-    $res = json_model_3($val, $path, $rep);
+    my $res = json_model_3($val, $path, $rep);
     if (! $res)
     {
         # .'|'.1

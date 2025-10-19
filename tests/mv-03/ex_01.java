@@ -22,9 +22,8 @@ public class ex_01 extends ModelChecker
     // check $x1 (.'$x1')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$x1'
-        res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _Susie [.'$x1']", path);
@@ -35,9 +34,8 @@ public class ex_01 extends ModelChecker
     // check $x2 (.'$x2')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$x2'
-        res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _Susie [.'$x2']", path);

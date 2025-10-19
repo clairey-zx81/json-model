@@ -23,9 +23,8 @@ public class xoropt_006 extends ModelChecker
     // check $None (.'$None')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$None'
-        res = false;
+        boolean res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.'$None']", path);
         return res;
     }
@@ -144,9 +143,8 @@ public class xoropt_006 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'|']", path);

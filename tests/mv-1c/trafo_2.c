@@ -21,9 +21,8 @@ const size_t check_model_map_size = 4;
 // check $Zz (.'$Zz')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Zz'
-    res = json_model_6(val, path, rep);
+    bool res = json_model_6(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $zero [.'$Zz']", path);
@@ -34,9 +33,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $z (.'$z')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$z'
-    res = json_model_6(val, path, rep);
+    bool res = json_model_6(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Zz#zero [.'$z']", path);
@@ -47,9 +45,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $l (.'$l')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$l'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_0_idx;
@@ -76,9 +73,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_4(val, path, rep);
+    bool res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $l [.]", path);

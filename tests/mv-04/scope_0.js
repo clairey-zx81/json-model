@@ -17,10 +17,9 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check $s (.'$s')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$s'
     // "/[0-9]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /[0-9]/ [.'$s']", path])
@@ -31,9 +30,8 @@ function json_model_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = Array.isArray(val) && val.length == 2;
+    let res = Array.isArray(val) && val.length == 2;
     if (res)
     {
         let lpath_0 = path ? path.concat([0]) : null;

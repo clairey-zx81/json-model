@@ -25,9 +25,8 @@ const size_t check_model_map_size = 4;
 // check $n (.'$n')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$n'
-    res = json_is_null(val);
+    bool res = json_is_null(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected =null [.'$n']", path);
@@ -38,9 +37,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $x (.'$x')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$x'
-    res = json_is_real(val) && json_real_value(val) == 10.0;
+    bool res = json_is_real(val) && json_real_value(val) == 10.0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected =10.0 [.'$x']", path);
@@ -51,9 +49,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $f (.'$f')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$f'
-    res = json_is_boolean(val) && json_boolean_value(val) == false;
+    bool res = json_is_boolean(val) && json_boolean_value(val) == false;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected =false [.'$f']", path);
@@ -234,10 +231,9 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // ^ to | on constants
     // .
-    res = json_is_object(val);
+    bool res = json_is_object(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);

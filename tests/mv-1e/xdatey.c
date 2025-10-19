@@ -44,10 +44,9 @@ static INLINE bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
     // "/^X-($DATE)-Y$/X"
-    res = json_is_string(val) && _jm_xre_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_xre_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^X-($DATE)-Y$/X [.]", path);

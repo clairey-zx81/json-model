@@ -27,10 +27,9 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check $neStr (.'$neStr')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$neStr'
     // "/./"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /./ [.'$neStr']", path])
@@ -41,10 +40,9 @@ function json_model_2(val, path, rep)
 // check $neStrList (.'$neStrList')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$neStrList'
     // .'$neStrList'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -80,9 +78,8 @@ function json_model_3(val, path, rep)
 // check $License (.'$License')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$License'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$License'.'|']", path])
@@ -93,10 +90,9 @@ function json_model_4(val, path, rep)
 // check $LicenseList (.'$LicenseList')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$LicenseList'
     // .'$LicenseList'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
@@ -228,9 +224,8 @@ function json_model_6(val, path, rep)
 // check $Status (.'$Status')
 function json_model_7(val, path, rep)
 {
-    let res;
     // .'$Status'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Status'.'|']", path])
@@ -410,10 +405,9 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 // check $SemVer (.'$SemVer')
 function json_model_9(val, path, rep)
 {
-    let res;
     // .'$SemVer'
     // "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_2(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/ [.'$SemVer']", path])
@@ -424,10 +418,9 @@ function json_model_9(val, path, rep)
 // check $Version (.'$Version')
 function json_model_10(val, path, rep)
 {
-    let res;
     // .'$Version'
     // .'$Version'.'|'.0
-    res = json_model_9(val, path, rep);
+    let res = json_model_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $SemVer [.'$Version'.'|'.0]", path])
@@ -457,10 +450,9 @@ const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 // check $Ops (.'$Ops')
 function json_model_11(val, path, rep)
 {
-    let res;
     // .'$Ops'
     // "/^(<=|<|>=|>|!=|==)$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_3(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^(<=|<|>=|>|!=|==)$/ [.'$Ops']", path])
@@ -473,10 +465,9 @@ const _jm_re_4 = (s) => _jm_re_4_re.exec(s) !== null
 // check $VersionRange (.'$VersionRange')
 function json_model_12(val, path, rep)
 {
-    let res;
     // .'$VersionRange'
     // "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_4(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/ [.'$VersionRange']", path])
@@ -488,9 +479,8 @@ function json_model_12(val, path, rep)
 // check $Phase (.'$Phase')
 function json_model_13(val, path, rep)
 {
-    let res;
     // .'$Phase'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_2.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_2.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Phase'.'|']", path])
@@ -502,9 +492,8 @@ function json_model_13(val, path, rep)
 // check $Relation (.'$Relation')
 function json_model_14(val, path, rep)
 {
-    let res;
     // .'$Relation'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_3.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_3.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Relation'.'|']", path])
@@ -635,9 +624,8 @@ function json_model_16(val, path, rep)
 // check json_model_1_mup_abstract (.abstract)
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .abstract
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.abstract]", path])
@@ -672,10 +660,9 @@ function _jm_obj_3(val, path, rep)
 // check json_model_1_mup_license (.license)
 function _jm_f_1(val, path, rep)
 {
-    let res;
     // .license
     // .license.'|'.0
-    res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $License [.license.'|'.0]", path])
@@ -712,10 +699,9 @@ function _jm_f_1(val, path, rep)
 // check json_model_1_mup_maintainer (.maintainer)
 function _jm_f_2(val, path, rep)
 {
-    let res;
     // .maintainer
     // .maintainer.'|'.0
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $neStr [.maintainer.'|'.0]", path])
@@ -833,9 +819,8 @@ function _jm_f_4(val, path, rep)
 // check json_model_1_mup_version (.version)
 function _jm_f_5(val, path, rep)
 {
-    let res;
     // .version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.version]", path])
@@ -847,9 +832,8 @@ function _jm_f_5(val, path, rep)
 // check json_model_1_map_description (.description)
 function _jm_f_6(val, path, rep)
 {
-    let res;
     // .description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.description]", path])
@@ -860,9 +844,8 @@ function _jm_f_6(val, path, rep)
 // check json_model_1_map_generated_by (.generated_by)
 function _jm_f_7(val, path, rep)
 {
-    let res;
     // .generated_by
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.generated_by]", path])
@@ -919,9 +902,8 @@ function _jm_f_8(val, path, rep)
 // check json_model_1_map_url (.url)
 function _jm_f_9(val, path, rep)
 {
-    let res;
     // .url
-    res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $URL [.url]", path])

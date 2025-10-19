@@ -323,10 +323,9 @@ function json_model_4(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // .'|'.0
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Oo0 [.'|'.0]", path])

@@ -24,18 +24,16 @@ check_model_map: PropMap
 
 # check $ex08 (.'$ex08')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ex08'
-    res = json_model_9(val, path, rep)
+    res: bool = json_model_9(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex08 [.'$ex08']", path))
     return res
 
 # check $Ex08 (.'$Ex08')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ex08'
-    res = json_model_9(val, path, rep)
+    res: bool = json_model_9(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $ex08#Ex08 [.'$Ex08']", path))
     return res
@@ -71,28 +69,25 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_4(val, path, rep)
+    res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex09 [.]", path))
     return res
 
 # check $ex08#Val (.'$ex08#Val')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ex08#Val'
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$ex08#Val']", path))
     return res
 
 # check $ex08#Ex08 (.'$ex08#Ex08')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ex08#Ex08'
     # .'$ex08#Ex08'.'|'.0
-    res = json_model_8(val, path, rep)
+    res: bool = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $map [.'$ex08#Ex08'.'|'.0]", path))
     if not res:

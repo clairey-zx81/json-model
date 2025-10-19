@@ -24,18 +24,16 @@ check_model_map: PropMap
 
 # check $Pp (.'$Pp')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Pp'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Pp']", path))
     return res
 
 # check $Qq (.'$Qq')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Qq'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None

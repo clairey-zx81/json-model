@@ -102,9 +102,8 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 // check $nomerge (.'$nomerge')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$nomerge'
-    res = true;
+    bool res = true;
     if (res)
     {
         // .'$nomerge'.'&'.0
@@ -119,10 +118,9 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
     // .'|'.0
-    res = json_model_4(val, path, rep);
+    bool res = json_model_4(val, path, rep);
     if (! res)
         // .'|'.1
         res = json_model_5(val, path, rep);

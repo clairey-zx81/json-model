@@ -27,10 +27,9 @@ const size_t check_model_map_size = 4;
 // check $ex5 (.'$ex5')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex5'
     // .'$ex5'.'|'.0
-    res = json_model_5(val, path, rep);
+    bool res = json_model_5(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex05a [.'$ex5'.'|'.0]", path);
@@ -64,10 +63,9 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $Ex07 (.'$Ex07')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Ex07'
     // "/[a-z]/"
-    res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /[a-z]/ [.'$Ex07']", path);
@@ -78,10 +76,9 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $__external_0 (.'$__external_0')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$__external_0'
     // .'$__external_0'.'|'.0
-    res = json_model_8(val, path, rep);
+    bool res = json_model_8(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex05a [.'$__external_0'.'|'.0]", path);
@@ -109,9 +106,8 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_is_array(val) && json_array_size(val) == 3;
+    bool res = json_is_array(val) && json_array_size(val) == 3;
     if (res)
     {
         jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
@@ -152,9 +148,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ex5#Ex05a (.'$ex5#Ex05a')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex5#Ex05a'
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$ex5#Ex05a']", path);
@@ -165,9 +160,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ex5#Ex05b (.'$ex5#Ex05b')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex5#Ex05b'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ex5#Ex05b']", path);
@@ -178,9 +172,8 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $__external_0#Ex05a (.'$__external_0#Ex05a')
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$__external_0#Ex05a'
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$__external_0#Ex05a']", path);
@@ -191,9 +184,8 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $__external_0#Ex05b (.'$__external_0#Ex05b')
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$__external_0#Ex05b'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$__external_0#Ex05b']", path);

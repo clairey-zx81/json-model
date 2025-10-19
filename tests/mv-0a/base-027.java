@@ -22,9 +22,8 @@ public class base_027 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = true;
+        boolean res = true;
         return res;
     }
 

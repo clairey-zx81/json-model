@@ -22,10 +22,9 @@ public class obj_03 extends ModelChecker
     // check $foo (.'$foo')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$foo'
         // .'$foo'.'|'.0
-        res = json_model_4(val, path, rep);
+        boolean res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $li0 [.'$foo'.'|'.0]", path);
@@ -71,9 +70,8 @@ public class obj_03 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_5(val, path, rep);
+        boolean res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $foo#ls0 [.]", path);
@@ -84,9 +82,8 @@ public class obj_03 extends ModelChecker
     // check $foo#li0 (.'$foo#li0')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$foo#li0'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -115,9 +112,8 @@ public class obj_03 extends ModelChecker
     // check $foo#ls0 (.'$foo#ls0')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$foo#ls0'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -146,9 +142,8 @@ public class obj_03 extends ModelChecker
     // check $foo#lb0 (.'$foo#lb0')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$foo#lb0'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_2_idx = -1;
@@ -177,9 +172,8 @@ public class obj_03 extends ModelChecker
     // check $foo#lf0 (.'$foo#lf0')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$foo#lf0'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_3_idx = -1;

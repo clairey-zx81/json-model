@@ -22,11 +22,10 @@ public class int_1_s extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // JSON_MODEL_SIGNED_INT
         // .
         // .'@'
-        res = json.isInteger(val) && json.asLong(val) >= 1;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'@']", path);

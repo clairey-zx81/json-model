@@ -39,10 +39,9 @@ function json_model_2(val, path, rep)
 // check $rec (.'$rec')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$rec'
     // .'$rec'.'|'.0
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$rec'.'|'.0]", path])
@@ -70,9 +69,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_3(val, path, rep);
+    let res = json_model_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $rec [.]", path])

@@ -22,10 +22,9 @@ public class ends extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // "/Susie$/"
-        res = json.isString(val) && json.asString(val).endsWith("Susie");
+        boolean res = json.isString(val) && json.asString(val).endsWith("Susie");
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /Susie$/ [.]", path);

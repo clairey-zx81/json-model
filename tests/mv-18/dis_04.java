@@ -311,10 +311,9 @@ public class dis_04 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // multi-type discriminator
         // .
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'|']", path);

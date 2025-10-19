@@ -242,10 +242,9 @@ sub json_model_4($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # .'|'.0
-    $res = json_model_2($val, $path, $rep);
+    my $res = json_model_2($val, $path, $rep);
     if (! $res)
     {
         # .'|'.1

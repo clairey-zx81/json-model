@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $t (.'$t')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$t'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_02";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "cst_02";
     if (! res)
     {
         rep !== null && rep.push(["unexpected _cst_02 [.'$t']", path])

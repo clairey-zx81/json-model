@@ -24,9 +24,8 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = isinstance(val, float)
+    res: bool = isinstance(val, float)
     if not res:
         rep is None or rep.append(("not a -1.0 strict float [.]", path))
     return res

@@ -19,9 +19,8 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = jm_json_is_scalar(val) && json_is_integer(val) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(val) } }, _jm_cst_0, 4);;
+    bool res = jm_json_is_scalar(val) && json_is_integer(val) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(val) } }, _jm_cst_0, 4);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'|']", path);

@@ -28,10 +28,9 @@ public class scope_0 extends ModelChecker
     // check $s (.'$s')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$s'
         // "/[0-9]/"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'$s']", path);
@@ -42,9 +41,8 @@ public class scope_0 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isArray(val) && json.arrayLength(val) == 2;
+        boolean res = json.isArray(val) && json.arrayLength(val) == 2;
         if (res)
         {
             Path lpath_0 = new Path(0, path);

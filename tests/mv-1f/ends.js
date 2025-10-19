@@ -14,10 +14,9 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // "/Susie$/"
-    res = ((typeof val === 'string' || val instanceof String)) && val.endsWith("Susie");
+    let res = ((typeof val === 'string' || val instanceof String)) && val.endsWith("Susie");
     if (! res)
     {
         rep !== null && rep.push(["unexpected /Susie$/ [.]", path])

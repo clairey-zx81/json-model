@@ -2824,11 +2824,10 @@ sub json_model_48($$$)
 sub json_model_49($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     # .'$any_platform'
     # .'$any_platform'.'|'.0
-    $res = json_model_2($val, $path, $rep);
+    my $res = json_model_2($val, $path, $rep);
     if (! $res)
     {
         # .'$any_platform'.'|'.1
@@ -5307,9 +5306,8 @@ sub _jm_obj_46($$$)
 sub json_model_50($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$platforms'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_47_idx (0 .. $#$val)
@@ -5573,9 +5571,8 @@ sub _jm_f_0($$$)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$GalaxyInfoModelCollection'.galaxy_tags
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_95_idx (0 .. $#$val)
@@ -5782,9 +5779,8 @@ sub _jm_f_13($$$)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$GalaxyInfoModelStandalone'.galaxy_tags
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_96_idx (0 .. $#$val)
@@ -5966,9 +5962,8 @@ sub _jm_f_23($$$)
 sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$GalaxyInfoModel'.'|'.1.galaxy_tags
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_97_idx (0 .. $#$val)
@@ -6132,9 +6127,8 @@ sub _jm_f_35($$$)
 sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$GalaxyInfoModel'.'|'.2.galaxy_tags
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_98_idx (0 .. $#$val)
@@ -6305,9 +6299,8 @@ sub _jm_re_2($$$)
 sub json_model_55($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$collections'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_99_idx (0 .. $#$val)
@@ -6329,10 +6322,9 @@ sub json_model_55($$$)
 sub json_model_56($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$complex_conditional'
     # .'$complex_conditional'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$complex_conditional'.'|'.1
@@ -6404,10 +6396,9 @@ sub _jm_f_49($$$)
 sub _jm_f_50($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$DependencyModelLoose'.tags
     # .'$DependencyModelLoose'.tags.'|'.0
-    $res = jm_is_string($val);
+    my $res = jm_is_string($val);
     if (! $res)
     {
         # .'$DependencyModelLoose'.tags.'|'.1
@@ -6544,10 +6535,9 @@ sub _jm_obj_51($$$)
 sub json_model_58($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # add non-exclusive mandatory role, src or name props
     # .'$DependencyModel'
-    $res = 1;
+    my $res = 1;
     if ($res)
     {
         # .'$DependencyModel'.'&'.0
@@ -6660,11 +6650,10 @@ sub json_model_59($$$)
 sub json_model_60($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # why null?
     # .'$AnsibleMeta'
     # .'$AnsibleMeta'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$AnsibleMeta'.'|'.1

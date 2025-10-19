@@ -90,9 +90,8 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
 // check $Aa (.'$Aa')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Aa'
-    res = json_is_object(val);
+    bool res = json_is_object(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected type [.'$Aa'.'|']", path);
@@ -163,10 +162,9 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
 // check $Bb (.'$Bb')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Bb'
     // .'$Bb'.'|'.0
-    res = _jm_obj_2(val, path, rep);
+    bool res = _jm_obj_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bb'.'|'.0]", path);
@@ -194,9 +192,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_3(val, path, rep);
+    bool res = json_model_3(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Bb [.]", path);

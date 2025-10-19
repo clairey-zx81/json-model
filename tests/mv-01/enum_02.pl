@@ -44,9 +44,8 @@ sub json_model_1($$$)
     # .
     # generic xor list
     my $xc_0 = 0;
-    my $xr_0;
     # .'^'.0
-    $xr_0 = json_model_2($val, $path, $rep);
+    my $xr_0 = json_model_2($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;

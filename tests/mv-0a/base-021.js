@@ -17,10 +17,9 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // "/^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$/ [.]", path])

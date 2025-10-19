@@ -247,9 +247,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $atomic-types (.'$atomic-types')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$atomic-types'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 14);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 14);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$atomic-types'.'|']", path);
@@ -260,10 +259,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $atomic (.'$atomic')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$atomic'
     // .'$atomic'.'|'.0
-    res = json_is_null(val);
+    bool res = json_is_null(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not null [.'$atomic'.'|'.0]", path);
@@ -318,9 +316,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_enumeration (.'$Atomic'.enumeration)
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.enumeration
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_2_idx;
@@ -348,9 +345,8 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.explicitTypeZone
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Atomic'.explicitTypeZone.'|']", path);
@@ -361,9 +357,8 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.fractionDigits
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.fractionDigits]", path);
@@ -374,9 +369,8 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_length (.'$Atomic'.length)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.length
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.length]", path);
@@ -387,9 +381,8 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_maxLength (.'$Atomic'.maxLength)
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.maxLength
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.maxLength]", path);
@@ -400,9 +393,8 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_minLength (.'$Atomic'.minLength)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.minLength
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.minLength]", path);
@@ -413,9 +405,8 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_name (.'$Atomic'.name)
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.name
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$Atomic'.name]", path);
@@ -426,9 +417,8 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_pattern (.'$Atomic'.pattern)
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.pattern
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$Atomic'.pattern]", path);
@@ -439,9 +429,8 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Atomic'.totalDigits
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.totalDigits]", path);
@@ -963,10 +952,9 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $type-or-ref (.'$type-or-ref')
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$type-or-ref'
     // .'$type-or-ref'.'|'.0
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$type-or-ref'.'|'.0]", path);
@@ -994,9 +982,8 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_2(val, path, rep);
+    bool res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Schema [.]", path);

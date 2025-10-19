@@ -24,28 +24,25 @@ check_model_map: PropMap
 
 # check $Ex05a (.'$Ex05a')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ex05a'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Ex05a']", path))
     return res
 
 # check $Ex05b (.'$Ex05b')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ex05b'
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$Ex05b']", path))
     return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # .'|'.0
-    res = json_model_2(val, path, rep)
+    res: bool = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex05a [.'|'.0]", path))
     if not res:

@@ -214,9 +214,8 @@ function json_model_3(val, path, rep)
 // check $atomic-types (.'$atomic-types')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$atomic-types'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$atomic-types'.'|']", path])
@@ -227,10 +226,9 @@ function json_model_4(val, path, rep)
 // check $atomic (.'$atomic')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$atomic'
     // .'$atomic'.'|'.0
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$atomic'.'|'.0]", path])
@@ -285,9 +283,8 @@ function json_model_5(val, path, rep)
 // check json_model_6_map_enumeration (.'$Atomic'.enumeration)
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .'$Atomic'.enumeration
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
@@ -314,9 +311,8 @@ function _jm_f_0(val, path, rep)
 // check json_model_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
 function _jm_f_1(val, path, rep)
 {
-    let res;
     // .'$Atomic'.explicitTypeZone
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Atomic'.explicitTypeZone.'|']", path])
@@ -327,9 +323,8 @@ function _jm_f_1(val, path, rep)
 // check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
 function _jm_f_2(val, path, rep)
 {
-    let res;
     // .'$Atomic'.fractionDigits
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.fractionDigits]", path])
@@ -340,9 +335,8 @@ function _jm_f_2(val, path, rep)
 // check json_model_6_map_length (.'$Atomic'.length)
 function _jm_f_3(val, path, rep)
 {
-    let res;
     // .'$Atomic'.length
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.length]", path])
@@ -353,9 +347,8 @@ function _jm_f_3(val, path, rep)
 // check json_model_6_map_maxLength (.'$Atomic'.maxLength)
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .'$Atomic'.maxLength
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.maxLength]", path])
@@ -366,9 +359,8 @@ function _jm_f_4(val, path, rep)
 // check json_model_6_map_minLength (.'$Atomic'.minLength)
 function _jm_f_5(val, path, rep)
 {
-    let res;
     // .'$Atomic'.minLength
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.minLength]", path])
@@ -379,9 +371,8 @@ function _jm_f_5(val, path, rep)
 // check json_model_6_map_name (.'$Atomic'.name)
 function _jm_f_6(val, path, rep)
 {
-    let res;
     // .'$Atomic'.name
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$Atomic'.name]", path])
@@ -392,9 +383,8 @@ function _jm_f_6(val, path, rep)
 // check json_model_6_map_pattern (.'$Atomic'.pattern)
 function _jm_f_7(val, path, rep)
 {
-    let res;
     // .'$Atomic'.pattern
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$Atomic'.pattern]", path])
@@ -405,9 +395,8 @@ function _jm_f_7(val, path, rep)
 // check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
 function _jm_f_8(val, path, rep)
 {
-    let res;
     // .'$Atomic'.totalDigits
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.totalDigits]", path])
@@ -915,10 +904,9 @@ function json_model_10(val, path, rep)
 // check $type-or-ref (.'$type-or-ref')
 function json_model_11(val, path, rep)
 {
-    let res;
     // .'$type-or-ref'
     // .'$type-or-ref'.'|'.0
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.0]", path])
@@ -946,9 +934,8 @@ function json_model_11(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.]", path])

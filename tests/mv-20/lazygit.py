@@ -60,9 +60,8 @@ check_model_map: PropMap
 
 # check $color (.'$color')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$color'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$color'.'|']", path))
     if not res:
@@ -82,10 +81,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $colorArray (.'$colorArray')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$colorArray'
     # .'$colorArray'.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
@@ -105,10 +103,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $keybinding (.'$keybinding')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$keybinding'
     # .'$keybinding'.'|'.0
-    res = val is None
+    res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$keybinding'.'|'.0]", path))
     if not res:
@@ -125,37 +122,33 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $custom-commands-prompts-type-property (.'$custom-commands-prompts-type-property')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$custom-commands-prompts-type-property'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
     if not res:
         rep is None or rep.append(("value not in enum [.'$custom-commands-prompts-type-property'.'|']", path))
     return res
 
 # check $custom-commands-prompts-title-property (.'$custom-commands-prompts-title-property')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$custom-commands-prompts-title-property'
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$custom-commands-prompts-title-property']", path))
     return res
 
 # check $custom-commands-prompts-key-property (.'$custom-commands-prompts-key-property')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$custom-commands-prompts-key-property'
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$custom-commands-prompts-key-property']", path))
     return res
 
 # check $neString (.'$neString')
 def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$neString'
     # .'$neString'.'@'
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$neString'.'@']", path))
     if res:
@@ -167,10 +160,9 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $stringArray (.'$stringArray')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$stringArray'
     # .'$stringArray'.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
@@ -597,9 +589,8 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_map_confirmOnQuit (.confirmOnQuit)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .confirmOnQuit
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.confirmOnQuit]", path))
     return res
@@ -629,27 +620,24 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_7_map_description (.customCommands.'@'.0.description)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .customCommands.'@'.0.description
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.customCommands.'@'.0.description]", path))
     return res
 
 # check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .customCommands.'@'.0.loadingText
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.customCommands.'@'.0.loadingText]", path))
     return res
 
 # check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .customCommands.'@'.0.prompts
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_4_idx, arr_4_item in enumerate(val):
             arr_4_lpath: Path = (path + [ arr_4_idx ]) if path is not None else None
@@ -664,27 +652,24 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .customCommands.'@'.0.showOutput
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.customCommands.'@'.0.showOutput]", path))
     return res
 
 # check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .customCommands.'@'.0.stream
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.customCommands.'@'.0.stream]", path))
     return res
 
 # check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .customCommands.'@'.0.subprocess
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.customCommands.'@'.0.subprocess]", path))
     return res
@@ -748,10 +733,9 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_map_customCommands (.customCommands)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .customCommands
     # .customCommands.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_3_idx, arr_3_item in enumerate(val):
             arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
@@ -770,45 +754,40 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_map_disableStartupPopups (.disableStartupPopups)
 def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .disableStartupPopups
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.disableStartupPopups]", path))
     return res
 
 # check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
 def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.allBranchesLogCmd
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.git.allBranchesLogCmd]", path))
     return res
 
 # check _jm_f_10_map_autoFetch (.git.autoFetch)
 def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.autoFetch
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.autoFetch]", path))
     return res
 
 # check _jm_f_10_map_autoRefresh (.git.autoRefresh)
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.autoRefresh
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.autoRefresh]", path))
     return res
 
 # check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
 def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.branchLogCmd
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.git.branchLogCmd]", path))
     return res
@@ -893,27 +872,24 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_10_map_diffContextSize (.git.diffContextSize)
 def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.diffContextSize
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.git.diffContextSize]", path))
     return res
 
 # check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
 def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.disableForcePushing
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.disableForcePushing]", path))
     return res
 
 # check _jm_f_10_map_fetchAll (.git.fetchAll)
 def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.fetchAll
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.fetchAll]", path))
     return res
@@ -990,9 +966,8 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_10_map_overrideGpg (.git.overrideGpg)
 def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.overrideGpg
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.overrideGpg]", path))
     return res
@@ -1045,18 +1020,16 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_10_map_parseEmoji (.git.parseEmoji)
 def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.parseEmoji
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.parseEmoji]", path))
     return res
 
 # check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
 def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .git.skipHookPrefix
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.git.skipHookPrefix]", path))
     return res
@@ -1083,9 +1056,8 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
 def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.animateExplosion
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.animateExplosion]", path))
     return res
@@ -1114,9 +1086,8 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_border (.gui.border)
 def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.border
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_7
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_7
     if not res:
         rep is None or rep.append(("value not in enum [.gui.border.'|']", path))
     return res
@@ -1144,9 +1115,8 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
 def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.commandLogSize
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.gui.commandLogSize]", path))
     return res
@@ -1175,9 +1145,8 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
 def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.expandFocusedSidePanel
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.expandFocusedSidePanel]", path))
     return res
@@ -1185,9 +1154,8 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_language (.gui.language)
 def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.language
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_8
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_8
     if not res:
         rep is None or rep.append(("value not in enum [.gui.language.'|']", path))
     return res
@@ -1195,18 +1163,16 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
 def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.mainPanelSplitMode
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_9
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_9
     if not res:
         rep is None or rep.append(("value not in enum [.gui.mainPanelSplitMode.'|']", path))
     return res
 
 # check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
 def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.mouseEvents
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.mouseEvents]", path))
     return res
@@ -1214,9 +1180,8 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
 def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.nerdFontsVersion
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_10
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_10
     if not res:
         rep is None or rep.append(("value not in enum [.gui.nerdFontsVersion.'|']", path))
     if not res:
@@ -1235,91 +1200,81 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
 def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.scrollHeight
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 1
     if not res:
         rep is None or rep.append(("not a 1 strict int [.gui.scrollHeight]", path))
     return res
 
 # check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
 def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.scrollPastBottom
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.scrollPastBottom]", path))
     return res
 
 # check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
 def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.shortTimeFormat
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.gui.shortTimeFormat]", path))
     return res
 
 # check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
 def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.showBottomLine
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showBottomLine]", path))
     return res
 
 # check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
 def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.showBranchCommitHash
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showBranchCommitHash]", path))
     return res
 
 # check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
 def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.showCommandLog
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showCommandLog]", path))
     return res
 
 # check _jm_f_26_map_showFileTree (.gui.showFileTree)
 def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.showFileTree
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showFileTree]", path))
     return res
 
 # check _jm_f_26_map_showListFooter (.gui.showListFooter)
 def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.showListFooter
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showListFooter]", path))
     return res
 
 # check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
 def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.showRandomTip
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showRandomTip]", path))
     return res
 
 # check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
 def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.sidePanelWidth
     # .gui.sidePanelWidth.'@'
-    res = isinstance(val, float) and val >= 0.0
+    res: bool = isinstance(val, float) and val >= 0.0
     if not res:
         rep is None or rep.append(("not a 0.0 strict float [.gui.sidePanelWidth.'@']", path))
     if res:
@@ -1331,27 +1286,24 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
 def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.skipDiscardChangeWarning
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.skipDiscardChangeWarning]", path))
     return res
 
 # check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
 def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.skipRewordInEditorWarning
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.skipRewordInEditorWarning]", path))
     return res
 
 # check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
 def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.skipStashWarning
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.skipStashWarning]", path))
     return res
@@ -1359,9 +1311,8 @@ def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_splitDiff (.gui.splitDiff)
 def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.splitDiff
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_11
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_11
     if not res:
         rep is None or rep.append(("value not in enum [.gui.splitDiff.'|']", path))
     return res
@@ -1388,9 +1339,8 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_timeFormat (.gui.timeFormat)
 def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.timeFormat
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.gui.timeFormat]", path))
     return res
@@ -1398,9 +1348,8 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_26_map_windowSize (.gui.windowSize)
 def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .gui.windowSize
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_12
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_12
     if not res:
         rep is None or rep.append(("value not in enum [.gui.windowSize.'|']", path))
     return res
@@ -1653,18 +1602,16 @@ def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
 def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .keybinding.universal.jumpToBlock
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if not res:
         rep is None or rep.append(("not array or unexpected array [.keybinding.universal.jumpToBlock]", path))
     return res
 
 # check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
 def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .keybinding.universal.optionMenu
-    res = val is None
+    res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.keybinding.universal.optionMenu]", path))
     return res
@@ -1712,45 +1659,40 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_map_notARepository (.notARepository)
 def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .notARepository
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_13
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_13
     if not res:
         rep is None or rep.append(("value not in enum [.notARepository.'|']", path))
     return res
 
 # check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
 def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .os.copyToClipboardCmd
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.os.copyToClipboardCmd]", path))
     return res
 
 # check _jm_f_68_map_edit (.os.edit)
 def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .os.edit
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.os.edit]", path))
     return res
 
 # check _jm_f_68_map_editAtLine (.os.editAtLine)
 def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .os.editAtLine
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.os.editAtLine]", path))
     return res
 
 # check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
 def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .os.editAtLineAndWait
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.os.editAtLineAndWait]", path))
     return res
@@ -1758,9 +1700,8 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_68_map_editPreset (.os.editPreset)
 def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .os.editPreset
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_14
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_14
     if not res:
         rep is None or rep.append(("value not in enum [.os.editPreset.'|']", path))
     if not res:
@@ -1779,18 +1720,16 @@ def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_68_map_open (.os.open)
 def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .os.open
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.os.open]", path))
     return res
 
 # check _jm_f_68_map_openLink (.os.openLink)
 def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .os.openLink
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.os.openLink]", path))
     return res
@@ -1817,18 +1756,16 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
 def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .promptToReturnFromSubprocess
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.promptToReturnFromSubprocess]", path))
     return res
 
 # check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
 def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .quitOnTopLevelReturn
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.quitOnTopLevelReturn]", path))
     return res

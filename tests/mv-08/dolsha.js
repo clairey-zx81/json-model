@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $array (.'$array')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$array'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)

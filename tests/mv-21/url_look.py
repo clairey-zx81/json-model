@@ -25,18 +25,16 @@ check_model_map: PropMap
 
 # check $u1 (.'$u1')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$u1'
-    res = isinstance(val, str) and (val == "https://json-model.org/models/json-model")
+    res: bool = isinstance(val, str) and (val == "https://json-model.org/models/json-model")
     if not res:
         rep is None or rep.append(("unexpected https://json-model.org/models/json-model [.'$u1']", path))
     return res
 
 # check $u2 (.'$u2')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$u2'
-    res = isinstance(val, str) and val == "file://./url_looking.model.json"
+    res: bool = isinstance(val, str) and val == "file://./url_looking.model.json"
     if not res:
         rep is None or rep.append(("unexpected file://./url_looking.model.json [.'$u2']", path))
     return res
@@ -44,10 +42,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # trigger a warning on url-looking definitions
     # .
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'|']", path))
     return res

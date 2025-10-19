@@ -26,9 +26,8 @@ check_model_map: PropMap
 
 # check $None (.'$None')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$None'
-    res = False
+    res: bool = False
     rep is None or rep.append(("unexpected $NONE [.'$None']", path))
     return res
 
@@ -106,9 +105,8 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = isinstance(val, dict)
+    res: bool = isinstance(val, dict)
     if not res:
         rep is None or rep.append(("unexpected type [.'|']", path))
     if res:

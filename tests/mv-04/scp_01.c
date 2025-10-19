@@ -21,9 +21,8 @@ const size_t check_model_map_size = 4;
 // check $b (.'$b')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$b'
-    res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000062);
+    bool res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000062);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _b [.'$b']", path);
@@ -34,9 +33,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Bb (.'$Bb')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Bb'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bb']", path);
@@ -156,9 +154,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Rr#Aa (.'$Rr#Aa')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Rr#Aa'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$Rr#Aa']", path);

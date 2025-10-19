@@ -62,10 +62,9 @@ sub json_model_2($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schemaArray'
     # .'$schemaArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -100,10 +99,9 @@ sub json_model_4($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$typeArray'
     # .'$typeArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -129,9 +127,8 @@ sub json_model_5($$$)
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$stringArray'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$val)
@@ -238,10 +235,9 @@ sub _jm_f_5($$$)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.enum
     # .'$ObjectSchema'.enum.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         my $ival_2 = scalar @$val;
@@ -286,10 +282,9 @@ sub _jm_f_10($$$)
 sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.items
     # .'$ObjectSchema'.items.'|'.0
-    $res = json_model_8($val, $path, $rep);
+    my $res = json_model_8($val, $path, $rep);
     if (! $res)
     {
         # .'$ObjectSchema'.items.'|'.1
@@ -445,10 +440,9 @@ sub _jm_f_24($$$)
 sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
-    $res = json_model_4($val, $path, $rep);
+    my $res = json_model_4($val, $path, $rep);
     if (! $res)
     {
         # .'$ObjectSchema'.type.'|'.1
@@ -499,10 +493,9 @@ sub json_model_7($$$)
 sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Schema'
     # .'$Schema'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$Schema'.'|'.1

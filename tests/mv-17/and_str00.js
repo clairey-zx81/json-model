@@ -20,9 +20,8 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (res)
     {
         // .'&'.0

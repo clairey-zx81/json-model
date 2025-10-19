@@ -11,6 +11,7 @@
 - [x] c-backend: remove redundant scalar test in some cases (with late filtering)
 - [x] c-backend: remove some useless braces around one instruction (with late filtering)
 - [x] backend: simplify conditional assignment patterns with one boolean constant
+- [x] backend: merge boolean declaration and first assignment if possible
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting

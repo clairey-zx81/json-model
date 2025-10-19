@@ -37,9 +37,8 @@ var check_model_map = new Map()
 // check $tight (.'$tight')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$tight'
-    res = json_model_27(val, path, rep);
+    let res = json_model_27(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $RootSchema [.'$tight']", path])
@@ -50,9 +49,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_27(val, path, rep);
+    let res = json_model_27(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $tight#RootSchema [.]", path])
@@ -93,10 +91,9 @@ function _jm_obj_0(val, path, rep)
 // check $tight#RootSchema (.'$tight#RootSchema')
 function json_model_27(val, path, rep)
 {
-    let res;
     // keyword $schema is mandatory at the root, and optional elsewhere
     // .'$tight#RootSchema'
-    res = true;
+    let res = true;
     if (res)
     {
         // .'$tight#RootSchema'.'&'.0
@@ -223,9 +220,8 @@ function json_model_25(val, path, rep)
 // check json_model_11_map_$comment (.'$tight#metas'.'$comment')
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .'$tight#metas'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$comment']", path])
@@ -261,9 +257,8 @@ function _jm_f_1(val, path, rep)
 // check json_model_11_map_$id (.'$tight#metas'.'$id')
 function _jm_f_2(val, path, rep)
 {
-    let res;
     // .'$tight#metas'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$id']", path])
@@ -274,9 +269,8 @@ function _jm_f_2(val, path, rep)
 // check json_model_11_map_$schema (.'$tight#metas'.'$schema')
 function _jm_f_3(val, path, rep)
 {
-    let res;
     // .'$tight#metas'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$schema']", path])
@@ -287,9 +281,8 @@ function _jm_f_3(val, path, rep)
 // check json_model_11_map_default (.'$tight#metas'.default)
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .'$tight#metas'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -321,9 +314,8 @@ function _jm_f_5(val, path, rep)
 // check json_model_11_map_description (.'$tight#metas'.description)
 function _jm_f_6(val, path, rep)
 {
-    let res;
     // .'$tight#metas'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#metas'.description]", path])
@@ -334,9 +326,8 @@ function _jm_f_6(val, path, rep)
 // check json_model_11_map_examples (.'$tight#metas'.examples)
 function _jm_f_7(val, path, rep)
 {
-    let res;
     // .'$tight#metas'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#metas'.examples]", path])
@@ -347,9 +338,8 @@ function _jm_f_7(val, path, rep)
 // check json_model_11_map_id (.'$tight#metas'.id)
 function _jm_f_8(val, path, rep)
 {
-    let res;
     // .'$tight#metas'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#metas'.id]", path])
@@ -360,9 +350,8 @@ function _jm_f_8(val, path, rep)
 // check json_model_11_map_title (.'$tight#metas'.title)
 function _jm_f_9(val, path, rep)
 {
-    let res;
     // .'$tight#metas'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#metas'.title]", path])
@@ -406,9 +395,8 @@ function json_model_11(val, path, rep)
 // check json_model_12_map_$comment (.'$tight#String'.'$comment')
 function _jm_f_10(val, path, rep)
 {
-    let res;
     // .'$tight#String'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#String'.'$comment']", path])
@@ -444,9 +432,8 @@ function _jm_f_11(val, path, rep)
 // check json_model_12_map_$id (.'$tight#String'.'$id')
 function _jm_f_12(val, path, rep)
 {
-    let res;
     // .'$tight#String'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#String'.'$id']", path])
@@ -457,9 +444,8 @@ function _jm_f_12(val, path, rep)
 // check json_model_12_map_$schema (.'$tight#String'.'$schema')
 function _jm_f_13(val, path, rep)
 {
-    let res;
     // .'$tight#String'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#String'.'$schema']", path])
@@ -470,9 +456,8 @@ function _jm_f_13(val, path, rep)
 // check json_model_12_map_default (.'$tight#String'.default)
 function _jm_f_14(val, path, rep)
 {
-    let res;
     // .'$tight#String'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -504,9 +489,8 @@ function _jm_f_15(val, path, rep)
 // check json_model_12_map_description (.'$tight#String'.description)
 function _jm_f_16(val, path, rep)
 {
-    let res;
     // .'$tight#String'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#String'.description]", path])
@@ -517,9 +501,8 @@ function _jm_f_16(val, path, rep)
 // check json_model_12_map_examples (.'$tight#String'.examples)
 function _jm_f_17(val, path, rep)
 {
-    let res;
     // .'$tight#String'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#String'.examples]", path])
@@ -531,9 +514,8 @@ function _jm_f_17(val, path, rep)
 // check json_model_12_map_format (.'$tight#String'.format)
 function _jm_f_18(val, path, rep)
 {
-    let res;
     // .'$tight#String'.format
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$tight#String'.format.'|']", path])
@@ -544,9 +526,8 @@ function _jm_f_18(val, path, rep)
 // check json_model_12_map_id (.'$tight#String'.id)
 function _jm_f_19(val, path, rep)
 {
-    let res;
     // .'$tight#String'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#String'.id]", path])
@@ -557,9 +538,8 @@ function _jm_f_19(val, path, rep)
 // check json_model_12_map_maxLength (.'$tight#String'.maxLength)
 function _jm_f_20(val, path, rep)
 {
-    let res;
     // .'$tight#String'.maxLength
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$tight#String'.maxLength]", path])
@@ -570,9 +550,8 @@ function _jm_f_20(val, path, rep)
 // check json_model_12_map_minLength (.'$tight#String'.minLength)
 function _jm_f_21(val, path, rep)
 {
-    let res;
     // .'$tight#String'.minLength
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$tight#String'.minLength]", path])
@@ -583,9 +562,8 @@ function _jm_f_21(val, path, rep)
 // check json_model_12_map_pattern (.'$tight#String'.pattern)
 function _jm_f_22(val, path, rep)
 {
-    let res;
     // .'$tight#String'.pattern
-    res = runtime.jm_is_valid_regex(val, false);
+    let res = runtime.jm_is_valid_regex(val, false);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $REGEX [.'$tight#String'.pattern]", path])
@@ -596,9 +574,8 @@ function _jm_f_22(val, path, rep)
 // check json_model_12_map_title (.'$tight#String'.title)
 function _jm_f_23(val, path, rep)
 {
-    let res;
     // .'$tight#String'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#String'.title]", path])
@@ -667,9 +644,8 @@ function json_model_12(val, path, rep)
 // check json_model_13_map_$comment (.'$tight#Array'.'$comment')
 function _jm_f_24(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$comment']", path])
@@ -705,9 +681,8 @@ function _jm_f_25(val, path, rep)
 // check json_model_13_map_$id (.'$tight#Array'.'$id')
 function _jm_f_26(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$id']", path])
@@ -718,9 +693,8 @@ function _jm_f_26(val, path, rep)
 // check json_model_13_map_$schema (.'$tight#Array'.'$schema')
 function _jm_f_27(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$schema']", path])
@@ -731,9 +705,8 @@ function _jm_f_27(val, path, rep)
 // check json_model_13_map_default (.'$tight#Array'.default)
 function _jm_f_28(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -765,9 +738,8 @@ function _jm_f_29(val, path, rep)
 // check json_model_13_map_description (.'$tight#Array'.description)
 function _jm_f_30(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Array'.description]", path])
@@ -778,9 +750,8 @@ function _jm_f_30(val, path, rep)
 // check json_model_13_map_examples (.'$tight#Array'.examples)
 function _jm_f_31(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Array'.examples]", path])
@@ -791,9 +762,8 @@ function _jm_f_31(val, path, rep)
 // check json_model_13_map_id (.'$tight#Array'.id)
 function _jm_f_32(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Array'.id]", path])
@@ -804,10 +774,9 @@ function _jm_f_32(val, path, rep)
 // check json_model_13_map_items (.'$tight#Array'.items)
 function _jm_f_33(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.items
     // .'$tight#Array'.items.'|'.0
-    res = json_model_26(val, path, rep);
+    let res = json_model_26(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$tight#Array'.items.'|'.0]", path])
@@ -835,9 +804,8 @@ function _jm_f_33(val, path, rep)
 // check json_model_13_map_maxItems (.'$tight#Array'.maxItems)
 function _jm_f_34(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.maxItems
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$tight#Array'.maxItems]", path])
@@ -848,9 +816,8 @@ function _jm_f_34(val, path, rep)
 // check json_model_13_map_minItems (.'$tight#Array'.minItems)
 function _jm_f_35(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.minItems
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$tight#Array'.minItems]", path])
@@ -861,9 +828,8 @@ function _jm_f_35(val, path, rep)
 // check json_model_13_map_title (.'$tight#Array'.title)
 function _jm_f_36(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Array'.title]", path])
@@ -874,9 +840,8 @@ function _jm_f_36(val, path, rep)
 // check json_model_13_map_uniqueItems (.'$tight#Array'.uniqueItems)
 function _jm_f_37(val, path, rep)
 {
-    let res;
     // .'$tight#Array'.uniqueItems
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$tight#Array'.uniqueItems]", path])
@@ -945,9 +910,8 @@ function json_model_13(val, path, rep)
 // check $tight#schemaArray (.'$tight#schemaArray')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$tight#schemaArray'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -973,9 +937,8 @@ function json_model_6(val, path, rep)
 // check json_model_14_map_$comment (.'$tight#Object'.'$comment')
 function _jm_f_38(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$comment']", path])
@@ -1011,9 +974,8 @@ function _jm_f_39(val, path, rep)
 // check json_model_14_map_$id (.'$tight#Object'.'$id')
 function _jm_f_40(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$id']", path])
@@ -1024,9 +986,8 @@ function _jm_f_40(val, path, rep)
 // check json_model_14_map_$schema (.'$tight#Object'.'$schema')
 function _jm_f_41(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$schema']", path])
@@ -1037,9 +998,8 @@ function _jm_f_41(val, path, rep)
 // check json_model_14_map_default (.'$tight#Object'.default)
 function _jm_f_42(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -1071,9 +1031,8 @@ function _jm_f_43(val, path, rep)
 // check json_model_14_map_description (.'$tight#Object'.description)
 function _jm_f_44(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Object'.description]", path])
@@ -1084,9 +1043,8 @@ function _jm_f_44(val, path, rep)
 // check json_model_14_map_examples (.'$tight#Object'.examples)
 function _jm_f_45(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Object'.examples]", path])
@@ -1097,9 +1055,8 @@ function _jm_f_45(val, path, rep)
 // check json_model_14_map_id (.'$tight#Object'.id)
 function _jm_f_46(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Object'.id]", path])
@@ -1168,9 +1125,8 @@ function _jm_f_48(val, path, rep)
 // check json_model_14_map_required (.'$tight#Object'.required)
 function _jm_f_49(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.required
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
@@ -1196,9 +1152,8 @@ function _jm_f_49(val, path, rep)
 // check json_model_14_map_title (.'$tight#Object'.title)
 function _jm_f_50(val, path, rep)
 {
-    let res;
     // .'$tight#Object'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Object'.title]", path])
@@ -1267,9 +1222,8 @@ function json_model_14(val, path, rep)
 // check json_model_15_map_$comment (.'$tight#Integer'.'$comment')
 function _jm_f_51(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$comment']", path])
@@ -1305,9 +1259,8 @@ function _jm_f_52(val, path, rep)
 // check json_model_15_map_$id (.'$tight#Integer'.'$id')
 function _jm_f_53(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$id']", path])
@@ -1318,9 +1271,8 @@ function _jm_f_53(val, path, rep)
 // check json_model_15_map_$schema (.'$tight#Integer'.'$schema')
 function _jm_f_54(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$schema']", path])
@@ -1331,9 +1283,8 @@ function _jm_f_54(val, path, rep)
 // check json_model_15_map_default (.'$tight#Integer'.default)
 function _jm_f_55(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -1365,9 +1316,8 @@ function _jm_f_56(val, path, rep)
 // check json_model_15_map_description (.'$tight#Integer'.description)
 function _jm_f_57(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Integer'.description]", path])
@@ -1378,9 +1328,8 @@ function _jm_f_57(val, path, rep)
 // check json_model_15_map_examples (.'$tight#Integer'.examples)
 function _jm_f_58(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Integer'.examples]", path])
@@ -1391,9 +1340,8 @@ function _jm_f_58(val, path, rep)
 // check json_model_15_map_id (.'$tight#Integer'.id)
 function _jm_f_59(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Integer'.id]", path])
@@ -1404,9 +1352,8 @@ function _jm_f_59(val, path, rep)
 // check json_model_15_map_maximum (.'$tight#Integer'.maximum)
 function _jm_f_60(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.maximum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Integer'.maximum]", path])
@@ -1417,9 +1364,8 @@ function _jm_f_60(val, path, rep)
 // check json_model_15_map_minimum (.'$tight#Integer'.minimum)
 function _jm_f_61(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.minimum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Integer'.minimum]", path])
@@ -1430,9 +1376,8 @@ function _jm_f_61(val, path, rep)
 // check json_model_15_map_title (.'$tight#Integer'.title)
 function _jm_f_62(val, path, rep)
 {
-    let res;
     // .'$tight#Integer'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Integer'.title]", path])
@@ -1501,9 +1446,8 @@ function json_model_15(val, path, rep)
 // check json_model_16_map_$comment (.'$tight#Number'.'$comment')
 function _jm_f_63(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$comment']", path])
@@ -1539,9 +1483,8 @@ function _jm_f_64(val, path, rep)
 // check json_model_16_map_$id (.'$tight#Number'.'$id')
 function _jm_f_65(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$id']", path])
@@ -1552,9 +1495,8 @@ function _jm_f_65(val, path, rep)
 // check json_model_16_map_$schema (.'$tight#Number'.'$schema')
 function _jm_f_66(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$schema']", path])
@@ -1565,9 +1507,8 @@ function _jm_f_66(val, path, rep)
 // check json_model_16_map_default (.'$tight#Number'.default)
 function _jm_f_67(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -1599,9 +1540,8 @@ function _jm_f_68(val, path, rep)
 // check json_model_16_map_description (.'$tight#Number'.description)
 function _jm_f_69(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Number'.description]", path])
@@ -1612,9 +1552,8 @@ function _jm_f_69(val, path, rep)
 // check json_model_16_map_examples (.'$tight#Number'.examples)
 function _jm_f_70(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Number'.examples]", path])
@@ -1625,9 +1564,8 @@ function _jm_f_70(val, path, rep)
 // check json_model_16_map_id (.'$tight#Number'.id)
 function _jm_f_71(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Number'.id]", path])
@@ -1638,9 +1576,8 @@ function _jm_f_71(val, path, rep)
 // check json_model_16_map_maximum (.'$tight#Number'.maximum)
 function _jm_f_72(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.maximum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Number'.maximum]", path])
@@ -1651,9 +1588,8 @@ function _jm_f_72(val, path, rep)
 // check json_model_16_map_minimum (.'$tight#Number'.minimum)
 function _jm_f_73(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.minimum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Number'.minimum]", path])
@@ -1664,9 +1600,8 @@ function _jm_f_73(val, path, rep)
 // check json_model_16_map_title (.'$tight#Number'.title)
 function _jm_f_74(val, path, rep)
 {
-    let res;
     // .'$tight#Number'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Number'.title]", path])
@@ -1735,9 +1670,8 @@ function json_model_16(val, path, rep)
 // check json_model_17_map_$comment (.'$tight#Bool'.'$comment')
 function _jm_f_75(val, path, rep)
 {
-    let res;
     // .'$tight#Bool'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$comment']", path])
@@ -1773,9 +1707,8 @@ function _jm_f_76(val, path, rep)
 // check json_model_17_map_$id (.'$tight#Bool'.'$id')
 function _jm_f_77(val, path, rep)
 {
-    let res;
     // .'$tight#Bool'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$id']", path])
@@ -1786,9 +1719,8 @@ function _jm_f_77(val, path, rep)
 // check json_model_17_map_$schema (.'$tight#Bool'.'$schema')
 function _jm_f_78(val, path, rep)
 {
-    let res;
     // .'$tight#Bool'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$schema']", path])
@@ -1799,9 +1731,8 @@ function _jm_f_78(val, path, rep)
 // check json_model_17_map_default (.'$tight#Bool'.default)
 function _jm_f_79(val, path, rep)
 {
-    let res;
     // .'$tight#Bool'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -1833,9 +1764,8 @@ function _jm_f_80(val, path, rep)
 // check json_model_17_map_description (.'$tight#Bool'.description)
 function _jm_f_81(val, path, rep)
 {
-    let res;
     // .'$tight#Bool'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Bool'.description]", path])
@@ -1846,9 +1776,8 @@ function _jm_f_81(val, path, rep)
 // check json_model_17_map_examples (.'$tight#Bool'.examples)
 function _jm_f_82(val, path, rep)
 {
-    let res;
     // .'$tight#Bool'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Bool'.examples]", path])
@@ -1859,9 +1788,8 @@ function _jm_f_82(val, path, rep)
 // check json_model_17_map_id (.'$tight#Bool'.id)
 function _jm_f_83(val, path, rep)
 {
-    let res;
     // .'$tight#Bool'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Bool'.id]", path])
@@ -1872,9 +1800,8 @@ function _jm_f_83(val, path, rep)
 // check json_model_17_map_title (.'$tight#Bool'.title)
 function _jm_f_84(val, path, rep)
 {
-    let res;
     // .'$tight#Bool'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Bool'.title]", path])
@@ -1943,9 +1870,8 @@ function json_model_17(val, path, rep)
 // check json_model_18_map_$comment (.'$tight#Null'.'$comment')
 function _jm_f_85(val, path, rep)
 {
-    let res;
     // .'$tight#Null'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$comment']", path])
@@ -1981,9 +1907,8 @@ function _jm_f_86(val, path, rep)
 // check json_model_18_map_$id (.'$tight#Null'.'$id')
 function _jm_f_87(val, path, rep)
 {
-    let res;
     // .'$tight#Null'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$id']", path])
@@ -1994,9 +1919,8 @@ function _jm_f_87(val, path, rep)
 // check json_model_18_map_$schema (.'$tight#Null'.'$schema')
 function _jm_f_88(val, path, rep)
 {
-    let res;
     // .'$tight#Null'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$schema']", path])
@@ -2007,9 +1931,8 @@ function _jm_f_88(val, path, rep)
 // check json_model_18_map_default (.'$tight#Null'.default)
 function _jm_f_89(val, path, rep)
 {
-    let res;
     // .'$tight#Null'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -2041,9 +1964,8 @@ function _jm_f_90(val, path, rep)
 // check json_model_18_map_description (.'$tight#Null'.description)
 function _jm_f_91(val, path, rep)
 {
-    let res;
     // .'$tight#Null'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Null'.description]", path])
@@ -2054,9 +1976,8 @@ function _jm_f_91(val, path, rep)
 // check json_model_18_map_examples (.'$tight#Null'.examples)
 function _jm_f_92(val, path, rep)
 {
-    let res;
     // .'$tight#Null'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Null'.examples]", path])
@@ -2067,9 +1988,8 @@ function _jm_f_92(val, path, rep)
 // check json_model_18_map_id (.'$tight#Null'.id)
 function _jm_f_93(val, path, rep)
 {
-    let res;
     // .'$tight#Null'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Null'.id]", path])
@@ -2080,9 +2000,8 @@ function _jm_f_93(val, path, rep)
 // check json_model_18_map_title (.'$tight#Null'.title)
 function _jm_f_94(val, path, rep)
 {
-    let res;
     // .'$tight#Null'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Null'.title]", path])
@@ -2151,9 +2070,8 @@ function json_model_18(val, path, rep)
 // check json_model_19_map_$comment (.'$tight#AllOf'.'$comment')
 function _jm_f_95(val, path, rep)
 {
-    let res;
     // .'$tight#AllOf'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$comment']", path])
@@ -2189,9 +2107,8 @@ function _jm_f_96(val, path, rep)
 // check json_model_19_map_$id (.'$tight#AllOf'.'$id')
 function _jm_f_97(val, path, rep)
 {
-    let res;
     // .'$tight#AllOf'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$id']", path])
@@ -2202,9 +2119,8 @@ function _jm_f_97(val, path, rep)
 // check json_model_19_map_$schema (.'$tight#AllOf'.'$schema')
 function _jm_f_98(val, path, rep)
 {
-    let res;
     // .'$tight#AllOf'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$schema']", path])
@@ -2215,9 +2131,8 @@ function _jm_f_98(val, path, rep)
 // check json_model_19_map_default (.'$tight#AllOf'.default)
 function _jm_f_99(val, path, rep)
 {
-    let res;
     // .'$tight#AllOf'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -2249,9 +2164,8 @@ function _jm_f_100(val, path, rep)
 // check json_model_19_map_description (.'$tight#AllOf'.description)
 function _jm_f_101(val, path, rep)
 {
-    let res;
     // .'$tight#AllOf'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.description]", path])
@@ -2262,9 +2176,8 @@ function _jm_f_101(val, path, rep)
 // check json_model_19_map_examples (.'$tight#AllOf'.examples)
 function _jm_f_102(val, path, rep)
 {
-    let res;
     // .'$tight#AllOf'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#AllOf'.examples]", path])
@@ -2275,9 +2188,8 @@ function _jm_f_102(val, path, rep)
 // check json_model_19_map_id (.'$tight#AllOf'.id)
 function _jm_f_103(val, path, rep)
 {
-    let res;
     // .'$tight#AllOf'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.id]", path])
@@ -2288,9 +2200,8 @@ function _jm_f_103(val, path, rep)
 // check json_model_19_map_title (.'$tight#AllOf'.title)
 function _jm_f_104(val, path, rep)
 {
-    let res;
     // .'$tight#AllOf'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.title]", path])
@@ -2359,9 +2270,8 @@ function json_model_19(val, path, rep)
 // check json_model_20_map_$comment (.'$tight#AnyOf'.'$comment')
 function _jm_f_105(val, path, rep)
 {
-    let res;
     // .'$tight#AnyOf'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$comment']", path])
@@ -2397,9 +2307,8 @@ function _jm_f_106(val, path, rep)
 // check json_model_20_map_$id (.'$tight#AnyOf'.'$id')
 function _jm_f_107(val, path, rep)
 {
-    let res;
     // .'$tight#AnyOf'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$id']", path])
@@ -2410,9 +2319,8 @@ function _jm_f_107(val, path, rep)
 // check json_model_20_map_$schema (.'$tight#AnyOf'.'$schema')
 function _jm_f_108(val, path, rep)
 {
-    let res;
     // .'$tight#AnyOf'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$schema']", path])
@@ -2423,9 +2331,8 @@ function _jm_f_108(val, path, rep)
 // check json_model_20_map_default (.'$tight#AnyOf'.default)
 function _jm_f_109(val, path, rep)
 {
-    let res;
     // .'$tight#AnyOf'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -2457,9 +2364,8 @@ function _jm_f_110(val, path, rep)
 // check json_model_20_map_description (.'$tight#AnyOf'.description)
 function _jm_f_111(val, path, rep)
 {
-    let res;
     // .'$tight#AnyOf'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.description]", path])
@@ -2470,9 +2376,8 @@ function _jm_f_111(val, path, rep)
 // check json_model_20_map_examples (.'$tight#AnyOf'.examples)
 function _jm_f_112(val, path, rep)
 {
-    let res;
     // .'$tight#AnyOf'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#AnyOf'.examples]", path])
@@ -2483,9 +2388,8 @@ function _jm_f_112(val, path, rep)
 // check json_model_20_map_id (.'$tight#AnyOf'.id)
 function _jm_f_113(val, path, rep)
 {
-    let res;
     // .'$tight#AnyOf'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.id]", path])
@@ -2496,9 +2400,8 @@ function _jm_f_113(val, path, rep)
 // check json_model_20_map_title (.'$tight#AnyOf'.title)
 function _jm_f_114(val, path, rep)
 {
-    let res;
     // .'$tight#AnyOf'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.title]", path])
@@ -2567,9 +2470,8 @@ function json_model_20(val, path, rep)
 // check json_model_21_map_$comment (.'$tight#OneOf'.'$comment')
 function _jm_f_115(val, path, rep)
 {
-    let res;
     // .'$tight#OneOf'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$comment']", path])
@@ -2605,9 +2507,8 @@ function _jm_f_116(val, path, rep)
 // check json_model_21_map_$id (.'$tight#OneOf'.'$id')
 function _jm_f_117(val, path, rep)
 {
-    let res;
     // .'$tight#OneOf'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$id']", path])
@@ -2618,9 +2519,8 @@ function _jm_f_117(val, path, rep)
 // check json_model_21_map_$schema (.'$tight#OneOf'.'$schema')
 function _jm_f_118(val, path, rep)
 {
-    let res;
     // .'$tight#OneOf'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$schema']", path])
@@ -2631,9 +2531,8 @@ function _jm_f_118(val, path, rep)
 // check json_model_21_map_default (.'$tight#OneOf'.default)
 function _jm_f_119(val, path, rep)
 {
-    let res;
     // .'$tight#OneOf'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -2665,9 +2564,8 @@ function _jm_f_120(val, path, rep)
 // check json_model_21_map_description (.'$tight#OneOf'.description)
 function _jm_f_121(val, path, rep)
 {
-    let res;
     // .'$tight#OneOf'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.description]", path])
@@ -2678,9 +2576,8 @@ function _jm_f_121(val, path, rep)
 // check json_model_21_map_examples (.'$tight#OneOf'.examples)
 function _jm_f_122(val, path, rep)
 {
-    let res;
     // .'$tight#OneOf'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#OneOf'.examples]", path])
@@ -2691,9 +2588,8 @@ function _jm_f_122(val, path, rep)
 // check json_model_21_map_id (.'$tight#OneOf'.id)
 function _jm_f_123(val, path, rep)
 {
-    let res;
     // .'$tight#OneOf'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.id]", path])
@@ -2704,9 +2600,8 @@ function _jm_f_123(val, path, rep)
 // check json_model_21_map_title (.'$tight#OneOf'.title)
 function _jm_f_124(val, path, rep)
 {
-    let res;
     // .'$tight#OneOf'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.title]", path])
@@ -2775,9 +2670,8 @@ function json_model_21(val, path, rep)
 // check json_model_22_map_$comment (.'$tight#Enum'.'$comment')
 function _jm_f_125(val, path, rep)
 {
-    let res;
     // .'$tight#Enum'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$comment']", path])
@@ -2813,9 +2707,8 @@ function _jm_f_126(val, path, rep)
 // check json_model_22_map_$id (.'$tight#Enum'.'$id')
 function _jm_f_127(val, path, rep)
 {
-    let res;
     // .'$tight#Enum'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$id']", path])
@@ -2826,9 +2719,8 @@ function _jm_f_127(val, path, rep)
 // check json_model_22_map_$schema (.'$tight#Enum'.'$schema')
 function _jm_f_128(val, path, rep)
 {
-    let res;
     // .'$tight#Enum'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$schema']", path])
@@ -2839,9 +2731,8 @@ function _jm_f_128(val, path, rep)
 // check json_model_22_map_default (.'$tight#Enum'.default)
 function _jm_f_129(val, path, rep)
 {
-    let res;
     // .'$tight#Enum'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -2873,9 +2764,8 @@ function _jm_f_130(val, path, rep)
 // check json_model_22_map_description (.'$tight#Enum'.description)
 function _jm_f_131(val, path, rep)
 {
-    let res;
     // .'$tight#Enum'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Enum'.description]", path])
@@ -2886,9 +2776,8 @@ function _jm_f_131(val, path, rep)
 // check json_model_22_map_examples (.'$tight#Enum'.examples)
 function _jm_f_132(val, path, rep)
 {
-    let res;
     // .'$tight#Enum'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Enum'.examples]", path])
@@ -2899,9 +2788,8 @@ function _jm_f_132(val, path, rep)
 // check json_model_22_map_id (.'$tight#Enum'.id)
 function _jm_f_133(val, path, rep)
 {
-    let res;
     // .'$tight#Enum'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Enum'.id]", path])
@@ -2912,9 +2800,8 @@ function _jm_f_133(val, path, rep)
 // check json_model_22_map_title (.'$tight#Enum'.title)
 function _jm_f_134(val, path, rep)
 {
-    let res;
     // .'$tight#Enum'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Enum'.title]", path])
@@ -2983,9 +2870,8 @@ function json_model_22(val, path, rep)
 // check $tight#enum (.'$tight#enum')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$tight#enum'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$tight#enum'.'|']", path])
@@ -3064,9 +2950,8 @@ function json_model_5(val, path, rep)
 // check json_model_23_map_$comment (.'$tight#Const'.'$comment')
 function _jm_f_135(val, path, rep)
 {
-    let res;
     // .'$tight#Const'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$comment']", path])
@@ -3102,9 +2987,8 @@ function _jm_f_136(val, path, rep)
 // check json_model_23_map_$id (.'$tight#Const'.'$id')
 function _jm_f_137(val, path, rep)
 {
-    let res;
     // .'$tight#Const'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$id']", path])
@@ -3115,9 +2999,8 @@ function _jm_f_137(val, path, rep)
 // check json_model_23_map_$schema (.'$tight#Const'.'$schema')
 function _jm_f_138(val, path, rep)
 {
-    let res;
     // .'$tight#Const'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$schema']", path])
@@ -3128,9 +3011,8 @@ function _jm_f_138(val, path, rep)
 // check json_model_23_map_default (.'$tight#Const'.default)
 function _jm_f_139(val, path, rep)
 {
-    let res;
     // .'$tight#Const'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -3162,9 +3044,8 @@ function _jm_f_140(val, path, rep)
 // check json_model_23_map_description (.'$tight#Const'.description)
 function _jm_f_141(val, path, rep)
 {
-    let res;
     // .'$tight#Const'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Const'.description]", path])
@@ -3175,9 +3056,8 @@ function _jm_f_141(val, path, rep)
 // check json_model_23_map_examples (.'$tight#Const'.examples)
 function _jm_f_142(val, path, rep)
 {
-    let res;
     // .'$tight#Const'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Const'.examples]", path])
@@ -3188,9 +3068,8 @@ function _jm_f_142(val, path, rep)
 // check json_model_23_map_id (.'$tight#Const'.id)
 function _jm_f_143(val, path, rep)
 {
-    let res;
     // .'$tight#Const'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Const'.id]", path])
@@ -3201,9 +3080,8 @@ function _jm_f_143(val, path, rep)
 // check json_model_23_map_title (.'$tight#Const'.title)
 function _jm_f_144(val, path, rep)
 {
-    let res;
     // .'$tight#Const'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Const'.title]", path])
@@ -3272,10 +3150,9 @@ function json_model_23(val, path, rep)
 // check $tight#const (.'$tight#const')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$tight#const'
     // .'$tight#const'.'|'.0
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$tight#const'.'|'.0]", path])
@@ -3330,9 +3207,8 @@ function json_model_4(val, path, rep)
 // check json_model_24_map_$comment (.'$tight#Ref'.'$comment')
 function _jm_f_145(val, path, rep)
 {
-    let res;
     // .'$tight#Ref'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$comment']", path])
@@ -3368,9 +3244,8 @@ function _jm_f_146(val, path, rep)
 // check json_model_24_map_$id (.'$tight#Ref'.'$id')
 function _jm_f_147(val, path, rep)
 {
-    let res;
     // .'$tight#Ref'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$id']", path])
@@ -3381,9 +3256,8 @@ function _jm_f_147(val, path, rep)
 // check json_model_24_map_$schema (.'$tight#Ref'.'$schema')
 function _jm_f_148(val, path, rep)
 {
-    let res;
     // .'$tight#Ref'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$schema']", path])
@@ -3394,9 +3268,8 @@ function _jm_f_148(val, path, rep)
 // check json_model_24_map_default (.'$tight#Ref'.default)
 function _jm_f_149(val, path, rep)
 {
-    let res;
     // .'$tight#Ref'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -3428,9 +3301,8 @@ function _jm_f_150(val, path, rep)
 // check json_model_24_map_description (.'$tight#Ref'.description)
 function _jm_f_151(val, path, rep)
 {
-    let res;
     // .'$tight#Ref'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Ref'.description]", path])
@@ -3441,9 +3313,8 @@ function _jm_f_151(val, path, rep)
 // check json_model_24_map_examples (.'$tight#Ref'.examples)
 function _jm_f_152(val, path, rep)
 {
-    let res;
     // .'$tight#Ref'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Ref'.examples]", path])
@@ -3454,9 +3325,8 @@ function _jm_f_152(val, path, rep)
 // check json_model_24_map_id (.'$tight#Ref'.id)
 function _jm_f_153(val, path, rep)
 {
-    let res;
     // .'$tight#Ref'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Ref'.id]", path])
@@ -3467,9 +3337,8 @@ function _jm_f_153(val, path, rep)
 // check json_model_24_map_title (.'$tight#Ref'.title)
 function _jm_f_154(val, path, rep)
 {
-    let res;
     // .'$tight#Ref'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#Ref'.title]", path])
@@ -3538,10 +3407,9 @@ function json_model_24(val, path, rep)
 // check $tight#Schema (.'$tight#Schema')
 function json_model_26(val, path, rep)
 {
-    let res;
     // .'$tight#Schema'
     // .'$tight#Schema'.'|'.0
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$tight#Schema'.'|'.0]", path])
@@ -3569,9 +3437,8 @@ function json_model_26(val, path, rep)
 // check json_model_28_map_$comment (.'$tight#EnumString'.'$comment')
 function _jm_f_155(val, path, rep)
 {
-    let res;
     // .'$tight#EnumString'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$comment']", path])
@@ -3607,9 +3474,8 @@ function _jm_f_156(val, path, rep)
 // check json_model_28_map_$id (.'$tight#EnumString'.'$id')
 function _jm_f_157(val, path, rep)
 {
-    let res;
     // .'$tight#EnumString'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$id']", path])
@@ -3620,9 +3486,8 @@ function _jm_f_157(val, path, rep)
 // check json_model_28_map_$schema (.'$tight#EnumString'.'$schema')
 function _jm_f_158(val, path, rep)
 {
-    let res;
     // .'$tight#EnumString'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$schema']", path])
@@ -3633,9 +3498,8 @@ function _jm_f_158(val, path, rep)
 // check json_model_28_map_default (.'$tight#EnumString'.default)
 function _jm_f_159(val, path, rep)
 {
-    let res;
     // .'$tight#EnumString'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -3667,9 +3531,8 @@ function _jm_f_160(val, path, rep)
 // check json_model_28_map_description (.'$tight#EnumString'.description)
 function _jm_f_161(val, path, rep)
 {
-    let res;
     // .'$tight#EnumString'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.description]", path])
@@ -3680,9 +3543,8 @@ function _jm_f_161(val, path, rep)
 // check json_model_28_map_examples (.'$tight#EnumString'.examples)
 function _jm_f_162(val, path, rep)
 {
-    let res;
     // .'$tight#EnumString'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumString'.examples]", path])
@@ -3693,9 +3555,8 @@ function _jm_f_162(val, path, rep)
 // check json_model_28_map_id (.'$tight#EnumString'.id)
 function _jm_f_163(val, path, rep)
 {
-    let res;
     // .'$tight#EnumString'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.id]", path])
@@ -3706,9 +3567,8 @@ function _jm_f_163(val, path, rep)
 // check json_model_28_map_title (.'$tight#EnumString'.title)
 function _jm_f_164(val, path, rep)
 {
-    let res;
     // .'$tight#EnumString'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.title]", path])
@@ -3809,9 +3669,8 @@ function json_model_28(val, path, rep)
 // check json_model_29_map_$comment (.'$tight#EnumNum'.'$comment')
 function _jm_f_165(val, path, rep)
 {
-    let res;
     // .'$tight#EnumNum'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$comment']", path])
@@ -3847,9 +3706,8 @@ function _jm_f_166(val, path, rep)
 // check json_model_29_map_$id (.'$tight#EnumNum'.'$id')
 function _jm_f_167(val, path, rep)
 {
-    let res;
     // .'$tight#EnumNum'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$id']", path])
@@ -3860,9 +3718,8 @@ function _jm_f_167(val, path, rep)
 // check json_model_29_map_$schema (.'$tight#EnumNum'.'$schema')
 function _jm_f_168(val, path, rep)
 {
-    let res;
     // .'$tight#EnumNum'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$schema']", path])
@@ -3873,9 +3730,8 @@ function _jm_f_168(val, path, rep)
 // check json_model_29_map_default (.'$tight#EnumNum'.default)
 function _jm_f_169(val, path, rep)
 {
-    let res;
     // .'$tight#EnumNum'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -3907,9 +3763,8 @@ function _jm_f_170(val, path, rep)
 // check json_model_29_map_description (.'$tight#EnumNum'.description)
 function _jm_f_171(val, path, rep)
 {
-    let res;
     // .'$tight#EnumNum'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.description]", path])
@@ -3920,9 +3775,8 @@ function _jm_f_171(val, path, rep)
 // check json_model_29_map_examples (.'$tight#EnumNum'.examples)
 function _jm_f_172(val, path, rep)
 {
-    let res;
     // .'$tight#EnumNum'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumNum'.examples]", path])
@@ -3933,9 +3787,8 @@ function _jm_f_172(val, path, rep)
 // check json_model_29_map_id (.'$tight#EnumNum'.id)
 function _jm_f_173(val, path, rep)
 {
-    let res;
     // .'$tight#EnumNum'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.id]", path])
@@ -3946,9 +3799,8 @@ function _jm_f_173(val, path, rep)
 // check json_model_29_map_title (.'$tight#EnumNum'.title)
 function _jm_f_174(val, path, rep)
 {
-    let res;
     // .'$tight#EnumNum'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.title]", path])
@@ -4049,9 +3901,8 @@ function json_model_29(val, path, rep)
 // check json_model_30_map_$comment (.'$tight#EnumInt'.'$comment')
 function _jm_f_175(val, path, rep)
 {
-    let res;
     // .'$tight#EnumInt'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$comment']", path])
@@ -4087,9 +3938,8 @@ function _jm_f_176(val, path, rep)
 // check json_model_30_map_$id (.'$tight#EnumInt'.'$id')
 function _jm_f_177(val, path, rep)
 {
-    let res;
     // .'$tight#EnumInt'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$id']", path])
@@ -4100,9 +3950,8 @@ function _jm_f_177(val, path, rep)
 // check json_model_30_map_$schema (.'$tight#EnumInt'.'$schema')
 function _jm_f_178(val, path, rep)
 {
-    let res;
     // .'$tight#EnumInt'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$schema']", path])
@@ -4113,9 +3962,8 @@ function _jm_f_178(val, path, rep)
 // check json_model_30_map_default (.'$tight#EnumInt'.default)
 function _jm_f_179(val, path, rep)
 {
-    let res;
     // .'$tight#EnumInt'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -4147,9 +3995,8 @@ function _jm_f_180(val, path, rep)
 // check json_model_30_map_description (.'$tight#EnumInt'.description)
 function _jm_f_181(val, path, rep)
 {
-    let res;
     // .'$tight#EnumInt'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.description]", path])
@@ -4160,9 +4007,8 @@ function _jm_f_181(val, path, rep)
 // check json_model_30_map_examples (.'$tight#EnumInt'.examples)
 function _jm_f_182(val, path, rep)
 {
-    let res;
     // .'$tight#EnumInt'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumInt'.examples]", path])
@@ -4173,9 +4019,8 @@ function _jm_f_182(val, path, rep)
 // check json_model_30_map_id (.'$tight#EnumInt'.id)
 function _jm_f_183(val, path, rep)
 {
-    let res;
     // .'$tight#EnumInt'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.id]", path])
@@ -4186,9 +4031,8 @@ function _jm_f_183(val, path, rep)
 // check json_model_30_map_title (.'$tight#EnumInt'.title)
 function _jm_f_184(val, path, rep)
 {
-    let res;
     // .'$tight#EnumInt'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.title]", path])
@@ -4289,9 +4133,8 @@ function json_model_30(val, path, rep)
 // check json_model_31_map_$comment (.'$tight#ConstString'.'$comment')
 function _jm_f_185(val, path, rep)
 {
-    let res;
     // .'$tight#ConstString'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$comment']", path])
@@ -4327,9 +4170,8 @@ function _jm_f_186(val, path, rep)
 // check json_model_31_map_$id (.'$tight#ConstString'.'$id')
 function _jm_f_187(val, path, rep)
 {
-    let res;
     // .'$tight#ConstString'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$id']", path])
@@ -4340,9 +4182,8 @@ function _jm_f_187(val, path, rep)
 // check json_model_31_map_$schema (.'$tight#ConstString'.'$schema')
 function _jm_f_188(val, path, rep)
 {
-    let res;
     // .'$tight#ConstString'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$schema']", path])
@@ -4353,9 +4194,8 @@ function _jm_f_188(val, path, rep)
 // check json_model_31_map_default (.'$tight#ConstString'.default)
 function _jm_f_189(val, path, rep)
 {
-    let res;
     // .'$tight#ConstString'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -4387,9 +4227,8 @@ function _jm_f_190(val, path, rep)
 // check json_model_31_map_description (.'$tight#ConstString'.description)
 function _jm_f_191(val, path, rep)
 {
-    let res;
     // .'$tight#ConstString'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.description]", path])
@@ -4400,9 +4239,8 @@ function _jm_f_191(val, path, rep)
 // check json_model_31_map_examples (.'$tight#ConstString'.examples)
 function _jm_f_192(val, path, rep)
 {
-    let res;
     // .'$tight#ConstString'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstString'.examples]", path])
@@ -4413,9 +4251,8 @@ function _jm_f_192(val, path, rep)
 // check json_model_31_map_id (.'$tight#ConstString'.id)
 function _jm_f_193(val, path, rep)
 {
-    let res;
     // .'$tight#ConstString'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.id]", path])
@@ -4426,9 +4263,8 @@ function _jm_f_193(val, path, rep)
 // check json_model_31_map_title (.'$tight#ConstString'.title)
 function _jm_f_194(val, path, rep)
 {
-    let res;
     // .'$tight#ConstString'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.title]", path])
@@ -4514,9 +4350,8 @@ function json_model_31(val, path, rep)
 // check json_model_32_map_$comment (.'$tight#ConstNum'.'$comment')
 function _jm_f_195(val, path, rep)
 {
-    let res;
     // .'$tight#ConstNum'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$comment']", path])
@@ -4552,9 +4387,8 @@ function _jm_f_196(val, path, rep)
 // check json_model_32_map_$id (.'$tight#ConstNum'.'$id')
 function _jm_f_197(val, path, rep)
 {
-    let res;
     // .'$tight#ConstNum'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$id']", path])
@@ -4565,9 +4399,8 @@ function _jm_f_197(val, path, rep)
 // check json_model_32_map_$schema (.'$tight#ConstNum'.'$schema')
 function _jm_f_198(val, path, rep)
 {
-    let res;
     // .'$tight#ConstNum'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$schema']", path])
@@ -4578,9 +4411,8 @@ function _jm_f_198(val, path, rep)
 // check json_model_32_map_default (.'$tight#ConstNum'.default)
 function _jm_f_199(val, path, rep)
 {
-    let res;
     // .'$tight#ConstNum'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -4612,9 +4444,8 @@ function _jm_f_200(val, path, rep)
 // check json_model_32_map_description (.'$tight#ConstNum'.description)
 function _jm_f_201(val, path, rep)
 {
-    let res;
     // .'$tight#ConstNum'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.description]", path])
@@ -4625,9 +4456,8 @@ function _jm_f_201(val, path, rep)
 // check json_model_32_map_examples (.'$tight#ConstNum'.examples)
 function _jm_f_202(val, path, rep)
 {
-    let res;
     // .'$tight#ConstNum'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstNum'.examples]", path])
@@ -4638,9 +4468,8 @@ function _jm_f_202(val, path, rep)
 // check json_model_32_map_id (.'$tight#ConstNum'.id)
 function _jm_f_203(val, path, rep)
 {
-    let res;
     // .'$tight#ConstNum'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.id]", path])
@@ -4651,9 +4480,8 @@ function _jm_f_203(val, path, rep)
 // check json_model_32_map_title (.'$tight#ConstNum'.title)
 function _jm_f_204(val, path, rep)
 {
-    let res;
     // .'$tight#ConstNum'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.title]", path])
@@ -4739,9 +4567,8 @@ function json_model_32(val, path, rep)
 // check json_model_33_map_$comment (.'$tight#ConstInt'.'$comment')
 function _jm_f_205(val, path, rep)
 {
-    let res;
     // .'$tight#ConstInt'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$comment']", path])
@@ -4777,9 +4604,8 @@ function _jm_f_206(val, path, rep)
 // check json_model_33_map_$id (.'$tight#ConstInt'.'$id')
 function _jm_f_207(val, path, rep)
 {
-    let res;
     // .'$tight#ConstInt'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$id']", path])
@@ -4790,9 +4616,8 @@ function _jm_f_207(val, path, rep)
 // check json_model_33_map_$schema (.'$tight#ConstInt'.'$schema')
 function _jm_f_208(val, path, rep)
 {
-    let res;
     // .'$tight#ConstInt'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$schema']", path])
@@ -4803,9 +4628,8 @@ function _jm_f_208(val, path, rep)
 // check json_model_33_map_default (.'$tight#ConstInt'.default)
 function _jm_f_209(val, path, rep)
 {
-    let res;
     // .'$tight#ConstInt'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -4837,9 +4661,8 @@ function _jm_f_210(val, path, rep)
 // check json_model_33_map_description (.'$tight#ConstInt'.description)
 function _jm_f_211(val, path, rep)
 {
-    let res;
     // .'$tight#ConstInt'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.description]", path])
@@ -4850,9 +4673,8 @@ function _jm_f_211(val, path, rep)
 // check json_model_33_map_examples (.'$tight#ConstInt'.examples)
 function _jm_f_212(val, path, rep)
 {
-    let res;
     // .'$tight#ConstInt'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstInt'.examples]", path])
@@ -4863,9 +4685,8 @@ function _jm_f_212(val, path, rep)
 // check json_model_33_map_id (.'$tight#ConstInt'.id)
 function _jm_f_213(val, path, rep)
 {
-    let res;
     // .'$tight#ConstInt'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.id]", path])
@@ -4876,9 +4697,8 @@ function _jm_f_213(val, path, rep)
 // check json_model_33_map_title (.'$tight#ConstInt'.title)
 function _jm_f_214(val, path, rep)
 {
-    let res;
     // .'$tight#ConstInt'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.title]", path])
@@ -4964,9 +4784,8 @@ function json_model_33(val, path, rep)
 // check json_model_34_map_$comment (.'$tight#ConstBool'.'$comment')
 function _jm_f_215(val, path, rep)
 {
-    let res;
     // .'$tight#ConstBool'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$comment']", path])
@@ -5002,9 +4821,8 @@ function _jm_f_216(val, path, rep)
 // check json_model_34_map_$id (.'$tight#ConstBool'.'$id')
 function _jm_f_217(val, path, rep)
 {
-    let res;
     // .'$tight#ConstBool'.'$id'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$id']", path])
@@ -5015,9 +4833,8 @@ function _jm_f_217(val, path, rep)
 // check json_model_34_map_$schema (.'$tight#ConstBool'.'$schema')
 function _jm_f_218(val, path, rep)
 {
-    let res;
     // .'$tight#ConstBool'.'$schema'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$schema']", path])
@@ -5028,9 +4845,8 @@ function _jm_f_218(val, path, rep)
 // check json_model_34_map_default (.'$tight#ConstBool'.default)
 function _jm_f_219(val, path, rep)
 {
-    let res;
     // .'$tight#ConstBool'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -5062,9 +4878,8 @@ function _jm_f_220(val, path, rep)
 // check json_model_34_map_description (.'$tight#ConstBool'.description)
 function _jm_f_221(val, path, rep)
 {
-    let res;
     // .'$tight#ConstBool'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.description]", path])
@@ -5075,9 +4890,8 @@ function _jm_f_221(val, path, rep)
 // check json_model_34_map_examples (.'$tight#ConstBool'.examples)
 function _jm_f_222(val, path, rep)
 {
-    let res;
     // .'$tight#ConstBool'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstBool'.examples]", path])
@@ -5088,9 +4902,8 @@ function _jm_f_222(val, path, rep)
 // check json_model_34_map_id (.'$tight#ConstBool'.id)
 function _jm_f_223(val, path, rep)
 {
-    let res;
     // .'$tight#ConstBool'.id
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.id]", path])
@@ -5101,9 +4914,8 @@ function _jm_f_223(val, path, rep)
 // check json_model_34_map_title (.'$tight#ConstBool'.title)
 function _jm_f_224(val, path, rep)
 {
-    let res;
     // .'$tight#ConstBool'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.title]", path])

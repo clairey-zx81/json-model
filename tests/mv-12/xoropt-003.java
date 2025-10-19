@@ -28,10 +28,9 @@ public class xoropt_003 extends ModelChecker
     // check $Aa (.'$Aa')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Aa'
         // .'$Aa'.'|'.0
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Aa'.'|'.0]", path);
@@ -78,9 +77,8 @@ public class xoropt_003 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Aa [.]", path);

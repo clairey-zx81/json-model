@@ -22,10 +22,9 @@ public class streq extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // "/^Susie$/"
-        res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^Susie$/ [.]", path);

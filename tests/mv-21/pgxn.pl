@@ -69,10 +69,9 @@ sub json_model_2($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$neStrList'
     # .'$neStrList'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -107,10 +106,9 @@ sub json_model_4($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$LicenseList'
     # .'$LicenseList'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -386,10 +384,9 @@ sub json_model_9($$$)
 sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Version'
     # .'$Version'.'|'.0
-    $res = json_model_9($val, $path, $rep);
+    my $res = json_model_9($val, $path, $rep);
     if (! $res)
     {
         # .'$Version'.'|'.1
@@ -586,10 +583,9 @@ sub _jm_obj_3($$$)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .license
     # .license.'|'.0
-    $res = json_model_4($val, $path, $rep);
+    my $res = json_model_4($val, $path, $rep);
     if (! $res)
     {
         # .license.'|'.1
@@ -607,10 +603,9 @@ sub _jm_f_1($$$)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .maintainer
     # .maintainer.'|'.0
-    $res = json_model_2($val, $path, $rep);
+    my $res = json_model_2($val, $path, $rep);
     if (! $res)
     {
         # .maintainer.'|'.1

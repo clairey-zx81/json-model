@@ -18,11 +18,10 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # require generic unique implementation
     # .
     # .'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         $res = jm_is_unique_array($val, $path, $rep);

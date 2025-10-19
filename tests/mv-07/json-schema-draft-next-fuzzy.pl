@@ -79,10 +79,9 @@ sub json_model_1($$$)
 sub json_model_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#Schema'
     # .'$schema#Schema'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$schema#Schema'.'|'.1
@@ -499,10 +498,9 @@ sub _jm_f_27($$$)
 sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#ObjectSchema'.type
     # .'$schema#ObjectSchema'.type.'|'.0
-    $res = json_model_10($val, $path, $rep);
+    my $res = json_model_10($val, $path, $rep);
     if (! $res)
     {
         # .'$schema#ObjectSchema'.type.'|'.1
@@ -579,10 +577,9 @@ sub json_model_10($$$)
 sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#simpleTypesArray'
     # .'$schema#simpleTypesArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -608,10 +605,9 @@ sub json_model_11($$$)
 sub json_model_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#stringArray'
     # .'$schema#stringArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -644,10 +640,9 @@ sub json_model_13($$$)
 sub json_model_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#schemaArray'
     # .'$schema#schemaArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$val)

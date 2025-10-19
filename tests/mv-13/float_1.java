@@ -22,9 +22,8 @@ public class float_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isDouble(val) && json.asDouble(val) > 0.0;
+        boolean res = json.isDouble(val) && json.asDouble(val) > 0.0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1.0 strict float [.]", path);

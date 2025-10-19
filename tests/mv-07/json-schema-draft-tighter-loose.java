@@ -45,9 +45,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check $tight (.'$tight')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight'
-        res = json_model_27(val, path, rep);
+        boolean res = json_model_27(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $RootSchema [.'$tight']", path);
@@ -58,9 +57,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_27(val, path, rep);
+        boolean res = json_model_27(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $tight#RootSchema [.]", path);
@@ -100,10 +98,9 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check $tight#RootSchema (.'$tight#RootSchema')
     public boolean json_model_27(Object val, Path path, Report rep)
     {
-        boolean res;
         // keyword $schema is mandatory at the root, and optional elsewhere
         // .'$tight#RootSchema'
-        res = true;
+        boolean res = true;
         if (res)
         {
             // .'$tight#RootSchema'.'&'.0
@@ -230,9 +227,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_11_map_$comment (.'$tight#metas'.'$comment')
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#metas'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.'$comment']", path);
@@ -271,9 +267,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_11_map_$id (.'$tight#metas'.'$id')
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#metas'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.'$id']", path);
@@ -284,9 +279,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_11_map_$schema (.'$tight#metas'.'$schema')
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#metas'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.'$schema']", path);
@@ -297,9 +291,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_11_map_default (.'$tight#metas'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#metas'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -334,9 +327,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_11_map_description (.'$tight#metas'.description)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#metas'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.description]", path);
@@ -347,9 +339,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_11_map_examples (.'$tight#metas'.examples)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#metas'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#metas'.examples]", path);
@@ -360,9 +351,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_11_map_id (.'$tight#metas'.id)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#metas'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.id]", path);
@@ -373,9 +363,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_11_map_title (.'$tight#metas'.title)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#metas'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.title]", path);
@@ -422,9 +411,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_$comment (.'$tight#String'.'$comment')
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#String'.'$comment']", path);
@@ -463,9 +451,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_$id (.'$tight#String'.'$id')
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#String'.'$id']", path);
@@ -476,9 +463,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_$schema (.'$tight#String'.'$schema')
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#String'.'$schema']", path);
@@ -489,9 +475,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_default (.'$tight#String'.default)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -526,9 +511,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_description (.'$tight#String'.description)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#String'.description]", path);
@@ -539,9 +523,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_examples (.'$tight#String'.examples)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#String'.examples]", path);
@@ -553,9 +536,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_format (.'$tight#String'.format)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.format
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$tight#String'.format.'|']", path);
@@ -566,9 +548,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_id (.'$tight#String'.id)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#String'.id]", path);
@@ -579,9 +560,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_maxLength (.'$tight#String'.maxLength)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.maxLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$tight#String'.maxLength]", path);
@@ -592,9 +572,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_minLength (.'$tight#String'.minLength)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.minLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$tight#String'.minLength]", path);
@@ -605,9 +584,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_pattern (.'$tight#String'.pattern)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.pattern
-        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$tight#String'.pattern]", path);
@@ -618,9 +596,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_title (.'$tight#String'.title)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#String'.title]", path);
@@ -692,9 +669,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_$comment (.'$tight#Array'.'$comment')
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Array'.'$comment']", path);
@@ -733,9 +709,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_$id (.'$tight#Array'.'$id')
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Array'.'$id']", path);
@@ -746,9 +721,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_$schema (.'$tight#Array'.'$schema')
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Array'.'$schema']", path);
@@ -759,9 +733,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_default (.'$tight#Array'.default)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -796,9 +769,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_description (.'$tight#Array'.description)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Array'.description]", path);
@@ -809,9 +781,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_examples (.'$tight#Array'.examples)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Array'.examples]", path);
@@ -822,9 +793,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_id (.'$tight#Array'.id)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Array'.id]", path);
@@ -835,10 +805,9 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_items (.'$tight#Array'.items)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.items
         // .'$tight#Array'.items.'|'.0
-        res = json_model_26(val, path, rep);
+        boolean res = json_model_26(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Array'.items.'|'.0]", path);
@@ -866,9 +835,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_maxItems (.'$tight#Array'.maxItems)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.maxItems
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$tight#Array'.maxItems]", path);
@@ -879,9 +847,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_minItems (.'$tight#Array'.minItems)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.minItems
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$tight#Array'.minItems]", path);
@@ -892,9 +859,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_title (.'$tight#Array'.title)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Array'.title]", path);
@@ -905,9 +871,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_uniqueItems (.'$tight#Array'.uniqueItems)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.uniqueItems
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$tight#Array'.uniqueItems]", path);
@@ -979,9 +944,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check $tight#schemaArray (.'$tight#schemaArray')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#schemaArray'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -1010,9 +974,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_$comment (.'$tight#Object'.'$comment')
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Object'.'$comment']", path);
@@ -1051,9 +1014,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_$id (.'$tight#Object'.'$id')
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Object'.'$id']", path);
@@ -1064,9 +1026,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_$schema (.'$tight#Object'.'$schema')
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Object'.'$schema']", path);
@@ -1077,9 +1038,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_default (.'$tight#Object'.default)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -1114,9 +1074,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_description (.'$tight#Object'.description)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Object'.description]", path);
@@ -1127,9 +1086,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_examples (.'$tight#Object'.examples)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Object'.examples]", path);
@@ -1140,9 +1098,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_id (.'$tight#Object'.id)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Object'.id]", path);
@@ -1217,9 +1174,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_required (.'$tight#Object'.required)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.required
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -1248,9 +1204,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_title (.'$tight#Object'.title)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Object'.title]", path);
@@ -1322,9 +1277,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_$comment (.'$tight#Integer'.'$comment')
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.'$comment']", path);
@@ -1363,9 +1317,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_$id (.'$tight#Integer'.'$id')
     public boolean _jm_f_53(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.'$id']", path);
@@ -1376,9 +1329,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_$schema (.'$tight#Integer'.'$schema')
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.'$schema']", path);
@@ -1389,9 +1341,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_default (.'$tight#Integer'.default)
     public boolean _jm_f_55(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -1426,9 +1377,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_description (.'$tight#Integer'.description)
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.description]", path);
@@ -1439,9 +1389,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_examples (.'$tight#Integer'.examples)
     public boolean _jm_f_58(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Integer'.examples]", path);
@@ -1452,9 +1401,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_id (.'$tight#Integer'.id)
     public boolean _jm_f_59(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.id]", path);
@@ -1465,9 +1413,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_maximum (.'$tight#Integer'.maximum)
     public boolean _jm_f_60(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.maximum
-        res = json.isDouble(val);
+        boolean res = json.isDouble(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#Integer'.maximum]", path);
@@ -1478,9 +1425,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_minimum (.'$tight#Integer'.minimum)
     public boolean _jm_f_61(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.minimum
-        res = json.isDouble(val);
+        boolean res = json.isDouble(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#Integer'.minimum]", path);
@@ -1491,9 +1437,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_15_map_title (.'$tight#Integer'.title)
     public boolean _jm_f_62(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Integer'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.title]", path);
@@ -1565,9 +1510,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_$comment (.'$tight#Number'.'$comment')
     public boolean _jm_f_63(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.'$comment']", path);
@@ -1606,9 +1550,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_$id (.'$tight#Number'.'$id')
     public boolean _jm_f_65(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.'$id']", path);
@@ -1619,9 +1562,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_$schema (.'$tight#Number'.'$schema')
     public boolean _jm_f_66(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.'$schema']", path);
@@ -1632,9 +1574,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_default (.'$tight#Number'.default)
     public boolean _jm_f_67(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -1669,9 +1610,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_description (.'$tight#Number'.description)
     public boolean _jm_f_69(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.description]", path);
@@ -1682,9 +1622,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_examples (.'$tight#Number'.examples)
     public boolean _jm_f_70(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Number'.examples]", path);
@@ -1695,9 +1634,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_id (.'$tight#Number'.id)
     public boolean _jm_f_71(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.id]", path);
@@ -1708,9 +1646,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_maximum (.'$tight#Number'.maximum)
     public boolean _jm_f_72(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.maximum
-        res = json.isDouble(val);
+        boolean res = json.isDouble(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#Number'.maximum]", path);
@@ -1721,9 +1658,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_minimum (.'$tight#Number'.minimum)
     public boolean _jm_f_73(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.minimum
-        res = json.isDouble(val);
+        boolean res = json.isDouble(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#Number'.minimum]", path);
@@ -1734,9 +1670,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_16_map_title (.'$tight#Number'.title)
     public boolean _jm_f_74(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Number'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.title]", path);
@@ -1808,9 +1743,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_17_map_$comment (.'$tight#Bool'.'$comment')
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Bool'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.'$comment']", path);
@@ -1849,9 +1783,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_17_map_$id (.'$tight#Bool'.'$id')
     public boolean _jm_f_77(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Bool'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.'$id']", path);
@@ -1862,9 +1795,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_17_map_$schema (.'$tight#Bool'.'$schema')
     public boolean _jm_f_78(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Bool'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.'$schema']", path);
@@ -1875,9 +1807,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_17_map_default (.'$tight#Bool'.default)
     public boolean _jm_f_79(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Bool'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -1912,9 +1843,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_17_map_description (.'$tight#Bool'.description)
     public boolean _jm_f_81(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Bool'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.description]", path);
@@ -1925,9 +1855,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_17_map_examples (.'$tight#Bool'.examples)
     public boolean _jm_f_82(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Bool'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Bool'.examples]", path);
@@ -1938,9 +1867,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_17_map_id (.'$tight#Bool'.id)
     public boolean _jm_f_83(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Bool'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.id]", path);
@@ -1951,9 +1879,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_17_map_title (.'$tight#Bool'.title)
     public boolean _jm_f_84(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Bool'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.title]", path);
@@ -2025,9 +1952,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_18_map_$comment (.'$tight#Null'.'$comment')
     public boolean _jm_f_85(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Null'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.'$comment']", path);
@@ -2066,9 +1992,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_18_map_$id (.'$tight#Null'.'$id')
     public boolean _jm_f_87(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Null'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.'$id']", path);
@@ -2079,9 +2004,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_18_map_$schema (.'$tight#Null'.'$schema')
     public boolean _jm_f_88(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Null'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.'$schema']", path);
@@ -2092,9 +2016,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_18_map_default (.'$tight#Null'.default)
     public boolean _jm_f_89(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Null'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -2129,9 +2052,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_18_map_description (.'$tight#Null'.description)
     public boolean _jm_f_91(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Null'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.description]", path);
@@ -2142,9 +2064,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_18_map_examples (.'$tight#Null'.examples)
     public boolean _jm_f_92(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Null'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Null'.examples]", path);
@@ -2155,9 +2076,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_18_map_id (.'$tight#Null'.id)
     public boolean _jm_f_93(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Null'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.id]", path);
@@ -2168,9 +2088,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_18_map_title (.'$tight#Null'.title)
     public boolean _jm_f_94(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Null'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.title]", path);
@@ -2242,9 +2161,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_19_map_$comment (.'$tight#AllOf'.'$comment')
     public boolean _jm_f_95(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AllOf'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.'$comment']", path);
@@ -2283,9 +2201,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_19_map_$id (.'$tight#AllOf'.'$id')
     public boolean _jm_f_97(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AllOf'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.'$id']", path);
@@ -2296,9 +2213,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_19_map_$schema (.'$tight#AllOf'.'$schema')
     public boolean _jm_f_98(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AllOf'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.'$schema']", path);
@@ -2309,9 +2225,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_19_map_default (.'$tight#AllOf'.default)
     public boolean _jm_f_99(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AllOf'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -2346,9 +2261,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_19_map_description (.'$tight#AllOf'.description)
     public boolean _jm_f_101(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AllOf'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.description]", path);
@@ -2359,9 +2273,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_19_map_examples (.'$tight#AllOf'.examples)
     public boolean _jm_f_102(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AllOf'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#AllOf'.examples]", path);
@@ -2372,9 +2285,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_19_map_id (.'$tight#AllOf'.id)
     public boolean _jm_f_103(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AllOf'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.id]", path);
@@ -2385,9 +2297,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_19_map_title (.'$tight#AllOf'.title)
     public boolean _jm_f_104(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AllOf'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.title]", path);
@@ -2459,9 +2370,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_20_map_$comment (.'$tight#AnyOf'.'$comment')
     public boolean _jm_f_105(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AnyOf'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.'$comment']", path);
@@ -2500,9 +2410,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_20_map_$id (.'$tight#AnyOf'.'$id')
     public boolean _jm_f_107(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AnyOf'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.'$id']", path);
@@ -2513,9 +2422,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_20_map_$schema (.'$tight#AnyOf'.'$schema')
     public boolean _jm_f_108(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AnyOf'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.'$schema']", path);
@@ -2526,9 +2434,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_20_map_default (.'$tight#AnyOf'.default)
     public boolean _jm_f_109(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AnyOf'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -2563,9 +2470,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_20_map_description (.'$tight#AnyOf'.description)
     public boolean _jm_f_111(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AnyOf'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.description]", path);
@@ -2576,9 +2482,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_20_map_examples (.'$tight#AnyOf'.examples)
     public boolean _jm_f_112(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AnyOf'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#AnyOf'.examples]", path);
@@ -2589,9 +2494,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_20_map_id (.'$tight#AnyOf'.id)
     public boolean _jm_f_113(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AnyOf'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.id]", path);
@@ -2602,9 +2506,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_20_map_title (.'$tight#AnyOf'.title)
     public boolean _jm_f_114(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#AnyOf'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.title]", path);
@@ -2676,9 +2579,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_21_map_$comment (.'$tight#OneOf'.'$comment')
     public boolean _jm_f_115(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#OneOf'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.'$comment']", path);
@@ -2717,9 +2619,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_21_map_$id (.'$tight#OneOf'.'$id')
     public boolean _jm_f_117(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#OneOf'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.'$id']", path);
@@ -2730,9 +2631,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_21_map_$schema (.'$tight#OneOf'.'$schema')
     public boolean _jm_f_118(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#OneOf'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.'$schema']", path);
@@ -2743,9 +2643,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_21_map_default (.'$tight#OneOf'.default)
     public boolean _jm_f_119(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#OneOf'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -2780,9 +2679,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_21_map_description (.'$tight#OneOf'.description)
     public boolean _jm_f_121(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#OneOf'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.description]", path);
@@ -2793,9 +2691,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_21_map_examples (.'$tight#OneOf'.examples)
     public boolean _jm_f_122(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#OneOf'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#OneOf'.examples]", path);
@@ -2806,9 +2703,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_21_map_id (.'$tight#OneOf'.id)
     public boolean _jm_f_123(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#OneOf'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.id]", path);
@@ -2819,9 +2715,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_21_map_title (.'$tight#OneOf'.title)
     public boolean _jm_f_124(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#OneOf'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.title]", path);
@@ -2893,9 +2788,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_22_map_$comment (.'$tight#Enum'.'$comment')
     public boolean _jm_f_125(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Enum'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.'$comment']", path);
@@ -2934,9 +2828,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_22_map_$id (.'$tight#Enum'.'$id')
     public boolean _jm_f_127(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Enum'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.'$id']", path);
@@ -2947,9 +2840,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_22_map_$schema (.'$tight#Enum'.'$schema')
     public boolean _jm_f_128(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Enum'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.'$schema']", path);
@@ -2960,9 +2852,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_22_map_default (.'$tight#Enum'.default)
     public boolean _jm_f_129(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Enum'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -2997,9 +2888,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_22_map_description (.'$tight#Enum'.description)
     public boolean _jm_f_131(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Enum'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.description]", path);
@@ -3010,9 +2900,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_22_map_examples (.'$tight#Enum'.examples)
     public boolean _jm_f_132(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Enum'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Enum'.examples]", path);
@@ -3023,9 +2912,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_22_map_id (.'$tight#Enum'.id)
     public boolean _jm_f_133(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Enum'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.id]", path);
@@ -3036,9 +2924,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_22_map_title (.'$tight#Enum'.title)
     public boolean _jm_f_134(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Enum'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.title]", path);
@@ -3110,9 +2997,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check $tight#enum (.'$tight#enum')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#enum'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$tight#enum'.'|']", path);
@@ -3200,9 +3086,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_23_map_$comment (.'$tight#Const'.'$comment')
     public boolean _jm_f_135(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Const'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.'$comment']", path);
@@ -3241,9 +3126,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_23_map_$id (.'$tight#Const'.'$id')
     public boolean _jm_f_137(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Const'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.'$id']", path);
@@ -3254,9 +3138,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_23_map_$schema (.'$tight#Const'.'$schema')
     public boolean _jm_f_138(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Const'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.'$schema']", path);
@@ -3267,9 +3150,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_23_map_default (.'$tight#Const'.default)
     public boolean _jm_f_139(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Const'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -3304,9 +3186,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_23_map_description (.'$tight#Const'.description)
     public boolean _jm_f_141(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Const'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.description]", path);
@@ -3317,9 +3198,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_23_map_examples (.'$tight#Const'.examples)
     public boolean _jm_f_142(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Const'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Const'.examples]", path);
@@ -3330,9 +3210,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_23_map_id (.'$tight#Const'.id)
     public boolean _jm_f_143(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Const'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.id]", path);
@@ -3343,9 +3222,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_23_map_title (.'$tight#Const'.title)
     public boolean _jm_f_144(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Const'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.title]", path);
@@ -3417,10 +3295,9 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check $tight#const (.'$tight#const')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#const'
         // .'$tight#const'.'|'.0
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$tight#const'.'|'.0]", path);
@@ -3475,9 +3352,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_24_map_$comment (.'$tight#Ref'.'$comment')
     public boolean _jm_f_145(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Ref'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.'$comment']", path);
@@ -3516,9 +3392,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_24_map_$id (.'$tight#Ref'.'$id')
     public boolean _jm_f_147(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Ref'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.'$id']", path);
@@ -3529,9 +3404,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_24_map_$schema (.'$tight#Ref'.'$schema')
     public boolean _jm_f_148(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Ref'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.'$schema']", path);
@@ -3542,9 +3416,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_24_map_default (.'$tight#Ref'.default)
     public boolean _jm_f_149(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Ref'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -3579,9 +3452,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_24_map_description (.'$tight#Ref'.description)
     public boolean _jm_f_151(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Ref'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.description]", path);
@@ -3592,9 +3464,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_24_map_examples (.'$tight#Ref'.examples)
     public boolean _jm_f_152(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Ref'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Ref'.examples]", path);
@@ -3605,9 +3476,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_24_map_id (.'$tight#Ref'.id)
     public boolean _jm_f_153(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Ref'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.id]", path);
@@ -3618,9 +3488,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_24_map_title (.'$tight#Ref'.title)
     public boolean _jm_f_154(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Ref'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.title]", path);
@@ -3692,10 +3561,9 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check $tight#Schema (.'$tight#Schema')
     public boolean json_model_26(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Schema'
         // .'$tight#Schema'.'|'.0
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$tight#Schema'.'|'.0]", path);
@@ -3723,9 +3591,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_28_map_$comment (.'$tight#EnumString'.'$comment')
     public boolean _jm_f_155(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumString'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.'$comment']", path);
@@ -3764,9 +3631,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_28_map_$id (.'$tight#EnumString'.'$id')
     public boolean _jm_f_157(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumString'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.'$id']", path);
@@ -3777,9 +3643,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_28_map_$schema (.'$tight#EnumString'.'$schema')
     public boolean _jm_f_158(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumString'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.'$schema']", path);
@@ -3790,9 +3655,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_28_map_default (.'$tight#EnumString'.default)
     public boolean _jm_f_159(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumString'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -3827,9 +3691,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_28_map_description (.'$tight#EnumString'.description)
     public boolean _jm_f_161(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumString'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.description]", path);
@@ -3840,9 +3703,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_28_map_examples (.'$tight#EnumString'.examples)
     public boolean _jm_f_162(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumString'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumString'.examples]", path);
@@ -3853,9 +3715,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_28_map_id (.'$tight#EnumString'.id)
     public boolean _jm_f_163(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumString'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.id]", path);
@@ -3866,9 +3727,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_28_map_title (.'$tight#EnumString'.title)
     public boolean _jm_f_164(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumString'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.title]", path);
@@ -3975,9 +3835,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_29_map_$comment (.'$tight#EnumNum'.'$comment')
     public boolean _jm_f_165(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumNum'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.'$comment']", path);
@@ -4016,9 +3875,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_29_map_$id (.'$tight#EnumNum'.'$id')
     public boolean _jm_f_167(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumNum'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.'$id']", path);
@@ -4029,9 +3887,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_29_map_$schema (.'$tight#EnumNum'.'$schema')
     public boolean _jm_f_168(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumNum'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.'$schema']", path);
@@ -4042,9 +3899,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_29_map_default (.'$tight#EnumNum'.default)
     public boolean _jm_f_169(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumNum'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -4079,9 +3935,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_29_map_description (.'$tight#EnumNum'.description)
     public boolean _jm_f_171(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumNum'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.description]", path);
@@ -4092,9 +3947,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_29_map_examples (.'$tight#EnumNum'.examples)
     public boolean _jm_f_172(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumNum'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumNum'.examples]", path);
@@ -4105,9 +3959,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_29_map_id (.'$tight#EnumNum'.id)
     public boolean _jm_f_173(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumNum'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.id]", path);
@@ -4118,9 +3971,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_29_map_title (.'$tight#EnumNum'.title)
     public boolean _jm_f_174(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumNum'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.title]", path);
@@ -4227,9 +4079,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_30_map_$comment (.'$tight#EnumInt'.'$comment')
     public boolean _jm_f_175(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumInt'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.'$comment']", path);
@@ -4268,9 +4119,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_30_map_$id (.'$tight#EnumInt'.'$id')
     public boolean _jm_f_177(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumInt'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.'$id']", path);
@@ -4281,9 +4131,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_30_map_$schema (.'$tight#EnumInt'.'$schema')
     public boolean _jm_f_178(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumInt'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.'$schema']", path);
@@ -4294,9 +4143,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_30_map_default (.'$tight#EnumInt'.default)
     public boolean _jm_f_179(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumInt'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -4331,9 +4179,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_30_map_description (.'$tight#EnumInt'.description)
     public boolean _jm_f_181(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumInt'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.description]", path);
@@ -4344,9 +4191,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_30_map_examples (.'$tight#EnumInt'.examples)
     public boolean _jm_f_182(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumInt'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumInt'.examples]", path);
@@ -4357,9 +4203,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_30_map_id (.'$tight#EnumInt'.id)
     public boolean _jm_f_183(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumInt'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.id]", path);
@@ -4370,9 +4215,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_30_map_title (.'$tight#EnumInt'.title)
     public boolean _jm_f_184(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#EnumInt'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.title]", path);
@@ -4479,9 +4323,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_31_map_$comment (.'$tight#ConstString'.'$comment')
     public boolean _jm_f_185(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstString'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$comment']", path);
@@ -4520,9 +4363,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_31_map_$id (.'$tight#ConstString'.'$id')
     public boolean _jm_f_187(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstString'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$id']", path);
@@ -4533,9 +4375,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_31_map_$schema (.'$tight#ConstString'.'$schema')
     public boolean _jm_f_188(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstString'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$schema']", path);
@@ -4546,9 +4387,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_31_map_default (.'$tight#ConstString'.default)
     public boolean _jm_f_189(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstString'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -4583,9 +4423,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_31_map_description (.'$tight#ConstString'.description)
     public boolean _jm_f_191(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstString'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.description]", path);
@@ -4596,9 +4435,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_31_map_examples (.'$tight#ConstString'.examples)
     public boolean _jm_f_192(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstString'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstString'.examples]", path);
@@ -4609,9 +4447,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_31_map_id (.'$tight#ConstString'.id)
     public boolean _jm_f_193(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstString'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.id]", path);
@@ -4622,9 +4459,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_31_map_title (.'$tight#ConstString'.title)
     public boolean _jm_f_194(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstString'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.title]", path);
@@ -4713,9 +4549,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_32_map_$comment (.'$tight#ConstNum'.'$comment')
     public boolean _jm_f_195(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstNum'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$comment']", path);
@@ -4754,9 +4589,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_32_map_$id (.'$tight#ConstNum'.'$id')
     public boolean _jm_f_197(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstNum'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$id']", path);
@@ -4767,9 +4601,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_32_map_$schema (.'$tight#ConstNum'.'$schema')
     public boolean _jm_f_198(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstNum'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$schema']", path);
@@ -4780,9 +4613,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_32_map_default (.'$tight#ConstNum'.default)
     public boolean _jm_f_199(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstNum'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -4817,9 +4649,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_32_map_description (.'$tight#ConstNum'.description)
     public boolean _jm_f_201(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstNum'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.description]", path);
@@ -4830,9 +4661,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_32_map_examples (.'$tight#ConstNum'.examples)
     public boolean _jm_f_202(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstNum'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstNum'.examples]", path);
@@ -4843,9 +4673,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_32_map_id (.'$tight#ConstNum'.id)
     public boolean _jm_f_203(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstNum'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.id]", path);
@@ -4856,9 +4685,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_32_map_title (.'$tight#ConstNum'.title)
     public boolean _jm_f_204(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstNum'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.title]", path);
@@ -4947,9 +4775,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_33_map_$comment (.'$tight#ConstInt'.'$comment')
     public boolean _jm_f_205(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstInt'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$comment']", path);
@@ -4988,9 +4815,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_33_map_$id (.'$tight#ConstInt'.'$id')
     public boolean _jm_f_207(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstInt'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$id']", path);
@@ -5001,9 +4827,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_33_map_$schema (.'$tight#ConstInt'.'$schema')
     public boolean _jm_f_208(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstInt'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$schema']", path);
@@ -5014,9 +4839,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_33_map_default (.'$tight#ConstInt'.default)
     public boolean _jm_f_209(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstInt'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -5051,9 +4875,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_33_map_description (.'$tight#ConstInt'.description)
     public boolean _jm_f_211(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstInt'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.description]", path);
@@ -5064,9 +4887,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_33_map_examples (.'$tight#ConstInt'.examples)
     public boolean _jm_f_212(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstInt'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstInt'.examples]", path);
@@ -5077,9 +4899,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_33_map_id (.'$tight#ConstInt'.id)
     public boolean _jm_f_213(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstInt'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.id]", path);
@@ -5090,9 +4911,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_33_map_title (.'$tight#ConstInt'.title)
     public boolean _jm_f_214(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstInt'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.title]", path);
@@ -5181,9 +5001,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_34_map_$comment (.'$tight#ConstBool'.'$comment')
     public boolean _jm_f_215(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstBool'.'$comment'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$comment']", path);
@@ -5222,9 +5041,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_34_map_$id (.'$tight#ConstBool'.'$id')
     public boolean _jm_f_217(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstBool'.'$id'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$id']", path);
@@ -5235,9 +5053,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_34_map_$schema (.'$tight#ConstBool'.'$schema')
     public boolean _jm_f_218(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstBool'.'$schema'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$schema']", path);
@@ -5248,9 +5065,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_34_map_default (.'$tight#ConstBool'.default)
     public boolean _jm_f_219(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstBool'.default
-        res = true;
+        boolean res = true;
         return res;
     }
 
@@ -5285,9 +5101,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_34_map_description (.'$tight#ConstBool'.description)
     public boolean _jm_f_221(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstBool'.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.description]", path);
@@ -5298,9 +5113,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_34_map_examples (.'$tight#ConstBool'.examples)
     public boolean _jm_f_222(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstBool'.examples
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstBool'.examples]", path);
@@ -5311,9 +5125,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_34_map_id (.'$tight#ConstBool'.id)
     public boolean _jm_f_223(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstBool'.id
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.id]", path);
@@ -5324,9 +5137,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_34_map_title (.'$tight#ConstBool'.title)
     public boolean _jm_f_224(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#ConstBool'.title
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.title]", path);

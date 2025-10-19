@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $x1 (.'$x1')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$x1'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
     if (! res)
     {
         rep !== null && rep.push(["unexpected _Susie [.'$x1']", path])
@@ -27,9 +26,8 @@ function json_model_5(val, path, rep)
 // check $x2 (.'$x2')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$x2'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
     if (! res)
     {
         rep !== null && rep.push(["unexpected _Susie [.'$x2']", path])
@@ -40,9 +38,8 @@ function json_model_6(val, path, rep)
 // check $x3 (.'$x3')
 function json_model_7(val, path, rep)
 {
-    let res;
     // .'$x3'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
     if (! res)
     {
         rep !== null && rep.push(["unexpected _Susie [.'$x3']", path])
@@ -53,9 +50,8 @@ function json_model_7(val, path, rep)
 // check $__external_0 (.'$__external_0')
 function json_model_8(val, path, rep)
 {
-    let res;
     // .'$__external_0'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
     if (! res)
     {
         rep !== null && rep.push(["unexpected _Susie [.'$__external_0']", path])
@@ -66,9 +62,8 @@ function json_model_8(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = Array.isArray(val) && val.length == 4;
+    let res = Array.isArray(val) && val.length == 4;
     if (res)
     {
         let lpath_0 = path ? path.concat([0]) : null;

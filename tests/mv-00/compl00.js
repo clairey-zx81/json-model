@@ -21,10 +21,9 @@ function json_model_1(val, path, rep)
     // not a word
     // .
     // not-case xor list
-    let is_0;
     // .'^'.1
     // "/^[a-z]+$/i"
-    is_0 = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let is_0 = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! is_0)
     {
         rep !== null && rep.push(["unexpected /^[a-z]+$/i [.'^'.1]", path])

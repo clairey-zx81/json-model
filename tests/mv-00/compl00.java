@@ -32,10 +32,9 @@ public class compl00 extends ModelChecker
         // not a word
         // .
         // not-case xor list
-        boolean is_0;
         // .'^'.1
         // "/^[a-z]+$/i"
-        is_0 = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean is_0 = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! is_0)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z]+$/i [.'^'.1]", path);

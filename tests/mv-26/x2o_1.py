@@ -95,9 +95,8 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Nabc'.t
     # generic xor list
     xc_0: int = 0
-    xr_0: bool
     # .'$Nabc'.t.'^'.0
-    xr_0 = isinstance(pval, str)
+    xr_0: bool = isinstance(pval, str)
     if xr_0:
         xc_0 += 1
     else:

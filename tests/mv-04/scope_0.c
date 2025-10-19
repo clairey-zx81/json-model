@@ -27,10 +27,9 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $s (.'$s')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$s'
     // "/[0-9]/"
-    res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /[0-9]/ [.'$s']", path);
@@ -41,9 +40,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_is_array(val) && json_array_size(val) == 2;
+    bool res = json_is_array(val) && json_array_size(val) == 2;
     if (res)
     {
         jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };

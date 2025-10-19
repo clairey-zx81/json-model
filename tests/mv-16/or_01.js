@@ -19,9 +19,8 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|']", path])

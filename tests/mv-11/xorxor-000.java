@@ -22,10 +22,9 @@ public class xorxor_000 extends ModelChecker
     // check $Xx (.'$Xx')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Xx'
         // .'$Xx'.'|'.0
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$Xx'.'|'.0]", path);
@@ -71,10 +70,9 @@ public class xorxor_000 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // .'|'.0
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Xx [.'|'.0]", path);

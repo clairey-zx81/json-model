@@ -20,9 +20,8 @@ const size_t check_model_map_size = 4;
 // check $n0 (.'$n0')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$n0'
-    res = false;
+    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$n0']", path);
     return res;
 }
@@ -30,9 +29,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $n1 (.'$n1')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$n1'
-    res = false;
+    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$n1']", path);
     return res;
 }
@@ -40,9 +38,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $n2 (.'$n2')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$n2'
-    res = false;
+    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$n2']", path);
     return res;
 }
@@ -50,9 +47,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = false;
+    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.]", path);
     return res;
 }

@@ -24,10 +24,9 @@ check_model_map: PropMap
 
 # check $Xx (.'$Xx')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Xx'
     # .'$Xx'.'|'.0
-    res = val is None
+    res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$Xx'.'|'.0]", path))
     if not res:
@@ -53,10 +52,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # .'|'.0
-    res = json_model_2(val, path, rep)
+    res: bool = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Xx [.'|'.0]", path))
     if not res:

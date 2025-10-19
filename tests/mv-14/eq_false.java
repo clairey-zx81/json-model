@@ -22,9 +22,8 @@ public class eq_false extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isBoolean(val) && json.asBoolean(val) == false;
+        boolean res = json.isBoolean(val) && json.asBoolean(val) == false;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected =false [.]", path);

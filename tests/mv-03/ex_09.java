@@ -22,9 +22,8 @@ public class ex_09 extends ModelChecker
     // check $ex08 (.'$ex08')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ex08'
-        res = json_model_9(val, path, rep);
+        boolean res = json_model_9(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex08 [.'$ex08']", path);
@@ -35,9 +34,8 @@ public class ex_09 extends ModelChecker
     // check $Ex08 (.'$Ex08')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Ex08'
-        res = json_model_9(val, path, rep);
+        boolean res = json_model_9(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $ex08#Ex08 [.'$Ex08']", path);
@@ -96,9 +94,8 @@ public class ex_09 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_4(val, path, rep);
+        boolean res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex09 [.]", path);
@@ -109,9 +106,8 @@ public class ex_09 extends ModelChecker
     // check $ex08#Val (.'$ex08#Val')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ex08#Val'
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$ex08#Val']", path);
@@ -122,10 +118,9 @@ public class ex_09 extends ModelChecker
     // check $ex08#Ex08 (.'$ex08#Ex08')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ex08#Ex08'
         // .'$ex08#Ex08'.'|'.0
-        res = json_model_8(val, path, rep);
+        boolean res = json_model_8(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $map [.'$ex08#Ex08'.'|'.0]", path);

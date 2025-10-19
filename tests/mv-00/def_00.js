@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $pos (.'$pos')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$pos'
-    res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0.0 strict float [.'$pos']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $pos [.]", path])

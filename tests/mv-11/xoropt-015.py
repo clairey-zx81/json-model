@@ -24,10 +24,9 @@ check_model_map: PropMap
 
 # check $Vv (.'$Vv')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Vv'
     # .'$Vv'.'|'.0
-    res = isinstance(val, int) and not isinstance(val, bool)
+    res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1 strict int [.'$Vv'.'|'.0]", path))
     if not res:
@@ -165,9 +164,8 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Ee (.'$Ee')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ee'
-    res = isinstance(val, dict)
+    res: bool = isinstance(val, dict)
     if not res:
         rep is None or rep.append(("unexpected type [.'$Ee'.'|']", path))
     if res:
@@ -188,10 +186,9 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Mm (.'$Mm')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Mm'
     # .'$Mm'.'|'.0
-    res = json_model_2(val, path, rep)
+    res: bool = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Vv [.'$Mm'.'|'.0]", path))
     if not res:
@@ -207,9 +204,8 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_6(val, path, rep)
+    res: bool = json_model_6(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Mm [.]", path))
     return res

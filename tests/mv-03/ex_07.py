@@ -26,10 +26,9 @@ check_model_map: PropMap
 
 # check $ex5 (.'$ex5')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ex5'
     # .'$ex5'.'|'.0
-    res = json_model_5(val, path, rep)
+    res: bool = json_model_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex05a [.'$ex5'.'|'.0]", path))
     if not res:
@@ -46,20 +45,18 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Ex07 (.'$Ex07')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ex07'
     # "/[a-z]/"
-    res = isinstance(val, str) and _jm_re_0(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /[a-z]/ [.'$Ex07']", path))
     return res
 
 # check $__external_0 (.'$__external_0')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$__external_0'
     # .'$__external_0'.'|'.0
-    res = json_model_8(val, path, rep)
+    res: bool = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex05a [.'$__external_0'.'|'.0]", path))
     if not res:
@@ -75,9 +72,8 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = isinstance(val, list) and len(val) == 3
+    res: bool = isinstance(val, list) and len(val) == 3
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # .0
@@ -102,36 +98,32 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ex5#Ex05a (.'$ex5#Ex05a')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ex5#Ex05a'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$ex5#Ex05a']", path))
     return res
 
 # check $ex5#Ex05b (.'$ex5#Ex05b')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ex5#Ex05b'
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$ex5#Ex05b']", path))
     return res
 
 # check $__external_0#Ex05a (.'$__external_0#Ex05a')
 def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$__external_0#Ex05a'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$__external_0#Ex05a']", path))
     return res
 
 # check $__external_0#Ex05b (.'$__external_0#Ex05b')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$__external_0#Ex05b'
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$__external_0#Ex05b']", path))
     return res

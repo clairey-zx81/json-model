@@ -24,10 +24,9 @@ public class geo extends ModelChecker
     // check $position (.'$position')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$position'
         // .'$position'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -65,10 +64,9 @@ public class geo extends ModelChecker
     // check $coord_array (.'$coord_array')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$coord_array'
         // .'$coord_array'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -106,10 +104,9 @@ public class geo extends ModelChecker
     // check $linear_ring (.'$linear_ring')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$linear_ring'
         // .'$linear_ring'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_2_idx = -1;

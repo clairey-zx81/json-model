@@ -18,10 +18,9 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # .'|'.0
-    $res = jm_is_string($val);
+    my $res = jm_is_string($val);
     if (! $res)
     {
         # .'|'.1

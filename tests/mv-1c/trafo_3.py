@@ -24,27 +24,24 @@ check_model_map: PropMap
 
 # check $Dd (.'$Dd')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Dd'
-    res = json_model_6(val, path, rep)
+    res: bool = json_model_6(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $l [.'$Dd']", path))
     return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_6(val, path, rep)
+    res: bool = json_model_6(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Dd [.]", path))
     return res
 
 # check $Dd#l (.'$Dd#l')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Dd#l'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
@@ -59,9 +56,8 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Dd#u (.'$Dd#u')
 def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Dd#u'
-    res = json_model_12(val, path, rep)
+    res: bool = json_model_12(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Uu#un [.'$Dd#u']", path))
     return res

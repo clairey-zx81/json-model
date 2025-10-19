@@ -119,9 +119,8 @@ function _jm_obj_0(val, path, rep)
 // check $nomerge (.'$nomerge')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$nomerge'
-    res = true;
+    let res = true;
     if (res)
     {
         // .'$nomerge'.'&'.0
@@ -138,10 +137,9 @@ function json_model_5(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // .'|'.0
-    res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep);
     if (! res)
     {
         // .'|'.1

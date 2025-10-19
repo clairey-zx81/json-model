@@ -122,9 +122,8 @@ public class a2m_1 extends ModelChecker
     // check $nomerge (.'$nomerge')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$nomerge'
-        res = true;
+        boolean res = true;
         if (res)
         {
             // .'$nomerge'.'&'.0
@@ -141,10 +140,9 @@ public class a2m_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // .'|'.0
-        res = json_model_4(val, path, rep);
+        boolean res = json_model_4(val, path, rep);
         if (! res)
         {
             // .'|'.1

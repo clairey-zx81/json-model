@@ -24,9 +24,8 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = True
+    res: bool = True
     if res:
         # .'&'.0
         res = isinstance(val, int) and not isinstance(val, bool) and val >= 0

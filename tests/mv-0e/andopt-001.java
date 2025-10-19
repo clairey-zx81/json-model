@@ -22,9 +22,8 @@ public class andopt_001 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = true;
+        boolean res = true;
         if (res)
         {
             // .'&'.0

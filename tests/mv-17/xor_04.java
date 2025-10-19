@@ -28,11 +28,10 @@ public class xor_04 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // xor to or simplification, float vs string
         // .
         // .'|'.0
-        res = json.isDouble(val) && json.asDouble(val) >= 0.0;
+        boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0.0 strict float [.'|'.0]", path);

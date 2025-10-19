@@ -84,9 +84,8 @@ function _jm_obj_1(val, path, rep)
 // check $Aa (.'$Aa')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$Aa'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$Aa'.'|']", path])
@@ -158,10 +157,9 @@ function _jm_obj_2(val, path, rep)
 // check $Bb (.'$Bb')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Bb'
     // .'$Bb'.'|'.0
-    res = _jm_obj_2(val, path, rep);
+    let res = _jm_obj_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$Bb'.'|'.0]", path])
@@ -189,9 +187,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_3(val, path, rep);
+    let res = json_model_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Bb [.]", path])

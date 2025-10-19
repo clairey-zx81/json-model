@@ -38,9 +38,8 @@ sub json_model_1($$$)
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Dd#l'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)

@@ -190,9 +190,8 @@ sub _jm_f_0($$$)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#OpenAPI'.security
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -213,9 +212,8 @@ sub _jm_f_1($$$)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#OpenAPI'.servers
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -236,9 +234,8 @@ sub _jm_f_2($$$)
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#OpenAPI'.tags
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$val)
@@ -606,9 +603,8 @@ sub _jm_obj_1($$$)
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#License'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$openapi#License'.'|'.0
@@ -1164,9 +1160,8 @@ sub _jm_f_16($$$)
 sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#PathItem'.parameters
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_4_idx (0 .. $#$val)
@@ -1193,9 +1188,8 @@ sub _jm_f_17($$$)
 sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#PathItem'.servers
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_5_idx (0 .. $#$val)
@@ -1315,9 +1309,8 @@ sub _jm_f_23($$$)
 sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#Operation'.parameters
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_6_idx (0 .. $#$val)
@@ -1344,10 +1337,9 @@ sub _jm_f_24($$$)
 sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#Operation'.requestBody
     # .'$openapi#Operation'.requestBody.'|'.0
-    $res = json_model_21($val, $path, $rep);
+    my $res = json_model_21($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#Operation'.requestBody.'|'.1
@@ -1360,9 +1352,8 @@ sub _jm_f_25($$$)
 sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#Operation'.security
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_7_idx (0 .. $#$val)
@@ -1383,9 +1374,8 @@ sub _jm_f_26($$$)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#Operation'.servers
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_8_idx (0 .. $#$val)
@@ -1414,9 +1404,8 @@ sub _jm_f_28($$$)
 sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#Operation'.tags
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_9_idx (0 .. $#$val)
@@ -1792,9 +1781,8 @@ sub _jm_obj_5($$$)
 sub json_model_20($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#Parameter'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$openapi#Parameter'.'|'.0
@@ -2615,9 +2603,8 @@ sub _jm_obj_15($$$)
 sub json_model_29($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#Link'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$openapi#Link'.'|'.0
@@ -2856,10 +2843,9 @@ sub _jm_obj_19($$$)
 sub json_model_30($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # more or less a parameter but without name and in
     # .'$openapi#Header'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$openapi#Header'.'|'.0
@@ -3565,10 +3551,9 @@ sub json_model_64($$$)
 sub json_model_97($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#Model'
     # .'$openapi#model#Model'.'|'.0
-    $res = json_model_96($val, $path, $rep);
+    my $res = json_model_96($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#Model'.'|'.1
@@ -3586,9 +3571,8 @@ sub json_model_97($$$)
 sub json_model_83($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#Array'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_11_idx (0 .. $#$val)
@@ -3609,10 +3593,9 @@ sub json_model_83($$$)
 sub json_model_82($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#CModel'
     # .'$openapi#model#CModel'.'|'.0
-    $res = json_model_97($val, $path, $rep);
+    my $res = json_model_97($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#CModel'.'|'.1
@@ -4016,9 +3999,8 @@ sub _jm_obj_32($$$)
 sub json_model_93($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#Element'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$openapi#model#Element'.'|'.0
@@ -4056,10 +4038,9 @@ sub json_model_93($$$)
 sub json_model_76($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#CmpValue'
     # .'$openapi#model#CmpValue'.'|'.0
-    $res = jm_is_integer($val);
+    my $res = jm_is_integer($val);
     if (! $res)
     {
         # .'$openapi#model#CmpValue'.'|'.1
@@ -4077,10 +4058,9 @@ sub json_model_76($$$)
 sub json_model_77($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#EqValue'
     # .'$openapi#model#EqValue'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$openapi#model#EqValue'.'|'.1
@@ -4105,11 +4085,10 @@ sub _jm_re_6($$$)
 sub json_model_90($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#Prop'
     # .'$openapi#model#Prop'.'|'.0
     # "/^[?!]/"
-    $res = jm_is_string($val) && _jm_re_6($val, $path, $rep);
+    my $res = jm_is_string($val) && _jm_re_6($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#Prop'.'|'.1
@@ -4222,9 +4201,8 @@ sub _jm_xre_1($$$)
 sub json_model_74($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#Regex'
-    $res = jm_is_string($val);
+    my $res = jm_is_string($val);
     if ($res)
     {
         # .'$openapi#model#Regex'.'|'.0
@@ -4260,10 +4238,9 @@ sub json_model_75($$$)
 sub json_model_96($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#ScalarModel'
     # .'$openapi#model#ScalarModel'.'|'.0
-    $res = json_model_78($val, $path, $rep);
+    my $res = json_model_78($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#ScalarModel'.'|'.1
@@ -4276,10 +4253,9 @@ sub json_model_96($$$)
 sub json_model_78($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#ValModel'
     # .'$openapi#model#ValModel'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$openapi#model#ValModel'.'|'.1
@@ -4322,10 +4298,9 @@ sub json_model_78($$$)
 sub json_model_79($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$openapi#model#StrModel'
     # .'$openapi#model#StrModel'.'|'.0
-    $res = json_model_73($val, $path, $rep);
+    my $res = json_model_73($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#StrModel'.'|'.1

@@ -22,9 +22,8 @@ public class mrg_02 extends ModelChecker
     // check $t (.'$t')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$t'
-        res = json.isString(val) && json.asString(val).compareTo("cst_02") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("cst_02") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _cst_02 [.'$t']", path);

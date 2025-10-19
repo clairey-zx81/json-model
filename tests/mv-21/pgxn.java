@@ -38,10 +38,9 @@ public class pgxn extends ModelChecker
     // check $neStr (.'$neStr')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$neStr'
         // "/./"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /./ [.'$neStr']", path);
@@ -52,10 +51,9 @@ public class pgxn extends ModelChecker
     // check $neStrList (.'$neStrList')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$neStrList'
         // .'$neStrList'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -94,9 +92,8 @@ public class pgxn extends ModelChecker
     // check $License (.'$License')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$License'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$License'.'|']", path);
@@ -107,10 +104,9 @@ public class pgxn extends ModelChecker
     // check $LicenseList (.'$LicenseList')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$LicenseList'
         // .'$LicenseList'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -251,9 +247,8 @@ public class pgxn extends ModelChecker
     // check $Status (.'$Status')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Status'
-        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_1_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$Status'.'|']", path);
@@ -445,10 +440,9 @@ public class pgxn extends ModelChecker
     // check $SemVer (.'$SemVer')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$SemVer'
         // "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
-        res = json.isString(val) && _jm_re_2(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_2(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/ [.'$SemVer']", path);
@@ -459,10 +453,9 @@ public class pgxn extends ModelChecker
     // check $Version (.'$Version')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Version'
         // .'$Version'.'|'.0
-        res = json_model_9(val, path, rep);
+        boolean res = json_model_9(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $SemVer [.'$Version'.'|'.0]", path);
@@ -495,10 +488,9 @@ public class pgxn extends ModelChecker
     // check $Ops (.'$Ops')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Ops'
         // "/^(<=|<|>=|>|!=|==)$/"
-        res = json.isString(val) && _jm_re_3(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_3(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^(<=|<|>=|>|!=|==)$/ [.'$Ops']", path);
@@ -514,10 +506,9 @@ public class pgxn extends ModelChecker
     // check $VersionRange (.'$VersionRange')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$VersionRange'
         // "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
-        res = json.isString(val) && _jm_re_4(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_4(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/ [.'$VersionRange']", path);
@@ -529,9 +520,8 @@ public class pgxn extends ModelChecker
     // check $Phase (.'$Phase')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Phase'
-        res = json.isScalar(val) && _jm_cst_2_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_2_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$Phase'.'|']", path);
@@ -543,9 +533,8 @@ public class pgxn extends ModelChecker
     // check $Relation (.'$Relation')
     public boolean json_model_14(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Relation'
-        res = json.isScalar(val) && _jm_cst_3_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_3_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$Relation'.'|']", path);
@@ -685,9 +674,8 @@ public class pgxn extends ModelChecker
     // check json_model_1_mup_abstract (.abstract)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .abstract
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.abstract]", path);
@@ -725,10 +713,9 @@ public class pgxn extends ModelChecker
     // check json_model_1_mup_license (.license)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .license
         // .license.'|'.0
-        res = json_model_4(val, path, rep);
+        boolean res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $License [.license.'|'.0]", path);
@@ -765,10 +752,9 @@ public class pgxn extends ModelChecker
     // check json_model_1_mup_maintainer (.maintainer)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .maintainer
         // .maintainer.'|'.0
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $neStr [.maintainer.'|'.0]", path);
@@ -892,9 +878,8 @@ public class pgxn extends ModelChecker
     // check json_model_1_mup_version (.version)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.version]", path);
@@ -906,9 +891,8 @@ public class pgxn extends ModelChecker
     // check json_model_1_map_description (.description)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.description]", path);
@@ -919,9 +903,8 @@ public class pgxn extends ModelChecker
     // check json_model_1_map_generated_by (.generated_by)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .generated_by
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.generated_by]", path);
@@ -981,9 +964,8 @@ public class pgxn extends ModelChecker
     // check json_model_1_map_url (.url)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .url
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URL [.url]", path);

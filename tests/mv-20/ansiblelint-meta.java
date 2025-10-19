@@ -3278,11 +3278,10 @@ public class ansiblelint_meta extends ModelChecker
     // check $any_platform (.'$any_platform')
     public boolean json_model_49(Object val, Path path, Report rep)
     {
-        boolean res;
         // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
         // .'$any_platform'
         // .'$any_platform'.'|'.0
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path);
@@ -6426,9 +6425,8 @@ public class ansiblelint_meta extends ModelChecker
     // check $platforms (.'$platforms')
     public boolean json_model_50(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$platforms'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_47_idx = -1;
@@ -6891,18 +6889,16 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_51_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelCollection'.cloud_platforms
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelCollection'.galaxy_tags
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_95_idx = -1;
@@ -6931,9 +6927,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_51_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelCollection'.min_ansible_version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", path);
@@ -6949,10 +6944,9 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_51_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelCollection'.namespace
         // "/^[a-z][-a-z0-9_]+$/"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", path);
@@ -6968,10 +6962,9 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelCollection'.role_name
         // "/^[a-z][a-z0-9_]+$/"
-        res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", path);
@@ -6982,9 +6975,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelCollection'.video_links
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", path);
@@ -7030,9 +7022,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelLoose'.author
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.author]", path);
@@ -7043,9 +7034,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelLoose'.company
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.company]", path);
@@ -7056,9 +7046,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelLoose'.github_branch
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", path);
@@ -7069,9 +7058,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelLoose'.issue_tracker_url
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", path);
@@ -7082,9 +7070,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelLoose'.license
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.license]", path);
@@ -7095,9 +7082,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelLoose'.min_ansible_container_version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", path);
@@ -7170,18 +7156,16 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.cloud_platforms
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.company
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.company]", path);
@@ -7192,9 +7176,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.galaxy_tags
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_96_idx = -1;
@@ -7223,9 +7206,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.github_branch
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", path);
@@ -7236,9 +7218,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.issue_tracker_url
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", path);
@@ -7249,9 +7230,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", path);
@@ -7262,10 +7242,9 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.namespace
         // "/^[a-z][-a-z0-9_]+$/"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", path);
@@ -7276,10 +7255,9 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.role_name
         // "/^[a-z][a-z0-9_]+$/"
-        res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", path);
@@ -7290,9 +7268,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModelStandalone'.video_links
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", path);
@@ -7432,9 +7409,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.author
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.author]", path);
@@ -7445,18 +7421,16 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.company
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.company]", path);
@@ -7467,9 +7441,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_97_idx = -1;
@@ -7498,9 +7471,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.github_branch
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", path);
@@ -7511,9 +7483,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", path);
@@ -7524,9 +7495,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.license
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", path);
@@ -7537,9 +7507,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", path);
@@ -7550,9 +7519,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", path);
@@ -7563,10 +7531,9 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.namespace
         // "/^[a-z][-a-z0-9_]+$/"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", path);
@@ -7577,10 +7544,9 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.role_name
         // "/^[a-z][a-z0-9_]+$/"
-        res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.role_name]", path);
@@ -7591,9 +7557,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.video_links
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.video_links]", path);
@@ -7681,9 +7646,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.author
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path);
@@ -7694,18 +7658,16 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-        res = true;
+        boolean res = true;
         return res;
     }
 
     // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.company
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path);
@@ -7716,9 +7678,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_98_idx = -1;
@@ -7747,9 +7708,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.github_branch
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path);
@@ -7760,9 +7720,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path);
@@ -7773,9 +7732,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.license
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path);
@@ -7786,9 +7744,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path);
@@ -7799,9 +7756,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path);
@@ -7812,10 +7768,9 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.namespace
         // "/^[a-z][-a-z0-9_]+$/"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path);
@@ -7826,10 +7781,9 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.role_name
         // "/^[a-z][a-z0-9_]+$/"
-        res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path);
@@ -7840,9 +7794,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.video_links
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path);
@@ -7965,9 +7918,8 @@ public class ansiblelint_meta extends ModelChecker
     // check $collections (.'$collections')
     public boolean json_model_55(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$collections'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_99_idx = -1;
@@ -7997,10 +7949,9 @@ public class ansiblelint_meta extends ModelChecker
     // check $complex_conditional (.'$complex_conditional')
     public boolean json_model_56(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$complex_conditional'
         // .'$complex_conditional'.'|'.0
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$complex_conditional'.'|'.0]", path);
@@ -8055,9 +8006,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_57_map_become (.'$DependencyModelLoose'.become)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$DependencyModelLoose'.become
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", path);
@@ -8068,9 +8018,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_57_map_name (.'$DependencyModelLoose'.name)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$DependencyModelLoose'.name
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", path);
@@ -8081,9 +8030,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_57_map_role (.'$DependencyModelLoose'.role)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$DependencyModelLoose'.role
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", path);
@@ -8095,9 +8043,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$DependencyModelLoose'.scm
-        res = json.isScalar(val) && _jm_cst_64_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_64_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", path);
@@ -8108,9 +8055,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_57_map_src (.'$DependencyModelLoose'.src)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$DependencyModelLoose'.src
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", path);
@@ -8121,10 +8067,9 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$DependencyModelLoose'.tags
         // .'$DependencyModelLoose'.tags.'|'.0
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path);
@@ -8183,9 +8128,8 @@ public class ansiblelint_meta extends ModelChecker
     // check json_model_57_map_version (.'$DependencyModelLoose'.version)
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$DependencyModelLoose'.version
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", path);
@@ -8320,10 +8264,9 @@ public class ansiblelint_meta extends ModelChecker
     // check $DependencyModel (.'$DependencyModel')
     public boolean json_model_58(Object val, Path path, Report rep)
     {
-        boolean res;
         // add non-exclusive mandatory role, src or name props
         // .'$DependencyModel'
-        res = true;
+        boolean res = true;
         if (res)
         {
             // .'$DependencyModel'.'&'.0
@@ -8500,11 +8443,10 @@ public class ansiblelint_meta extends ModelChecker
     // check $AnsibleMeta (.'$AnsibleMeta')
     public boolean json_model_60(Object val, Path path, Report rep)
     {
-        boolean res;
         // why null?
         // .'$AnsibleMeta'
         // .'$AnsibleMeta'.'|'.0
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$AnsibleMeta'.'|'.0]", path);
@@ -8532,9 +8474,8 @@ public class ansiblelint_meta extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_60(val, path, rep);
+        boolean res = json_model_60(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $AnsibleMeta [.]", path);

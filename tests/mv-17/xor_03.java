@@ -26,9 +26,8 @@ public class xor_03 extends ModelChecker
         // (any xor m) is (not m)
         // .
         // not-case xor list
-        boolean is_0;
         // .'^'.1
-        is_0 = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean is_0 = json.isInteger(val) && json.asLong(val) >= 0;
         if (! is_0)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'^'.1]", path);

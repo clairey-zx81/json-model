@@ -22,10 +22,9 @@ const size_t check_model_map_size = 2;
 // check $foo (.'$foo')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$foo'
     // .'$foo'.'|'.0
-    res = json_model_4(val, path, rep);
+    bool res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $li0 [.'$foo'.'|'.0]", path);
@@ -71,9 +70,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_5(val, path, rep);
+    bool res = json_model_5(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $foo#ls0 [.]", path);
@@ -84,9 +82,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $foo#li0 (.'$foo#li0')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$foo#li0'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_0_idx;
@@ -113,9 +110,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $foo#ls0 (.'$foo#ls0')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$foo#ls0'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_1_idx;
@@ -142,9 +138,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $foo#lb0 (.'$foo#lb0')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$foo#lb0'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_2_idx;
@@ -171,9 +166,8 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $foo#lf0 (.'$foo#lf0')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$foo#lf0'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_3_idx;

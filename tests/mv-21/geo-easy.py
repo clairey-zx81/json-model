@@ -26,10 +26,9 @@ check_model_map: PropMap
 
 # check $position (.'$position')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$position'
     # .'$position'.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
@@ -49,10 +48,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $coord_array (.'$coord_array')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$coord_array'
     # .'$coord_array'.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
@@ -72,10 +70,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $linear_ring (.'$linear_ring')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$linear_ring'
     # .'$linear_ring'.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None

@@ -31,10 +31,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # not a word
     # .
     # not-case xor list
-    is_0: bool
     # .'^'.1
     # "/^[a-z]+$/i"
-    is_0 = isinstance(val, str) and _jm_re_0(val, path, rep)
+    is_0: bool = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not is_0:
         rep is None or rep.append(("unexpected /^[a-z]+$/i [.'^'.1]", path))
     res = not is_0

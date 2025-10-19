@@ -41,20 +41,18 @@ check_model_map: PropMap
 
 # check $neStr (.'$neStr')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$neStr'
     # "/./"
-    res = isinstance(val, str) and _jm_re_0(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /./ [.'$neStr']", path))
     return res
 
 # check $neStrList (.'$neStrList')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$neStrList'
     # .'$neStrList'.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
@@ -75,19 +73,17 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $License (.'$License')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$License'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$License'.'|']", path))
     return res
 
 # check $LicenseList (.'$LicenseList')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$LicenseList'
     # .'$LicenseList'.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
@@ -169,9 +165,8 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Status (.'$Status')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Status'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
     if not res:
         rep is None or rep.append(("value not in enum [.'$Status'.'|']", path))
     return res
@@ -288,20 +283,18 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $SemVer (.'$SemVer')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$SemVer'
     # "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
-    res = isinstance(val, str) and _jm_re_2(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/ [.'$SemVer']", path))
     return res
 
 # check $Version (.'$Version')
 def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Version'
     # .'$Version'.'|'.0
-    res = json_model_9(val, path, rep)
+    res: bool = json_model_9(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $SemVer [.'$Version'.'|'.0]", path))
     if not res:
@@ -318,10 +311,9 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Ops (.'$Ops')
 def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ops'
     # "/^(<=|<|>=|>|!=|==)$/"
-    res = isinstance(val, str) and _jm_re_3(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /^(<=|<|>=|>|!=|==)$/ [.'$Ops']", path))
     return res
@@ -329,10 +321,9 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $VersionRange (.'$VersionRange')
 def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$VersionRange'
     # "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
-    res = isinstance(val, str) and _jm_re_4(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/ [.'$VersionRange']", path))
     return res
@@ -340,9 +331,8 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Phase (.'$Phase')
 def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Phase'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_2
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_2
     if not res:
         rep is None or rep.append(("value not in enum [.'$Phase'.'|']", path))
     return res
@@ -350,9 +340,8 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Relation (.'$Relation')
 def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Relation'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_3
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_3
     if not res:
         rep is None or rep.append(("value not in enum [.'$Relation'.'|']", path))
     return res
@@ -435,9 +424,8 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_mup_abstract (.abstract)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .abstract
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.abstract]", path))
     return res
@@ -460,10 +448,9 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_mup_license (.license)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .license
     # .license.'|'.0
-    res = json_model_4(val, path, rep)
+    res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $License [.license.'|'.0]", path))
     if not res:
@@ -484,10 +471,9 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_mup_maintainer (.maintainer)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .maintainer
     # .maintainer.'|'.0
-    res = json_model_2(val, path, rep)
+    res: bool = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $neStr [.maintainer.'|'.0]", path))
     if not res:
@@ -561,9 +547,8 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_mup_version (.version)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .version
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.version]", path))
     return res
@@ -571,18 +556,16 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_map_description (.description)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .description
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.description]", path))
     return res
 
 # check json_model_1_map_generated_by (.generated_by)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .generated_by
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.generated_by]", path))
     return res
@@ -619,9 +602,8 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_map_url (.url)
 def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .url
-    res = is_valid_url(val, path, rep)
+    res: bool = is_valid_url(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $URL [.url]", path))
     return res

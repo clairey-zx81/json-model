@@ -22,9 +22,8 @@ public class string_const_2 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isString(val) && json.asString(val).compareTo("#") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("#") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _# [.]", path);

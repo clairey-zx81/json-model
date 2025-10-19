@@ -24,9 +24,8 @@ check_model_map: PropMap
 
 # check $li0 (.'$li0')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$li0'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
@@ -41,9 +40,8 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ls0 (.'$ls0')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ls0'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
@@ -58,9 +56,8 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $lb0 (.'$lb0')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$lb0'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
@@ -75,9 +72,8 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $lf0 (.'$lf0')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$lf0'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_3_idx, arr_3_item in enumerate(val):
             arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
@@ -92,10 +88,9 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # .'|'.0
-    res = json_model_2(val, path, rep)
+    res: bool = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $li0 [.'|'.0]", path))
     if not res:

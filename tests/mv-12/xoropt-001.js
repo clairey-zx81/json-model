@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $Nn (.'$Nn')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$Nn'
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Nn']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $Bb (.'$Bb')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Bb'
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Bb']", path])
@@ -40,9 +38,8 @@ function json_model_3(val, path, rep)
 // check $Ii (.'$Ii')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$Ii'
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$Ii']", path])
@@ -53,9 +50,8 @@ function json_model_4(val, path, rep)
 // check $Ff (.'$Ff')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$Ff'
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 strict float [.'$Ff']", path])
@@ -66,9 +62,8 @@ function json_model_5(val, path, rep)
 // check $Ss (.'$Ss')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$Ss'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$Ss']", path])
@@ -79,9 +74,8 @@ function json_model_6(val, path, rep)
 // check $Aa (.'$Aa')
 function json_model_7(val, path, rep)
 {
-    let res;
     // .'$Aa'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -132,10 +126,9 @@ function json_model_8(val, path, rep)
 // check $Any (.'$Any')
 function json_model_9(val, path, rep)
 {
-    let res;
     // .'$Any'
     // .'$Any'.'|'.0
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Any'.'|'.0]", path])
@@ -208,9 +201,8 @@ function json_model_9(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_9(val, path, rep);
+    let res = json_model_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Any [.]", path])

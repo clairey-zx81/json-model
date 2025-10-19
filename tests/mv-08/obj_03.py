@@ -24,10 +24,9 @@ check_model_map: PropMap
 
 # check $foo (.'$foo')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$foo'
     # .'$foo'.'|'.0
-    res = json_model_4(val, path, rep)
+    res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $li0 [.'$foo'.'|'.0]", path))
     if not res:
@@ -53,18 +52,16 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_5(val, path, rep)
+    res: bool = json_model_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $foo#ls0 [.]", path))
     return res
 
 # check $foo#li0 (.'$foo#li0')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$foo#li0'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
@@ -79,9 +76,8 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $foo#ls0 (.'$foo#ls0')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$foo#ls0'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
@@ -96,9 +92,8 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $foo#lb0 (.'$foo#lb0')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$foo#lb0'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
@@ -113,9 +108,8 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $foo#lf0 (.'$foo#lf0')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$foo#lf0'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_3_idx, arr_3_item in enumerate(val):
             arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None

@@ -22,9 +22,8 @@ public class im_1 extends ModelChecker
     // check $c (.'$c')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$c'
-        res = json.isString(val) && json.asString(val).compareTo("c") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("c") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _c [.'$c']", path);
@@ -35,9 +34,8 @@ public class im_1 extends ModelChecker
     // check $a (.'$a')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$a'
-        res = json.isString(val) && json.asString(val).compareTo("a") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("a") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _a [.'$a']", path);
@@ -48,9 +46,8 @@ public class im_1 extends ModelChecker
     // check $b (.'$b')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$b'
-        res = json.isString(val) && json.asString(val).compareTo("b") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("b") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _b [.'$b']", path);

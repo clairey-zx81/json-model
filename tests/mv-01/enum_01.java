@@ -25,9 +25,8 @@ public class enum_01 extends ModelChecker
     // check $p1 (.'$p1')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$p1'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$p1'.'|']", path);
@@ -39,9 +38,8 @@ public class enum_01 extends ModelChecker
     // check $p2 (.'$p2')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$p2'
-        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_1_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$p2'.'|']", path);
@@ -56,9 +54,8 @@ public class enum_01 extends ModelChecker
         // .
         // generic xor list
         long xc_0 = 0;
-        boolean xr_0;
         // .'^'.0
-        xr_0 = json_model_2(val, path, rep);
+        boolean xr_0 = json_model_2(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;

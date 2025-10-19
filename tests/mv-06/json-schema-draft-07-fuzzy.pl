@@ -78,10 +78,9 @@ sub json_model_1($$$)
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#Schema'
     # .'$schema#Schema'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$schema#Schema'.'|'.1
@@ -217,10 +216,9 @@ sub _jm_f_8($$$)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#ObjectSchema'.enum
     # .'$schema#ObjectSchema'.enum.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         my $ival_0 = scalar @$val;
@@ -265,10 +263,9 @@ sub _jm_f_13($$$)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#ObjectSchema'.items
     # .'$schema#ObjectSchema'.items.'|'.0
-    $res = json_model_9($val, $path, $rep);
+    my $res = json_model_9($val, $path, $rep);
     if (! $res)
     {
         # .'$schema#ObjectSchema'.items.'|'.1
@@ -417,9 +414,8 @@ sub _jm_f_27($$$)
 sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#ObjectSchema'.required
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -448,10 +444,9 @@ sub _jm_f_29($$$)
 sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#ObjectSchema'.type
     # .'$schema#ObjectSchema'.type.'|'.0
-    $res = json_model_6($val, $path, $rep);
+    my $res = json_model_6($val, $path, $rep);
     if (! $res)
     {
         # .'$schema#ObjectSchema'.type.'|'.1
@@ -519,10 +514,9 @@ sub json_model_4($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#schemaArray'
     # .'$schema#schemaArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$val)
@@ -557,10 +551,9 @@ sub json_model_6($$$)
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schema#arrayTypes'
     # .'$schema#arrayTypes'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_3_idx (0 .. $#$val)

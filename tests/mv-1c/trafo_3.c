@@ -21,9 +21,8 @@ const size_t check_model_map_size = 2;
 // check $Dd (.'$Dd')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Dd'
-    res = json_model_6(val, path, rep);
+    bool res = json_model_6(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $l [.'$Dd']", path);
@@ -34,9 +33,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_6(val, path, rep);
+    bool res = json_model_6(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Dd [.]", path);
@@ -47,9 +45,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Dd#l (.'$Dd#l')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Dd#l'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_0_idx;
@@ -76,9 +73,8 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Dd#u (.'$Dd#u')
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Dd#u'
-    res = json_model_12(val, path, rep);
+    bool res = json_model_12(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Uu#un [.'$Dd#u']", path);

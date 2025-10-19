@@ -25,10 +25,9 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Vv'
     # .'$Vv'.'|'.0
-    $res = jm_is_integer($val);
+    my $res = jm_is_integer($val);
     if (! $res)
     {
         # .'$Vv'.'|'.1
@@ -175,9 +174,8 @@ sub _jm_obj_1($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Ee'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Ee'.'|'.0
@@ -195,10 +193,9 @@ sub json_model_5($$$)
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Mm'
     # .'$Mm'.'|'.0
-    $res = json_model_2($val, $path, $rep);
+    my $res = json_model_2($val, $path, $rep);
     if (! $res)
     {
         # .'$Mm'.'|'.1

@@ -24,54 +24,48 @@ check_model_map: PropMap
 
 # check $Nn (.'$Nn')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Nn'
-    res = val is None
+    res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$Nn']", path))
     return res
 
 # check $Bb (.'$Bb')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Bb'
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$Bb']", path))
     return res
 
 # check $Ii (.'$Ii')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ii'
-    res = isinstance(val, int) and not isinstance(val, bool)
+    res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1 strict int [.'$Ii']", path))
     return res
 
 # check $Ff (.'$Ff')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ff'
-    res = isinstance(val, float)
+    res: bool = isinstance(val, float)
     if not res:
         rep is None or rep.append(("not a -1.0 strict float [.'$Ff']", path))
     return res
 
 # check $Ss (.'$Ss')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ss'
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$Ss']", path))
     return res
 
 # check $Aa (.'$Aa')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Aa'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
@@ -103,10 +97,9 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Any (.'$Any')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Any'
     # .'$Any'.'|'.0
-    res = val is None
+    res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$Any'.'|'.0]", path))
     if not res:
@@ -147,9 +140,8 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_9(val, path, rep)
+    res: bool = json_model_9(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Any [.]", path))
     return res

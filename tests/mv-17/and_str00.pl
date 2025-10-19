@@ -32,9 +32,8 @@ sub _jm_re_1($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = jm_is_string($val);
+    my $res = jm_is_string($val);
     if ($res)
     {
         # .'&'.0

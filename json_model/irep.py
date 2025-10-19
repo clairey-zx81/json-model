@@ -497,7 +497,24 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
         else:
             decl = None
 
-    # TODO look for more optimizable patterns in the generated code
+    # move boolean declaration (usually res) with first usage if possible
+    decl: int|None = None
+    for i, op in enumerate(seq):
+        if _isOps(op, {"no", "co"}):
+            pass
+        elif _isOp(op, "bv"):
+            if op["declare"] and op["val"] is None:
+                decl = i
+            elif not op["declare"] and decl is not None and op["var"] == seq[decl]["var"]:
+                seq[decl].clear()
+                seq[decl]["o"] = "no"
+                seq[decl]["#"] = "IRO moved boolean declaration"
+                op["declare"] = True
+            else:  # safe
+                decl = None
+        else:  # safe
+            decl = None
+
     # TODO and(..., T, ...) -> and(..., ...)
     # TODO or(..., F, ...) -> or(..., ...)
 

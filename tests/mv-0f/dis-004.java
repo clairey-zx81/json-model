@@ -90,9 +90,8 @@ public class dis_004 extends ModelChecker
     // check $Aa (.'$Aa')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Aa'
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$Aa'.'|']", path);
@@ -163,10 +162,9 @@ public class dis_004 extends ModelChecker
     // check $Bb (.'$Bb')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Bb'
         // .'$Bb'.'|'.0
-        res = _jm_obj_2(val, path, rep);
+        boolean res = _jm_obj_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$Bb'.'|'.0]", path);
@@ -194,9 +192,8 @@ public class dis_004 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        boolean res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Bb [.]", path);

@@ -25,9 +25,8 @@ public class reref_0 extends ModelChecker
     // check $character (.'$character')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$character'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$character'.'|']", path);
@@ -64,10 +63,9 @@ public class reref_0 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // "/'($character:\\w+)'.*'($character:\\w+)'/X"
-        res = json.isString(val) && _jm_xre_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_xre_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /'($character:\\w+)'.*'($character:\\w+)'/X [.]", path);

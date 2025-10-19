@@ -22,11 +22,10 @@ public class opt_is extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // JSON_MODEL_STRICT_INT
         // .
         // .'@'
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'@']", path);

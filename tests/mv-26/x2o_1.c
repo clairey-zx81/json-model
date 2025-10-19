@@ -117,9 +117,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$Nabc'.t
     // generic xor list
     int64_t xc_0 = 0;
-    bool xr_0;
     // .'$Nabc'.t.'^'.0
-    xr_0 = json_is_string(pval);
+    bool xr_0 = json_is_string(pval);
     if (xr_0)
         xc_0 += 1;
     else

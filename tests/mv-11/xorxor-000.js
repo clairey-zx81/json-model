@@ -14,10 +14,9 @@ var check_model_map = new Map()
 // check $Xx (.'$Xx')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$Xx'
     // .'$Xx'.'|'.0
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Xx'.'|'.0]", path])
@@ -63,10 +62,9 @@ function json_model_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // .'|'.0
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Xx [.'|'.0]", path])

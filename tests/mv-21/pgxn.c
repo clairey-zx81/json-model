@@ -73,10 +73,9 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $neStr (.'$neStr')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$neStr'
     // "/./"
-    res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /./ [.'$neStr']", path);
@@ -87,10 +86,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $neStrList (.'$neStrList')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$neStrList'
     // .'$neStrList'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_0_idx;
@@ -127,9 +125,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $License (.'$License')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$License'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 28);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 28);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$License'.'|']", path);
@@ -140,10 +137,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $LicenseList (.'$LicenseList')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$LicenseList'
     // .'$LicenseList'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_1_idx;
@@ -280,9 +276,8 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Status (.'$Status')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Status'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Status'.'|']", path);
@@ -470,10 +465,9 @@ static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $SemVer (.'$SemVer')
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$SemVer'
     // "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
-    res = json_is_string(val) && _jm_re_2(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_2(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/ [.'$SemVer']", path);
@@ -484,10 +478,9 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Version (.'$Version')
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Version'
     // .'$Version'.'|'.0
-    res = json_model_9(val, path, rep);
+    bool res = json_model_9(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $SemVer [.'$Version'.'|'.0]", path);
@@ -521,10 +514,9 @@ static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $Ops (.'$Ops')
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Ops'
     // "/^(<=|<|>=|>|!=|==)$/"
-    res = json_is_string(val) && _jm_re_3(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_3(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^(<=|<|>=|>|!=|==)$/ [.'$Ops']", path);
@@ -541,10 +533,9 @@ static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $VersionRange (.'$VersionRange')
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$VersionRange'
     // "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
-    res = json_is_string(val) && _jm_re_4(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_4(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/ [.'$VersionRange']", path);
@@ -556,9 +547,8 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Phase (.'$Phase')
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Phase'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 5);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 5);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Phase'.'|']", path);
@@ -570,9 +560,8 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Relation (.'$Relation')
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Relation'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_3, 4);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_3, 4);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Relation'.'|']", path);
@@ -705,9 +694,8 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_mup_abstract (.abstract)
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .abstract
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.abstract]", path);
@@ -744,10 +732,9 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
 // check json_model_1_mup_license (.license)
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .license
     // .license.'|'.0
-    res = json_model_4(val, path, rep);
+    bool res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $License [.license.'|'.0]", path);
@@ -784,10 +771,9 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_mup_maintainer (.maintainer)
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .maintainer
     // .maintainer.'|'.0
-    res = json_model_2(val, path, rep);
+    bool res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $neStr [.maintainer.'|'.0]", path);
@@ -907,9 +893,8 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_mup_version (.version)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.version]", path);
@@ -925,9 +910,8 @@ static INLINE jm_check_fun_t json_model_1_mup(const char *pname)
 // check json_model_1_map_description (.description)
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .description
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.description]", path);
@@ -938,9 +922,8 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_map_generated_by (.generated_by)
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .generated_by
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.generated_by]", path);
@@ -999,9 +982,8 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_map_url (.url)
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .url
-    res = jm_is_valid_url(json_string_value(val), path, rep);
+    bool res = jm_is_valid_url(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $URL [.url]", path);

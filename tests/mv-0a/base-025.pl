@@ -27,10 +27,9 @@ sub _jm_obj_0($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # .'@'
-    $res = _jm_obj_0($val, $path, $rep);
+    my $res = _jm_obj_0($val, $path, $rep);
     if ($res)
     {
         my $ival_0 = jm_obj_size($val);

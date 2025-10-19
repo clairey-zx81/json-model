@@ -15,9 +15,8 @@ var check_model_map = new Map()
 // check $u1 (.'$u1')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$u1'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "https://json-model.org/models/json-model";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "https://json-model.org/models/json-model";
     if (! res)
     {
         rep !== null && rep.push(["unexpected https://json-model.org/models/json-model [.'$u1']", path])
@@ -28,9 +27,8 @@ function json_model_2(val, path, rep)
 // check $u2 (.'$u2')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$u2'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "file://./url_looking.model.json";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "file://./url_looking.model.json";
     if (! res)
     {
         rep !== null && rep.push(["unexpected file://./url_looking.model.json [.'$u2']", path])
@@ -42,10 +40,9 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // trigger a warning on url-looking definitions
     // .
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|']", path])

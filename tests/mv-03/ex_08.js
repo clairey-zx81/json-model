@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $Val (.'$Val')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$Val'
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Val']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $Key (.'$Key')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Key'
-    res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $URL [.'$Key']", path])
@@ -73,10 +71,9 @@ function json_model_4(val, path, rep)
 // check $Ex08 (.'$Ex08')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$Ex08'
     // .'$Ex08'.'|'.0
-    res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $map [.'$Ex08'.'|'.0]", path])
@@ -113,9 +110,8 @@ function json_model_5(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex08 [.]", path])

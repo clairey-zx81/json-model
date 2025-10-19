@@ -22,9 +22,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // generic xor list
     int64_t xc_0 = 0;
-    bool xr_0;
     // .'^'.0
-    xr_0 = json_is_string(val);
+    bool xr_0 = json_is_string(val);
     if (xr_0)
         xc_0 += 1;
     else

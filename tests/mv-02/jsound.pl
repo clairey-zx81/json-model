@@ -209,10 +209,9 @@ sub json_model_4($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$atomic'
     # .'$atomic'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$atomic'.'|'.1
@@ -240,9 +239,8 @@ sub json_model_5($$$)
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Atomic'.enumeration
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$val)
@@ -702,10 +700,9 @@ sub json_model_10($$$)
 sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$type-or-ref'
     # .'$type-or-ref'.'|'.0
-    $res = jm_is_string($val);
+    my $res = jm_is_string($val);
     if (! $res)
     {
         # .'$type-or-ref'.'|'.1

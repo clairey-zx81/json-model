@@ -29,9 +29,8 @@ check_model_map: PropMap
 
 # check $character (.'$character')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$character'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$character'.'|']", path))
     return res
@@ -52,10 +51,9 @@ def _jm_xre_0(val: str, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # "/'($character:\\w+)'.*'($character:\\w+)'/X"
-    res = isinstance(val, str) and _jm_xre_0(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_xre_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /'($character:\\w+)'.*'($character:\\w+)'/X [.]", path))
     return res

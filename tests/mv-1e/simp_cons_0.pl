@@ -18,10 +18,9 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # .'@'
-    $res = jm_is_numeric($val) && $val > 0.0;
+    my $res = jm_is_numeric($val) && $val > 0.0;
     if ($res)
     {
         my $fval_0 = $val;

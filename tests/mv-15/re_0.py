@@ -24,10 +24,9 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # "/^S/"
-    res = isinstance(val, str) and val.startswith("S")
+    res: bool = isinstance(val, str) and val.startswith("S")
     if not res:
         rep is None or rep.append(("unexpected /^S/ [.]", path))
     return res

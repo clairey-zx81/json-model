@@ -30,10 +30,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // not a word
     // .
     // not-case xor list
-    bool is_0;
     // .'^'.1
     // "/^[a-z]+$/i"
-    is_0 = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
+    bool is_0 = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! is_0)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z]+$/i [.'^'.1]", path);

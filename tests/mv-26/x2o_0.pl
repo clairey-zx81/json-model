@@ -91,9 +91,8 @@ sub _jm_obj_2($$$)
     # .'|'.2.t
     # generic xor list
     my $xc_0 = 0;
-    my $xr_0;
     # .'|'.2.t.'^'.0
-    $xr_0 = jm_is_string($pval);
+    my $xr_0 = jm_is_string($pval);
     if ($xr_0)
     {
         $xc_0++;

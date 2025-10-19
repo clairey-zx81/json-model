@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $li0 (.'$li0')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$li0'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -42,9 +41,8 @@ function json_model_2(val, path, rep)
 // check $ls0 (.'$ls0')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$ls0'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
@@ -70,9 +68,8 @@ function json_model_3(val, path, rep)
 // check $lb0 (.'$lb0')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$lb0'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
@@ -98,9 +95,8 @@ function json_model_4(val, path, rep)
 // check $lf0 (.'$lf0')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$lf0'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_3_idx = 0; arr_3_idx < val.length; arr_3_idx++)
@@ -126,10 +122,9 @@ function json_model_5(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // .'|'.0
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $li0 [.'|'.0]", path])

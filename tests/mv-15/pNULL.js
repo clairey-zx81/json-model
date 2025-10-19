@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["unexpected $NULL [.]", path])

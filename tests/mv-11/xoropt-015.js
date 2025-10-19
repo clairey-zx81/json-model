@@ -14,10 +14,9 @@ var check_model_map = new Map()
 // check $Vv (.'$Vv')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$Vv'
     // .'$Vv'.'|'.0
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$Vv'.'|'.0]", path])
@@ -233,9 +232,8 @@ function _jm_obj_1(val, path, rep)
 // check $Ee (.'$Ee')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$Ee'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$Ee'.'|']", path])
@@ -272,10 +270,9 @@ function json_model_5(val, path, rep)
 // check $Mm (.'$Mm')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$Mm'
     // .'$Mm'.'|'.0
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Vv [.'$Mm'.'|'.0]", path])
@@ -303,9 +300,8 @@ function json_model_6(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_6(val, path, rep);
+    let res = json_model_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Mm [.]", path])

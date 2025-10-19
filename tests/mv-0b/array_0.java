@@ -22,9 +22,8 @@ public class array_0 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isArray(val) && json.arrayLength(val) == 0;
+        boolean res = json.isArray(val) && json.arrayLength(val) == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.]", path);

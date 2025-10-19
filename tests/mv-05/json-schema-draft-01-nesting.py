@@ -26,19 +26,17 @@ check_model_map: PropMap
 
 # check json_model_3_map_$schema (.'$schema'.'$schema')
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.'$schema'
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.'$schema']", path))
     return res
 
 # check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.additionalProperties
     # .'$schema'.additionalProperties.'|'.0
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$schema'.additionalProperties.'|'.0]", path))
     if not res:
@@ -54,35 +52,31 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_contentEncoding (.'$schema'.contentEncoding)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.contentEncoding
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.contentEncoding]", path))
     return res
 
 # check json_model_3_map_default (.'$schema'.default)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.default
-    res = True
+    res: bool = True
     return res
 
 # check json_model_3_map_description (.'$schema'.description)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.description
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.description]", path))
     return res
 
 # check json_model_3_map_disallow (.'$schema'.disallow)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.disallow
     # .'$schema'.disallow.'|'.0
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.disallow.'|'.0]", path))
     if not res:
@@ -106,10 +100,9 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_enum (.'$schema'.enum)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.enum
     # .'$schema'.enum.'@'
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$schema'.enum.'@']", path))
     if res:
@@ -121,10 +114,9 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_extends (.'$schema'.extends)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.extends
     # .'$schema'.extends.'|'.0
-    res = json_model_3(val, path, rep)
+    res: bool = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$schema'.extends.'|'.0]", path))
     if not res:
@@ -148,28 +140,25 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_format (.'$schema'.format)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.format
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.format]", path))
     return res
 
 # check json_model_3_map_id (.'$schema'.id)
 def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.id
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.id]", path))
     return res
 
 # check json_model_3_map_items (.'$schema'.items)
 def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.items
     # .'$schema'.items.'|'.0
-    res = json_model_3(val, path, rep)
+    res: bool = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$schema'.items.'|'.0]", path))
     if not res:
@@ -193,99 +182,88 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_maxDecimal (.'$schema'.maxDecimal)
 def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.maxDecimal
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$schema'.maxDecimal]", path))
     return res
 
 # check json_model_3_map_maxItems (.'$schema'.maxItems)
 def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.maxItems
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$schema'.maxItems]", path))
     return res
 
 # check json_model_3_map_maxLength (.'$schema'.maxLength)
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.maxLength
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$schema'.maxLength]", path))
     return res
 
 # check json_model_3_map_maximum (.'$schema'.maximum)
 def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.maximum
-    res = isinstance(val, (int, float)) and not isinstance(val, bool)
+    res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1.0 loose float [.'$schema'.maximum]", path))
     return res
 
 # check json_model_3_map_maximumCanEqual (.'$schema'.maximumCanEqual)
 def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.maximumCanEqual
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$schema'.maximumCanEqual]", path))
     return res
 
 # check json_model_3_map_minItems (.'$schema'.minItems)
 def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.minItems
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$schema'.minItems]", path))
     return res
 
 # check json_model_3_map_minLength (.'$schema'.minLength)
 def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.minLength
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$schema'.minLength]", path))
     return res
 
 # check json_model_3_map_minimum (.'$schema'.minimum)
 def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.minimum
-    res = isinstance(val, (int, float)) and not isinstance(val, bool)
+    res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1.0 loose float [.'$schema'.minimum]", path))
     return res
 
 # check json_model_3_map_minimumCanEqual (.'$schema'.minimumCanEqual)
 def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.minimumCanEqual
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$schema'.minimumCanEqual]", path))
     return res
 
 # check json_model_3_map_optional (.'$schema'.optional)
 def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.optional
-    res = isinstance(val, bool)
+    res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$schema'.optional]", path))
     return res
 
 # check json_model_3_map_pattern (.'$schema'.pattern)
 def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.pattern
-    res = is_valid_regex(val, path, rep)
+    res: bool = is_valid_regex(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $REGEX [.'$schema'.pattern]", path))
     return res
@@ -309,10 +287,9 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_requires (.'$schema'.requires)
 def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.requires
     # .'$schema'.requires.'|'.0
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.requires.'|'.0]", path))
     if not res:
@@ -328,19 +305,17 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_title (.'$schema'.title)
 def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.title
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.title]", path))
     return res
 
 # check json_model_3_map_type (.'$schema'.type)
 def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.type
     # .'$schema'.type.'|'.0
-    res = json_model_4(val, path, rep)
+    res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $allTypes [.'$schema'.type.'|'.0]", path))
     if not res:
@@ -400,9 +375,8 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_3(val, path, rep)
+    res: bool = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $schema [.]", path))
     return res
@@ -410,9 +384,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $schema#allTypes (.'$schema#allTypes')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema#allTypes'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$schema#allTypes'.'|']", path))
     return res

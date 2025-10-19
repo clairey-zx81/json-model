@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $b (.'$b')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$b'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "b";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "b";
     if (! res)
     {
         rep !== null && rep.push(["unexpected _b [.'$b']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $Bb (.'$Bb')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Bb'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$Bb']", path])
@@ -145,9 +143,8 @@ function json_model_1(val, path, rep)
 // check $Rr#Aa (.'$Rr#Aa')
 function json_model_7(val, path, rep)
 {
-    let res;
     // .'$Rr#Aa'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$Rr#Aa']", path])

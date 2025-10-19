@@ -27,10 +27,9 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # "/^((file|https?)://.*|\\./.+|\\.\\./.+)$/"
-    res = isinstance(val, str) and _jm_re_0(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /^((file|https?)://.*|\\./.+|\\.\\./.+)$/ [.]", path))
     return res

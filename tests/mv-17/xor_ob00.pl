@@ -76,9 +76,8 @@ sub _jm_obj_1($$$)
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Aa'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Aa'.'|'.0
@@ -144,9 +143,8 @@ sub _jm_obj_3($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Bb'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Bb'.'|'.0
@@ -304,10 +302,9 @@ sub _jm_obj_7($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # 4 property combinations: ac ad bc bd
     # .
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'|'.0

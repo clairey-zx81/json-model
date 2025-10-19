@@ -58,9 +58,8 @@ const size_t check_model_map_size = 7;
 // check $URI-REFERENCE (.'$URI-REFERENCE')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$URI-REFERENCE'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$URI-REFERENCE']", path);
@@ -71,10 +70,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $schemaArray (.'$schemaArray')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$schemaArray'
     // .'$schemaArray'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_0_idx;
@@ -111,9 +109,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $simpleTypes (.'$simpleTypes')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$simpleTypes'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 7);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 7);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$simpleTypes'.'|']", path);
@@ -124,10 +121,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $arrayTypes (.'$arrayTypes')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$arrayTypes'
     // .'$arrayTypes'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_1_idx;
@@ -163,9 +159,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_$comment (.'$ObjectSchema'.'$comment')
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.'$comment'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ObjectSchema'.'$comment']", path);
@@ -176,9 +171,8 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_$schema (.'$ObjectSchema'.'$schema')
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.'$schema'
-    res = jm_is_valid_url(json_string_value(val), path, rep);
+    bool res = jm_is_valid_url(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $URI [.'$ObjectSchema'.'$schema']", path);
@@ -189,18 +183,16 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_const (.'$ObjectSchema'.const)
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.const
-    res = true;
+    bool res = true;
     return res;
 }
 
 // check json_model_6_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.contentEncoding
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ObjectSchema'.contentEncoding]", path);
@@ -211,9 +203,8 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_contentMediaType (.'$ObjectSchema'.contentMediaType)
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.contentMediaType
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ObjectSchema'.contentMediaType]", path);
@@ -224,9 +215,8 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_default (.'$ObjectSchema'.default)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.default
-    res = true;
+    bool res = true;
     return res;
 }
 
@@ -321,9 +311,8 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_description (.'$ObjectSchema'.description)
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.description
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ObjectSchema'.description]", path);
@@ -334,10 +323,9 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_enum (.'$ObjectSchema'.enum)
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.enum
     // .'$ObjectSchema'.enum.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$ObjectSchema'.enum.'@']", path);
@@ -357,9 +345,8 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_examples (.'$ObjectSchema'.examples)
 static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.examples
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$ObjectSchema'.examples]", path);
@@ -370,9 +357,8 @@ static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_exclusiveMaximum (.'$ObjectSchema'.exclusiveMaximum)
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.exclusiveMaximum
-    res = json_is_number(val);
+    bool res = json_is_number(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$ObjectSchema'.exclusiveMaximum]", path);
@@ -383,9 +369,8 @@ static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_exclusiveMinimum (.'$ObjectSchema'.exclusiveMinimum)
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.exclusiveMinimum
-    res = json_is_number(val);
+    bool res = json_is_number(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$ObjectSchema'.exclusiveMinimum]", path);
@@ -396,9 +381,8 @@ static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_format (.'$ObjectSchema'.format)
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.format
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ObjectSchema'.format]", path);
@@ -409,10 +393,9 @@ static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_items (.'$ObjectSchema'.items)
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.items
     // .'$ObjectSchema'.items.'|'.0
-    res = json_model_7(val, path, rep);
+    bool res = json_model_7(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path);
@@ -440,9 +423,8 @@ static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_maxItems (.'$ObjectSchema'.maxItems)
 static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.maxItems
-    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
+    bool res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxItems]", path);
@@ -453,9 +435,8 @@ static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_maxLength (.'$ObjectSchema'.maxLength)
 static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.maxLength
-    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
+    bool res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxLength]", path);
@@ -466,9 +447,8 @@ static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_maxProperties (.'$ObjectSchema'.maxProperties)
 static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.maxProperties
-    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
+    bool res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxProperties]", path);
@@ -479,9 +459,8 @@ static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_maximum (.'$ObjectSchema'.maximum)
 static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.maximum
-    res = json_is_number(val);
+    bool res = json_is_number(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$ObjectSchema'.maximum]", path);
@@ -492,9 +471,8 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_minItems (.'$ObjectSchema'.minItems)
 static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.minItems
-    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
+    bool res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minItems]", path);
@@ -505,9 +483,8 @@ static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_minLength (.'$ObjectSchema'.minLength)
 static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.minLength
-    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
+    bool res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minLength]", path);
@@ -518,9 +495,8 @@ static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_minProperties (.'$ObjectSchema'.minProperties)
 static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.minProperties
-    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
+    bool res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minProperties]", path);
@@ -531,9 +507,8 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_minimum (.'$ObjectSchema'.minimum)
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.minimum
-    res = json_is_number(val);
+    bool res = json_is_number(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$ObjectSchema'.minimum]", path);
@@ -544,9 +519,8 @@ static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_multipleOf (.'$ObjectSchema'.multipleOf)
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.multipleOf
-    res = json_is_number(val) && json_number_value(val) > 0.0;
+    bool res = json_is_number(val) && json_number_value(val) > 0.0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 1.0 loose float [.'$ObjectSchema'.multipleOf]", path);
@@ -557,9 +531,8 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_pattern (.'$ObjectSchema'.pattern)
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.pattern
-    res = jm_is_valid_regex(json_string_value(val), false, path, rep);
+    bool res = jm_is_valid_regex(json_string_value(val), false, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$ObjectSchema'.pattern]", path);
@@ -632,9 +605,8 @@ static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_readOnly (.'$ObjectSchema'.readOnly)
 static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.readOnly
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$ObjectSchema'.readOnly]", path);
@@ -645,9 +617,8 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_required (.'$ObjectSchema'.required)
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.required
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_3_idx;
@@ -674,9 +645,8 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_title (.'$ObjectSchema'.title)
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.title
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ObjectSchema'.title]", path);
@@ -687,10 +657,9 @@ static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_type (.'$ObjectSchema'.type)
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.type
     // .'$ObjectSchema'.type.'|'.0
-    res = json_model_4(val, path, rep);
+    bool res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path);
@@ -718,9 +687,8 @@ static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.uniqueItems
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$ObjectSchema'.uniqueItems]", path);
@@ -731,9 +699,8 @@ static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_6_map_writeOnly (.'$ObjectSchema'.writeOnly)
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ObjectSchema'.writeOnly
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$ObjectSchema'.writeOnly]", path);
@@ -782,10 +749,9 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Schema (.'$Schema')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Schema'
     // .'$Schema'.'|'.0
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$Schema'.'|'.0]", path);
@@ -813,11 +779,10 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // JSON Model for JSON Schema Draft 07 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     // .
     // .'@'
-    res = json_model_7(val, path, rep);
+    bool res = json_model_7(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'@']", path);

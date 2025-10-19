@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $n (.'$n')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$n'
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["unexpected =null [.'$n']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $x (.'$x')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$x'
-    res = ((typeof val === 'number' || val instanceof Number)) && val == 10.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val == 10.0;
     if (! res)
     {
         rep !== null && rep.push(["unexpected =10.0 [.'$x']", path])
@@ -40,9 +38,8 @@ function json_model_3(val, path, rep)
 // check $f (.'$f')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$f'
-    res = ((typeof val === 'boolean' || val instanceof Boolean)) && val == false;
+    let res = ((typeof val === 'boolean' || val instanceof Boolean)) && val == false;
     if (! res)
     {
         rep !== null && rep.push(["unexpected =false [.'$f']", path])
@@ -228,10 +225,9 @@ function _jm_obj_4(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // ^ to | on constants
     // .
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])

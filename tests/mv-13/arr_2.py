@@ -24,9 +24,8 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = isinstance(val, list) and len(val) == 2
+    res: bool = isinstance(val, list) and len(val) == 2
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # .0

@@ -16,10 +16,9 @@ var check_model_map = new Map()
 // check $position (.'$position')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$position'
     // .'$position'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -54,10 +53,9 @@ function json_model_2(val, path, rep)
 // check $coord_array (.'$coord_array')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$coord_array'
     // .'$coord_array'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
@@ -92,10 +90,9 @@ function json_model_3(val, path, rep)
 // check $linear_ring (.'$linear_ring')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$linear_ring'
     // .'$linear_ring'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)

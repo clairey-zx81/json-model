@@ -90,9 +90,8 @@ public class xor_ob01 extends ModelChecker
     // check $Bb (.'$Bb')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Bb'
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$Bb'.'|']", path);
@@ -197,9 +196,8 @@ public class xor_ob01 extends ModelChecker
     // check $Cc (.'$Cc')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Cc'
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$Cc'.'|']", path);
@@ -414,10 +412,9 @@ public class xor_ob01 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // CAUTION ba is currently valid…
         // .
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'|']", path);

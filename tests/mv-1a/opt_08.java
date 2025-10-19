@@ -22,9 +22,8 @@ public class opt_08 extends ModelChecker
     // check $one (.'$one')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$one'
-        res = json.isInteger(val) && json.asLong(val) == 1;
+        boolean res = json.isInteger(val) && json.asLong(val) == 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected =1 [.'$one']", path);
@@ -35,9 +34,8 @@ public class opt_08 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isInteger(val) && json.asLong(val) == 1;
+        boolean res = json.isInteger(val) && json.asLong(val) == 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected =1 [.]", path);

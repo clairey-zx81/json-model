@@ -735,10 +735,9 @@ sub json_model_9($$$)
 sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$stringArray'
     # .'$stringArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -764,10 +763,9 @@ sub json_model_10($$$)
 sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schemaArray'
     # .'$schemaArray'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -1525,10 +1523,9 @@ sub _jm_f_59($$$)
 sub _jm_f_60($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$TightSchema'.'|'.2.exclusiveMaximum
     # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0
-    $res = jm_is_integer($val);
+    my $res = jm_is_integer($val);
     if (! $res)
     {
         # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
@@ -1541,10 +1538,9 @@ sub _jm_f_60($$$)
 sub _jm_f_61($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$TightSchema'.'|'.2.exclusiveMinimum
     # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0
-    $res = jm_is_integer($val);
+    my $res = jm_is_integer($val);
     if (! $res)
     {
         # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
@@ -1557,10 +1553,9 @@ sub _jm_f_61($$$)
 sub _jm_f_62($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$TightSchema'.'|'.2.maximum
     # .'$TightSchema'.'|'.2.maximum.'|'.0
-    $res = jm_is_integer($val);
+    my $res = jm_is_integer($val);
     if (! $res)
     {
         # .'$TightSchema'.'|'.2.maximum.'|'.1
@@ -1573,10 +1568,9 @@ sub _jm_f_62($$$)
 sub _jm_f_63($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$TightSchema'.'|'.2.minimum
     # .'$TightSchema'.'|'.2.minimum.'|'.0
-    $res = jm_is_integer($val);
+    my $res = jm_is_integer($val);
     if (! $res)
     {
         # .'$TightSchema'.'|'.2.minimum.'|'.1
@@ -1589,10 +1583,9 @@ sub _jm_f_63($$$)
 sub _jm_f_64($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$TightSchema'.'|'.2.multipleOf
     # .'$TightSchema'.'|'.2.multipleOf.'|'.0
-    $res = jm_is_integer($val) && $val >= 1;
+    my $res = jm_is_integer($val) && $val >= 1;
     if (! $res)
     {
         # .'$TightSchema'.'|'.2.multipleOf.'|'.1
@@ -2800,10 +2793,9 @@ sub json_model_15($$$)
 sub json_model_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Schema'
     # .'$Schema'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$Schema'.'|'.1

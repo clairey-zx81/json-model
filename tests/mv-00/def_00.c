@@ -18,9 +18,8 @@ const size_t check_model_map_size = 2;
 // check $pos (.'$pos')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$pos'
-    res = json_is_real(val) && json_real_value(val) >= 0.0;
+    bool res = json_is_real(val) && json_real_value(val) >= 0.0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$pos']", path);
@@ -31,9 +30,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_2(val, path, rep);
+    bool res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $pos [.]", path);

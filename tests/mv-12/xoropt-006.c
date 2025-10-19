@@ -24,9 +24,8 @@ const size_t check_model_map_size = 2;
 // check $None (.'$None')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$None'
-    res = false;
+    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$None']", path);
     return res;
 }
@@ -145,9 +144,8 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_is_object(val);
+    bool res = json_is_object(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);

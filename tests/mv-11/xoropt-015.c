@@ -24,10 +24,9 @@ const size_t check_model_map_size = 6;
 // check $Vv (.'$Vv')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Vv'
     // .'$Vv'.'|'.0
-    res = json_is_integer(val);
+    bool res = json_is_integer(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$Vv'.'|'.0]", path);
@@ -245,9 +244,8 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
 // check $Ee (.'$Ee')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Ee'
-    res = json_is_object(val);
+    bool res = json_is_object(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected type [.'$Ee'.'|']", path);
@@ -284,10 +282,9 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Mm (.'$Mm')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Mm'
     // .'$Mm'.'|'.0
-    res = json_model_2(val, path, rep);
+    bool res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Vv [.'$Mm'.'|'.0]", path);
@@ -315,9 +312,8 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_6(val, path, rep);
+    bool res = json_model_6(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Mm [.]", path);

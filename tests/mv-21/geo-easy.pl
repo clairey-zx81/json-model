@@ -34,10 +34,9 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$position'
     # .'$position'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -63,10 +62,9 @@ sub json_model_2($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$coord_array'
     # .'$coord_array'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -92,10 +90,9 @@ sub json_model_3($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$linear_ring'
     # .'$linear_ring'.'@'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$val)

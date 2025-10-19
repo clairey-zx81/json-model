@@ -14,10 +14,9 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // .'@'
-    res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0.0 strict float [.'@']", path])

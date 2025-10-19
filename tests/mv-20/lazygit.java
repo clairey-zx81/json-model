@@ -59,9 +59,8 @@ public class lazygit extends ModelChecker
     // check $color (.'$color')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$color'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$color'.'|']", path);
@@ -95,10 +94,9 @@ public class lazygit extends ModelChecker
     // check $colorArray (.'$colorArray')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$colorArray'
         // .'$colorArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -136,10 +134,9 @@ public class lazygit extends ModelChecker
     // check $keybinding (.'$keybinding')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$keybinding'
         // .'$keybinding'.'|'.0
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$keybinding'.'|'.0]", path);
@@ -168,9 +165,8 @@ public class lazygit extends ModelChecker
     // check $custom-commands-prompts-type-property (.'$custom-commands-prompts-type-property')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$custom-commands-prompts-type-property'
-        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_1_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$custom-commands-prompts-type-property'.'|']", path);
@@ -181,9 +177,8 @@ public class lazygit extends ModelChecker
     // check $custom-commands-prompts-title-property (.'$custom-commands-prompts-title-property')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$custom-commands-prompts-title-property'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$custom-commands-prompts-title-property']", path);
@@ -194,9 +189,8 @@ public class lazygit extends ModelChecker
     // check $custom-commands-prompts-key-property (.'$custom-commands-prompts-key-property')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$custom-commands-prompts-key-property'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$custom-commands-prompts-key-property']", path);
@@ -207,10 +201,9 @@ public class lazygit extends ModelChecker
     // check $neString (.'$neString')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$neString'
         // .'$neString'.'@'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$neString'.'@']", path);
@@ -230,10 +223,9 @@ public class lazygit extends ModelChecker
     // check $stringArray (.'$stringArray')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$stringArray'
         // .'$stringArray'.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -922,9 +914,8 @@ public class lazygit extends ModelChecker
     // check json_model_1_map_confirmOnQuit (.confirmOnQuit)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .confirmOnQuit
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.confirmOnQuit]", path);
@@ -973,9 +964,8 @@ public class lazygit extends ModelChecker
     // check _jm_obj_7_map_description (.customCommands.'@'.0.description)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .customCommands.'@'.0.description
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.description]", path);
@@ -986,9 +976,8 @@ public class lazygit extends ModelChecker
     // check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .customCommands.'@'.0.loadingText
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.loadingText]", path);
@@ -999,9 +988,8 @@ public class lazygit extends ModelChecker
     // check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .customCommands.'@'.0.prompts
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_4_idx = -1;
@@ -1030,9 +1018,8 @@ public class lazygit extends ModelChecker
     // check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .customCommands.'@'.0.showOutput
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.showOutput]", path);
@@ -1043,9 +1030,8 @@ public class lazygit extends ModelChecker
     // check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .customCommands.'@'.0.stream
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.stream]", path);
@@ -1056,9 +1042,8 @@ public class lazygit extends ModelChecker
     // check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
-        boolean res;
         // .customCommands.'@'.0.subprocess
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.subprocess]", path);
@@ -1163,10 +1148,9 @@ public class lazygit extends ModelChecker
     // check json_model_1_map_customCommands (.customCommands)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .customCommands
         // .customCommands.'@'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_3_idx = -1;
@@ -1203,9 +1187,8 @@ public class lazygit extends ModelChecker
     // check json_model_1_map_disableStartupPopups (.disableStartupPopups)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .disableStartupPopups
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.disableStartupPopups]", path);
@@ -1216,9 +1199,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.allBranchesLogCmd
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.git.allBranchesLogCmd]", path);
@@ -1229,9 +1211,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_autoFetch (.git.autoFetch)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.autoFetch
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.git.autoFetch]", path);
@@ -1242,9 +1223,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_autoRefresh (.git.autoRefresh)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.autoRefresh
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.git.autoRefresh]", path);
@@ -1255,9 +1235,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.branchLogCmd
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.git.branchLogCmd]", path);
@@ -1394,9 +1373,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_diffContextSize (.git.diffContextSize)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.diffContextSize
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.git.diffContextSize]", path);
@@ -1407,9 +1385,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.disableForcePushing
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.git.disableForcePushing]", path);
@@ -1420,9 +1397,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_fetchAll (.git.fetchAll)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.fetchAll
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.git.fetchAll]", path);
@@ -1545,9 +1521,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_overrideGpg (.git.overrideGpg)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.overrideGpg
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.git.overrideGpg]", path);
@@ -1633,9 +1608,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_parseEmoji (.git.parseEmoji)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.parseEmoji
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.git.parseEmoji]", path);
@@ -1646,9 +1620,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
-        boolean res;
         // .git.skipHookPrefix
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.git.skipHookPrefix]", path);
@@ -1694,9 +1667,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.animateExplosion
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.animateExplosion]", path);
@@ -1744,9 +1716,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_border (.gui.border)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.border
-        res = json.isScalar(val) && _jm_cst_7_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_7_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.gui.border.'|']", path);
@@ -1793,9 +1764,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.commandLogSize
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.gui.commandLogSize]", path);
@@ -1843,9 +1813,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.expandFocusedSidePanel
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.expandFocusedSidePanel]", path);
@@ -1857,9 +1826,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_language (.gui.language)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.language
-        res = json.isScalar(val) && _jm_cst_8_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_8_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.gui.language.'|']", path);
@@ -1871,9 +1839,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.mainPanelSplitMode
-        res = json.isScalar(val) && _jm_cst_9_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_9_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.gui.mainPanelSplitMode.'|']", path);
@@ -1884,9 +1851,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.mouseEvents
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.mouseEvents]", path);
@@ -1898,9 +1864,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.nerdFontsVersion
-        res = json.isScalar(val) && _jm_cst_10_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_10_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.gui.nerdFontsVersion.'|']", path);
@@ -1933,9 +1898,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.scrollHeight
-        res = json.isInteger(val) && json.asLong(val) >= 1;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.gui.scrollHeight]", path);
@@ -1946,9 +1910,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.scrollPastBottom
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.scrollPastBottom]", path);
@@ -1959,9 +1922,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.shortTimeFormat
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.gui.shortTimeFormat]", path);
@@ -1972,9 +1934,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.showBottomLine
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.showBottomLine]", path);
@@ -1985,9 +1946,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.showBranchCommitHash
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.showBranchCommitHash]", path);
@@ -1998,9 +1958,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.showCommandLog
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.showCommandLog]", path);
@@ -2011,9 +1970,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_showFileTree (.gui.showFileTree)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.showFileTree
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.showFileTree]", path);
@@ -2024,9 +1982,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_showListFooter (.gui.showListFooter)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.showListFooter
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.showListFooter]", path);
@@ -2037,9 +1994,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.showRandomTip
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.showRandomTip]", path);
@@ -2050,10 +2006,9 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.sidePanelWidth
         // .gui.sidePanelWidth.'@'
-        res = json.isDouble(val) && json.asDouble(val) >= 0.0;
+        boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0.0 strict float [.gui.sidePanelWidth.'@']", path);
@@ -2073,9 +2028,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.skipDiscardChangeWarning
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.skipDiscardChangeWarning]", path);
@@ -2086,9 +2040,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.skipRewordInEditorWarning
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.skipRewordInEditorWarning]", path);
@@ -2099,9 +2052,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.skipStashWarning
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.gui.skipStashWarning]", path);
@@ -2113,9 +2065,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_splitDiff (.gui.splitDiff)
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.splitDiff
-        res = json.isScalar(val) && _jm_cst_11_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_11_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.gui.splitDiff.'|']", path);
@@ -2161,9 +2112,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_timeFormat (.gui.timeFormat)
     public boolean _jm_f_53(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.timeFormat
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.gui.timeFormat]", path);
@@ -2175,9 +2125,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_26_map_windowSize (.gui.windowSize)
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
-        boolean res;
         // .gui.windowSize
-        res = json.isScalar(val) && _jm_cst_12_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_12_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.gui.windowSize.'|']", path);
@@ -2597,9 +2546,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
     public boolean _jm_f_65(Object val, Path path, Report rep)
     {
-        boolean res;
         // .keybinding.universal.jumpToBlock
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.keybinding.universal.jumpToBlock]", path);
@@ -2610,9 +2558,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
     public boolean _jm_f_66(Object val, Path path, Report rep)
     {
-        boolean res;
         // .keybinding.universal.optionMenu
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.keybinding.universal.optionMenu]", path);
@@ -2694,9 +2641,8 @@ public class lazygit extends ModelChecker
     // check json_model_1_map_notARepository (.notARepository)
     public boolean _jm_f_67(Object val, Path path, Report rep)
     {
-        boolean res;
         // .notARepository
-        res = json.isScalar(val) && _jm_cst_13_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_13_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.notARepository.'|']", path);
@@ -2707,9 +2653,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
     public boolean _jm_f_69(Object val, Path path, Report rep)
     {
-        boolean res;
         // .os.copyToClipboardCmd
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.os.copyToClipboardCmd]", path);
@@ -2720,9 +2665,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_68_map_edit (.os.edit)
     public boolean _jm_f_70(Object val, Path path, Report rep)
     {
-        boolean res;
         // .os.edit
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.os.edit]", path);
@@ -2733,9 +2677,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_68_map_editAtLine (.os.editAtLine)
     public boolean _jm_f_71(Object val, Path path, Report rep)
     {
-        boolean res;
         // .os.editAtLine
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.os.editAtLine]", path);
@@ -2746,9 +2689,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
     public boolean _jm_f_72(Object val, Path path, Report rep)
     {
-        boolean res;
         // .os.editAtLineAndWait
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.os.editAtLineAndWait]", path);
@@ -2760,9 +2702,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_68_map_editPreset (.os.editPreset)
     public boolean _jm_f_73(Object val, Path path, Report rep)
     {
-        boolean res;
         // .os.editPreset
-        res = json.isScalar(val) && _jm_cst_14_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_14_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.os.editPreset.'|']", path);
@@ -2795,9 +2736,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_68_map_open (.os.open)
     public boolean _jm_f_74(Object val, Path path, Report rep)
     {
-        boolean res;
         // .os.open
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.os.open]", path);
@@ -2808,9 +2748,8 @@ public class lazygit extends ModelChecker
     // check _jm_f_68_map_openLink (.os.openLink)
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
-        boolean res;
         // .os.openLink
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.os.openLink]", path);
@@ -2856,9 +2795,8 @@ public class lazygit extends ModelChecker
     // check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
     public boolean _jm_f_76(Object val, Path path, Report rep)
     {
-        boolean res;
         // .promptToReturnFromSubprocess
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.promptToReturnFromSubprocess]", path);
@@ -2869,9 +2807,8 @@ public class lazygit extends ModelChecker
     // check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
     public boolean _jm_f_77(Object val, Path path, Report rep)
     {
-        boolean res;
         // .quitOnTopLevelReturn
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.quitOnTopLevelReturn]", path);

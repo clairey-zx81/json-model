@@ -22,9 +22,8 @@ public class ex_02 extends ModelChecker
     // check $x1 (.'$x1')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$x1'
-        res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _Susie [.'$x1']", path);
@@ -35,9 +34,8 @@ public class ex_02 extends ModelChecker
     // check $x2 (.'$x2')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$x2'
-        res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _Susie [.'$x2']", path);
@@ -48,9 +46,8 @@ public class ex_02 extends ModelChecker
     // check $x3 (.'$x3')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$x3'
-        res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _Susie [.'$x3']", path);
@@ -61,9 +58,8 @@ public class ex_02 extends ModelChecker
     // check $__external_0 (.'$__external_0')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$__external_0'
-        res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _Susie [.'$__external_0']", path);
@@ -74,9 +70,8 @@ public class ex_02 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json.isArray(val) && json.arrayLength(val) == 4;
+        boolean res = json.isArray(val) && json.arrayLength(val) == 4;
         if (res)
         {
             Path lpath_0 = new Path(0, path);

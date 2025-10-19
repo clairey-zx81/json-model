@@ -2988,11 +2988,10 @@ function json_model_48(val, path, rep)
 // check $any_platform (.'$any_platform')
 function json_model_49(val, path, rep)
 {
-    let res;
     // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     // .'$any_platform'
     // .'$any_platform'.'|'.0
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path])
@@ -6089,9 +6088,8 @@ function _jm_obj_46(val, path, rep)
 // check $platforms (.'$platforms')
 function json_model_50(val, path, rep)
 {
-    let res;
     // .'$platforms'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_47_idx = 0; arr_47_idx < val.length; arr_47_idx++)
@@ -6551,18 +6549,16 @@ function json_model_50(val, path, rep)
 // check json_model_51_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelCollection'.cloud_platforms
-    res = true;
+    let res = true;
     return res;
 }
 
 // check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
 function _jm_f_1(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelCollection'.galaxy_tags
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_95_idx = 0; arr_95_idx < val.length; arr_95_idx++)
@@ -6588,9 +6584,8 @@ function _jm_f_1(val, path, rep)
 // check json_model_51_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
 function _jm_f_2(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelCollection'.min_ansible_version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", path])
@@ -6603,10 +6598,9 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check json_model_51_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
 function _jm_f_3(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelCollection'.namespace
     // "/^[a-z][-a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", path])
@@ -6619,10 +6613,9 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 // check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelCollection'.role_name
     // "/^[a-z][a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", path])
@@ -6633,9 +6626,8 @@ function _jm_f_4(val, path, rep)
 // check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
 function _jm_f_5(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelCollection'.video_links
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", path])
@@ -6678,9 +6670,8 @@ function json_model_51(val, path, rep)
 // check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
 function _jm_f_6(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelLoose'.author
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.author]", path])
@@ -6691,9 +6682,8 @@ function _jm_f_6(val, path, rep)
 // check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
 function _jm_f_7(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelLoose'.company
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.company]", path])
@@ -6704,9 +6694,8 @@ function _jm_f_7(val, path, rep)
 // check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
 function _jm_f_8(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelLoose'.github_branch
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", path])
@@ -6717,9 +6706,8 @@ function _jm_f_8(val, path, rep)
 // check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
 function _jm_f_9(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelLoose'.issue_tracker_url
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", path])
@@ -6730,9 +6718,8 @@ function _jm_f_9(val, path, rep)
 // check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
 function _jm_f_10(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelLoose'.license
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.license]", path])
@@ -6743,9 +6730,8 @@ function _jm_f_10(val, path, rep)
 // check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
 function _jm_f_11(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelLoose'.min_ansible_container_version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", path])
@@ -6815,18 +6801,16 @@ function json_model_52(val, path, rep)
 // check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
 function _jm_f_12(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.cloud_platforms
-    res = true;
+    let res = true;
     return res;
 }
 
 // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
 function _jm_f_13(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.company
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.company]", path])
@@ -6837,9 +6821,8 @@ function _jm_f_13(val, path, rep)
 // check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
 function _jm_f_14(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.galaxy_tags
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_96_idx = 0; arr_96_idx < val.length; arr_96_idx++)
@@ -6865,9 +6848,8 @@ function _jm_f_14(val, path, rep)
 // check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
 function _jm_f_15(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.github_branch
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", path])
@@ -6878,9 +6860,8 @@ function _jm_f_15(val, path, rep)
 // check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
 function _jm_f_16(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.issue_tracker_url
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", path])
@@ -6891,9 +6872,8 @@ function _jm_f_16(val, path, rep)
 // check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
 function _jm_f_17(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", path])
@@ -6904,10 +6884,9 @@ function _jm_f_17(val, path, rep)
 // check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
 function _jm_f_18(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.namespace
     // "/^[a-z][-a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", path])
@@ -6918,10 +6897,9 @@ function _jm_f_18(val, path, rep)
 // check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
 function _jm_f_19(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.role_name
     // "/^[a-z][a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", path])
@@ -6932,9 +6910,8 @@ function _jm_f_19(val, path, rep)
 // check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
 function _jm_f_20(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModelStandalone'.video_links
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", path])
@@ -7071,9 +7048,8 @@ function json_model_53(val, path, rep)
 // check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
 function _jm_f_21(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.author
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.author]", path])
@@ -7084,18 +7060,16 @@ function _jm_f_21(val, path, rep)
 // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
 function _jm_f_22(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-    res = true;
+    let res = true;
     return res;
 }
 
 // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
 function _jm_f_23(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.company
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.company]", path])
@@ -7106,9 +7080,8 @@ function _jm_f_23(val, path, rep)
 // check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
 function _jm_f_24(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_97_idx = 0; arr_97_idx < val.length; arr_97_idx++)
@@ -7134,9 +7107,8 @@ function _jm_f_24(val, path, rep)
 // check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
 function _jm_f_25(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.github_branch
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", path])
@@ -7147,9 +7119,8 @@ function _jm_f_25(val, path, rep)
 // check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
 function _jm_f_26(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", path])
@@ -7160,9 +7131,8 @@ function _jm_f_26(val, path, rep)
 // check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
 function _jm_f_27(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.license
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", path])
@@ -7173,9 +7143,8 @@ function _jm_f_27(val, path, rep)
 // check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
 function _jm_f_28(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", path])
@@ -7186,9 +7155,8 @@ function _jm_f_28(val, path, rep)
 // check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
 function _jm_f_29(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", path])
@@ -7199,10 +7167,9 @@ function _jm_f_29(val, path, rep)
 // check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
 function _jm_f_30(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.namespace
     // "/^[a-z][-a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", path])
@@ -7213,10 +7180,9 @@ function _jm_f_30(val, path, rep)
 // check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
 function _jm_f_31(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.role_name
     // "/^[a-z][a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.role_name]", path])
@@ -7227,9 +7193,8 @@ function _jm_f_31(val, path, rep)
 // check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
 function _jm_f_32(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.1.video_links
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.video_links]", path])
@@ -7314,9 +7279,8 @@ function _jm_obj_47(val, path, rep)
 // check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
 function _jm_f_33(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.author
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path])
@@ -7327,18 +7291,16 @@ function _jm_f_33(val, path, rep)
 // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
 function _jm_f_34(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-    res = true;
+    let res = true;
     return res;
 }
 
 // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
 function _jm_f_35(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.company
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path])
@@ -7349,9 +7311,8 @@ function _jm_f_35(val, path, rep)
 // check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
 function _jm_f_36(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_98_idx = 0; arr_98_idx < val.length; arr_98_idx++)
@@ -7377,9 +7338,8 @@ function _jm_f_36(val, path, rep)
 // check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
 function _jm_f_37(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.github_branch
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path])
@@ -7390,9 +7350,8 @@ function _jm_f_37(val, path, rep)
 // check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
 function _jm_f_38(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path])
@@ -7403,9 +7362,8 @@ function _jm_f_38(val, path, rep)
 // check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
 function _jm_f_39(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.license
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path])
@@ -7416,9 +7374,8 @@ function _jm_f_39(val, path, rep)
 // check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
 function _jm_f_40(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path])
@@ -7429,9 +7386,8 @@ function _jm_f_40(val, path, rep)
 // check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
 function _jm_f_41(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path])
@@ -7442,10 +7398,9 @@ function _jm_f_41(val, path, rep)
 // check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
 function _jm_f_42(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.namespace
     // "/^[a-z][-a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path])
@@ -7456,10 +7411,9 @@ function _jm_f_42(val, path, rep)
 // check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
 function _jm_f_43(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.role_name
     // "/^[a-z][a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path])
@@ -7470,9 +7424,8 @@ function _jm_f_43(val, path, rep)
 // check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
 function _jm_f_44(val, path, rep)
 {
-    let res;
     // .'$GalaxyInfoModel'.'|'.2.video_links
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path])
@@ -7589,9 +7542,8 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 // check $collections (.'$collections')
 function json_model_55(val, path, rep)
 {
-    let res;
     // .'$collections'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_99_idx = 0; arr_99_idx < val.length; arr_99_idx++)
@@ -7618,10 +7570,9 @@ function json_model_55(val, path, rep)
 // check $complex_conditional (.'$complex_conditional')
 function json_model_56(val, path, rep)
 {
-    let res;
     // .'$complex_conditional'
     // .'$complex_conditional'.'|'.0
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$complex_conditional'.'|'.0]", path])
@@ -7673,9 +7624,8 @@ function json_model_56(val, path, rep)
 // check json_model_57_map_become (.'$DependencyModelLoose'.become)
 function _jm_f_45(val, path, rep)
 {
-    let res;
     // .'$DependencyModelLoose'.become
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$DependencyModelLoose'.become]", path])
@@ -7686,9 +7636,8 @@ function _jm_f_45(val, path, rep)
 // check json_model_57_map_name (.'$DependencyModelLoose'.name)
 function _jm_f_46(val, path, rep)
 {
-    let res;
     // .'$DependencyModelLoose'.name
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.name]", path])
@@ -7699,9 +7648,8 @@ function _jm_f_46(val, path, rep)
 // check json_model_57_map_role (.'$DependencyModelLoose'.role)
 function _jm_f_47(val, path, rep)
 {
-    let res;
     // .'$DependencyModelLoose'.role
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.role]", path])
@@ -7713,9 +7661,8 @@ function _jm_f_47(val, path, rep)
 // check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
 function _jm_f_48(val, path, rep)
 {
-    let res;
     // .'$DependencyModelLoose'.scm
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_64.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_64.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$DependencyModelLoose'.scm.'|']", path])
@@ -7726,9 +7673,8 @@ function _jm_f_48(val, path, rep)
 // check json_model_57_map_src (.'$DependencyModelLoose'.src)
 function _jm_f_49(val, path, rep)
 {
-    let res;
     // .'$DependencyModelLoose'.src
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.src]", path])
@@ -7739,10 +7685,9 @@ function _jm_f_49(val, path, rep)
 // check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
 function _jm_f_50(val, path, rep)
 {
-    let res;
     // .'$DependencyModelLoose'.tags
     // .'$DependencyModelLoose'.tags.'|'.0
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path])
@@ -7798,9 +7743,8 @@ function _jm_f_51(val, path, rep)
 // check json_model_57_map_version (.'$DependencyModelLoose'.version)
 function _jm_f_52(val, path, rep)
 {
-    let res;
     // .'$DependencyModelLoose'.version
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", path])
@@ -7935,10 +7879,9 @@ function _jm_obj_51(val, path, rep)
 // check $DependencyModel (.'$DependencyModel')
 function json_model_58(val, path, rep)
 {
-    let res;
     // add non-exclusive mandatory role, src or name props
     // .'$DependencyModel'
-    res = true;
+    let res = true;
     if (res)
     {
         // .'$DependencyModel'.'&'.0
@@ -8109,11 +8052,10 @@ function json_model_59(val, path, rep)
 // check $AnsibleMeta (.'$AnsibleMeta')
 function json_model_60(val, path, rep)
 {
-    let res;
     // why null?
     // .'$AnsibleMeta'
     // .'$AnsibleMeta'.'|'.0
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$AnsibleMeta'.'|'.0]", path])
@@ -8141,9 +8083,8 @@ function json_model_60(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_60(val, path, rep);
+    let res = json_model_60(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $AnsibleMeta [.]", path])

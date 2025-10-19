@@ -20,9 +20,8 @@ var check_model_map = new Map()
 // check $URI-REFERENCE (.'$URI-REFERENCE')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$URI-REFERENCE'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$URI-REFERENCE']", path])
@@ -33,9 +32,8 @@ function json_model_2(val, path, rep)
 // check json_model_3_map_$comment (.'$core'.'$comment')
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .'$core'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$core'.'$comment']", path])
@@ -71,9 +69,8 @@ function _jm_f_1(val, path, rep)
 // check json_model_3_map_$schema (.'$core'.'$schema')
 function _jm_f_2(val, path, rep)
 {
-    let res;
     // .'$core'.'$schema'
-    res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $URI [.'$core'.'$schema']", path])
@@ -149,18 +146,16 @@ function json_model_3(val, path, rep)
 // check json_model_4_map_default (.'$meta'.default)
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .'$meta'.default
-    res = true;
+    let res = true;
     return res;
 }
 
 // check json_model_4_map_deprecated (.'$meta'.deprecated)
 function _jm_f_5(val, path, rep)
 {
-    let res;
     // .'$meta'.deprecated
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$meta'.deprecated]", path])
@@ -171,9 +166,8 @@ function _jm_f_5(val, path, rep)
 // check json_model_4_map_description (.'$meta'.description)
 function _jm_f_6(val, path, rep)
 {
-    let res;
     // .'$meta'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$meta'.description]", path])
@@ -184,9 +178,8 @@ function _jm_f_6(val, path, rep)
 // check json_model_4_map_examples (.'$meta'.examples)
 function _jm_f_7(val, path, rep)
 {
-    let res;
     // .'$meta'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$meta'.examples]", path])
@@ -197,9 +190,8 @@ function _jm_f_7(val, path, rep)
 // check json_model_4_map_readOnly (.'$meta'.readOnly)
 function _jm_f_8(val, path, rep)
 {
-    let res;
     // .'$meta'.readOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$meta'.readOnly]", path])
@@ -210,9 +202,8 @@ function _jm_f_8(val, path, rep)
 // check json_model_4_map_title (.'$meta'.title)
 function _jm_f_9(val, path, rep)
 {
-    let res;
     // .'$meta'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$meta'.title]", path])
@@ -223,9 +214,8 @@ function _jm_f_9(val, path, rep)
 // check json_model_4_map_writeOnly (.'$meta'.writeOnly)
 function _jm_f_10(val, path, rep)
 {
-    let res;
     // .'$meta'.writeOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$meta'.writeOnly]", path])
@@ -407,9 +397,8 @@ function json_model_7(val, path, rep)
 // check $simpleTypes (.'$simpleTypes')
 function json_model_8(val, path, rep)
 {
-    let res;
     // .'$simpleTypes'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$simpleTypes'.'|']", path])
@@ -420,10 +409,9 @@ function json_model_8(val, path, rep)
 // check $simpleTypesArray (.'$simpleTypesArray')
 function json_model_9(val, path, rep)
 {
-    let res;
     // .'$simpleTypesArray'
     // .'$simpleTypesArray'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -458,10 +446,9 @@ function json_model_9(val, path, rep)
 // check $stringArray (.'$stringArray')
 function json_model_10(val, path, rep)
 {
-    let res;
     // .'$stringArray'
     // .'$stringArray'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
@@ -495,9 +482,8 @@ function json_model_10(val, path, rep)
 // check $nonNegativeInteger (.'$nonNegativeInteger')
 function json_model_11(val, path, rep)
 {
-    let res;
     // .'$nonNegativeInteger'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 loose int [.'$nonNegativeInteger']", path])
@@ -508,9 +494,8 @@ function json_model_11(val, path, rep)
 // check json_model_12_map_const (.'$validation'.const)
 function _jm_f_11(val, path, rep)
 {
-    let res;
     // .'$validation'.const
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -542,9 +527,8 @@ function _jm_f_12(val, path, rep)
 // check json_model_12_map_enum (.'$validation'.enum)
 function _jm_f_13(val, path, rep)
 {
-    let res;
     // .'$validation'.enum
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$validation'.enum]", path])
@@ -555,9 +539,8 @@ function _jm_f_13(val, path, rep)
 // check json_model_12_map_exclusiveMaximum (.'$validation'.exclusiveMaximum)
 function _jm_f_14(val, path, rep)
 {
-    let res;
     // .'$validation'.exclusiveMaximum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'$validation'.exclusiveMaximum]", path])
@@ -568,9 +551,8 @@ function _jm_f_14(val, path, rep)
 // check json_model_12_map_exclusiveMinimum (.'$validation'.exclusiveMinimum)
 function _jm_f_15(val, path, rep)
 {
-    let res;
     // .'$validation'.exclusiveMinimum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'$validation'.exclusiveMinimum]", path])
@@ -581,9 +563,8 @@ function _jm_f_15(val, path, rep)
 // check json_model_12_map_maximum (.'$validation'.maximum)
 function _jm_f_16(val, path, rep)
 {
-    let res;
     // .'$validation'.maximum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'$validation'.maximum]", path])
@@ -594,9 +575,8 @@ function _jm_f_16(val, path, rep)
 // check json_model_12_map_minimum (.'$validation'.minimum)
 function _jm_f_17(val, path, rep)
 {
-    let res;
     // .'$validation'.minimum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'$validation'.minimum]", path])
@@ -607,9 +587,8 @@ function _jm_f_17(val, path, rep)
 // check json_model_12_map_multipleOf (.'$validation'.multipleOf)
 function _jm_f_18(val, path, rep)
 {
-    let res;
     // .'$validation'.multipleOf
-    res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
     if (! res)
     {
         rep !== null && rep.push(["not a 1.0 loose float [.'$validation'.multipleOf]", path])
@@ -620,9 +599,8 @@ function _jm_f_18(val, path, rep)
 // check json_model_12_map_pattern (.'$validation'.pattern)
 function _jm_f_19(val, path, rep)
 {
-    let res;
     // .'$validation'.pattern
-    res = runtime.jm_is_valid_regex(val, false);
+    let res = runtime.jm_is_valid_regex(val, false);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $REGEX [.'$validation'.pattern]", path])
@@ -633,10 +611,9 @@ function _jm_f_19(val, path, rep)
 // check json_model_12_map_type (.'$validation'.type)
 function _jm_f_20(val, path, rep)
 {
-    let res;
     // .'$validation'.type
     // .'$validation'.type.'|'.0
-    res = json_model_8(val, path, rep);
+    let res = json_model_8(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $simpleTypes [.'$validation'.type.'|'.0]", path])
@@ -664,9 +641,8 @@ function _jm_f_20(val, path, rep)
 // check json_model_12_map_uniqueItems (.'$validation'.uniqueItems)
 function _jm_f_21(val, path, rep)
 {
-    let res;
     // .'$validation'.uniqueItems
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$validation'.uniqueItems]", path])
@@ -709,10 +685,9 @@ function json_model_12(val, path, rep)
 // check $schemaArray (.'$schemaArray')
 function json_model_13(val, path, rep)
 {
-    let res;
     // .'$schemaArray'
     // .'$schemaArray'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
@@ -911,9 +886,8 @@ function json_model_14(val, path, rep)
 // check json_model_15_map_$comment (.'$ObjectSchema'.'$comment')
 function _jm_f_26(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.'$comment']", path])
@@ -949,9 +923,8 @@ function _jm_f_27(val, path, rep)
 // check json_model_15_map_$schema (.'$ObjectSchema'.'$schema')
 function _jm_f_28(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.'$schema'
-    res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $URI [.'$ObjectSchema'.'$schema']", path])
@@ -995,18 +968,16 @@ function _jm_f_29(val, path, rep)
 // check json_model_15_map_const (.'$ObjectSchema'.const)
 function _jm_f_30(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.const
-    res = true;
+    let res = true;
     return res;
 }
 
 // check json_model_15_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
 function _jm_f_31(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.contentEncoding
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.contentEncoding]", path])
@@ -1017,9 +988,8 @@ function _jm_f_31(val, path, rep)
 // check json_model_15_map_contentMediaType (.'$ObjectSchema'.contentMediaType)
 function _jm_f_32(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.contentMediaType
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.contentMediaType]", path])
@@ -1030,9 +1000,8 @@ function _jm_f_32(val, path, rep)
 // check json_model_15_map_default (.'$ObjectSchema'.default)
 function _jm_f_33(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.default
-    res = true;
+    let res = true;
     return res;
 }
 
@@ -1089,9 +1058,8 @@ function _jm_f_35(val, path, rep)
 // check json_model_15_map_deprecated (.'$ObjectSchema'.deprecated)
 function _jm_f_36(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.deprecated
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$ObjectSchema'.deprecated]", path])
@@ -1102,9 +1070,8 @@ function _jm_f_36(val, path, rep)
 // check json_model_15_map_description (.'$ObjectSchema'.description)
 function _jm_f_37(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.description]", path])
@@ -1115,9 +1082,8 @@ function _jm_f_37(val, path, rep)
 // check json_model_15_map_enum (.'$ObjectSchema'.enum)
 function _jm_f_38(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.enum
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.enum]", path])
@@ -1128,9 +1094,8 @@ function _jm_f_38(val, path, rep)
 // check json_model_15_map_examples (.'$ObjectSchema'.examples)
 function _jm_f_39(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.examples
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.examples]", path])
@@ -1141,9 +1106,8 @@ function _jm_f_39(val, path, rep)
 // check json_model_15_map_exclusiveMaximum (.'$ObjectSchema'.exclusiveMaximum)
 function _jm_f_40(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.exclusiveMaximum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.exclusiveMaximum]", path])
@@ -1154,9 +1118,8 @@ function _jm_f_40(val, path, rep)
 // check json_model_15_map_exclusiveMinimum (.'$ObjectSchema'.exclusiveMinimum)
 function _jm_f_41(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.exclusiveMinimum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.exclusiveMinimum]", path])
@@ -1167,9 +1130,8 @@ function _jm_f_41(val, path, rep)
 // check json_model_15_map_format (.'$ObjectSchema'.format)
 function _jm_f_42(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.format
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.format]", path])
@@ -1180,9 +1142,8 @@ function _jm_f_42(val, path, rep)
 // check json_model_15_map_maximum (.'$ObjectSchema'.maximum)
 function _jm_f_43(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.maximum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.maximum]", path])
@@ -1193,9 +1154,8 @@ function _jm_f_43(val, path, rep)
 // check json_model_15_map_minimum (.'$ObjectSchema'.minimum)
 function _jm_f_44(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.minimum
-    res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.minimum]", path])
@@ -1206,9 +1166,8 @@ function _jm_f_44(val, path, rep)
 // check json_model_15_map_multipleOf (.'$ObjectSchema'.multipleOf)
 function _jm_f_45(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.multipleOf
-    res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
     if (! res)
     {
         rep !== null && rep.push(["not a 1.0 loose float [.'$ObjectSchema'.multipleOf]", path])
@@ -1219,9 +1178,8 @@ function _jm_f_45(val, path, rep)
 // check json_model_15_map_pattern (.'$ObjectSchema'.pattern)
 function _jm_f_46(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.pattern
-    res = runtime.jm_is_valid_regex(val, false);
+    let res = runtime.jm_is_valid_regex(val, false);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $REGEX [.'$ObjectSchema'.pattern]", path])
@@ -1339,9 +1297,8 @@ function _jm_f_49(val, path, rep)
 // check json_model_15_map_readOnly (.'$ObjectSchema'.readOnly)
 function _jm_f_50(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.readOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$ObjectSchema'.readOnly]", path])
@@ -1352,9 +1309,8 @@ function _jm_f_50(val, path, rep)
 // check json_model_15_map_title (.'$ObjectSchema'.title)
 function _jm_f_51(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.title
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.title]", path])
@@ -1365,10 +1321,9 @@ function _jm_f_51(val, path, rep)
 // check json_model_15_map_type (.'$ObjectSchema'.type)
 function _jm_f_52(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.type
     // .'$ObjectSchema'.type.'|'.0
-    res = json_model_8(val, path, rep);
+    let res = json_model_8(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path])
@@ -1396,9 +1351,8 @@ function _jm_f_52(val, path, rep)
 // check json_model_15_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
 function _jm_f_53(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.uniqueItems
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$ObjectSchema'.uniqueItems]", path])
@@ -1409,9 +1363,8 @@ function _jm_f_53(val, path, rep)
 // check json_model_15_map_writeOnly (.'$ObjectSchema'.writeOnly)
 function _jm_f_54(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.writeOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$ObjectSchema'.writeOnly]", path])
@@ -1454,10 +1407,9 @@ function json_model_15(val, path, rep)
 // check $Schema (.'$Schema')
 function json_model_16(val, path, rep)
 {
-    let res;
     // .'$Schema'
     // .'$Schema'.'|'.0
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Schema'.'|'.0]", path])
@@ -1485,11 +1437,10 @@ function json_model_16(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     // .
     // .'@'
-    res = json_model_16(val, path, rep);
+    let res = json_model_16(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'@']", path])

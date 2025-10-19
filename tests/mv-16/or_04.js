@@ -22,10 +22,9 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // deux chaînes constantes et deux re, séparation possible ; constantes matchent re…
     // .
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|']", path])

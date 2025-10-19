@@ -66,10 +66,9 @@ sub _jm_obj_1($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$r'
     # .'$r'.'|'.0
-    $res = json_model_2($val, $path, $rep);
+    my $res = json_model_2($val, $path, $rep);
     if (! $res)
     {
         # .'$r'.'|'.1

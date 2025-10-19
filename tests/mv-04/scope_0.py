@@ -27,19 +27,17 @@ check_model_map: PropMap
 
 # check $s (.'$s')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$s'
     # "/[0-9]/"
-    res = isinstance(val, str) and _jm_re_0(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /[0-9]/ [.'$s']", path))
     return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = isinstance(val, list) and len(val) == 2
+    res: bool = isinstance(val, list) and len(val) == 2
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # .0

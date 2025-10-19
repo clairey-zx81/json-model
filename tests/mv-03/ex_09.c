@@ -23,9 +23,8 @@ const size_t check_model_map_size = 4;
 // check $ex08 (.'$ex08')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex08'
-    res = json_model_9(val, path, rep);
+    bool res = json_model_9(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex08 [.'$ex08']", path);
@@ -36,9 +35,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Ex08 (.'$Ex08')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Ex08'
-    res = json_model_9(val, path, rep);
+    bool res = json_model_9(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $ex08#Ex08 [.'$Ex08']", path);
@@ -96,9 +94,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_4(val, path, rep);
+    bool res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex09 [.]", path);
@@ -109,9 +106,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ex08#Val (.'$ex08#Val')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex08#Val'
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$ex08#Val']", path);
@@ -122,10 +118,9 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ex08#Ex08 (.'$ex08#Ex08')
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ex08#Ex08'
     // .'$ex08#Ex08'.'|'.0
-    res = json_model_8(val, path, rep);
+    bool res = json_model_8(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $map [.'$ex08#Ex08'.'|'.0]", path);

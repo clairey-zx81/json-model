@@ -22,9 +22,8 @@ public class obj_02 extends ModelChecker
     // check $li0 (.'$li0')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$li0'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -53,9 +52,8 @@ public class obj_02 extends ModelChecker
     // check $ls0 (.'$ls0')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ls0'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_1_idx = -1;
@@ -84,9 +82,8 @@ public class obj_02 extends ModelChecker
     // check $lb0 (.'$lb0')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$lb0'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_2_idx = -1;
@@ -115,9 +112,8 @@ public class obj_02 extends ModelChecker
     // check $lf0 (.'$lf0')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$lf0'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_3_idx = -1;
@@ -146,10 +142,9 @@ public class obj_02 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // .'|'.0
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $li0 [.'|'.0]", path);

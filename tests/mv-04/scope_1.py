@@ -28,9 +28,8 @@ check_model_map: PropMap
 
 # check $r (.'$r')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$r'
-    res = isinstance(val, list) and len(val) == 2
+    res: bool = isinstance(val, list) and len(val) == 2
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # .'$r'.0
@@ -50,21 +49,19 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $s (.'$s')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$s'
     # "/[a-z]/"
-    res = isinstance(val, str) and _jm_re_0(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /[a-z]/ [.'$s']", path))
     return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # a string with a lower case later or a digit
     # .
     # .'|'.0
-    res = json_model_3(val, path, rep)
+    res: bool = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $s [.'|'.0]", path))
     if not res:
@@ -81,10 +78,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $r#s (.'$r#s')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$r#s'
     # "/[0-9]/"
-    res = isinstance(val, str) and _jm_re_1(val, path, rep)
+    res: bool = isinstance(val, str) and _jm_re_1(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /[0-9]/ [.'$r#s']", path))
     return res

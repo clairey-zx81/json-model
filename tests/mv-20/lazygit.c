@@ -160,9 +160,8 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $color (.'$color')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$color'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 13);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 13);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$color'.'|']", path);
@@ -196,10 +195,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $colorArray (.'$colorArray')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$colorArray'
     // .'$colorArray'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_0_idx;
@@ -235,10 +233,9 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $keybinding (.'$keybinding')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$keybinding'
     // .'$keybinding'.'|'.0
-    res = json_is_null(val);
+    bool res = json_is_null(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not null [.'$keybinding'.'|'.0]", path);
@@ -267,9 +264,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $custom-commands-prompts-type-property (.'$custom-commands-prompts-type-property')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$custom-commands-prompts-type-property'
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 4);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 4);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$custom-commands-prompts-type-property'.'|']", path);
@@ -280,9 +276,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $custom-commands-prompts-title-property (.'$custom-commands-prompts-title-property')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$custom-commands-prompts-title-property'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$custom-commands-prompts-title-property']", path);
@@ -293,9 +288,8 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $custom-commands-prompts-key-property (.'$custom-commands-prompts-key-property')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$custom-commands-prompts-key-property'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$custom-commands-prompts-key-property']", path);
@@ -306,10 +300,9 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $neString (.'$neString')
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$neString'
     // .'$neString'.'@'
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$neString'.'@']", path);
@@ -329,10 +322,9 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $stringArray (.'$stringArray')
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$stringArray'
     // .'$stringArray'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_1_idx;
@@ -1017,9 +1009,8 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_map_confirmOnQuit (.confirmOnQuit)
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .confirmOnQuit
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.confirmOnQuit]", path);
@@ -1067,9 +1058,8 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_7_map_description (.customCommands.'@'.0.description)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .customCommands.'@'.0.description
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.customCommands.'@'.0.description]", path);
@@ -1080,9 +1070,8 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .customCommands.'@'.0.loadingText
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.customCommands.'@'.0.loadingText]", path);
@@ -1093,9 +1082,8 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .customCommands.'@'.0.prompts
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_4_idx;
@@ -1122,9 +1110,8 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .customCommands.'@'.0.showOutput
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.customCommands.'@'.0.showOutput]", path);
@@ -1135,9 +1122,8 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .customCommands.'@'.0.stream
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.customCommands.'@'.0.stream]", path);
@@ -1148,9 +1134,8 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .customCommands.'@'.0.subprocess
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.customCommands.'@'.0.subprocess]", path);
@@ -1258,10 +1243,9 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
 // check json_model_1_map_customCommands (.customCommands)
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .customCommands
     // .customCommands.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_3_idx;
@@ -1296,9 +1280,8 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_map_disableStartupPopups (.disableStartupPopups)
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .disableStartupPopups
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.disableStartupPopups]", path);
@@ -1309,9 +1292,8 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.allBranchesLogCmd
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.git.allBranchesLogCmd]", path);
@@ -1322,9 +1304,8 @@ static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_autoFetch (.git.autoFetch)
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.autoFetch
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.git.autoFetch]", path);
@@ -1335,9 +1316,8 @@ static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_autoRefresh (.git.autoRefresh)
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.autoRefresh
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.git.autoRefresh]", path);
@@ -1348,9 +1328,8 @@ static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.branchLogCmd
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.git.branchLogCmd]", path);
@@ -1486,9 +1465,8 @@ static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_diffContextSize (.git.diffContextSize)
 static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.diffContextSize
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.git.diffContextSize]", path);
@@ -1499,9 +1477,8 @@ static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
 static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.disableForcePushing
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.git.disableForcePushing]", path);
@@ -1512,9 +1489,8 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_fetchAll (.git.fetchAll)
 static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.fetchAll
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.git.fetchAll]", path);
@@ -1635,9 +1611,8 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_overrideGpg (.git.overrideGpg)
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.overrideGpg
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.git.overrideGpg]", path);
@@ -1722,9 +1697,8 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_parseEmoji (.git.parseEmoji)
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.parseEmoji
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.git.parseEmoji]", path);
@@ -1735,9 +1709,8 @@ static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
 static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .git.skipHookPrefix
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.git.skipHookPrefix]", path);
@@ -1786,9 +1759,8 @@ static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
 static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.animateExplosion
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.animateExplosion]", path);
@@ -1835,9 +1807,8 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_border (.gui.border)
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.border
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_7, 4);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_7, 4);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.border.'|']", path);
@@ -1883,9 +1854,8 @@ static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.commandLogSize
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.gui.commandLogSize]", path);
@@ -1932,9 +1902,8 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.expandFocusedSidePanel
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.expandFocusedSidePanel]", path);
@@ -1946,9 +1915,8 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_language (.gui.language)
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.language
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_8, 9);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_8, 9);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.language.'|']", path);
@@ -1960,9 +1928,8 @@ static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.mainPanelSplitMode
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_9, 3);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_9, 3);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.mainPanelSplitMode.'|']", path);
@@ -1973,9 +1940,8 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.mouseEvents
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.mouseEvents]", path);
@@ -1987,9 +1953,8 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.nerdFontsVersion
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_10, 2);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_10, 2);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.nerdFontsVersion.'|']", path);
@@ -2022,9 +1987,8 @@ static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
 static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.scrollHeight
-    res = json_is_integer(val) && json_integer_value(val) >= 1;
+    bool res = json_is_integer(val) && json_integer_value(val) >= 1;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 1 strict int [.gui.scrollHeight]", path);
@@ -2035,9 +1999,8 @@ static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
 static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.scrollPastBottom
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.scrollPastBottom]", path);
@@ -2048,9 +2011,8 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
 static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.shortTimeFormat
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.gui.shortTimeFormat]", path);
@@ -2061,9 +2023,8 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
 static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.showBottomLine
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.showBottomLine]", path);
@@ -2074,9 +2035,8 @@ static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.showBranchCommitHash
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.showBranchCommitHash]", path);
@@ -2087,9 +2047,8 @@ static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
 static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.showCommandLog
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.showCommandLog]", path);
@@ -2100,9 +2059,8 @@ static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_showFileTree (.gui.showFileTree)
 static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.showFileTree
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.showFileTree]", path);
@@ -2113,9 +2071,8 @@ static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_showListFooter (.gui.showListFooter)
 static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.showListFooter
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.showListFooter]", path);
@@ -2126,9 +2083,8 @@ static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
 static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.showRandomTip
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.showRandomTip]", path);
@@ -2139,10 +2095,9 @@ static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
 static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.sidePanelWidth
     // .gui.sidePanelWidth.'@'
-    res = json_is_real(val) && json_real_value(val) >= 0.0;
+    bool res = json_is_real(val) && json_real_value(val) >= 0.0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.gui.sidePanelWidth.'@']", path);
@@ -2162,9 +2117,8 @@ static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
 static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.skipDiscardChangeWarning
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipDiscardChangeWarning]", path);
@@ -2175,9 +2129,8 @@ static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
 static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.skipRewordInEditorWarning
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipRewordInEditorWarning]", path);
@@ -2188,9 +2141,8 @@ static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
 static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.skipStashWarning
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipStashWarning]", path);
@@ -2202,9 +2154,8 @@ static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_splitDiff (.gui.splitDiff)
 static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.splitDiff
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_11, 2);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_11, 2);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.splitDiff.'|']", path);
@@ -2253,9 +2204,8 @@ static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_timeFormat (.gui.timeFormat)
 static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.timeFormat
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.gui.timeFormat]", path);
@@ -2267,9 +2217,8 @@ static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_26_map_windowSize (.gui.windowSize)
 static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .gui.windowSize
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_12, 3);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_12, 3);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.windowSize.'|']", path);
@@ -2696,9 +2645,8 @@ static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
 static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .keybinding.universal.jumpToBlock
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.keybinding.universal.jumpToBlock]", path);
@@ -2709,9 +2657,8 @@ static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
 static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .keybinding.universal.optionMenu
-    res = json_is_null(val);
+    bool res = json_is_null(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not null [.keybinding.universal.optionMenu]", path);
@@ -2799,9 +2746,8 @@ static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_map_notARepository (.notARepository)
 static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .notARepository
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_13, 4);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_13, 4);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.notARepository.'|']", path);
@@ -2812,9 +2758,8 @@ static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
 static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .os.copyToClipboardCmd
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.os.copyToClipboardCmd]", path);
@@ -2825,9 +2770,8 @@ static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_68_map_edit (.os.edit)
 static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .os.edit
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.os.edit]", path);
@@ -2838,9 +2782,8 @@ static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_68_map_editAtLine (.os.editAtLine)
 static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .os.editAtLine
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.os.editAtLine]", path);
@@ -2851,9 +2794,8 @@ static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
 static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .os.editAtLineAndWait
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.os.editAtLineAndWait]", path);
@@ -2865,9 +2807,8 @@ static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_68_map_editPreset (.os.editPreset)
 static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .os.editPreset
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_14, 10);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_14, 10);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.os.editPreset.'|']", path);
@@ -2900,9 +2841,8 @@ static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_68_map_open (.os.open)
 static bool _jm_f_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .os.open
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.os.open]", path);
@@ -2913,9 +2853,8 @@ static bool _jm_f_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_f_68_map_openLink (.os.openLink)
 static bool _jm_f_75(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .os.openLink
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.os.openLink]", path);
@@ -2964,9 +2903,8 @@ static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
 static bool _jm_f_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .promptToReturnFromSubprocess
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.promptToReturnFromSubprocess]", path);
@@ -2977,9 +2915,8 @@ static bool _jm_f_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
 static bool _jm_f_77(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .quitOnTopLevelReturn
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.quitOnTopLevelReturn]", path);

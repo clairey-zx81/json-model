@@ -29,9 +29,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     # generic xor list
     xc_0: int = 0
-    xr_0: bool
     # .'^'.0
-    xr_0 = isinstance(val, str)
+    xr_0: bool = isinstance(val, str)
     if xr_0:
         xc_0 += 1
     else:

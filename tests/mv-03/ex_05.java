@@ -22,9 +22,8 @@ public class ex_05 extends ModelChecker
     // check $Ex05a (.'$Ex05a')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Ex05a'
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Ex05a']", path);
@@ -35,9 +34,8 @@ public class ex_05 extends ModelChecker
     // check $Ex05b (.'$Ex05b')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Ex05b'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$Ex05b']", path);
@@ -48,10 +46,9 @@ public class ex_05 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // .'|'.0
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex05a [.'|'.0]", path);

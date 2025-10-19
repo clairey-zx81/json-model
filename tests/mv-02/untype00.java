@@ -22,12 +22,11 @@ public class untype00 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // constraint is either on value or on length
         // .
         // .'@'
         // .'@'.'|'.0
-        res = json.isInteger(val) && json.asLong(val) >= 1;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'@'.'|'.0]", path);

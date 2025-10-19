@@ -44,10 +44,9 @@ public class xdatey extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // "/^X-($DATE)-Y$/X"
-        res = json.isString(val) && _jm_xre_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_xre_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^X-($DATE)-Y$/X [.]", path);

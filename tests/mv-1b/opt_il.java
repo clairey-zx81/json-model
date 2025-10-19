@@ -22,11 +22,10 @@ public class opt_il extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // JSON_MODEL_LOOSE_INT
         // .
         // .'@'
-        res = (json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))));
+        boolean res = (json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))));
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 loose int [.'@']", path);

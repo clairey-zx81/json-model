@@ -18,9 +18,8 @@ function json_model_1(val, path, rep)
     // (any xor m) is (not m)
     // .
     // not-case xor list
-    let is_0;
     // .'^'.1
-    is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! is_0)
     {
         rep !== null && rep.push(["not a 0 strict int [.'^'.1]", path])

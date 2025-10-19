@@ -330,10 +330,9 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$const'
     # .'$const'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$const'.'|'.1
@@ -361,9 +360,8 @@ sub json_model_2($$$)
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$enum'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         # .'$enum'.'|'.0
@@ -413,9 +411,8 @@ sub json_model_3($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$schemaArray'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_3_idx (0 .. $#$val)
@@ -498,10 +495,9 @@ sub json_model_5($$$)
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$arrayKeywords'.items
     # .'$arrayKeywords'.items.'|'.0
-    $res = json_model_25($val, $path, $rep);
+    my $res = json_model_25($val, $path, $rep);
     if (! $res)
     {
         # .'$arrayKeywords'.items.'|'.1
@@ -640,9 +636,8 @@ sub _jm_f_7($$$)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$objectKeywords'.required
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_4_idx (0 .. $#$val)
@@ -1368,10 +1363,9 @@ sub _jm_f_57($$$)
 sub _jm_f_58($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Array'.items
     # .'$Array'.items.'|'.0
-    $res = json_model_25($val, $path, $rep);
+    my $res = json_model_25($val, $path, $rep);
     if (! $res)
     {
         # .'$Array'.items.'|'.1
@@ -1713,9 +1707,8 @@ sub _jm_f_82($$$)
 sub _jm_f_83($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Object'.required
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_5_idx (0 .. $#$val)
@@ -4375,10 +4368,9 @@ sub json_model_24($$$)
 sub json_model_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Schema'
     # .'$Schema'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$Schema'.'|'.1
@@ -4411,10 +4403,9 @@ sub _jm_obj_0($$$)
 sub json_model_26($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # keyword $schema is mandatory at the root, and optional elsewhere
     # .'$RootSchema'
-    $res = 1;
+    my $res = 1;
     if ($res)
     {
         # .'$RootSchema'.'&'.0

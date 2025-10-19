@@ -234,9 +234,8 @@ public class jsound extends ModelChecker
     // check $atomic-types (.'$atomic-types')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$atomic-types'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$atomic-types'.'|']", path);
@@ -247,10 +246,9 @@ public class jsound extends ModelChecker
     // check $atomic (.'$atomic')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$atomic'
         // .'$atomic'.'|'.0
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$atomic'.'|'.0]", path);
@@ -305,9 +303,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_enumeration (.'$Atomic'.enumeration)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.enumeration
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_2_idx = -1;
@@ -337,9 +334,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.explicitTypeZone
-        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_1_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$Atomic'.explicitTypeZone.'|']", path);
@@ -350,9 +346,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.fractionDigits
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Atomic'.fractionDigits]", path);
@@ -363,9 +358,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_length (.'$Atomic'.length)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.length
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Atomic'.length]", path);
@@ -376,9 +370,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_maxLength (.'$Atomic'.maxLength)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.maxLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Atomic'.maxLength]", path);
@@ -389,9 +382,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_minLength (.'$Atomic'.minLength)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.minLength
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Atomic'.minLength]", path);
@@ -402,9 +394,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_name (.'$Atomic'.name)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.name
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$Atomic'.name]", path);
@@ -415,9 +406,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_pattern (.'$Atomic'.pattern)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.pattern
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$Atomic'.pattern]", path);
@@ -428,9 +418,8 @@ public class jsound extends ModelChecker
     // check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Atomic'.totalDigits
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Atomic'.totalDigits]", path);
@@ -959,10 +948,9 @@ public class jsound extends ModelChecker
     // check $type-or-ref (.'$type-or-ref')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$type-or-ref'
         // .'$type-or-ref'.'|'.0
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$type-or-ref'.'|'.0]", path);
@@ -990,9 +978,8 @@ public class jsound extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.]", path);

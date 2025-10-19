@@ -3302,11 +3302,10 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $any_platform (.'$any_platform')
 static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     // .'$any_platform'
     // .'$any_platform'.'|'.0
-    res = json_model_2(val, path, rep);
+    bool res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path);
@@ -6356,9 +6355,8 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
 // check $platforms (.'$platforms')
 static bool json_model_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$platforms'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_47_idx;
@@ -6817,18 +6815,16 @@ static bool json_model_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_51_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelCollection'.cloud_platforms
-    res = true;
+    bool res = true;
     return res;
 }
 
 // check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelCollection'.galaxy_tags
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_95_idx;
@@ -6855,9 +6851,8 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_51_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelCollection'.min_ansible_version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", path);
@@ -6874,10 +6869,9 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 // check json_model_51_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelCollection'.namespace
     // "/^[a-z][-a-z0-9_]+$/"
-    res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", path);
@@ -6894,10 +6888,9 @@ static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 // check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelCollection'.role_name
     // "/^[a-z][a-z0-9_]+$/"
-    res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", path);
@@ -6908,9 +6901,8 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelCollection'.video_links
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", path);
@@ -6959,9 +6951,8 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelLoose'.author
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.author]", path);
@@ -6972,9 +6963,8 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelLoose'.company
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.company]", path);
@@ -6985,9 +6975,8 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelLoose'.github_branch
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", path);
@@ -6998,9 +6987,8 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelLoose'.issue_tracker_url
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", path);
@@ -7011,9 +6999,8 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
 static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelLoose'.license
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.license]", path);
@@ -7024,9 +7011,8 @@ static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelLoose'.min_ansible_container_version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", path);
@@ -7102,18 +7088,16 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.cloud_platforms
-    res = true;
+    bool res = true;
     return res;
 }
 
 // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.company
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.company]", path);
@@ -7124,9 +7108,8 @@ static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.galaxy_tags
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_96_idx;
@@ -7153,9 +7136,8 @@ static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
 static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.github_branch
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", path);
@@ -7166,9 +7148,8 @@ static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
 static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.issue_tracker_url
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", path);
@@ -7179,9 +7160,8 @@ static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
 static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", path);
@@ -7192,10 +7172,9 @@ static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
 static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.namespace
     // "/^[a-z][-a-z0-9_]+$/"
-    res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", path);
@@ -7206,10 +7185,9 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
 static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.role_name
     // "/^[a-z][a-z0-9_]+$/"
-    res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", path);
@@ -7220,9 +7198,8 @@ static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
 static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModelStandalone'.video_links
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", path);
@@ -7365,9 +7342,8 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
 static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.author
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.author]", path);
@@ -7378,18 +7354,16 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-    res = true;
+    bool res = true;
     return res;
 }
 
 // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.company
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.company]", path);
@@ -7400,9 +7374,8 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_97_idx;
@@ -7429,9 +7402,8 @@ static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
 static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.github_branch
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", path);
@@ -7442,9 +7414,8 @@ static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
 static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", path);
@@ -7455,9 +7426,8 @@ static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
 static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.license
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", path);
@@ -7468,9 +7438,8 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", path);
@@ -7481,9 +7450,8 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", path);
@@ -7494,10 +7462,9 @@ static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.namespace
     // "/^[a-z][-a-z0-9_]+$/"
-    res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", path);
@@ -7508,10 +7475,9 @@ static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.role_name
     // "/^[a-z][a-z0-9_]+$/"
-    res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.role_name]", path);
@@ -7522,9 +7488,8 @@ static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.1.video_links
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.video_links]", path);
@@ -7615,9 +7580,8 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
 // check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.author
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path);
@@ -7628,18 +7592,16 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-    res = true;
+    bool res = true;
     return res;
 }
 
 // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.company
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path);
@@ -7650,9 +7612,8 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_98_idx;
@@ -7679,9 +7640,8 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.github_branch
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path);
@@ -7692,9 +7652,8 @@ static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
 static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path);
@@ -7705,9 +7664,8 @@ static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
 static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.license
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path);
@@ -7718,9 +7676,8 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
 static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path);
@@ -7731,9 +7688,8 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
 static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path);
@@ -7744,10 +7700,9 @@ static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.namespace
     // "/^[a-z][-a-z0-9_]+$/"
-    res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path);
@@ -7758,10 +7713,9 @@ static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
 static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.role_name
     // "/^[a-z][a-z0-9_]+$/"
-    res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
+    bool res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path);
@@ -7772,9 +7726,8 @@ static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
 static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$GalaxyInfoModel'.'|'.2.video_links
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path);
@@ -7905,9 +7858,8 @@ static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $collections (.'$collections')
 static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$collections'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_99_idx;
@@ -7935,10 +7887,9 @@ static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $complex_conditional (.'$complex_conditional')
 static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$complex_conditional'
     // .'$complex_conditional'.'|'.0
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$complex_conditional'.'|'.0]", path);
@@ -7991,9 +7942,8 @@ static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_57_map_become (.'$DependencyModelLoose'.become)
 static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$DependencyModelLoose'.become
-    res = json_is_boolean(val);
+    bool res = json_is_boolean(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$DependencyModelLoose'.become]", path);
@@ -8004,9 +7954,8 @@ static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_57_map_name (.'$DependencyModelLoose'.name)
 static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$DependencyModelLoose'.name
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.name]", path);
@@ -8017,9 +7966,8 @@ static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_57_map_role (.'$DependencyModelLoose'.role)
 static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$DependencyModelLoose'.role
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.role]", path);
@@ -8031,9 +7979,8 @@ static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
 static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$DependencyModelLoose'.scm
-    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_64, 2);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_64, 2);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DependencyModelLoose'.scm.'|']", path);
@@ -8044,9 +7991,8 @@ static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_57_map_src (.'$DependencyModelLoose'.src)
 static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$DependencyModelLoose'.src
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.src]", path);
@@ -8057,10 +8003,9 @@ static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
 static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$DependencyModelLoose'.tags
     // .'$DependencyModelLoose'.tags.'|'.0
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path);
@@ -8117,9 +8062,8 @@ static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check json_model_57_map_version (.'$DependencyModelLoose'.version)
 static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$DependencyModelLoose'.version
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.version]", path);
@@ -8257,10 +8201,9 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
 // check $DependencyModel (.'$DependencyModel')
 static bool json_model_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // add non-exclusive mandatory role, src or name props
     // .'$DependencyModel'
-    res = true;
+    bool res = true;
     if (res)
     {
         // .'$DependencyModel'.'&'.0
@@ -8434,11 +8377,10 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $AnsibleMeta (.'$AnsibleMeta')
 static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // why null?
     // .'$AnsibleMeta'
     // .'$AnsibleMeta'.'|'.0
-    res = json_is_null(val);
+    bool res = json_is_null(val);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not null [.'$AnsibleMeta'.'|'.0]", path);
@@ -8466,9 +8408,8 @@ static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_model_60(val, path, rep);
+    bool res = json_model_60(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $AnsibleMeta [.]", path);

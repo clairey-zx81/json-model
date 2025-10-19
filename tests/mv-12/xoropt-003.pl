@@ -26,10 +26,9 @@ sub _jm_re_0($$$)
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Aa'
     # .'$Aa'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$Aa'.'|'.1

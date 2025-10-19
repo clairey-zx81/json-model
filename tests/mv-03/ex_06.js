@@ -14,10 +14,9 @@ var check_model_map = new Map()
 // check $ex5 (.'$ex5')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$ex5'
     // .'$ex5'.'|'.0
-    res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex05a [.'$ex5'.'|'.0]", path])
@@ -45,9 +44,8 @@ function json_model_4(val, path, rep)
 // check $Ex06 (.'$Ex06')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Ex06'
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Ex06']", path])
@@ -58,9 +56,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = Array.isArray(val) && val.length == 3;
+    let res = Array.isArray(val) && val.length == 3;
     if (res)
     {
         let lpath_0 = path ? path.concat([0]) : null;
@@ -101,9 +98,8 @@ function json_model_1(val, path, rep)
 // check $ex5#Ex05a (.'$ex5#Ex05a')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$ex5#Ex05a'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$ex5#Ex05a']", path])
@@ -114,9 +110,8 @@ function json_model_5(val, path, rep)
 // check $ex5#Ex05b (.'$ex5#Ex05b')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$ex5#Ex05b'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$ex5#Ex05b']", path])

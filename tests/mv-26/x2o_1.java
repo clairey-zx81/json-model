@@ -119,9 +119,8 @@ public class x2o_1 extends ModelChecker
         // .'$Nabc'.t
         // generic xor list
         long xc_0 = 0;
-        boolean xr_0;
         // .'$Nabc'.t.'^'.0
-        xr_0 = json.isString(pval);
+        boolean xr_0 = json.isString(pval);
         if (xr_0)
         {
             xc_0 += 1;

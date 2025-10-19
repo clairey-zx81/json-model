@@ -16,9 +16,8 @@ var check_model_map = new Map()
 // check $r (.'$r')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$r'
-    res = Array.isArray(val) && val.length == 2;
+    let res = Array.isArray(val) && val.length == 2;
     if (res)
     {
         let lpath_0 = path ? path.concat([0]) : null;
@@ -51,10 +50,9 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check $s (.'$s')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$s'
     // "/[a-z]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /[a-z]/ [.'$s']", path])
@@ -65,11 +63,10 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // a string with a lower case later or a digit
     // .
     // .'|'.0
-    res = json_model_3(val, path, rep);
+    let res = json_model_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $s [.'|'.0]", path])
@@ -99,10 +96,9 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 // check $r#s (.'$r#s')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$r#s'
     // "/[0-9]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /[0-9]/ [.'$r#s']", path])

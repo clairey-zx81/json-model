@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $forty-two (.'$forty-two')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$forty-two'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
     if (! res)
     {
         rep !== null && rep.push(["unexpected =42 [.'$forty-two']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $positif (.'$positif')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$positif'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$positif']", path])

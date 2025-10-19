@@ -25,10 +25,9 @@ my %check_model_map;
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$ex5'
     # .'$ex5'.'|'.0
-    $res = json_model_5($val, $path, $rep);
+    my $res = json_model_5($val, $path, $rep);
     if (! $res)
     {
         # .'$ex5'.'|'.1
@@ -57,10 +56,9 @@ sub json_model_3($$$)
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$__external_0'
     # .'$__external_0'.'|'.0
-    $res = json_model_8($val, $path, $rep);
+    my $res = json_model_8($val, $path, $rep);
     if (! $res)
     {
         # .'$__external_0'.'|'.1
@@ -73,9 +71,8 @@ sub json_model_7($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    $res = jm_is_array($val) && scalar @$val == 3;
+    my $res = jm_is_array($val) && scalar @$val == 3;
     if ($res)
     {
         # .0

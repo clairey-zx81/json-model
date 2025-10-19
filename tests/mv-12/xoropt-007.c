@@ -144,9 +144,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // generic xor list
     int64_t xc_0 = 0;
-    bool xr_0;
     // .'^'.0
-    xr_0 = _jm_obj_0(val, path, rep);
+    bool xr_0 = _jm_obj_0(val, path, rep);
     if (xr_0)
         xc_0 += 1;
     else

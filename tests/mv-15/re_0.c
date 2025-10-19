@@ -17,10 +17,9 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
     // "/^S/"
-    res = json_is_string(val) && strncmp(json_string_value(val), "S", strlen("S")) == 0;
+    bool res = json_is_string(val) && strncmp(json_string_value(val), "S", strlen("S")) == 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^S/ [.]", path);

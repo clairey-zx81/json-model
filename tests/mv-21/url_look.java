@@ -23,9 +23,8 @@ public class url_look extends ModelChecker
     // check $u1 (.'$u1')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$u1'
-        res = json.isString(val) && json.asString(val).compareTo("https://json-model.org/models/json-model") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("https://json-model.org/models/json-model") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected https://json-model.org/models/json-model [.'$u1']", path);
@@ -36,9 +35,8 @@ public class url_look extends ModelChecker
     // check $u2 (.'$u2')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$u2'
-        res = json.isString(val) && json.asString(val).compareTo("file://./url_looking.model.json") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("file://./url_looking.model.json") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected file://./url_looking.model.json [.'$u2']", path);
@@ -50,10 +48,9 @@ public class url_look extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // trigger a warning on url-looking definitions
         // .
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'|']", path);

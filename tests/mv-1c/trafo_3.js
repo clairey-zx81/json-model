@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $Dd (.'$Dd')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Dd'
-    res = json_model_6(val, path, rep);
+    let res = json_model_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $l [.'$Dd']", path])
@@ -27,9 +26,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_6(val, path, rep);
+    let res = json_model_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Dd [.]", path])
@@ -40,9 +38,8 @@ function json_model_1(val, path, rep)
 // check $Dd#l (.'$Dd#l')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$Dd#l'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -68,9 +65,8 @@ function json_model_6(val, path, rep)
 // check $Dd#u (.'$Dd#u')
 function json_model_10(val, path, rep)
 {
-    let res;
     // .'$Dd#u'
-    res = json_model_12(val, path, rep);
+    let res = json_model_12(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Uu#un [.'$Dd#u']", path])

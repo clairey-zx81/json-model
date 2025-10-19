@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $ex08 (.'$ex08')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$ex08'
-    res = json_model_9(val, path, rep);
+    let res = json_model_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex08 [.'$ex08']", path])
@@ -27,9 +26,8 @@ function json_model_5(val, path, rep)
 // check $Ex08 (.'$Ex08')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Ex08'
-    res = json_model_9(val, path, rep);
+    let res = json_model_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ex08#Ex08 [.'$Ex08']", path])
@@ -85,9 +83,8 @@ function json_model_4(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex09 [.]", path])
@@ -98,9 +95,8 @@ function json_model_1(val, path, rep)
 // check $ex08#Val (.'$ex08#Val')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$ex08#Val'
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$ex08#Val']", path])
@@ -111,10 +107,9 @@ function json_model_6(val, path, rep)
 // check $ex08#Ex08 (.'$ex08#Ex08')
 function json_model_9(val, path, rep)
 {
-    let res;
     // .'$ex08#Ex08'
     // .'$ex08#Ex08'.'|'.0
-    res = json_model_8(val, path, rep);
+    let res = json_model_8(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $map [.'$ex08#Ex08'.'|'.0]", path])

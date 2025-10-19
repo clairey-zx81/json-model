@@ -22,9 +22,8 @@ public class ex_08 extends ModelChecker
     // check $Val (.'$Val')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Val'
-        res = json.isBoolean(val);
+        boolean res = json.isBoolean(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Val']", path);
@@ -35,9 +34,8 @@ public class ex_08 extends ModelChecker
     // check $Key (.'$Key')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Key'
-        res = json.isString(val) && rt.is_valid_url(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URL [.'$Key']", path);
@@ -84,10 +82,9 @@ public class ex_08 extends ModelChecker
     // check $Ex08 (.'$Ex08')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Ex08'
         // .'$Ex08'.'|'.0
-        res = json_model_4(val, path, rep);
+        boolean res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $map [.'$Ex08'.'|'.0]", path);
@@ -124,9 +121,8 @@ public class ex_08 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_5(val, path, rep);
+        boolean res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex08 [.]", path);

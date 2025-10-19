@@ -17,9 +17,8 @@ var check_model_map = new Map()
 // check $p1 (.'$p1')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$p1'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$p1'.'|']", path])
@@ -31,9 +30,8 @@ function json_model_2(val, path, rep)
 // check $p2 (.'$p2')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$p2'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$p2'.'|']", path])
@@ -48,9 +46,8 @@ function json_model_1(val, path, rep)
     // .
     // generic xor list
     let xc_0 = 0;
-    let xr_0;
     // .'^'.0
-    xr_0 = json_model_2(val, path, rep);
+    let xr_0 = json_model_2(val, path, rep);
     if (xr_0)
     {
         xc_0 += 1;

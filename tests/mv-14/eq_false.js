@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = ((typeof val === 'boolean' || val instanceof Boolean)) && val == false;
+    let res = ((typeof val === 'boolean' || val instanceof Boolean)) && val == false;
     if (! res)
     {
         rep !== null && rep.push(["unexpected =false [.]", path])

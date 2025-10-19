@@ -22,9 +22,8 @@ public class defs_0 extends ModelChecker
     // check $an_int (.'$an_int')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$an_int'
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$an_int']", path);
@@ -35,9 +34,8 @@ public class defs_0 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_2(val, path, rep);
+        boolean res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $an_int [.]", path);

@@ -35,9 +35,8 @@ static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
-    res = json_is_string(val);
+    bool res = json_is_string(val);
     if (res)
     {
         // .'&'.0

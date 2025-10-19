@@ -39,10 +39,9 @@ const size_t check_model_map_size = 14;
 // check $position (.'$position')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$position'
     // .'$position'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_0_idx;
@@ -78,10 +77,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $coord_array (.'$coord_array')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$coord_array'
     // .'$coord_array'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_1_idx;
@@ -117,10 +115,9 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $linear_ring (.'$linear_ring')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$linear_ring'
     // .'$linear_ring'.'@'
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (res)
     {
         size_t arr_2_idx;

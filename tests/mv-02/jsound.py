@@ -150,19 +150,17 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $atomic-types (.'$atomic-types')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$atomic-types'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$atomic-types'.'|']", path))
     return res
 
 # check $atomic (.'$atomic')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$atomic'
     # .'$atomic'.'|'.0
-    res = val is None
+    res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$atomic'.'|'.0]", path))
     if not res:
@@ -193,9 +191,8 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_6_map_enumeration (.'$Atomic'.enumeration)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.enumeration
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
@@ -211,72 +208,64 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.explicitTypeZone
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
+    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
     if not res:
         rep is None or rep.append(("value not in enum [.'$Atomic'.explicitTypeZone.'|']", path))
     return res
 
 # check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.fractionDigits
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Atomic'.fractionDigits]", path))
     return res
 
 # check json_model_6_map_length (.'$Atomic'.length)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.length
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Atomic'.length]", path))
     return res
 
 # check json_model_6_map_maxLength (.'$Atomic'.maxLength)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.maxLength
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Atomic'.maxLength]", path))
     return res
 
 # check json_model_6_map_minLength (.'$Atomic'.minLength)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.minLength
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Atomic'.minLength]", path))
     return res
 
 # check json_model_6_map_name (.'$Atomic'.name)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.name
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$Atomic'.name]", path))
     return res
 
 # check json_model_6_map_pattern (.'$Atomic'.pattern)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.pattern
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$Atomic'.pattern]", path))
     return res
 
 # check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Atomic'.totalDigits
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Atomic'.totalDigits]", path))
     return res
@@ -598,10 +587,9 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $type-or-ref (.'$type-or-ref')
 def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$type-or-ref'
     # .'$type-or-ref'.'|'.0
-    res = isinstance(val, str)
+    res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$type-or-ref'.'|'.0]", path))
     if not res:
@@ -617,9 +605,8 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = json_model_2(val, path, rep)
+    res: bool = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.]", path))
     return res

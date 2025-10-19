@@ -48,9 +48,8 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check $color (.'$color')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$color'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$color'.'|']", path])
@@ -84,10 +83,9 @@ function json_model_2(val, path, rep)
 // check $colorArray (.'$colorArray')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$colorArray'
     // .'$colorArray'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -122,10 +120,9 @@ function json_model_3(val, path, rep)
 // check $keybinding (.'$keybinding')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$keybinding'
     // .'$keybinding'.'|'.0
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$keybinding'.'|'.0]", path])
@@ -154,9 +151,8 @@ function json_model_4(val, path, rep)
 // check $custom-commands-prompts-type-property (.'$custom-commands-prompts-type-property')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$custom-commands-prompts-type-property'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$custom-commands-prompts-type-property'.'|']", path])
@@ -167,9 +163,8 @@ function json_model_5(val, path, rep)
 // check $custom-commands-prompts-title-property (.'$custom-commands-prompts-title-property')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$custom-commands-prompts-title-property'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$custom-commands-prompts-title-property']", path])
@@ -180,9 +175,8 @@ function json_model_6(val, path, rep)
 // check $custom-commands-prompts-key-property (.'$custom-commands-prompts-key-property')
 function json_model_7(val, path, rep)
 {
-    let res;
     // .'$custom-commands-prompts-key-property'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$custom-commands-prompts-key-property']", path])
@@ -193,10 +187,9 @@ function json_model_7(val, path, rep)
 // check $neString (.'$neString')
 function json_model_8(val, path, rep)
 {
-    let res;
     // .'$neString'
     // .'$neString'.'@'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$neString'.'@']", path])
@@ -216,10 +209,9 @@ function json_model_8(val, path, rep)
 // check $stringArray (.'$stringArray')
 function json_model_9(val, path, rep)
 {
-    let res;
     // .'$stringArray'
     // .'$stringArray'.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
@@ -896,9 +888,8 @@ function json_model_10(val, path, rep)
 // check json_model_1_map_confirmOnQuit (.confirmOnQuit)
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .confirmOnQuit
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.confirmOnQuit]", path])
@@ -944,9 +935,8 @@ function _jm_f_2(val, path, rep)
 // check _jm_obj_7_map_description (.customCommands.'@'.0.description)
 function _jm_f_3(val, path, rep)
 {
-    let res;
     // .customCommands.'@'.0.description
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.description]", path])
@@ -957,9 +947,8 @@ function _jm_f_3(val, path, rep)
 // check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .customCommands.'@'.0.loadingText
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.loadingText]", path])
@@ -970,9 +959,8 @@ function _jm_f_4(val, path, rep)
 // check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
 function _jm_f_5(val, path, rep)
 {
-    let res;
     // .customCommands.'@'.0.prompts
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_4_idx = 0; arr_4_idx < val.length; arr_4_idx++)
@@ -998,9 +986,8 @@ function _jm_f_5(val, path, rep)
 // check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
 function _jm_f_6(val, path, rep)
 {
-    let res;
     // .customCommands.'@'.0.showOutput
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.customCommands.'@'.0.showOutput]", path])
@@ -1011,9 +998,8 @@ function _jm_f_6(val, path, rep)
 // check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
 function _jm_f_7(val, path, rep)
 {
-    let res;
     // .customCommands.'@'.0.stream
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.customCommands.'@'.0.stream]", path])
@@ -1024,9 +1010,8 @@ function _jm_f_7(val, path, rep)
 // check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
 function _jm_f_8(val, path, rep)
 {
-    let res;
     // .customCommands.'@'.0.subprocess
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.customCommands.'@'.0.subprocess]", path])
@@ -1128,10 +1113,9 @@ function _jm_obj_7(val, path, rep)
 // check json_model_1_map_customCommands (.customCommands)
 function _jm_f_1(val, path, rep)
 {
-    let res;
     // .customCommands
     // .customCommands.'@'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_3_idx = 0; arr_3_idx < val.length; arr_3_idx++)
@@ -1165,9 +1149,8 @@ function _jm_f_1(val, path, rep)
 // check json_model_1_map_disableStartupPopups (.disableStartupPopups)
 function _jm_f_9(val, path, rep)
 {
-    let res;
     // .disableStartupPopups
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.disableStartupPopups]", path])
@@ -1178,9 +1161,8 @@ function _jm_f_9(val, path, rep)
 // check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
 function _jm_f_11(val, path, rep)
 {
-    let res;
     // .git.allBranchesLogCmd
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.git.allBranchesLogCmd]", path])
@@ -1191,9 +1173,8 @@ function _jm_f_11(val, path, rep)
 // check _jm_f_10_map_autoFetch (.git.autoFetch)
 function _jm_f_12(val, path, rep)
 {
-    let res;
     // .git.autoFetch
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.git.autoFetch]", path])
@@ -1204,9 +1185,8 @@ function _jm_f_12(val, path, rep)
 // check _jm_f_10_map_autoRefresh (.git.autoRefresh)
 function _jm_f_13(val, path, rep)
 {
-    let res;
     // .git.autoRefresh
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.git.autoRefresh]", path])
@@ -1217,9 +1197,8 @@ function _jm_f_13(val, path, rep)
 // check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
 function _jm_f_14(val, path, rep)
 {
-    let res;
     // .git.branchLogCmd
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.git.branchLogCmd]", path])
@@ -1349,9 +1328,8 @@ function _jm_f_16(val, path, rep)
 // check _jm_f_10_map_diffContextSize (.git.diffContextSize)
 function _jm_f_17(val, path, rep)
 {
-    let res;
     // .git.diffContextSize
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.git.diffContextSize]", path])
@@ -1362,9 +1340,8 @@ function _jm_f_17(val, path, rep)
 // check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
 function _jm_f_18(val, path, rep)
 {
-    let res;
     // .git.disableForcePushing
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.git.disableForcePushing]", path])
@@ -1375,9 +1352,8 @@ function _jm_f_18(val, path, rep)
 // check _jm_f_10_map_fetchAll (.git.fetchAll)
 function _jm_f_19(val, path, rep)
 {
-    let res;
     // .git.fetchAll
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.git.fetchAll]", path])
@@ -1494,9 +1470,8 @@ function _jm_f_21(val, path, rep)
 // check _jm_f_10_map_overrideGpg (.git.overrideGpg)
 function _jm_f_22(val, path, rep)
 {
-    let res;
     // .git.overrideGpg
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.git.overrideGpg]", path])
@@ -1579,9 +1554,8 @@ function _jm_f_23(val, path, rep)
 // check _jm_f_10_map_parseEmoji (.git.parseEmoji)
 function _jm_f_24(val, path, rep)
 {
-    let res;
     // .git.parseEmoji
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.git.parseEmoji]", path])
@@ -1592,9 +1566,8 @@ function _jm_f_24(val, path, rep)
 // check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
 function _jm_f_25(val, path, rep)
 {
-    let res;
     // .git.skipHookPrefix
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.git.skipHookPrefix]", path])
@@ -1637,9 +1610,8 @@ function _jm_f_10(val, path, rep)
 // check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
 function _jm_f_27(val, path, rep)
 {
-    let res;
     // .gui.animateExplosion
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.animateExplosion]", path])
@@ -1684,9 +1656,8 @@ function _jm_f_28(val, path, rep)
 // check _jm_f_26_map_border (.gui.border)
 function _jm_f_29(val, path, rep)
 {
-    let res;
     // .gui.border
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_7.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_7.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.gui.border.'|']", path])
@@ -1730,9 +1701,8 @@ function _jm_f_30(val, path, rep)
 // check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
 function _jm_f_31(val, path, rep)
 {
-    let res;
     // .gui.commandLogSize
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.gui.commandLogSize]", path])
@@ -1777,9 +1747,8 @@ function _jm_f_32(val, path, rep)
 // check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
 function _jm_f_33(val, path, rep)
 {
-    let res;
     // .gui.expandFocusedSidePanel
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.expandFocusedSidePanel]", path])
@@ -1791,9 +1760,8 @@ function _jm_f_33(val, path, rep)
 // check _jm_f_26_map_language (.gui.language)
 function _jm_f_34(val, path, rep)
 {
-    let res;
     // .gui.language
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_8.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_8.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.gui.language.'|']", path])
@@ -1805,9 +1773,8 @@ function _jm_f_34(val, path, rep)
 // check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
 function _jm_f_35(val, path, rep)
 {
-    let res;
     // .gui.mainPanelSplitMode
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_9.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_9.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.gui.mainPanelSplitMode.'|']", path])
@@ -1818,9 +1785,8 @@ function _jm_f_35(val, path, rep)
 // check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
 function _jm_f_36(val, path, rep)
 {
-    let res;
     // .gui.mouseEvents
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.mouseEvents]", path])
@@ -1832,9 +1798,8 @@ function _jm_f_36(val, path, rep)
 // check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
 function _jm_f_37(val, path, rep)
 {
-    let res;
     // .gui.nerdFontsVersion
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_10.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_10.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.gui.nerdFontsVersion.'|']", path])
@@ -1867,9 +1832,8 @@ function _jm_f_37(val, path, rep)
 // check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
 function _jm_f_38(val, path, rep)
 {
-    let res;
     // .gui.scrollHeight
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.gui.scrollHeight]", path])
@@ -1880,9 +1844,8 @@ function _jm_f_38(val, path, rep)
 // check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
 function _jm_f_39(val, path, rep)
 {
-    let res;
     // .gui.scrollPastBottom
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.scrollPastBottom]", path])
@@ -1893,9 +1856,8 @@ function _jm_f_39(val, path, rep)
 // check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
 function _jm_f_40(val, path, rep)
 {
-    let res;
     // .gui.shortTimeFormat
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.gui.shortTimeFormat]", path])
@@ -1906,9 +1868,8 @@ function _jm_f_40(val, path, rep)
 // check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
 function _jm_f_41(val, path, rep)
 {
-    let res;
     // .gui.showBottomLine
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.showBottomLine]", path])
@@ -1919,9 +1880,8 @@ function _jm_f_41(val, path, rep)
 // check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
 function _jm_f_42(val, path, rep)
 {
-    let res;
     // .gui.showBranchCommitHash
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.showBranchCommitHash]", path])
@@ -1932,9 +1892,8 @@ function _jm_f_42(val, path, rep)
 // check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
 function _jm_f_43(val, path, rep)
 {
-    let res;
     // .gui.showCommandLog
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.showCommandLog]", path])
@@ -1945,9 +1904,8 @@ function _jm_f_43(val, path, rep)
 // check _jm_f_26_map_showFileTree (.gui.showFileTree)
 function _jm_f_44(val, path, rep)
 {
-    let res;
     // .gui.showFileTree
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.showFileTree]", path])
@@ -1958,9 +1916,8 @@ function _jm_f_44(val, path, rep)
 // check _jm_f_26_map_showListFooter (.gui.showListFooter)
 function _jm_f_45(val, path, rep)
 {
-    let res;
     // .gui.showListFooter
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.showListFooter]", path])
@@ -1971,9 +1928,8 @@ function _jm_f_45(val, path, rep)
 // check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
 function _jm_f_46(val, path, rep)
 {
-    let res;
     // .gui.showRandomTip
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.showRandomTip]", path])
@@ -1984,10 +1940,9 @@ function _jm_f_46(val, path, rep)
 // check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
 function _jm_f_47(val, path, rep)
 {
-    let res;
     // .gui.sidePanelWidth
     // .gui.sidePanelWidth.'@'
-    res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0.0 strict float [.gui.sidePanelWidth.'@']", path])
@@ -2007,9 +1962,8 @@ function _jm_f_47(val, path, rep)
 // check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
 function _jm_f_48(val, path, rep)
 {
-    let res;
     // .gui.skipDiscardChangeWarning
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.skipDiscardChangeWarning]", path])
@@ -2020,9 +1974,8 @@ function _jm_f_48(val, path, rep)
 // check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
 function _jm_f_49(val, path, rep)
 {
-    let res;
     // .gui.skipRewordInEditorWarning
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.skipRewordInEditorWarning]", path])
@@ -2033,9 +1986,8 @@ function _jm_f_49(val, path, rep)
 // check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
 function _jm_f_50(val, path, rep)
 {
-    let res;
     // .gui.skipStashWarning
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.gui.skipStashWarning]", path])
@@ -2047,9 +1999,8 @@ function _jm_f_50(val, path, rep)
 // check _jm_f_26_map_splitDiff (.gui.splitDiff)
 function _jm_f_51(val, path, rep)
 {
-    let res;
     // .gui.splitDiff
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_11.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_11.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.gui.splitDiff.'|']", path])
@@ -2092,9 +2043,8 @@ function _jm_f_52(val, path, rep)
 // check _jm_f_26_map_timeFormat (.gui.timeFormat)
 function _jm_f_53(val, path, rep)
 {
-    let res;
     // .gui.timeFormat
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.gui.timeFormat]", path])
@@ -2106,9 +2056,8 @@ function _jm_f_53(val, path, rep)
 // check _jm_f_26_map_windowSize (.gui.windowSize)
 function _jm_f_54(val, path, rep)
 {
-    let res;
     // .gui.windowSize
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_12.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_12.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.gui.windowSize.'|']", path])
@@ -2501,9 +2450,8 @@ function _jm_f_63(val, path, rep)
 // check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
 function _jm_f_65(val, path, rep)
 {
-    let res;
     // .keybinding.universal.jumpToBlock
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.keybinding.universal.jumpToBlock]", path])
@@ -2514,9 +2462,8 @@ function _jm_f_65(val, path, rep)
 // check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
 function _jm_f_66(val, path, rep)
 {
-    let res;
     // .keybinding.universal.optionMenu
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.keybinding.universal.optionMenu]", path])
@@ -2592,9 +2539,8 @@ function _jm_f_55(val, path, rep)
 // check json_model_1_map_notARepository (.notARepository)
 function _jm_f_67(val, path, rep)
 {
-    let res;
     // .notARepository
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_13.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_13.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.notARepository.'|']", path])
@@ -2605,9 +2551,8 @@ function _jm_f_67(val, path, rep)
 // check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
 function _jm_f_69(val, path, rep)
 {
-    let res;
     // .os.copyToClipboardCmd
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.os.copyToClipboardCmd]", path])
@@ -2618,9 +2563,8 @@ function _jm_f_69(val, path, rep)
 // check _jm_f_68_map_edit (.os.edit)
 function _jm_f_70(val, path, rep)
 {
-    let res;
     // .os.edit
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.os.edit]", path])
@@ -2631,9 +2575,8 @@ function _jm_f_70(val, path, rep)
 // check _jm_f_68_map_editAtLine (.os.editAtLine)
 function _jm_f_71(val, path, rep)
 {
-    let res;
     // .os.editAtLine
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.os.editAtLine]", path])
@@ -2644,9 +2587,8 @@ function _jm_f_71(val, path, rep)
 // check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
 function _jm_f_72(val, path, rep)
 {
-    let res;
     // .os.editAtLineAndWait
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.os.editAtLineAndWait]", path])
@@ -2658,9 +2600,8 @@ function _jm_f_72(val, path, rep)
 // check _jm_f_68_map_editPreset (.os.editPreset)
 function _jm_f_73(val, path, rep)
 {
-    let res;
     // .os.editPreset
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_14.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_14.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.os.editPreset.'|']", path])
@@ -2693,9 +2634,8 @@ function _jm_f_73(val, path, rep)
 // check _jm_f_68_map_open (.os.open)
 function _jm_f_74(val, path, rep)
 {
-    let res;
     // .os.open
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.os.open]", path])
@@ -2706,9 +2646,8 @@ function _jm_f_74(val, path, rep)
 // check _jm_f_68_map_openLink (.os.openLink)
 function _jm_f_75(val, path, rep)
 {
-    let res;
     // .os.openLink
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.os.openLink]", path])
@@ -2751,9 +2690,8 @@ function _jm_f_68(val, path, rep)
 // check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
 function _jm_f_76(val, path, rep)
 {
-    let res;
     // .promptToReturnFromSubprocess
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.promptToReturnFromSubprocess]", path])
@@ -2764,9 +2702,8 @@ function _jm_f_76(val, path, rep)
 // check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
 function _jm_f_77(val, path, rep)
 {
-    let res;
     // .quitOnTopLevelReturn
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.quitOnTopLevelReturn]", path])

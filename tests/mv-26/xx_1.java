@@ -27,9 +27,8 @@ public class xx_1 extends ModelChecker
         // .
         // generic xor list
         long xc_0 = 0;
-        boolean xr_0;
         // .'^'.0
-        xr_0 = json.isString(val);
+        boolean xr_0 = json.isString(val);
         if (xr_0)
         {
             xc_0 += 1;

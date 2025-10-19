@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $Pp (.'$Pp')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$Pp'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Pp']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $Qq (.'$Qq')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Qq'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)

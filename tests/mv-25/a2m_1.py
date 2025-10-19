@@ -88,9 +88,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $nomerge (.'$nomerge')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$nomerge'
-    res = True
+    res: bool = True
     if res:
         # .'$nomerge'.'&'.0
         res = json_model_2(val, path, rep)
@@ -101,10 +100,9 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # .'|'.0
-    res = json_model_4(val, path, rep)
+    res: bool = json_model_4(val, path, rep)
     if not res:
         # .'|'.1
         res = json_model_5(val, path, rep)

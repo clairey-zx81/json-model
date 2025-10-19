@@ -14,9 +14,8 @@ var check_model_map = new Map()
 // check $Ex05a (.'$Ex05a')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$Ex05a'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Ex05a']", path])
@@ -27,9 +26,8 @@ function json_model_2(val, path, rep)
 // check $Ex05b (.'$Ex05b')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Ex05b'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$Ex05b']", path])
@@ -40,10 +38,9 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // .'|'.0
-    res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex05a [.'|'.0]", path])

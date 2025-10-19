@@ -22,10 +22,9 @@ public class starts extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // "/^Hello/"
-        res = json.isString(val) && json.asString(val).startsWith("Hello");
+        boolean res = json.isString(val) && json.asString(val).startsWith("Hello");
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^Hello/ [.]", path);

@@ -18,9 +18,8 @@ function json_model_1(val, path, rep)
     // .
     // generic xor list
     let xc_0 = 0;
-    let xr_0;
     // .'^'.0
-    xr_0 = (typeof val === 'string' || val instanceof String);
+    let xr_0 = (typeof val === 'string' || val instanceof String);
     if (xr_0)
     {
         xc_0 += 1;

@@ -331,10 +331,9 @@ sub _jm_obj_0($$$)
 sub json_model_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # keyword $schema is mandatory at the root, and optional elsewhere
     # .'$tight#RootSchema'
-    $res = 1;
+    my $res = 1;
     if ($res)
     {
         # .'$tight#RootSchema'.'&'.0
@@ -873,10 +872,9 @@ sub _jm_f_32($$$)
 sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Array'.items
     # .'$tight#Array'.items.'|'.0
-    $res = json_model_26($val, $path, $rep);
+    my $res = json_model_26($val, $path, $rep);
     if (! $res)
     {
         # .'$tight#Array'.items.'|'.1
@@ -964,9 +962,8 @@ sub json_model_13($$$)
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#schemaArray'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -1146,9 +1143,8 @@ sub _jm_f_48($$$)
 sub _jm_f_49($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Object'.required
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$val)
@@ -2492,9 +2488,8 @@ sub json_model_22($$$)
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#enum'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         # .'$tight#enum'.'|'.0
@@ -2699,10 +2694,9 @@ sub json_model_23($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#const'
     # .'$tight#const'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$tight#const'.'|'.1
@@ -2885,10 +2879,9 @@ sub json_model_24($$$)
 sub json_model_26($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$tight#Schema'
     # .'$tight#Schema'.'|'.0
-    $res = jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$tight#Schema'.'|'.1

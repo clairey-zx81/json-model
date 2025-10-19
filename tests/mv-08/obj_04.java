@@ -22,9 +22,8 @@ public class obj_04 extends ModelChecker
     // check $bla (.'$bla')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$bla'
-        res = json.isString(val) && rt.is_valid_date(json.asString(val));
+        boolean res = json.isString(val) && rt.is_valid_date(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $DATE [.'$bla']", path);
@@ -35,9 +34,8 @@ public class obj_04 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        boolean res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $bla [.]", path);

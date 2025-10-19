@@ -14,10 +14,9 @@ var check_model_map = new Map()
 // check $foo (.'$foo')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$foo'
     // .'$foo'.'|'.0
-    res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $li0 [.'$foo'.'|'.0]", path])
@@ -63,9 +62,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $foo#ls0 [.]", path])
@@ -76,9 +74,8 @@ function json_model_1(val, path, rep)
 // check $foo#li0 (.'$foo#li0')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$foo#li0'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -104,9 +101,8 @@ function json_model_4(val, path, rep)
 // check $foo#ls0 (.'$foo#ls0')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$foo#ls0'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
@@ -132,9 +128,8 @@ function json_model_5(val, path, rep)
 // check $foo#lb0 (.'$foo#lb0')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$foo#lb0'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
@@ -160,9 +155,8 @@ function json_model_6(val, path, rep)
 // check $foo#lf0 (.'$foo#lf0')
 function json_model_7(val, path, rep)
 {
-    let res;
     // .'$foo#lf0'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_3_idx = 0; arr_3_idx < val.length; arr_3_idx++)

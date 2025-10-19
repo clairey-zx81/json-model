@@ -22,11 +22,10 @@ public class ex_04 extends ModelChecker
     // check $ (.)
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // to serve as an external reference
         // .
         // .'@'
-        res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+        boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _Susie [.'@']", path);
