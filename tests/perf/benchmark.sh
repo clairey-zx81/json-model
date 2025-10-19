@@ -246,7 +246,9 @@ For each test case, a radar or the relative speed performance of each tool,
 the higher the better, 1.0 is best. Fully non working case(s) removed, if any.
 Cases are sorted per decreasing performance of the fastest tools.
 
-<canvas id="PerformanceRadar"></canvas>
+<div class="chart-container" style="position: relative; width: 70vw; height: 50vh;">
+  <canvas id="PerformanceRadar"></canvas>
+</div>
 <script>showRadar("PerformanceRadar", "/benchmarks/$ID.json")</script>
 
 ## Summary

@@ -57,27 +57,52 @@
         const res = await resp.json()
         const data = res.map((x) => { return {...x, fill: true} })
 
-        // only keep used indexes
+        // only keep used case indexes
         let indexes = []
 
         for (let i = 0; i < data[0].data.length; i++)
           for (let t = 0; t < data.length; t++)
-            if (data[t].data[i] !== 0.0 && data[t].data[i] !== null) {
+            if (data[t].data[i] > 0.0) {
               indexes.push(i)
               break
             }
 
-        // sort display by decreasing jmc-c then blaze perf
-        function key(data, i) {
-          if (data[1].data[i] === 1.0)
-            return 2.0 + data[0].data[i]
-          else if (data[0].data[i] === 1.0)
-            return 1.0 + data[1].data[i]
-          else
-            return 1.0 - i / 100.0
-        }
+        if (sort) {
+          const cases = Array.from({length: data.length}, (_, i) => i)
 
-        sort && indexes.sort( (i, j) => key(data, j) - key(data, i) )
+          // count wins
+          let wins = [], winners = []
+
+          for (let t = 0; t < data.length; t++) {
+              wins[t] = data[t].data.filter(s => s === 1.0).length
+              wins[t] && winners.push(t)
+              // add a fractionnal part to avoid ties
+              wins[t] += data[t].data.filter(s => s !== null).reduce((a, v) => a + v, 0.0) / cases.length
+          }
+
+
+          // ensure that we have a secondary criterion
+          if (winners.length == 1 && data.length > 1) {
+            cases.sort( (i, j) => wins[j] - wins[i] )
+            winners.push(cases[1])
+          }
+
+          // rank case indexes by decreasing overall performance
+          winners.sort( (i, j) => wins[winners[j]] - wins[winners[i]] )
+
+          // sorting criterion for cases
+          function key(data, i) {
+            for (let rank = 0; rank < winners.length; rank++) {
+              const index = winners[rank]
+              if (data[index].data[i] === 1.0)
+                return (winners.length - rank) + data[winners[rank ? 0 : 1]].data[i]
+            }
+            return null
+          }
+
+          const keys = indexes.map(i => key(data, i))
+          indexes.sort( (i, j) => keys[j] - keys[i] )
+        }
 
         // extract needed data in order
         data.forEach(o => {
@@ -97,7 +122,9 @@
                 max: 1.0
               }
             },
-            aspectRatio: 2
+            aspectRatio: window.innerWidth < window.innerHeight ? 1 : 1.8,
+            responsive: true,
+            maintainAspectRatio: false,
           }
         });
       }

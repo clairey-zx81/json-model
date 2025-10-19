@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] pr: improve radar chart responsiveness and sorting
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
