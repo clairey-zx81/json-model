@@ -12,6 +12,11 @@
 - [x] c-backend: remove some useless braces around one instruction (with late filtering)
 - [x] backend: simplify conditional assignment patterns with one boolean constant
 - [x] backend: merge boolean declaration and first assignment if possible
+- [ ] backend: optimize pattern "if (! res) res = E; ret res;"
+- [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
+- [ ] backend: optimize pattern "res = E; if (! res) { simple ; res = ; }"
+- [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
+- [ ] static: add likely/unlikely hints
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting
@@ -19,7 +24,6 @@
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
-- [ ] static: add likely/unlikely hints
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
 - [ ] tests: add pytest ir tests
@@ -248,6 +252,7 @@
 - [ ] design: documentation use case, with added _markdown description_
 - [ ] pr: validation must be optimized for the valid case, as it is the most likely.
 - [ ] case: use trafo in geo to have either 2 or 3 vectors, no mix.
+- [ ] clang: cJSON? json-c? other JSON library for C?
 
 ## Done
 
