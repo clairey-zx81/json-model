@@ -129,7 +129,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$License'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 28);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 28);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$License'.'|']", path);
@@ -249,11 +249,9 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
         else if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'$Provide'.'/^[Xx]_/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Provide']", (path ? &lpath_0 : NULL));
@@ -284,7 +282,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Status'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Status'.'|']", path);
@@ -331,11 +329,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'$Resources'.bugtracker.'/^[Xx]_/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Resources'.bugtracker]", (path ? &lpath_2 : NULL));
@@ -562,7 +558,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Phase'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 5);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 5);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Phase'.'|']", path);
@@ -576,7 +572,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Relation'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_3, 4);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_3, 4);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Relation'.'|']", path);
@@ -655,11 +651,9 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'$Prereqs'.'$Phase'.'/^[Xx]_/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Prereqs'.'$Phase']", (path ? &lpath_6 : NULL));
@@ -696,11 +690,9 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
         else if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'$Prereqs'.'/^[Xx]_/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Prereqs']", (path ? &lpath_5 : NULL));
@@ -862,11 +854,9 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
         else if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'meta-spec'.'/^[Xx]_/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'meta-spec']", (path ? &lpath_9 : NULL));
@@ -1064,11 +1054,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
         else if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'/^[Xx]_/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.]", (path ? &lpath_7 : NULL));

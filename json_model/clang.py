@@ -1,8 +1,9 @@
+import re
 import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number
-# from .utils import log
+from .utils import log
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
@@ -641,3 +642,40 @@ class CLangJansson(Language):
 
     def gen_free(self, free: Block) -> Block:
         return self.file_subs("clang_free.c", free)
+
+    def filter_code(self, code: Block) -> Block:
+
+        for i in range(len(code)):
+            line = code[i]
+            if line is None:
+                continue
+            # remove redundant scalar check
+            if "jm_json_is_scalar" in line:
+                code[i] = re.sub(r" jm_json_is_scalar\((\w+)\) && json_is_string\(\1\)",
+                                 r" json_is_string(\1)", line)
+            # remove useless braces around one instruction in some safe cases
+            if re.match(r"^ +\{$", line):
+                ninst, n, opened = 0, 0, 1
+                while True:
+                    n += 1
+                    nline = code[i+n]
+                    if nline is None or re.match(r"^ *$", nline) or re.match(r"^ *//", nline):
+                        continue
+                    if re.match(r"^ +\{$", nline):
+                        opened += 1
+                    elif re.match(r"^ +\}$", nline):
+                        opened -= 1
+                        if opened == 0:
+                            break
+                    elif " if (" in nline:
+                        # keep braces around nested ifs
+                        ninst = -1
+                        break
+                    else:
+                        # note this is intentionnaly pessimistic
+                        ninst += 1
+                if ninst == 1:
+                    # log.warning(code[i:i+n+1])
+                    code[i], code[i+n] = None, None
+
+        return list(filter(lambda s: s is not None, code))

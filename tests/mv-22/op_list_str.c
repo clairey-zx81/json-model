@@ -91,7 +91,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'|'.1.t
-    res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'|'.1.t.'|']", (path ? &lpath : NULL));
@@ -136,9 +136,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             if (fun_0 != NULL)
-            {
                 res = fun_0(val, path, rep);
-            }
             else
             {
                 res = false;
@@ -188,11 +186,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

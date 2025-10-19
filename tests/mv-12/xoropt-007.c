@@ -148,9 +148,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'^'.0
     xr_0 = _jm_obj_0(val, path, rep);
     if (xr_0)
-    {
         xc_0 += 1;
-    }
     else
     {
         if (rep) jm_report_add_entry(rep, "unexpected element [.'^'.0]", path);
@@ -158,9 +156,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'^'.1
     xr_0 = _jm_obj_1(val, path, rep);
     if (xr_0)
-    {
         xc_0 += 1;
-    }
     else
     {
         if (rep) jm_report_add_entry(rep, "unexpected element [.'^'.1]", path);
@@ -199,11 +195,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

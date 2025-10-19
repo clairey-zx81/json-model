@@ -25,19 +25,13 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$objs0'
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 1)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "stuff")) != NULL))
-    {
         return false;
-    }
     // .'$objs0'.stuff
     res = json_is_array(pval);
     if (res)
@@ -49,9 +43,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .'$objs0'.stuff.0
             res = json_model_6(arr_0_item, NULL, rep);
             if (! res)
-            {
                 break;
-            }
         }
     }
     return res;
@@ -63,19 +55,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 1)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "foo")) != NULL))
-    {
         return false;
-    }
     // .foo
     return json_model_3(pval, NULL, rep);
 }
@@ -101,18 +87,12 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             if (fun_0 != NULL)
-            {
                 res = fun_0(val, path, rep);
-            }
             else
-            {
                 res = false;
-            }
         }
         else
-        {
             res = false;
-        }
     }
     return res;
 }
@@ -123,29 +103,19 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$objs0#table'
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "t")) != NULL))
-    {
         return false;
-    }
     // .'$objs0#table'.t
     res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000656c626174LL);
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "legs")) != NULL))
-    {
         return false;
-    }
     // .'$objs0#table'.legs
     return json_is_integer(pval) && json_integer_value(pval) >= 1;
 }
@@ -156,29 +126,19 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$objs0#chair'
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "t")) != NULL))
-    {
         return false;
-    }
     // .'$objs0#chair'.t
     res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007269616863LL);
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "color")) != NULL))
-    {
         return false;
-    }
     // .'$objs0#chair'.color
     return json_is_string(pval);
 }
@@ -209,11 +169,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

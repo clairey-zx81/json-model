@@ -632,7 +632,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$schema#simpleTypes'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 6);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 6);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$schema#simpleTypes'.'|']", path);
@@ -725,7 +725,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // add a definition for BSON types
     // .'$schema#bsonType'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 17);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 17);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$schema#bsonType'.'|']", path);
@@ -813,11 +813,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

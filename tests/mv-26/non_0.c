@@ -25,9 +25,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'^'.0
     xr_0 = json_is_string(val);
     if (xr_0)
-    {
         xc_0 += 1;
-    }
     else
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'^'.0]", path);
@@ -35,9 +33,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'^'.1
     xr_0 = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000021);
     if (xr_0)
-    {
         xc_0 += 1;
-    }
     else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _! [.'^'.1]", path);
@@ -47,9 +43,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // .'^'.2
         xr_0 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x000000646c726f77LL);
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected _world [.'^'.2]", path);
@@ -89,11 +83,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

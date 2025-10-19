@@ -24,9 +24,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     if (json_object_size(val) == 0)
-    {
         return true;
-    }
     else
     {
         if (rep) jm_report_add_entry(rep, "expecting empty object [.]", path);
@@ -56,11 +54,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

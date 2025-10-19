@@ -1319,7 +1319,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may e2 property
             // .enum.e2
-            res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 3);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 3);;
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e2.'|']", (path ? &lpath_5 : NULL));
@@ -2467,9 +2467,7 @@ static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     if (json_object_size(val) == 0)
-    {
         return true;
-    }
     else
     {
         if (rep) jm_report_add_entry(rep, "expecting empty object [.object.o0]", path);
@@ -3595,9 +3593,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // "/^a/"
             xr_0 = json_is_string(pval) && strncmp(json_string_value(pval), "a", strlen("a")) == 0;
             if (xr_0)
-            {
                 xc_0 += 1;
-            }
             else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /^a/ [.xor.x1.'^'.0]", (path ? &lpath_23 : NULL));
@@ -3606,9 +3602,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // "/z$/"
             xr_0 = json_is_string(pval) && strlen(json_string_value(pval)) >= strlen("z") && strcmp(json_string_value(pval) + strlen(json_string_value(pval)) - strlen("z"), "z") == 0;
             if (xr_0)
-            {
                 xc_0 += 1;
-            }
             else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /z$/ [.xor.x1.'^'.1]", (path ? &lpath_23 : NULL));
@@ -3635,9 +3629,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .xor.x2.'^'.0
             xr_1 = json_is_integer(pval);
             if (xr_1)
-            {
                 xc_1 += 1;
-            }
             else
             {
                 if (rep) jm_report_add_entry(rep, "not a -1 strict int [.xor.x2.'^'.0]", (path ? &lpath_23 : NULL));
@@ -3645,9 +3637,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .xor.x2.'^'.1
             xr_1 = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (xr_1)
-            {
                 xc_1 += 1;
-            }
             else
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.xor.x2.'^'.1]", (path ? &lpath_23 : NULL));

@@ -33,9 +33,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     if (! json_is_object(val))
-    {
         return false;
-    }
     jm_check_fun_t pfun;
     const char *prop;
     json_t *pval;
@@ -45,14 +43,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle 10 may props
             if (pfun != NULL && ! pfun(pval, NULL, rep))
-            {
                 return false;
-            }
         }
         else
-        {
             return false;
-        }
     }
     return true;
 }
@@ -91,11 +85,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

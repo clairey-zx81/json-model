@@ -23,29 +23,19 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$bla'
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "x")) != NULL))
-    {
         return false;
-    }
     // .'$bla'.x
     res = json_is_real(pval);
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "y")) != NULL))
-    {
         return false;
-    }
     // .'$bla'.y
     return json_is_real(pval);
 }
@@ -96,11 +86,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

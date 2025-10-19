@@ -25,9 +25,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$Oa'
     // check open must/may only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if ((pval = json_object_get(val, "a")) != NULL)
@@ -35,9 +33,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // .'$Oa'.a
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
     }
     return true;
 }
@@ -48,9 +44,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$Ob'
     // check open must/may only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if ((pval = json_object_get(val, "b")) != NULL)
@@ -58,9 +52,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // .'$Ob'.b
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
     }
     return true;
 }
@@ -71,9 +63,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$merge'
     // check open must/may only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if ((pval = json_object_get(val, "a")) != NULL)
@@ -81,18 +71,14 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // .'$merge'.a
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
     }
     if ((pval = json_object_get(val, "b")) != NULL)
     {
         // .'$merge'.b
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
     }
     return true;
 }
@@ -102,19 +88,13 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 {
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 1)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "c")) != NULL))
-    {
         return false;
-    }
     // .'$nomerge'.'&'.1.c
     return json_is_integer(pval) && json_integer_value(pval) >= 1;
 }
@@ -130,10 +110,8 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // .'$nomerge'.'&'.0
         res = json_model_2(val, path, rep);
         if (res)
-        {
             // .'$nomerge'.'&'.1
             res = _jm_obj_0(val, path, rep);
-        }
     }
     return res;
 }
@@ -146,10 +124,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'|'.0
     res = json_model_4(val, path, rep);
     if (! res)
-    {
         // .'|'.1
         res = json_model_5(val, path, rep);
-    }
     return res;
 }
 
@@ -179,11 +155,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

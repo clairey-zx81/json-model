@@ -300,7 +300,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
                     // .'$AIXPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_0_item) && json_is_string(arr_0_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_0_item) } }, _jm_cst_0, 4);;
+                    res = json_is_string(arr_0_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_0_item) } }, _jm_cst_0, 4);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$AIXPlatformModel'.versions.0.'|']", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
@@ -429,7 +429,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, (path ? &lpath_2 : NULL), NULL };
                     // .'$AmazonLinuxPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_2_item) && json_is_string(arr_2_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_2_item) } }, _jm_cst_1, 4);;
+                    res = json_is_string(arr_2_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_2_item) } }, _jm_cst_1, 4);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$AmazonLinuxPlatformModel'.versions.0.'|']", ((path ? &lpath_2 : NULL) ? &arr_2_lpath : NULL));
@@ -494,7 +494,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_3 : NULL), NULL };
                     // .'$AmazonPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_3_item) && json_is_string(arr_3_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_3_item) } }, _jm_cst_2, 14);;
+                    res = json_is_string(arr_3_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_3_item) } }, _jm_cst_2, 14);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$AmazonPlatformModel'.versions.0.'|']", ((path ? &lpath_3 : NULL) ? &arr_3_lpath : NULL));
@@ -623,7 +623,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_5 : NULL), NULL };
                     // .'$AstraLinuxPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_5_item) && json_is_string(arr_5_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_5_item) } }, _jm_cst_3, 5);;
+                    res = json_is_string(arr_5_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_5_item) } }, _jm_cst_3, 5);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$AstraLinuxPlatformModel'.versions.0.'|']", ((path ? &lpath_5 : NULL) ? &arr_5_lpath : NULL));
@@ -752,7 +752,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_7_lpath = (jm_path_t) { NULL, arr_7_idx, (path ? &lpath_7 : NULL), NULL };
                     // .'$CumulusPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_7_item) && json_is_string(arr_7_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_7_item) } }, _jm_cst_4, 8);;
+                    res = json_is_string(arr_7_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_7_item) } }, _jm_cst_4, 8);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$CumulusPlatformModel'.versions.0.'|']", ((path ? &lpath_7 : NULL) ? &arr_7_lpath : NULL));
@@ -817,7 +817,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_8_lpath = (jm_path_t) { NULL, arr_8_idx, (path ? &lpath_8 : NULL), NULL };
                     // .'$DebianPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_8_item) && json_is_string(arr_8_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_8_item) } }, _jm_cst_5, 12);;
+                    res = json_is_string(arr_8_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_8_item) } }, _jm_cst_5, 12);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DebianPlatformModel'.versions.0.'|']", ((path ? &lpath_8 : NULL) ? &arr_8_lpath : NULL));
@@ -882,7 +882,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_9_lpath = (jm_path_t) { NULL, arr_9_idx, (path ? &lpath_9 : NULL), NULL };
                     // .'$DellOSPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_9_item) && json_is_string(arr_9_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_9_item) } }, _jm_cst_6, 4);;
+                    res = json_is_string(arr_9_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_9_item) } }, _jm_cst_6, 4);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DellOSPlatformModel'.versions.0.'|']", ((path ? &lpath_9 : NULL) ? &arr_9_lpath : NULL));
@@ -947,7 +947,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_10_lpath = (jm_path_t) { NULL, arr_10_idx, (path ? &lpath_10 : NULL), NULL };
                     // .'$DevuanPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_10_item) && json_is_string(arr_10_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_10_item) } }, _jm_cst_7, 6);;
+                    res = json_is_string(arr_10_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_10_item) } }, _jm_cst_7, 6);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DevuanPlatformModel'.versions.0.'|']", ((path ? &lpath_10 : NULL) ? &arr_10_lpath : NULL));
@@ -1012,7 +1012,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_11_lpath = (jm_path_t) { NULL, arr_11_idx, (path ? &lpath_11 : NULL), NULL };
                     // .'$DragonFlyBSDPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_11_item) && json_is_string(arr_11_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_11_item) } }, _jm_cst_8, 8);;
+                    res = json_is_string(arr_11_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_11_item) } }, _jm_cst_8, 8);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DragonFlyBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_11 : NULL) ? &arr_11_lpath : NULL));
@@ -1077,7 +1077,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_12_lpath = (jm_path_t) { NULL, arr_12_idx, (path ? &lpath_12 : NULL), NULL };
                     // .'$ELPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_12_item) && json_is_string(arr_12_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_12_item) } }, _jm_cst_9, 7);;
+                    res = json_is_string(arr_12_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_12_item) } }, _jm_cst_9, 7);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$ELPlatformModel'.versions.0.'|']", ((path ? &lpath_12 : NULL) ? &arr_12_lpath : NULL));
@@ -1142,7 +1142,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_13_lpath = (jm_path_t) { NULL, arr_13_idx, (path ? &lpath_13 : NULL), NULL };
                     // .'$FedoraPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_13_item) && json_is_string(arr_13_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_13_item) } }, _jm_cst_10, 28);;
+                    res = json_is_string(arr_13_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_13_item) } }, _jm_cst_10, 28);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$FedoraPlatformModel'.versions.0.'|']", ((path ? &lpath_13 : NULL) ? &arr_13_lpath : NULL));
@@ -1207,7 +1207,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_14_lpath = (jm_path_t) { NULL, arr_14_idx, (path ? &lpath_14 : NULL), NULL };
                     // .'$FreeBSDPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_14_item) && json_is_string(arr_14_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_14_item) } }, _jm_cst_11, 27);;
+                    res = json_is_string(arr_14_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_14_item) } }, _jm_cst_11, 27);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$FreeBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_14 : NULL) ? &arr_14_lpath : NULL));
@@ -1528,7 +1528,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_19_lpath = (jm_path_t) { NULL, arr_19_idx, (path ? &lpath_19 : NULL), NULL };
                     // .'$HardenedBSDPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_19_item) && json_is_string(arr_19_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_19_item) } }, _jm_cst_12, 3);;
+                    res = json_is_string(arr_19_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_19_item) } }, _jm_cst_12, 3);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$HardenedBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_19 : NULL) ? &arr_19_lpath : NULL));
@@ -1721,7 +1721,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_22_lpath = (jm_path_t) { NULL, arr_22_idx, (path ? &lpath_22 : NULL), NULL };
                     // .'$KaliPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_22_item) && json_is_string(arr_22_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_22_item) } }, _jm_cst_13, 10);;
+                    res = json_is_string(arr_22_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_22_item) } }, _jm_cst_13, 10);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$KaliPlatformModel'.versions.0.'|']", ((path ? &lpath_22 : NULL) ? &arr_22_lpath : NULL));
@@ -1786,7 +1786,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_23_lpath = (jm_path_t) { NULL, arr_23_idx, (path ? &lpath_23 : NULL), NULL };
                     // .'$MacOSXPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_23_item) && json_is_string(arr_23_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_23_item) } }, _jm_cst_14, 10);;
+                    res = json_is_string(arr_23_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_23_item) } }, _jm_cst_14, 10);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$MacOSXPlatformModel'.versions.0.'|']", ((path ? &lpath_23 : NULL) ? &arr_23_lpath : NULL));
@@ -1851,7 +1851,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_24_lpath = (jm_path_t) { NULL, arr_24_idx, (path ? &lpath_24 : NULL), NULL };
                     // .'$MageiaPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_24_item) && json_is_string(arr_24_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_24_item) } }, _jm_cst_15, 3);;
+                    res = json_is_string(arr_24_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_24_item) } }, _jm_cst_15, 3);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$MageiaPlatformModel'.versions.0.'|']", ((path ? &lpath_24 : NULL) ? &arr_24_lpath : NULL));
@@ -1980,7 +1980,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_26_lpath = (jm_path_t) { NULL, arr_26_idx, (path ? &lpath_26 : NULL), NULL };
                     // .'$NetBSDPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_26_item) && json_is_string(arr_26_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_26_item) } }, _jm_cst_16, 9);;
+                    res = json_is_string(arr_26_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_26_item) } }, _jm_cst_16, 9);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$NetBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_26 : NULL) ? &arr_26_lpath : NULL));
@@ -2045,7 +2045,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_27_lpath = (jm_path_t) { NULL, arr_27_idx, (path ? &lpath_27 : NULL), NULL };
                     // .'$OpenBSDPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_27_item) && json_is_string(arr_27_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_27_item) } }, _jm_cst_17, 19);;
+                    res = json_is_string(arr_27_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_27_item) } }, _jm_cst_17, 19);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$OpenBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_27 : NULL) ? &arr_27_lpath : NULL));
@@ -2110,7 +2110,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_28_lpath = (jm_path_t) { NULL, arr_28_idx, (path ? &lpath_28 : NULL), NULL };
                     // .'$OpenWrtPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_28_item) && json_is_string(arr_28_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_28_item) } }, _jm_cst_18, 8);;
+                    res = json_is_string(arr_28_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_28_item) } }, _jm_cst_18, 8);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$OpenWrtPlatformModel'.versions.0.'|']", ((path ? &lpath_28 : NULL) ? &arr_28_lpath : NULL));
@@ -2175,7 +2175,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_29_lpath = (jm_path_t) { NULL, arr_29_idx, (path ? &lpath_29 : NULL), NULL };
                     // .'$OracleLinuxPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_29_item) && json_is_string(arr_29_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_29_item) } }, _jm_cst_19, 27);;
+                    res = json_is_string(arr_29_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_29_item) } }, _jm_cst_19, 27);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$OracleLinuxPlatformModel'.versions.0.'|']", ((path ? &lpath_29 : NULL) ? &arr_29_lpath : NULL));
@@ -2240,7 +2240,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_30_lpath = (jm_path_t) { NULL, arr_30_idx, (path ? &lpath_30 : NULL), NULL };
                     // .'$PAN-OSPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_30_item) && json_is_string(arr_30_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_30_item) } }, _jm_cst_20, 5);;
+                    res = json_is_string(arr_30_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_30_item) } }, _jm_cst_20, 5);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$PAN-OSPlatformModel'.versions.0.'|']", ((path ? &lpath_30 : NULL) ? &arr_30_lpath : NULL));
@@ -2305,7 +2305,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_31_lpath = (jm_path_t) { NULL, arr_31_idx, (path ? &lpath_31 : NULL), NULL };
                     // .'$RockyLinuxPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_31_item) && json_is_string(arr_31_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_31_item) } }, _jm_cst_21, 13);;
+                    res = json_is_string(arr_31_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_31_item) } }, _jm_cst_21, 13);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$RockyLinuxPlatformModel'.versions.0.'|']", ((path ? &lpath_31 : NULL) ? &arr_31_lpath : NULL));
@@ -2370,7 +2370,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_32_lpath = (jm_path_t) { NULL, arr_32_idx, (path ? &lpath_32 : NULL), NULL };
                     // .'$SLESPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_32_item) && json_is_string(arr_32_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_32_item) } }, _jm_cst_22, 21);;
+                    res = json_is_string(arr_32_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_32_item) } }, _jm_cst_22, 21);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$SLESPlatformModel'.versions.0.'|']", ((path ? &lpath_32 : NULL) ? &arr_32_lpath : NULL));
@@ -2499,7 +2499,7 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_34_lpath = (jm_path_t) { NULL, arr_34_idx, (path ? &lpath_34 : NULL), NULL };
                     // .'$SolarisPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_34_item) && json_is_string(arr_34_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_34_item) } }, _jm_cst_23, 7);;
+                    res = json_is_string(arr_34_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_34_item) } }, _jm_cst_23, 7);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$SolarisPlatformModel'.versions.0.'|']", ((path ? &lpath_34 : NULL) ? &arr_34_lpath : NULL));
@@ -2564,7 +2564,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_35_lpath = (jm_path_t) { NULL, arr_35_idx, (path ? &lpath_35 : NULL), NULL };
                     // .'$SynologyPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_35_item) && json_is_string(arr_35_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_35_item) } }, _jm_cst_24, 5);;
+                    res = json_is_string(arr_35_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_35_item) } }, _jm_cst_24, 5);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$SynologyPlatformModel'.versions.0.'|']", ((path ? &lpath_35 : NULL) ? &arr_35_lpath : NULL));
@@ -2629,7 +2629,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_36_lpath = (jm_path_t) { NULL, arr_36_idx, (path ? &lpath_36 : NULL), NULL };
                     // .'$TMOSPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_36_item) && json_is_string(arr_36_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_36_item) } }, _jm_cst_25, 5);;
+                    res = json_is_string(arr_36_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_36_item) } }, _jm_cst_25, 5);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$TMOSPlatformModel'.versions.0.'|']", ((path ? &lpath_36 : NULL) ? &arr_36_lpath : NULL));
@@ -2694,7 +2694,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_37_lpath = (jm_path_t) { NULL, arr_37_idx, (path ? &lpath_37 : NULL), NULL };
                     // .'$UbuntuPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_37_item) && json_is_string(arr_37_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_37_item) } }, _jm_cst_26, 32);;
+                    res = json_is_string(arr_37_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_37_item) } }, _jm_cst_26, 32);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$UbuntuPlatformModel'.versions.0.'|']", ((path ? &lpath_37 : NULL) ? &arr_37_lpath : NULL));
@@ -2823,7 +2823,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_39_lpath = (jm_path_t) { NULL, arr_39_idx, (path ? &lpath_39 : NULL), NULL };
                     // .'$WindowsPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_39_item) && json_is_string(arr_39_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_39_item) } }, _jm_cst_27, 10);;
+                    res = json_is_string(arr_39_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_39_item) } }, _jm_cst_27, 10);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$WindowsPlatformModel'.versions.0.'|']", ((path ? &lpath_39 : NULL) ? &arr_39_lpath : NULL));
@@ -3016,7 +3016,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_42_lpath = (jm_path_t) { NULL, arr_42_idx, (path ? &lpath_42 : NULL), NULL };
                     // .'$macOSPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_42_item) && json_is_string(arr_42_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_42_item) } }, _jm_cst_28, 9);;
+                    res = json_is_string(arr_42_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_42_item) } }, _jm_cst_28, 9);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$macOSPlatformModel'.versions.0.'|']", ((path ? &lpath_42 : NULL) ? &arr_42_lpath : NULL));
@@ -3081,7 +3081,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_43_lpath = (jm_path_t) { NULL, arr_43_idx, (path ? &lpath_43 : NULL), NULL };
                     // .'$opensusePlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_43_item) && json_is_string(arr_43_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_43_item) } }, _jm_cst_29, 15);;
+                    res = json_is_string(arr_43_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_43_item) } }, _jm_cst_29, 15);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$opensusePlatformModel'.versions.0.'|']", ((path ? &lpath_43 : NULL) ? &arr_43_lpath : NULL));
@@ -3210,7 +3210,7 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_45_lpath = (jm_path_t) { NULL, arr_45_idx, (path ? &lpath_45 : NULL), NULL };
                     // .'$vCenterPlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_45_item) && json_is_string(arr_45_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_45_item) } }, _jm_cst_30, 7);;
+                    res = json_is_string(arr_45_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_45_item) } }, _jm_cst_30, 7);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$vCenterPlatformModel'.versions.0.'|']", ((path ? &lpath_45 : NULL) ? &arr_45_lpath : NULL));
@@ -3275,7 +3275,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_46_lpath = (jm_path_t) { NULL, arr_46_idx, (path ? &lpath_46 : NULL), NULL };
                     // .'$vSpherePlatformModel'.versions.0
-                    res = jm_json_is_scalar(arr_46_item) && json_is_string(arr_46_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_46_item) } }, _jm_cst_31, 7);;
+                    res = json_is_string(arr_46_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_46_item) } }, _jm_cst_31, 7);;
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$vSpherePlatformModel'.versions.0.'|']", ((path ? &lpath_46 : NULL) ? &arr_46_lpath : NULL));
@@ -3774,7 +3774,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_48_lpath = (jm_path_t) { NULL, arr_48_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.46.versions.0
-                res = jm_json_is_scalar(arr_48_item) && json_is_string(arr_48_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_48_item) } }, _jm_cst_32, 10);;
+                res = json_is_string(arr_48_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_48_item) } }, _jm_cst_32, 10);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_48_lpath : NULL));
@@ -3830,7 +3830,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_49_lpath = (jm_path_t) { NULL, arr_49_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.45.versions.0
-                res = jm_json_is_scalar(arr_49_item) && json_is_string(arr_49_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_49_item) } }, _jm_cst_33, 7);;
+                res = json_is_string(arr_49_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_49_item) } }, _jm_cst_33, 7);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_49_lpath : NULL));
@@ -3941,7 +3941,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_51_lpath = (jm_path_t) { NULL, arr_51_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.43.versions.0
-                res = jm_json_is_scalar(arr_51_item) && json_is_string(arr_51_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_51_item) } }, _jm_cst_34, 7);;
+                res = json_is_string(arr_51_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_51_item) } }, _jm_cst_34, 7);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_51_lpath : NULL));
@@ -3997,7 +3997,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_52_lpath = (jm_path_t) { NULL, arr_52_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.42.versions.0
-                res = jm_json_is_scalar(arr_52_item) && json_is_string(arr_52_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_52_item) } }, _jm_cst_35, 32);;
+                res = json_is_string(arr_52_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_52_item) } }, _jm_cst_35, 32);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_52_lpath : NULL));
@@ -4053,7 +4053,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_53_lpath = (jm_path_t) { NULL, arr_53_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.41.versions.0
-                res = jm_json_is_scalar(arr_53_item) && json_is_string(arr_53_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_53_item) } }, _jm_cst_36, 5);;
+                res = json_is_string(arr_53_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_53_item) } }, _jm_cst_36, 5);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_53_lpath : NULL));
@@ -4109,7 +4109,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_54_lpath = (jm_path_t) { NULL, arr_54_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.40.versions.0
-                res = jm_json_is_scalar(arr_54_item) && json_is_string(arr_54_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_54_item) } }, _jm_cst_37, 5);;
+                res = json_is_string(arr_54_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_54_item) } }, _jm_cst_37, 5);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_54_lpath : NULL));
@@ -4165,7 +4165,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_55_lpath = (jm_path_t) { NULL, arr_55_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.39.versions.0
-                res = jm_json_is_scalar(arr_55_item) && json_is_string(arr_55_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_55_item) } }, _jm_cst_38, 7);;
+                res = json_is_string(arr_55_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_55_item) } }, _jm_cst_38, 7);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_55_lpath : NULL));
@@ -4276,7 +4276,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 jm_path_t arr_57_lpath = (jm_path_t) { NULL, arr_57_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.37.versions.0
-                res = jm_json_is_scalar(arr_57_item) && json_is_string(arr_57_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_57_item) } }, _jm_cst_39, 21);;
+                res = json_is_string(arr_57_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_57_item) } }, _jm_cst_39, 21);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_57_lpath : NULL));
@@ -4332,7 +4332,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_58_lpath = (jm_path_t) { NULL, arr_58_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.36.versions.0
-                res = jm_json_is_scalar(arr_58_item) && json_is_string(arr_58_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_58_item) } }, _jm_cst_40, 13);;
+                res = json_is_string(arr_58_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_58_item) } }, _jm_cst_40, 13);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_58_lpath : NULL));
@@ -4388,7 +4388,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_59_lpath = (jm_path_t) { NULL, arr_59_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.35.versions.0
-                res = jm_json_is_scalar(arr_59_item) && json_is_string(arr_59_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_59_item) } }, _jm_cst_41, 5);;
+                res = json_is_string(arr_59_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_59_item) } }, _jm_cst_41, 5);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_59_lpath : NULL));
@@ -4499,7 +4499,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_61_lpath = (jm_path_t) { NULL, arr_61_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.33.versions.0
-                res = jm_json_is_scalar(arr_61_item) && json_is_string(arr_61_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_61_item) } }, _jm_cst_42, 27);;
+                res = json_is_string(arr_61_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_61_item) } }, _jm_cst_42, 27);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_61_lpath : NULL));
@@ -4555,7 +4555,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_62_lpath = (jm_path_t) { NULL, arr_62_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.32.versions.0
-                res = jm_json_is_scalar(arr_62_item) && json_is_string(arr_62_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_62_item) } }, _jm_cst_43, 8);;
+                res = json_is_string(arr_62_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_62_item) } }, _jm_cst_43, 8);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_62_lpath : NULL));
@@ -4611,7 +4611,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_63_lpath = (jm_path_t) { NULL, arr_63_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.31.versions.0
-                res = jm_json_is_scalar(arr_63_item) && json_is_string(arr_63_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_63_item) } }, _jm_cst_44, 15);;
+                res = json_is_string(arr_63_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_63_item) } }, _jm_cst_44, 15);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_63_lpath : NULL));
@@ -4667,7 +4667,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_64_lpath = (jm_path_t) { NULL, arr_64_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.30.versions.0
-                res = jm_json_is_scalar(arr_64_item) && json_is_string(arr_64_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_64_item) } }, _jm_cst_45, 19);;
+                res = json_is_string(arr_64_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_64_item) } }, _jm_cst_45, 19);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_64_lpath : NULL));
@@ -4778,7 +4778,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_66_lpath = (jm_path_t) { NULL, arr_66_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.28.versions.0
-                res = jm_json_is_scalar(arr_66_item) && json_is_string(arr_66_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_66_item) } }, _jm_cst_46, 3);;
+                res = json_is_string(arr_66_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_66_item) } }, _jm_cst_46, 3);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_66_lpath : NULL));
@@ -4834,7 +4834,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_67_lpath = (jm_path_t) { NULL, arr_67_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.27.versions.0
-                res = jm_json_is_scalar(arr_67_item) && json_is_string(arr_67_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_67_item) } }, _jm_cst_47, 10);;
+                res = json_is_string(arr_67_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_67_item) } }, _jm_cst_47, 10);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_67_lpath : NULL));
@@ -4890,7 +4890,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_68_lpath = (jm_path_t) { NULL, arr_68_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.26.versions.0
-                res = jm_json_is_scalar(arr_68_item) && json_is_string(arr_68_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_68_item) } }, _jm_cst_48, 9);;
+                res = json_is_string(arr_68_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_68_item) } }, _jm_cst_48, 9);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_68_lpath : NULL));
@@ -4946,7 +4946,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_69_lpath = (jm_path_t) { NULL, arr_69_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.25.versions.0
-                res = jm_json_is_scalar(arr_69_item) && json_is_string(arr_69_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_69_item) } }, _jm_cst_49, 10);;
+                res = json_is_string(arr_69_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_69_item) } }, _jm_cst_49, 10);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_69_lpath : NULL));
@@ -5112,7 +5112,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_72_lpath = (jm_path_t) { NULL, arr_72_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.22.versions.0
-                res = jm_json_is_scalar(arr_72_item) && json_is_string(arr_72_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_72_item) } }, _jm_cst_50, 3);;
+                res = json_is_string(arr_72_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_72_item) } }, _jm_cst_50, 3);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_72_lpath : NULL));
@@ -5388,7 +5388,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_77_lpath = (jm_path_t) { NULL, arr_77_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.17.versions.0
-                res = jm_json_is_scalar(arr_77_item) && json_is_string(arr_77_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_77_item) } }, _jm_cst_51, 27);;
+                res = json_is_string(arr_77_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_77_item) } }, _jm_cst_51, 27);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_77_lpath : NULL));
@@ -5444,7 +5444,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_78_lpath = (jm_path_t) { NULL, arr_78_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.16.versions.0
-                res = jm_json_is_scalar(arr_78_item) && json_is_string(arr_78_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_78_item) } }, _jm_cst_52, 28);;
+                res = json_is_string(arr_78_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_78_item) } }, _jm_cst_52, 28);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_78_lpath : NULL));
@@ -5555,7 +5555,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_80_lpath = (jm_path_t) { NULL, arr_80_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.14.versions.0
-                res = jm_json_is_scalar(arr_80_item) && json_is_string(arr_80_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_80_item) } }, _jm_cst_53, 7);;
+                res = json_is_string(arr_80_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_80_item) } }, _jm_cst_53, 7);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_80_lpath : NULL));
@@ -5611,7 +5611,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_81_lpath = (jm_path_t) { NULL, arr_81_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.13.versions.0
-                res = jm_json_is_scalar(arr_81_item) && json_is_string(arr_81_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_81_item) } }, _jm_cst_54, 8);;
+                res = json_is_string(arr_81_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_81_item) } }, _jm_cst_54, 8);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_81_lpath : NULL));
@@ -5667,7 +5667,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_82_lpath = (jm_path_t) { NULL, arr_82_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.12.versions.0
-                res = jm_json_is_scalar(arr_82_item) && json_is_string(arr_82_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_82_item) } }, _jm_cst_55, 6);;
+                res = json_is_string(arr_82_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_82_item) } }, _jm_cst_55, 6);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_82_lpath : NULL));
@@ -5723,7 +5723,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_83_lpath = (jm_path_t) { NULL, arr_83_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.11.versions.0
-                res = jm_json_is_scalar(arr_83_item) && json_is_string(arr_83_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_83_item) } }, _jm_cst_56, 4);;
+                res = json_is_string(arr_83_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_83_item) } }, _jm_cst_56, 4);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_83_lpath : NULL));
@@ -5779,7 +5779,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_84_lpath = (jm_path_t) { NULL, arr_84_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.10.versions.0
-                res = jm_json_is_scalar(arr_84_item) && json_is_string(arr_84_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_84_item) } }, _jm_cst_57, 12);;
+                res = json_is_string(arr_84_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_84_item) } }, _jm_cst_57, 12);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_84_lpath : NULL));
@@ -5835,7 +5835,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_85_lpath = (jm_path_t) { NULL, arr_85_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.9.versions.0
-                res = jm_json_is_scalar(arr_85_item) && json_is_string(arr_85_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_85_item) } }, _jm_cst_58, 9);;
+                res = json_is_string(arr_85_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_85_item) } }, _jm_cst_58, 9);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_85_lpath : NULL));
@@ -5891,7 +5891,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_86_lpath = (jm_path_t) { NULL, arr_86_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.8.versions.0
-                res = jm_json_is_scalar(arr_86_item) && json_is_string(arr_86_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_86_item) } }, _jm_cst_59, 8);;
+                res = json_is_string(arr_86_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_86_item) } }, _jm_cst_59, 8);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_86_lpath : NULL));
@@ -6002,7 +6002,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_88_lpath = (jm_path_t) { NULL, arr_88_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.6.versions.0
-                res = jm_json_is_scalar(arr_88_item) && json_is_string(arr_88_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_88_item) } }, _jm_cst_60, 5);;
+                res = json_is_string(arr_88_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_88_item) } }, _jm_cst_60, 5);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_88_lpath : NULL));
@@ -6168,7 +6168,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_91_lpath = (jm_path_t) { NULL, arr_91_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.3.versions.0
-                res = jm_json_is_scalar(arr_91_item) && json_is_string(arr_91_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_91_item) } }, _jm_cst_61, 4);;
+                res = json_is_string(arr_91_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_91_item) } }, _jm_cst_61, 4);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_91_lpath : NULL));
@@ -6224,7 +6224,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_92_lpath = (jm_path_t) { NULL, arr_92_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.2.versions.0
-                res = jm_json_is_scalar(arr_92_item) && json_is_string(arr_92_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_92_item) } }, _jm_cst_62, 14);;
+                res = json_is_string(arr_92_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_92_item) } }, _jm_cst_62, 14);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_92_lpath : NULL));
@@ -6335,7 +6335,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 jm_path_t arr_94_lpath = (jm_path_t) { NULL, arr_94_idx, (path ? &lpath : NULL), NULL };
                 // .'$platforms'.0.'|'.0.versions.0
-                res = jm_json_is_scalar(arr_94_item) && json_is_string(arr_94_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_94_item) } }, _jm_cst_63, 4);;
+                res = json_is_string(arr_94_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_94_item) } }, _jm_cst_63, 4);;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", ((path ? &lpath : NULL) ? &arr_94_lpath : NULL));
@@ -6804,9 +6804,7 @@ static bool json_model_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
             }
             if (! res)
-            {
                 break;
-            }
         }
     }
     if (! res)
@@ -7869,9 +7867,7 @@ static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
             json_t * tag_0 = json_object_get(val, "standalone");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             if (fun_0 != NULL)
-            {
                 res = fun_0(val, path, rep);
-            }
             else
             {
                 res = false;
@@ -8037,7 +8033,7 @@ static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$DependencyModelLoose'.scm
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_64, 2);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_64, 2);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DependencyModelLoose'.scm.'|']", path);

@@ -24,7 +24,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$p1'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 5);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 5);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$p1'.'|']", path);
@@ -38,7 +38,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$p2'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 5);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 5);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$p2'.'|']", path);
@@ -58,9 +58,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'^'.0
     xr_0 = json_model_2(val, path, rep);
     if (xr_0)
-    {
         xc_0 += 1;
-    }
     else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $p1 [.'^'.0]", path);
@@ -68,9 +66,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'^'.1
     xr_0 = json_model_3(val, path, rep);
     if (xr_0)
-    {
         xc_0 += 1;
-    }
     else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $p2 [.'^'.1]", path);
@@ -125,11 +121,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

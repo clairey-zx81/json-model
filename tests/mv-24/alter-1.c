@@ -39,7 +39,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$h_ou_i'
-    return jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);;
+    return json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);;
 }
 
 // check $d (.'$d')
@@ -48,29 +48,19 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$d'
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "t")) != NULL))
-    {
         return false;
-    }
     // .'$d'.t
     res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "d")) != NULL))
-    {
         return false;
-    }
     // .'$d'.d
     return json_is_string(pval);
 }
@@ -82,29 +72,19 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$ef'
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "t")) != NULL))
-    {
         return false;
-    }
     // .'$ef'.t
-    res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);;
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "ef")) != NULL))
-    {
         return false;
-    }
     // .'$ef'.ef
     return json_is_string(pval);
 }
@@ -114,29 +94,19 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 {
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "t")) != NULL))
-    {
         return false;
-    }
     // .'$alternative'.'|'.0.t
     res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "a")) != NULL))
-    {
         return false;
-    }
     // .'$alternative'.'|'.0.a
     return json_is_string(pval);
 }
@@ -147,29 +117,19 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
 {
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "t")) != NULL))
-    {
         return false;
-    }
     // .'$alternative'.'|'.1.t
-    res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 2);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 2);;
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "bc")) != NULL))
-    {
         return false;
-    }
     // .'$alternative'.'|'.1.bc
     return json_is_string(pval);
 }
@@ -179,29 +139,19 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
 {
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "t")) != NULL))
-    {
         return false;
-    }
     // .'$alternative'.'|'.2.t
     res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000067);
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "g")) != NULL))
-    {
         return false;
-    }
     // .'$alternative'.'|'.2.g
     return json_is_string(pval);
 }
@@ -211,29 +161,19 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
 {
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "t")) != NULL))
-    {
         return false;
-    }
     // .'$alternative'.'|'.3.t
     res = json_model_3(pval, NULL, rep);
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "hi")) != NULL))
-    {
         return false;
-    }
     // .'$alternative'.'|'.3.hi
     return json_is_string(pval);
 }
@@ -260,18 +200,12 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             if (fun_0 != NULL)
-            {
                 res = fun_0(val, path, rep);
-            }
             else
-            {
                 res = false;
-            }
         }
         else
-        {
             res = false;
-        }
     }
     return res;
 }
@@ -332,11 +266,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

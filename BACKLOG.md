@@ -7,7 +7,11 @@
 - [x] backend: remove unused boolean variable declaration on simple direct return
 - [x] ~backend: remove redundant scalar test in some cases~
 - [x] backend: remove reporting instructions under no reporting
-- [ ] backend: add late code filtering to catch some backend-specific stuff
+- [x] backend: add late code filtering to catch some backend-specific stuff
+- [x] c-backend: remove redundant scalar test in some cases (with late filtering)
+- [x] c-backend: remove some useless braces around one instruction (with late filtering)
+- [ ] backend: simplify if C x = E else x = False pattern to x = C and E
+- [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting
 - [ ] perf: add launcher script
 - [ ] c-backend: add number of chunks limit to strcmp optimization

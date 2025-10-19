@@ -32,16 +32,12 @@ static INLINE bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
     cre2_string_t matches[_jm_xre_0_re_nn];
     int match = cre2_match(_jm_xre_0_re_re2, val, strlen(val), 0, strlen(val), CRE2_UNANCHORED, matches, _jm_xre_0_re_nn) != 0;
     if (! match)
-    {
         return false;
-    }
     match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s1");
     strncpy(extract, matches[match_index].data, matches[match_index].length);
     extract[matches[match_index].length] = '\0';
     if (! jm_is_valid_date(extract, path, rep))
-    {
         return false;
-    }
     return true;
 }
 

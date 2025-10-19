@@ -731,6 +731,10 @@ class Language:
         """Generate a final string for code display."""
         return self._isep.join(filter(lambda s: s is not None, code)) + "\n"
 
+    def filter_code(self, code: Block) -> Block:
+        """Late backend-specific code filtering."""
+        return code
+
 
 class Code:
     """Hold generated source code for a model.
@@ -814,13 +818,17 @@ class Code:
         self.subs(self._lang.sub_re(name, regex, opts))
 
     def strfun(self, name: str, body: Block):
+        """Add a string function."""
         self.defs(self._lang.def_strfun(name))
         self.subs(self._lang.sub_strfun(name, body))
 
     def get_code(self):
-        return self._lang.gen_full_code(
-            self._defs, self._inis, self._dels, self._subs,
-            self._entry, self._package, self._executable
+        """Generate final code block."""
+        return self._lang.filter_code(
+            self._lang.gen_full_code(
+                self._defs, self._inis, self._dels, self._subs,
+                self._entry, self._package, self._executable
+            )
         )
 
     def __str__(self):

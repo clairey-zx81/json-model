@@ -29,10 +29,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'&'.0]", path);
         }
         if (res)
-        {
             // .'&'.1
             res = true;
-        }
     }
     if (res)
     {
@@ -67,11 +65,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

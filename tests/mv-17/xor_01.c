@@ -65,10 +65,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     res = ! is_0;
     if (res)
-    {
         // empty xor list
         res = false;
-    }
     if (res)
     {
         if (rep) jm_report_free_entries(rep);
@@ -102,11 +100,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

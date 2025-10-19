@@ -21,29 +21,19 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$book'
     // check close must only props
     if (! json_is_object(val))
-    {
         return false;
-    }
     if (json_object_size(val) != 2)
-    {
         return false;
-    }
     json_t * pval;
     bool res;
     if (! ((pval = json_object_get(val, "title")) != NULL))
-    {
         return false;
-    }
     // .'$book'.title
     res = json_is_string(pval);
     if (! res)
-    {
         return false;
-    }
     if (! ((pval = json_object_get(val, "author")) != NULL))
-    {
         return false;
-    }
     // .'$book'.author
     return json_is_string(pval);
 }
@@ -63,9 +53,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .0
             res = json_model_2(arr_0_item, NULL, rep);
             if (! res)
-            {
                 break;
-            }
         }
     }
     return res;
@@ -94,11 +82,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

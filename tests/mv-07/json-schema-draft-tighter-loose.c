@@ -404,9 +404,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
             json_t * tag_0 = json_object_get(val, "type");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             if (fun_0 != NULL)
-            {
                 res = fun_0(val, path, rep);
-            }
             else
             {
                 res = false;
@@ -463,9 +461,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                     {
                                                         res = json_model_33(val, path, rep);
                                                         if (! res)
-                                                        {
                                                             res = json_model_34(val, path, rep);
-                                                        }
                                                     }
                                                 }
                                             }
@@ -809,7 +805,7 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$tight#String'.format
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 27);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 27);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$tight#String'.format.'|']", path);
@@ -5979,11 +5975,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-    }
 }
 
 /*

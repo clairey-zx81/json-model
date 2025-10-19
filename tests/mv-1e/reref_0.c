@@ -26,7 +26,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$character'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$character'.'|']", path);
@@ -48,23 +48,17 @@ static INLINE bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
     cre2_string_t matches[_jm_xre_0_re_nn];
     int match = cre2_match(_jm_xre_0_re_re2, val, strlen(val), 0, strlen(val), CRE2_UNANCHORED, matches, _jm_xre_0_re_nn) != 0;
     if (! match)
-    {
         return false;
-    }
     match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s1");
     strncpy(extract, matches[match_index].data, matches[match_index].length);
     extract[matches[match_index].length] = '\0';
     if (! jm_check_fun_string(json_model_2, extract, path, rep))
-    {
         return false;
-    }
     match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s2");
     strncpy(extract, matches[match_index].data, matches[match_index].length);
     extract[matches[match_index].length] = '\0';
     if (! jm_check_fun_string(json_model_2, extract, path, rep))
-    {
         return false;
-    }
     return true;
 }
 

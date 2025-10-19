@@ -155,7 +155,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PreDef'
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 29);;
+    res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 29);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$PreDef'.'|']", path);
@@ -254,11 +254,9 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$ObjectComment'.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$ObjectComment']", (path ? &lpath_0 : NULL));
@@ -342,16 +340,12 @@ static INLINE bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
     cre2_string_t matches[_jm_xre_0_re_nn];
     int match = cre2_match(_jm_xre_0_re_re2, val, strlen(val), 0, strlen(val), CRE2_UNANCHORED, matches, _jm_xre_0_re_nn) != 0;
     if (! match)
-    {
         return false;
-    }
     match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s1");
     strncpy(extract, matches[match_index].data, matches[match_index].length);
     extract[matches[match_index].length] = '\0';
     if (! jm_is_valid_regex(extract, false, path, rep))
-    {
         return false;
-    }
     return true;
 }
 
@@ -369,16 +363,12 @@ static INLINE bool _jm_xre_1(const char *val, jm_path_t *path, jm_report_t *rep)
     cre2_string_t matches[_jm_xre_1_re_nn];
     int match = cre2_match(_jm_xre_1_re_re2, val, strlen(val), 0, strlen(val), CRE2_UNANCHORED, matches, _jm_xre_1_re_nn) != 0;
     if (! match)
-    {
         return false;
-    }
     match_index = cre2_find_named_capturing_groups(_jm_xre_1_re_re2, "s1");
     strncpy(extract, matches[match_index].data, matches[match_index].length);
     extract[matches[match_index].length] = '\0';
     if (! jm_is_valid_regex(extract, true, path, rep))
-    {
         return false;
-    }
     return true;
 }
 
@@ -1215,11 +1205,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Element'.'|'.5.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Element'.'|'.5]", (path ? &lpath_3 : NULL));
@@ -1286,11 +1274,9 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Element'.'|'.4.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Element'.'|'.4]", (path ? &lpath_4 : NULL));
@@ -1368,11 +1354,9 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Element'.'|'.3.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Element'.'|'.3]", (path ? &lpath_5 : NULL));
@@ -1450,11 +1434,9 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Element'.'|'.2.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Element'.'|'.2]", (path ? &lpath_6 : NULL));
@@ -1532,11 +1514,9 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Element'.'|'.1.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Element'.'|'.1]", (path ? &lpath_7 : NULL));
@@ -1610,11 +1590,9 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 3 re props
             // .'$Element'.'|'.0.'/^#/'
             res = true;
-        }
         else if (_jm_re_7(prop, path, rep))
         {
             // handle 3 re props
@@ -1817,11 +1795,9 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
         else if (jm_str_eq_2(prop, 0x0000002a))
-        {
             // handle may * property
             // .'$Trafo'.'*'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Trafo']", (path ? &lpath_9 : NULL));
@@ -1926,17 +1902,13 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (jm_str_eq_2(prop, 0x0000002a))
-        {
             // handle may * property
             // .'$Transformation'.'|'.1.'*'
             res = true;
-        }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Transformation'.'|'.1.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Transformation'.'|'.1]", (path ? &lpath_11 : NULL));
@@ -2298,11 +2270,9 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$RootOnly'.'$'.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$RootOnly'.'$']", (path ? &lpath_18 : NULL));
@@ -2397,11 +2367,9 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 2 re props
             // .'$RootOnly'.'%'.'/^#/'
             res = true;
-        }
         else if (_jm_re_11(prop, path, rep))
         {
             // handle 2 re props
@@ -2533,11 +2501,9 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.5.'$'.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.5.'$']", (path ? &lpath_21 : NULL));
@@ -2632,11 +2598,9 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 2 re props
             // .'$Root'.'|'.5.'%'.'/^#/'
             res = true;
-        }
         else if (_jm_re_11(prop, path, rep))
         {
             // handle 2 re props
@@ -2731,11 +2695,9 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.5.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.5]", (path ? &lpath_20 : NULL));
@@ -2795,11 +2757,9 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.4.'$'.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.4.'$']", (path ? &lpath_24 : NULL));
@@ -2894,11 +2854,9 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 2 re props
             // .'$Root'.'|'.4.'%'.'/^#/'
             res = true;
-        }
         else if (_jm_re_11(prop, path, rep))
         {
             // handle 2 re props
@@ -3012,11 +2970,9 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.4.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.4]", (path ? &lpath_23 : NULL));
@@ -3087,11 +3043,9 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.3.'$'.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.3.'$']", (path ? &lpath_27 : NULL));
@@ -3186,11 +3140,9 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 2 re props
             // .'$Root'.'|'.3.'%'.'/^#/'
             res = true;
-        }
         else if (_jm_re_11(prop, path, rep))
         {
             // handle 2 re props
@@ -3304,11 +3256,9 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.3.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.3]", (path ? &lpath_26 : NULL));
@@ -3379,11 +3329,9 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.2.'$'.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.2.'$']", (path ? &lpath_30 : NULL));
@@ -3478,11 +3426,9 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 2 re props
             // .'$Root'.'|'.2.'%'.'/^#/'
             res = true;
-        }
         else if (_jm_re_11(prop, path, rep))
         {
             // handle 2 re props
@@ -3596,11 +3542,9 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.2.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.2]", (path ? &lpath_29 : NULL));
@@ -3671,11 +3615,9 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.1.'$'.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.1.'$']", (path ? &lpath_33 : NULL));
@@ -3770,11 +3712,9 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 2 re props
             // .'$Root'.'|'.1.'%'.'/^#/'
             res = true;
-        }
         else if (_jm_re_11(prop, path, rep))
         {
             // handle 2 re props
@@ -3888,11 +3828,9 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.1.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.1]", (path ? &lpath_32 : NULL));
@@ -3963,11 +3901,9 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 1 re props
             // .'$Root'.'|'.0.'$'.'/^#/'
             res = true;
-        }
         else
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Root'.'|'.0.'$']", (path ? &lpath_36 : NULL));
@@ -4062,11 +3998,9 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 2 re props
             // .'$Root'.'|'.0.'%'.'/^#/'
             res = true;
-        }
         else if (_jm_re_11(prop, path, rep))
         {
             // handle 2 re props
@@ -4176,11 +4110,9 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
             }
         }
         else if (strncmp(prop, "#", strlen("#")) == 0)
-        {
             // handle 3 re props
             // .'$Root'.'|'.0.'/^#/'
             res = true;
-        }
         else if (_jm_re_7(prop, path, rep))
         {
             // handle 3 re props
