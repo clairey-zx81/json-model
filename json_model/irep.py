@@ -201,6 +201,74 @@ def _simpleRet(op: Jsonable, reporting: bool) -> bool:
             return True
     return False
 
+def _isBoolAssign(seq: list[Jsonable]) -> Jsonable|None:
+    """Return boolean assignment from sequence."""
+    assign = None
+    for op in seq:
+        if _isOps(op, {"no", "co"}):
+            pass
+        elif _isOp(op, "bv") and op["val"]:
+            assign = op
+        else:
+            return None
+    return assign
+
+def _isFalse(val: Jsonable) -> bool:
+    return isinstance(val, bool) and not val or _isOp(val, "cst") and val["c"] == False
+
+def _isBool(val: Jsonable) -> bool|None:
+    if isinstance(val, bool):
+        return val
+    elif _isOp(val, "cst") and isinstance(val["c"], bool):
+        return val["c"]
+    else:
+        return None
+
+# NOTE despite the generality, the only occuring pattern is: "C ? E : F"
+def _simpleBoolAssign(op: Jsonable) -> bool:
+    """Simplify conditional boolean assignment pattern."""
+    if _isOp(op, "if"):
+        tbv = _isBoolAssign(op["true"])
+        fbv = _isBoolAssign(op["false"])
+        # if tbv and fbv:
+        #     log.warning(f"if: {op}")
+        if tbv and fbv and tbv["var"] == fbv["var"]:
+            vt = _isBool(tbv["val"])
+            vf = _isBool(fbv["val"])
+            if vt is None and vf is None:
+                # this requires a ternary operator in the target language
+                return False
+            cond = op["cond"]
+            op.clear()
+            op["o"] = "bv"
+            op["var"] = tbv["var"]
+            op["declare"] = False
+            op["#"] = "IRO simple assign"
+            if vt is True and vf is True or vt is False and vf is False:
+                # C ? V : V -> V
+                op["val"] = {"o": "cst", "c": vt}
+            elif vt is True and vf is False:
+                # C ? T : F -> C
+                op["val"] = cond
+            elif vt is False and vf is True:
+                # C ? F : T -> !C
+                op["val"] = invertBool(cond)
+            elif vf is False:
+                # C ? E : F -> C && E
+                op["val"] = {"o": "&", "exprs": [ cond, tbv["val"] ]}
+            elif vt is True:
+                # C ? T : E -> C || E
+                op["val"] = {"o": "|", "exprs": [ cond, fbv["val"] ]}
+            elif vf is True:
+                # C ? E : T -> !C || E
+                op["val"] = {"o": "|", "exprs": [ invertBool(cond), tbv["val"] ]}
+            else:
+                assert vt is False
+                # C ? F : E -> !C && E
+                op["val"] = {"o": "&", "exprs": [ invertBool(cond), fbv["val"] ]}
+            return True
+    return False
+
 # comparison inversion
 CMP_INV = {
     "=": "!=",
@@ -339,9 +407,9 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 op["true"], op["false"] = op["false"], op["true"]
                 op["cond"]["op"] = CMP_INV[op["cond"]["op"]]
 
-        # simplify if/return/return
         if _isOp(op, "if"):
-            _simpleRet(op, reporting)
+            _simpleRet(op, reporting)  # simplify if/return/return
+            _simpleBoolAssign(op)      # simplify if/assign/assign
 
         # simplify if/<empty>
         if _isOp(op, "if") and _noOps(op["true"]):

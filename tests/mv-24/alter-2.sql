@@ -174,11 +174,7 @@ BEGIN
     IF val ? 't' THEN
       tag_0 := val -> 't';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      IF fun_0 IS NOT NULL THEN
-        res := jm_call(fun_0, val, path, rep);
-      ELSE
-        res := FALSE;
-      END IF;
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
     ELSE
       res := FALSE;
     END IF;
@@ -191,11 +187,7 @@ BEGIN
       IF val ? 'u' THEN
         tag_1 := val -> 'u';
         fun_1 := jm_cmap_get('_jm_map_1', tag_1);
-        IF fun_1 IS NOT NULL THEN
-          res := jm_call(fun_1, val, path, rep);
-        ELSE
-          res := FALSE;
-        END IF;
+        res := fun_1 IS NOT NULL AND jm_call(fun_1, val, path, rep);
       ELSE
         res := FALSE;
       END IF;

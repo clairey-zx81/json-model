@@ -107,14 +107,7 @@ sub json_model_2($$$)
         {
             my $tag_0 = $$val{'t'};
             my $fun_0 = $_jm_map_0{$tag_0};
-            if (defined($fun_0))
-            {
-                $res = &$fun_0($val, $path, $rep);
-            }
-            else
-            {
-                $res = 0;
-            }
+            $res = defined($fun_0) && &$fun_0($val, $path, $rep);
         }
         else
         {
@@ -213,14 +206,7 @@ sub json_model_3($$$)
         {
             my $tag_1 = $$val{'t'};
             my $fun_1 = $_jm_map_1{$tag_1};
-            if (defined($fun_1))
-            {
-                $res = &$fun_1($val, $path, $rep);
-            }
-            else
-            {
-                $res = 0;
-            }
+            $res = defined($fun_1) && &$fun_1($val, $path, $rep);
         }
         else
         {

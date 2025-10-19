@@ -100,14 +100,7 @@ public class objs0 extends ModelChecker
             {
                 Object tag_0 = json.objectValue(val, "t");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
-                if (fun_0 != null)
-                {
-                    res = fun_0.call(val, path, rep);
-                }
-                else
-                {
-                    res = false;
-                }
+                res = fun_0 != null && fun_0.call(val, path, rep);
             }
             else
             {

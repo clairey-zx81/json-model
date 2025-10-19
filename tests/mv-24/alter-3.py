@@ -98,10 +98,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         if "t" in val:
             tag_0: Jsonable = val.get("t", UNDEFINED)
             fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
-            if fun_0 != UNDEFINED:
-                res = fun_0(val, path, rep)
-            else:
-                res = False
+            res = fun_0 != UNDEFINED and fun_0(val, path, rep)
         else:
             res = False
     else:

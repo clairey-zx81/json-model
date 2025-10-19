@@ -4242,11 +4242,7 @@ BEGIN
     IF val ? 'type' THEN
       tag_0 := val -> 'type';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      IF fun_0 IS NOT NULL THEN
-        res := jm_call(fun_0, val, path, rep);
-      ELSE
-        res := FALSE;
-      END IF;
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
     ELSE
       res := FALSE;
     END IF;

@@ -171,14 +171,7 @@ function json_model_4(val, path, rep)
         {
             let tag_0 = val["t"];
             let fun_0 = _jm_map_0.get(tag_0);
-            if (fun_0 !== undefined)
-            {
-                res = fun_0(val, path, rep);
-            }
-            else
-            {
-                res = false;
-            }
+            res = fun_0 !== undefined && fun_0(val, path, rep);
         }
         else
         {
@@ -194,14 +187,7 @@ function json_model_4(val, path, rep)
             {
                 let tag_1 = val["u"];
                 let fun_1 = _jm_map_1.get(tag_1);
-                if (fun_1 !== undefined)
-                {
-                    res = fun_1(val, path, rep);
-                }
-                else
-                {
-                    res = false;
-                }
+                res = fun_1 !== undefined && fun_1(val, path, rep);
             }
             else
             {

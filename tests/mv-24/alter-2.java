@@ -171,14 +171,7 @@ public class alter_2 extends ModelChecker
             {
                 Object tag_0 = json.objectValue(val, "t");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
-                if (fun_0 != null)
-                {
-                    res = fun_0.call(val, path, rep);
-                }
-                else
-                {
-                    res = false;
-                }
+                res = fun_0 != null && fun_0.call(val, path, rep);
             }
             else
             {
@@ -194,14 +187,7 @@ public class alter_2 extends ModelChecker
                 {
                     Object tag_1 = json.objectValue(val, "u");
                     Checker fun_1 = _jm_map_1_cmap.get(tag_1);
-                    if (fun_1 != null)
-                    {
-                        res = fun_1.call(val, path, rep);
-                    }
-                    else
-                    {
-                        res = false;
-                    }
+                    res = fun_1 != null && fun_1.call(val, path, rep);
                 }
                 else
                 {

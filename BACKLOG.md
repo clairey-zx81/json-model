@@ -10,7 +10,8 @@
 - [x] backend: add late code filtering to catch some backend-specific stuff
 - [x] c-backend: remove redundant scalar test in some cases (with late filtering)
 - [x] c-backend: remove some useless braces around one instruction (with late filtering)
-- [ ] backend: simplify if C x = E else x = False pattern to x = C and E
+- [x] backend: simplify conditional assignment patterns with one boolean constant
+- [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting
 - [ ] perf: add launcher script
