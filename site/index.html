@@ -68,36 +68,34 @@
             }
 
         if (sort) {
-          const cases = Array.from({length: data.length}, (_, i) => i)
-
-          // count wins
+          // count wins and adjust with overall performance
           let wins = [], winners = []
 
           for (let t = 0; t < data.length; t++) {
+              // number of wins, aka ranked first
               wins[t] = data[t].data.filter(s => s === 1.0).length
               wins[t] && winners.push(t)
               // add a fractionnal part to avoid ties
-              wins[t] += data[t].data.filter(s => s !== null).reduce((a, v) => a + v, 0.0) / cases.length
+              wins[t] += data[t].data.filter(s => s !== null).reduce((a, v) => a + v, 0.0) / data[t].data.length
           }
 
-
-          // ensure that we have a secondary criterion
+          // ensure that we have a secondary sort criterion
+          const tools = Array.from({length: data.length}, (_, i) => i)
           if (winners.length == 1 && data.length > 1) {
-            cases.sort( (i, j) => wins[j] - wins[i] )
-            winners.push(cases[1])
+            tools.sort( (i, j) => wins[j] - wins[i] )
+            winners.push(tools[1])
           }
 
-          // rank case indexes by decreasing overall performance
-          winners.sort( (i, j) => wins[winners[j]] - wins[winners[i]] )
+          // rank winning tools by decreasing overall performance
+          winners.sort( (i, j) => wins[j] - wins[i] )
 
-          // sorting criterion for cases
+          // sorting criterion for each cases
           function key(data, i) {
             for (let rank = 0; rank < winners.length; rank++) {
-              const index = winners[rank]
-              if (data[index].data[i] === 1.0)
-                return (winners.length - rank) + data[winners[rank ? 0 : 1]].data[i]
+              const tool = winners[rank]
+              if (data[tool].data[i] === 1.0)
+                return (winners.length - rank) + data[winners[(rank ? 0 : 1) % tools.length]].data[i]
             }
-            return null
           }
 
           const keys = indexes.map(i => key(data, i))
@@ -109,9 +107,9 @@
           o.data = indexes.map(i => o.data[i])
         })
 
+        // TODO improve chart size and resize management
         const labels = indexes.map(i => i + 1)
         const ctx = document.getElementById(display).getContext('2d')
-
         const RadarChart = new Chart(ctx, {
           type: 'radar',
           data: { labels: labels, datasets: data },
