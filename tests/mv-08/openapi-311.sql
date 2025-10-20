@@ -1120,11 +1120,8 @@ BEGIN
   -- .'$Operation'.requestBody
   -- .'$Operation'.requestBody.'|'.0
   res := json_model_19(val, path, rep);
-  IF NOT res THEN
-    -- .'$Operation'.requestBody.'|'.1
-    res := json_model_30(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Operation'.requestBody.'|'.1
+  RETURN res OR json_model_30(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3255,11 +3252,8 @@ BEGIN
   -- .'$Schema'.type
   -- .'$Schema'.type.'|'.0
   res := json_model_52(val, path, rep);
-  IF NOT res THEN
-    -- .'$Schema'.type.'|'.1
-    res := json_model_53(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Schema'.type.'|'.1
+  RETURN res OR json_model_53(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4301,11 +4295,8 @@ BEGIN
   -- .'$schema#Schema'
   -- .'$schema#Schema'.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$schema#Schema'.'|'.1
-    res := json_model_59(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema#Schema'.'|'.1
+  RETURN res OR json_model_59(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4641,11 +4632,8 @@ BEGIN
   -- .'$schema#ObjectSchema'.type
   -- .'$schema#ObjectSchema'.type.'|'.0
   res := json_model_52(val, path, rep);
-  IF NOT res THEN
-    -- .'$schema#ObjectSchema'.type.'|'.1
-    res := json_model_53(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema#ObjectSchema'.type.'|'.1
+  RETURN res OR json_model_53(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

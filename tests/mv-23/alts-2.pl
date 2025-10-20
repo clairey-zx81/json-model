@@ -69,12 +69,8 @@ sub json_model_3($$$)
     # .'$r'
     # .'$r'.'|'.0
     my $res = json_model_2($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$r'.'|'.1
-        $res = _jm_obj_1($val, $path, $rep);
-    }
-    return $res;
+    # .'$r'.'|'.1
+    return $res || _jm_obj_1($val, $path, $rep);
 }
 
 # check $ (.)

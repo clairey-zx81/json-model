@@ -624,11 +624,8 @@ BEGIN
   -- .'$tight#Array'.items
   -- .'$tight#Array'.items.'|'.0
   res := json_model_26(val, path, rep);
-  IF NOT res THEN
-    -- .'$tight#Array'.items.'|'.1
-    res := json_model_6(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$tight#Array'.items.'|'.1
+  RETURN res OR json_model_6(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2777,11 +2774,8 @@ BEGIN
   -- .'$tight#Schema'
   -- .'$tight#Schema'.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$tight#Schema'.'|'.1
-    res := json_model_25(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$tight#Schema'.'|'.1
+  RETURN res OR json_model_25(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

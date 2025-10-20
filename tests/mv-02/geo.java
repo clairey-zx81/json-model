@@ -1772,11 +1772,7 @@ public class geo extends ModelChecker
         {
             if (rep != null) rep.addEntry("value is not an object [.'|']", path);
         }
-        if (! res)
-        {
-            res = json_model_11(val, path, rep);
-        }
-        return res;
+        return res || json_model_11(val, path, rep);
     }
 
 

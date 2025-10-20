@@ -136,6 +136,14 @@ def _isOp(op: Jsonable, o: str) -> bool:
 def _isOps(op: Jsonable, ops: set[str]) -> bool:
     return isinstance(op, dict) and "o" in op and op["o"] in ops
 
+def _isEmpty(seq: list[Jsonable], reporting: bool) -> bool:
+    """Sequence has no effect."""
+    ignore = {"no", "co", "skip", "ign"} if reporting else {"no", "co", "skip", "ign", "rep"}
+    for o in seq:
+        if not _isOps(o, ignore):
+            return False
+    return True
+
 def _boolIf(op: Jsonable, bool_vars: set[str]) -> tuple[str, bool]|None:
     if not _isOp(op, "if"):
         return None
@@ -470,15 +478,14 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     # TODO improve if not reporting and reporting-only stuff
     prev: int|None = None
     for i, op in enumerate(seq):
-        if _isOp(op, "no") or _isOp(op, "co"):
+        if _isOps(op, {"no", "co", "skip", "ign"}):
             pass
         elif _isOp(op, "bv") and op["val"] is not None:
             prev = i
         elif prev is not None and _isOp(op, "ret") and op["res"] == seq[prev]["var"]:
             op["res"] = seq[prev]["val"]
             seq[prev].clear()
-            seq[prev]["o"] = "no"
-            seq[prev]["#"] = "IRO assignment moved to return"
+            seq[prev].update({"o": "ign", "#": "IRO assignment moved to return"})
         else:
             prev = None
 
@@ -486,7 +493,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     # TODO improve
     decl: int|None = None
     for i, op in enumerate(seq):
-        if _isOp(op, "no") or _isOp(op, "co"):
+        if _isOps(op, {"no", "co", "skip", "ign"}):
             pass
         elif _isOp(op, "bv") and op["val"] is None:
             decl = i
@@ -514,6 +521,34 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 decl = None
         else:  # safe
             decl = None
+
+    # simplify if (not V) V = E; ret V
+    if_not: int|None = None
+    assign: Jsonable|None
+    for i, op in enumerate(seq):
+        if _isOps(op, {"no", "co", "skip", "ign"}):
+            pass
+        elif _isOp(op, "if") and _isOp(op["cond"], "not") and _isEmpty(op["false"], reporting):
+            var = op["cond"]["e"]
+            assign = _isBoolAssign(op["true"])
+            if assign is not None and assign["var"] == var:
+                if_not = i
+            else:
+                if_not, assign = None, None
+        elif if_not is not None and _isOp(op, "ret") and op["res"] == assign["var"]:
+            op["res"] = {
+                "o": "|",
+                "exprs": [{"o": "gv", "var": assign["var"], "tvar": "bool"}, assign["val"]]
+            }
+            seq[if_not] = {
+                "o": "seq",
+                "seq": seq[if_not]["true"],
+                "#": "# IRO simpler if assign / ret"
+            }
+            assign.clear()
+            assign.update({"o": "ign"})
+        else:
+            if_not = None
 
     # TODO and(..., T, ...) -> and(..., ...)
     # TODO or(..., F, ...) -> or(..., ...)
@@ -818,6 +853,9 @@ class IRep(Language):
     def skip(self) -> Block:
         return [ _j("skip") ]
 
+    def ignore(self) -> Block:
+        return [ _j("ign") ]
+
     def inc_var(self, var: Var) -> Block:
         return [ _j("i+", var=_l(var)) ]
 
@@ -1049,6 +1087,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "no": return gen.nope()
             case "brk": return gen.brk()
             case "skip": return gen.skip()
+            case "ign": return gen.ignore()
             case "cr": return gen.clean_report()
             case "i+": return gen.inc_var(var=ev("var"))
             case "i&": return gen.iand_op(res=ev("res"), e=ev("e"))

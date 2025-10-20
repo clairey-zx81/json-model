@@ -514,11 +514,8 @@ BEGIN
   -- .'$validation'.type
   -- .'$validation'.type.'|'.0
   res := json_model_8(val, path, rep);
-  IF NOT res THEN
-    -- .'$validation'.type.'|'.1
-    res := json_model_9(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$validation'.type.'|'.1
+  RETURN res OR json_model_9(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1041,11 +1038,8 @@ BEGIN
   -- .'$ObjectSchema'.type
   -- .'$ObjectSchema'.type.'|'.0
   res := json_model_8(val, path, rep);
-  IF NOT res THEN
-    -- .'$ObjectSchema'.type.'|'.1
-    res := json_model_9(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$ObjectSchema'.type.'|'.1
+  RETURN res OR json_model_9(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1112,11 +1106,8 @@ BEGIN
   -- .'$Schema'
   -- .'$Schema'.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$Schema'.'|'.1
-    res := json_model_15(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Schema'.'|'.1
+  RETURN res OR json_model_15(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -703,12 +703,8 @@ sub json_model_11($$$)
     # .'$type-or-ref'
     # .'$type-or-ref'.'|'.0
     my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .'$type-or-ref'.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .'$type-or-ref'.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check $ (.)

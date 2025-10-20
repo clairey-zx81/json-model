@@ -195,10 +195,7 @@ BEGIN
   ELSE
     NULL;
   END IF;
-  IF NOT res THEN
-    res := json_model_4(val, path, rep);
-  END IF;
-  RETURN res;
+  RETURN res OR json_model_4(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

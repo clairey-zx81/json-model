@@ -140,11 +140,8 @@ BEGIN
   -- .additionalItems
   -- .additionalItems.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .additionalItems.'|'.1
-    res := json_model_1(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .additionalItems.'|'.1
+  RETURN res OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -157,11 +154,8 @@ BEGIN
   -- .additionalProperties
   -- .additionalProperties.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .additionalProperties.'|'.1
-    res := json_model_1(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .additionalProperties.'|'.1
+  RETURN res OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -299,11 +293,8 @@ BEGIN
   -- .items
   -- .items.'|'.0
   res := json_model_1(val, path, rep);
-  IF NOT res THEN
-    -- .items.'|'.1
-    res := json_model_2(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .items.'|'.1
+  RETURN res OR json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -463,11 +454,8 @@ BEGIN
   -- .type
   -- .type.'|'.0
   res := json_model_3(val, path, rep);
-  IF NOT res THEN
-    -- .type.'|'.1
-    res := json_model_5(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .type.'|'.1
+  RETURN res OR json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

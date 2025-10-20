@@ -59,11 +59,8 @@ BEGIN
   -- .'$r'
   -- .'$r'.'|'.0
   res := json_model_2(val, path, rep);
-  IF NOT res THEN
-    -- .'$r'.'|'.1
-    res := _jm_obj_1(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$r'.'|'.1
+  RETURN res OR _jm_obj_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

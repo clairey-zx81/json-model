@@ -1340,12 +1340,8 @@ sub _jm_f_25($$$)
     # .'$openapi#Operation'.requestBody
     # .'$openapi#Operation'.requestBody.'|'.0
     my $res = json_model_21($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$openapi#Operation'.requestBody.'|'.1
-        $res = json_model_32($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#Operation'.requestBody.'|'.1
+    return $res || json_model_32($val, $path, $rep);
 }
 
 # check json_model_13_map_security (.'$openapi#Operation'.security)
@@ -3596,12 +3592,8 @@ sub json_model_82($$$)
     # .'$openapi#model#CModel'
     # .'$openapi#model#CModel'.'|'.0
     my $res = json_model_97($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$openapi#model#CModel'.'|'.1
-        $res = json_model_69($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#model#CModel'.'|'.1
+    return $res || json_model_69($val, $path, $rep);
 }
 
 # check $openapi#model#ArrayComment (.'$openapi#model#ArrayComment')
@@ -4241,12 +4233,8 @@ sub json_model_96($$$)
     # .'$openapi#model#ScalarModel'
     # .'$openapi#model#ScalarModel'.'|'.0
     my $res = json_model_78($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$openapi#model#ScalarModel'.'|'.1
-        $res = json_model_79($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#model#ScalarModel'.'|'.1
+    return $res || json_model_79($val, $path, $rep);
 }
 
 # check $openapi#model#ValModel (.'$openapi#model#ValModel')

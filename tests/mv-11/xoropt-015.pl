@@ -28,12 +28,8 @@ sub json_model_2($$$)
     # .'$Vv'
     # .'$Vv'.'|'.0
     my $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$Vv'.'|'.1
-        $res = jm_is_string($val);
-    }
-    return $res;
+    # .'$Vv'.'|'.1
+    return $res || jm_is_string($val);
 }
 
 # check $Xx (.'$Xx')
@@ -196,12 +192,8 @@ sub json_model_6($$$)
     # .'$Mm'
     # .'$Mm'.'|'.0
     my $res = json_model_2($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Mm'.'|'.1
-        $res = json_model_5($val, $path, $rep);
-    }
-    return $res;
+    # .'$Mm'.'|'.1
+    return $res || json_model_5($val, $path, $rep);
 }
 
 # check $ (.)

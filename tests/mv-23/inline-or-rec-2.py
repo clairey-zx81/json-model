@@ -204,9 +204,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("tag prop <t> is missing [.'$cd'.'|']", path))
     else:
         rep is None or rep.append(("value is not an object [.'$cd'.'|']", path))
-    if not res:
-        res = json_model_2(val, path, rep)
-    return res
+    return res or json_model_2(val, path, rep)
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:

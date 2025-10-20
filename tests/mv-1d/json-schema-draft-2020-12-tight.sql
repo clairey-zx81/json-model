@@ -1369,11 +1369,8 @@ BEGIN
   -- .'$TightSchema'.'|'.2.exclusiveMaximum
   -- .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-  IF NOT res THEN
-    -- .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
-    res := JSONB_TYPEOF(val) = 'number';
-  END IF;
-  RETURN res;
+  -- .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1386,11 +1383,8 @@ BEGIN
   -- .'$TightSchema'.'|'.2.exclusiveMinimum
   -- .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-  IF NOT res THEN
-    -- .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
-    res := JSONB_TYPEOF(val) = 'number';
-  END IF;
-  RETURN res;
+  -- .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1403,11 +1397,8 @@ BEGIN
   -- .'$TightSchema'.'|'.2.maximum
   -- .'$TightSchema'.'|'.2.maximum.'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-  IF NOT res THEN
-    -- .'$TightSchema'.'|'.2.maximum.'|'.1
-    res := JSONB_TYPEOF(val) = 'number';
-  END IF;
-  RETURN res;
+  -- .'$TightSchema'.'|'.2.maximum.'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1420,11 +1411,8 @@ BEGIN
   -- .'$TightSchema'.'|'.2.minimum
   -- .'$TightSchema'.'|'.2.minimum.'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-  IF NOT res THEN
-    -- .'$TightSchema'.'|'.2.minimum.'|'.1
-    res := JSONB_TYPEOF(val) = 'number';
-  END IF;
-  RETURN res;
+  -- .'$TightSchema'.'|'.2.minimum.'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1437,11 +1425,8 @@ BEGIN
   -- .'$TightSchema'.'|'.2.multipleOf
   -- .'$TightSchema'.'|'.2.multipleOf.'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
-  IF NOT res THEN
-    -- .'$TightSchema'.'|'.2.multipleOf.'|'.1
-    res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
-  END IF;
-  RETURN res;
+  -- .'$TightSchema'.'|'.2.multipleOf.'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2706,11 +2691,8 @@ BEGIN
   ELSE
     NULL;
   END IF;
-  IF NOT res THEN
-    -- .'$TightSchema'.'|'.7
-    res := _jm_obj_7(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$TightSchema'.'|'.7
+  RETURN res OR _jm_obj_7(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2723,11 +2705,8 @@ BEGIN
   -- .'$Schema'
   -- .'$Schema'.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$Schema'.'|'.1
-    res := json_model_15(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Schema'.'|'.1
+  RETURN res OR json_model_15(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

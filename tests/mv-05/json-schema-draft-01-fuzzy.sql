@@ -23,11 +23,8 @@ BEGIN
   -- .'$schema'.additionalProperties
   -- .'$schema'.additionalProperties.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$schema'.additionalProperties.'|'.1
-    res := json_model_3(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema'.additionalProperties.'|'.1
+  RETURN res OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -313,11 +310,8 @@ BEGIN
   -- .'$schema'.requires
   -- .'$schema'.requires.'|'.0
   res := JSONB_TYPEOF(val) = 'string';
-  IF NOT res THEN
-    -- .'$schema'.requires.'|'.1
-    res := json_model_3(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema'.requires.'|'.1
+  RETURN res OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

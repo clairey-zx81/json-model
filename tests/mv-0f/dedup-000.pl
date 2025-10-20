@@ -21,12 +21,8 @@ sub json_model_1($$$)
     # .
     # .'|'.0
     my $res = jm_is_integer($val) && $val >= 0;
-    if (! $res)
-    {
-        # .'|'.1
-        $res = jm_is_string($val);
-    }
-    return $res;
+    # .'|'.1
+    return $res || jm_is_string($val);
 }
 
 

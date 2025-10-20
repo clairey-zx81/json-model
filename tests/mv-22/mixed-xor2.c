@@ -292,9 +292,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (rep) jm_report_add_entry(rep, "value is not an object [.'|']", path);
     }
-    if (! res)
-        res = json_model_2(val, path, rep);
-    return res;
+    return res || json_model_2(val, path, rep);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

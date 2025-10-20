@@ -82,12 +82,8 @@ sub json_model_18($$$)
     # .'$schema#Schema'
     # .'$schema#Schema'.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$schema#Schema'.'|'.1
-        $res = json_model_17($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema#Schema'.'|'.1
+    return $res || json_model_17($val, $path, $rep);
 }
 
 # check json_model_17_map_$comment (.'$schema#ObjectSchema'.'$comment')
@@ -501,12 +497,8 @@ sub _jm_f_28($$$)
     # .'$schema#ObjectSchema'.type
     # .'$schema#ObjectSchema'.type.'|'.0
     my $res = json_model_10($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$schema#ObjectSchema'.type.'|'.1
-        $res = json_model_11($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema#ObjectSchema'.type.'|'.1
+    return $res || json_model_11($val, $path, $rep);
 }
 
 # check json_model_17_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)

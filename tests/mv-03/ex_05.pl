@@ -39,12 +39,8 @@ sub json_model_1($$$)
     # .
     # .'|'.0
     my $res = json_model_2($val, $path, $rep);
-    if (! $res)
-    {
-        # .'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 

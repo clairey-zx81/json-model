@@ -28,12 +28,8 @@ sub json_model_4($$$)
     # .'$ex5'
     # .'$ex5'.'|'.0
     my $res = json_model_5($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$ex5'.'|'.1
-        $res = json_model_6($val, $path, $rep);
-    }
-    return $res;
+    # .'$ex5'.'|'.1
+    return $res || json_model_6($val, $path, $rep);
 }
 
 sub _jm_re_0($$$)
@@ -59,12 +55,8 @@ sub json_model_7($$$)
     # .'$__external_0'
     # .'$__external_0'.'|'.0
     my $res = json_model_8($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$__external_0'.'|'.1
-        $res = json_model_9($val, $path, $rep);
-    }
-    return $res;
+    # .'$__external_0'.'|'.1
+    return $res || json_model_9($val, $path, $rep);
 }
 
 # check $ (.)

@@ -875,12 +875,8 @@ sub _jm_f_33($$$)
     # .'$tight#Array'.items
     # .'$tight#Array'.items.'|'.0
     my $res = json_model_26($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$tight#Array'.items.'|'.1
-        $res = json_model_6($val, $path, $rep);
-    }
-    return $res;
+    # .'$tight#Array'.items.'|'.1
+    return $res || json_model_6($val, $path, $rep);
 }
 
 # check json_model_13_map_maxItems (.'$tight#Array'.maxItems)
@@ -2882,12 +2878,8 @@ sub json_model_26($$$)
     # .'$tight#Schema'
     # .'$tight#Schema'.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$tight#Schema'.'|'.1
-        $res = json_model_25($val, $path, $rep);
-    }
-    return $res;
+    # .'$tight#Schema'.'|'.1
+    return $res || json_model_25($val, $path, $rep);
 }
 
 # check json_model_28_map_$comment (.'$tight#EnumString'.'$comment')

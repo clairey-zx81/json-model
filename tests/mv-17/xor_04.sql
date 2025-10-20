@@ -23,12 +23,9 @@ BEGIN
   -- .
   -- .'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0;
-  IF NOT res THEN
-    -- .'|'.1
-    -- "/^[a-z]+$/i"
-    res := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  END IF;
-  RETURN res;
+  -- .'|'.1
+  -- "/^[a-z]+$/i"
+  RETURN res OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -29,13 +29,9 @@ sub json_model_1($$$)
     # .
     # .'|'.0
     my $res = jm_is_numeric($val) && $val >= 0.0;
-    if (! $res)
-    {
-        # .'|'.1
-        # "/^[a-z]+$/i"
-        $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    }
-    return $res;
+    # .'|'.1
+    # "/^[a-z]+$/i"
+    return $res || jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 

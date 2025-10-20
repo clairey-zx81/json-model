@@ -498,12 +498,8 @@ sub _jm_f_0($$$)
     # .'$arrayKeywords'.items
     # .'$arrayKeywords'.items.'|'.0
     my $res = json_model_25($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$arrayKeywords'.items.'|'.1
-        $res = json_model_4($val, $path, $rep);
-    }
-    return $res;
+    # .'$arrayKeywords'.items.'|'.1
+    return $res || json_model_4($val, $path, $rep);
 }
 
 # check json_model_6_map_maxItems (.'$arrayKeywords'.maxItems)
@@ -1366,12 +1362,8 @@ sub _jm_f_58($$$)
     # .'$Array'.items
     # .'$Array'.items.'|'.0
     my $res = json_model_25($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Array'.items.'|'.1
-        $res = json_model_4($val, $path, $rep);
-    }
-    return $res;
+    # .'$Array'.items.'|'.1
+    return $res || json_model_4($val, $path, $rep);
 }
 
 # check json_model_11_map_maxItems (.'$Array'.maxItems)
@@ -4371,12 +4363,8 @@ sub json_model_25($$$)
     # .'$Schema'
     # .'$Schema'.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$Schema'.'|'.1
-        $res = json_model_24($val, $path, $rep);
-    }
-    return $res;
+    # .'$Schema'.'|'.1
+    return $res || json_model_24($val, $path, $rep);
 }
 
 # object .'$RootSchema'.'&'.0

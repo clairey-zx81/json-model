@@ -136,11 +136,8 @@ BEGIN
   ELSE
     NULL;
   END IF;
-  IF NOT res THEN
-    -- .'$alternative'.'|'.0
-    res := _jm_obj_0(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$alternative'.'|'.0
+  RETURN res OR _jm_obj_0(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

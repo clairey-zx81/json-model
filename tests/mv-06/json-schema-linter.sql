@@ -176,11 +176,8 @@ BEGIN
   -- .'$arrayKeywords'.items
   -- .'$arrayKeywords'.items.'|'.0
   res := json_model_24(val, path, rep);
-  IF NOT res THEN
-    -- .'$arrayKeywords'.items.'|'.1
-    res := json_model_4(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$arrayKeywords'.items.'|'.1
+  RETURN res OR json_model_4(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -902,11 +899,8 @@ BEGIN
   -- .'$Array'.items
   -- .'$Array'.items.'|'.0
   res := json_model_24(val, path, rep);
-  IF NOT res THEN
-    -- .'$Array'.items.'|'.1
-    res := json_model_4(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Array'.items.'|'.1
+  RETURN res OR json_model_4(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3049,11 +3043,8 @@ BEGIN
   -- .'$Schema'
   -- .'$Schema'.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$Schema'.'|'.1
-    res := json_model_23(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Schema'.'|'.1
+  RETURN res OR json_model_23(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

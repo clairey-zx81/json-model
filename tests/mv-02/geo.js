@@ -1685,11 +1685,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["value is not an object [.'|']", path])
     }
-    if (! res)
-    {
-        res = json_model_11(val, path, rep);
-    }
-    return res;
+    return res || json_model_11(val, path, rep);
 }
 
 

@@ -1320,11 +1320,7 @@ sub json_model_1($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        $res = json_model_11($val, $path, $rep);
-    }
-    return $res;
+    return $res || json_model_11($val, $path, $rep);
 }
 
 

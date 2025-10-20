@@ -81,11 +81,8 @@ BEGIN
   -- .'$keybinding'
   -- .'$keybinding'.'|'.0
   res := JSONB_TYPEOF(val) = 'null';
-  IF NOT res THEN
-    -- .'$keybinding'.'|'.1
-    res := JSONB_TYPEOF(val) = 'string';
-  END IF;
-  RETURN res;
+  -- .'$keybinding'.'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 

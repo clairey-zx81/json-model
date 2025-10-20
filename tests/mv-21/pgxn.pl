@@ -387,12 +387,8 @@ sub json_model_10($$$)
     # .'$Version'
     # .'$Version'.'|'.0
     my $res = json_model_9($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Version'.'|'.1
-        $res = jm_is_integer($val) && $val == 0;
-    }
-    return $res;
+    # .'$Version'.'|'.1
+    return $res || jm_is_integer($val) && $val == 0;
 }
 
 sub _jm_re_3($$$)
@@ -606,12 +602,8 @@ sub _jm_f_2($$$)
     # .maintainer
     # .maintainer.'|'.0
     my $res = json_model_2($val, $path, $rep);
-    if (! $res)
-    {
-        # .maintainer.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .maintainer.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_1_mup_meta-spec (.'meta-spec')

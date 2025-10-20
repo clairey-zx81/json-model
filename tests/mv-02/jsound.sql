@@ -622,11 +622,8 @@ BEGIN
   -- .'$type-or-ref'
   -- .'$type-or-ref'.'|'.0
   res := JSONB_TYPEOF(val) = 'string';
-  IF NOT res THEN
-    -- .'$type-or-ref'.'|'.1
-    res := json_model_3(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$type-or-ref'.'|'.1
+  RETURN res OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

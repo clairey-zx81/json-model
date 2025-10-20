@@ -284,11 +284,7 @@ function json_model_3(val, path, rep)
     {
         rep !== null && rep.push(["value is not an object [.'$cd'.'|']", path])
     }
-    if (! res)
-    {
-        res = json_model_2(val, path, rep);
-    }
-    return res;
+    return res || json_model_2(val, path, rep);
 }
 
 // check $ (.)

@@ -1526,12 +1526,8 @@ sub _jm_f_60($$$)
     # .'$TightSchema'.'|'.2.exclusiveMaximum
     # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0
     my $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
-        $res = jm_is_numeric($val);
-    }
-    return $res;
+    # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
+    return $res || jm_is_numeric($val);
 }
 
 # check _jm_obj_2_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
@@ -1541,12 +1537,8 @@ sub _jm_f_61($$$)
     # .'$TightSchema'.'|'.2.exclusiveMinimum
     # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0
     my $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
-        $res = jm_is_numeric($val);
-    }
-    return $res;
+    # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
+    return $res || jm_is_numeric($val);
 }
 
 # check _jm_obj_2_map_maximum (.'$TightSchema'.'|'.2.maximum)
@@ -1556,12 +1548,8 @@ sub _jm_f_62($$$)
     # .'$TightSchema'.'|'.2.maximum
     # .'$TightSchema'.'|'.2.maximum.'|'.0
     my $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.maximum.'|'.1
-        $res = jm_is_numeric($val);
-    }
-    return $res;
+    # .'$TightSchema'.'|'.2.maximum.'|'.1
+    return $res || jm_is_numeric($val);
 }
 
 # check _jm_obj_2_map_minimum (.'$TightSchema'.'|'.2.minimum)
@@ -1571,12 +1559,8 @@ sub _jm_f_63($$$)
     # .'$TightSchema'.'|'.2.minimum
     # .'$TightSchema'.'|'.2.minimum.'|'.0
     my $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.minimum.'|'.1
-        $res = jm_is_numeric($val);
-    }
-    return $res;
+    # .'$TightSchema'.'|'.2.minimum.'|'.1
+    return $res || jm_is_numeric($val);
 }
 
 # check _jm_obj_2_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
@@ -1586,12 +1570,8 @@ sub _jm_f_64($$$)
     # .'$TightSchema'.'|'.2.multipleOf
     # .'$TightSchema'.'|'.2.multipleOf.'|'.0
     my $res = jm_is_integer($val) && $val >= 1;
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.multipleOf.'|'.1
-        $res = jm_is_numeric($val) && $val > 0.0;
-    }
-    return $res;
+    # .'$TightSchema'.'|'.2.multipleOf.'|'.1
+    return $res || jm_is_numeric($val) && $val > 0.0;
 }
 
 # check _jm_obj_2_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
@@ -2781,12 +2761,8 @@ sub json_model_15($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.7
-        $res = _jm_obj_7($val, $path, $rep);
-    }
-    return $res;
+    # .'$TightSchema'.'|'.7
+    return $res || _jm_obj_7($val, $path, $rep);
 }
 
 # check $Schema (.'$Schema')
@@ -2796,12 +2772,8 @@ sub json_model_16($$$)
     # .'$Schema'
     # .'$Schema'.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$Schema'.'|'.1
-        $res = json_model_15($val, $path, $rep);
-    }
-    return $res;
+    # .'$Schema'.'|'.1
+    return $res || json_model_15($val, $path, $rep);
 }
 
 # check $ (.)

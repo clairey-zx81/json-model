@@ -14,11 +14,8 @@ BEGIN
   -- .'$ex5'
   -- .'$ex5'.'|'.0
   res := json_model_5(val, path, rep);
-  IF NOT res THEN
-    -- .'$ex5'.'|'.1
-    res := json_model_6(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$ex5'.'|'.1
+  RETURN res OR json_model_6(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

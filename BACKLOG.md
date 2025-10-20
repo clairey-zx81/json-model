@@ -12,7 +12,7 @@
 - [x] c-backend: remove some useless braces around one instruction (with late filtering)
 - [x] backend: simplify conditional assignment patterns with one boolean constant
 - [x] backend: merge boolean declaration and first assignment if possible
-- [ ] backend: optimize pattern "if (! res) res = E; ret res;"
+- [x] backend: optimize pattern "if (! res) res = E; ret res;"
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "res = E; if (! res) { simple ; res = ; }"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"

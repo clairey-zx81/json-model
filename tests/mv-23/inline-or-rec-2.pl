@@ -217,11 +217,7 @@ sub json_model_3($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        $res = json_model_2($val, $path, $rep);
-    }
-    return $res;
+    return $res || json_model_2($val, $path, $rep);
 }
 
 # check $ (.)

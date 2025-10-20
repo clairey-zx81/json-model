@@ -103,10 +103,8 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = False
     else:
         pass
-    if not res:
-        # .'$alternative'.'|'.0
-        res = _jm_obj_0(val, path, rep)
-    return res
+    # .'$alternative'.'|'.0
+    return res or _jm_obj_0(val, path, rep)
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:

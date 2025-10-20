@@ -14,11 +14,8 @@ BEGIN
   -- .'$schema'.additionalItems
   -- .'$schema'.additionalItems.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$schema'.additionalItems.'|'.1
-    res := json_model_3(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema'.additionalItems.'|'.1
+  RETURN res OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -31,11 +28,8 @@ BEGIN
   -- .'$schema'.additionalProperties
   -- .'$schema'.additionalProperties.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$schema'.additionalProperties.'|'.1
-    res := json_model_3(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema'.additionalProperties.'|'.1
+  RETURN res OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -151,11 +145,8 @@ BEGIN
   -- .'$schema'.items
   -- .'$schema'.items.'|'.0
   res := json_model_3(val, path, rep);
-  IF NOT res THEN
-    -- .'$schema'.items.'|'.1
-    res := json_model_4(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema'.items.'|'.1
+  RETURN res OR json_model_4(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -315,11 +306,8 @@ BEGIN
   -- .'$schema'.type
   -- .'$schema'.type.'|'.0
   res := json_model_5(val, path, rep);
-  IF NOT res THEN
-    -- .'$schema'.type.'|'.1
-    res := json_model_7(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema'.type.'|'.1
+  RETURN res OR json_model_7(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

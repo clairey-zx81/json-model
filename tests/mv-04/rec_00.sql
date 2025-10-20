@@ -38,11 +38,8 @@ BEGIN
   -- .'$rec'
   -- .'$rec'.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$rec'.'|'.1
-    res := json_model_2(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$rec'.'|'.1
+  RETURN res OR json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

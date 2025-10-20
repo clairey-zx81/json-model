@@ -113,12 +113,8 @@ sub _jm_f_2($$$)
     # .additionalItems
     # .additionalItems.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .additionalItems.'|'.1
-        $res = json_model_1($val, $path, $rep);
-    }
-    return $res;
+    # .additionalItems.'|'.1
+    return $res || json_model_1($val, $path, $rep);
 }
 
 # check json_model_1_map_additionalProperties (.additionalProperties)
@@ -128,12 +124,8 @@ sub _jm_f_3($$$)
     # .additionalProperties
     # .additionalProperties.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .additionalProperties.'|'.1
-        $res = json_model_1($val, $path, $rep);
-    }
-    return $res;
+    # .additionalProperties.'|'.1
+    return $res || json_model_1($val, $path, $rep);
 }
 
 # check json_model_1_map_default (.default)
@@ -207,12 +199,8 @@ sub _jm_f_7($$$)
     # .disallow
     # .disallow.'|'.0
     my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .disallow.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .disallow.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_1_map_divisibleBy (.divisibleBy)

@@ -54,12 +54,8 @@ sub _jm_f_0($$$)
     # .'$schema'.additionalItems
     # .'$schema'.additionalItems.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$schema'.additionalItems.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.additionalItems.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
@@ -69,12 +65,8 @@ sub _jm_f_1($$$)
     # .'$schema'.additionalProperties
     # .'$schema'.additionalProperties.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$schema'.additionalProperties.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.additionalProperties.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_bsonType (.'$schema'.bsonType)
@@ -181,12 +173,8 @@ sub _jm_f_8($$$)
     # .'$schema'.items
     # .'$schema'.items.'|'.0
     my $res = json_model_3($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$schema'.items.'|'.1
-        $res = json_model_4($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.items.'|'.1
+    return $res || json_model_4($val, $path, $rep);
 }
 
 # check json_model_3_map_maxItems (.'$schema'.maxItems)
@@ -332,12 +320,8 @@ sub _jm_f_22($$$)
     # .'$schema'.type
     # .'$schema'.type.'|'.0
     my $res = json_model_5($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$schema'.type.'|'.1
-        $res = json_model_7($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.type.'|'.1
+    return $res || json_model_7($val, $path, $rep);
 }
 
 # check json_model_3_map_uniqueItems (.'$schema'.uniqueItems)

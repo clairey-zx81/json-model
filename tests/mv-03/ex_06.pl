@@ -25,12 +25,8 @@ sub json_model_4($$$)
     # .'$ex5'
     # .'$ex5'.'|'.0
     my $res = json_model_5($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$ex5'.'|'.1
-        $res = json_model_6($val, $path, $rep);
-    }
-    return $res;
+    # .'$ex5'.'|'.1
+    return $res || json_model_6($val, $path, $rep);
 }
 
 # check $Ex06 (.'$Ex06')

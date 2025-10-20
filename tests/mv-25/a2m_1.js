@@ -140,12 +140,8 @@ function json_model_1(val, path, rep)
     // .
     // .'|'.0
     let res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        // .'|'.1
-        res = json_model_5(val, path, rep);
-    }
-    return res;
+    // .'|'.1
+    return res || json_model_5(val, path, rep);
 }
 
 

@@ -114,10 +114,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         else
             res = false;
     }
-    if (! res)
-        // .'$alternative'.'|'.0
-        res = _jm_obj_0(val, path, rep);
-    return res;
+    // .'$alternative'.'|'.0
+    return res || _jm_obj_0(val, path, rep);
 }
 
 // check $ (.)

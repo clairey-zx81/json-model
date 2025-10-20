@@ -684,9 +684,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("tag prop <type> is missing [.'|']", path))
     else:
         rep is None or rep.append(("value is not an object [.'|']", path))
-    if not res:
-        res = json_model_11(val, path, rep)
-    return res
+    return res or json_model_11(val, path, rep)
 
 
 # initialization guard

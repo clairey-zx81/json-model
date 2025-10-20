@@ -151,12 +151,8 @@ sub json_model_1($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        # .'|'.2
-        $res = _jm_obj_2($val, $path, $rep);
-    }
-    return $res;
+    # .'|'.2
+    return $res || _jm_obj_2($val, $path, $rep);
 }
 
 

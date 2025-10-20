@@ -284,11 +284,7 @@ public class inline_or_rec_2 extends ModelChecker
         {
             if (rep != null) rep.addEntry("value is not an object [.'$cd'.'|']", path);
         }
-        if (! res)
-        {
-            res = json_model_2(val, path, rep);
-        }
-        return res;
+        return res || json_model_2(val, path, rep);
     }
 
     // check $ (.)

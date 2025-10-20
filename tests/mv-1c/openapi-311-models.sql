@@ -1138,11 +1138,8 @@ BEGIN
   -- .'$openapi#Operation'.requestBody
   -- .'$openapi#Operation'.requestBody.'|'.0
   res := json_model_21(val, path, rep);
-  IF NOT res THEN
-    -- .'$openapi#Operation'.requestBody.'|'.1
-    res := json_model_32(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$openapi#Operation'.requestBody.'|'.1
+  RETURN res OR json_model_32(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3203,11 +3200,8 @@ BEGIN
   -- .'$openapi#model#CModel'
   -- .'$openapi#model#CModel'.'|'.0
   res := json_model_97(val, path, rep);
-  IF NOT res THEN
-    -- .'$openapi#model#CModel'.'|'.1
-    res := json_model_69(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$openapi#model#CModel'.'|'.1
+  RETURN res OR json_model_69(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3806,11 +3800,8 @@ BEGIN
   -- .'$openapi#model#ScalarModel'
   -- .'$openapi#model#ScalarModel'.'|'.0
   res := json_model_78(val, path, rep);
-  IF NOT res THEN
-    -- .'$openapi#model#ScalarModel'.'|'.1
-    res := json_model_79(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$openapi#model#ScalarModel'.'|'.1
+  RETURN res OR json_model_79(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

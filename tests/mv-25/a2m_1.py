@@ -103,10 +103,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     # .'|'.0
     res: bool = json_model_4(val, path, rep)
-    if not res:
-        # .'|'.1
-        res = json_model_5(val, path, rep)
-    return res
+    # .'|'.1
+    return res or json_model_5(val, path, rep)
 
 
 # initialization guard

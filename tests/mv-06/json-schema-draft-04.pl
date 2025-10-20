@@ -165,12 +165,8 @@ sub _jm_f_2($$$)
     # .additionalItems
     # .additionalItems.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .additionalItems.'|'.1
-        $res = json_model_1($val, $path, $rep);
-    }
-    return $res;
+    # .additionalItems.'|'.1
+    return $res || json_model_1($val, $path, $rep);
 }
 
 # check json_model_1_map_additionalProperties (.additionalProperties)
@@ -180,12 +176,8 @@ sub _jm_f_3($$$)
     # .additionalProperties
     # .additionalProperties.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .additionalProperties.'|'.1
-        $res = json_model_1($val, $path, $rep);
-    }
-    return $res;
+    # .additionalProperties.'|'.1
+    return $res || json_model_1($val, $path, $rep);
 }
 
 # check json_model_1_map_default (.default)
@@ -312,12 +304,8 @@ sub _jm_f_13($$$)
     # .items
     # .items.'|'.0
     my $res = json_model_1($val, $path, $rep);
-    if (! $res)
-    {
-        # .items.'|'.1
-        $res = json_model_2($val, $path, $rep);
-    }
-    return $res;
+    # .items.'|'.1
+    return $res || json_model_2($val, $path, $rep);
 }
 
 # check json_model_1_map_maxItems (.maxItems)
@@ -463,12 +451,8 @@ sub _jm_f_27($$$)
     # .type
     # .type.'|'.0
     my $res = json_model_3($val, $path, $rep);
-    if (! $res)
-    {
-        # .type.'|'.1
-        $res = json_model_5($val, $path, $rep);
-    }
-    return $res;
+    # .type.'|'.1
+    return $res || json_model_5($val, $path, $rep);
 }
 
 # check json_model_1_map_uniqueItems (.uniqueItems)

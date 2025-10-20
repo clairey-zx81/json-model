@@ -14,11 +14,8 @@ BEGIN
   -- .
   -- .'|'.0
   res := JSONB_TYPEOF(val) = 'string';
-  IF NOT res THEN
-    -- .'|'.1
-    res := JSONB_TYPEOF(val) = 'null';
-  END IF;
-  RETURN res;
+  -- .'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'null';
 END;
 $$ LANGUAGE PLpgSQL;
 

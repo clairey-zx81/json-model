@@ -96,12 +96,8 @@ sub _jm_f_1($$$)
     # .additionalProperties
     # .additionalProperties.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .additionalProperties.'|'.1
-        $res = json_model_1($val, $path, $rep);
-    }
-    return $res;
+    # .additionalProperties.'|'.1
+    return $res || json_model_1($val, $path, $rep);
 }
 
 # check json_model_1_map_contentEncoding (.contentEncoding)
@@ -135,12 +131,8 @@ sub _jm_f_5($$$)
     # .disallow
     # .disallow.'|'.0
     my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .disallow.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .disallow.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_1_map_divisibleBy (.divisibleBy)
@@ -349,12 +341,8 @@ sub _jm_f_23($$$)
     # .requires
     # .requires.'|'.0
     my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .requires.'|'.1
-        $res = json_model_1($val, $path, $rep);
-    }
-    return $res;
+    # .requires.'|'.1
+    return $res || json_model_1($val, $path, $rep);
 }
 
 # check json_model_1_map_title (.title)

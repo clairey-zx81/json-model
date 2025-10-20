@@ -5998,11 +5998,8 @@ BEGIN
   ELSE
     NULL;
   END IF;
-  IF NOT res THEN
-    -- .'$GalaxyInfoModel'.'|'.2
-    res := _jm_obj_48(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$GalaxyInfoModel'.'|'.2
+  RETURN res OR _jm_obj_48(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -6383,11 +6380,8 @@ BEGIN
   -- .'$AnsibleMeta'
   -- .'$AnsibleMeta'.'|'.0
   res := JSONB_TYPEOF(val) = 'null';
-  IF NOT res THEN
-    -- .'$AnsibleMeta'.'|'.1
-    res := json_model_59(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$AnsibleMeta'.'|'.1
+  RETURN res OR json_model_59(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

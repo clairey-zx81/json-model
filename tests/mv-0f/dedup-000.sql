@@ -14,11 +14,8 @@ BEGIN
   -- .
   -- .'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
-  IF NOT res THEN
-    -- .'|'.1
-    res := JSONB_TYPEOF(val) = 'string';
-  END IF;
-  RETURN res;
+  -- .'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 

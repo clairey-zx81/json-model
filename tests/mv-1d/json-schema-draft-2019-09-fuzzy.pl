@@ -83,12 +83,8 @@ sub json_model_18($$$)
     # .'$schema#Schema'
     # .'$schema#Schema'.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$schema#Schema'.'|'.1
-        $res = json_model_17($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema#Schema'.'|'.1
+    return $res || json_model_17($val, $path, $rep);
 }
 
 # check json_model_17_map_$comment (.'$schema#ObjectSchema'.'$comment')
@@ -367,12 +363,8 @@ sub _jm_f_20($$$)
     # .'$schema#ObjectSchema'.items
     # .'$schema#ObjectSchema'.items.'|'.0
     my $res = json_model_18($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$schema#ObjectSchema'.items.'|'.1
-        $res = json_model_15($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema#ObjectSchema'.items.'|'.1
+    return $res || json_model_15($val, $path, $rep);
 }
 
 # check json_model_17_map_maximum (.'$schema#ObjectSchema'.maximum)
@@ -478,12 +470,8 @@ sub _jm_f_29($$$)
     # .'$schema#ObjectSchema'.type
     # .'$schema#ObjectSchema'.type.'|'.0
     my $res = json_model_10($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$schema#ObjectSchema'.type.'|'.1
-        $res = json_model_11($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema#ObjectSchema'.type.'|'.1
+    return $res || json_model_11($val, $path, $rep);
 }
 
 # check json_model_17_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)

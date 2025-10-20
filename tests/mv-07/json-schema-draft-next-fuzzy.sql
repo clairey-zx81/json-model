@@ -34,11 +34,8 @@ BEGIN
   -- .'$schema#Schema'
   -- .'$schema#Schema'.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .'$schema#Schema'.'|'.1
-    res := json_model_17(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema#Schema'.'|'.1
+  RETURN res OR json_model_17(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -470,11 +467,8 @@ BEGIN
   -- .'$schema#ObjectSchema'.type
   -- .'$schema#ObjectSchema'.type.'|'.0
   res := json_model_10(val, path, rep);
-  IF NOT res THEN
-    -- .'$schema#ObjectSchema'.type.'|'.1
-    res := json_model_11(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$schema#ObjectSchema'.type.'|'.1
+  RETURN res OR json_model_11(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

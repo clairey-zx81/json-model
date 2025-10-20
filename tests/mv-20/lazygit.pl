@@ -203,12 +203,8 @@ sub json_model_4($$$)
     # .'$keybinding'
     # .'$keybinding'.'|'.0
     my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$keybinding'.'|'.1
-        $res = jm_is_string($val);
-    }
-    return $res;
+    # .'$keybinding'.'|'.1
+    return $res || jm_is_string($val);
 }
 
 

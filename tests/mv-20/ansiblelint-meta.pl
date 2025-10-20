@@ -6280,12 +6280,8 @@ sub json_model_54($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        # .'$GalaxyInfoModel'.'|'.2
-        $res = _jm_obj_48($val, $path, $rep);
-    }
-    return $res;
+    # .'$GalaxyInfoModel'.'|'.2
+    return $res || _jm_obj_48($val, $path, $rep);
 }
 
 sub _jm_re_2($$$)
@@ -6654,12 +6650,8 @@ sub json_model_60($$$)
     # .'$AnsibleMeta'
     # .'$AnsibleMeta'.'|'.0
     my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$AnsibleMeta'.'|'.1
-        $res = json_model_59($val, $path, $rep);
-    }
-    return $res;
+    # .'$AnsibleMeta'.'|'.1
+    return $res || json_model_59($val, $path, $rep);
 }
 
 # check $ (.)

@@ -32,11 +32,8 @@ BEGIN
   -- .
   -- .'|'.0
   res := json_model_2(val, path, rep);
-  IF NOT res THEN
-    -- .'|'.1
-    res := json_model_3(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'|'.1
+  RETURN res OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

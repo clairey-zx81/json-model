@@ -137,11 +137,8 @@ BEGIN
   -- .
   -- .'|'.0
   res := json_model_4(val, path, rep);
-  IF NOT res THEN
-    -- .'|'.1
-    res := json_model_5(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'|'.1
+  RETURN res OR json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

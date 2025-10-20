@@ -14,11 +14,8 @@ BEGIN
   -- .'$Vv'
   -- .'$Vv'.'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-  IF NOT res THEN
-    -- .'$Vv'.'|'.1
-    res := JSONB_TYPEOF(val) = 'string';
-  END IF;
-  RETURN res;
+  -- .'$Vv'.'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -173,11 +170,8 @@ BEGIN
   -- .'$Mm'
   -- .'$Mm'.'|'.0
   res := json_model_2(val, path, rep);
-  IF NOT res THEN
-    -- .'$Mm'.'|'.1
-    res := json_model_5(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Mm'.'|'.1
+  RETURN res OR json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

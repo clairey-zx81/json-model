@@ -333,11 +333,8 @@ BEGIN
   -- .'$Version'
   -- .'$Version'.'|'.0
   res := json_model_9(val, path, rep);
-  IF NOT res THEN
-    -- .'$Version'.'|'.1
-    res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 0;
-  END IF;
-  RETURN res;
+  -- .'$Version'.'|'.1
+  RETURN res OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 0;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -567,11 +564,8 @@ BEGIN
   -- .maintainer
   -- .maintainer.'|'.0
   res := json_model_2(val, path, rep);
-  IF NOT res THEN
-    -- .maintainer.'|'.1
-    res := json_model_3(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .maintainer.'|'.1
+  RETURN res OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

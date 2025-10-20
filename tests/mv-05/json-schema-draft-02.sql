@@ -69,11 +69,8 @@ BEGIN
   -- .additionalProperties
   -- .additionalProperties.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
-  IF NOT res THEN
-    -- .additionalProperties.'|'.1
-    res := json_model_1(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .additionalProperties.'|'.1
+  RETURN res OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -113,11 +110,8 @@ BEGIN
   -- .disallow
   -- .disallow.'|'.0
   res := JSONB_TYPEOF(val) = 'string';
-  IF NOT res THEN
-    -- .disallow.'|'.1
-    res := json_model_3(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .disallow.'|'.1
+  RETURN res OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -347,11 +341,8 @@ BEGIN
   -- .requires
   -- .requires.'|'.0
   res := JSONB_TYPEOF(val) = 'string';
-  IF NOT res THEN
-    -- .requires.'|'.1
-    res := json_model_1(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .requires.'|'.1
+  RETURN res OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

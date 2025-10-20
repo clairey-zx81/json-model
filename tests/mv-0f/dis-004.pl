@@ -117,12 +117,8 @@ sub json_model_3($$$)
     # .'$Bb'
     # .'$Bb'.'|'.0
     my $res = _jm_obj_2($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Bb'.'|'.1
-        $res = json_model_2($val, $path, $rep);
-    }
-    return $res;
+    # .'$Bb'.'|'.1
+    return $res || json_model_2($val, $path, $rep);
 }
 
 # check $ (.)

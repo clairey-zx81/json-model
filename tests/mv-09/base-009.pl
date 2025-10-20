@@ -21,12 +21,8 @@ sub json_model_1($$$)
     # .
     # .'|'.0
     my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .'|'.1
-        $res = !defined($val);
-    }
-    return $res;
+    # .'|'.1
+    return $res || !defined($val);
 }
 
 

@@ -154,12 +154,8 @@ sub json_model_3($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        # .'$alternative'.'|'.0
-        $res = _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$alternative'.'|'.0
+    return $res || _jm_obj_0($val, $path, $rep);
 }
 
 # check $ (.)

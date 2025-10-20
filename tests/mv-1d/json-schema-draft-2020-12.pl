@@ -573,12 +573,8 @@ sub _jm_f_20($$$)
     # .'$validation'.type
     # .'$validation'.type.'|'.0
     my $res = json_model_8($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$validation'.type.'|'.1
-        $res = json_model_9($val, $path, $rep);
-    }
-    return $res;
+    # .'$validation'.type.'|'.1
+    return $res || json_model_9($val, $path, $rep);
 }
 
 # check json_model_12_map_uniqueItems (.'$validation'.uniqueItems)
@@ -1073,12 +1069,8 @@ sub _jm_f_50($$$)
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
     my $res = json_model_8($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$ObjectSchema'.type.'|'.1
-        $res = json_model_9($val, $path, $rep);
-    }
-    return $res;
+    # .'$ObjectSchema'.type.'|'.1
+    return $res || json_model_9($val, $path, $rep);
 }
 
 # check json_model_15_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
@@ -1134,12 +1126,8 @@ sub json_model_16($$$)
     # .'$Schema'
     # .'$Schema'.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$Schema'.'|'.1
-        $res = json_model_15($val, $path, $rep);
-    }
-    return $res;
+    # .'$Schema'.'|'.1
+    return $res || json_model_15($val, $path, $rep);
 }
 
 # check $ (.)

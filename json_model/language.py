@@ -503,6 +503,10 @@ class Language:
         """Skip one line."""
         return [ "" ]
 
+    def ignore(self) -> Block:
+        """Ignore this line."""
+        return []
+
     #
     # paths:
     #

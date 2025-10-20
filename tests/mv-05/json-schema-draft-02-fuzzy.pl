@@ -61,12 +61,8 @@ sub _jm_f_1($$$)
     # .'$schema'.additionalProperties
     # .'$schema'.additionalProperties.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$schema'.additionalProperties.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.additionalProperties.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_contentEncoding (.'$schema'.contentEncoding)
@@ -100,12 +96,8 @@ sub _jm_f_5($$$)
     # .'$schema'.disallow
     # .'$schema'.disallow.'|'.0
     my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .'$schema'.disallow.'|'.1
-        $res = json_model_5($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.disallow.'|'.1
+    return $res || json_model_5($val, $path, $rep);
 }
 
 # check json_model_3_map_divisibleBy (.'$schema'.divisibleBy)
@@ -314,12 +306,8 @@ sub _jm_f_23($$$)
     # .'$schema'.requires
     # .'$schema'.requires.'|'.0
     my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .'$schema'.requires.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.requires.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_title (.'$schema'.title)

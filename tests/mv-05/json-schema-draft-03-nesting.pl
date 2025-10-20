@@ -72,12 +72,8 @@ sub _jm_f_2($$$)
     # .'$schema'.additionalItems
     # .'$schema'.additionalItems.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$schema'.additionalItems.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.additionalItems.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
@@ -87,12 +83,8 @@ sub _jm_f_3($$$)
     # .'$schema'.additionalProperties
     # .'$schema'.additionalProperties.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$schema'.additionalProperties.'|'.1
-        $res = json_model_3($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.additionalProperties.'|'.1
+    return $res || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_default (.'$schema'.default)
@@ -166,12 +158,8 @@ sub _jm_f_7($$$)
     # .'$schema'.disallow
     # .'$schema'.disallow.'|'.0
     my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .'$schema'.disallow.'|'.1
-        $res = json_model_5($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema'.disallow.'|'.1
+    return $res || json_model_5($val, $path, $rep);
 }
 
 # check json_model_3_map_divisibleBy (.'$schema'.divisibleBy)

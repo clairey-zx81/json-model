@@ -1387,12 +1387,8 @@ sub _jm_f_25($$$)
     # .'$Operation'.requestBody
     # .'$Operation'.requestBody.'|'.0
     my $res = json_model_19($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Operation'.requestBody.'|'.1
-        $res = json_model_30($val, $path, $rep);
-    }
-    return $res;
+    # .'$Operation'.requestBody.'|'.1
+    return $res || json_model_30($val, $path, $rep);
 }
 
 # check json_model_11_map_security (.'$Operation'.security)
@@ -3649,12 +3645,8 @@ sub _jm_f_76($$$)
     # .'$Schema'.type
     # .'$Schema'.type.'|'.0
     my $res = json_model_52($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Schema'.type.'|'.1
-        $res = json_model_53($val, $path, $rep);
-    }
-    return $res;
+    # .'$Schema'.type.'|'.1
+    return $res || json_model_53($val, $path, $rep);
 }
 
 # check json_model_32_map_uniqueItems (.'$Schema'.uniqueItems)
@@ -4781,12 +4773,8 @@ sub json_model_60($$$)
     # .'$schema#Schema'
     # .'$schema#Schema'.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$schema#Schema'.'|'.1
-        $res = json_model_59($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema#Schema'.'|'.1
+    return $res || json_model_59($val, $path, $rep);
 }
 
 # check json_model_59_map_$comment (.'$schema#ObjectSchema'.'$comment')
@@ -5106,12 +5094,8 @@ sub _jm_f_104($$$)
     # .'$schema#ObjectSchema'.type
     # .'$schema#ObjectSchema'.type.'|'.0
     my $res = json_model_52($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$schema#ObjectSchema'.type.'|'.1
-        $res = json_model_53($val, $path, $rep);
-    }
-    return $res;
+    # .'$schema#ObjectSchema'.type.'|'.1
+    return $res || json_model_53($val, $path, $rep);
 }
 
 # check json_model_59_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)
