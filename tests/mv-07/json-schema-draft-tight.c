@@ -1000,8 +1000,7 @@ static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$metas'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_9_map_definitions (.'$metas'.definitions)
@@ -1280,8 +1279,7 @@ static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$String'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_10_map_definitions (.'$String'.definitions)
@@ -1634,8 +1632,7 @@ static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Array'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_11_map_definitions (.'$Array'.definitions)
@@ -2005,8 +2002,7 @@ static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Object'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_12_map_definitions (.'$Object'.definitions)
@@ -2424,8 +2420,7 @@ static bool _jm_f_92(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Integer'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_13_map_definitions (.'$Integer'.definitions)
@@ -2753,8 +2748,7 @@ static bool _jm_f_110(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_111(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Number'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_14_map_definitions (.'$Number'.definitions)
@@ -3082,8 +3076,7 @@ static bool _jm_f_128(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Bool'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_definitions (.'$Bool'.definitions)
@@ -3387,8 +3380,7 @@ static bool _jm_f_144(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_145(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Null'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_16_map_definitions (.'$Null'.definitions)
@@ -3692,8 +3684,7 @@ static bool _jm_f_160(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_161(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$AllOf'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_17_map_definitions (.'$AllOf'.definitions)
@@ -3997,8 +3988,7 @@ static bool _jm_f_176(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_177(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$AnyOf'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_18_map_definitions (.'$AnyOf'.definitions)
@@ -4302,8 +4292,7 @@ static bool _jm_f_192(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_193(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$OneOf'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_19_map_definitions (.'$OneOf'.definitions)
@@ -4607,8 +4596,7 @@ static bool _jm_f_208(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_209(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Enum'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_20_map_definitions (.'$Enum'.definitions)
@@ -4912,8 +4900,7 @@ static bool _jm_f_224(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_225(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Const'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_21_map_definitions (.'$Const'.definitions)
@@ -5217,8 +5204,7 @@ static bool _jm_f_240(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_241(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Ref'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_22_map_definitions (.'$Ref'.definitions)
@@ -5522,8 +5508,7 @@ static bool _jm_f_256(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_257(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$DynRef'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_23_map_definitions (.'$DynRef'.definitions)

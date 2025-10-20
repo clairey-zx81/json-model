@@ -2137,8 +2137,7 @@ public class openapi_311 extends ModelChecker
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
         // .'$parameterSchemaOnly'.example
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_16_map_examples (.'$parameterSchemaOnly'.examples)
@@ -2511,8 +2510,7 @@ public class openapi_311 extends ModelChecker
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         // .'$Parameter'.'|'.0.example
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_6_map_examples (.'$Parameter'.'|'.0.examples)
@@ -3942,8 +3940,7 @@ public class openapi_311 extends ModelChecker
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         // .'$Header'.'|'.0.example
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_20_map_examples (.'$Header'.'|'.0.examples)
@@ -4356,8 +4353,7 @@ public class openapi_311 extends ModelChecker
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
         // .'$Schema'.const
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_32_map_contentEncoding (.'$Schema'.contentEncoding)
@@ -4388,8 +4384,7 @@ public class openapi_311 extends ModelChecker
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
         // .'$Schema'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_32_map_dependentRequired (.'$Schema'.dependentRequired)
@@ -4488,8 +4483,7 @@ public class openapi_311 extends ModelChecker
     public boolean _jm_f_63(Object val, Path path, Report rep)
     {
         // .'$Schema'.example
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_32_map_examples (.'$Schema'.examples)
@@ -6340,8 +6334,7 @@ public class openapi_311 extends ModelChecker
     public boolean _jm_f_83(Object val, Path path, Report rep)
     {
         // .'$schema#ObjectSchema'.const
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_59_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -6372,8 +6365,7 @@ public class openapi_311 extends ModelChecker
     public boolean _jm_f_86(Object val, Path path, Report rep)
     {
         // .'$schema#ObjectSchema'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_59_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)

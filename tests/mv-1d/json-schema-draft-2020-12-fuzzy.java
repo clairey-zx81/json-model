@@ -164,8 +164,7 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         // .'$meta'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_5_map_deprecated (.'$meta'.deprecated)
@@ -530,8 +529,7 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         // .'$validation'.const
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_13_map_dependentRequired (.'$validation'.dependentRequired)
@@ -998,8 +996,7 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.const
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_16_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -1030,8 +1027,7 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_16_map_definitions (.'$ObjectSchema'.definitions)

@@ -79,8 +79,7 @@ public class json_schema_draft_02_nesting extends ModelChecker
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         // .'$schema'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_3_map_description (.'$schema'.description)

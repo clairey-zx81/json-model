@@ -23,8 +23,7 @@ public class any extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        boolean res = true;
-        return res;
+        return true;
     }
 
 

@@ -617,8 +617,7 @@ function _jm_f_7(val, path, rep)
 function _jm_f_8(val, path, rep)
 {
     // .'$metas'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_9_map_definitions (.'$metas'.definitions)
@@ -792,8 +791,7 @@ function _jm_f_17(val, path, rep)
 function _jm_f_18(val, path, rep)
 {
     // .'$String'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_10_map_definitions (.'$String'.definitions)
@@ -1041,8 +1039,7 @@ function _jm_f_31(val, path, rep)
 function _jm_f_32(val, path, rep)
 {
     // .'$Array'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_11_map_definitions (.'$Array'.definitions)
@@ -1307,8 +1304,7 @@ function _jm_f_45(val, path, rep)
 function _jm_f_46(val, path, rep)
 {
     // .'$Object'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_12_map_definitions (.'$Object'.definitions)
@@ -1592,8 +1588,7 @@ function _jm_f_58(val, path, rep)
 function _jm_f_59(val, path, rep)
 {
     // .'$Integer'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_13_map_definitions (.'$Integer'.definitions)
@@ -1816,8 +1811,7 @@ function _jm_f_70(val, path, rep)
 function _jm_f_71(val, path, rep)
 {
     // .'$Number'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_14_map_definitions (.'$Number'.definitions)
@@ -2040,8 +2034,7 @@ function _jm_f_82(val, path, rep)
 function _jm_f_83(val, path, rep)
 {
     // .'$Bool'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_definitions (.'$Bool'.definitions)
@@ -2240,8 +2233,7 @@ function _jm_f_92(val, path, rep)
 function _jm_f_93(val, path, rep)
 {
     // .'$Null'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_16_map_definitions (.'$Null'.definitions)
@@ -2440,8 +2432,7 @@ function _jm_f_102(val, path, rep)
 function _jm_f_103(val, path, rep)
 {
     // .'$AllOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_17_map_definitions (.'$AllOf'.definitions)
@@ -2640,8 +2631,7 @@ function _jm_f_112(val, path, rep)
 function _jm_f_113(val, path, rep)
 {
     // .'$AnyOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_18_map_definitions (.'$AnyOf'.definitions)
@@ -2840,8 +2830,7 @@ function _jm_f_122(val, path, rep)
 function _jm_f_123(val, path, rep)
 {
     // .'$OneOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_19_map_definitions (.'$OneOf'.definitions)
@@ -3040,8 +3029,7 @@ function _jm_f_132(val, path, rep)
 function _jm_f_133(val, path, rep)
 {
     // .'$Enum'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_20_map_definitions (.'$Enum'.definitions)
@@ -3240,8 +3228,7 @@ function _jm_f_142(val, path, rep)
 function _jm_f_143(val, path, rep)
 {
     // .'$Const'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_21_map_definitions (.'$Const'.definitions)
@@ -3440,8 +3427,7 @@ function _jm_f_152(val, path, rep)
 function _jm_f_153(val, path, rep)
 {
     // .'$Ref'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_22_map_definitions (.'$Ref'.definitions)

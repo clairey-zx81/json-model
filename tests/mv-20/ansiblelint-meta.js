@@ -6550,8 +6550,7 @@ function json_model_50(val, path, rep)
 function _jm_f_0(val, path, rep)
 {
     // .'$GalaxyInfoModelCollection'.cloud_platforms
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
@@ -6802,8 +6801,7 @@ function json_model_52(val, path, rep)
 function _jm_f_12(val, path, rep)
 {
     // .'$GalaxyInfoModelStandalone'.cloud_platforms
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
@@ -7061,8 +7059,7 @@ function _jm_f_21(val, path, rep)
 function _jm_f_22(val, path, rep)
 {
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
@@ -7292,8 +7289,7 @@ function _jm_f_33(val, path, rep)
 function _jm_f_34(val, path, rep)
 {
     // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)

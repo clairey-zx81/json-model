@@ -2023,8 +2023,7 @@ function _jm_f_33(val, path, rep)
 function _jm_f_34(val, path, rep)
 {
     // .'$openapi#Parameter'.'|'.0.example
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_5_map_examples (.'$openapi#Parameter'.'|'.0.examples)
@@ -3405,8 +3404,7 @@ function _jm_f_41(val, path, rep)
 function _jm_f_42(val, path, rep)
 {
     // .'$openapi#Header'.'|'.0.example
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_19_map_examples (.'$openapi#Header'.'|'.0.examples)

@@ -156,8 +156,7 @@ function json_model_3(val, path, rep)
 function _jm_f_4(val, path, rep)
 {
     // .'$meta'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_4_map_deprecated (.'$meta'.deprecated)
@@ -1156,8 +1155,7 @@ function json_model_13(val, path, rep)
 function _jm_f_28(val, path, rep)
 {
     // .'$Misc'.const
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_14_map_enum (.'$Misc'.enum)
@@ -1290,8 +1288,7 @@ function _jm_f_33(val, path, rep)
 function _jm_f_34(val, path, rep)
 {
     // .'$TightSchema'.'|'.0.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_0_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
@@ -1509,8 +1506,7 @@ function _jm_f_44(val, path, rep)
 function _jm_f_45(val, path, rep)
 {
     // .'$TightSchema'.'|'.1.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_1_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
@@ -1728,8 +1724,7 @@ function _jm_f_55(val, path, rep)
 function _jm_f_56(val, path, rep)
 {
     // .'$TightSchema'.'|'.2.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_2_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
@@ -2097,8 +2092,7 @@ function _jm_f_71(val, path, rep)
 function _jm_f_72(val, path, rep)
 {
     // .'$TightSchema'.'|'.3.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_3_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
@@ -2400,8 +2394,7 @@ function _jm_f_89(val, path, rep)
 function _jm_f_90(val, path, rep)
 {
     // .'$TightSchema'.'|'.4.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_4_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
@@ -2667,8 +2660,7 @@ function _jm_f_104(val, path, rep)
 function _jm_f_105(val, path, rep)
 {
     // .'$TightSchema'.'|'.5.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_5_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
@@ -2946,8 +2938,7 @@ function _jm_f_120(val, path, rep)
 function _jm_f_121(val, path, rep)
 {
     // .'$TightSchema'.'|'.6.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_6_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
@@ -3297,16 +3288,14 @@ function _jm_f_137(val, path, rep)
 function _jm_f_138(val, path, rep)
 {
     // .'$TightSchema'.'|'.7.const
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_7_map_default (.'$TightSchema'.'|'.7.default)
 function _jm_f_139(val, path, rep)
 {
     // .'$TightSchema'.'|'.7.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_7_map_deprecated (.'$TightSchema'.'|'.7.deprecated)

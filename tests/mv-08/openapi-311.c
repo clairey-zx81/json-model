@@ -2270,8 +2270,7 @@ static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$parameterSchemaOnly'.example
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_16_map_examples (.'$parameterSchemaOnly'.examples)
@@ -2640,8 +2639,7 @@ static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Parameter'.'|'.0.example
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_6_map_examples (.'$Parameter'.'|'.0.examples)
@@ -4026,8 +4024,7 @@ static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Header'.'|'.0.example
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_20_map_examples (.'$Header'.'|'.0.examples)
@@ -4434,8 +4431,7 @@ static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Schema'.const
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_contentEncoding (.'$Schema'.contentEncoding)
@@ -4466,8 +4462,7 @@ static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Schema'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_dependentRequired (.'$Schema'.dependentRequired)
@@ -4564,8 +4559,7 @@ static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Schema'.example
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_examples (.'$Schema'.examples)
@@ -6385,8 +6379,7 @@ static bool _jm_f_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schema#ObjectSchema'.const
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_59_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -6417,8 +6410,7 @@ static bool _jm_f_85(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_86(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schema#ObjectSchema'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_59_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)

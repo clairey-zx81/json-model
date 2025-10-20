@@ -2012,8 +2012,7 @@ function _jm_f_30(val, path, rep)
 function _jm_f_31(val, path, rep)
 {
     // .'$parameterSchemaOnly'.example
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_16_map_examples (.'$parameterSchemaOnly'.examples)
@@ -2368,8 +2367,7 @@ function _jm_f_37(val, path, rep)
 function _jm_f_38(val, path, rep)
 {
     // .'$Parameter'.'|'.0.example
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_6_map_examples (.'$Parameter'.'|'.0.examples)
@@ -3736,8 +3734,7 @@ function _jm_f_45(val, path, rep)
 function _jm_f_46(val, path, rep)
 {
     // .'$Header'.'|'.0.example
-    let res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_20_map_examples (.'$Header'.'|'.0.examples)
@@ -4132,8 +4129,7 @@ function _jm_f_53(val, path, rep)
 function _jm_f_54(val, path, rep)
 {
     // .'$Schema'.const
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_contentEncoding (.'$Schema'.contentEncoding)
@@ -4164,8 +4160,7 @@ function _jm_f_56(val, path, rep)
 function _jm_f_57(val, path, rep)
 {
     // .'$Schema'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_dependentRequired (.'$Schema'.dependentRequired)
@@ -4258,8 +4253,7 @@ function _jm_f_62(val, path, rep)
 function _jm_f_63(val, path, rep)
 {
     // .'$Schema'.example
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_examples (.'$Schema'.examples)
@@ -6044,8 +6038,7 @@ function _jm_f_82(val, path, rep)
 function _jm_f_83(val, path, rep)
 {
     // .'$schema#ObjectSchema'.const
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_59_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -6076,8 +6069,7 @@ function _jm_f_85(val, path, rep)
 function _jm_f_86(val, path, rep)
 {
     // .'$schema#ObjectSchema'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_59_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)

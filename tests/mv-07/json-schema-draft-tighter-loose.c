@@ -542,8 +542,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#metas'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_11_map_definitions (.'$tight#metas'.definitions)
@@ -727,8 +726,7 @@ static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#String'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_12_map_definitions (.'$tight#String'.definitions)
@@ -986,8 +984,7 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Array'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_13_map_definitions (.'$tight#Array'.definitions)
@@ -1290,8 +1287,7 @@ static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Object'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_14_map_definitions (.'$tight#Object'.definitions)
@@ -1590,8 +1586,7 @@ static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Integer'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_definitions (.'$tight#Integer'.definitions)
@@ -1824,8 +1819,7 @@ static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Number'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_16_map_definitions (.'$tight#Number'.definitions)
@@ -2058,8 +2052,7 @@ static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Bool'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_17_map_definitions (.'$tight#Bool'.definitions)
@@ -2268,8 +2261,7 @@ static bool _jm_f_88(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_89(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Null'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_18_map_definitions (.'$tight#Null'.definitions)
@@ -2478,8 +2470,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#AllOf'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_19_map_definitions (.'$tight#AllOf'.definitions)
@@ -2688,8 +2679,7 @@ static bool _jm_f_108(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_109(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#AnyOf'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_20_map_definitions (.'$tight#AnyOf'.definitions)
@@ -2898,8 +2888,7 @@ static bool _jm_f_118(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_119(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#OneOf'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_21_map_definitions (.'$tight#OneOf'.definitions)
@@ -3108,8 +3097,7 @@ static bool _jm_f_128(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Enum'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_22_map_definitions (.'$tight#Enum'.definitions)
@@ -3401,8 +3389,7 @@ static bool _jm_f_138(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_139(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Const'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_23_map_definitions (.'$tight#Const'.definitions)
@@ -3668,8 +3655,7 @@ static bool _jm_f_148(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_149(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#Ref'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_24_map_definitions (.'$tight#Ref'.definitions)
@@ -3908,8 +3894,7 @@ static bool _jm_f_158(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_159(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#EnumString'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_28_map_definitions (.'$tight#EnumString'.definitions)
@@ -4151,8 +4136,7 @@ static bool _jm_f_168(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_169(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#EnumNum'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_29_map_definitions (.'$tight#EnumNum'.definitions)
@@ -4394,8 +4378,7 @@ static bool _jm_f_178(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_179(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#EnumInt'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_30_map_definitions (.'$tight#EnumInt'.definitions)
@@ -4637,8 +4620,7 @@ static bool _jm_f_188(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_189(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#ConstString'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_31_map_definitions (.'$tight#ConstString'.definitions)
@@ -4864,8 +4846,7 @@ static bool _jm_f_198(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_199(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#ConstNum'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_definitions (.'$tight#ConstNum'.definitions)
@@ -5091,8 +5072,7 @@ static bool _jm_f_208(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_209(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#ConstInt'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_33_map_definitions (.'$tight#ConstInt'.definitions)
@@ -5318,8 +5298,7 @@ static bool _jm_f_218(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_219(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#ConstBool'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_34_map_definitions (.'$tight#ConstBool'.definitions)

@@ -676,8 +676,7 @@ function _jm_f_15(val, path, rep)
 function _jm_f_16(val, path, rep)
 {
     // .'$metas'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_9_map_definitions (.'$metas'.definitions)
@@ -944,8 +943,7 @@ function _jm_f_31(val, path, rep)
 function _jm_f_32(val, path, rep)
 {
     // .'$String'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_10_map_definitions (.'$String'.definitions)
@@ -1286,8 +1284,7 @@ function _jm_f_51(val, path, rep)
 function _jm_f_52(val, path, rep)
 {
     // .'$Array'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_11_map_definitions (.'$Array'.definitions)
@@ -1645,8 +1642,7 @@ function _jm_f_71(val, path, rep)
 function _jm_f_72(val, path, rep)
 {
     // .'$Object'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_12_map_definitions (.'$Object'.definitions)
@@ -2047,8 +2043,7 @@ function _jm_f_92(val, path, rep)
 function _jm_f_93(val, path, rep)
 {
     // .'$Integer'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_13_map_definitions (.'$Integer'.definitions)
@@ -2364,8 +2359,7 @@ function _jm_f_110(val, path, rep)
 function _jm_f_111(val, path, rep)
 {
     // .'$Number'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_14_map_definitions (.'$Number'.definitions)
@@ -2681,8 +2675,7 @@ function _jm_f_128(val, path, rep)
 function _jm_f_129(val, path, rep)
 {
     // .'$Bool'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_definitions (.'$Bool'.definitions)
@@ -2974,8 +2967,7 @@ function _jm_f_144(val, path, rep)
 function _jm_f_145(val, path, rep)
 {
     // .'$Null'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_16_map_definitions (.'$Null'.definitions)
@@ -3267,8 +3259,7 @@ function _jm_f_160(val, path, rep)
 function _jm_f_161(val, path, rep)
 {
     // .'$AllOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_17_map_definitions (.'$AllOf'.definitions)
@@ -3560,8 +3551,7 @@ function _jm_f_176(val, path, rep)
 function _jm_f_177(val, path, rep)
 {
     // .'$AnyOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_18_map_definitions (.'$AnyOf'.definitions)
@@ -3853,8 +3843,7 @@ function _jm_f_192(val, path, rep)
 function _jm_f_193(val, path, rep)
 {
     // .'$OneOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_19_map_definitions (.'$OneOf'.definitions)
@@ -4146,8 +4135,7 @@ function _jm_f_208(val, path, rep)
 function _jm_f_209(val, path, rep)
 {
     // .'$Enum'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_20_map_definitions (.'$Enum'.definitions)
@@ -4439,8 +4427,7 @@ function _jm_f_224(val, path, rep)
 function _jm_f_225(val, path, rep)
 {
     // .'$Const'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_21_map_definitions (.'$Const'.definitions)
@@ -4732,8 +4719,7 @@ function _jm_f_240(val, path, rep)
 function _jm_f_241(val, path, rep)
 {
     // .'$Ref'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_22_map_definitions (.'$Ref'.definitions)
@@ -5025,8 +5011,7 @@ function _jm_f_256(val, path, rep)
 function _jm_f_257(val, path, rep)
 {
     // .'$DynRef'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_23_map_definitions (.'$DynRef'.definitions)

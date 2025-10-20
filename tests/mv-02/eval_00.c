@@ -29,16 +29,14 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$true'
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    bool res = true;
-    return res;
+    return true;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

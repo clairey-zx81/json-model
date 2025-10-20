@@ -172,16 +172,14 @@ public class json_schema_draft_06 extends ModelChecker
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.const
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_7_map_default (.'$ObjectSchema'.default)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_7_map_definitions (.'$ObjectSchema'.definitions)

@@ -122,8 +122,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_4_map_default (.'$meta'.default)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$meta'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_4_map_deprecated (.'$meta'.deprecated)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -762,8 +761,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_14_map_const (.'$Misc'.const)
 def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Misc'.const
-    res: bool = True
-    return res
+    return True
 
 # check json_model_14_map_enum (.'$Misc'.enum)
 def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -850,8 +848,7 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_0_map_default (.'$TightSchema'.'|'.0.default)
 def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.0.default
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_0_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
 def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -993,8 +990,7 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_1_map_default (.'$TightSchema'.'|'.1.default)
 def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.1.default
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_1_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
 def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1136,8 +1132,7 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_2_map_default (.'$TightSchema'.'|'.2.default)
 def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.2.default
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_2_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
 def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1369,8 +1364,7 @@ def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_3_map_default (.'$TightSchema'.'|'.3.default)
 def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.3.default
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_3_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
 def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1568,8 +1562,7 @@ def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_4_map_default (.'$TightSchema'.'|'.4.default)
 def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.4.default
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_4_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
 def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1743,8 +1736,7 @@ def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_5_map_default (.'$TightSchema'.'|'.5.default)
 def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.5.default
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_5_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
 def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1926,8 +1918,7 @@ def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_6_map_default (.'$TightSchema'.'|'.6.default)
 def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.6.default
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_6_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
 def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2157,14 +2148,12 @@ def _jm_f_137(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_7_map_const (.'$TightSchema'.'|'.7.const)
 def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.7.const
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_7_map_default (.'$TightSchema'.'|'.7.default)
 def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TightSchema'.'|'.7.default
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_7_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
 def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:

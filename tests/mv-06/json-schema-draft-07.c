@@ -184,8 +184,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ObjectSchema'.const
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_6_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -216,8 +215,7 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ObjectSchema'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_6_map_definitions (.'$ObjectSchema'.definitions)

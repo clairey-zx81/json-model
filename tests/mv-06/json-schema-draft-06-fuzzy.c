@@ -123,16 +123,14 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schema#ObjectSchema'.const
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_9_map_default (.'$schema#ObjectSchema'.default)
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schema#ObjectSchema'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_9_map_definitions (.'$schema#ObjectSchema'.definitions)

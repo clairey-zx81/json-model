@@ -104,8 +104,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schema'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_3_map_description (.'$schema'.description)

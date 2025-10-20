@@ -199,8 +199,7 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_11_map_default (.'$tight#metas'.default)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#metas'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_11_map_definitions (.'$tight#metas'.definitions)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -316,8 +315,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_12_map_default (.'$tight#String'.default)
 def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#String'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_12_map_definitions (.'$tight#String'.definitions)
 def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -481,8 +479,7 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_13_map_default (.'$tight#Array'.default)
 def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Array'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_13_map_definitions (.'$tight#Array'.definitions)
 def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -671,8 +668,7 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_14_map_default (.'$tight#Object'.default)
 def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Object'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_14_map_definitions (.'$tight#Object'.definitions)
 def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -857,8 +853,7 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_15_map_default (.'$tight#Integer'.default)
 def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Integer'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_15_map_definitions (.'$tight#Integer'.definitions)
 def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1005,8 +1000,7 @@ def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_16_map_default (.'$tight#Number'.default)
 def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Number'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_16_map_definitions (.'$tight#Number'.definitions)
 def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1153,8 +1147,7 @@ def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_17_map_default (.'$tight#Bool'.default)
 def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Bool'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_17_map_definitions (.'$tight#Bool'.definitions)
 def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1285,8 +1278,7 @@ def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_18_map_default (.'$tight#Null'.default)
 def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Null'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_18_map_definitions (.'$tight#Null'.definitions)
 def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1417,8 +1409,7 @@ def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_19_map_default (.'$tight#AllOf'.default)
 def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#AllOf'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_19_map_definitions (.'$tight#AllOf'.definitions)
 def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1549,8 +1540,7 @@ def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_20_map_default (.'$tight#AnyOf'.default)
 def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#AnyOf'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_20_map_definitions (.'$tight#AnyOf'.definitions)
 def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1681,8 +1671,7 @@ def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_21_map_default (.'$tight#OneOf'.default)
 def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#OneOf'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_21_map_definitions (.'$tight#OneOf'.definitions)
 def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1813,8 +1802,7 @@ def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_22_map_default (.'$tight#Enum'.default)
 def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Enum'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_22_map_definitions (.'$tight#Enum'.definitions)
 def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1990,8 +1978,7 @@ def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_23_map_default (.'$tight#Const'.default)
 def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Const'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_23_map_definitions (.'$tight#Const'.definitions)
 def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2155,8 +2142,7 @@ def _jm_f_148(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_24_map_default (.'$tight#Ref'.default)
 def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Ref'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_24_map_definitions (.'$tight#Ref'.definitions)
 def _jm_f_150(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2305,8 +2291,7 @@ def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_28_map_default (.'$tight#EnumString'.default)
 def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumString'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_28_map_definitions (.'$tight#EnumString'.definitions)
 def _jm_f_160(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2456,8 +2441,7 @@ def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_29_map_default (.'$tight#EnumNum'.default)
 def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumNum'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_29_map_definitions (.'$tight#EnumNum'.definitions)
 def _jm_f_170(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2607,8 +2591,7 @@ def _jm_f_178(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_30_map_default (.'$tight#EnumInt'.default)
 def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumInt'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_30_map_definitions (.'$tight#EnumInt'.definitions)
 def _jm_f_180(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2758,8 +2741,7 @@ def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_31_map_default (.'$tight#ConstString'.default)
 def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstString'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_31_map_definitions (.'$tight#ConstString'.definitions)
 def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2901,8 +2883,7 @@ def _jm_f_198(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_32_map_default (.'$tight#ConstNum'.default)
 def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstNum'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_32_map_definitions (.'$tight#ConstNum'.definitions)
 def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -3044,8 +3025,7 @@ def _jm_f_208(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_33_map_default (.'$tight#ConstInt'.default)
 def _jm_f_209(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstInt'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_33_map_definitions (.'$tight#ConstInt'.definitions)
 def _jm_f_210(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -3187,8 +3167,7 @@ def _jm_f_218(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_34_map_default (.'$tight#ConstBool'.default)
 def _jm_f_219(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstBool'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_34_map_definitions (.'$tight#ConstBool'.definitions)
 def _jm_f_220(val: Jsonable, path: Path, rep: Report) -> bool:

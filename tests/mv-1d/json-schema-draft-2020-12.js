@@ -147,8 +147,7 @@ function json_model_3(val, path, rep)
 function _jm_f_4(val, path, rep)
 {
     // .'$meta'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_4_map_deprecated (.'$meta'.deprecated)
@@ -495,8 +494,7 @@ function json_model_11(val, path, rep)
 function _jm_f_11(val, path, rep)
 {
     // .'$validation'.const
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_12_map_dependentRequired (.'$validation'.dependentRequired)
@@ -920,8 +918,7 @@ function _jm_f_28(val, path, rep)
 function _jm_f_29(val, path, rep)
 {
     // .'$ObjectSchema'.const
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -952,8 +949,7 @@ function _jm_f_31(val, path, rep)
 function _jm_f_32(val, path, rep)
 {
     // .'$ObjectSchema'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_dependentRequired (.'$ObjectSchema'.dependentRequired)

@@ -32,14 +32,12 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $true (.'$true')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$true'
-    res: bool = True
-    return res
+    return True
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
-    res: bool = True
-    return res
+    return True
 
 
 # initialization guard

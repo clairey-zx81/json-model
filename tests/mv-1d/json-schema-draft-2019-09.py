@@ -129,8 +129,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_5_map_default (.'$meta'.default)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$meta'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_5_map_deprecated (.'$meta'.deprecated)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -323,8 +322,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_12_map_const (.'$validation'.const)
 def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.const
-    res: bool = True
-    return res
+    return True
 
 # check json_model_12_map_dependentRequired (.'$validation'.dependentRequired)
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -625,8 +623,7 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_15_map_const (.'$ObjectSchema'.const)
 def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.const
-    res: bool = True
-    return res
+    return True
 
 # check json_model_15_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
 def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -647,8 +644,7 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_15_map_default (.'$ObjectSchema'.default)
 def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_15_map_dependentRequired (.'$ObjectSchema'.dependentRequired)
 def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:

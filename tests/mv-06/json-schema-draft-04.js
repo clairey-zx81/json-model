@@ -225,8 +225,7 @@ function _jm_f_3(val, path, rep)
 function _jm_f_4(val, path, rep)
 {
     // .default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_1_map_definitions (.definitions)

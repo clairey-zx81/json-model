@@ -101,8 +101,7 @@ function _jm_f_3(val, path, rep)
 function _jm_f_4(val, path, rep)
 {
     // .'$schema'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_3_map_definitions (.'$schema'.definitions)

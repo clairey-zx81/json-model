@@ -167,8 +167,7 @@ function _jm_f_4(val, path, rep)
 function _jm_f_5(val, path, rep)
 {
     // .'$schema#ObjectSchema'.const
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_17_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -199,8 +198,7 @@ function _jm_f_7(val, path, rep)
 function _jm_f_8(val, path, rep)
 {
     // .'$schema#ObjectSchema'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_17_map_definitions (.'$schema#ObjectSchema'.definitions)

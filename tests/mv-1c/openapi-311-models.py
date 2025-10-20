@@ -1315,8 +1315,7 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_5_map_example (.'$openapi#Parameter'.'|'.0.example)
 def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Parameter'.'|'.0.example
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_5_map_examples (.'$openapi#Parameter'.'|'.0.examples)
 def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2200,8 +2199,7 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_19_map_example (.'$openapi#Header'.'|'.0.example)
 def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Header'.'|'.0.example
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_19_map_examples (.'$openapi#Header'.'|'.0.examples)
 def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:

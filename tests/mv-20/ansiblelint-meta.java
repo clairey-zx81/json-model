@@ -6890,8 +6890,7 @@ public class ansiblelint_meta extends ModelChecker
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModelCollection'.cloud_platforms
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
@@ -7157,8 +7156,7 @@ public class ansiblelint_meta extends ModelChecker
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModelStandalone'.cloud_platforms
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
@@ -7422,8 +7420,7 @@ public class ansiblelint_meta extends ModelChecker
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
@@ -7659,8 +7656,7 @@ public class ansiblelint_meta extends ModelChecker
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)

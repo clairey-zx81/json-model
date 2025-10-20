@@ -2244,8 +2244,7 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#Parameter'.'|'.0.example
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_5_map_examples (.'$openapi#Parameter'.'|'.0.examples)
@@ -3644,8 +3643,7 @@ static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#Header'.'|'.0.example
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_19_map_examples (.'$openapi#Header'.'|'.0.examples)

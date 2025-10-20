@@ -282,8 +282,7 @@ function _jm_f_3(val, path, rep)
 function _jm_f_4(val, path, rep)
 {
     // .'$tight#metas'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_11_map_definitions (.'$tight#metas'.definitions)
@@ -457,8 +456,7 @@ function _jm_f_13(val, path, rep)
 function _jm_f_14(val, path, rep)
 {
     // .'$tight#String'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_12_map_definitions (.'$tight#String'.definitions)
@@ -706,8 +704,7 @@ function _jm_f_27(val, path, rep)
 function _jm_f_28(val, path, rep)
 {
     // .'$tight#Array'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_13_map_definitions (.'$tight#Array'.definitions)
@@ -999,8 +996,7 @@ function _jm_f_41(val, path, rep)
 function _jm_f_42(val, path, rep)
 {
     // .'$tight#Object'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_14_map_definitions (.'$tight#Object'.definitions)
@@ -1284,8 +1280,7 @@ function _jm_f_54(val, path, rep)
 function _jm_f_55(val, path, rep)
 {
     // .'$tight#Integer'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_definitions (.'$tight#Integer'.definitions)
@@ -1508,8 +1503,7 @@ function _jm_f_66(val, path, rep)
 function _jm_f_67(val, path, rep)
 {
     // .'$tight#Number'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_16_map_definitions (.'$tight#Number'.definitions)
@@ -1732,8 +1726,7 @@ function _jm_f_78(val, path, rep)
 function _jm_f_79(val, path, rep)
 {
     // .'$tight#Bool'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_17_map_definitions (.'$tight#Bool'.definitions)
@@ -1932,8 +1925,7 @@ function _jm_f_88(val, path, rep)
 function _jm_f_89(val, path, rep)
 {
     // .'$tight#Null'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_18_map_definitions (.'$tight#Null'.definitions)
@@ -2132,8 +2124,7 @@ function _jm_f_98(val, path, rep)
 function _jm_f_99(val, path, rep)
 {
     // .'$tight#AllOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_19_map_definitions (.'$tight#AllOf'.definitions)
@@ -2332,8 +2323,7 @@ function _jm_f_108(val, path, rep)
 function _jm_f_109(val, path, rep)
 {
     // .'$tight#AnyOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_20_map_definitions (.'$tight#AnyOf'.definitions)
@@ -2532,8 +2522,7 @@ function _jm_f_118(val, path, rep)
 function _jm_f_119(val, path, rep)
 {
     // .'$tight#OneOf'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_21_map_definitions (.'$tight#OneOf'.definitions)
@@ -2732,8 +2721,7 @@ function _jm_f_128(val, path, rep)
 function _jm_f_129(val, path, rep)
 {
     // .'$tight#Enum'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_22_map_definitions (.'$tight#Enum'.definitions)
@@ -3012,8 +3000,7 @@ function _jm_f_138(val, path, rep)
 function _jm_f_139(val, path, rep)
 {
     // .'$tight#Const'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_23_map_definitions (.'$tight#Const'.definitions)
@@ -3269,8 +3256,7 @@ function _jm_f_148(val, path, rep)
 function _jm_f_149(val, path, rep)
 {
     // .'$tight#Ref'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_24_map_definitions (.'$tight#Ref'.definitions)
@@ -3499,8 +3485,7 @@ function _jm_f_158(val, path, rep)
 function _jm_f_159(val, path, rep)
 {
     // .'$tight#EnumString'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_28_map_definitions (.'$tight#EnumString'.definitions)
@@ -3731,8 +3716,7 @@ function _jm_f_168(val, path, rep)
 function _jm_f_169(val, path, rep)
 {
     // .'$tight#EnumNum'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_29_map_definitions (.'$tight#EnumNum'.definitions)
@@ -3963,8 +3947,7 @@ function _jm_f_178(val, path, rep)
 function _jm_f_179(val, path, rep)
 {
     // .'$tight#EnumInt'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_30_map_definitions (.'$tight#EnumInt'.definitions)
@@ -4195,8 +4178,7 @@ function _jm_f_188(val, path, rep)
 function _jm_f_189(val, path, rep)
 {
     // .'$tight#ConstString'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_31_map_definitions (.'$tight#ConstString'.definitions)
@@ -4412,8 +4394,7 @@ function _jm_f_198(val, path, rep)
 function _jm_f_199(val, path, rep)
 {
     // .'$tight#ConstNum'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_definitions (.'$tight#ConstNum'.definitions)
@@ -4629,8 +4610,7 @@ function _jm_f_208(val, path, rep)
 function _jm_f_209(val, path, rep)
 {
     // .'$tight#ConstInt'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_33_map_definitions (.'$tight#ConstInt'.definitions)
@@ -4846,8 +4826,7 @@ function _jm_f_218(val, path, rep)
 function _jm_f_219(val, path, rep)
 {
     // .'$tight#ConstBool'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_34_map_definitions (.'$tight#ConstBool'.definitions)

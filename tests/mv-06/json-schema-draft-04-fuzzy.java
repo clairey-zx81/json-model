@@ -109,8 +109,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         // .'$schema'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_3_map_definitions (.'$schema'.definitions)

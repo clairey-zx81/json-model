@@ -2148,8 +2148,7 @@ public class openapi_311_models extends ModelChecker
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         // .'$openapi#Parameter'.'|'.0.example
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_5_map_examples (.'$openapi#Parameter'.'|'.0.examples)
@@ -3593,8 +3592,7 @@ public class openapi_311_models extends ModelChecker
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         // .'$openapi#Header'.'|'.0.example
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_19_map_examples (.'$openapi#Header'.'|'.0.examples)

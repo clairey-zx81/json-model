@@ -2819,8 +2819,7 @@ static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .predefs.ANY
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check _jm_f_69_map_BOOL (.predefs.BOOL)

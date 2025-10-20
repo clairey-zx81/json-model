@@ -24,16 +24,14 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$true'
-    let res = true;
-    return res;
+    return true;
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = true;
-    return res;
+    return true;
 }
 
 

@@ -105,8 +105,7 @@ public class json_schema_draft_07_fuzzy extends ModelChecker
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         // .'$schema#ObjectSchema'.const
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_8_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -137,8 +136,7 @@ public class json_schema_draft_07_fuzzy extends ModelChecker
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         // .'$schema#ObjectSchema'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_8_map_definitions (.'$schema#ObjectSchema'.definitions)

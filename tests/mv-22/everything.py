@@ -1800,8 +1800,7 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_f_69_map_ANY (.predefs.ANY)
 def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.ANY
-    res: bool = True
-    return res
+    return True
 
 # check _jm_f_69_map_BOOL (.predefs.BOOL)
 def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:

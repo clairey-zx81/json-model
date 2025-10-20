@@ -256,8 +256,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$meta'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_5_map_deprecated (.'$meta'.deprecated)
@@ -570,8 +569,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$validation'.const
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_12_map_dependentRequired (.'$validation'.dependentRequired)
@@ -1062,8 +1060,7 @@ static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ObjectSchema'.const
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -1094,8 +1091,7 @@ static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ObjectSchema'.default
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_15_map_dependentRequired (.'$ObjectSchema'.dependentRequired)

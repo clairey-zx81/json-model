@@ -120,8 +120,7 @@ function _jm_f_2(val, path, rep)
 function _jm_f_3(val, path, rep)
 {
     // .default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_1_map_description (.description)

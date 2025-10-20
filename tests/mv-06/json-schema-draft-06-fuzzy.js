@@ -85,16 +85,14 @@ function _jm_f_0(val, path, rep)
 function _jm_f_1(val, path, rep)
 {
     // .'$schema#ObjectSchema'.const
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_9_map_default (.'$schema#ObjectSchema'.default)
 function _jm_f_2(val, path, rep)
 {
     // .'$schema#ObjectSchema'.default
-    let res = true;
-    return res;
+    return true;
 }
 
 // check json_model_9_map_definitions (.'$schema#ObjectSchema'.definitions)

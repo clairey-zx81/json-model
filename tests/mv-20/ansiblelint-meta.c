@@ -6816,8 +6816,7 @@ static bool json_model_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$GalaxyInfoModelCollection'.cloud_platforms
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
@@ -7089,8 +7088,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$GalaxyInfoModelStandalone'.cloud_platforms
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
@@ -7355,8 +7353,7 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
@@ -7593,8 +7590,7 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-    bool res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)

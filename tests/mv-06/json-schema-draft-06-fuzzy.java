@@ -93,16 +93,14 @@ public class json_schema_draft_06_fuzzy extends ModelChecker
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         // .'$schema#ObjectSchema'.const
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_9_map_default (.'$schema#ObjectSchema'.default)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         // .'$schema#ObjectSchema'.default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_9_map_definitions (.'$schema#ObjectSchema'.definitions)

@@ -180,8 +180,7 @@ public class json_schema_draft_03 extends ModelChecker
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         // .default
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check json_model_1_map_dependencies (.dependencies)

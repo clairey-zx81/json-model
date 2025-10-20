@@ -1296,8 +1296,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_16_map_example (.'$parameterSchemaOnly'.example)
 def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$parameterSchemaOnly'.example
-    res: bool = True
-    return res
+    return True
 
 # check json_model_16_map_examples (.'$parameterSchemaOnly'.examples)
 def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1528,8 +1527,7 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_6_map_example (.'$Parameter'.'|'.0.example)
 def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Parameter'.'|'.0.example
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_6_map_examples (.'$Parameter'.'|'.0.examples)
 def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2403,8 +2401,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_obj_20_map_example (.'$Header'.'|'.0.example)
 def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Header'.'|'.0.example
-    res: bool = True
-    return res
+    return True
 
 # check _jm_obj_20_map_examples (.'$Header'.'|'.0.examples)
 def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2657,8 +2654,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_32_map_const (.'$Schema'.const)
 def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.const
-    res: bool = True
-    return res
+    return True
 
 # check json_model_32_map_contentEncoding (.'$Schema'.contentEncoding)
 def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2679,8 +2675,7 @@ def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_32_map_default (.'$Schema'.default)
 def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_32_map_dependentRequired (.'$Schema'.dependentRequired)
 def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2743,8 +2738,7 @@ def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_32_map_example (.'$Schema'.example)
 def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.example
-    res: bool = True
-    return res
+    return True
 
 # check json_model_32_map_examples (.'$Schema'.examples)
 def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -3893,8 +3887,7 @@ def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_59_map_const (.'$schema#ObjectSchema'.const)
 def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.const
-    res: bool = True
-    return res
+    return True
 
 # check json_model_59_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
 def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -3915,8 +3908,7 @@ def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
 # check json_model_59_map_default (.'$schema#ObjectSchema'.default)
 def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.default
-    res: bool = True
-    return res
+    return True
 
 # check json_model_59_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)
 def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:

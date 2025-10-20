@@ -32,16 +32,14 @@ public class eval_00 extends ModelChecker
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         // .'$true'
-        boolean res = true;
-        return res;
+        return true;
     }
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        boolean res = true;
-        return res;
+        return true;
     }
 
 
