@@ -19,17 +19,17 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     // check open must/may only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "a")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "a")) != NULL)))
         return false;
     // .a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-    if (! res)
+    if (unlikely(! res))
         return false;
-    if (! ((pval = json_object_get(val, "b")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "b")) != NULL)))
         return false;
     // .b
     return json_is_integer(pval) && json_integer_value(pval) >= 0;

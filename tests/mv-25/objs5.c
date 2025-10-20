@@ -32,17 +32,17 @@ static INLINE jm_check_fun_t json_model_1_map(const char *pname)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
     jm_check_fun_t pfun;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if ((pfun = json_model_1_map(prop)))
+        if (unlikely((pfun = json_model_1_map(prop))))
         {
             // handle 10 may props
-            if (pfun != NULL && ! pfun(pval, NULL, rep))
+            if (unlikely(pfun != NULL && ! pfun(pval, NULL, rep)))
                 return false;
         }
         else

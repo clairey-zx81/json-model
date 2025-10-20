@@ -18,7 +18,7 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
@@ -32,7 +32,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // handle other props
         // .''
         res = json_model_1(pval, (path ? &lpath_0 : NULL), rep);
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $# [.'']", (path ? &lpath_0 : NULL));
             return false;

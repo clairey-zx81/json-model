@@ -37,21 +37,21 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, (path ? &arr_0_lpath : NULL), NULL };
                     // .0.0
                     res = json_is_string(arr_1_item);
-                    if (! res)
+                    if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected string [.0.0]", ((path ? &arr_0_lpath : NULL) ? &arr_1_lpath : NULL));
                         break;
                     }
                 }
             }
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.0]", (path ? &arr_0_lpath : NULL));
                 break;
             }
         }
     }
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.]", path);
     }

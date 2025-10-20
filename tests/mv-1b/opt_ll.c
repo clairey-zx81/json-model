@@ -20,12 +20,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT
     // .
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    if (json_object_size(val) != 2)
+    if (unlikely(json_object_size(val) != 2))
     {
         if (rep) jm_report_add_entry(rep, "bad property count [.]", path);
         return false;
@@ -33,7 +33,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "i")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "i")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <i> [.]", path);
         return false;
@@ -41,13 +41,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     lpath = (jm_path_t) { "i", 0, path, NULL };
     // .i
     res = (json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))));
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a -1 loose int [.i]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <i> [.]", (path ? &lpath : NULL));
         return false;
     }
-    if (! ((pval = json_object_get(val, "f")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "f")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <f> [.]", path);
         return false;
@@ -55,7 +55,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     lpath = (jm_path_t) { "f", 0, path, NULL };
     // .f
     res = json_is_number(pval);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.f]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <f> [.]", (path ? &lpath : NULL));

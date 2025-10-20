@@ -18,7 +18,7 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
@@ -29,15 +29,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_1(prop))
+        if (unlikely(jm_str_eq_1(prop)))
             // handle may  property
             // .''
             res = true;
-        else if (jm_str_eq_6(prop, 0x0000006f6c6c6568LL))
+        else if (unlikely(jm_str_eq_6(prop, 0x0000006f6c6c6568LL)))
             // handle may hello property
             // .hello
             res = true;
-        else if (jm_str_eq_8(prop, 0x2d612d6574697571LL) && jm_str_eq_8(prop + 8, 0x6f72702d676e6f6cLL) && jm_str_eq_8(prop + 16, 0x616e2d7974726570LL) && jm_str_eq_3(prop + 24, 0x0000656d))
+        else if (unlikely(jm_str_eq_8(prop, 0x2d612d6574697571LL) && jm_str_eq_8(prop + 8, 0x6f72702d676e6f6cLL) && jm_str_eq_8(prop + 16, 0x616e2d7974726570LL) && jm_str_eq_3(prop + 24, 0x0000656d)))
             // handle may quite-a-long-property-name property
             // .'quite-a-long-property-name'
             res = true;

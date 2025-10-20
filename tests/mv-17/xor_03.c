@@ -23,12 +23,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // not-case xor list
     // .'^'.1
     bool is_0 = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (! is_0)
+    if (unlikely(! is_0))
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'^'.1]", path);
     }
     res = ! is_0;
-    if (res)
+    if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);
     }

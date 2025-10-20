@@ -1,5 +1,5 @@
 import re
-from .mtypes import Jsonable, JsonScalar, Number
+from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 from .utils import log, __version__, load_data_file
 
 # name
@@ -49,7 +49,8 @@ class Language:
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
             with_path: bool = True, with_report: bool = True, with_package: bool = False,
-            with_predef: bool = True, with_comment: bool = True, set_caps: tuple[type] = (str,),
+            with_predef: bool = True, with_comment: bool = True, with_hints: bool = True,
+            set_caps: tuple[type] = (str,),
         ):
 
         # parameter consistency
@@ -66,6 +67,7 @@ class Language:
         self._with_comment = with_comment
         self._with_package = with_package
         self._with_predef = with_predef
+        self._with_hints = with_hints
 
         # comparison operators
         self._eq = eq
@@ -561,11 +563,11 @@ class Language:
         """Loop over all property-values pairs of an object."""
         raise NotImplementedError("obj_loop")
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
+    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
         """Generate a if-then[-else] statement."""
         raise NotImplementedError("if_stmt")
 
-    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+    def mif_stmt(self, cond_true: Conditionals, false: Block = []) -> Block:
         """Generate a multi-if[-else] statement."""
         raise NotImplementedError("mif_stmt")
 

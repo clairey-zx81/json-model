@@ -30,22 +30,22 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
             // .'@'.0
             res = json_is_string(json_array_get(val, 0));
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'@'.0]", (path ? &lpath_0 : NULL));
             }
         }
         // no array tail value checks needed
     }
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'@']", path);
     }
-    if (res)
+    if (likely(res))
     {
         int64_t ival_0 = json_array_size(val);
         res = ival_0 >= 3;
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
         }

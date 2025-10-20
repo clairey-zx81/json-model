@@ -20,7 +20,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$an_int'
     bool res = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$an_int']", path);
     }
@@ -32,7 +32,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_model_2(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $an_int [.]", path);
     }

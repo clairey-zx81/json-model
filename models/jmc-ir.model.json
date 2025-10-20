@@ -72,8 +72,8 @@
         {"o": "aL", "arr": "$Expr", "idx": "$Expr", "val": "$Expr", "body": "$Block"},
         {"o": "oL", "obj": "$Expr", "key": "$Expr", "val": "$Expr", "body": "$Block" },
         {"o": "iL", "idx": "$Expr", "start": "$Expr", "end": "$Expr", "body": "$Block"},
-        {"o": "if", "cond": "$Expr", "true": "$Block", "false": "$Block"},
-        {"o": "ifs", "cond_true": [ [ "$Expr", "$Block" ] ], "false": "$Block" },
+        {"o": "if", "cond": "$Expr", "true": "$Block", "false": "$Block", "likely": "$optBool"},
+        {"o": "ifs", "cond_true": [ [ "$Expr", "$optBool", "$Block" ] ], "false": "$Block" },
         {"o": "seq", "seq": "$Block"},
         {"o": "mvl", "mname": "$Ident", "sname": "$Ident", "rname": "$Ident", "dname": "$Ident", "declare": true}
       ]

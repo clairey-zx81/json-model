@@ -19,7 +19,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // Recursion test 03
     // .
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
@@ -30,13 +30,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_4(prop, 0x006f6f66))
+        if (unlikely(jm_str_eq_4(prop, 0x006f6f66)))
         {
             // handle may foo property
             // .foo
             // .foo.'|'.0
             res = json_model_1(pval, (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $root [.foo.'|'.0]", (path ? &lpath_0 : NULL));
             }
@@ -53,19 +53,19 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
                         // .foo.'|'.1.0
                         res = json_model_1(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
-                        if (! res)
+                        if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected $root [.foo.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
                             break;
                         }
                     }
                 }
-                if (! res)
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.foo.'|'.1]", (path ? &lpath_0 : NULL));
                 }
             }
-            if (res)
+            if (likely(res))
             {
                 if (rep) jm_report_free_entries(rep);
             }

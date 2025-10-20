@@ -20,19 +20,19 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$book'
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
-    if (json_object_size(val) != 2)
+    if (unlikely(json_object_size(val) != 2))
         return false;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "title")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "title")) != NULL)))
         return false;
     // .'$book'.title
     res = json_is_string(pval);
-    if (! res)
+    if (unlikely(! res))
         return false;
-    if (! ((pval = json_object_get(val, "author")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "author")) != NULL)))
         return false;
     // .'$book'.author
     return json_is_string(pval);
@@ -51,7 +51,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // .0
             res = json_model_2(arr_0_item, NULL, rep);
-            if (! res)
+            if (unlikely(! res))
                 break;
         }
     }

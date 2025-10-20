@@ -1,7 +1,7 @@
 import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, PathExpr, Expr
-from .mtypes import Jsonable, JsonScalar, Number
+from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
@@ -212,7 +212,7 @@ class JavaScript(Language):
             f"for (const [{key}, {val}] of Object.entries({obj}))"
         ] + self.indent(body)
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
+    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
         if true and false:
             return [ f"if ({cond})" ] + self.indent(true) + ["else"] + self.indent(false)
         elif true:
@@ -220,9 +220,9 @@ class JavaScript(Language):
         else:
             return [ f"if (!({cond}))" ] + self.indent(false)
 
-    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+    def mif_stmt(self, cond_true: Conditionals, false: Block = []) -> Block:
         code, op = [], "if"
-        for cond, true in cond_true:
+        for cond, likely, true in cond_true:
             code += [ f"{op} ({cond})" ]
             code += self.indent(true)
             op = "else if"

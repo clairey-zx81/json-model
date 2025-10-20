@@ -21,7 +21,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$over'
     bool res = json_model_4(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Foo [.'$over']", path);
     }
@@ -33,7 +33,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_model_4(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $over#Foo [.]", path);
     }
@@ -44,7 +44,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$over#Foo'
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$over#Foo']", path);
         return false;
@@ -55,12 +55,12 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_4(prop, 0x006f6f66))
+        if (unlikely(jm_str_eq_4(prop, 0x006f6f66)))
         {
             // handle may foo property
             // .'$over#Foo'.foo
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6574746972776572LL) && jm_str_eq_6(json_string_value(pval) + 8, 0x0000006f6f66206eLL);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _rewritten foo [.'$over#Foo'.foo]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$over#Foo'.foo]", (path ? &lpath_0 : NULL));

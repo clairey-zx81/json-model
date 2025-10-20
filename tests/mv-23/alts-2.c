@@ -21,12 +21,12 @@ const size_t check_model_map_size = 3;
 // object .'$a'.''.'|'.1
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$a'.''.'|'.1]", path);
         return false;
     }
-    if (json_object_size(val) == 0)
+    if (likely(json_object_size(val) == 0))
         return true;
     else
     {
@@ -39,7 +39,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$a'
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$a']", path);
         return false;
@@ -54,7 +54,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // .'$a'.''
         // .'$a'.''.'|'.0
         res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $r [.'$a'.''.'|'.0]", (path ? &lpath_0 : NULL));
         }
@@ -62,12 +62,12 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // .'$a'.''.'|'.1
             res = _jm_obj_0(pval, (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$a'.''.'|'.1]", (path ? &lpath_0 : NULL));
             }
         }
-        if (res)
+        if (likely(res))
         {
             if (rep) jm_report_free_entries(rep);
         }
@@ -83,12 +83,12 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$r'.'|'.1
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$r'.'|'.1]", path);
         return false;
     }
-    if (json_object_size(val) == 0)
+    if (likely(json_object_size(val) == 0))
         return true;
     else
     {
@@ -103,7 +103,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$r'
     // .'$r'.'|'.0
     bool res = json_model_2(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $a [.'$r'.'|'.0]", path);
     }
@@ -111,12 +111,12 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         // .'$r'.'|'.1
         res = _jm_obj_1(val, path, rep);
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$r'.'|'.1]", path);
         }
     }
-    if (res)
+    if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);
     }
@@ -132,7 +132,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_model_3(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $r [.]", path);
     }

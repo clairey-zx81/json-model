@@ -20,12 +20,12 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$bibi'
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$bibi']", path);
         return false;
     }
-    if (json_object_size(val) != 1)
+    if (unlikely(json_object_size(val) != 1))
     {
         if (rep) jm_report_add_entry(rep, "bad property count [.'$bibi']", path);
         return false;
@@ -33,7 +33,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "bibi")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "bibi")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <bibi> [.'$bibi']", path);
         return false;
@@ -50,14 +50,14 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath : NULL), NULL };
             // .'$bibi'.bibi.0
             res = json_model_2(arr_0_item, ((path ? &lpath : NULL) ? &arr_0_lpath : NULL), rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $bibi [.'$bibi'.bibi.0]", ((path ? &lpath : NULL) ? &arr_0_lpath : NULL));
                 break;
             }
         }
     }
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$bibi'.bibi]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <bibi> [.'$bibi']", (path ? &lpath : NULL));
@@ -71,7 +71,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_model_2(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $bibi [.]", path);
     }

@@ -20,7 +20,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // open with only some mandatory properties
     // .
     // check open must/may only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
@@ -28,7 +28,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "name")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "name")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.]", path);
         return false;
@@ -36,13 +36,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     lpath = (jm_path_t) { "name", 0, path, NULL };
     // .name
     res = json_is_string(pval);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.name]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.]", (path ? &lpath : NULL));
         return false;
     }
-    if (! ((pval = json_object_get(val, "born")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "born")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <born> [.]", path);
         return false;
@@ -50,7 +50,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     lpath = (jm_path_t) { "born", 0, path, NULL };
     // .born
     res = jm_is_valid_date(json_string_value(pval), (path ? &lpath : NULL), rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $DATE [.born]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <born> [.]", (path ? &lpath : NULL));

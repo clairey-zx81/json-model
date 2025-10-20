@@ -23,19 +23,19 @@ const size_t check_model_map_size = 2;
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
-    if (json_object_size(val) != 2)
+    if (unlikely(json_object_size(val) != 2))
         return false;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "t")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
         return false;
     // .'$alternative'.'|'.0.t
     res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
-    if (! res)
+    if (unlikely(! res))
         return false;
-    if (! ((pval = json_object_get(val, "a")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "a")) != NULL)))
         return false;
     // .'$alternative'.'|'.0.a
     return json_is_string(pval);
@@ -46,19 +46,19 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
-    if (json_object_size(val) != 2)
+    if (unlikely(json_object_size(val) != 2))
         return false;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "t")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
         return false;
     // .'$alternative'.'|'.1.t
     res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);;
-    if (! res)
+    if (unlikely(! res))
         return false;
-    if (! ((pval = json_object_get(val, "bc")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "bc")) != NULL)))
         return false;
     // .'$alternative'.'|'.1.bc
     return json_is_string(pval);
@@ -79,9 +79,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$alternative'
     bool iso_0 = json_is_object(val);
     res = iso_0;
-    if (res)
+    if (likely(res))
     {
-        if (json_object_get(val, "t") != NULL)
+        if (likely(json_object_get(val, "t") != NULL))
         {
             json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);

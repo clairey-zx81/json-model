@@ -22,7 +22,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Xxx'
     bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Xxx'.'|']", path);
     }
@@ -34,7 +34,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // prop ref to enum
     // .
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
@@ -45,12 +45,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep))
+        if (unlikely(jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep)))
         {
             // handle 1 key props
             // .'$Xxx'
             res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$Xxx']", (path ? &lpath_0 : NULL));
                 return false;

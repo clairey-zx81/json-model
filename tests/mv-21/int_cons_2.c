@@ -21,7 +21,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$forty-two'
     bool res = json_is_integer(val) && json_integer_value(val) == 42;
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected =42 [.'$forty-two']", path);
     }
@@ -33,7 +33,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$positif'
     bool res = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$positif']", path);
     }
@@ -44,12 +44,12 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    if (json_object_size(val) == 0)
+    if (likely(json_object_size(val) == 0))
         return true;
     else
     {

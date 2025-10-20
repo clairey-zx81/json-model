@@ -18,7 +18,7 @@ const size_t check_model_map_size = 1;
 // object .'@'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'@']", path);
         return false;
@@ -33,15 +33,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // .'@'
     bool res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected element [.'@']", path);
     }
-    if (res)
+    if (likely(res))
     {
         int64_t ival_0 = json_object_size(val);
         res = ival_0 <= 3 && ival_0 >= 2;
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
         }

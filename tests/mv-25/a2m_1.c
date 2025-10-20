@@ -24,15 +24,15 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Oa'
     // check open must/may only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
     json_t * pval;
     bool res;
-    if ((pval = json_object_get(val, "a")) != NULL)
+    if (unlikely((pval = json_object_get(val, "a")) != NULL))
     {
         // .'$Oa'.a
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (! res)
+        if (unlikely(! res))
             return false;
     }
     return true;
@@ -43,15 +43,15 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Ob'
     // check open must/may only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
     json_t * pval;
     bool res;
-    if ((pval = json_object_get(val, "b")) != NULL)
+    if (unlikely((pval = json_object_get(val, "b")) != NULL))
     {
         // .'$Ob'.b
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (! res)
+        if (unlikely(! res))
             return false;
     }
     return true;
@@ -62,22 +62,22 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$merge'
     // check open must/may only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
     json_t * pval;
     bool res;
-    if ((pval = json_object_get(val, "a")) != NULL)
+    if (unlikely((pval = json_object_get(val, "a")) != NULL))
     {
         // .'$merge'.a
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (! res)
+        if (unlikely(! res))
             return false;
     }
-    if ((pval = json_object_get(val, "b")) != NULL)
+    if (unlikely((pval = json_object_get(val, "b")) != NULL))
     {
         // .'$merge'.b
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (! res)
+        if (unlikely(! res))
             return false;
     }
     return true;
@@ -87,13 +87,13 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
-    if (json_object_size(val) != 1)
+    if (unlikely(json_object_size(val) != 1))
         return false;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "c")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "c")) != NULL)))
         return false;
     // .'$nomerge'.'&'.1.c
     return json_is_integer(pval) && json_integer_value(pval) >= 1;

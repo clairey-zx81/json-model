@@ -2,7 +2,7 @@ import re
 import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
-from .mtypes import Jsonable, JsonScalar, Number
+from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _DECL = "%PL_DECL% "
 _ESC_TABLE = { "'": "''" }
@@ -278,7 +278,7 @@ class PLpgSQL(Language):
             f"FOR {idx} IN {start} .. {end}-1 LOOP",
         ] + self.indent(body) + [ "END LOOP;" ]
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
+    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
         if true and false:
             return [ f"IF {cond} THEN" ] + self.indent(true) + ["ELSE"] + self.indent(false) + ["END IF;"]
         elif true:
@@ -286,9 +286,9 @@ class PLpgSQL(Language):
         else:
             return [ f"IF NOT ({cond}) THEN" ] + self.indent(false) + ["END IF;"]
 
-    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+    def mif_stmt(self, cond_true: Conditionals, false: Block = []) -> Block:
         code, op = [], "IF"
-        for cond, true in cond_true:
+        for cond, likely, true in cond_true:
             code += [ f"{op} {cond} THEN" ]
             code += self.indent(true)
             op = "ELSEIF"

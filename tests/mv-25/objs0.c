@@ -23,19 +23,19 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$table'
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
-    if (json_object_size(val) != 2)
+    if (unlikely(json_object_size(val) != 2))
         return false;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "t")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
         return false;
     // .'$table'.t
     res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000656c626174LL);
-    if (! res)
+    if (unlikely(! res))
         return false;
-    if (! ((pval = json_object_get(val, "legs")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "legs")) != NULL)))
         return false;
     // .'$table'.legs
     return json_is_integer(pval) && json_integer_value(pval) >= 1;
@@ -46,19 +46,19 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$chair'
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
-    if (json_object_size(val) != 2)
+    if (unlikely(json_object_size(val) != 2))
         return false;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "t")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
         return false;
     // .'$chair'.t
     res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007269616863LL);
-    if (! res)
+    if (unlikely(! res))
         return false;
-    if (! ((pval = json_object_get(val, "color")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "color")) != NULL)))
         return false;
     // .'$chair'.color
     return json_is_string(pval);
@@ -78,9 +78,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$furniture'
     bool iso_0 = json_is_object(val);
     res = iso_0;
-    if (res)
+    if (likely(res))
     {
-        if (json_object_get(val, "t") != NULL)
+        if (likely(json_object_get(val, "t") != NULL))
         {
             json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
@@ -97,13 +97,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
         return false;
-    if (json_object_size(val) != 1)
+    if (unlikely(json_object_size(val) != 1))
         return false;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "stuff")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "stuff")) != NULL)))
         return false;
     // .stuff
     res = json_is_array(pval);
@@ -115,7 +115,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // .stuff.0
             res = json_model_4(arr_0_item, NULL, rep);
-            if (! res)
+            if (unlikely(! res))
                 break;
         }
     }

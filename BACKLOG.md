@@ -14,10 +14,11 @@
 - [x] backend: merge boolean declaration and first assignment if possible
 - [x] backend: optimize pattern "if (! res) res = E; ret res;"
 - [x] backend: refactoring, cleanup and generalization
+- [x] static: add likely/unlikely hints to clang
+- [ ] c-backend: optimize startwith implementation
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "res = E; if (! res) { simple ; res = ; }"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
-- [ ] static: add likely/unlikely hints
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting

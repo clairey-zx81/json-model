@@ -25,7 +25,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Xxx'
     bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Xxx'.'|']", path);
     }
@@ -43,7 +43,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // object with must/may/regex/ref/others
     // .
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
@@ -55,48 +55,48 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_4(prop, 0x006f6f66))
+        if (unlikely(jm_str_eq_4(prop, 0x006f6f66)))
         {
             // handle must foo property
             must_count += 1;
             // .foo
             res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $DATE [.foo]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.foo]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
-        else if (jm_str_eq_4(prop, 0x00616c62))
+        else if (unlikely(jm_str_eq_4(prop, 0x00616c62)))
         {
             // handle may bla property
             // .bla
             res = json_is_boolean(pval);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.bla]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.bla]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
-        else if (jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep))
+        else if (unlikely(jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep)))
         {
             // handle 1 key props
             // .'$Xxx'
             res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$Xxx']", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
-        else if (_jm_re_0(prop, path, rep))
+        else if (unlikely(_jm_re_0(prop, path, rep)))
         {
             // handle 1 re props
             // .'/^[0-9]+$/'
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'/^[0-9]+$/']", (path ? &lpath_0 : NULL));
                 return false;
@@ -107,18 +107,18 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle other props
             // .''
             res = json_is_null(pval);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not null [.'']", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
     }
-    if (must_count != 1)
+    if (unlikely(must_count != 1))
     {
-        if (rep != NULL)
+        if (likely(rep != NULL))
         {
-            if (! (json_object_get(val, "foo") != NULL))
+            if (unlikely(! (json_object_get(val, "foo") != NULL)))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <foo> [.'']", path);
             }

@@ -22,12 +22,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // comment.
     // .
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    if (json_object_size(val) != 2)
+    if (unlikely(json_object_size(val) != 2))
     {
         if (rep) jm_report_add_entry(rep, "bad property count [.]", path);
         return false;
@@ -35,7 +35,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "hello")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "hello")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <hello> [.]", path);
         return false;
@@ -43,13 +43,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     lpath = (jm_path_t) { "hello", 0, path, NULL };
     // .hello
     res = json_is_string(pval);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.hello]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <hello> [.]", (path ? &lpath : NULL));
         return false;
     }
-    if (! ((pval = json_object_get(val, "world")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "world")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <world> [.]", path);
         return false;
@@ -58,7 +58,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .world
     // "/^!/"
     res = json_is_string(pval) && strncmp(json_string_value(pval), "!", strlen("!")) == 0;
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^!/ [.world]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <world> [.]", (path ? &lpath : NULL));

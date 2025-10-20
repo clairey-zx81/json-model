@@ -46,7 +46,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_is_string(val);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);
     }
@@ -55,7 +55,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // .'|'.0
         // "/[0-9]/"
         res = _jm_re_2(json_string_value(val), path, rep);
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected /[0-9]/ [.'|'.0]", path);
         }
@@ -64,7 +64,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .'|'.1
             // "/[a-z]/"
             res = _jm_re_1(json_string_value(val), path, rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /[a-z]/ [.'|'.1]", path);
             }
@@ -73,13 +73,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // .'|'.2
                 // "/[A-Z]/"
                 res = _jm_re_0(json_string_value(val), path, rep);
-                if (! res)
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected /[A-Z]/ [.'|'.2]", path);
                 }
             }
         }
-        if (res)
+        if (likely(res))
         {
             if (rep) jm_report_free_entries(rep);
         }

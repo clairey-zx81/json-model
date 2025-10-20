@@ -2,7 +2,7 @@ import re
 
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr, NumExpr
-from .mtypes import Number, Jsonable
+from .mtypes import Number, Jsonable, TestHint, Conditionals
 
 
 class Perl(Language):
@@ -274,7 +274,7 @@ class Perl(Language):
     def ret(self, res: BoolExpr) -> Block:
         return super().ret(f"${res}" if self.is_a_var(res) else res)
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
+    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
         cond = f"${cond}" if self.is_a_var(cond) else cond
         if true and false:
             return [ f"if ({cond})" ] + self.indent(true) + ["else"] + self.indent(false)
@@ -283,9 +283,9 @@ class Perl(Language):
         else:
             return [ f"if (!({cond}))" ] + self.indent(false)
 
-    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+    def mif_stmt(self, cond_true: Conditionals, false: Block = []) -> Block:
         code, op = [], "if"
-        for cond, true in cond_true:
+        for cond, likely, true in cond_true:
             cond = f"${cond}" if self.is_a_var(cond) else cond
             code += [ f"{op} ({cond})" ]
             code += self.indent(true)

@@ -30,7 +30,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
             // .'@'.0
             res = json_is_integer(json_array_get(val, 0));
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'@'.0]", (path ? &lpath_0 : NULL));
             }
@@ -42,7 +42,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
                 // .'@'.1
                 res = json_is_string(json_array_get(val, 1));
-                if (! res)
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected string [.'@'.1]", (path ? &lpath_0 : NULL));
                 }
@@ -54,7 +54,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     lpath_0 = (jm_path_t) { NULL, idx_0, path, NULL };
                     // .'@'.2
                     res = json_is_boolean(json_array_get(val, idx_0));
-                    if (! res)
+                    if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a bool [.'@'.2]", (path ? &lpath_0 : NULL));
                         break;
@@ -63,15 +63,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'@']", path);
     }
-    if (res)
+    if (likely(res))
     {
         int64_t ival_0 = json_array_size(val);
         res = ival_0 >= 5;
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
         }

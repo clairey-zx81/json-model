@@ -25,7 +25,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ex08'
     bool res = json_model_9(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex08 [.'$ex08']", path);
     }
@@ -37,7 +37,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Ex08'
     bool res = json_model_9(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $ex08#Ex08 [.'$Ex08']", path);
     }
@@ -48,7 +48,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Ex09'
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Ex09']", path);
         return false;
@@ -59,24 +59,24 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_2(prop, 0x00000023))
+        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
             // handle may # property
             // .'$Ex09'.'#'
             res = json_is_string(pval);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ex09'.'#']", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ex09'.'#']", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
-        else if (jm_is_valid_url(prop, (path ? &lpath_0 : NULL), rep))
+        else if (unlikely(jm_is_valid_url(prop, (path ? &lpath_0 : NULL), rep)))
         {
             // handle 1 key props
             // .'$Ex09'.'$URL'
             res = json_model_6(pval, (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ex08#Val [.'$Ex09'.'$URL']", (path ? &lpath_0 : NULL));
                 return false;
@@ -96,7 +96,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_model_4(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex09 [.]", path);
     }
@@ -108,7 +108,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ex08#Val'
     bool res = json_is_boolean(val);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$ex08#Val']", path);
     }
@@ -121,7 +121,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$ex08#Ex08'
     // .'$ex08#Ex08'.'|'.0
     bool res = json_model_8(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $map [.'$ex08#Ex08'.'|'.0]", path);
     }
@@ -129,7 +129,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         // .'$ex08#Ex08'.'|'.1
         res = jm_is_valid_url(json_string_value(val), path, rep);
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$ex08#Ex08'.'|'.1]", path);
         }
@@ -137,13 +137,13 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // .'$ex08#Ex08'.'|'.2
             res = json_model_6(val, path, rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Val [.'$ex08#Ex08'.'|'.2]", path);
             }
         }
     }
-    if (res)
+    if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);
     }
@@ -158,7 +158,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ex08#map'
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$ex08#map']", path);
         return false;
@@ -169,12 +169,12 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop, (path ? &lpath_1 : NULL), rep))
+        if (unlikely(jm_is_valid_url(prop, (path ? &lpath_1 : NULL), rep)))
         {
             // handle 1 key props
             // .'$ex08#map'.'$URL'
             res = json_model_6(pval, (path ? &lpath_1 : NULL), rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Val [.'$ex08#map'.'$URL']", (path ? &lpath_1 : NULL));
                 return false;

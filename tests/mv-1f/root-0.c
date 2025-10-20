@@ -20,12 +20,12 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Root'
     // check close must only props
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Root']", path);
         return false;
     }
-    if (json_object_size(val) != 2)
+    if (unlikely(json_object_size(val) != 2))
     {
         if (rep) jm_report_add_entry(rep, "bad property count [.'$Root']", path);
         return false;
@@ -33,7 +33,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! ((pval = json_object_get(val, "id")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "id")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <id> [.'$Root']", path);
         return false;
@@ -41,13 +41,13 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     lpath = (jm_path_t) { "id", 0, path, NULL };
     // .'$Root'.id
     res = json_is_integer(pval) && json_integer_value(pval) == 0;
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected =0 [.'$Root'.id]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <id> [.'$Root']", (path ? &lpath : NULL));
         return false;
     }
-    if (! ((pval = json_object_get(val, "name")) != NULL))
+    if (unlikely(! ((pval = json_object_get(val, "name")) != NULL)))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$Root']", path);
         return false;
@@ -55,7 +55,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     lpath = (jm_path_t) { "name", 0, path, NULL };
     // .'$Root'.name
     res = json_is_string(pval);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$Root'.name]", (path ? &lpath : NULL));
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.'$Root']", (path ? &lpath : NULL));
@@ -69,7 +69,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_model_2(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Root [.]", path);
     }

@@ -8,7 +8,7 @@ import json
 from .utils import log
 from .language import Language, Block, Var, PropMap, ConstList, Code
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
-from .mtypes import Jsonable, JsonScalar, Number
+from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 from .runtime import Path, Report
 
 def _j(o: str, **params) -> str:
@@ -115,7 +115,7 @@ def _getEffect(op: Jsonable, bool_vars: set[str], reporting: bool) -> Effect:
                     del value[var]
         case "ifs":
             for tup in op["cond_true"]:
-                cond, true = tup
+                cond, likely, true = tup
                 r, w, v = _getEffect(cond, bool_vars, reporting)
                 read |= r; write |= w
                 r, w, v = _optimSeq(true, bool_vars, reporting)
@@ -479,6 +479,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             op["res"] = prev["val"]
             prev.clear()
             prev.update({"o": "ign", "#": "IRO assignment moved to return"})
+            prev = None
         else:
             prev = None
 
@@ -492,6 +493,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
         elif _isOp(op, "ret") and decl is not None:
             decl.clear()
             decl.update({"o": "ign", "#": "IRO unused boolean declaration"})
+            decl = None
         else:
             decl = None
 
@@ -507,6 +509,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 op["declare"] = True
                 decl.clear()
                 decl.update({"o": "ign", "#": "IRO moved boolean declaration"})
+                decl = None
             else:  # safe
                 decl = None
         else:  # safe
@@ -540,6 +543,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             })
             assign.clear()
             assign.update({"o": "ign"})
+            if_not, assign = None, None
         else:
             if_not = None
 
@@ -894,11 +898,11 @@ class IRep(Language):
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
         return [ _j("iL", idx=_l(idx), start=_l(start), end=_l(end), body=_u(body)) ]
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
-        return [ _j("if", cond=_l(cond), true=_u(true), false=_u(false)) ]
+    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
+        return [ _j("if", cond=_l(cond), true=_u(true), false=_u(false), likely=likely) ]
 
-    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
-        return [ _j("ifs", cond_true=[ (_l(c), _u(b)) for c, b in cond_true ], false=_u(false)) ]
+    def mif_stmt(self, cond_true: Conditionals, false: Block = []) -> Block:
+        return [ _j("ifs", cond_true=[ (_l(c), k, _u(b)) for c, k, b in cond_true ], false=_u(false)) ]
 
     def sequence(self, seq: Block) -> Block:
         return [ _j("seq", seq=_u(seq)) ]
@@ -1090,9 +1094,9 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "aL": return gen.arr_loop(arr=ev("arr"), idx=ev("idx"), val=ev("val"), body=ev("body"))
             case "oL": return gen.obj_loop(obj=ev("obj"), key=ev("key"), val=ev("val"), body=ev("body"))
             case "iL": return gen.int_loop(idx=ev("idx"), start=ev("start"), end=ev("end"), body=ev("body"))
-            case "if": return gen.if_stmt(cond=ev("cond"), true=ev("true"), false=ev("false"))
+            case "if": return gen.if_stmt(cond=ev("cond"), true=ev("true"), false=ev("false"), likely=jv["likely"])
             case "ifs":
-                ct = [ ( _eval(c, gen), _eval(b, gen) ) for c, b in jv["cond_true"] ]
+                ct = [ ( _eval(c, gen), k, _eval(b, gen) ) for c, k, b in jv["cond_true"] ]
                 return gen.mif_stmt(cond_true=ct, false=ev("false"))
             case "seq": return gen.sequence(seq=ev("seq"))
             # regex

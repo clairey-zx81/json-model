@@ -23,7 +23,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         // .'&'.0
         res = true;
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected string [.'&'.0]", path);
         }
@@ -32,22 +32,22 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .'&'.1
             // .'&'.1.'@'
             res = json_is_string(val);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'&'.1.'@']", path);
             }
-            if (res)
+            if (likely(res))
             {
                 int64_t ival_0 = jm_str_len(json_string_value(val));
                 res = ival_0 <= 5;
-                if (! res)
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "constraints failed [.'&'.1]", path);
                 }
             }
         }
     }
-    if (res)
+    if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);
     }

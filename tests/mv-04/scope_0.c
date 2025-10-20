@@ -30,7 +30,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$s'
     // "/[0-9]/"
     bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected /[0-9]/ [.'$s']", path);
     }
@@ -47,7 +47,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
         // .0
         res = json_model_2(json_array_get(val, 0), (path ? &lpath_0 : NULL), rep);
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $s [.0]", (path ? &lpath_0 : NULL));
         }
@@ -56,13 +56,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
             // .1
             res = json_model_2(json_array_get(val, 1), (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $s [.1]", (path ? &lpath_0 : NULL));
             }
         }
     }
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.]", path);
     }

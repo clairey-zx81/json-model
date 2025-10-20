@@ -24,7 +24,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     int64_t xc_0 = 0;
     // .'^'.0
     bool xr_0 = json_is_string(val);
-    if (xr_0)
+    if (unlikely(xr_0))
         xc_0 += 1;
     else
     {
@@ -32,7 +32,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'^'.1
     xr_0 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x000000646c726f77LL);
-    if (xr_0)
+    if (unlikely(xr_0))
         xc_0 += 1;
     else
     {
@@ -42,7 +42,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         // .'^'.2
         xr_0 = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000021);
-        if (xr_0)
+        if (unlikely(xr_0))
             xc_0 += 1;
         else
         {
@@ -53,7 +53,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         // .'^'.3
         xr_0 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006f6c6c6568LL);
-        if (xr_0)
+        if (unlikely(xr_0))
             xc_0 += 1;
         else
         {
@@ -61,7 +61,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
     }
     res = xc_0 == 1;
-    if (res)
+    if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);
     }

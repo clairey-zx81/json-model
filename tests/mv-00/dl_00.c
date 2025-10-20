@@ -19,7 +19,7 @@ const size_t check_model_map_size = 2;
 // object .'$rec'.'|'.1
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$rec'.'|'.1]", path);
         return false;
@@ -33,7 +33,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         // handle other props
         // .'$rec'.'|'.1.''
         res = json_model_2(pval, (path ? &lpath_0 : NULL), rep);
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $rec [.'$rec'.'|'.1.'']", (path ? &lpath_0 : NULL));
             return false;
@@ -48,7 +48,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$rec'
     // .'$rec'.'|'.0
     bool res = json_is_boolean(val);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$rec'.'|'.0]", path);
     }
@@ -56,12 +56,12 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         // .'$rec'.'|'.1
         res = _jm_obj_0(val, path, rep);
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$rec'.'|'.1]", path);
         }
     }
-    if (res)
+    if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);
     }
@@ -77,7 +77,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_model_2(val, path, rep);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $rec [.]", path);
     }

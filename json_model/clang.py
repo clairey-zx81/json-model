@@ -2,7 +2,7 @@ import re
 import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
-from .mtypes import Jsonable, JsonScalar, Number
+from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 from .utils import log
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
@@ -73,7 +73,8 @@ class CLangJansson(Language):
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
                  with_predef: bool = True, strcmp_opt: bool = True, byte_order: str = "le",
-                 inline: bool = True, relib: str = "pcre2", int_t: str = "int64_t"):
+                 inline: bool = True, with_hints: bool = True,
+                 relib: str = "pcre2", int_t: str = "int64_t"):
 
         super().__init__(
             "C",
@@ -81,7 +82,7 @@ class CLangJansson(Language):
              not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
              path_t="jm_path_t", float_t="double", str_t="const char *",
-             match_t="bool" if relib == "pcre2" else "int",
+             match_t="bool" if relib == "pcre2" else "int", with_hints=with_hints,
              eoi=";", relib=relib, debug=debug, with_predef=with_predef,
              set_caps=(type(None), bool, int, float, str))  # type: ignore
 
@@ -373,18 +374,27 @@ class CLangJansson(Language):
             f"for ({self._int} {idx} = {start}; {idx} < {end}; {idx}++)"
         ] + self.indent(body)
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
-        if true and false:
-            return [ f"if ({cond})" ] + self.indent(true) + ["else"] + self.indent(false)
-        elif true:
-            return [ f"if ({cond})" ] + self.indent(true)
+    def _hint(self, e: str, likely: TestHint) -> str:
+        if self._with_hints and likely is not None:
+            return f"likely({e})" if likely else f"unlikely({e})"
         else:
-            return [ f"if (!({cond}))" ] + self.indent(false)
+            return e
 
-    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
+
+        # handle expectation hints
+
+        if true and false:
+            return [ f"if ({self._hint(cond, likely)})" ] + self.indent(true) + ["else"] + self.indent(false)
+        elif true:
+            return [ f"if ({self._hint(cond, likely)})" ] + self.indent(true)
+        else:
+            return [ f"if (!({self._hint(cond, likely)}))" ] + self.indent(false)
+
+    def mif_stmt(self, cond_true: Conditionals, false: Block = []) -> Block:
         code, op = [], "if"
-        for cond, true in cond_true:
-            code += [ f"{op} ({cond})" ]
+        for cond, likely, true in cond_true:
+            code += [ f"{op} ({self._hint(cond, likely)})" ]
             code += self.indent(true)
             op = "else if"
         if false:

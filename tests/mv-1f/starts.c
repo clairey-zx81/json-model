@@ -20,7 +20,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // "/^Hello/"
     bool res = json_is_string(val) && strncmp(json_string_value(val), "Hello", strlen("Hello")) == 0;
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^Hello/ [.]", path);
     }

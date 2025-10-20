@@ -1,6 +1,6 @@
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr
-from .mtypes import Number
+from .mtypes import Number, TestHint, Conditionals
 
 
 class Python(Language):
@@ -160,7 +160,7 @@ class Python(Language):
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
         return [ f"for {idx} in range({start}, {end}):" ] + self.indent(body)
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
+    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
         if true and false:
             return [ f"if {cond}:" ] + self.indent(true) + ["else:"] + self.indent(false)
         elif true:
@@ -168,9 +168,9 @@ class Python(Language):
         else:
             return [ f"if not ({cond}):" ] + self.indent(false)
 
-    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+    def mif_stmt(self, cond_true: Conditionals, false: Block = []) -> Block:
         code, op = [], "if"
-        for cond, true in cond_true:
+        for cond, likely, true in cond_true:
             code += [ f"{op} {cond}:" ]
             code += self.indent(true)
             op = "elif"

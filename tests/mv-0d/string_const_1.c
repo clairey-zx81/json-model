@@ -19,7 +19,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x6e61206569737553LL) && jm_str_eq_8(json_string_value(val) + 8, 0x6e69766c61432064LL) && jm_str_eq_1(json_string_value(val) + 16);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected _Susie and Calvin [.]", path);
     }

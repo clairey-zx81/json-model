@@ -27,7 +27,7 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    if (! json_is_object(val))
+    if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
@@ -38,39 +38,39 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_4(prop, 0x006c6c61))
+        if (unlikely(jm_str_eq_4(prop, 0x006c6c61)))
         {
             // handle may all property
             // .all
             // "/.*/"
             res = json_is_string(pval) && true;
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /.*/ [.all]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.all]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
-        else if (jm_str_eq_3(prop, 0x00007a6e))
+        else if (unlikely(jm_str_eq_3(prop, 0x00007a6e)))
         {
             // handle may nz property
             // .nz
             // "/./s"
             res = json_is_string(pval) && jm_str_len(json_string_value(pval)) > 0;
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /./s [.nz]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.nz]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
-        else if (jm_str_eq_5(prop, 0x00000000656d6f73LL))
+        else if (unlikely(jm_str_eq_5(prop, 0x00000000656d6f73LL)))
         {
             // handle may some property
             // .some
             // "/./"
             res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /./ [.some]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.some]", (path ? &lpath_0 : NULL));

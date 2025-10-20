@@ -20,15 +20,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // .'@'
     bool res = json_is_string(val);
-    if (! res)
+    if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'@']", path);
     }
-    if (res)
+    if (likely(res))
     {
         int64_t ival_0 = jm_str_len(json_string_value(val));
         res = ival_0 <= 3 && ival_0 >= 2;
-        if (! res)
+        if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
         }

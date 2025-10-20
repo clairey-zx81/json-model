@@ -337,7 +337,9 @@ class CodeGenerator:
 
         code += gen.if_stmt(res,
             cvars + gen.bool_var(res, gen.and_op(*checks)) +
-            self._gen_report(res, f"constraints failed [{smpath}]", vpath))
+            self._gen_report(res, f"constraints failed [{smpath}]", vpath),
+            likely=True
+        )
 
         return code
 
@@ -415,9 +417,12 @@ class CodeGenerator:
                 gen.if_stmt(gen.is_def(fun),
                     icall,
                     gen.bool_var(res, gen.false()) +
-                    gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath)),
+                    gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath),
+                    likely=True  # there is a tag
+                ),
                 gen.bool_var(res, gen.false()) +
-                gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath)
+                gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath),
+                likely=True  # the tag value is valid
             )
 
             # reset res object test
@@ -425,7 +430,11 @@ class CodeGenerator:
 
             # FIXME has_prop gets the tag value in C, so this means 2 get. alternate strategy?
             if isobj_needed:
-                tag_code += gen.if_stmt(res, tagt, gen.report(f"value is not an object [{smpath}]", vpath))
+                tag_code += gen.if_stmt(res,
+                    tagt,
+                    gen.report(f"value is not an object [{smpath}]", vpath),
+                    likely=True
+                )
             else:
                 tag_code += tagt
 
@@ -453,16 +462,16 @@ class CodeGenerator:
         if self._report:
             gen = self._lang
             if cleanup:
-                return gen.if_stmt(res, gen.clean_report(), gen.report(msg, path))
+                return gen.if_stmt(res, gen.clean_report(), gen.report(msg, path), likely=True)
             else:
-                return gen.if_stmt(gen.not_op(res), gen.report(msg, path))
+                return gen.if_stmt(gen.not_op(res), gen.report(msg, path), likely=False)
         else:
             return []
 
     def _gen_reporting(self, report: Block) -> Block:
         """Detailed reporting."""
         gen = self._lang
-        return gen.if_stmt(gen.is_reporting(), report) if self._report else []
+        return gen.if_stmt(gen.is_reporting(), report, likely=True) if self._report else []
 
     def _gen_fail(self, msg: str, path: PathExpr) -> Block:
         """Generate a report and return false."""
@@ -522,10 +531,12 @@ class CodeGenerator:
             gen.lcom("check close must only props") +
             # filter non object
             gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
-                        self._gen_fail(f"not an object [{smpath}]", vpath)) +
+                        self._gen_fail(f"not an object [{smpath}]", vpath),
+                        likely=False) +
             # filter ahead on the number of properties
             gen.if_stmt(gen.num_cmp(gen.obj_len(val), "!=", gen.const(len(must))),
-                        self._gen_fail(f"bad property count [{smpath}]", vpath))
+                        self._gen_fail(f"bad property count [{smpath}]", vpath),
+                        likely=False)
         )
 
         # value checks needs two variables
@@ -547,9 +558,12 @@ class CodeGenerator:
             prop_fail: Block = self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath)
             if combined and pmodel != "$ANY":
                 code += gen.if_stmt(
-                    gen.not_op(gen.obj_has_prop_val("pval", val, prop, False)), prop_fail)
+                    gen.not_op(gen.obj_has_prop_val("pval", val, prop, False)),
+                    prop_fail,
+                    likely=False
+                )
             else:
-                code += gen.if_stmt(gen.not_op(gen.has_prop(val, prop)), prop_fail)
+                code += gen.if_stmt(gen.not_op(gen.has_prop(val, prop)), prop_fail, likely=False)
             if pmodel != "$ANY":
                 code += gen.path_var("lpath", gen.path_val(vpath, prop, True, False))
                 if not combined:
@@ -559,7 +573,9 @@ class CodeGenerator:
                     gen.if_stmt(
                         gen.not_op(res),
                         self._gen_fail(f"unexpected value for mandatory prop <{prop}> [{smpath}]",
-                                       lpath_ref))
+                                       lpath_ref),
+                        likely=False
+                    )
                 )
 
         return code + gen.ret(gen.true())
@@ -578,7 +594,8 @@ class CodeGenerator:
         code = (
             gen.lcom("check open must/may only props") +
             gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
-                        self._gen_fail(f"not an object [{smpath}]", vpath))
+                        self._gen_fail(f"not an object [{smpath}]", vpath),
+                        likely=False)
         )
 
         # value checks?
@@ -599,9 +616,12 @@ class CodeGenerator:
             prop_fail: Block = self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath)
             if combined and pmodel != "$ANY":
                 code += gen.if_stmt(
-                    gen.not_op(gen.obj_has_prop_val("pval", val, prop, False)), prop_fail)
+                    gen.not_op(gen.obj_has_prop_val("pval", val, prop, False)),
+                    prop_fail,
+                    likely=False
+                )
             else:
-                code += gen.if_stmt(gen.not_op(gen.has_prop(val, prop)), prop_fail)
+                code += gen.if_stmt(gen.not_op(gen.has_prop(val, prop)), prop_fail, likely=False)
             if pmodel != "$ANY":
                 code += gen.path_var("lpath", gen.path_val(vpath, prop, True, False))
                 if not combined:
@@ -611,7 +631,9 @@ class CodeGenerator:
                     gen.if_stmt(
                         gen.not_op(res),
                         self._gen_fail(f"unexpected value for mandatory prop <{prop}> [{smpath}]",
-                                       lpath_ref))
+                                       lpath_ref),
+                        likely=False
+                    )
                 )
 
         for prop, pmodel in may.items():
@@ -628,9 +650,10 @@ class CodeGenerator:
                     gen.if_stmt(
                         gen.not_op(res),
                         self._gen_fail(f"unexpected value for optional prop <{prop}> [{smpath}]",
-                                       lpath_ref))
+                                       lpath_ref),
+                        likely=False)
                 )
-                code += gen.if_stmt(has_prop, check_value)
+                code += gen.if_stmt(has_prop, check_value, likely=False)
             # else covered by catchall
 
         return code + gen.ret(gen.true())
@@ -653,7 +676,8 @@ class CodeGenerator:
 
         # should be an object
         code += gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
-                            self._gen_fail(f"not an object [{smpath}]", vpath))
+                            self._gen_fail(f"not an object [{smpath}]", vpath),
+                            likely=False)
 
         # NOTE there may be different tradeoffs depending on the target languages,
         # libraries and the complexity of underlying operations.
@@ -664,9 +688,12 @@ class CodeGenerator:
         if not must and not may and not defs and not regs:
             if not oth:  # empty object
                 code += \
-                    gen.if_stmt(gen.num_cmp(gen.obj_len(val), "=", gen.const(0)),
-                                gen.ret(gen.true()),
-                                self._gen_fail(f"expecting empty object [{smpath}]", vpath))
+                    gen.if_stmt(
+                        gen.num_cmp(gen.obj_len(val), "=", gen.const(0)),
+                        gen.ret(gen.true()),
+                        self._gen_fail(f"expecting empty object [{smpath}]", vpath),
+                        likely=True
+                    )
                 return code
             elif oth == { "": "$ANY" }:  # any object (empty must/may/defs/regs)
                 code += gen.lcom("accept any object") + gen.ret(gen.true())
@@ -717,10 +744,11 @@ class CodeGenerator:
                         gen.if_stmt(gen.not_op(res),
                             self._gen_fail(
                                 f"invalid mandatory prop value [{json_path(mpath + [p])}]",
-                                lpath_ref)
+                                lpath_ref),
+                            likely=False
                         )
                     )
-                    multi_if += [(mu_expr, mu_code)]
+                    multi_if += [(mu_expr, False, mu_code)]
 
             else:  # generic code above threshold
 
@@ -734,7 +762,9 @@ class CodeGenerator:
                 mu_prop_code = (
                     gen.inc_var(must_c) +
                     gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True)),
-                        self._gen_fail(f"invalid mandatory prop value [{smpath}]", lpath_ref))
+                        self._gen_fail(f"invalid mandatory prop value [{smpath}]", lpath_ref),
+                        likely=False
+                    )
                 )
 
                 # use map
@@ -752,7 +782,7 @@ class CodeGenerator:
                         mu_prop_code
                     )
 
-                multi_if += [(mu_expr, mu_code)]
+                multi_if += [(mu_expr, False, mu_code)]
 
         if may:
 
@@ -766,10 +796,11 @@ class CodeGenerator:
                         gen.if_stmt(gen.not_op(res),
                             self._gen_fail(
                                 f"invalid optional prop value [{json_path(mpath + [p])}]",
-                                lpath_ref)
+                                lpath_ref),
+                            likely=False
                         )
                     )
-                    multi_if += [(ma_expr, ma_code)]
+                    multi_if += [(ma_expr, False, ma_code)]
 
             else:  # generic code
 
@@ -786,7 +817,9 @@ class CodeGenerator:
                         gen.if_stmt(
                             gen.and_op(gen.is_def(pfun),
                                 gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True))),
-                            self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref))
+                            self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref),
+                            likely=False
+                        )
                     )
                 else:
                     ma_expr = gen.has_prop_fun(prop, prop_may)
@@ -795,10 +828,12 @@ class CodeGenerator:
                         gen.fun_var(pfun, gen.get_prop_fun(prop, prop_may)) +
                         gen.if_stmt(
                             gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True)),
-                            self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref))
+                            self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref),
+                            likely=False
+                        )
                     )
 
-                multi_if += [(ma_expr, ma_code)]
+                multi_if += [(ma_expr, False, ma_code)]
 
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.items():
@@ -807,7 +842,7 @@ class CodeGenerator:
             dl_code = gen.lcom(f"handle {len(defs)} key props") + \
                 self._compileModel(jm, m, mpath + [ref], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
-            multi_if += [(dl_expr, dl_code)]
+            multi_if += [(dl_expr, False, dl_code)]
 
         # // is inlined
         for r, v in regs.items():
@@ -817,7 +852,7 @@ class CodeGenerator:
             rg_code = gen.lcom(f"handle {len(regs)} re props") + \
                 self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
-            multi_if += [(rg_expr, rg_code)]
+            multi_if += [(rg_expr, False, rg_code)]
 
         # catchall is inlined?
         ot_code: Block
@@ -844,11 +879,15 @@ class CodeGenerator:
             for prop in sorted(must.keys()):
                 missing += \
                     gen.if_stmt(gen.not_op(gen.has_prop(val, prop)),
-                                gen.report(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
+                                gen.report(f"missing mandatory prop <{prop}> [{smpath}]", vpath),
+                                likely=False
+                    )
             code += \
                 gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must))),
                             self._gen_reporting(missing) +
-                            gen.ret(gen.false()))
+                            gen.ret(gen.false()),
+                            likely=False
+                )
 
         # early returns so no need to look at res
         code += gen.ret(gen.true())
@@ -1283,7 +1322,7 @@ class CodeGenerator:
                                 self._compileModel(jm, model[0], mpath + [0],
                                                    res, item,
                                                    gen.path_lvar(lpath, vpath)) +  # type: ignore
-                                gen.if_stmt(gen.not_op(res), gen.brk()))
+                                gen.if_stmt(gen.not_op(res), gen.brk(), likely=False))
 
                     code += (
                         gen.bool_var(res, expr if expr else gen.true()) +
@@ -1326,7 +1365,7 @@ class CodeGenerator:
                                 gen.path_var(lpath, gen.path_val(vpath, idx, False, True)) +
                                 self._compileModel(jm, lmodel, mpath + [start], res,
                                                    gen.arr_item_val(val, idx), lpath_ref) +
-                                gen.if_stmt(gen.not_op(res), gen.brk())
+                                gen.if_stmt(gen.not_op(res), gen.brk(), likely=False)
                             )
 
                         for i, m in reversed(list(enumerate(model[:-1]))):
