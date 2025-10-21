@@ -15,7 +15,7 @@
 - [x] backend: optimize pattern "if (! res) res = E; ret res;"
 - [x] backend: refactoring, cleanup and generalization
 - [x] static: add likely/unlikely hints to clang
-- [ ] c-backend: optimize startwith implementation
+- [x] c-backend: optimize startwith implementation
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "res = E; if (! res) { simple ; res = ; }"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"

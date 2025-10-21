@@ -212,7 +212,7 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
 
 // known size (number of null-terminated bytes) string comparisons
 #define jm_str_eq_0(s) ((*(s)) == '\0')
-#define jm_str_eq_1(s) ((*(s)) == ((uint8_t) (c)))
+#define jm_str_eq_1(s, c) ((*(s)) == ((uint8_t) (c)))
 #define jm_str_eq_2(s, c) ((jm_i4(s) & jm_B2) == (c))
 #define jm_str_eq_3(s, c) ((jm_i4(s) & jm_B3) == (c))
 #define jm_str_eq_4(s, c) (jm_i4(s) == (c))
@@ -222,7 +222,7 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
 #define jm_str_eq_8(s, c) (jm_i8(s) == (c))
 
 #define jm_str_ne_0(s) ((*(s)) != '\0')
-#define jm_str_ne_1(s) ((*(s)) != ((uint8_t) (c)))
+#define jm_str_ne_1(s, c) ((*(s)) != ((uint8_t) (c)))
 #define jm_str_ne_2(s, c) ((jm_i4(s) & jm_B2) != (c))
 #define jm_str_ne_3(s, c) ((jm_i4(s) & jm_B3) != (c))
 #define jm_str_ne_4(s, c) (jm_i4(s) != (c))

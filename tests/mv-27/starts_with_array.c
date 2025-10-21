@@ -18,11 +18,19 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    // "/^S/"
-    bool res = json_is_string(val) && jm_str_eq_1(json_string_value(val), 0x53);
-    if (unlikely(! res))
+    bool res = json_is_array(val);
+    if (res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected /^S/ [.]", path);
+        size_t arr_0_idx;
+        json_t *arr_0_item;
+        json_array_foreach(val, arr_0_idx, arr_0_item)
+        {
+            // .0
+            // "/^hello world!/"
+            res = json_is_string(arr_0_item) && strncmp(json_string_value(arr_0_item), "hello world!", strlen("hello world!")) == 0;
+            if (unlikely(! res))
+                break;
+        }
     }
     return res;
 }

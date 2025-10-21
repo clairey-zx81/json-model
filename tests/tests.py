@@ -221,6 +221,10 @@ EXPECT: dict[str, int] = {
     "mv-26:cmp-opts": {"strcmp": True},
     "mv-26:models": 7,
     "mv-26:values": 109,
+    # mv-27
+    "mv-27:cmp-opts": {"strcmp": True, "report": False},
+    "mv-27:models": 1,
+    "mv-27:values": 17,
     # miscellaneous tests
     "bads:models": 58,
     # tests json models of json schema versions
@@ -267,7 +271,7 @@ def has_exec(program: str) -> bool:
         "./mv-14", "./mv-15", "./mv-16", "./mv-17", "./mv-18",
         "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d",
         "./mv-1e", "./mv-1f", "./mv-20", "./mv-21", "./mv-22",
-        "./mv-23", "./mv-24", "./mv-25", "./mv-26",
+        "./mv-23", "./mv-24", "./mv-25", "./mv-26", "./mv-27",
     ]
 )
 def directory(request):

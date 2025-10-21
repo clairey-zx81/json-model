@@ -57,7 +57,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     lpath = (jm_path_t) { "world", 0, path, NULL };
     // .world
     // "/^!/"
-    res = json_is_string(pval) && strncmp(json_string_value(pval), "!", strlen("!")) == 0;
+    res = json_is_string(pval) && jm_str_eq_1(json_string_value(pval), 0x21);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^!/ [.world]", (path ? &lpath : NULL));

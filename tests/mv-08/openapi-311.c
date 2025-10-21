@@ -417,7 +417,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$OpenAPI'.'/^x-/'
             res = true;
@@ -547,7 +547,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Info'.'/^x-/'
             res = true;
@@ -626,7 +626,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Contact'.'/^x-/'
             res = true;
@@ -900,7 +900,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Server'.'/^x-/'
             res = true;
@@ -993,7 +993,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$ServerVariable'.'/^x-/'
             res = true;
@@ -1479,7 +1479,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Components'.'/^x-/'
             res = true;
@@ -1507,7 +1507,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(strncmp(prop, "/", strlen("/")) == 0))
+        if (unlikely(jm_str_eq_1(prop, 0x2f)))
         {
             // handle 2 re props
             // .'$Paths'.'/^//'
@@ -1518,7 +1518,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 2 re props
             // .'$Paths'.'/^x-/'
             res = true;
@@ -1671,7 +1671,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$PathItem'.'/^x-/'
             res = true;
@@ -1967,7 +1967,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Operation'.'/^x-/'
             res = true;
@@ -2021,7 +2021,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$ExternalDocumentation'.'/^x-/'
             res = true;
@@ -2108,7 +2108,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$parameterShare'.'/^x-/'
             res = true;
@@ -2212,7 +2212,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$commonParameter'.'/^x-/'
             res = true;
@@ -2558,7 +2558,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Parameter'.'|'.1.'/^x-/'
             res = true;
@@ -2767,7 +2767,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Parameter'.'|'.0.'/^x-/'
             res = true;
@@ -2910,7 +2910,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$RequestBody'.'/^x-/'
             res = true;
@@ -3048,7 +3048,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$MediaType'.'/^x-/'
             res = true;
@@ -3180,7 +3180,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Encoding'.'/^x-/'
             res = true;
@@ -3273,7 +3273,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 2 re props
             // .'$Responses'.'/^x-/'
             res = true;
@@ -3463,7 +3463,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Response'.'/^x-/'
             res = true;
@@ -3520,7 +3520,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Callback'.'/^x-/'
             res = true;
@@ -3588,7 +3588,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Example'.'/^x-/'
             res = true;
@@ -3693,7 +3693,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Link'.'|'.1.'/^x-/'
             res = true;
@@ -3797,7 +3797,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Link'.'|'.0.'/^x-/'
             res = true;
@@ -3959,7 +3959,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Header'.'|'.1.'/^x-/'
             res = true;
@@ -4125,7 +4125,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Header'.'|'.0.'/^x-/'
             res = true;
@@ -4230,7 +4230,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Tag'.'/^x-/'
             res = true;
@@ -4903,7 +4903,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Discriminator'.'/^x-/'
             res = true;
@@ -5002,7 +5002,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$xml'.'/^x-/'
             res = true;
@@ -5753,7 +5753,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$SecurityScheme'.'|'.5.'/^x-/'
             res = true;
@@ -5888,7 +5888,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$OAuthFlows'.'/^x-/'
             res = true;
@@ -5994,7 +5994,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$OAuthFlow'.'/^x-/'
             res = true;
@@ -6084,7 +6084,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_78 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Extension'.'/^x-/'
             res = true;

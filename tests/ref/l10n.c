@@ -108,7 +108,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        if (unlikely(jm_str_eq_1(prop, 0x23)))
         {
             // handle 2 re props
             // .'%'.'/^#/'
@@ -210,7 +210,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
         {
             // handle 1 re props
             // .'/^#/'

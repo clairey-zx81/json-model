@@ -265,7 +265,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Model#ArrayComment'
     // "/^#/"
-    bool res = json_is_string(val) && strncmp(json_string_value(val), "#", strlen("#")) == 0;
+    bool res = json_is_string(val) && jm_str_eq_1(json_string_value(val), 0x23);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^#/ [.'$Model#ArrayComment']", path);
@@ -644,7 +644,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Element'.'|'.5.'/^#/'
             res = true;
@@ -737,7 +737,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Element'.'|'.4.'/^#/'
             res = true;
@@ -841,7 +841,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Element'.'|'.3.'/^#/'
             res = true;
@@ -945,7 +945,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Element'.'|'.2.'/^#/'
             res = true;
@@ -1049,7 +1049,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Element'.'|'.1.'/^#/'
             res = true;
@@ -1185,7 +1185,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 3 re props
             // .'$Model#Element'.'|'.0.'/^#/'
             res = true;
@@ -1548,7 +1548,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.5.'$'.'/^#/'
             res = true;
@@ -1681,7 +1681,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 2 re props
             // .'$Model#Root'.'|'.5.'%'.'/^#/'
             res = true;
@@ -1802,7 +1802,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.5.'/^#/'
             res = true;
@@ -1888,7 +1888,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.4.'$'.'/^#/'
             res = true;
@@ -2009,7 +2009,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 2 re props
             // .'$Model#Root'.'|'.4.'%'.'/^#/'
             res = true;
@@ -2149,7 +2149,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.4.'/^#/'
             res = true;
@@ -2246,7 +2246,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.3.'$'.'/^#/'
             res = true;
@@ -2367,7 +2367,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 2 re props
             // .'$Model#Root'.'|'.3.'%'.'/^#/'
             res = true;
@@ -2507,7 +2507,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.3.'/^#/'
             res = true;
@@ -2604,7 +2604,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.2.'$'.'/^#/'
             res = true;
@@ -2725,7 +2725,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 2 re props
             // .'$Model#Root'.'|'.2.'%'.'/^#/'
             res = true;
@@ -2865,7 +2865,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.2.'/^#/'
             res = true;
@@ -2962,7 +2962,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.1.'$'.'/^#/'
             res = true;
@@ -3083,7 +3083,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 2 re props
             // .'$Model#Root'.'|'.1.'%'.'/^#/'
             res = true;
@@ -3223,7 +3223,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.1.'/^#/'
             res = true;
@@ -3345,7 +3345,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Root'.'|'.0.'$'.'/^#/'
             res = true;
@@ -3467,7 +3467,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 2 re props
             // .'$Model#Root'.'|'.0.'%'.'/^#/'
             res = true;
@@ -3559,7 +3559,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 3 re props
             // .'$Model#Root'.'|'.0.'/^#/'
             res = true;
@@ -3868,7 +3868,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may * property
             // .'$Model#Transformation'.'|'.1.'*'
             res = true;
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$Model#Transformation'.'|'.1.'/^#/'
             res = true;

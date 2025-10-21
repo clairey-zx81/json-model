@@ -34,12 +34,13 @@ def _str_cmp_chunk(s: str, chunk: bytes, size: int,
         x = "0x" + ((zeros + x) if little else (x + zeros)) + ("LL" if size > 4 else "")
         return f"{cmp_fun}_{size}({s}, {x})"
 
-def _str_cmp(s: str, cst: str, little: bool = True, eq: bool = True) -> BoolExpr:
+def _str_cmp(s: str, cst: str, little: bool = True, eq: bool = True, start: bool = False) -> BoolExpr:
     """Generate a fast byte string comparison for known constants."""
     bcst = json.loads(cst).encode("UTF8")
-    remain = len(bcst) + 1  # add implicit null termination
+    remain = len(bcst) + (0 if start else 1)  # add implicit null termination
     # filter out multiple array calls
-    if "json_array_get(" in s and remain > 8:
+    if remain > 8 and ("json_array_get(" in s or "json_string_value(" in s):
+        assert not start
         cmp_fun = "jm_str_eq" if eq else "jm_str_ne"
         return f"{cmp_fun}({s}, {cst})"
     # generate chuncked comparison expression
@@ -252,6 +253,11 @@ class CLangJansson(Language):
         return f"({fun} = {mapname}({prop}))"
 
     def str_start(self, val: str, start: str) -> BoolExpr:
+        if self._strcmp_opt:
+            try:
+                return _str_cmp(val, json.dumps(start), self._byte_order == "le", True, True)
+            except:  # if rejected, proceed with generic solution
+                pass
         return f"strncmp({val}, {self.esc(start)}, strlen({self.esc(start)})) == 0"
 
     def str_end(self, val: str, end: str) -> BoolExpr:

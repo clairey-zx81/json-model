@@ -302,7 +302,7 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // .and.a0.'&'.1
                     // "/^2020-/"
-                    res = json_is_string(pval) && strncmp(json_string_value(pval), "2020-", strlen("2020-")) == 0;
+                    res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x0000002d30323032LL);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected /^2020-/ [.and.a0.'&'.1]", (path ? &lpath_1 : NULL));
@@ -2536,7 +2536,7 @@ static bool _jm_f_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(strncmp(prop, "a", strlen("a")) == 0))
+        if (unlikely(jm_str_eq_1(prop, 0x61)))
         {
             // handle 1 re props
             // .object.o3.'/^a/'
@@ -3510,7 +3510,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
             int64_t xc_0 = 0;
             // .xor.x1.'^'.0
             // "/^a/"
-            bool xr_0 = json_is_string(pval) && strncmp(json_string_value(pval), "a", strlen("a")) == 0;
+            bool xr_0 = json_is_string(pval) && jm_str_eq_1(json_string_value(pval), 0x61);
             if (unlikely(xr_0))
                 xc_0 += 1;
             else

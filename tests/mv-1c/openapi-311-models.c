@@ -407,7 +407,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#OpenAPI'.'/^x-/'
             res = true;
@@ -537,7 +537,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Info'.'/^x-/'
             res = true;
@@ -616,7 +616,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Contact'.'/^x-/'
             res = true;
@@ -890,7 +890,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Server'.'/^x-/'
             res = true;
@@ -983,7 +983,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#ServerVariable'.'/^x-/'
             res = true;
@@ -1469,7 +1469,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Components'.'/^x-/'
             res = true;
@@ -1497,7 +1497,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(strncmp(prop, "/", strlen("/")) == 0))
+        if (unlikely(jm_str_eq_1(prop, 0x2f)))
         {
             // handle 2 re props
             // .'$openapi#Paths'.'/^//'
@@ -1508,7 +1508,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 2 re props
             // .'$openapi#Paths'.'/^x-/'
             res = true;
@@ -1661,7 +1661,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#PathItem'.'/^x-/'
             res = true;
@@ -1957,7 +1957,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Operation'.'/^x-/'
             res = true;
@@ -2011,7 +2011,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#ExternalDocumentation'.'/^x-/'
             res = true;
@@ -2163,7 +2163,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.1.'/^x-/'
             res = true;
@@ -2372,7 +2372,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.0.'/^x-/'
             res = true;
@@ -2529,7 +2529,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#RequestBody'.'/^x-/'
             res = true;
@@ -2667,7 +2667,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#MediaType'.'/^x-/'
             res = true;
@@ -2799,7 +2799,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Encoding'.'/^x-/'
             res = true;
@@ -2892,7 +2892,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 2 re props
             // .'$openapi#Responses'.'/^x-/'
             res = true;
@@ -3082,7 +3082,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Response'.'/^x-/'
             res = true;
@@ -3139,7 +3139,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Callback'.'/^x-/'
             res = true;
@@ -3207,7 +3207,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Example'.'/^x-/'
             res = true;
@@ -3312,7 +3312,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Link'.'|'.1.'/^x-/'
             res = true;
@@ -3416,7 +3416,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Link'.'|'.0.'/^x-/'
             res = true;
@@ -3578,7 +3578,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Header'.'|'.1.'/^x-/'
             res = true;
@@ -3744,7 +3744,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Header'.'|'.0.'/^x-/'
             res = true;
@@ -3849,7 +3849,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Tag'.'/^x-/'
             res = true;
@@ -4394,7 +4394,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
             res = true;
@@ -4529,7 +4529,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#OAuthFlows'.'/^x-/'
             res = true;
@@ -4635,7 +4635,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "x-", strlen("x-")) == 0))
+        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#OAuthFlow'.'/^x-/'
             res = true;
@@ -4824,7 +4824,7 @@ static bool json_model_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#model#ArrayComment'
     // "/^#/"
-    bool res = json_is_string(val) && strncmp(json_string_value(val), "#", strlen("#")) == 0;
+    bool res = json_is_string(val) && jm_str_eq_1(json_string_value(val), 0x23);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^#/ [.'$openapi#model#ArrayComment']", path);
@@ -4869,7 +4869,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.5.'/^#/'
             res = true;
@@ -4938,7 +4938,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.4.'/^#/'
             res = true;
@@ -5018,7 +5018,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.3.'/^#/'
             res = true;
@@ -5098,7 +5098,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.2.'/^#/'
             res = true;
@@ -5178,7 +5178,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.1.'/^#/'
             res = true;
@@ -5266,7 +5266,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(strncmp(prop, "#", strlen("#")) == 0))
+        else if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 3 re props
             // .'$openapi#model#Element'.'|'.0.'/^#/'
             res = true;
