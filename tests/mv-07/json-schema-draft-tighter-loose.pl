@@ -374,63 +374,7 @@ sub json_model_25($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        $res = json_model_11($val, $path, $rep);
-        if (! $res)
-        {
-            $res = json_model_23($val, $path, $rep);
-            if (! $res)
-            {
-                $res = json_model_22($val, $path, $rep);
-                if (! $res)
-                {
-                    $res = json_model_19($val, $path, $rep);
-                    if (! $res)
-                    {
-                        $res = json_model_20($val, $path, $rep);
-                        if (! $res)
-                        {
-                            $res = json_model_21($val, $path, $rep);
-                            if (! $res)
-                            {
-                                $res = json_model_24($val, $path, $rep);
-                                if (! $res)
-                                {
-                                    $res = json_model_28($val, $path, $rep);
-                                    if (! $res)
-                                    {
-                                        $res = json_model_29($val, $path, $rep);
-                                        if (! $res)
-                                        {
-                                            $res = json_model_30($val, $path, $rep);
-                                            if (! $res)
-                                            {
-                                                $res = json_model_31($val, $path, $rep);
-                                                if (! $res)
-                                                {
-                                                    $res = json_model_32($val, $path, $rep);
-                                                    if (! $res)
-                                                    {
-                                                        $res = json_model_33($val, $path, $rep);
-                                                        if (! $res)
-                                                        {
-                                                            $res = json_model_34($val, $path, $rep);
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return $res;
+    return $res || json_model_11($val, $path, $rep) || json_model_23($val, $path, $rep) || json_model_22($val, $path, $rep) || json_model_19($val, $path, $rep) || json_model_20($val, $path, $rep) || json_model_21($val, $path, $rep) || json_model_24($val, $path, $rep) || json_model_28($val, $path, $rep) || json_model_29($val, $path, $rep) || json_model_30($val, $path, $rep) || json_model_31($val, $path, $rep) || json_model_32($val, $path, $rep) || json_model_33($val, $path, $rep) || json_model_34($val, $path, $rep);
 }
 
 # check json_model_11_map_$comment (.'$tight#metas'.'$comment')
@@ -874,9 +818,8 @@ sub _jm_f_33($$$)
     my ($val, $path, $rep) = @_;
     # .'$tight#Array'.items
     # .'$tight#Array'.items.'|'.0
-    my $res = json_model_26($val, $path, $rep);
     # .'$tight#Array'.items.'|'.1
-    return $res || json_model_6($val, $path, $rep);
+    return json_model_26($val, $path, $rep) || json_model_6($val, $path, $rep);
 }
 
 # check json_model_13_map_maxItems (.'$tight#Array'.maxItems)
@@ -2692,28 +2635,11 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$tight#const'
     # .'$tight#const'.'|'.0
-    my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$tight#const'.'|'.1
-        $res = jm_is_boolean($val);
-        if (! $res)
-        {
-            # .'$tight#const'.'|'.2
-            $res = jm_is_integer($val);
-            if (! $res)
-            {
-                # .'$tight#const'.'|'.3
-                $res = jm_is_numeric($val);
-                if (! $res)
-                {
-                    # .'$tight#const'.'|'.4
-                    $res = jm_is_string($val);
-                }
-            }
-        }
-    }
-    return $res;
+    # .'$tight#const'.'|'.1
+    # .'$tight#const'.'|'.2
+    # .'$tight#const'.'|'.3
+    # .'$tight#const'.'|'.4
+    return !defined($val) || jm_is_boolean($val) || jm_is_integer($val) || jm_is_numeric($val) || jm_is_string($val);
 }
 
 # check json_model_24_map_$comment (.'$tight#Ref'.'$comment')
@@ -2877,9 +2803,8 @@ sub json_model_26($$$)
     my ($val, $path, $rep) = @_;
     # .'$tight#Schema'
     # .'$tight#Schema'.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$tight#Schema'.'|'.1
-    return $res || json_model_25($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_25($val, $path, $rep);
 }
 
 # check json_model_28_map_$comment (.'$tight#EnumString'.'$comment')

@@ -211,28 +211,11 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$atomic'
     # .'$atomic'.'|'.0
-    my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$atomic'.'|'.1
-        $res = jm_is_boolean($val);
-        if (! $res)
-        {
-            # .'$atomic'.'|'.2
-            $res = jm_is_integer($val);
-            if (! $res)
-            {
-                # .'$atomic'.'|'.3
-                $res = jm_is_numeric($val);
-                if (! $res)
-                {
-                    # .'$atomic'.'|'.4
-                    $res = jm_is_string($val);
-                }
-            }
-        }
-    }
-    return $res;
+    # .'$atomic'.'|'.1
+    # .'$atomic'.'|'.2
+    # .'$atomic'.'|'.3
+    # .'$atomic'.'|'.4
+    return !defined($val) || jm_is_boolean($val) || jm_is_integer($val) || jm_is_numeric($val) || jm_is_string($val);
 }
 
 # check json_model_6_map_enumeration (.'$Atomic'.enumeration)
@@ -702,9 +685,8 @@ sub json_model_11($$$)
     my ($val, $path, $rep) = @_;
     # .'$type-or-ref'
     # .'$type-or-ref'.'|'.0
-    my $res = jm_is_string($val);
     # .'$type-or-ref'.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return jm_is_string($val) || json_model_3($val, $path, $rep);
 }
 
 # check $ (.)

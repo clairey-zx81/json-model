@@ -8,14 +8,11 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $Vv (.'$Vv')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Vv'
   -- .'$Vv'.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   -- .'$Vv'.'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'string';
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -151,11 +148,8 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Ee'.'|'.0
-    res := _jm_obj_1(val, path, rep);
-    IF NOT res THEN
-      -- .'$Ee'.'|'.1
-      res := _jm_obj_0(val, path, rep);
-    END IF;
+    -- .'$Ee'.'|'.1
+    res := _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -164,14 +158,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Mm (.'$Mm')
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Mm'
   -- .'$Mm'.'|'.0
-  res := json_model_2(val, path, rep);
   -- .'$Mm'.'|'.1
-  RETURN res OR json_model_5(val, path, rep);
+  RETURN json_model_2(val, path, rep) OR json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

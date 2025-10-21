@@ -44,12 +44,9 @@ BEGIN
     IF res THEN
       -- .'|'.0
       -- "/[0-9]/"
-      res := _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-      IF NOT res THEN
-        -- .'|'.1
-        -- "/[a-z]/"
-        res := _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-      END IF;
+      -- .'|'.1
+      -- "/[a-z]/"
+      res := _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
     END IF;
   END IF;
   RETURN res;

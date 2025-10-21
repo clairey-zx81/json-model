@@ -117,17 +117,9 @@ sub json_model_2($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        # .'$alternative'.'|'.2
-        $res = jm_is_integer($val) && $val >= 0;
-        if (! $res)
-        {
-            # .'$alternative'.'|'.3
-            $res = jm_is_boolean($val);
-        }
-    }
-    return $res;
+    # .'$alternative'.'|'.2
+    # .'$alternative'.'|'.3
+    return $res || jm_is_integer($val) && $val >= 0 || jm_is_boolean($val);
 }
 
 # check $ (.)

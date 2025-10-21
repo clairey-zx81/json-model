@@ -61,11 +61,8 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Bb'.'|'.0
-    res := _jm_obj_1(val, path, rep);
-    IF NOT res THEN
-      -- .'$Bb'.'|'.1
-      res := _jm_obj_0(val, path, rep);
-    END IF;
+    -- .'$Bb'.'|'.1
+    res := _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -127,11 +124,8 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Cc'.'|'.0
-    res := _jm_obj_3(val, path, rep);
-    IF NOT res THEN
-      -- .'$Cc'.'|'.1
-      res := _jm_obj_2(val, path, rep);
-    END IF;
+    -- .'$Cc'.'|'.1
+    res := _jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -267,19 +261,10 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'|'.0
-    res := _jm_obj_7(val, path, rep);
-    IF NOT res THEN
-      -- .'|'.1
-      res := _jm_obj_6(val, path, rep);
-      IF NOT res THEN
-        -- .'|'.2
-        res := _jm_obj_5(val, path, rep);
-        IF NOT res THEN
-          -- .'|'.3
-          res := _jm_obj_4(val, path, rep);
-        END IF;
-      END IF;
-    END IF;
+    -- .'|'.1
+    -- .'|'.2
+    -- .'|'.3
+    res := _jm_obj_7(val, path, rep) OR _jm_obj_6(val, path, rep) OR _jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep);
   END IF;
   RETURN res;
 END;

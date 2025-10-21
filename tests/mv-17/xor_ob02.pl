@@ -84,12 +84,8 @@ sub json_model_2($$$)
     if ($res)
     {
         # .'$Aa'.'|'.0
-        $res = _jm_obj_1($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Aa'.'|'.1
-            $res = _jm_obj_0($val, $path, $rep);
-        }
+        # .'$Aa'.'|'.1
+        $res = _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -151,12 +147,8 @@ sub json_model_3($$$)
     if ($res)
     {
         # .'$Bb'.'|'.0
-        $res = _jm_obj_3($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Bb'.'|'.1
-            $res = _jm_obj_2($val, $path, $rep);
-        }
+        # .'$Bb'.'|'.1
+        $res = _jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep);
     }
     return $res;
 }
@@ -218,12 +210,8 @@ sub json_model_4($$$)
     if ($res)
     {
         # .'$Cc'.'|'.0
-        $res = _jm_obj_5($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Cc'.'|'.1
-            $res = _jm_obj_4($val, $path, $rep);
-        }
+        # .'$Cc'.'|'.1
+        $res = _jm_obj_5($val, $path, $rep) || _jm_obj_4($val, $path, $rep);
     }
     return $res;
 }
@@ -389,22 +377,10 @@ sub json_model_1($$$)
     if ($res)
     {
         # .'|'.0
-        $res = _jm_obj_9($val, $path, $rep);
-        if (! $res)
-        {
-            # .'|'.1
-            $res = _jm_obj_8($val, $path, $rep);
-            if (! $res)
-            {
-                # .'|'.2
-                $res = _jm_obj_7($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'|'.3
-                    $res = _jm_obj_6($val, $path, $rep);
-                }
-            }
-        }
+        # .'|'.1
+        # .'|'.2
+        # .'|'.3
+        $res = _jm_obj_9($val, $path, $rep) || _jm_obj_8($val, $path, $rep) || _jm_obj_7($val, $path, $rep) || _jm_obj_6($val, $path, $rep);
     }
     return $res;
 }

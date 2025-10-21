@@ -15,11 +15,8 @@ BEGIN
   -- .
   -- .'@'
   -- .'@'.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
-  IF NOT res THEN
-    -- .'@'.'|'.1
-    res := JSONB_TYPEOF(val) = 'string';
-  END IF;
+  -- .'@'.'|'.1
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'string';
   IF res THEN
     res := jm_check_constraint(val, '>=', 10, path, rep);
   END IF;

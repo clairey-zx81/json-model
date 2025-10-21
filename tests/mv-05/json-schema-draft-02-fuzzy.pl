@@ -60,9 +60,8 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.additionalProperties
     # .'$schema'.additionalProperties.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$schema'.additionalProperties.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_contentEncoding (.'$schema'.contentEncoding)
@@ -95,9 +94,8 @@ sub _jm_f_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.disallow
     # .'$schema'.disallow.'|'.0
-    my $res = jm_is_string($val);
     # .'$schema'.disallow.'|'.1
-    return $res || json_model_5($val, $path, $rep);
+    return jm_is_string($val) || json_model_5($val, $path, $rep);
 }
 
 # check json_model_3_map_divisibleBy (.'$schema'.divisibleBy)
@@ -305,9 +303,8 @@ sub _jm_f_23($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.requires
     # .'$schema'.requires.'|'.0
-    my $res = jm_is_string($val);
     # .'$schema'.requires.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return jm_is_string($val) || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_title (.'$schema'.title)
@@ -336,12 +333,8 @@ sub _jm_f_25($$$)
                 my $arr_2_item = $$val[$arr_2_idx];
                 # .'$schema'.type.'|'.1.0
                 # .'$schema'.type.'|'.1.0.'|'.0
-                $res = jm_is_string($arr_2_item);
-                if (! $res)
-                {
-                    # .'$schema'.type.'|'.1.0.'|'.1
-                    $res = json_model_3($arr_2_item, undef, $rep);
-                }
+                # .'$schema'.type.'|'.1.0.'|'.1
+                $res = jm_is_string($arr_2_item) || json_model_3($arr_2_item, undef, $rep);
                 if (! $res)
                 {
                     last;

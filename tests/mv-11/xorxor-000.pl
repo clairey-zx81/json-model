@@ -21,23 +21,10 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$Xx'
     # .'$Xx'.'|'.0
-    my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$Xx'.'|'.1
-        $res = jm_is_boolean($val);
-        if (! $res)
-        {
-            # .'$Xx'.'|'.2
-            $res = jm_is_integer($val) && $val >= 1;
-            if (! $res)
-            {
-                # .'$Xx'.'|'.3
-                $res = jm_is_numeric($val) && $val > 0.0;
-            }
-        }
-    }
-    return $res;
+    # .'$Xx'.'|'.1
+    # .'$Xx'.'|'.2
+    # .'$Xx'.'|'.3
+    return !defined($val) || jm_is_boolean($val) || jm_is_integer($val) && $val >= 1 || jm_is_numeric($val) && $val > 0.0;
 }
 
 # check $ (.)

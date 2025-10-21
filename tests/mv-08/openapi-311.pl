@@ -655,12 +655,8 @@ sub json_model_5($$$)
     if ($res)
     {
         # .'$License'.'|'.0
-        $res = _jm_obj_1($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$License'.'|'.1
-            $res = _jm_obj_0($val, $path, $rep);
-        }
+        # .'$License'.'|'.1
+        $res = _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -835,12 +831,8 @@ sub _jm_f_5($$$)
         # handle other props
         # .'$Components'.callbacks.''
         # .'$Components'.callbacks.''.'|'.0
-        $res = json_model_24($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.callbacks.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.callbacks.''.'|'.1
+        $res = json_model_24($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -865,12 +857,8 @@ sub _jm_f_6($$$)
         # handle other props
         # .'$Components'.examples.''
         # .'$Components'.examples.''.'|'.0
-        $res = json_model_25($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.examples.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.examples.''.'|'.1
+        $res = json_model_25($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -895,12 +883,8 @@ sub _jm_f_7($$$)
         # handle other props
         # .'$Components'.headers.''
         # .'$Components'.headers.''.'|'.0
-        $res = json_model_28($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.headers.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.headers.''.'|'.1
+        $res = json_model_28($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -925,12 +909,8 @@ sub _jm_f_8($$$)
         # handle other props
         # .'$Components'.links.''
         # .'$Components'.links.''.'|'.0
-        $res = json_model_27($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.links.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.links.''.'|'.1
+        $res = json_model_27($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -955,12 +935,8 @@ sub _jm_f_9($$$)
         # handle other props
         # .'$Components'.parameters.''
         # .'$Components'.parameters.''.'|'.0
-        $res = json_model_18($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.parameters.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.parameters.''.'|'.1
+        $res = json_model_18($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -985,12 +961,8 @@ sub _jm_f_10($$$)
         # handle other props
         # .'$Components'.pathItems.''
         # .'$Components'.pathItems.''.'|'.0
-        $res = json_model_10($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.pathItems.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.pathItems.''.'|'.1
+        $res = json_model_10($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -1015,12 +987,8 @@ sub _jm_f_11($$$)
         # handle other props
         # .'$Components'.requestBodies.''
         # .'$Components'.requestBodies.''.'|'.0
-        $res = json_model_19($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.requestBodies.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.requestBodies.''.'|'.1
+        $res = json_model_19($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -1045,12 +1013,8 @@ sub _jm_f_12($$$)
         # handle other props
         # .'$Components'.responses.''
         # .'$Components'.responses.''.'|'.0
-        $res = json_model_23($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.responses.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.responses.''.'|'.1
+        $res = json_model_23($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -1099,12 +1063,8 @@ sub _jm_f_14($$$)
         # handle other props
         # .'$Components'.securitySchemes.''
         # .'$Components'.securitySchemes.''.'|'.0
-        $res = json_model_40($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Components'.securitySchemes.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Components'.securitySchemes.''.'|'.1
+        $res = json_model_40($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -1216,12 +1176,8 @@ sub _jm_f_17($$$)
             my $arr_4_item = $$val[$arr_4_idx];
             # .'$PathItem'.parameters.0
             # .'$PathItem'.parameters.0.'|'.0
-            $res = json_model_18($arr_4_item, undef, $rep);
-            if (! $res)
-            {
-                # .'$PathItem'.parameters.0.'|'.1
-                $res = json_model_30($arr_4_item, undef, $rep);
-            }
+            # .'$PathItem'.parameters.0.'|'.1
+            $res = json_model_18($arr_4_item, undef, $rep) || json_model_30($arr_4_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -1314,12 +1270,8 @@ sub _jm_f_20($$$)
         # handle other props
         # .'$Operation'.callbacks.''
         # .'$Operation'.callbacks.''.'|'.0
-        $res = json_model_24($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Operation'.callbacks.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Operation'.callbacks.''.'|'.1
+        $res = json_model_24($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -1365,12 +1317,8 @@ sub _jm_f_24($$$)
             my $arr_6_item = $$val[$arr_6_idx];
             # .'$Operation'.parameters.0
             # .'$Operation'.parameters.0.'|'.0
-            $res = json_model_18($arr_6_item, undef, $rep);
-            if (! $res)
-            {
-                # .'$Operation'.parameters.0.'|'.1
-                $res = json_model_30($arr_6_item, undef, $rep);
-            }
+            # .'$Operation'.parameters.0.'|'.1
+            $res = json_model_18($arr_6_item, undef, $rep) || json_model_30($arr_6_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -1386,9 +1334,8 @@ sub _jm_f_25($$$)
     my ($val, $path, $rep) = @_;
     # .'$Operation'.requestBody
     # .'$Operation'.requestBody.'|'.0
-    my $res = json_model_19($val, $path, $rep);
     # .'$Operation'.requestBody.'|'.1
-    return $res || json_model_30($val, $path, $rep);
+    return json_model_19($val, $path, $rep) || json_model_30($val, $path, $rep);
 }
 
 # check json_model_11_map_security (.'$Operation'.security)
@@ -1751,12 +1698,8 @@ sub _jm_f_32($$$)
         # handle other props
         # .'$parameterSchemaOnly'.examples.''
         # .'$parameterSchemaOnly'.examples.''.'|'.0
-        $res = json_model_25($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$parameterSchemaOnly'.examples.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$parameterSchemaOnly'.examples.''.'|'.1
+        $res = json_model_25($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2037,12 +1980,8 @@ sub _jm_f_39($$$)
         # handle other props
         # .'$Parameter'.'|'.0.examples.''
         # .'$Parameter'.'|'.0.examples.''.'|'.0
-        $res = json_model_25($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Parameter'.'|'.0.examples.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Parameter'.'|'.0.examples.''.'|'.1
+        $res = json_model_25($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2135,12 +2074,8 @@ sub json_model_18($$$)
     if ($res)
     {
         # .'$Parameter'.'|'.0
-        $res = _jm_obj_6($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Parameter'.'|'.1
-            $res = _jm_obj_4($val, $path, $rep);
-        }
+        # .'$Parameter'.'|'.1
+        $res = _jm_obj_6($val, $path, $rep) || _jm_obj_4($val, $path, $rep);
     }
     return $res;
 }
@@ -2240,12 +2175,8 @@ sub _jm_obj_8($$$)
         # handle other props
         # .'$MediaType'.examples.''
         # .'$MediaType'.examples.''.'|'.0
-        $res = json_model_25($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$MediaType'.examples.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$MediaType'.examples.''.'|'.1
+        $res = json_model_25($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2355,12 +2286,8 @@ sub _jm_obj_10($$$)
         # handle other props
         # .'$Encoding'.headers.''
         # .'$Encoding'.headers.''.'|'.0
-        $res = json_model_28($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Encoding'.headers.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Encoding'.headers.''.'|'.1
+        $res = json_model_28($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2471,12 +2398,8 @@ sub json_model_22($$$)
             # handle may default property
             # .'$Responses'.default
             # .'$Responses'.default.'|'.0
-            $res = json_model_23($pval, undef, $rep);
-            if (! $res)
-            {
-                # .'$Responses'.default.'|'.1
-                $res = json_model_30($pval, undef, $rep);
-            }
+            # .'$Responses'.default.'|'.1
+            $res = json_model_23($pval, undef, $rep) || json_model_30($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2487,12 +2410,8 @@ sub json_model_22($$$)
             # handle 2 re props
             # .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
             # .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
-            $res = json_model_23($pval, undef, $rep);
-            if (! $res)
-            {
-                # .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-                $res = json_model_30($pval, undef, $rep);
-            }
+            # .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
+            $res = json_model_23($pval, undef, $rep) || json_model_30($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2527,12 +2446,8 @@ sub _jm_obj_11($$$)
         # handle other props
         # .'$Response'.headers.''
         # .'$Response'.headers.''.'|'.0
-        $res = json_model_28($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Response'.headers.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Response'.headers.''.'|'.1
+        $res = json_model_28($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2579,12 +2494,8 @@ sub _jm_obj_13($$$)
         # handle other props
         # .'$Response'.links.''
         # .'$Response'.links.''.'|'.0
-        $res = json_model_27($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Response'.links.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Response'.links.''.'|'.1
+        $res = json_model_27($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2678,12 +2589,8 @@ sub json_model_24($$$)
             # handle 1 key props
             # .'$Callback'.'$Expression'
             # .'$Callback'.'$Expression'.'|'.0
-            $res = json_model_10($pval, undef, $rep);
-            if (! $res)
-            {
-                # .'$Callback'.'$Expression'.'|'.1
-                $res = json_model_30($pval, undef, $rep);
-            }
+            # .'$Callback'.'$Expression'.'|'.1
+            $res = json_model_10($pval, undef, $rep) || json_model_30($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2947,12 +2854,8 @@ sub json_model_27($$$)
     if ($res)
     {
         # .'$Link'.'|'.0
-        $res = _jm_obj_16($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Link'.'|'.1
-            $res = _jm_obj_14($val, $path, $rep);
-        }
+        # .'$Link'.'|'.1
+        $res = _jm_obj_16($val, $path, $rep) || _jm_obj_14($val, $path, $rep);
     }
     return $res;
 }
@@ -3112,12 +3015,8 @@ sub _jm_f_47($$$)
         # handle other props
         # .'$Header'.'|'.0.examples.''
         # .'$Header'.'|'.0.examples.''.'|'.0
-        $res = json_model_25($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Header'.'|'.0.examples.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
+        # .'$Header'.'|'.0.examples.''.'|'.1
+        $res = json_model_25($pval, undef, $rep) || json_model_30($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -3188,12 +3087,8 @@ sub json_model_28($$$)
     if ($res)
     {
         # .'$Header'.'|'.0
-        $res = _jm_obj_20($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Header'.'|'.1
-            $res = _jm_obj_18($val, $path, $rep);
-        }
+        # .'$Header'.'|'.1
+        $res = _jm_obj_20($val, $path, $rep) || _jm_obj_18($val, $path, $rep);
     }
     return $res;
 }
@@ -3644,9 +3539,8 @@ sub _jm_f_76($$$)
     my ($val, $path, $rep) = @_;
     # .'$Schema'.type
     # .'$Schema'.type.'|'.0
-    my $res = json_model_52($val, $path, $rep);
     # .'$Schema'.type.'|'.1
-    return $res || json_model_53($val, $path, $rep);
+    return json_model_52($val, $path, $rep) || json_model_53($val, $path, $rep);
 }
 
 # check json_model_32_map_uniqueItems (.'$Schema'.uniqueItems)
@@ -4412,17 +4306,9 @@ sub json_model_40($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        # .'$SecurityScheme'.'|'.5
-        $res = _jm_obj_27($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$SecurityScheme'.'|'.2
-            $res = _jm_obj_24($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$SecurityScheme'.'|'.5
+    # .'$SecurityScheme'.'|'.2
+    return $res || _jm_obj_27($val, $path, $rep) || _jm_obj_24($val, $path, $rep);
 }
 
 # check $OAuthFlows (.'$OAuthFlows')
@@ -4772,9 +4658,8 @@ sub json_model_60($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema#Schema'
     # .'$schema#Schema'.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$schema#Schema'.'|'.1
-    return $res || json_model_59($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_59($val, $path, $rep);
 }
 
 # check json_model_59_map_$comment (.'$schema#ObjectSchema'.'$comment')
@@ -5093,9 +4978,8 @@ sub _jm_f_104($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema#ObjectSchema'.type
     # .'$schema#ObjectSchema'.type.'|'.0
-    my $res = json_model_52($val, $path, $rep);
     # .'$schema#ObjectSchema'.type.'|'.1
-    return $res || json_model_53($val, $path, $rep);
+    return json_model_52($val, $path, $rep) || json_model_53($val, $path, $rep);
 }
 
 # check json_model_59_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)

@@ -32,14 +32,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $rec (.'$rec')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$rec'
   -- .'$rec'.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .'$rec'.'|'.1
-  RETURN res OR json_model_2(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

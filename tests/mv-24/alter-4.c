@@ -90,15 +90,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         else
             res = false;
     }
-    if (! res)
-    {
-        // .'$alternative'.'|'.2
-        res = json_is_integer(val) && json_integer_value(val) >= 0;
-        if (! res)
-            // .'$alternative'.'|'.3
-            res = json_is_boolean(val);
-    }
-    return res;
+    // .'$alternative'.'|'.2
+    // .'$alternative'.'|'.3
+    return res || json_is_integer(val) && json_integer_value(val) >= 0 || json_is_boolean(val);
 }
 
 // check $ (.)

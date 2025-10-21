@@ -27,9 +27,8 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$ex5'
     # .'$ex5'.'|'.0
-    my $res = json_model_5($val, $path, $rep);
     # .'$ex5'.'|'.1
-    return $res || json_model_6($val, $path, $rep);
+    return json_model_5($val, $path, $rep) || json_model_6($val, $path, $rep);
 }
 
 sub _jm_re_0($$$)
@@ -54,9 +53,8 @@ sub json_model_7($$$)
     my ($val, $path, $rep) = @_;
     # .'$__external_0'
     # .'$__external_0'.'|'.0
-    my $res = json_model_8($val, $path, $rep);
     # .'$__external_0'.'|'.1
-    return $res || json_model_9($val, $path, $rep);
+    return json_model_8($val, $path, $rep) || json_model_9($val, $path, $rep);
 }
 
 # check $ (.)

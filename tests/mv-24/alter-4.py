@@ -82,13 +82,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = False
     else:
         pass
-    if not res:
-        # .'$alternative'.'|'.2
-        res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-        if not res:
-            # .'$alternative'.'|'.3
-            res = isinstance(val, bool)
-    return res
+    # .'$alternative'.'|'.2
+    # .'$alternative'.'|'.3
+    return res or isinstance(val, int) and not isinstance(val, bool) and val >= 0 or isinstance(val, bool)
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:

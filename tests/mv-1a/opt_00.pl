@@ -24,17 +24,9 @@ sub json_model_1($$$)
     if ($res)
     {
         # .'|'.0
-        $res = jm_is_integer($val) && $val == 1;
-        if (! $res)
-        {
-            # .'|'.1
-            $res = jm_is_integer($val) && $val == 2;
-            if (! $res)
-            {
-                # .'|'.2
-                $res = jm_is_integer($val) && $val == 3;
-            }
-        }
+        # .'|'.1
+        # .'|'.2
+        $res = jm_is_integer($val) && $val == 1 || jm_is_integer($val) && $val == 2 || jm_is_integer($val) && $val == 3;
     }
     return $res;
 }

@@ -1564,11 +1564,8 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'object';
       IF res THEN
         -- .merge.m1.'|'.0
-        res := _jm_obj_5(pval, NULL, rep);
-        IF NOT res THEN
-          -- .merge.m1.'|'.1
-          res := _jm_obj_4(pval, NULL, rep);
-        END IF;
+        -- .merge.m1.'|'.1
+        res := _jm_obj_5(pval, NULL, rep) OR _jm_obj_4(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -1579,11 +1576,8 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'object';
       IF res THEN
         -- .merge.m2.'|'.0
-        res := _jm_obj_7(pval, NULL, rep);
-        IF NOT res THEN
-          -- .merge.m2.'|'.1
-          res := _jm_obj_6(pval, NULL, rep);
-        END IF;
+        -- .merge.m2.'|'.1
+        res := _jm_obj_7(pval, NULL, rep) OR _jm_obj_6(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -1594,19 +1588,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'object';
       IF res THEN
         -- .merge.m3.'|'.0
-        res := _jm_obj_11(pval, NULL, rep);
-        IF NOT res THEN
-          -- .merge.m3.'|'.1
-          res := _jm_obj_10(pval, NULL, rep);
-          IF NOT res THEN
-            -- .merge.m3.'|'.2
-            res := _jm_obj_9(pval, NULL, rep);
-            IF NOT res THEN
-              -- .merge.m3.'|'.3
-              res := _jm_obj_8(pval, NULL, rep);
-            END IF;
-          END IF;
-        END IF;
+        -- .merge.m3.'|'.1
+        -- .merge.m3.'|'.2
+        -- .merge.m3.'|'.3
+        res := _jm_obj_11(pval, NULL, rep) OR _jm_obj_10(pval, NULL, rep) OR _jm_obj_9(pval, NULL, rep) OR _jm_obj_8(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -1902,11 +1887,8 @@ BEGIN
       -- handle may o0 property
       -- .or.o0
       -- .or.o0.'|'.0
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        -- .or.o0.'|'.1
-        res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-      END IF;
+      -- .or.o0.'|'.1
+      res := JSONB_TYPEOF(pval) = 'boolean' OR JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1914,11 +1896,8 @@ BEGIN
       -- handle may o1 property
       -- .or.o1
       -- .or.o1.'|'.0
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
-      IF NOT res THEN
-        -- .or.o1.'|'.1
-        res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_time(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
-      END IF;
+      -- .or.o1.'|'.1
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep) OR JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_time(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1926,19 +1905,10 @@ BEGIN
       -- handle may o2 property
       -- .or.o2
       -- .or.o2.'|'.0
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-      IF NOT res THEN
-        -- .or.o2.'|'.1
-        res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_uuid(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
-        IF NOT res THEN
-          -- .or.o2.'|'.2
-          res := JSONB_TYPEOF(pval) = 'array';
-          IF NOT res THEN
-            -- .or.o2.'|'.3
-            res := _jm_obj_13(pval, NULL, rep);
-          END IF;
-        END IF;
-      END IF;
+      -- .or.o2.'|'.1
+      -- .or.o2.'|'.2
+      -- .or.o2.'|'.3
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0 OR JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_uuid(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep) OR JSONB_TYPEOF(pval) = 'array' OR _jm_obj_13(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2429,11 +2399,8 @@ BEGIN
       -- handle may x0 property
       -- .xor.x0
       -- .xor.x0.'|'.0
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        -- .xor.x0.'|'.1
-        res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-      END IF;
+      -- .xor.x0.'|'.1
+      res := JSONB_TYPEOF(pval) = 'boolean' OR JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

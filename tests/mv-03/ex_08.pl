@@ -71,18 +71,9 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$Ex08'
     # .'$Ex08'.'|'.0
-    my $res = json_model_4($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Ex08'.'|'.1
-        $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Ex08'.'|'.2
-            $res = json_model_2($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$Ex08'.'|'.1
+    # .'$Ex08'.'|'.2
+    return json_model_4($val, $path, $rep) || jm_is_string($val) && jm_is_valid_url($val, $path, $rep) || json_model_2($val, $path, $rep);
 }
 
 # check $ (.)

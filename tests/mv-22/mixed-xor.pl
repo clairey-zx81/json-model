@@ -216,16 +216,8 @@ sub json_model_1($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        # .'|'.2
-        $res = jm_is_boolean($val);
-        if (! $res)
-        {
-            $res = json_model_2($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'|'.2
+    return $res || jm_is_boolean($val) || json_model_2($val, $path, $rep);
 }
 
 

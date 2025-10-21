@@ -8,25 +8,13 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $Xx (.'$Xx')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Xx'
   -- .'$Xx'.'|'.0
-  res := JSONB_TYPEOF(val) = 'null';
-  IF NOT res THEN
-    -- .'$Xx'.'|'.1
-    res := JSONB_TYPEOF(val) = 'boolean';
-    IF NOT res THEN
-      -- .'$Xx'.'|'.2
-      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
-      IF NOT res THEN
-        -- .'$Xx'.'|'.3
-        res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$Xx'.'|'.1
+  -- .'$Xx'.'|'.2
+  -- .'$Xx'.'|'.3
+  RETURN JSONB_TYPEOF(val) = 'null' OR JSONB_TYPEOF(val) = 'boolean' OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
 END;
 $$ LANGUAGE PLpgSQL;
 

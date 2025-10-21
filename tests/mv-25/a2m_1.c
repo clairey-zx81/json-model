@@ -120,9 +120,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     // .'|'.0
-    bool res = json_model_4(val, path, rep);
     // .'|'.1
-    return res || json_model_5(val, path, rep);
+    return json_model_4(val, path, rep) || json_model_5(val, path, rep);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

@@ -71,9 +71,8 @@ sub _jm_f_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.additionalItems
     # .'$schema'.additionalItems.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$schema'.additionalItems.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
@@ -82,9 +81,8 @@ sub _jm_f_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.additionalProperties
     # .'$schema'.additionalProperties.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$schema'.additionalProperties.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_default (.'$schema'.default)
@@ -157,9 +155,8 @@ sub _jm_f_7($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.disallow
     # .'$schema'.disallow.'|'.0
-    my $res = jm_is_string($val);
     # .'$schema'.disallow.'|'.1
-    return $res || json_model_5($val, $path, $rep);
+    return jm_is_string($val) || json_model_5($val, $path, $rep);
 }
 
 # check json_model_3_map_divisibleBy (.'$schema'.divisibleBy)
@@ -412,12 +409,8 @@ sub _jm_f_27($$$)
                 my $arr_3_item = $$val[$arr_3_idx];
                 # .'$schema'.type.'|'.1.0
                 # .'$schema'.type.'|'.1.0.'|'.0
-                $res = jm_is_string($arr_3_item);
-                if (! $res)
-                {
-                    # .'$schema'.type.'|'.1.0.'|'.1
-                    $res = json_model_3($arr_3_item, undef, $rep);
-                }
+                # .'$schema'.type.'|'.1.0.'|'.1
+                $res = jm_is_string($arr_3_item) || json_model_3($arr_3_item, undef, $rep);
                 if (! $res)
                 {
                     last;
@@ -505,12 +498,8 @@ sub json_model_5($$$)
             my $arr_4_item = $$val[$arr_4_idx];
             # .'$schema#distinctSchemaArray'.'@'.0
             # .'$schema#distinctSchemaArray'.'@'.0.'|'.0
-            $res = jm_is_string($arr_4_item);
-            if (! $res)
-            {
-                # .'$schema#distinctSchemaArray'.'@'.0.'|'.1
-                $res = json_model_3($arr_4_item, undef, $rep);
-            }
+            # .'$schema#distinctSchemaArray'.'@'.0.'|'.1
+            $res = jm_is_string($arr_4_item) || json_model_3($arr_4_item, undef, $rep);
             if (! $res)
             {
                 last;

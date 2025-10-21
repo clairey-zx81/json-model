@@ -20,9 +20,8 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'|'.0
-    my $res = jm_is_string($val);
     # .'|'.1
-    return $res || !defined($val);
+    return jm_is_string($val) || !defined($val);
 }
 
 

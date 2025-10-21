@@ -23,22 +23,10 @@ sub json_model_1($$$)
     if ($res)
     {
         # .'|'.0
-        $res = jm_is_integer($val) && $val == 200;
-        if (! $res)
-        {
-            # .'|'.1
-            $res = jm_is_integer($val) && $val == 300;
-            if (! $res)
-            {
-                # .'|'.2
-                $res = jm_is_integer($val) && $val == 400;
-                if (! $res)
-                {
-                    # .'|'.3
-                    $res = jm_is_integer($val) && $val == 500;
-                }
-            }
-        }
+        # .'|'.1
+        # .'|'.2
+        # .'|'.3
+        $res = jm_is_integer($val) && $val == 200 || jm_is_integer($val) && $val == 300 || jm_is_integer($val) && $val == 400 || jm_is_integer($val) && $val == 500;
     }
     return $res;
 }

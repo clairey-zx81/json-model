@@ -66,9 +66,8 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     # .additionalProperties
     # .additionalProperties.'|'.0
-    my $res = jm_is_boolean($val);
     # .additionalProperties.'|'.1
-    return $res || json_model_1($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_1($val, $path, $rep);
 }
 
 # check json_model_1_map_contentEncoding (.contentEncoding)
@@ -328,9 +327,8 @@ sub _jm_f_23($$$)
     my ($val, $path, $rep) = @_;
     # .requires
     # .requires.'|'.0
-    my $res = jm_is_string($val);
     # .requires.'|'.1
-    return $res || json_model_1($val, $path, $rep);
+    return jm_is_string($val) || json_model_1($val, $path, $rep);
 }
 
 # check json_model_1_map_title (.title)
@@ -359,12 +357,8 @@ sub _jm_f_25($$$)
                 my $arr_3_item = $$val[$arr_3_idx];
                 # .type.'|'.1.0
                 # .type.'|'.1.0.'|'.0
-                $res = jm_is_string($arr_3_item);
-                if (! $res)
-                {
-                    # .type.'|'.1.0.'|'.1
-                    $res = json_model_1($arr_3_item, undef, $rep);
-                }
+                # .type.'|'.1.0.'|'.1
+                $res = jm_is_string($arr_3_item) || json_model_1($arr_3_item, undef, $rep);
                 if (! $res)
                 {
                     last;

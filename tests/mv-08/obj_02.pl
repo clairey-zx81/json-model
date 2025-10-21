@@ -112,23 +112,10 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'|'.0
-    my $res = json_model_2($val, $path, $rep);
-    if (! $res)
-    {
-        # .'|'.1
-        $res = json_model_3($val, $path, $rep);
-        if (! $res)
-        {
-            # .'|'.2
-            $res = json_model_4($val, $path, $rep);
-            if (! $res)
-            {
-                # .'|'.3
-                $res = json_model_5($val, $path, $rep);
-            }
-        }
-    }
-    return $res;
+    # .'|'.1
+    # .'|'.2
+    # .'|'.3
+    return json_model_2($val, $path, $rep) || json_model_3($val, $path, $rep) || json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep);
 }
 
 

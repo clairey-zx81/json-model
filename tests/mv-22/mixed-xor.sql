@@ -185,14 +185,8 @@ BEGIN
   ELSE
     NULL;
   END IF;
-  IF NOT res THEN
-    -- .'|'.2
-    res := JSONB_TYPEOF(val) = 'boolean';
-    IF NOT res THEN
-      res := json_model_2(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'|'.2
+  RETURN res OR JSONB_TYPEOF(val) = 'boolean' OR json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

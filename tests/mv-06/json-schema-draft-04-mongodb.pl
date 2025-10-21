@@ -53,9 +53,8 @@ sub _jm_f_0($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.additionalItems
     # .'$schema'.additionalItems.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$schema'.additionalItems.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
@@ -64,9 +63,8 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.additionalProperties
     # .'$schema'.additionalProperties.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$schema'.additionalProperties.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_3($val, $path, $rep);
 }
 
 # check json_model_3_map_bsonType (.'$schema'.bsonType)
@@ -113,12 +111,8 @@ sub _jm_f_3($$$)
         # handle other props
         # .'$schema'.dependencies.''
         # .'$schema'.dependencies.''.'|'.0
-        $res = json_model_3($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$schema'.dependencies.''.'|'.1
-            $res = json_model_6($pval, undef, $rep);
-        }
+        # .'$schema'.dependencies.''.'|'.1
+        $res = json_model_3($pval, undef, $rep) || json_model_6($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -172,9 +166,8 @@ sub _jm_f_8($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.items
     # .'$schema'.items.'|'.0
-    my $res = json_model_3($val, $path, $rep);
     # .'$schema'.items.'|'.1
-    return $res || json_model_4($val, $path, $rep);
+    return json_model_3($val, $path, $rep) || json_model_4($val, $path, $rep);
 }
 
 # check json_model_3_map_maxItems (.'$schema'.maxItems)
@@ -319,9 +312,8 @@ sub _jm_f_22($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.type
     # .'$schema'.type.'|'.0
-    my $res = json_model_5($val, $path, $rep);
     # .'$schema'.type.'|'.1
-    return $res || json_model_7($val, $path, $rep);
+    return json_model_5($val, $path, $rep) || json_model_7($val, $path, $rep);
 }
 
 # check json_model_3_map_uniqueItems (.'$schema'.uniqueItems)

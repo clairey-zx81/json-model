@@ -28,14 +28,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $schema#Schema (.'$schema#Schema')
 CREATE OR REPLACE FUNCTION json_model_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$schema#Schema'
   -- .'$schema#Schema'.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .'$schema#Schema'.'|'.1
-  RETURN res OR json_model_17(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_17(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -185,11 +182,8 @@ BEGIN
     -- handle other props
     -- .'$schema#ObjectSchema'.dependencies.''
     -- .'$schema#ObjectSchema'.dependencies.''.'|'.0
-    res := json_model_18(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$schema#ObjectSchema'.dependencies.''.'|'.1
-      res := json_model_12(pval, NULL, rep);
-    END IF;
+    -- .'$schema#ObjectSchema'.dependencies.''.'|'.1
+    res := json_model_18(pval, NULL, rep) OR json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -461,14 +455,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_17_map_type (.'$schema#ObjectSchema'.type)
 CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$schema#ObjectSchema'.type
   -- .'$schema#ObjectSchema'.type.'|'.0
-  res := json_model_10(val, path, rep);
   -- .'$schema#ObjectSchema'.type.'|'.1
-  RETURN res OR json_model_11(val, path, rep);
+  RETURN json_model_10(val, path, rep) OR json_model_11(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

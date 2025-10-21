@@ -327,14 +327,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Version (.'$Version')
 CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Version'
   -- .'$Version'.'|'.0
-  res := json_model_9(val, path, rep);
   -- .'$Version'.'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 0;
+  RETURN json_model_9(val, path, rep) OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 0;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -426,11 +423,8 @@ BEGIN
     -- handle other props
     -- .'$Prereq'.''
     -- .'$Prereq'.''.'|'.0
-    res := json_model_10(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Prereq'.''.'|'.1
-      res := json_model_12(pval, NULL, rep);
-    END IF;
+    -- .'$Prereq'.''.'|'.1
+    res := json_model_10(pval, NULL, rep) OR json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -537,35 +531,23 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_mup_license (.license)
 CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .license
   -- .license.'|'.0
-  res := json_model_4(val, path, rep);
-  IF NOT res THEN
-    -- .license.'|'.1
-    res := json_model_5(val, path, rep);
-    IF NOT res THEN
-      -- .license.'|'.2
-      res := _jm_obj_3(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .license.'|'.1
+  -- .license.'|'.2
+  RETURN json_model_4(val, path, rep) OR json_model_5(val, path, rep) OR _jm_obj_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_1_mup_maintainer (.maintainer)
 CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .maintainer
   -- .maintainer.'|'.0
-  res := json_model_2(val, path, rep);
   -- .maintainer.'|'.1
-  RETURN res OR json_model_3(val, path, rep);
+  RETURN json_model_2(val, path, rep) OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

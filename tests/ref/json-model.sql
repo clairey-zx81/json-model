@@ -238,12 +238,9 @@ BEGIN
   IF res THEN
     -- .'$Regex'.'|'.0
     -- "/^/($EXREG)/[a-z]*X[a-z]*$/X"
-    res := _jm_xre_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    IF NOT res THEN
-      -- .'$Regex'.'|'.1
-      -- "/^/($REGEX)/[a-z]*$/X"
-      res := _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    END IF;
+    -- .'$Regex'.'|'.1
+    -- "/^/($REGEX)/[a-z]*$/X"
+    res := _jm_xre_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   END IF;
   RETURN res;
 END;
@@ -270,42 +267,24 @@ $$ LANGUAGE PLpgSQL;
 -- check $CmpValue (.'$CmpValue')
 CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$CmpValue'
   -- .'$CmpValue'.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-  IF NOT res THEN
-    -- .'$CmpValue'.'|'.1
-    res := JSONB_TYPEOF(val) = 'number';
-    IF NOT res THEN
-      -- .'$CmpValue'.'|'.2
-      res := JSONB_TYPEOF(val) = 'string';
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$CmpValue'.'|'.1
+  -- .'$CmpValue'.'|'.2
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'number' OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $EqValue (.'$EqValue')
 CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$EqValue'
   -- .'$EqValue'.'|'.0
-  res := JSONB_TYPEOF(val) = 'null';
-  IF NOT res THEN
-    -- .'$EqValue'.'|'.1
-    res := JSONB_TYPEOF(val) = 'boolean';
-    IF NOT res THEN
-      -- .'$EqValue'.'|'.2
-      res := json_model_12(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$EqValue'.'|'.1
+  -- .'$EqValue'.'|'.2
+  RETURN JSONB_TYPEOF(val) = 'null' OR JSONB_TYPEOF(val) = 'boolean' OR json_model_12(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -330,33 +309,15 @@ $$ LANGUAGE PLpgSQL;
 -- check $StrModel (.'$StrModel')
 CREATE OR REPLACE FUNCTION json_model_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$StrModel'
   -- .'$StrModel'.'|'.0
-  res := json_model_9(val, path, rep);
-  IF NOT res THEN
-    -- .'$StrModel'.'|'.1
-    res := json_model_8(val, path, rep);
-    IF NOT res THEN
-      -- .'$StrModel'.'|'.2
-      res := json_model_10(val, path, rep);
-      IF NOT res THEN
-        -- .'$StrModel'.'|'.3
-        res := json_model_3(val, path, rep);
-        IF NOT res THEN
-          -- .'$StrModel'.'|'.4
-          res := json_model_7(val, path, rep);
-          IF NOT res THEN
-            -- .'$StrModel'.'|'.5
-            res := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '';
-          END IF;
-        END IF;
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$StrModel'.'|'.1
+  -- .'$StrModel'.'|'.2
+  -- .'$StrModel'.'|'.3
+  -- .'$StrModel'.'|'.4
+  -- .'$StrModel'.'|'.5
+  RETURN json_model_9(val, path, rep) OR json_model_8(val, path, rep) OR json_model_10(val, path, rep) OR json_model_3(val, path, rep) OR json_model_7(val, path, rep) OR JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -381,14 +342,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $CModel (.'$CModel')
 CREATE OR REPLACE FUNCTION json_model_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$CModel'
   -- .'$CModel'.'|'.0
-  res := json_model_33(val, path, rep);
   -- .'$CModel'.'|'.1
-  RETURN res OR json_model_5(val, path, rep);
+  RETURN json_model_33(val, path, rep) OR json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -652,34 +610,16 @@ $$ LANGUAGE plpgsql;
 -- check $Prop (.'$Prop')
 CREATE OR REPLACE FUNCTION json_model_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Prop'
   -- .'$Prop'.'|'.0
   -- "/^[?!]/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_9(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  IF NOT res THEN
-    -- .'$Prop'.'|'.1
-    res := json_model_9(val, path, rep);
-    IF NOT res THEN
-      -- .'$Prop'.'|'.2
-      res := json_model_10(val, path, rep);
-      IF NOT res THEN
-        -- .'$Prop'.'|'.3
-        res := json_model_7(val, path, rep);
-        IF NOT res THEN
-          -- .'$Prop'.'|'.4
-          res := json_model_11(val, path, rep);
-          IF NOT res THEN
-            -- .'$Prop'.'|'.5
-            res := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '';
-          END IF;
-        END IF;
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$Prop'.'|'.1
+  -- .'$Prop'.'|'.2
+  -- .'$Prop'.'|'.3
+  -- .'$Prop'.'|'.4
+  -- .'$Prop'.'|'.5
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_9(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR json_model_9(val, path, rep) OR json_model_10(val, path, rep) OR json_model_7(val, path, rep) OR json_model_11(val, path, rep) OR JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -714,33 +654,15 @@ $$ LANGUAGE PLpgSQL;
 -- check $Elem (.'$Elem')
 CREATE OR REPLACE FUNCTION json_model_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Elem'
   -- .'$Elem'.'|'.0
-  res := json_model_21(val, path, rep);
-  IF NOT res THEN
-    -- .'$Elem'.'|'.1
-    res := json_model_22(val, path, rep);
-    IF NOT res THEN
-      -- .'$Elem'.'|'.2
-      res := json_model_23(val, path, rep);
-      IF NOT res THEN
-        -- .'$Elem'.'|'.3
-        res := json_model_24(val, path, rep);
-        IF NOT res THEN
-          -- .'$Elem'.'|'.4
-          res := json_model_25(val, path, rep);
-          IF NOT res THEN
-            -- .'$Elem'.'|'.5
-            res := json_model_27(val, path, rep);
-          END IF;
-        END IF;
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$Elem'.'|'.1
+  -- .'$Elem'.'|'.2
+  -- .'$Elem'.'|'.3
+  -- .'$Elem'.'|'.4
+  -- .'$Elem'.'|'.5
+  RETURN json_model_21(val, path, rep) OR json_model_22(val, path, rep) OR json_model_23(val, path, rep) OR json_model_24(val, path, rep) OR json_model_25(val, path, rep) OR json_model_27(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1066,27 +988,12 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Element'.'|'.0
-    res := _jm_obj_5(val, path, rep);
-    IF NOT res THEN
-      -- .'$Element'.'|'.1
-      res := _jm_obj_4(val, path, rep);
-      IF NOT res THEN
-        -- .'$Element'.'|'.2
-        res := _jm_obj_3(val, path, rep);
-        IF NOT res THEN
-          -- .'$Element'.'|'.3
-          res := _jm_obj_2(val, path, rep);
-          IF NOT res THEN
-            -- .'$Element'.'|'.4
-            res := _jm_obj_1(val, path, rep);
-            IF NOT res THEN
-              -- .'$Element'.'|'.5
-              res := _jm_obj_0(val, path, rep);
-            END IF;
-          END IF;
-        END IF;
-      END IF;
-    END IF;
+    -- .'$Element'.'|'.1
+    -- .'$Element'.'|'.2
+    -- .'$Element'.'|'.3
+    -- .'$Element'.'|'.4
+    -- .'$Element'.'|'.5
+    res := _jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep) OR _jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep) OR _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -1133,11 +1040,8 @@ BEGIN
       -- handle may / property
       -- .'$Trafo'.'/'
       -- .'$Trafo'.'/'.'|'.0
-      res := json_model_13(pval, NULL, rep);
-      IF NOT res THEN
-        -- .'$Trafo'.'/'.'|'.1
-        res := JSONB_TYPEOF(pval) = 'array';
-      END IF;
+      -- .'$Trafo'.'/'.'|'.1
+      res := json_model_13(pval, NULL, rep) OR JSONB_TYPEOF(pval) = 'array';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1206,11 +1110,8 @@ BEGIN
       -- handle may / property
       -- .'$Transformation'.'|'.1.'/'
       -- .'$Transformation'.'|'.1.'/'.'|'.0
-      res := json_model_13(pval, NULL, rep);
-      IF NOT res THEN
-        -- .'$Transformation'.'|'.1.'/'.'|'.1
-        res := JSONB_TYPEOF(pval) = 'array';
-      END IF;
+      -- .'$Transformation'.'|'.1.'/'.'|'.1
+      res := json_model_13(pval, NULL, rep) OR JSONB_TYPEOF(pval) = 'array';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1240,49 +1141,34 @@ $$ LANGUAGE PLpgSQL;
 -- check $Transformation (.'$Transformation')
 CREATE OR REPLACE FUNCTION json_model_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Transformation'
   -- .'$Transformation'.'|'.0
-  res := json_model_33(val, path, rep);
   -- .'$Transformation'.'|'.1
-  RETURN res OR _jm_obj_7(val, path, rep);
+  RETURN json_model_33(val, path, rep) OR _jm_obj_7(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $ScalarModel (.'$ScalarModel')
 CREATE OR REPLACE FUNCTION json_model_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$ScalarModel'
   -- .'$ScalarModel'.'|'.0
-  res := json_model_14(val, path, rep);
   -- .'$ScalarModel'.'|'.1
-  RETURN res OR json_model_15(val, path, rep);
+  RETURN json_model_14(val, path, rep) OR json_model_15(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Model (.'$Model')
 CREATE OR REPLACE FUNCTION json_model_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Model'
   -- .'$Model'.'|'.0
-  res := json_model_32(val, path, rep);
-  IF NOT res THEN
-    -- .'$Model'.'|'.1
-    res := json_model_19(val, path, rep);
-    IF NOT res THEN
-      -- .'$Model'.'|'.2
-      res := json_model_29(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$Model'.'|'.1
+  -- .'$Model'.'|'.2
+  RETURN json_model_32(val, path, rep) OR json_model_19(val, path, rep) OR json_model_29(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2735,27 +2621,12 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Root'.'|'.0
-    res := _jm_obj_26(val, path, rep);
-    IF NOT res THEN
-      -- .'$Root'.'|'.1
-      res := _jm_obj_23(val, path, rep);
-      IF NOT res THEN
-        -- .'$Root'.'|'.2
-        res := _jm_obj_20(val, path, rep);
-        IF NOT res THEN
-          -- .'$Root'.'|'.3
-          res := _jm_obj_17(val, path, rep);
-          IF NOT res THEN
-            -- .'$Root'.'|'.4
-            res := _jm_obj_14(val, path, rep);
-            IF NOT res THEN
-              -- .'$Root'.'|'.5
-              res := _jm_obj_11(val, path, rep);
-            END IF;
-          END IF;
-        END IF;
-      END IF;
-    END IF;
+    -- .'$Root'.'|'.1
+    -- .'$Root'.'|'.2
+    -- .'$Root'.'|'.3
+    -- .'$Root'.'|'.4
+    -- .'$Root'.'|'.5
+    res := _jm_obj_26(val, path, rep) OR _jm_obj_23(val, path, rep) OR _jm_obj_20(val, path, rep) OR _jm_obj_17(val, path, rep) OR _jm_obj_14(val, path, rep) OR _jm_obj_11(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -2764,21 +2635,12 @@ $$ LANGUAGE PLpgSQL;
 -- check $RootModel (.'$RootModel')
 CREATE OR REPLACE FUNCTION json_model_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$RootModel'
   -- .'$RootModel'.'|'.0
-  res := json_model_32(val, path, rep);
-  IF NOT res THEN
-    -- .'$RootModel'.'|'.1
-    res := json_model_19(val, path, rep);
-    IF NOT res THEN
-      -- .'$RootModel'.'|'.2
-      res := json_model_39(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$RootModel'.'|'.1
+  -- .'$RootModel'.'|'.2
+  RETURN json_model_32(val, path, rep) OR json_model_19(val, path, rep) OR json_model_39(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

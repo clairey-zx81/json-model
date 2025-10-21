@@ -85,15 +85,9 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'|'.0
-    res := _jm_obj_2(val, path, rep);
-    IF NOT res THEN
-      -- .'|'.1
-      res := _jm_obj_1(val, path, rep);
-      IF NOT res THEN
-        -- .'|'.2
-        res := _jm_obj_0(val, path, rep);
-      END IF;
-    END IF;
+    -- .'|'.1
+    -- .'|'.2
+    res := _jm_obj_2(val, path, rep) OR _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;

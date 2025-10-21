@@ -22,23 +22,10 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # Heterogeneous enum
     # .
-    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    if (! $res)
-    {
-        # .'|'.0
-        $res = jm_is_integer($val) && $val == 200;
-        if (! $res)
-        {
-            # .'|'.1
-            $res = !defined($val);
-            if (! $res)
-            {
-                # .'|'.2
-                $res = jm_is_numeric($val) && $val == 3.1415927;
-            }
-        }
-    }
-    return $res;
+    # .'|'.0
+    # .'|'.1
+    # .'|'.2
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_integer($val) && $val == 200 || !defined($val) || jm_is_numeric($val) && $val == 3.1415927;
 }
 
 

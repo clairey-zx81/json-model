@@ -114,38 +114,13 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # .'$Any'
     # .'$Any'.'|'.0
-    my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$Any'.'|'.1
-        $res = json_model_3($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Any'.'|'.2
-            $res = json_model_4($val, $path, $rep);
-            if (! $res)
-            {
-                # .'$Any'.'|'.3
-                $res = json_model_5($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$Any'.'|'.4
-                    $res = json_model_6($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'$Any'.'|'.5
-                        $res = json_model_7($val, $path, $rep);
-                        if (! $res)
-                        {
-                            # .'$Any'.'|'.6
-                            $res = json_model_8($val, $path, $rep);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return $res;
+    # .'$Any'.'|'.1
+    # .'$Any'.'|'.2
+    # .'$Any'.'|'.3
+    # .'$Any'.'|'.4
+    # .'$Any'.'|'.5
+    # .'$Any'.'|'.6
+    return !defined($val) || json_model_3($val, $path, $rep) || json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep) || json_model_6($val, $path, $rep) || json_model_7($val, $path, $rep) || json_model_8($val, $path, $rep);
 }
 
 # check $ (.)

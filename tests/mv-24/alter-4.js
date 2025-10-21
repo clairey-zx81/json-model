@@ -104,17 +104,9 @@ function json_model_2(val, path, rep)
             res = false;
         }
     }
-    if (! res)
-    {
-        // .'$alternative'.'|'.2
-        res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-        if (! res)
-        {
-            // .'$alternative'.'|'.3
-            res = (typeof val === 'boolean' || val instanceof Boolean);
-        }
-    }
-    return res;
+    // .'$alternative'.'|'.2
+    // .'$alternative'.'|'.3
+    return res || ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0 || (typeof val === 'boolean' || val instanceof Boolean);
 }
 
 // check $ (.)

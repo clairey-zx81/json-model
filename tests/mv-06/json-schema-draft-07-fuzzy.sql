@@ -28,14 +28,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $schema#Schema (.'$schema#Schema')
 CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$schema#Schema'
   -- .'$schema#Schema'.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .'$schema#Schema'.'|'.1
-  RETURN res OR json_model_8(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_8(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -224,14 +221,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_8_map_items (.'$schema#ObjectSchema'.items)
 CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$schema#ObjectSchema'.items
   -- .'$schema#ObjectSchema'.items.'|'.0
-  res := json_model_9(val, path, rep);
   -- .'$schema#ObjectSchema'.items.'|'.1
-  RETURN res OR json_model_5(val, path, rep);
+  RETURN json_model_9(val, path, rep) OR json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -418,14 +412,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_8_map_type (.'$schema#ObjectSchema'.type)
 CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$schema#ObjectSchema'.type
   -- .'$schema#ObjectSchema'.type.'|'.0
-  res := json_model_6(val, path, rep);
   -- .'$schema#ObjectSchema'.type.'|'.1
-  RETURN res OR json_model_7(val, path, rep);
+  RETURN json_model_6(val, path, rep) OR json_model_7(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

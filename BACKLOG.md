@@ -16,11 +16,13 @@
 - [x] backend: refactoring, cleanup and generalization
 - [x] static: add likely/unlikely hints to clang
 - [x] c-backend: optimize startwith implementation
+- [x] backend: optimize pattern "res = E1; if (! res) res = E2;"
+- [ ] backend: optimize pattern "(E && ...) || (E && ...) || ...;"
+- [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] static: improve likely hints, eg may only category
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
-- [ ] backend: optimize pattern "res = E; if (! res) { simple ; res = ; }"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…

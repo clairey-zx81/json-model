@@ -25,23 +25,10 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$foo'
     # .'$foo'.'|'.0
-    my $res = json_model_4($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$foo'.'|'.1
-        $res = json_model_5($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$foo'.'|'.2
-            $res = json_model_6($val, $path, $rep);
-            if (! $res)
-            {
-                # .'$foo'.'|'.3
-                $res = json_model_7($val, $path, $rep);
-            }
-        }
-    }
-    return $res;
+    # .'$foo'.'|'.1
+    # .'$foo'.'|'.2
+    # .'$foo'.'|'.3
+    return json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep) || json_model_6($val, $path, $rep) || json_model_7($val, $path, $rep);
 }
 
 # check $ (.)

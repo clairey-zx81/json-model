@@ -75,14 +75,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $keybinding (.'$keybinding')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$keybinding'
   -- .'$keybinding'.'|'.0
-  res := JSONB_TYPEOF(val) = 'null';
   -- .'$keybinding'.'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'string';
+  RETURN JSONB_TYPEOF(val) = 'null' OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -274,11 +271,8 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'object';
       IF res THEN
         -- .'$Prompts'.'|'.0.suggestions.'|'.0
-        res := _jm_obj_2(pval, NULL, rep);
-        IF NOT res THEN
-          -- .'$Prompts'.'|'.0.suggestions.'|'.1
-          res := _jm_obj_1(pval, NULL, rep);
-        END IF;
+        -- .'$Prompts'.'|'.0.suggestions.'|'.1
+        res := _jm_obj_2(pval, NULL, rep) OR _jm_obj_1(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;

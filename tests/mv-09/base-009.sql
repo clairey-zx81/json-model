@@ -8,14 +8,11 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
   -- .'|'.0
-  res := JSONB_TYPEOF(val) = 'string';
   -- .'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'null';
+  RETURN JSONB_TYPEOF(val) = 'string' OR JSONB_TYPEOF(val) = 'null';
 END;
 $$ LANGUAGE PLpgSQL;
 

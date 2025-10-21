@@ -21,7 +21,7 @@ const size_t check_model_map_size = 3;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$u1'
-    bool res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x2f2f3a7370747468LL) && jm_str_eq_8(json_string_value(val) + 8, 0x646f6d2d6e6f736aLL) && jm_str_eq_8(json_string_value(val) + 16, 0x6d2f67726f2e6c65LL) && jm_str_eq_8(json_string_value(val) + 24, 0x736a2f736c65646fLL) && jm_str_eq_8(json_string_value(val) + 32, 0x6c65646f6d2d6e6fLL) && jm_str_eq_0(json_string_value(val) + 40);
+    bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "https://json-model.org/models/json-model");
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected https://json-model.org/models/json-model [.'$u1']", path);
@@ -33,7 +33,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$u2'
-    bool res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x2e2f2f3a656c6966LL) && jm_str_eq_8(json_string_value(val) + 8, 0x6f6f6c5f6c72752fLL) && jm_str_eq_8(json_string_value(val) + 16, 0x646f6d2e676e696bLL) && jm_str_eq_8(json_string_value(val) + 24, 0x006e6f736a2e6c65LL);
+    bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "file://./url_looking.model.json");
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected file://./url_looking.model.json [.'$u2']", path);

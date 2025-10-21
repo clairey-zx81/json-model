@@ -139,9 +139,8 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'|'.0
-    let res = json_model_4(val, path, rep);
     // .'|'.1
-    return res || json_model_5(val, path, rep);
+    return json_model_4(val, path, rep) || json_model_5(val, path, rep);
 }
 
 

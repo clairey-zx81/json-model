@@ -22,33 +22,12 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # mixed type constants
     # .
-    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    if (! $res)
-    {
-        # .'|'.0
-        $res = !defined($val);
-        if (! $res)
-        {
-            # .'|'.1
-            $res = jm_is_boolean($val) && $val == 0;
-            if (! $res)
-            {
-                # .'|'.2
-                $res = jm_is_integer($val) && $val == 42;
-                if (! $res)
-                {
-                    # .'|'.3
-                    $res = jm_is_numeric($val) && $val == 3.14159;
-                    if (! $res)
-                    {
-                        # .'|'.4
-                        $res = jm_is_numeric($val) && $val == 1e+101;
-                    }
-                }
-            }
-        }
-    }
-    return $res;
+    # .'|'.0
+    # .'|'.1
+    # .'|'.2
+    # .'|'.3
+    # .'|'.4
+    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val} || !defined($val) || jm_is_boolean($val) && $val == 0 || jm_is_integer($val) && $val == 42 || jm_is_numeric($val) && $val == 3.14159 || jm_is_numeric($val) && $val == 1e+101;
 }
 
 

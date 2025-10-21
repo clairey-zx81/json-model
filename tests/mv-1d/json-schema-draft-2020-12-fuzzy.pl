@@ -580,9 +580,8 @@ sub _jm_f_20($$$)
     my ($val, $path, $rep) = @_;
     # .'$validation'.type
     # .'$validation'.type.'|'.0
-    my $res = json_model_9($val, $path, $rep);
     # .'$validation'.type.'|'.1
-    return $res || json_model_10($val, $path, $rep);
+    return json_model_9($val, $path, $rep) || json_model_10($val, $path, $rep);
 }
 
 # check json_model_13_map_uniqueItems (.'$validation'.uniqueItems)
@@ -912,12 +911,8 @@ sub _jm_f_36($$$)
         # handle other props
         # .'$ObjectSchema'.dependencies.''
         # .'$ObjectSchema'.dependencies.''.'|'.0
-        $res = json_model_17($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$ObjectSchema'.dependencies.''.'|'.1
-            $res = json_model_11($pval, undef, $rep);
-        }
+        # .'$ObjectSchema'.dependencies.''.'|'.1
+        $res = json_model_17($pval, undef, $rep) || json_model_11($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -1132,9 +1127,8 @@ sub _jm_f_54($$$)
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
-    my $res = json_model_9($val, $path, $rep);
     # .'$ObjectSchema'.type.'|'.1
-    return $res || json_model_10($val, $path, $rep);
+    return json_model_9($val, $path, $rep) || json_model_10($val, $path, $rep);
 }
 
 # check json_model_16_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
@@ -1190,9 +1184,8 @@ sub json_model_17($$$)
     my ($val, $path, $rep) = @_;
     # .'$Schema'
     # .'$Schema'.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$Schema'.'|'.1
-    return $res || json_model_16($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_16($val, $path, $rep);
 }
 
 # object .'$deprecated'.definitions
@@ -1233,12 +1226,8 @@ sub _jm_obj_1($$$)
         # handle other props
         # .'$deprecated'.dependencies.''
         # .'$deprecated'.dependencies.''.'|'.0
-        $res = json_model_17($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$deprecated'.dependencies.''.'|'.1
-            $res = json_model_11($pval, undef, $rep);
-        }
+        # .'$deprecated'.dependencies.''.'|'.1
+        $res = json_model_17($pval, undef, $rep) || json_model_11($pval, undef, $rep);
         if (! $res)
         {
             return 0;

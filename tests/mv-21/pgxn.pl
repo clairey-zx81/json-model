@@ -386,9 +386,8 @@ sub json_model_10($$$)
     my ($val, $path, $rep) = @_;
     # .'$Version'
     # .'$Version'.'|'.0
-    my $res = json_model_9($val, $path, $rep);
     # .'$Version'.'|'.1
-    return $res || jm_is_integer($val) && $val == 0;
+    return json_model_9($val, $path, $rep) || jm_is_integer($val) && $val == 0;
 }
 
 sub _jm_re_3($$$)
@@ -457,12 +456,8 @@ sub json_model_15($$$)
         # handle other props
         # .'$Prereq'.''
         # .'$Prereq'.''.'|'.0
-        $res = json_model_10($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Prereq'.''.'|'.1
-            $res = json_model_12($pval, undef, $rep);
-        }
+        # .'$Prereq'.''.'|'.1
+        $res = json_model_10($pval, undef, $rep) || json_model_12($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -581,18 +576,9 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     # .license
     # .license.'|'.0
-    my $res = json_model_4($val, $path, $rep);
-    if (! $res)
-    {
-        # .license.'|'.1
-        $res = json_model_5($val, $path, $rep);
-        if (! $res)
-        {
-            # .license.'|'.2
-            $res = _jm_obj_3($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .license.'|'.1
+    # .license.'|'.2
+    return json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep) || _jm_obj_3($val, $path, $rep);
 }
 
 # check json_model_1_mup_maintainer (.maintainer)
@@ -601,9 +587,8 @@ sub _jm_f_2($$$)
     my ($val, $path, $rep) = @_;
     # .maintainer
     # .maintainer.'|'.0
-    my $res = json_model_2($val, $path, $rep);
     # .maintainer.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return json_model_2($val, $path, $rep) || json_model_3($val, $path, $rep);
 }
 
 # check json_model_1_mup_meta-spec (.'meta-spec')

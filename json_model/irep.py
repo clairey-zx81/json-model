@@ -4,6 +4,7 @@
 from typing import Callable
 import functools
 import json
+import copy
 
 from .utils import log
 from .language import Language, Block, Var, PropMap, ConstList, Code
@@ -219,9 +220,6 @@ def _isBoolAssign(seq: list[Jsonable], reporting: bool = True) -> Jsonable|None:
             return None
     return assign
 
-def _isFalse(val: Jsonable) -> bool:
-    return isinstance(val, bool) and not val or _isOp(val, "cst") and val["c"] == False
-
 def _isBool(val: Jsonable) -> bool|None:
     if isinstance(val, bool):
         return val
@@ -229,6 +227,9 @@ def _isBool(val: Jsonable) -> bool|None:
         return val["c"]
     else:
         return None
+
+def _isFalse(val: Jsonable) -> bool:
+    return _isBool(val) is False
 
 # NOTE despite the generality, the only occuring pattern is: "C ? E : F"
 def _simpleBoolAssign(op: Jsonable, reporting: bool = True) -> bool:
@@ -466,23 +467,6 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             # reset previous if return
             ifop = None
 
-    # remove intermediate variable on return
-    # res = X; return res;  -> return X;
-    # TODO improve if not reporting and reporting-only stuff
-    prev: Jsonable|None = None
-    for op in seq:
-        if _noOp(op, reporting):
-            pass
-        elif _isOp(op, "bv") and op["val"] is not None:
-            prev = op
-        elif prev is not None and _isOp(op, "ret") and op["res"] == prev["var"]:
-            op["res"] = prev["val"]
-            prev.clear()
-            prev.update({"o": "ign", "#": "IRO assignment moved to return"})
-            prev = None
-        else:
-            prev = None
-
     # remove unused boolean declaration in a trivial case: bool v; ret X; -> ret X
     decl: Jsonable|None = None
     for op in seq:
@@ -515,7 +499,36 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
         else:  # safe
             decl = None
 
-    # simplify if (not V) V = E; ret V
+    # simplify "V = E1; if (!V) V = E2;" to "V = E1 || E2;"
+    assign: Jsonable|None = None
+    for op in seq:
+        if _noOp(op, reporting):
+            pass
+        elif _isOp(op, "bv"):
+            assign = op
+        elif (assign and _isOp(op, "if") and _isOp(op["cond"], "not") and
+              op["cond"]["e"] == assign["var"] and _noOps(op["false"], reporting)):
+            if (assign2 := _isBoolAssign(op["true"], reporting)) and assign2["var"] == assign["var"]:
+                # ok, save comments and move expression forward
+                newass = copy.copy(assign)
+                newass["val"] = {
+                    "o": "|",
+                    "exprs": [assign["val"], assign2["val"]],
+                    "#": "IRO merge or"
+                }
+                assign2.clear()
+                assign2.update(o="ign")
+                assign.clear()
+                assign.update({"o": "seq", "seq": op["true"]})
+                op.clear()
+                op.update(newass)
+                assign = op  # done
+            else:
+                assign = None
+        else:  # safe
+            assign = None
+
+    # simplify "if (not V) V = E; ret V;" to "ret V || E;"
     if_not: Jsonable|None = None
     assign: Jsonable|None
     for op in seq:
@@ -546,6 +559,21 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             if_not, assign = None, None
         else:
             if_not = None
+
+    # simplify "V = E; ret V;" to "ret E;"
+    prev: Jsonable|None = None
+    for op in seq:
+        if _noOp(op, reporting):
+            pass
+        elif _isOp(op, "bv") and op["val"] is not None:
+            prev = op
+        elif prev is not None and _isOp(op, "ret") and op["res"] == prev["var"]:
+            op["res"] = prev["val"]
+            prev.clear()
+            prev.update({"o": "ign", "#": "IRO assignment moved to return"})
+            prev = None
+        else:
+            prev = None
 
     # TODO and(..., T, ...) -> and(..., ...)
     # TODO or(..., F, ...) -> or(..., ...)

@@ -61,11 +61,8 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Aa'.'|'.0
-    res := _jm_obj_1(val, path, rep);
-    IF NOT res THEN
-      -- .'$Aa'.'|'.1
-      res := _jm_obj_0(val, path, rep);
-    END IF;
+    -- .'$Aa'.'|'.1
+    res := _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -97,14 +94,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Bb (.'$Bb')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Bb'
   -- .'$Bb'.'|'.0
-  res := _jm_obj_2(val, path, rep);
   -- .'$Bb'.'|'.1
-  RETURN res OR json_model_2(val, path, rep);
+  RETURN _jm_obj_2(val, path, rep) OR json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

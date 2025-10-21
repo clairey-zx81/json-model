@@ -28,10 +28,9 @@ sub json_model_1($$$)
     # xor to or simplification, float vs string
     # .
     # .'|'.0
-    my $res = jm_is_numeric($val) && $val >= 0.0;
     # .'|'.1
     # "/^[a-z]+$/i"
-    return $res || jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_numeric($val) && $val >= 0.0 || jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 

@@ -142,9 +142,8 @@ public class a2m_1 extends ModelChecker
     {
         // .
         // .'|'.0
-        boolean res = json_model_4(val, path, rep);
         // .'|'.1
-        return res || json_model_5(val, path, rep);
+        return json_model_4(val, path, rep) || json_model_5(val, path, rep);
     }
 
 

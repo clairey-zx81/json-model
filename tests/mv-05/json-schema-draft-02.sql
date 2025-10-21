@@ -63,14 +63,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_map_additionalProperties (.additionalProperties)
 CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .additionalProperties
   -- .additionalProperties.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .additionalProperties.'|'.1
-  RETURN res OR json_model_1(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -104,14 +101,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_map_disallow (.disallow)
 CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .disallow
   -- .disallow.'|'.0
-  res := JSONB_TYPEOF(val) = 'string';
   -- .disallow.'|'.1
-  RETURN res OR json_model_3(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -335,14 +329,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_map_requires (.requires)
 CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .requires
   -- .requires.'|'.0
-  res := JSONB_TYPEOF(val) = 'string';
   -- .requires.'|'.1
-  RETURN res OR json_model_1(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -374,11 +365,8 @@ BEGIN
         arr_3_item := val -> arr_3_idx;
         -- .type.'|'.1.0
         -- .type.'|'.1.0.'|'.0
-        res := JSONB_TYPEOF(arr_3_item) = 'string';
-        IF NOT res THEN
-          -- .type.'|'.1.0.'|'.1
-          res := json_model_1(arr_3_item, NULL, rep);
-        END IF;
+        -- .type.'|'.1.0.'|'.1
+        res := JSONB_TYPEOF(arr_3_item) = 'string' OR json_model_1(arr_3_item, NULL, rep);
         IF NOT res THEN
           EXIT;
         END IF;

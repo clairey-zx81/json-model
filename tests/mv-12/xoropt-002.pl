@@ -99,17 +99,9 @@ sub json_model_1($$$)
     if ($res)
     {
         # .'|'.0
-        $res = _jm_obj_2($val, $path, $rep);
-        if (! $res)
-        {
-            # .'|'.1
-            $res = _jm_obj_1($val, $path, $rep);
-            if (! $res)
-            {
-                # .'|'.2
-                $res = _jm_obj_0($val, $path, $rep);
-            }
-        }
+        # .'|'.1
+        # .'|'.2
+        $res = _jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }

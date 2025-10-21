@@ -202,9 +202,8 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$keybinding'
     # .'$keybinding'.'|'.0
-    my $res = !defined($val);
     # .'$keybinding'.'|'.1
-    return $res || jm_is_string($val);
+    return !defined($val) || jm_is_string($val);
 }
 
 
@@ -387,12 +386,8 @@ sub _jm_obj_0($$$)
             if ($res)
             {
                 # .'$Prompts'.'|'.0.suggestions.'|'.0
-                $res = _jm_obj_2($pval, undef, $rep);
-                if (! $res)
-                {
-                    # .'$Prompts'.'|'.0.suggestions.'|'.1
-                    $res = _jm_obj_1($pval, undef, $rep);
-                }
+                # .'$Prompts'.'|'.0.suggestions.'|'.1
+                $res = _jm_obj_2($pval, undef, $rep) || _jm_obj_1($pval, undef, $rep);
             }
             if (! $res)
             {

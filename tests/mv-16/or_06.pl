@@ -30,13 +30,9 @@ sub json_model_1($$$)
     if ($res)
     {
         # .'|'.0
-        $res = $val eq 'Susie';
-        if (! $res)
-        {
-            # .'|'.1
-            # "/^[a-z]+$/"
-            $res = _jm_re_0($val, $path, $rep);
-        }
+        # .'|'.1
+        # "/^[a-z]+$/"
+        $res = $val eq 'Susie' || _jm_re_0($val, $path, $rep);
     }
     return $res;
 }

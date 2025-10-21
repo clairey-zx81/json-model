@@ -23,12 +23,9 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'string';
   IF res THEN
     -- .'|'.0
-    res := JSON_VALUE(val, '$' RETURNING TEXT) = 'Susie';
-    IF NOT res THEN
-      -- .'|'.1
-      -- "/^[a-z]+$/"
-      res := _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    END IF;
+    -- .'|'.1
+    -- "/^[a-z]+$/"
+    res := JSON_VALUE(val, '$' RETURNING TEXT) = 'Susie' OR _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   END IF;
   RETURN res;
 END;

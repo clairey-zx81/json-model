@@ -2428,21 +2428,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("tag prop <type> is missing [.'$ObjectSchema'.'|']", path))
     else:
         rep is None or rep.append(("value is not an object [.'$ObjectSchema'.'|']", path))
-    if not res:
-        res = json_model_9(val, path, rep)
-        if not res:
-            res = json_model_21(val, path, rep)
-            if not res:
-                res = json_model_20(val, path, rep)
-                if not res:
-                    res = json_model_17(val, path, rep)
-                    if not res:
-                        res = json_model_18(val, path, rep)
-                        if not res:
-                            res = json_model_19(val, path, rep)
-                            if not res:
-                                res = json_model_22(val, path, rep)
-    return res
+    return res or json_model_9(val, path, rep) or json_model_21(val, path, rep) or json_model_20(val, path, rep) or json_model_17(val, path, rep) or json_model_18(val, path, rep) or json_model_19(val, path, rep) or json_model_22(val, path, rep)
 
 # check $Schema (.'$Schema')
 def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:

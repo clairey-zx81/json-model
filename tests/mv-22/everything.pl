@@ -444,12 +444,8 @@ sub _jm_f_8($$$)
     if ($res)
     {
         # .bool.b5.'|'.0
-        $res = $val == 0;
-        if (! $res)
-        {
-            # .bool.b5.'|'.1
-            $res = $val == 1;
-        }
+        # .bool.b5.'|'.1
+        $res = $val == 0 || $val == 1;
     }
     return $res;
 }
@@ -956,12 +952,8 @@ sub _jm_f_35($$$)
             if ($res)
             {
                 # .enum.e0.'|'.0
-                $res = $pval == 1;
-                if (! $res)
-                {
-                    # .enum.e0.'|'.1
-                    $res = $pval == 0;
-                }
+                # .enum.e0.'|'.1
+                $res = $pval == 1 || $pval == 0;
             }
             if (! $res)
             {
@@ -976,17 +968,9 @@ sub _jm_f_35($$$)
             if ($res)
             {
                 # .enum.e1.'|'.0
-                $res = jm_is_integer($pval) && $pval == 200;
-                if (! $res)
-                {
-                    # .enum.e1.'|'.1
-                    $res = jm_is_integer($pval) && $pval == 201;
-                    if (! $res)
-                    {
-                        # .enum.e1.'|'.2
-                        $res = jm_is_integer($pval) && $pval == 204;
-                    }
-                }
+                # .enum.e1.'|'.1
+                # .enum.e1.'|'.2
+                $res = jm_is_integer($pval) && $pval == 200 || jm_is_integer($pval) && $pval == 201 || jm_is_integer($pval) && $pval == 204;
             }
             if (! $res)
             {
@@ -1007,22 +991,10 @@ sub _jm_f_35($$$)
         {
             # handle may e3 property
             # .enum.e3
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
-            if (! $res)
-            {
-                # .enum.e3.'|'.0
-                $res = jm_is_integer($pval) && $pval == 42;
-                if (! $res)
-                {
-                    # .enum.e3.'|'.1
-                    $res = jm_is_boolean($pval) && $pval == 1;
-                    if (! $res)
-                    {
-                        # .enum.e3.'|'.2
-                        $res = !defined($pval);
-                    }
-                }
-            }
+            # .enum.e3.'|'.0
+            # .enum.e3.'|'.1
+            # .enum.e3.'|'.2
+            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval} || jm_is_integer($pval) && $pval == 42 || jm_is_boolean($pval) && $pval == 1 || !defined($pval);
             if (! $res)
             {
                 return 0;
@@ -1669,12 +1641,8 @@ sub _jm_f_58($$$)
             if ($res)
             {
                 # .merge.m1.'|'.0
-                $res = _jm_obj_5($pval, undef, $rep);
-                if (! $res)
-                {
-                    # .merge.m1.'|'.1
-                    $res = _jm_obj_4($pval, undef, $rep);
-                }
+                # .merge.m1.'|'.1
+                $res = _jm_obj_5($pval, undef, $rep) || _jm_obj_4($pval, undef, $rep);
             }
             if (! $res)
             {
@@ -1689,12 +1657,8 @@ sub _jm_f_58($$$)
             if ($res)
             {
                 # .merge.m2.'|'.0
-                $res = _jm_obj_7($pval, undef, $rep);
-                if (! $res)
-                {
-                    # .merge.m2.'|'.1
-                    $res = _jm_obj_6($pval, undef, $rep);
-                }
+                # .merge.m2.'|'.1
+                $res = _jm_obj_7($pval, undef, $rep) || _jm_obj_6($pval, undef, $rep);
             }
             if (! $res)
             {
@@ -1709,22 +1673,10 @@ sub _jm_f_58($$$)
             if ($res)
             {
                 # .merge.m3.'|'.0
-                $res = _jm_obj_11($pval, undef, $rep);
-                if (! $res)
-                {
-                    # .merge.m3.'|'.1
-                    $res = _jm_obj_10($pval, undef, $rep);
-                    if (! $res)
-                    {
-                        # .merge.m3.'|'.2
-                        $res = _jm_obj_9($pval, undef, $rep);
-                        if (! $res)
-                        {
-                            # .merge.m3.'|'.3
-                            $res = _jm_obj_8($pval, undef, $rep);
-                        }
-                    }
-                }
+                # .merge.m3.'|'.1
+                # .merge.m3.'|'.2
+                # .merge.m3.'|'.3
+                $res = _jm_obj_11($pval, undef, $rep) || _jm_obj_10($pval, undef, $rep) || _jm_obj_9($pval, undef, $rep) || _jm_obj_8($pval, undef, $rep);
             }
             if (! $res)
             {
@@ -2040,12 +1992,8 @@ sub _jm_f_68($$$)
             # handle may o0 property
             # .or.o0
             # .or.o0.'|'.0
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                # .or.o0.'|'.1
-                $res = jm_is_integer($pval);
-            }
+            # .or.o0.'|'.1
+            $res = jm_is_boolean($pval) || jm_is_integer($pval);
             if (! $res)
             {
                 return 0;
@@ -2056,12 +2004,8 @@ sub _jm_f_68($$$)
             # handle may o1 property
             # .or.o1
             # .or.o1.'|'.0
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
-            if (! $res)
-            {
-                # .or.o1.'|'.1
-                $res = jm_is_string($pval) && jm_is_valid_time($pval, undef, $rep);
-            }
+            # .or.o1.'|'.1
+            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep) || jm_is_string($pval) && jm_is_valid_time($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2072,22 +2016,10 @@ sub _jm_f_68($$$)
             # handle may o2 property
             # .or.o2
             # .or.o2.'|'.0
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                # .or.o2.'|'.1
-                $res = jm_is_string($pval) && jm_is_valid_uuid($pval, undef, $rep);
-                if (! $res)
-                {
-                    # .or.o2.'|'.2
-                    $res = jm_is_array($pval);
-                    if (! $res)
-                    {
-                        # .or.o2.'|'.3
-                        $res = _jm_obj_13($pval, undef, $rep);
-                    }
-                }
-            }
+            # .or.o2.'|'.1
+            # .or.o2.'|'.2
+            # .or.o2.'|'.3
+            $res = jm_is_integer($pval) && $pval >= 0 || jm_is_string($pval) && jm_is_valid_uuid($pval, undef, $rep) || jm_is_array($pval) || _jm_obj_13($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2582,12 +2514,8 @@ sub _jm_f_98($$$)
             # handle may x0 property
             # .xor.x0
             # .xor.x0.'|'.0
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                # .xor.x0.'|'.1
-                $res = jm_is_integer($pval);
-            }
+            # .xor.x0.'|'.1
+            $res = jm_is_boolean($pval) || jm_is_integer($pval);
             if (! $res)
             {
                 return 0;

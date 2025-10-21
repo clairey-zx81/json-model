@@ -4021,33 +4021,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (rep) jm_report_add_entry(rep, "value is not an object [.'$ObjectSchema'.'|']", path);
     }
-    if (! res)
-    {
-        res = json_model_9(val, path, rep);
-        if (! res)
-        {
-            res = json_model_21(val, path, rep);
-            if (! res)
-            {
-                res = json_model_20(val, path, rep);
-                if (! res)
-                {
-                    res = json_model_17(val, path, rep);
-                    if (! res)
-                    {
-                        res = json_model_18(val, path, rep);
-                        if (! res)
-                        {
-                            res = json_model_19(val, path, rep);
-                            if (! res)
-                                res = json_model_22(val, path, rep);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return res;
+    return res || json_model_9(val, path, rep) || json_model_21(val, path, rep) || json_model_20(val, path, rep) || json_model_17(val, path, rep) || json_model_18(val, path, rep) || json_model_19(val, path, rep) || json_model_22(val, path, rep);
 }
 
 // check $Schema (.'$Schema')

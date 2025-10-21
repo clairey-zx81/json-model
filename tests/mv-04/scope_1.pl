@@ -59,9 +59,8 @@ sub json_model_1($$$)
     # a string with a lower case later or a digit
     # .
     # .'|'.0
-    my $res = json_model_3($val, $path, $rep);
     # .'|'.1
-    return $res || json_model_5($val, $path, $rep);
+    return json_model_3($val, $path, $rep) || json_model_5($val, $path, $rep);
 }
 
 sub _jm_re_1($$$)

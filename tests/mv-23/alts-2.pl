@@ -41,12 +41,8 @@ sub json_model_2($$$)
         # handle other props
         # .'$a'.''
         # .'$a'.''.'|'.0
-        $res = json_model_3($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$a'.''.'|'.1
-            $res = _jm_obj_0($pval, undef, $rep);
-        }
+        # .'$a'.''.'|'.1
+        $res = json_model_3($pval, undef, $rep) || _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -68,9 +64,8 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$r'
     # .'$r'.'|'.0
-    my $res = json_model_2($val, $path, $rep);
     # .'$r'.'|'.1
-    return $res || _jm_obj_1($val, $path, $rep);
+    return json_model_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep);
 }
 
 # check $ (.)

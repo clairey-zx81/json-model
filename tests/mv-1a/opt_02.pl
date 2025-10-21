@@ -21,23 +21,10 @@ sub json_model_1($$$)
     # flatten and xor to or test
     # .
     # .'|'.0
-    my $res = jm_is_integer($val) && $val >= 0;
-    if (! $res)
-    {
-        # .'|'.1
-        $res = jm_is_numeric($val) && $val >= 0.0;
-        if (! $res)
-        {
-            # .'|'.2
-            $res = !defined($val);
-            if (! $res)
-            {
-                # .'|'.3
-                $res = jm_is_boolean($val);
-            }
-        }
-    }
-    return $res;
+    # .'|'.1
+    # .'|'.2
+    # .'|'.3
+    return jm_is_integer($val) && $val >= 0 || jm_is_numeric($val) && $val >= 0.0 || !defined($val) || jm_is_boolean($val);
 }
 
 

@@ -171,7 +171,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$core'.'$schema'
-    bool res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x2f2f3a7370747468LL) && jm_str_eq_8(json_string_value(val) + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(json_string_value(val) + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(json_string_value(val) + 24, 0x30322f7466617264LL) && jm_str_eq_8(json_string_value(val) + 32, 0x63732f39302d3931LL) && jm_str_eq_5(json_string_value(val) + 40, 0x00000000616d6568LL);
+    bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "https://json-schema.org/draft/2019-09/schema");
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected _https://json-schema.org/draft/2019-09/schema [.'$core'.'$schema']", path);
@@ -1013,7 +1013,7 @@ static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ObjectSchema'.'$schema'
-    bool res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x2f2f3a7370747468LL) && jm_str_eq_8(json_string_value(val) + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(json_string_value(val) + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(json_string_value(val) + 24, 0x30322f7466617264LL) && jm_str_eq_8(json_string_value(val) + 32, 0x63732f39302d3931LL) && jm_str_eq_5(json_string_value(val) + 40, 0x00000000616d6568LL);
+    bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "https://json-schema.org/draft/2019-09/schema");
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected _https://json-schema.org/draft/2019-09/schema [.'$ObjectSchema'.'$schema']", path);

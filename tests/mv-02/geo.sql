@@ -1013,15 +1013,9 @@ BEGIN
   pval := val -> 'geometry';
   -- .'$Feature'.geometry
   -- .'$Feature'.geometry.'|'.0
-  res := JSONB_TYPEOF(pval) = 'null';
-  IF NOT res THEN
-    -- .'$Feature'.geometry.'|'.1
-    res := json_model_11(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Feature'.geometry.'|'.2
-      res := json_model_12(pval, NULL, rep);
-    END IF;
-  END IF;
+  -- .'$Feature'.geometry.'|'.1
+  -- .'$Feature'.geometry.'|'.2
+  res := JSONB_TYPEOF(pval) = 'null' OR json_model_11(pval, NULL, rep) OR json_model_12(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -1031,11 +1025,8 @@ BEGIN
   pval := val -> 'properties';
   -- .'$Feature'.properties
   -- .'$Feature'.properties.'|'.0
-  res := JSONB_TYPEOF(pval) = 'null';
-  IF NOT res THEN
-    -- .'$Feature'.properties.'|'.1
-    res := _jm_obj_6(pval, NULL, rep);
-  END IF;
+  -- .'$Feature'.properties.'|'.1
+  res := JSONB_TYPEOF(pval) = 'null' OR _jm_obj_6(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -1043,11 +1034,8 @@ BEGIN
     pval := val -> 'id';
     -- .'$Feature'.id
     -- .'$Feature'.id.'|'.0
-    res := JSONB_TYPEOF(pval) = 'string';
-    IF NOT res THEN
-      -- .'$Feature'.id.'|'.1
-      res := JSONB_TYPEOF(pval) = 'number';
-    END IF;
+    -- .'$Feature'.id.'|'.1
+    res := JSONB_TYPEOF(pval) = 'string' OR JSONB_TYPEOF(pval) = 'number';
     IF NOT res THEN
       RETURN FALSE;
     END IF;

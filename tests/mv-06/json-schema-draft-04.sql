@@ -134,28 +134,22 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_map_additionalItems (.additionalItems)
 CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .additionalItems
   -- .additionalItems.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .additionalItems.'|'.1
-  RETURN res OR json_model_1(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_1_map_additionalProperties (.additionalProperties)
 CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .additionalProperties
   -- .additionalProperties.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .additionalProperties.'|'.1
-  RETURN res OR json_model_1(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -208,11 +202,8 @@ BEGIN
     -- handle other props
     -- .dependencies.''
     -- .dependencies.''.'|'.0
-    res := json_model_1(pval, NULL, rep);
-    IF NOT res THEN
-      -- .dependencies.''.'|'.1
-      res := json_model_4(pval, NULL, rep);
-    END IF;
+    -- .dependencies.''.'|'.1
+    res := json_model_1(pval, NULL, rep) OR json_model_4(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -287,14 +278,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_map_items (.items)
 CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .items
   -- .items.'|'.0
-  res := json_model_1(val, path, rep);
   -- .items.'|'.1
-  RETURN res OR json_model_2(val, path, rep);
+  RETURN json_model_1(val, path, rep) OR json_model_2(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -448,14 +436,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_map_type (.type)
 CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .type
   -- .type.'|'.0
-  res := json_model_3(val, path, rep);
   -- .type.'|'.1
-  RETURN res OR json_model_5(val, path, rep);
+  RETURN json_model_3(val, path, rep) OR json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

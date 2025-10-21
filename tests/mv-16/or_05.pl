@@ -45,19 +45,11 @@ sub json_model_1($$$)
     {
         # .'|'.0
         # "/[0-9]/"
-        $res = _jm_re_2($val, $path, $rep);
-        if (! $res)
-        {
-            # .'|'.1
-            # "/[a-z]/"
-            $res = _jm_re_1($val, $path, $rep);
-            if (! $res)
-            {
-                # .'|'.2
-                # "/[A-Z]/"
-                $res = _jm_re_0($val, $path, $rep);
-            }
-        }
+        # .'|'.1
+        # "/[a-z]/"
+        # .'|'.2
+        # "/[A-Z]/"
+        $res = _jm_re_2($val, $path, $rep) || _jm_re_1($val, $path, $rep) || _jm_re_0($val, $path, $rep);
     }
     return $res;
 }

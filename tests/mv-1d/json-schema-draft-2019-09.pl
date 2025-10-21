@@ -551,9 +551,8 @@ sub _jm_f_21($$$)
     my ($val, $path, $rep) = @_;
     # .'$validation'.type
     # .'$validation'.type.'|'.0
-    my $res = json_model_8($val, $path, $rep);
     # .'$validation'.type.'|'.1
-    return $res || json_model_9($val, $path, $rep);
+    return json_model_8($val, $path, $rep) || json_model_9($val, $path, $rep);
 }
 
 # check json_model_12_map_uniqueItems (.'$validation'.uniqueItems)
@@ -652,9 +651,8 @@ sub _jm_f_24($$$)
     my ($val, $path, $rep) = @_;
     # .'$applicator'.items
     # .'$applicator'.items.'|'.0
-    my $res = json_model_16($val, $path, $rep);
     # .'$applicator'.items.'|'.1
-    return $res || json_model_13($val, $path, $rep);
+    return json_model_16($val, $path, $rep) || json_model_13($val, $path, $rep);
 }
 
 # check json_model_14_map_patternProperties (.'$applicator'.patternProperties)
@@ -963,9 +961,8 @@ sub _jm_f_45($$$)
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.items
     # .'$ObjectSchema'.items.'|'.0
-    my $res = json_model_16($val, $path, $rep);
     # .'$ObjectSchema'.items.'|'.1
-    return $res || json_model_13($val, $path, $rep);
+    return json_model_16($val, $path, $rep) || json_model_13($val, $path, $rep);
 }
 
 # check json_model_15_map_maximum (.'$ObjectSchema'.maximum)
@@ -1077,9 +1074,8 @@ sub _jm_f_54($$$)
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
-    my $res = json_model_8($val, $path, $rep);
     # .'$ObjectSchema'.type.'|'.1
-    return $res || json_model_9($val, $path, $rep);
+    return json_model_8($val, $path, $rep) || json_model_9($val, $path, $rep);
 }
 
 # check json_model_15_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
@@ -1134,9 +1130,8 @@ sub json_model_16($$$)
     my ($val, $path, $rep) = @_;
     # .'$Schema'
     # .'$Schema'.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$Schema'.'|'.1
-    return $res || json_model_15($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_15($val, $path, $rep);
 }
 
 # check $ (.)

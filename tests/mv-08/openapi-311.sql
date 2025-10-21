@@ -404,11 +404,8 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$License'.'|'.0
-    res := _jm_obj_1(val, path, rep);
-    IF NOT res THEN
-      -- .'$License'.'|'.1
-      res := _jm_obj_0(val, path, rep);
-    END IF;
+    -- .'$License'.'|'.1
+    res := _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -563,11 +560,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.callbacks.''
     -- .'$Components'.callbacks.''.'|'.0
-    res := json_model_24(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.callbacks.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.callbacks.''.'|'.1
+    res := json_model_24(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -592,11 +586,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.examples.''
     -- .'$Components'.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.examples.''.'|'.1
+    res := json_model_25(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -621,11 +612,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.headers.''
     -- .'$Components'.headers.''.'|'.0
-    res := json_model_28(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.headers.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.headers.''.'|'.1
+    res := json_model_28(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -650,11 +638,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.links.''
     -- .'$Components'.links.''.'|'.0
-    res := json_model_27(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.links.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.links.''.'|'.1
+    res := json_model_27(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -679,11 +664,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.parameters.''
     -- .'$Components'.parameters.''.'|'.0
-    res := json_model_18(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.parameters.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.parameters.''.'|'.1
+    res := json_model_18(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -708,11 +690,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.pathItems.''
     -- .'$Components'.pathItems.''.'|'.0
-    res := json_model_10(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.pathItems.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.pathItems.''.'|'.1
+    res := json_model_10(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -737,11 +716,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.requestBodies.''
     -- .'$Components'.requestBodies.''.'|'.0
-    res := json_model_19(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.requestBodies.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.requestBodies.''.'|'.1
+    res := json_model_19(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -766,11 +742,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.responses.''
     -- .'$Components'.responses.''.'|'.0
-    res := json_model_23(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.responses.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.responses.''.'|'.1
+    res := json_model_23(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -819,11 +792,8 @@ BEGIN
     -- handle other props
     -- .'$Components'.securitySchemes.''
     -- .'$Components'.securitySchemes.''.'|'.0
-    res := json_model_40(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Components'.securitySchemes.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Components'.securitySchemes.''.'|'.1
+    res := json_model_40(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -938,11 +908,8 @@ BEGIN
       arr_4_item := val -> arr_4_idx;
       -- .'$PathItem'.parameters.0
       -- .'$PathItem'.parameters.0.'|'.0
-      res := json_model_18(arr_4_item, NULL, rep);
-      IF NOT res THEN
-        -- .'$PathItem'.parameters.0.'|'.1
-        res := json_model_30(arr_4_item, NULL, rep);
-      END IF;
+      -- .'$PathItem'.parameters.0.'|'.1
+      res := json_model_18(arr_4_item, NULL, rep) OR json_model_30(arr_4_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1042,11 +1009,8 @@ BEGIN
     -- handle other props
     -- .'$Operation'.callbacks.''
     -- .'$Operation'.callbacks.''.'|'.0
-    res := json_model_24(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Operation'.callbacks.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Operation'.callbacks.''.'|'.1
+    res := json_model_24(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1097,11 +1061,8 @@ BEGIN
       arr_6_item := val -> arr_6_idx;
       -- .'$Operation'.parameters.0
       -- .'$Operation'.parameters.0.'|'.0
-      res := json_model_18(arr_6_item, NULL, rep);
-      IF NOT res THEN
-        -- .'$Operation'.parameters.0.'|'.1
-        res := json_model_30(arr_6_item, NULL, rep);
-      END IF;
+      -- .'$Operation'.parameters.0.'|'.1
+      res := json_model_18(arr_6_item, NULL, rep) OR json_model_30(arr_6_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1114,14 +1075,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_11_map_requestBody (.'$Operation'.requestBody)
 CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Operation'.requestBody
   -- .'$Operation'.requestBody.'|'.0
-  res := json_model_19(val, path, rep);
   -- .'$Operation'.requestBody.'|'.1
-  RETURN res OR json_model_30(val, path, rep);
+  RETURN json_model_19(val, path, rep) OR json_model_30(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1475,11 +1433,8 @@ BEGIN
     -- handle other props
     -- .'$parameterSchemaOnly'.examples.''
     -- .'$parameterSchemaOnly'.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$parameterSchemaOnly'.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$parameterSchemaOnly'.examples.''.'|'.1
+    res := json_model_25(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1763,11 +1718,8 @@ BEGIN
     -- handle other props
     -- .'$Parameter'.'|'.0.examples.''
     -- .'$Parameter'.'|'.0.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Parameter'.'|'.0.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Parameter'.'|'.0.examples.''.'|'.1
+    res := json_model_25(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1862,11 +1814,8 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Parameter'.'|'.0
-    res := _jm_obj_6(val, path, rep);
-    IF NOT res THEN
-      -- .'$Parameter'.'|'.1
-      res := _jm_obj_4(val, path, rep);
-    END IF;
+    -- .'$Parameter'.'|'.1
+    res := _jm_obj_6(val, path, rep) OR _jm_obj_4(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -1956,11 +1905,8 @@ BEGIN
     -- handle other props
     -- .'$MediaType'.examples.''
     -- .'$MediaType'.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$MediaType'.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$MediaType'.examples.''.'|'.1
+    res := json_model_25(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2057,11 +2003,8 @@ BEGIN
     -- handle other props
     -- .'$Encoding'.headers.''
     -- .'$Encoding'.headers.''.'|'.0
-    res := json_model_28(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Encoding'.headers.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Encoding'.headers.''.'|'.1
+    res := json_model_28(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2155,11 +2098,8 @@ BEGIN
       -- handle may default property
       -- .'$Responses'.default
       -- .'$Responses'.default.'|'.0
-      res := json_model_23(pval, NULL, rep);
-      IF NOT res THEN
-        -- .'$Responses'.default.'|'.1
-        res := json_model_30(pval, NULL, rep);
-      END IF;
+      -- .'$Responses'.default.'|'.1
+      res := json_model_23(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2167,11 +2107,8 @@ BEGIN
       -- handle 2 re props
       -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
       -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
-      res := json_model_23(pval, NULL, rep);
-      IF NOT res THEN
-        -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-        res := json_model_30(pval, NULL, rep);
-      END IF;
+      -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
+      res := json_model_23(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2202,11 +2139,8 @@ BEGIN
     -- handle other props
     -- .'$Response'.headers.''
     -- .'$Response'.headers.''.'|'.0
-    res := json_model_28(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Response'.headers.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Response'.headers.''.'|'.1
+    res := json_model_28(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2253,11 +2187,8 @@ BEGIN
     -- handle other props
     -- .'$Response'.links.''
     -- .'$Response'.links.''.'|'.0
-    res := json_model_27(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Response'.links.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Response'.links.''.'|'.1
+    res := json_model_27(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2336,11 +2267,8 @@ BEGIN
       -- handle 1 key props
       -- .'$Callback'.'$Expression'
       -- .'$Callback'.'$Expression'.'|'.0
-      res := json_model_10(pval, NULL, rep);
-      IF NOT res THEN
-        -- .'$Callback'.'$Expression'.'|'.1
-        res := json_model_30(pval, NULL, rep);
-      END IF;
+      -- .'$Callback'.'$Expression'.'|'.1
+      res := json_model_10(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2561,11 +2489,8 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Link'.'|'.0
-    res := _jm_obj_16(val, path, rep);
-    IF NOT res THEN
-      -- .'$Link'.'|'.1
-      res := _jm_obj_14(val, path, rep);
-    END IF;
+    -- .'$Link'.'|'.1
+    res := _jm_obj_16(val, path, rep) OR _jm_obj_14(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -2714,11 +2639,8 @@ BEGIN
     -- handle other props
     -- .'$Header'.'|'.0.examples.''
     -- .'$Header'.'|'.0.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$Header'.'|'.0.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
-    END IF;
+    -- .'$Header'.'|'.0.examples.''.'|'.1
+    res := json_model_25(pval, NULL, rep) OR json_model_30(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2796,11 +2718,8 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$Header'.'|'.0
-    res := _jm_obj_20(val, path, rep);
-    IF NOT res THEN
-      -- .'$Header'.'|'.1
-      res := _jm_obj_18(val, path, rep);
-    END IF;
+    -- .'$Header'.'|'.1
+    res := _jm_obj_20(val, path, rep) OR _jm_obj_18(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -3246,14 +3165,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_32_map_type (.'$Schema'.type)
 CREATE OR REPLACE FUNCTION _jm_f_76(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Schema'.type
   -- .'$Schema'.type.'|'.0
-  res := json_model_52(val, path, rep);
   -- .'$Schema'.type.'|'.1
-  RETURN res OR json_model_53(val, path, rep);
+  RETURN json_model_52(val, path, rep) OR json_model_53(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3946,15 +3862,9 @@ BEGIN
   ELSE
     NULL;
   END IF;
-  IF NOT res THEN
-    -- .'$SecurityScheme'.'|'.5
-    res := _jm_obj_27(val, path, rep);
-    IF NOT res THEN
-      -- .'$SecurityScheme'.'|'.2
-      res := _jm_obj_24(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$SecurityScheme'.'|'.5
+  -- .'$SecurityScheme'.'|'.2
+  RETURN res OR _jm_obj_27(val, path, rep) OR _jm_obj_24(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4289,14 +4199,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $schema#Schema (.'$schema#Schema')
 CREATE OR REPLACE FUNCTION json_model_60(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$schema#Schema'
   -- .'$schema#Schema'.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .'$schema#Schema'.'|'.1
-  RETURN res OR json_model_59(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_59(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4626,14 +4533,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_59_map_type (.'$schema#ObjectSchema'.type)
 CREATE OR REPLACE FUNCTION _jm_f_104(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$schema#ObjectSchema'.type
   -- .'$schema#ObjectSchema'.type.'|'.0
-  res := json_model_52(val, path, rep);
   -- .'$schema#ObjectSchema'.type.'|'.1
-  RETURN res OR json_model_53(val, path, rep);
+  RETURN json_model_52(val, path, rep) OR json_model_53(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

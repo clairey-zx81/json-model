@@ -108,17 +108,9 @@ public class alter_4 extends ModelChecker
                 res = false;
             }
         }
-        if (! res)
-        {
-            // .'$alternative'.'|'.2
-            res = json.isInteger(val) && json.asLong(val) >= 0;
-            if (! res)
-            {
-                // .'$alternative'.'|'.3
-                res = json.isBoolean(val);
-            }
-        }
-        return res;
+        // .'$alternative'.'|'.2
+        // .'$alternative'.'|'.3
+        return res || json.isInteger(val) && json.asLong(val) >= 0 || json.isBoolean(val);
     }
 
     // check $ (.)

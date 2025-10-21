@@ -297,13 +297,9 @@ sub json_model_10($$$)
     {
         # .'$Regex'.'|'.0
         # "/^/($EXREG)/[a-z]*X[a-z]*$/X"
-        $res = _jm_xre_1($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Regex'.'|'.1
-            # "/^/($REGEX)/[a-z]*$/X"
-            $res = _jm_xre_0($val, $path, $rep);
-        }
+        # .'$Regex'.'|'.1
+        # "/^/($REGEX)/[a-z]*$/X"
+        $res = _jm_xre_1($val, $path, $rep) || _jm_xre_0($val, $path, $rep);
     }
     return $res;
 }
@@ -330,18 +326,9 @@ sub json_model_12($$$)
     my ($val, $path, $rep) = @_;
     # .'$CmpValue'
     # .'$CmpValue'.'|'.0
-    my $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$CmpValue'.'|'.1
-        $res = jm_is_numeric($val);
-        if (! $res)
-        {
-            # .'$CmpValue'.'|'.2
-            $res = jm_is_string($val);
-        }
-    }
-    return $res;
+    # .'$CmpValue'.'|'.1
+    # .'$CmpValue'.'|'.2
+    return jm_is_integer($val) || jm_is_numeric($val) || jm_is_string($val);
 }
 
 # check $EqValue (.'$EqValue')
@@ -350,18 +337,9 @@ sub json_model_13($$$)
     my ($val, $path, $rep) = @_;
     # .'$EqValue'
     # .'$EqValue'.'|'.0
-    my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$EqValue'.'|'.1
-        $res = jm_is_boolean($val);
-        if (! $res)
-        {
-            # .'$EqValue'.'|'.2
-            $res = json_model_12($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$EqValue'.'|'.1
+    # .'$EqValue'.'|'.2
+    return !defined($val) || jm_is_boolean($val) || json_model_12($val, $path, $rep);
 }
 
 # check $ValModel (.'$ValModel')
@@ -370,43 +348,14 @@ sub json_model_14($$$)
     my ($val, $path, $rep) = @_;
     # .'$ValModel'
     # .'$ValModel'.'|'.0
-    my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$ValModel'.'|'.1
-        $res = jm_is_boolean($val) && $val == 1;
-        if (! $res)
-        {
-            # .'$ValModel'.'|'.2
-            $res = jm_is_integer($val) && $val == 0;
-            if (! $res)
-            {
-                # .'$ValModel'.'|'.3
-                $res = jm_is_integer($val) && $val == 1;
-                if (! $res)
-                {
-                    # .'$ValModel'.'|'.4
-                    $res = jm_is_integer($val) && $val == -1;
-                    if (! $res)
-                    {
-                        # .'$ValModel'.'|'.5
-                        $res = jm_is_numeric($val) && $val == 0.0;
-                        if (! $res)
-                        {
-                            # .'$ValModel'.'|'.6
-                            $res = jm_is_numeric($val) && $val == 1.0;
-                            if (! $res)
-                            {
-                                # .'$ValModel'.'|'.7
-                                $res = jm_is_numeric($val) && $val == -1.0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return $res;
+    # .'$ValModel'.'|'.1
+    # .'$ValModel'.'|'.2
+    # .'$ValModel'.'|'.3
+    # .'$ValModel'.'|'.4
+    # .'$ValModel'.'|'.5
+    # .'$ValModel'.'|'.6
+    # .'$ValModel'.'|'.7
+    return !defined($val) || jm_is_boolean($val) && $val == 1 || jm_is_integer($val) && $val == 0 || jm_is_integer($val) && $val == 1 || jm_is_integer($val) && $val == -1 || jm_is_numeric($val) && $val == 0.0 || jm_is_numeric($val) && $val == 1.0 || jm_is_numeric($val) && $val == -1.0;
 }
 
 # check $StrModel (.'$StrModel')
@@ -415,33 +364,12 @@ sub json_model_15($$$)
     my ($val, $path, $rep) = @_;
     # .'$StrModel'
     # .'$StrModel'.'|'.0
-    my $res = json_model_9($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$StrModel'.'|'.1
-        $res = json_model_8($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$StrModel'.'|'.2
-            $res = json_model_10($val, $path, $rep);
-            if (! $res)
-            {
-                # .'$StrModel'.'|'.3
-                $res = json_model_3($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$StrModel'.'|'.4
-                    $res = json_model_7($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'$StrModel'.'|'.5
-                        $res = jm_is_string($val) && $val eq '';
-                    }
-                }
-            }
-        }
-    }
-    return $res;
+    # .'$StrModel'.'|'.1
+    # .'$StrModel'.'|'.2
+    # .'$StrModel'.'|'.3
+    # .'$StrModel'.'|'.4
+    # .'$StrModel'.'|'.5
+    return json_model_9($val, $path, $rep) || json_model_8($val, $path, $rep) || json_model_10($val, $path, $rep) || json_model_3($val, $path, $rep) || json_model_7($val, $path, $rep) || jm_is_string($val) && $val eq '';
 }
 
 # check $Any (.'$Any')
@@ -466,9 +394,8 @@ sub json_model_18($$$)
     my ($val, $path, $rep) = @_;
     # .'$CModel'
     # .'$CModel'.'|'.0
-    my $res = json_model_33($val, $path, $rep);
     # .'$CModel'.'|'.1
-    return $res || json_model_5($val, $path, $rep);
+    return json_model_33($val, $path, $rep) || json_model_5($val, $path, $rep);
 }
 
 # check $Array (.'$Array')
@@ -748,33 +675,12 @@ sub json_model_26($$$)
     # .'$Prop'
     # .'$Prop'.'|'.0
     # "/^[?!]/"
-    my $res = jm_is_string($val) && _jm_re_9($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Prop'.'|'.1
-        $res = json_model_9($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Prop'.'|'.2
-            $res = json_model_10($val, $path, $rep);
-            if (! $res)
-            {
-                # .'$Prop'.'|'.3
-                $res = json_model_7($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$Prop'.'|'.4
-                    $res = json_model_11($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'$Prop'.'|'.5
-                        $res = jm_is_string($val) && $val eq '';
-                    }
-                }
-            }
-        }
-    }
-    return $res;
+    # .'$Prop'.'|'.1
+    # .'$Prop'.'|'.2
+    # .'$Prop'.'|'.3
+    # .'$Prop'.'|'.4
+    # .'$Prop'.'|'.5
+    return jm_is_string($val) && _jm_re_9($val, $path, $rep) || json_model_9($val, $path, $rep) || json_model_10($val, $path, $rep) || json_model_7($val, $path, $rep) || json_model_11($val, $path, $rep) || jm_is_string($val) && $val eq '';
 }
 
 # check $Obj (.'$Obj')
@@ -814,33 +720,12 @@ sub json_model_28($$$)
     my ($val, $path, $rep) = @_;
     # .'$Elem'
     # .'$Elem'.'|'.0
-    my $res = json_model_21($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Elem'.'|'.1
-        $res = json_model_22($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Elem'.'|'.2
-            $res = json_model_23($val, $path, $rep);
-            if (! $res)
-            {
-                # .'$Elem'.'|'.3
-                $res = json_model_24($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$Elem'.'|'.4
-                    $res = json_model_25($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'$Elem'.'|'.5
-                        $res = json_model_27($val, $path, $rep);
-                    }
-                }
-            }
-        }
-    }
-    return $res;
+    # .'$Elem'.'|'.1
+    # .'$Elem'.'|'.2
+    # .'$Elem'.'|'.3
+    # .'$Elem'.'|'.4
+    # .'$Elem'.'|'.5
+    return json_model_21($val, $path, $rep) || json_model_22($val, $path, $rep) || json_model_23($val, $path, $rep) || json_model_24($val, $path, $rep) || json_model_25($val, $path, $rep) || json_model_27($val, $path, $rep);
 }
 
 # object .'$Element'.'|'.5
@@ -1220,32 +1105,12 @@ sub json_model_29($$$)
     if ($res)
     {
         # .'$Element'.'|'.0
-        $res = _jm_obj_5($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Element'.'|'.1
-            $res = _jm_obj_4($val, $path, $rep);
-            if (! $res)
-            {
-                # .'$Element'.'|'.2
-                $res = _jm_obj_3($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$Element'.'|'.3
-                    $res = _jm_obj_2($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'$Element'.'|'.4
-                        $res = _jm_obj_1($val, $path, $rep);
-                        if (! $res)
-                        {
-                            # .'$Element'.'|'.5
-                            $res = _jm_obj_0($val, $path, $rep);
-                        }
-                    }
-                }
-            }
-        }
+        # .'$Element'.'|'.1
+        # .'$Element'.'|'.2
+        # .'$Element'.'|'.3
+        # .'$Element'.'|'.4
+        # .'$Element'.'|'.5
+        $res = _jm_obj_5($val, $path, $rep) || _jm_obj_4($val, $path, $rep) || _jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -1292,12 +1157,8 @@ sub json_model_30($$$)
             # handle may / property
             # .'$Trafo'.'/'
             # .'$Trafo'.'/'.'|'.0
-            $res = json_model_13($pval, undef, $rep);
-            if (! $res)
-            {
-                # .'$Trafo'.'/'.'|'.1
-                $res = jm_is_array($pval);
-            }
+            # .'$Trafo'.'/'.'|'.1
+            $res = json_model_13($pval, undef, $rep) || jm_is_array($pval);
             if (! $res)
             {
                 return 0;
@@ -1377,12 +1238,8 @@ sub _jm_obj_7($$$)
             # handle may / property
             # .'$Transformation'.'|'.1.'/'
             # .'$Transformation'.'|'.1.'/'.'|'.0
-            $res = json_model_13($pval, undef, $rep);
-            if (! $res)
-            {
-                # .'$Transformation'.'|'.1.'/'.'|'.1
-                $res = jm_is_array($pval);
-            }
+            # .'$Transformation'.'|'.1.'/'.'|'.1
+            $res = json_model_13($pval, undef, $rep) || jm_is_array($pval);
             if (! $res)
             {
                 return 0;
@@ -1424,9 +1281,8 @@ sub json_model_31($$$)
     my ($val, $path, $rep) = @_;
     # .'$Transformation'
     # .'$Transformation'.'|'.0
-    my $res = json_model_33($val, $path, $rep);
     # .'$Transformation'.'|'.1
-    return $res || _jm_obj_7($val, $path, $rep);
+    return json_model_33($val, $path, $rep) || _jm_obj_7($val, $path, $rep);
 }
 
 # check $ScalarModel (.'$ScalarModel')
@@ -1435,9 +1291,8 @@ sub json_model_32($$$)
     my ($val, $path, $rep) = @_;
     # .'$ScalarModel'
     # .'$ScalarModel'.'|'.0
-    my $res = json_model_14($val, $path, $rep);
     # .'$ScalarModel'.'|'.1
-    return $res || json_model_15($val, $path, $rep);
+    return json_model_14($val, $path, $rep) || json_model_15($val, $path, $rep);
 }
 
 # check $Model (.'$Model')
@@ -1446,18 +1301,9 @@ sub json_model_33($$$)
     my ($val, $path, $rep) = @_;
     # .'$Model'
     # .'$Model'.'|'.0
-    my $res = json_model_32($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Model'.'|'.1
-        $res = json_model_19($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Model'.'|'.2
-            $res = json_model_29($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$Model'.'|'.1
+    # .'$Model'.'|'.2
+    return json_model_32($val, $path, $rep) || json_model_19($val, $path, $rep) || json_model_29($val, $path, $rep);
 }
 
 # check $Defs (.'$Defs')
@@ -3231,32 +3077,12 @@ sub json_model_39($$$)
     if ($res)
     {
         # .'$Root'.'|'.0
-        $res = _jm_obj_26($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Root'.'|'.1
-            $res = _jm_obj_23($val, $path, $rep);
-            if (! $res)
-            {
-                # .'$Root'.'|'.2
-                $res = _jm_obj_20($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$Root'.'|'.3
-                    $res = _jm_obj_17($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'$Root'.'|'.4
-                        $res = _jm_obj_14($val, $path, $rep);
-                        if (! $res)
-                        {
-                            # .'$Root'.'|'.5
-                            $res = _jm_obj_11($val, $path, $rep);
-                        }
-                    }
-                }
-            }
-        }
+        # .'$Root'.'|'.1
+        # .'$Root'.'|'.2
+        # .'$Root'.'|'.3
+        # .'$Root'.'|'.4
+        # .'$Root'.'|'.5
+        $res = _jm_obj_26($val, $path, $rep) || _jm_obj_23($val, $path, $rep) || _jm_obj_20($val, $path, $rep) || _jm_obj_17($val, $path, $rep) || _jm_obj_14($val, $path, $rep) || _jm_obj_11($val, $path, $rep);
     }
     return $res;
 }
@@ -3267,18 +3093,9 @@ sub json_model_40($$$)
     my ($val, $path, $rep) = @_;
     # .'$RootModel'
     # .'$RootModel'.'|'.0
-    my $res = json_model_32($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$RootModel'.'|'.1
-        $res = json_model_19($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$RootModel'.'|'.2
-            $res = json_model_39($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$RootModel'.'|'.1
+    # .'$RootModel'.'|'.2
+    return json_model_32($val, $path, $rep) || json_model_19($val, $path, $rep) || json_model_39($val, $path, $rep);
 }
 
 # check $ (.)

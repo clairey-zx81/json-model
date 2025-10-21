@@ -99,18 +99,9 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # .'$ex08#Ex08'
     # .'$ex08#Ex08'.'|'.0
-    my $res = json_model_8($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$ex08#Ex08'.'|'.1
-        $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$ex08#Ex08'.'|'.2
-            $res = json_model_6($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$ex08#Ex08'.'|'.1
+    # .'$ex08#Ex08'.'|'.2
+    return json_model_8($val, $path, $rep) || jm_is_string($val) && jm_is_valid_url($val, $path, $rep) || json_model_6($val, $path, $rep);
 }
 
 # check $ex08#map (.'$ex08#map')

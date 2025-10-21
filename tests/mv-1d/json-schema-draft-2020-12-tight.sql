@@ -294,11 +294,8 @@ BEGIN
       -- handle may multipleOf property
       -- .'$Number'.multipleOf
       -- .'$Number'.multipleOf.'|'.0
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-      IF NOT res THEN
-        -- .'$Number'.multipleOf.'|'.1
-        res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
-      END IF;
+      -- .'$Number'.multipleOf.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -306,11 +303,8 @@ BEGIN
       -- handle may maximum property
       -- .'$Number'.maximum
       -- .'$Number'.maximum.'|'.0
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-      IF NOT res THEN
-        -- .'$Number'.maximum.'|'.1
-        res := JSONB_TYPEOF(pval) = 'number';
-      END IF;
+      -- .'$Number'.maximum.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 OR JSONB_TYPEOF(pval) = 'number';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -318,11 +312,8 @@ BEGIN
       -- handle may exclusiveMaximum property
       -- .'$Number'.exclusiveMaximum
       -- .'$Number'.exclusiveMaximum.'|'.0
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-      IF NOT res THEN
-        -- .'$Number'.exclusiveMaximum.'|'.1
-        res := JSONB_TYPEOF(pval) = 'number';
-      END IF;
+      -- .'$Number'.exclusiveMaximum.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 OR JSONB_TYPEOF(pval) = 'number';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -330,11 +321,8 @@ BEGIN
       -- handle may minimum property
       -- .'$Number'.minimum
       -- .'$Number'.minimum.'|'.0
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-      IF NOT res THEN
-        -- .'$Number'.minimum.'|'.1
-        res := JSONB_TYPEOF(pval) = 'number';
-      END IF;
+      -- .'$Number'.minimum.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 OR JSONB_TYPEOF(pval) = 'number';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -342,11 +330,8 @@ BEGIN
       -- handle may exclusiveMinimum property
       -- .'$Number'.exclusiveMinimum
       -- .'$Number'.exclusiveMinimum.'|'.0
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-      IF NOT res THEN
-        -- .'$Number'.exclusiveMinimum.'|'.1
-        res := JSONB_TYPEOF(pval) = 'number';
-      END IF;
+      -- .'$Number'.exclusiveMinimum.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 OR JSONB_TYPEOF(pval) = 'number';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1363,70 +1348,55 @@ $$ LANGUAGE PLpgSQL;
 -- check _jm_obj_2_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
 CREATE OR REPLACE FUNCTION _jm_f_60(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$TightSchema'.'|'.2.exclusiveMaximum
   -- .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   -- .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'number';
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_2_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
 CREATE OR REPLACE FUNCTION _jm_f_61(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$TightSchema'.'|'.2.exclusiveMinimum
   -- .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   -- .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'number';
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_2_map_maximum (.'$TightSchema'.'|'.2.maximum)
 CREATE OR REPLACE FUNCTION _jm_f_62(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$TightSchema'.'|'.2.maximum
   -- .'$TightSchema'.'|'.2.maximum.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   -- .'$TightSchema'.'|'.2.maximum.'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'number';
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_2_map_minimum (.'$TightSchema'.'|'.2.minimum)
 CREATE OR REPLACE FUNCTION _jm_f_63(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$TightSchema'.'|'.2.minimum
   -- .'$TightSchema'.'|'.2.minimum.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   -- .'$TightSchema'.'|'.2.minimum.'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'number';
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_2_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
 CREATE OR REPLACE FUNCTION _jm_f_64(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$TightSchema'.'|'.2.multipleOf
   -- .'$TightSchema'.'|'.2.multipleOf.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
   -- .'$TightSchema'.'|'.2.multipleOf.'|'.1
-  RETURN res OR JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2699,14 +2669,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Schema (.'$Schema')
 CREATE OR REPLACE FUNCTION json_model_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Schema'
   -- .'$Schema'.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .'$Schema'.'|'.1
-  RETURN res OR json_model_15(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_15(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

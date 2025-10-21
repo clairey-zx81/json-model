@@ -89,49 +89,7 @@ BEGIN
   ELSE
     NULL;
   END IF;
-  IF NOT res THEN
-    res := json_model_11(val, path, rep);
-    IF NOT res THEN
-      res := json_model_23(val, path, rep);
-      IF NOT res THEN
-        res := json_model_22(val, path, rep);
-        IF NOT res THEN
-          res := json_model_19(val, path, rep);
-          IF NOT res THEN
-            res := json_model_20(val, path, rep);
-            IF NOT res THEN
-              res := json_model_21(val, path, rep);
-              IF NOT res THEN
-                res := json_model_24(val, path, rep);
-                IF NOT res THEN
-                  res := json_model_28(val, path, rep);
-                  IF NOT res THEN
-                    res := json_model_29(val, path, rep);
-                    IF NOT res THEN
-                      res := json_model_30(val, path, rep);
-                      IF NOT res THEN
-                        res := json_model_31(val, path, rep);
-                        IF NOT res THEN
-                          res := json_model_32(val, path, rep);
-                          IF NOT res THEN
-                            res := json_model_33(val, path, rep);
-                            IF NOT res THEN
-                              res := json_model_34(val, path, rep);
-                            END IF;
-                          END IF;
-                        END IF;
-                      END IF;
-                    END IF;
-                  END IF;
-                END IF;
-              END IF;
-            END IF;
-          END IF;
-        END IF;
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  RETURN res OR json_model_11(val, path, rep) OR json_model_23(val, path, rep) OR json_model_22(val, path, rep) OR json_model_19(val, path, rep) OR json_model_20(val, path, rep) OR json_model_21(val, path, rep) OR json_model_24(val, path, rep) OR json_model_28(val, path, rep) OR json_model_29(val, path, rep) OR json_model_30(val, path, rep) OR json_model_31(val, path, rep) OR json_model_32(val, path, rep) OR json_model_33(val, path, rep) OR json_model_34(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -618,14 +576,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_13_map_items (.'$tight#Array'.items)
 CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$tight#Array'.items
   -- .'$tight#Array'.items.'|'.0
-  res := json_model_26(val, path, rep);
   -- .'$tight#Array'.items.'|'.1
-  RETURN res OR json_model_6(val, path, rep);
+  RETURN json_model_26(val, path, rep) OR json_model_6(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2572,29 +2527,14 @@ $$ LANGUAGE PLpgSQL;
 -- check $tight#const (.'$tight#const')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$tight#const'
   -- .'$tight#const'.'|'.0
-  res := JSONB_TYPEOF(val) = 'null';
-  IF NOT res THEN
-    -- .'$tight#const'.'|'.1
-    res := JSONB_TYPEOF(val) = 'boolean';
-    IF NOT res THEN
-      -- .'$tight#const'.'|'.2
-      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-      IF NOT res THEN
-        -- .'$tight#const'.'|'.3
-        res := JSONB_TYPEOF(val) = 'number';
-        IF NOT res THEN
-          -- .'$tight#const'.'|'.4
-          res := JSONB_TYPEOF(val) = 'string';
-        END IF;
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$tight#const'.'|'.1
+  -- .'$tight#const'.'|'.2
+  -- .'$tight#const'.'|'.3
+  -- .'$tight#const'.'|'.4
+  RETURN JSONB_TYPEOF(val) = 'null' OR JSONB_TYPEOF(val) = 'boolean' OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'number' OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2768,14 +2708,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $tight#Schema (.'$tight#Schema')
 CREATE OR REPLACE FUNCTION json_model_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$tight#Schema'
   -- .'$tight#Schema'.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .'$tight#Schema'.'|'.1
-  RETURN res OR json_model_25(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_25(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -8,25 +8,13 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $foo (.'$foo')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$foo'
   -- .'$foo'.'|'.0
-  res := json_model_4(val, path, rep);
-  IF NOT res THEN
-    -- .'$foo'.'|'.1
-    res := json_model_5(val, path, rep);
-    IF NOT res THEN
-      -- .'$foo'.'|'.2
-      res := json_model_6(val, path, rep);
-      IF NOT res THEN
-        -- .'$foo'.'|'.3
-        res := json_model_7(val, path, rep);
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$foo'.'|'.1
+  -- .'$foo'.'|'.2
+  -- .'$foo'.'|'.3
+  RETURN json_model_4(val, path, rep) OR json_model_5(val, path, rep) OR json_model_6(val, path, rep) OR json_model_7(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

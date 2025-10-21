@@ -27,9 +27,8 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$Vv'
     # .'$Vv'.'|'.0
-    my $res = jm_is_integer($val);
     # .'$Vv'.'|'.1
-    return $res || jm_is_string($val);
+    return jm_is_integer($val) || jm_is_string($val);
 }
 
 # check $Xx (.'$Xx')
@@ -175,12 +174,8 @@ sub json_model_5($$$)
     if ($res)
     {
         # .'$Ee'.'|'.0
-        $res = _jm_obj_1($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$Ee'.'|'.1
-            $res = _jm_obj_0($val, $path, $rep);
-        }
+        # .'$Ee'.'|'.1
+        $res = _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -191,9 +186,8 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # .'$Mm'
     # .'$Mm'.'|'.0
-    my $res = json_model_2($val, $path, $rep);
     # .'$Mm'.'|'.1
-    return $res || json_model_5($val, $path, $rep);
+    return json_model_2($val, $path, $rep) || json_model_5($val, $path, $rep);
 }
 
 # check $ (.)

@@ -508,14 +508,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_13_map_type (.'$validation'.type)
 CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$validation'.type
   -- .'$validation'.type.'|'.0
-  res := json_model_9(val, path, rep);
   -- .'$validation'.type.'|'.1
-  RETURN res OR json_model_10(val, path, rep);
+  RETURN json_model_9(val, path, rep) OR json_model_10(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -866,11 +863,8 @@ BEGIN
     -- handle other props
     -- .'$ObjectSchema'.dependencies.''
     -- .'$ObjectSchema'.dependencies.''.'|'.0
-    res := json_model_17(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$ObjectSchema'.dependencies.''.'|'.1
-      res := json_model_11(pval, NULL, rep);
-    END IF;
+    -- .'$ObjectSchema'.dependencies.''.'|'.1
+    res := json_model_17(pval, NULL, rep) OR json_model_11(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1095,14 +1089,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_16_map_type (.'$ObjectSchema'.type)
 CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$ObjectSchema'.type
   -- .'$ObjectSchema'.type.'|'.0
-  res := json_model_9(val, path, rep);
   -- .'$ObjectSchema'.type.'|'.1
-  RETURN res OR json_model_10(val, path, rep);
+  RETURN json_model_9(val, path, rep) OR json_model_10(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1164,14 +1155,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Schema (.'$Schema')
 CREATE OR REPLACE FUNCTION json_model_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Schema'
   -- .'$Schema'.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .'$Schema'.'|'.1
-  RETURN res OR json_model_16(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_16(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1213,11 +1201,8 @@ BEGIN
     -- handle other props
     -- .'$deprecated'.dependencies.''
     -- .'$deprecated'.dependencies.''.'|'.0
-    res := json_model_17(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$deprecated'.dependencies.''.'|'.1
-      res := json_model_11(pval, NULL, rep);
-    END IF;
+    -- .'$deprecated'.dependencies.''.'|'.1
+    res := json_model_17(pval, NULL, rep) OR json_model_11(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;

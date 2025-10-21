@@ -305,32 +305,12 @@ sub json_model_1($$$)
     if ($res)
     {
         # .'|'.0
-        $res = _jm_obj_5($val, $path, $rep);
-        if (! $res)
-        {
-            # .'|'.1
-            $res = _jm_obj_4($val, $path, $rep);
-            if (! $res)
-            {
-                # .'|'.2
-                $res = _jm_obj_3($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'|'.3
-                    $res = _jm_obj_2($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'|'.4
-                        $res = _jm_obj_1($val, $path, $rep);
-                        if (! $res)
-                        {
-                            # .'|'.5
-                            $res = _jm_obj_0($val, $path, $rep);
-                        }
-                    }
-                }
-            }
-        }
+        # .'|'.1
+        # .'|'.2
+        # .'|'.3
+        # .'|'.4
+        # .'|'.5
+        $res = _jm_obj_5($val, $path, $rep) || _jm_obj_4($val, $path, $rep) || _jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }

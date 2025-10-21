@@ -22,12 +22,8 @@ sub json_model_1($$$)
     # .
     # .'@'
     # .'@'.'|'.0
-    my $res = jm_is_integer($val) && $val >= 1;
-    if (! $res)
-    {
-        # .'@'.'|'.1
-        $res = jm_is_string($val);
-    }
+    # .'@'.'|'.1
+    my $res = jm_is_integer($val) && $val >= 1 || jm_is_string($val);
     if ($res)
     {
         $res = jm_check_constraint($val, '>=', 10, $path, $rep);

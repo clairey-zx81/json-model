@@ -224,28 +224,11 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$const'
     # .'$const'.'|'.0
-    my $res = !defined($val);
-    if (! $res)
-    {
-        # .'$const'.'|'.1
-        $res = jm_is_boolean($val);
-        if (! $res)
-        {
-            # .'$const'.'|'.2
-            $res = jm_is_integer($val);
-            if (! $res)
-            {
-                # .'$const'.'|'.3
-                $res = jm_is_numeric($val);
-                if (! $res)
-                {
-                    # .'$const'.'|'.4
-                    $res = jm_is_string($val);
-                }
-            }
-        }
-    }
-    return $res;
+    # .'$const'.'|'.1
+    # .'$const'.'|'.2
+    # .'$const'.'|'.3
+    # .'$const'.'|'.4
+    return !defined($val) || jm_is_boolean($val) || jm_is_integer($val) || jm_is_numeric($val) || jm_is_string($val);
 }
 
 # check $enum (.'$enum')
@@ -389,9 +372,8 @@ sub _jm_f_0($$$)
     my ($val, $path, $rep) = @_;
     # .'$arrayKeywords'.items
     # .'$arrayKeywords'.items.'|'.0
-    my $res = json_model_24($val, $path, $rep);
     # .'$arrayKeywords'.items.'|'.1
-    return $res || json_model_4($val, $path, $rep);
+    return json_model_24($val, $path, $rep) || json_model_4($val, $path, $rep);
 }
 
 # check json_model_6_map_maxItems (.'$arrayKeywords'.maxItems)
@@ -1080,9 +1062,8 @@ sub _jm_f_37($$$)
     my ($val, $path, $rep) = @_;
     # .'$Array'.items
     # .'$Array'.items.'|'.0
-    my $res = json_model_24($val, $path, $rep);
     # .'$Array'.items.'|'.1
-    return $res || json_model_4($val, $path, $rep);
+    return json_model_24($val, $path, $rep) || json_model_4($val, $path, $rep);
 }
 
 # check json_model_11_map_maxItems (.'$Array'.maxItems)
@@ -3073,35 +3054,7 @@ sub json_model_23($$$)
     {
         ;
     }
-    if (! $res)
-    {
-        $res = json_model_9($val, $path, $rep);
-        if (! $res)
-        {
-            $res = json_model_21($val, $path, $rep);
-            if (! $res)
-            {
-                $res = json_model_20($val, $path, $rep);
-                if (! $res)
-                {
-                    $res = json_model_17($val, $path, $rep);
-                    if (! $res)
-                    {
-                        $res = json_model_18($val, $path, $rep);
-                        if (! $res)
-                        {
-                            $res = json_model_19($val, $path, $rep);
-                            if (! $res)
-                            {
-                                $res = json_model_22($val, $path, $rep);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return $res;
+    return $res || json_model_9($val, $path, $rep) || json_model_21($val, $path, $rep) || json_model_20($val, $path, $rep) || json_model_17($val, $path, $rep) || json_model_18($val, $path, $rep) || json_model_19($val, $path, $rep) || json_model_22($val, $path, $rep);
 }
 
 # check $Schema (.'$Schema')
@@ -3110,9 +3063,8 @@ sub json_model_24($$$)
     my ($val, $path, $rep) = @_;
     # .'$Schema'
     # .'$Schema'.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$Schema'.'|'.1
-    return $res || json_model_23($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_23($val, $path, $rep);
 }
 
 # object .'$RootSchema'.'&'.0

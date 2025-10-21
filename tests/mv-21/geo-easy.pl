@@ -679,17 +679,9 @@ sub json_model_13($$$)
     $pval = $$val{'geometry'};
     # .'$Feature'.geometry
     # .'$Feature'.geometry.'|'.0
-    $res = !defined($pval);
-    if (! $res)
-    {
-        # .'$Feature'.geometry.'|'.1
-        $res = json_model_11($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Feature'.geometry.'|'.2
-            $res = json_model_12($pval, undef, $rep);
-        }
-    }
+    # .'$Feature'.geometry.'|'.1
+    # .'$Feature'.geometry.'|'.2
+    $res = !defined($pval) || json_model_11($pval, undef, $rep) || json_model_12($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -701,12 +693,8 @@ sub json_model_13($$$)
     $pval = $$val{'properties'};
     # .'$Feature'.properties
     # .'$Feature'.properties.'|'.0
-    $res = !defined($pval);
-    if (! $res)
-    {
-        # .'$Feature'.properties.'|'.1
-        $res = _jm_obj_0($pval, undef, $rep);
-    }
+    # .'$Feature'.properties.'|'.1
+    $res = !defined($pval) || _jm_obj_0($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -716,12 +704,8 @@ sub json_model_13($$$)
         $pval = $$val{'id'};
         # .'$Feature'.id
         # .'$Feature'.id.'|'.0
-        $res = jm_is_string($pval);
-        if (! $res)
-        {
-            # .'$Feature'.id.'|'.1
-            $res = jm_is_numeric($pval);
-        }
+        # .'$Feature'.id.'|'.1
+        $res = jm_is_string($pval) || jm_is_numeric($pval);
         if (! $res)
         {
             return 0;

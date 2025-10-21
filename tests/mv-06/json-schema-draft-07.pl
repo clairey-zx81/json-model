@@ -304,9 +304,8 @@ sub _jm_f_14($$$)
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.items
     # .'$ObjectSchema'.items.'|'.0
-    my $res = json_model_7($val, $path, $rep);
     # .'$ObjectSchema'.items.'|'.1
-    return $res || json_model_3($val, $path, $rep);
+    return json_model_7($val, $path, $rep) || json_model_3($val, $path, $rep);
 }
 
 # check json_model_6_map_maxItems (.'$ObjectSchema'.maxItems)
@@ -488,9 +487,8 @@ sub _jm_f_30($$$)
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
-    my $res = json_model_4($val, $path, $rep);
     # .'$ObjectSchema'.type.'|'.1
-    return $res || json_model_5($val, $path, $rep);
+    return json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep);
 }
 
 # check json_model_6_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
@@ -545,9 +543,8 @@ sub json_model_7($$$)
     my ($val, $path, $rep) = @_;
     # .'$Schema'
     # .'$Schema'.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$Schema'.'|'.1
-    return $res || json_model_6($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_6($val, $path, $rep);
 }
 
 # check $ (.)

@@ -4384,7 +4384,7 @@ static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Schema'.'$schema'
-    bool res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x2f2f3a7370747468LL) && jm_str_eq_8(json_string_value(val) + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(json_string_value(val) + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(json_string_value(val) + 24, 0x30322f7466617264LL) && jm_str_eq_8(json_string_value(val) + 32, 0x63732f32312d3032LL) && jm_str_eq_5(json_string_value(val) + 40, 0x00000000616d6568LL);
+    bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "https://json-schema.org/draft/2020-12/schema");
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected _https://json-schema.org/draft/2020-12/schema [.'$Schema'.'$schema']", path);
@@ -5287,7 +5287,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
     // .'$SS-oic'.type
-    res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6f4364496e65706fLL) && jm_str_eq_6(json_string_value(pval) + 8, 0x0000007463656e6eLL);
+    res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "openIdConnect");
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected _openIdConnect [.'$SS-oic'.type]", (path ? &lpath : NULL));
@@ -5670,7 +5670,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must type property
             must_count += 1;
             // .'$SecurityScheme'.'|'.4.type
-            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x6f4364496e65706fLL) && jm_str_eq_6(json_string_value(pval) + 8, 0x0000007463656e6eLL);
+            res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "openIdConnect");
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _openIdConnect [.'$SecurityScheme'.'|'.4.type]", (path ? &lpath_72 : NULL));
@@ -6332,7 +6332,7 @@ static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_81(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schema#ObjectSchema'.'$schema'
-    bool res = json_is_string(val) && jm_str_eq_8(json_string_value(val), 0x2f2f3a7370747468LL) && jm_str_eq_8(json_string_value(val) + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(json_string_value(val) + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(json_string_value(val) + 24, 0x30322f7466617264LL) && jm_str_eq_8(json_string_value(val) + 32, 0x63732f32312d3032LL) && jm_str_eq_5(json_string_value(val) + 40, 0x00000000616d6568LL);
+    bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "https://json-schema.org/draft/2020-12/schema");
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected _https://json-schema.org/draft/2020-12/schema [.'$schema#ObjectSchema'.'$schema']", path);

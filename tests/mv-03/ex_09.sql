@@ -79,21 +79,12 @@ $$ LANGUAGE PLpgSQL;
 -- check $ex08#Ex08 (.'$ex08#Ex08')
 CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$ex08#Ex08'
   -- .'$ex08#Ex08'.'|'.0
-  res := json_model_8(val, path, rep);
-  IF NOT res THEN
-    -- .'$ex08#Ex08'.'|'.1
-    res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    IF NOT res THEN
-      -- .'$ex08#Ex08'.'|'.2
-      res := json_model_6(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$ex08#Ex08'.'|'.1
+  -- .'$ex08#Ex08'.'|'.2
+  RETURN json_model_8(val, path, rep) OR JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR json_model_6(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

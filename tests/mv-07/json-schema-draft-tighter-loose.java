@@ -165,63 +165,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         {
             if (rep != null) rep.addEntry("value is not an object [.'$tight#ObjectSchema'.'|']", path);
         }
-        if (! res)
-        {
-            res = json_model_11(val, path, rep);
-            if (! res)
-            {
-                res = json_model_23(val, path, rep);
-                if (! res)
-                {
-                    res = json_model_22(val, path, rep);
-                    if (! res)
-                    {
-                        res = json_model_19(val, path, rep);
-                        if (! res)
-                        {
-                            res = json_model_20(val, path, rep);
-                            if (! res)
-                            {
-                                res = json_model_21(val, path, rep);
-                                if (! res)
-                                {
-                                    res = json_model_24(val, path, rep);
-                                    if (! res)
-                                    {
-                                        res = json_model_28(val, path, rep);
-                                        if (! res)
-                                        {
-                                            res = json_model_29(val, path, rep);
-                                            if (! res)
-                                            {
-                                                res = json_model_30(val, path, rep);
-                                                if (! res)
-                                                {
-                                                    res = json_model_31(val, path, rep);
-                                                    if (! res)
-                                                    {
-                                                        res = json_model_32(val, path, rep);
-                                                        if (! res)
-                                                        {
-                                                            res = json_model_33(val, path, rep);
-                                                            if (! res)
-                                                            {
-                                                                res = json_model_34(val, path, rep);
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return res;
+        return res || json_model_11(val, path, rep) || json_model_23(val, path, rep) || json_model_22(val, path, rep) || json_model_19(val, path, rep) || json_model_20(val, path, rep) || json_model_21(val, path, rep) || json_model_24(val, path, rep) || json_model_28(val, path, rep) || json_model_29(val, path, rep) || json_model_30(val, path, rep) || json_model_31(val, path, rep) || json_model_32(val, path, rep) || json_model_33(val, path, rep) || json_model_34(val, path, rep);
     }
 
     // check json_model_11_map_$comment (.'$tight#metas'.'$comment')

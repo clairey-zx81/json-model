@@ -103,15 +103,9 @@ BEGIN
   ELSE
     NULL;
   END IF;
-  IF NOT res THEN
-    -- .'$alternative'.'|'.2
-    res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
-    IF NOT res THEN
-      -- .'$alternative'.'|'.3
-      res := JSONB_TYPEOF(val) = 'boolean';
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$alternative'.'|'.2
+  -- .'$alternative'.'|'.3
+  RETURN res OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0 OR JSONB_TYPEOF(val) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 

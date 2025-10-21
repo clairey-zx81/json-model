@@ -101,37 +101,16 @@ $$ LANGUAGE PLpgSQL;
 -- check $Any (.'$Any')
 CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Any'
   -- .'$Any'.'|'.0
-  res := JSONB_TYPEOF(val) = 'null';
-  IF NOT res THEN
-    -- .'$Any'.'|'.1
-    res := json_model_3(val, path, rep);
-    IF NOT res THEN
-      -- .'$Any'.'|'.2
-      res := json_model_4(val, path, rep);
-      IF NOT res THEN
-        -- .'$Any'.'|'.3
-        res := json_model_5(val, path, rep);
-        IF NOT res THEN
-          -- .'$Any'.'|'.4
-          res := json_model_6(val, path, rep);
-          IF NOT res THEN
-            -- .'$Any'.'|'.5
-            res := json_model_7(val, path, rep);
-            IF NOT res THEN
-              -- .'$Any'.'|'.6
-              res := json_model_8(val, path, rep);
-            END IF;
-          END IF;
-        END IF;
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$Any'.'|'.1
+  -- .'$Any'.'|'.2
+  -- .'$Any'.'|'.3
+  -- .'$Any'.'|'.4
+  -- .'$Any'.'|'.5
+  -- .'$Any'.'|'.6
+  RETURN JSONB_TYPEOF(val) = 'null' OR json_model_3(val, path, rep) OR json_model_4(val, path, rep) OR json_model_5(val, path, rep) OR json_model_6(val, path, rep) OR json_model_7(val, path, rep) OR json_model_8(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

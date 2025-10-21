@@ -28,24 +28,11 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$Aa'
     # .'$Aa'.'|'.0
-    my $res = jm_is_boolean($val);
-    if (! $res)
-    {
-        # .'$Aa'.'|'.1
-        $res = jm_is_integer($val) && $val >= 1;
-        if (! $res)
-        {
-            # .'$Aa'.'|'.2
-            $res = jm_is_numeric($val) && $val > 0.0;
-            if (! $res)
-            {
-                # .'$Aa'.'|'.3
-                # "/[a-z]/"
-                $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-            }
-        }
-    }
-    return $res;
+    # .'$Aa'.'|'.1
+    # .'$Aa'.'|'.2
+    # .'$Aa'.'|'.3
+    # "/[a-z]/"
+    return jm_is_boolean($val) || jm_is_integer($val) && $val >= 1 || jm_is_numeric($val) && $val > 0.0 || jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 # check $ (.)

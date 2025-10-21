@@ -39,11 +39,8 @@ BEGIN
       arr_0_item := val -> arr_0_idx;
       -- .'$distinctSchemaArray'.'@'.0
       -- .'$distinctSchemaArray'.'@'.0.'|'.0
-      res := JSONB_TYPEOF(arr_0_item) = 'string';
-      IF NOT res THEN
-        -- .'$distinctSchemaArray'.'@'.0.'|'.1
-        res := json_model_1(arr_0_item, NULL, rep);
-      END IF;
+      -- .'$distinctSchemaArray'.'@'.0.'|'.1
+      res := JSONB_TYPEOF(arr_0_item) = 'string' OR json_model_1(arr_0_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -77,28 +74,22 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_map_additionalItems (.additionalItems)
 CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .additionalItems
   -- .additionalItems.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .additionalItems.'|'.1
-  RETURN res OR json_model_1(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_1_map_additionalProperties (.additionalProperties)
 CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .additionalProperties
   -- .additionalProperties.'|'.0
-  res := JSONB_TYPEOF(val) = 'boolean';
   -- .additionalProperties.'|'.1
-  RETURN res OR json_model_1(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -168,14 +159,11 @@ $$ LANGUAGE PLpgSQL;
 -- check json_model_1_map_disallow (.disallow)
 CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .disallow
   -- .disallow.'|'.0
-  res := JSONB_TYPEOF(val) = 'string';
   -- .disallow.'|'.1
-  RETURN res OR json_model_3(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -457,11 +445,8 @@ BEGIN
         arr_4_item := val -> arr_4_idx;
         -- .type.'|'.1.0
         -- .type.'|'.1.0.'|'.0
-        res := JSONB_TYPEOF(arr_4_item) = 'string';
-        IF NOT res THEN
-          -- .type.'|'.1.0.'|'.1
-          res := json_model_1(arr_4_item, NULL, rep);
-        END IF;
+        -- .type.'|'.1.0.'|'.1
+        res := JSONB_TYPEOF(arr_4_item) = 'string' OR json_model_1(arr_4_item, NULL, rep);
         IF NOT res THEN
           EXIT;
         END IF;

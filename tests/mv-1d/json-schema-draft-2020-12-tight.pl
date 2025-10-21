@@ -474,12 +474,8 @@ sub json_model_7($$$)
             # handle may multipleOf property
             # .'$Number'.multipleOf
             # .'$Number'.multipleOf.'|'.0
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                # .'$Number'.multipleOf.'|'.1
-                $res = jm_is_numeric($pval) && $pval > 0.0;
-            }
+            # .'$Number'.multipleOf.'|'.1
+            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
             if (! $res)
             {
                 return 0;
@@ -490,12 +486,8 @@ sub json_model_7($$$)
             # handle may maximum property
             # .'$Number'.maximum
             # .'$Number'.maximum.'|'.0
-            $res = jm_is_integer($pval);
-            if (! $res)
-            {
-                # .'$Number'.maximum.'|'.1
-                $res = jm_is_numeric($pval);
-            }
+            # .'$Number'.maximum.'|'.1
+            $res = jm_is_integer($pval) || jm_is_numeric($pval);
             if (! $res)
             {
                 return 0;
@@ -506,12 +498,8 @@ sub json_model_7($$$)
             # handle may exclusiveMaximum property
             # .'$Number'.exclusiveMaximum
             # .'$Number'.exclusiveMaximum.'|'.0
-            $res = jm_is_integer($pval);
-            if (! $res)
-            {
-                # .'$Number'.exclusiveMaximum.'|'.1
-                $res = jm_is_numeric($pval);
-            }
+            # .'$Number'.exclusiveMaximum.'|'.1
+            $res = jm_is_integer($pval) || jm_is_numeric($pval);
             if (! $res)
             {
                 return 0;
@@ -522,12 +510,8 @@ sub json_model_7($$$)
             # handle may minimum property
             # .'$Number'.minimum
             # .'$Number'.minimum.'|'.0
-            $res = jm_is_integer($pval);
-            if (! $res)
-            {
-                # .'$Number'.minimum.'|'.1
-                $res = jm_is_numeric($pval);
-            }
+            # .'$Number'.minimum.'|'.1
+            $res = jm_is_integer($pval) || jm_is_numeric($pval);
             if (! $res)
             {
                 return 0;
@@ -538,12 +522,8 @@ sub json_model_7($$$)
             # handle may exclusiveMinimum property
             # .'$Number'.exclusiveMinimum
             # .'$Number'.exclusiveMinimum.'|'.0
-            $res = jm_is_integer($pval);
-            if (! $res)
-            {
-                # .'$Number'.exclusiveMinimum.'|'.1
-                $res = jm_is_numeric($pval);
-            }
+            # .'$Number'.exclusiveMinimum.'|'.1
+            $res = jm_is_integer($pval) || jm_is_numeric($pval);
             if (! $res)
             {
                 return 0;
@@ -1525,9 +1505,8 @@ sub _jm_f_60($$$)
     my ($val, $path, $rep) = @_;
     # .'$TightSchema'.'|'.2.exclusiveMaximum
     # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0
-    my $res = jm_is_integer($val);
     # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
-    return $res || jm_is_numeric($val);
+    return jm_is_integer($val) || jm_is_numeric($val);
 }
 
 # check _jm_obj_2_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
@@ -1536,9 +1515,8 @@ sub _jm_f_61($$$)
     my ($val, $path, $rep) = @_;
     # .'$TightSchema'.'|'.2.exclusiveMinimum
     # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0
-    my $res = jm_is_integer($val);
     # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
-    return $res || jm_is_numeric($val);
+    return jm_is_integer($val) || jm_is_numeric($val);
 }
 
 # check _jm_obj_2_map_maximum (.'$TightSchema'.'|'.2.maximum)
@@ -1547,9 +1525,8 @@ sub _jm_f_62($$$)
     my ($val, $path, $rep) = @_;
     # .'$TightSchema'.'|'.2.maximum
     # .'$TightSchema'.'|'.2.maximum.'|'.0
-    my $res = jm_is_integer($val);
     # .'$TightSchema'.'|'.2.maximum.'|'.1
-    return $res || jm_is_numeric($val);
+    return jm_is_integer($val) || jm_is_numeric($val);
 }
 
 # check _jm_obj_2_map_minimum (.'$TightSchema'.'|'.2.minimum)
@@ -1558,9 +1535,8 @@ sub _jm_f_63($$$)
     my ($val, $path, $rep) = @_;
     # .'$TightSchema'.'|'.2.minimum
     # .'$TightSchema'.'|'.2.minimum.'|'.0
-    my $res = jm_is_integer($val);
     # .'$TightSchema'.'|'.2.minimum.'|'.1
-    return $res || jm_is_numeric($val);
+    return jm_is_integer($val) || jm_is_numeric($val);
 }
 
 # check _jm_obj_2_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
@@ -1569,9 +1545,8 @@ sub _jm_f_64($$$)
     my ($val, $path, $rep) = @_;
     # .'$TightSchema'.'|'.2.multipleOf
     # .'$TightSchema'.'|'.2.multipleOf.'|'.0
-    my $res = jm_is_integer($val) && $val >= 1;
     # .'$TightSchema'.'|'.2.multipleOf.'|'.1
-    return $res || jm_is_numeric($val) && $val > 0.0;
+    return jm_is_integer($val) && $val >= 1 || jm_is_numeric($val) && $val > 0.0;
 }
 
 # check _jm_obj_2_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
@@ -2771,9 +2746,8 @@ sub json_model_16($$$)
     my ($val, $path, $rep) = @_;
     # .'$Schema'
     # .'$Schema'.'|'.0
-    my $res = jm_is_boolean($val);
     # .'$Schema'.'|'.1
-    return $res || json_model_15($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_15($val, $path, $rep);
 }
 
 # check $ (.)

@@ -164,29 +164,14 @@ $$ LANGUAGE PLpgSQL;
 -- check $atomic (.'$atomic')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$atomic'
   -- .'$atomic'.'|'.0
-  res := JSONB_TYPEOF(val) = 'null';
-  IF NOT res THEN
-    -- .'$atomic'.'|'.1
-    res := JSONB_TYPEOF(val) = 'boolean';
-    IF NOT res THEN
-      -- .'$atomic'.'|'.2
-      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
-      IF NOT res THEN
-        -- .'$atomic'.'|'.3
-        res := JSONB_TYPEOF(val) = 'number';
-        IF NOT res THEN
-          -- .'$atomic'.'|'.4
-          res := JSONB_TYPEOF(val) = 'string';
-        END IF;
-      END IF;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$atomic'.'|'.1
+  -- .'$atomic'.'|'.2
+  -- .'$atomic'.'|'.3
+  -- .'$atomic'.'|'.4
+  RETURN JSONB_TYPEOF(val) = 'null' OR JSONB_TYPEOF(val) = 'boolean' OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'number' OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -616,14 +601,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $type-or-ref (.'$type-or-ref')
 CREATE OR REPLACE FUNCTION json_model_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$type-or-ref'
   -- .'$type-or-ref'.'|'.0
-  res := JSONB_TYPEOF(val) = 'string';
   -- .'$type-or-ref'.'|'.1
-  RETURN res OR json_model_3(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' OR json_model_3(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

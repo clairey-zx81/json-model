@@ -29,11 +29,8 @@ BEGIN
     -- handle other props
     -- .'$a'.''
     -- .'$a'.''.'|'.0
-    res := json_model_3(pval, NULL, rep);
-    IF NOT res THEN
-      -- .'$a'.''.'|'.1
-      res := _jm_obj_0(pval, NULL, rep);
-    END IF;
+    -- .'$a'.''.'|'.1
+    res := json_model_3(pval, NULL, rep) OR _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -53,14 +50,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $r (.'$r')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$r'
   -- .'$r'.'|'.0
-  res := json_model_2(val, path, rep);
   -- .'$r'.'|'.1
-  RETURN res OR _jm_obj_1(val, path, rep);
+  RETURN json_model_2(val, path, rep) OR _jm_obj_1(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
