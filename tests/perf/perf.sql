@@ -290,7 +290,24 @@ CREATE TABLE ShowPerfPerCase AS
   ORDER BY 1 ASC;
 
 -- relative execution time summary
-CREATE TABLE ShowPerfSummary AS
+CREATE TABLE ShowPerfSummary AS WITH
+  TotalCaseSize AS (
+    SELECT tool, SUM(vsize) AS tsize
+    FROM CaseValues
+    JOIN CumulatedPerf USING (name)
+    WHERE run != 0.0
+    GROUP BY 1
+  ),
+  TotalToolTime AS (
+    SELECT tool, SUM(run) AS run
+    FROM CumulatedPerf
+    GROUP BY 1
+  ),
+  MusPerKbTool AS (
+    SELECT tool, 1024 * run / tsize AS perf
+    FROM TotalToolTime
+    JOIN TotalCaseSize USING (tool)
+  )
   SELECT
     1 AS ordre, 'Best' AS summary,
     COUNT(*) FILTER (WHERE blaze = 1.0) AS blaze,
@@ -314,7 +331,17 @@ CREATE TABLE ShowPerfSummary AS
   FROM RelativeComparison
   UNION
   SELECT
-    3, 'max',
+    3, 'µs/kB',
+    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'blaze')),
+    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-c')),
+    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-js')),
+    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-gson')),
+    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jackson')),
+    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jsonp')),
+    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-py'))
+  UNION
+  SELECT
+    4, 'max',
     FORMAT('%.02f', MAX(blaze)),
     FORMAT('%.02f', MAX(c)),
     FORMAT('%.02f', MAX(js)),
@@ -325,7 +352,7 @@ CREATE TABLE ShowPerfSummary AS
   FROM RelativeComparison
   UNION
   SELECT
-    4, 'gav',
+    5, 'gav',
     FORMAT('%.02f', EXP(AVG(LN(blaze)))),
     FORMAT('%.02f', EXP(AVG(LN(c)))),
     FORMAT('%.02f', EXP(AVG(LN(js)))),
@@ -336,7 +363,7 @@ CREATE TABLE ShowPerfSummary AS
   FROM RelativeComparison
   UNION
   SELECT
-    5, 'min',
+    6, 'min',
     FORMAT('%.02f', MIN(blaze)),
     FORMAT('%.02f', MIN(c)),
     FORMAT('%.02f', MIN(js)),

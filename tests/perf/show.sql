@@ -26,7 +26,7 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 .print ### Tool Performance Summary
 .print
 .print For each tool: number of best performance, number of case failures,
-.print max/geometrical average/min performance ratio.
+.print overall validation time per kB, max/geometrical average/min performance ratio.
 .print
 .print LRRRRRRR
 .width 0 -5 -5 -5 -5 -5 -5 -5
