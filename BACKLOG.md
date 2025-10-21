@@ -17,8 +17,10 @@
 - [x] static: add likely/unlikely hints to clang
 - [x] c-backend: optimize startwith implementation
 - [x] backend: optimize pattern "res = E1; if (! res) res = E2;"
-- [x] backend: optimize pattern "(E && ...) || (E && ...) || ...;"
+- [x] backend: optimize full pattern "(E && ...) || (E && ...) || ...;"
 - [x] backend: or/and flattening
+- [x] backend: optimize partial pattern "(E && ...) || (E && ...) || ...;" (?)
+- [ ] backend: optimize pattern "V = E1; if (V) V = E2;"
 - [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] static: improve likely hints, eg may only category
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)

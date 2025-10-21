@@ -715,37 +715,60 @@ def elimCommonSub(code: Jsonable) -> int:
         nonlocal changes
         # TODO improve generality with partial match
         if _isOp(code, "|"):
+            factor: list[list[int]] = []
             common: Jsonable|None = None
-            ncommon = 0
+            curidx: list[int] = []
             exprs = code["exprs"]
-            for expr in exprs:
+            for i, expr in enumerate(exprs):
+                log.warning(f"common={common} curidx={curidx}")
                 if _isOp(expr, "&"):
                     if common is None:
                         common = expr["exprs"][0]
-                        ncommon += 1
+                        curidx = [i]
                     elif common == expr["exprs"][0]:
-                        ncommon += 1
+                        curidx.append(i)
                         continue
                     else:
-                        common = None
+                        if len(curidx) > 1:
+                            factor.append(curidx)
+                        common = expr["exprs"][0]
+                        curidx = [i]
                         break
                 else:
-                    common = None
-                    break
-            if common:
-                assert ncommon == len(code["exprs"]), "full list common"
-                # |(&(C, 1...), &(C, 2...)) -> &(C, |(&(1...), &(2...)))
+                    if len(curidx) > 1:
+                        factor.append(curidx)
+                    common, curidx = None, []
+            if len(curidx) > 1:
+                factor.append(curidx)
 
-                def trunk(andop):
-                    assert _isOp(andop, "&")
-                    andop["exprs"] = andop["exprs"][1:]
+            log.warning(f"factor: {factor}")
 
-                # remove common part
-                list(map(trunk, exprs))
+            # rewrite factor sections
+            for f in factor:
+                # |(..., &(C, 1...), &(C, 2...), ...) -> |(..., &(C, |(&(1...), &(2...))), ...)
+                assert len(f) > 1
+                first, last = f[0], f[-1]
 
-                code["o"] = "&"
-                code["exprs"] = [ common, {"o": "|", "exprs": exprs} ]
+                common = exprs[first]["exprs"][0]
+
+                # extract and drop the common part
+                ands = copy.deepcopy(exprs[first: last+1])
+                for e in ands:
+                    e["exprs"] = e["exprs"][1:]
+
+                # common expression
+                exprs[first]["o"] = "&"
+                exprs[first]["exprs"] = [ common, {"o": "|", "exprs": ands} ]
+                # falsify other items
+                for i in range(first+1, last+1):
+                    exprs[i].clear()
+                    exprs[i].update(o="cst", c=False)
+
                 changes += 1
+
+            if factor:
+                # remove False from list
+                code["exprs"] = list(filter(lambda e: not _isFalse(e), exprs))
 
         return code
 
