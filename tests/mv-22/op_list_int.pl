@@ -82,7 +82,7 @@ sub _jm_obj_1($$$)
         # .'|'.1.t.'|'.1
         # .'|'.1.t.'|'.2
         # .'|'.1.t.'|'.3
-        $res = jm_is_integer($pval) && $pval == 2 || jm_is_integer($pval) && $pval == 4 || jm_is_integer($pval) && $pval == 6 || jm_is_integer($pval) && $pval == 8;
+        $res = jm_is_integer($pval) && ($pval == 2 || $pval == 4 || $pval == 6 || $pval == 8);
     }
     if (! $res)
     {
@@ -126,7 +126,7 @@ sub _jm_obj_2($$$)
         # .'|'.2.t.'|'.2
         # .'|'.2.t.'|'.3
         # .'|'.2.t.'|'.4
-        $res = jm_is_integer($pval) && $pval == 1 || jm_is_integer($pval) && $pval == 3 || jm_is_integer($pval) && $pval == 5 || jm_is_integer($pval) && $pval == 7 || jm_is_integer($pval) && $pval == 9;
+        $res = jm_is_integer($pval) && ($pval == 1 || $pval == 3 || $pval == 5 || $pval == 7 || $pval == 9);
     }
     if (! $res)
     {

@@ -85,7 +85,7 @@ sub json_model_3($$$)
     }
     $pval = $$val{'t'};
     # .'$oB'.t
-    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    return jm_is_string($pval) && exists $_jm_cst_0{$pval};
 }
 
 
@@ -179,7 +179,7 @@ sub json_model_6($$$)
     }
     $pval = $$val{'t'};
     # .'$oX'.t
-    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
+    return jm_is_string($pval) && exists $_jm_cst_1{$pval};
 }
 
 

@@ -437,7 +437,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema#simpleTypes'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    return jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $schema#stringArray (.'$schema#stringArray')

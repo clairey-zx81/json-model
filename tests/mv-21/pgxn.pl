@@ -99,7 +99,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$License'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    return jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $LicenseList (.'$LicenseList')
@@ -213,7 +213,7 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Status'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # object .'$Resources'.bugtracker
@@ -428,7 +428,7 @@ sub json_model_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Phase'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_2{$val};
+    return jm_is_string($val) && exists $_jm_cst_2{$val};
 }
 
 
@@ -437,7 +437,7 @@ sub json_model_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Relation'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_3{$val};
+    return jm_is_string($val) && exists $_jm_cst_3{$val};
 }
 
 # check $Prereq (.'$Prereq')

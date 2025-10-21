@@ -352,7 +352,7 @@ sub json_model_5($$$)
         {
             # handle may format property
             # .'$stringKeywords'.format
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
             if (! $res)
             {
                 return 0;
@@ -860,7 +860,7 @@ sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$String'.format
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check json_model_10_map_id (.'$String'.id)

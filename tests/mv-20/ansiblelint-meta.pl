@@ -285,7 +285,7 @@ sub json_model_2($$$)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .'$AIXPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_0_item) && jm_is_string($arr_0_item) && exists $_jm_cst_0{$arr_0_item};
+                    $res = jm_is_string($arr_0_item) && exists $_jm_cst_0{$arr_0_item};
                     if (! $res)
                     {
                         last;
@@ -394,7 +394,7 @@ sub json_model_4($$$)
                 {
                     my $arr_2_item = $$pval[$arr_2_idx];
                     # .'$AmazonLinuxPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_2_item) && jm_is_string($arr_2_item) && exists $_jm_cst_1{$arr_2_item};
+                    $res = jm_is_string($arr_2_item) && exists $_jm_cst_1{$arr_2_item};
                     if (! $res)
                     {
                         last;
@@ -449,7 +449,7 @@ sub json_model_5($$$)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$AmazonPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_3_item) && jm_is_string($arr_3_item) && exists $_jm_cst_2{$arr_3_item};
+                    $res = jm_is_string($arr_3_item) && exists $_jm_cst_2{$arr_3_item};
                     if (! $res)
                     {
                         last;
@@ -558,7 +558,7 @@ sub json_model_7($$$)
                 {
                     my $arr_5_item = $$pval[$arr_5_idx];
                     # .'$AstraLinuxPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_5_item) && jm_is_string($arr_5_item) && exists $_jm_cst_3{$arr_5_item};
+                    $res = jm_is_string($arr_5_item) && exists $_jm_cst_3{$arr_5_item};
                     if (! $res)
                     {
                         last;
@@ -667,7 +667,7 @@ sub json_model_9($$$)
                 {
                     my $arr_7_item = $$pval[$arr_7_idx];
                     # .'$CumulusPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_7_item) && jm_is_string($arr_7_item) && exists $_jm_cst_4{$arr_7_item};
+                    $res = jm_is_string($arr_7_item) && exists $_jm_cst_4{$arr_7_item};
                     if (! $res)
                     {
                         last;
@@ -722,7 +722,7 @@ sub json_model_10($$$)
                 {
                     my $arr_8_item = $$pval[$arr_8_idx];
                     # .'$DebianPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_8_item) && jm_is_string($arr_8_item) && exists $_jm_cst_5{$arr_8_item};
+                    $res = jm_is_string($arr_8_item) && exists $_jm_cst_5{$arr_8_item};
                     if (! $res)
                     {
                         last;
@@ -777,7 +777,7 @@ sub json_model_11($$$)
                 {
                     my $arr_9_item = $$pval[$arr_9_idx];
                     # .'$DellOSPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_9_item) && jm_is_string($arr_9_item) && exists $_jm_cst_6{$arr_9_item};
+                    $res = jm_is_string($arr_9_item) && exists $_jm_cst_6{$arr_9_item};
                     if (! $res)
                     {
                         last;
@@ -832,7 +832,7 @@ sub json_model_12($$$)
                 {
                     my $arr_10_item = $$pval[$arr_10_idx];
                     # .'$DevuanPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_10_item) && jm_is_string($arr_10_item) && exists $_jm_cst_7{$arr_10_item};
+                    $res = jm_is_string($arr_10_item) && exists $_jm_cst_7{$arr_10_item};
                     if (! $res)
                     {
                         last;
@@ -887,7 +887,7 @@ sub json_model_13($$$)
                 {
                     my $arr_11_item = $$pval[$arr_11_idx];
                     # .'$DragonFlyBSDPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_11_item) && jm_is_string($arr_11_item) && exists $_jm_cst_8{$arr_11_item};
+                    $res = jm_is_string($arr_11_item) && exists $_jm_cst_8{$arr_11_item};
                     if (! $res)
                     {
                         last;
@@ -942,7 +942,7 @@ sub json_model_14($$$)
                 {
                     my $arr_12_item = $$pval[$arr_12_idx];
                     # .'$ELPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_12_item) && jm_is_string($arr_12_item) && exists $_jm_cst_9{$arr_12_item};
+                    $res = jm_is_string($arr_12_item) && exists $_jm_cst_9{$arr_12_item};
                     if (! $res)
                     {
                         last;
@@ -997,7 +997,7 @@ sub json_model_15($$$)
                 {
                     my $arr_13_item = $$pval[$arr_13_idx];
                     # .'$FedoraPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_13_item) && jm_is_string($arr_13_item) && exists $_jm_cst_10{$arr_13_item};
+                    $res = jm_is_string($arr_13_item) && exists $_jm_cst_10{$arr_13_item};
                     if (! $res)
                     {
                         last;
@@ -1052,7 +1052,7 @@ sub json_model_16($$$)
                 {
                     my $arr_14_item = $$pval[$arr_14_idx];
                     # .'$FreeBSDPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_14_item) && jm_is_string($arr_14_item) && exists $_jm_cst_11{$arr_14_item};
+                    $res = jm_is_string($arr_14_item) && exists $_jm_cst_11{$arr_14_item};
                     if (! $res)
                     {
                         last;
@@ -1323,7 +1323,7 @@ sub json_model_21($$$)
                 {
                     my $arr_19_item = $$pval[$arr_19_idx];
                     # .'$HardenedBSDPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_19_item) && jm_is_string($arr_19_item) && exists $_jm_cst_12{$arr_19_item};
+                    $res = jm_is_string($arr_19_item) && exists $_jm_cst_12{$arr_19_item};
                     if (! $res)
                     {
                         last;
@@ -1486,7 +1486,7 @@ sub json_model_24($$$)
                 {
                     my $arr_22_item = $$pval[$arr_22_idx];
                     # .'$KaliPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_22_item) && jm_is_string($arr_22_item) && exists $_jm_cst_13{$arr_22_item};
+                    $res = jm_is_string($arr_22_item) && exists $_jm_cst_13{$arr_22_item};
                     if (! $res)
                     {
                         last;
@@ -1541,7 +1541,7 @@ sub json_model_25($$$)
                 {
                     my $arr_23_item = $$pval[$arr_23_idx];
                     # .'$MacOSXPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_23_item) && jm_is_string($arr_23_item) && exists $_jm_cst_14{$arr_23_item};
+                    $res = jm_is_string($arr_23_item) && exists $_jm_cst_14{$arr_23_item};
                     if (! $res)
                     {
                         last;
@@ -1596,7 +1596,7 @@ sub json_model_26($$$)
                 {
                     my $arr_24_item = $$pval[$arr_24_idx];
                     # .'$MageiaPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_24_item) && jm_is_string($arr_24_item) && exists $_jm_cst_15{$arr_24_item};
+                    $res = jm_is_string($arr_24_item) && exists $_jm_cst_15{$arr_24_item};
                     if (! $res)
                     {
                         last;
@@ -1705,7 +1705,7 @@ sub json_model_28($$$)
                 {
                     my $arr_26_item = $$pval[$arr_26_idx];
                     # .'$NetBSDPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_26_item) && jm_is_string($arr_26_item) && exists $_jm_cst_16{$arr_26_item};
+                    $res = jm_is_string($arr_26_item) && exists $_jm_cst_16{$arr_26_item};
                     if (! $res)
                     {
                         last;
@@ -1760,7 +1760,7 @@ sub json_model_29($$$)
                 {
                     my $arr_27_item = $$pval[$arr_27_idx];
                     # .'$OpenBSDPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_27_item) && jm_is_string($arr_27_item) && exists $_jm_cst_17{$arr_27_item};
+                    $res = jm_is_string($arr_27_item) && exists $_jm_cst_17{$arr_27_item};
                     if (! $res)
                     {
                         last;
@@ -1815,7 +1815,7 @@ sub json_model_30($$$)
                 {
                     my $arr_28_item = $$pval[$arr_28_idx];
                     # .'$OpenWrtPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_28_item) && jm_is_string($arr_28_item) && exists $_jm_cst_18{$arr_28_item};
+                    $res = jm_is_string($arr_28_item) && exists $_jm_cst_18{$arr_28_item};
                     if (! $res)
                     {
                         last;
@@ -1870,7 +1870,7 @@ sub json_model_31($$$)
                 {
                     my $arr_29_item = $$pval[$arr_29_idx];
                     # .'$OracleLinuxPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_29_item) && jm_is_string($arr_29_item) && exists $_jm_cst_19{$arr_29_item};
+                    $res = jm_is_string($arr_29_item) && exists $_jm_cst_19{$arr_29_item};
                     if (! $res)
                     {
                         last;
@@ -1925,7 +1925,7 @@ sub json_model_32($$$)
                 {
                     my $arr_30_item = $$pval[$arr_30_idx];
                     # .'$PAN-OSPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_30_item) && jm_is_string($arr_30_item) && exists $_jm_cst_20{$arr_30_item};
+                    $res = jm_is_string($arr_30_item) && exists $_jm_cst_20{$arr_30_item};
                     if (! $res)
                     {
                         last;
@@ -1980,7 +1980,7 @@ sub json_model_33($$$)
                 {
                     my $arr_31_item = $$pval[$arr_31_idx];
                     # .'$RockyLinuxPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_31_item) && jm_is_string($arr_31_item) && exists $_jm_cst_21{$arr_31_item};
+                    $res = jm_is_string($arr_31_item) && exists $_jm_cst_21{$arr_31_item};
                     if (! $res)
                     {
                         last;
@@ -2035,7 +2035,7 @@ sub json_model_34($$$)
                 {
                     my $arr_32_item = $$pval[$arr_32_idx];
                     # .'$SLESPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_32_item) && jm_is_string($arr_32_item) && exists $_jm_cst_22{$arr_32_item};
+                    $res = jm_is_string($arr_32_item) && exists $_jm_cst_22{$arr_32_item};
                     if (! $res)
                     {
                         last;
@@ -2144,7 +2144,7 @@ sub json_model_36($$$)
                 {
                     my $arr_34_item = $$pval[$arr_34_idx];
                     # .'$SolarisPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_34_item) && jm_is_string($arr_34_item) && exists $_jm_cst_23{$arr_34_item};
+                    $res = jm_is_string($arr_34_item) && exists $_jm_cst_23{$arr_34_item};
                     if (! $res)
                     {
                         last;
@@ -2199,7 +2199,7 @@ sub json_model_37($$$)
                 {
                     my $arr_35_item = $$pval[$arr_35_idx];
                     # .'$SynologyPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_35_item) && jm_is_string($arr_35_item) && exists $_jm_cst_24{$arr_35_item};
+                    $res = jm_is_string($arr_35_item) && exists $_jm_cst_24{$arr_35_item};
                     if (! $res)
                     {
                         last;
@@ -2254,7 +2254,7 @@ sub json_model_38($$$)
                 {
                     my $arr_36_item = $$pval[$arr_36_idx];
                     # .'$TMOSPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_36_item) && jm_is_string($arr_36_item) && exists $_jm_cst_25{$arr_36_item};
+                    $res = jm_is_string($arr_36_item) && exists $_jm_cst_25{$arr_36_item};
                     if (! $res)
                     {
                         last;
@@ -2309,7 +2309,7 @@ sub json_model_39($$$)
                 {
                     my $arr_37_item = $$pval[$arr_37_idx];
                     # .'$UbuntuPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_37_item) && jm_is_string($arr_37_item) && exists $_jm_cst_26{$arr_37_item};
+                    $res = jm_is_string($arr_37_item) && exists $_jm_cst_26{$arr_37_item};
                     if (! $res)
                     {
                         last;
@@ -2418,7 +2418,7 @@ sub json_model_41($$$)
                 {
                     my $arr_39_item = $$pval[$arr_39_idx];
                     # .'$WindowsPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_39_item) && jm_is_string($arr_39_item) && exists $_jm_cst_27{$arr_39_item};
+                    $res = jm_is_string($arr_39_item) && exists $_jm_cst_27{$arr_39_item};
                     if (! $res)
                     {
                         last;
@@ -2581,7 +2581,7 @@ sub json_model_44($$$)
                 {
                     my $arr_42_item = $$pval[$arr_42_idx];
                     # .'$macOSPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_42_item) && jm_is_string($arr_42_item) && exists $_jm_cst_28{$arr_42_item};
+                    $res = jm_is_string($arr_42_item) && exists $_jm_cst_28{$arr_42_item};
                     if (! $res)
                     {
                         last;
@@ -2636,7 +2636,7 @@ sub json_model_45($$$)
                 {
                     my $arr_43_item = $$pval[$arr_43_idx];
                     # .'$opensusePlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_43_item) && jm_is_string($arr_43_item) && exists $_jm_cst_29{$arr_43_item};
+                    $res = jm_is_string($arr_43_item) && exists $_jm_cst_29{$arr_43_item};
                     if (! $res)
                     {
                         last;
@@ -2745,7 +2745,7 @@ sub json_model_47($$$)
                 {
                     my $arr_45_item = $$pval[$arr_45_idx];
                     # .'$vCenterPlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_45_item) && jm_is_string($arr_45_item) && exists $_jm_cst_30{$arr_45_item};
+                    $res = jm_is_string($arr_45_item) && exists $_jm_cst_30{$arr_45_item};
                     if (! $res)
                     {
                         last;
@@ -2800,7 +2800,7 @@ sub json_model_48($$$)
                 {
                     my $arr_46_item = $$pval[$arr_46_idx];
                     # .'$vSpherePlatformModel'.versions.0
-                    $res = jm_is_scalar($arr_46_item) && jm_is_string($arr_46_item) && exists $_jm_cst_31{$arr_46_item};
+                    $res = jm_is_string($arr_46_item) && exists $_jm_cst_31{$arr_46_item};
                     if (! $res)
                     {
                         last;
@@ -2909,7 +2909,7 @@ sub _jm_obj_0($$$)
             {
                 my $arr_48_item = $$pval[$arr_48_idx];
                 # .'$platforms'.0.'|'.46.versions.0
-                $res = jm_is_scalar($arr_48_item) && jm_is_string($arr_48_item) && exists $_jm_cst_32{$arr_48_item};
+                $res = jm_is_string($arr_48_item) && exists $_jm_cst_32{$arr_48_item};
                 if (! $res)
                 {
                     last;
@@ -2957,7 +2957,7 @@ sub _jm_obj_1($$$)
             {
                 my $arr_49_item = $$pval[$arr_49_idx];
                 # .'$platforms'.0.'|'.45.versions.0
-                $res = jm_is_scalar($arr_49_item) && jm_is_string($arr_49_item) && exists $_jm_cst_33{$arr_49_item};
+                $res = jm_is_string($arr_49_item) && exists $_jm_cst_33{$arr_49_item};
                 if (! $res)
                 {
                     last;
@@ -3052,7 +3052,7 @@ sub _jm_obj_3($$$)
             {
                 my $arr_51_item = $$pval[$arr_51_idx];
                 # .'$platforms'.0.'|'.43.versions.0
-                $res = jm_is_scalar($arr_51_item) && jm_is_string($arr_51_item) && exists $_jm_cst_34{$arr_51_item};
+                $res = jm_is_string($arr_51_item) && exists $_jm_cst_34{$arr_51_item};
                 if (! $res)
                 {
                     last;
@@ -3100,7 +3100,7 @@ sub _jm_obj_4($$$)
             {
                 my $arr_52_item = $$pval[$arr_52_idx];
                 # .'$platforms'.0.'|'.42.versions.0
-                $res = jm_is_scalar($arr_52_item) && jm_is_string($arr_52_item) && exists $_jm_cst_35{$arr_52_item};
+                $res = jm_is_string($arr_52_item) && exists $_jm_cst_35{$arr_52_item};
                 if (! $res)
                 {
                     last;
@@ -3148,7 +3148,7 @@ sub _jm_obj_5($$$)
             {
                 my $arr_53_item = $$pval[$arr_53_idx];
                 # .'$platforms'.0.'|'.41.versions.0
-                $res = jm_is_scalar($arr_53_item) && jm_is_string($arr_53_item) && exists $_jm_cst_36{$arr_53_item};
+                $res = jm_is_string($arr_53_item) && exists $_jm_cst_36{$arr_53_item};
                 if (! $res)
                 {
                     last;
@@ -3196,7 +3196,7 @@ sub _jm_obj_6($$$)
             {
                 my $arr_54_item = $$pval[$arr_54_idx];
                 # .'$platforms'.0.'|'.40.versions.0
-                $res = jm_is_scalar($arr_54_item) && jm_is_string($arr_54_item) && exists $_jm_cst_37{$arr_54_item};
+                $res = jm_is_string($arr_54_item) && exists $_jm_cst_37{$arr_54_item};
                 if (! $res)
                 {
                     last;
@@ -3244,7 +3244,7 @@ sub _jm_obj_7($$$)
             {
                 my $arr_55_item = $$pval[$arr_55_idx];
                 # .'$platforms'.0.'|'.39.versions.0
-                $res = jm_is_scalar($arr_55_item) && jm_is_string($arr_55_item) && exists $_jm_cst_38{$arr_55_item};
+                $res = jm_is_string($arr_55_item) && exists $_jm_cst_38{$arr_55_item};
                 if (! $res)
                 {
                     last;
@@ -3339,7 +3339,7 @@ sub _jm_obj_9($$$)
             {
                 my $arr_57_item = $$pval[$arr_57_idx];
                 # .'$platforms'.0.'|'.37.versions.0
-                $res = jm_is_scalar($arr_57_item) && jm_is_string($arr_57_item) && exists $_jm_cst_39{$arr_57_item};
+                $res = jm_is_string($arr_57_item) && exists $_jm_cst_39{$arr_57_item};
                 if (! $res)
                 {
                     last;
@@ -3387,7 +3387,7 @@ sub _jm_obj_10($$$)
             {
                 my $arr_58_item = $$pval[$arr_58_idx];
                 # .'$platforms'.0.'|'.36.versions.0
-                $res = jm_is_scalar($arr_58_item) && jm_is_string($arr_58_item) && exists $_jm_cst_40{$arr_58_item};
+                $res = jm_is_string($arr_58_item) && exists $_jm_cst_40{$arr_58_item};
                 if (! $res)
                 {
                     last;
@@ -3435,7 +3435,7 @@ sub _jm_obj_11($$$)
             {
                 my $arr_59_item = $$pval[$arr_59_idx];
                 # .'$platforms'.0.'|'.35.versions.0
-                $res = jm_is_scalar($arr_59_item) && jm_is_string($arr_59_item) && exists $_jm_cst_41{$arr_59_item};
+                $res = jm_is_string($arr_59_item) && exists $_jm_cst_41{$arr_59_item};
                 if (! $res)
                 {
                     last;
@@ -3530,7 +3530,7 @@ sub _jm_obj_13($$$)
             {
                 my $arr_61_item = $$pval[$arr_61_idx];
                 # .'$platforms'.0.'|'.33.versions.0
-                $res = jm_is_scalar($arr_61_item) && jm_is_string($arr_61_item) && exists $_jm_cst_42{$arr_61_item};
+                $res = jm_is_string($arr_61_item) && exists $_jm_cst_42{$arr_61_item};
                 if (! $res)
                 {
                     last;
@@ -3578,7 +3578,7 @@ sub _jm_obj_14($$$)
             {
                 my $arr_62_item = $$pval[$arr_62_idx];
                 # .'$platforms'.0.'|'.32.versions.0
-                $res = jm_is_scalar($arr_62_item) && jm_is_string($arr_62_item) && exists $_jm_cst_43{$arr_62_item};
+                $res = jm_is_string($arr_62_item) && exists $_jm_cst_43{$arr_62_item};
                 if (! $res)
                 {
                     last;
@@ -3626,7 +3626,7 @@ sub _jm_obj_15($$$)
             {
                 my $arr_63_item = $$pval[$arr_63_idx];
                 # .'$platforms'.0.'|'.31.versions.0
-                $res = jm_is_scalar($arr_63_item) && jm_is_string($arr_63_item) && exists $_jm_cst_44{$arr_63_item};
+                $res = jm_is_string($arr_63_item) && exists $_jm_cst_44{$arr_63_item};
                 if (! $res)
                 {
                     last;
@@ -3674,7 +3674,7 @@ sub _jm_obj_16($$$)
             {
                 my $arr_64_item = $$pval[$arr_64_idx];
                 # .'$platforms'.0.'|'.30.versions.0
-                $res = jm_is_scalar($arr_64_item) && jm_is_string($arr_64_item) && exists $_jm_cst_45{$arr_64_item};
+                $res = jm_is_string($arr_64_item) && exists $_jm_cst_45{$arr_64_item};
                 if (! $res)
                 {
                     last;
@@ -3769,7 +3769,7 @@ sub _jm_obj_18($$$)
             {
                 my $arr_66_item = $$pval[$arr_66_idx];
                 # .'$platforms'.0.'|'.28.versions.0
-                $res = jm_is_scalar($arr_66_item) && jm_is_string($arr_66_item) && exists $_jm_cst_46{$arr_66_item};
+                $res = jm_is_string($arr_66_item) && exists $_jm_cst_46{$arr_66_item};
                 if (! $res)
                 {
                     last;
@@ -3817,7 +3817,7 @@ sub _jm_obj_19($$$)
             {
                 my $arr_67_item = $$pval[$arr_67_idx];
                 # .'$platforms'.0.'|'.27.versions.0
-                $res = jm_is_scalar($arr_67_item) && jm_is_string($arr_67_item) && exists $_jm_cst_47{$arr_67_item};
+                $res = jm_is_string($arr_67_item) && exists $_jm_cst_47{$arr_67_item};
                 if (! $res)
                 {
                     last;
@@ -3865,7 +3865,7 @@ sub _jm_obj_20($$$)
             {
                 my $arr_68_item = $$pval[$arr_68_idx];
                 # .'$platforms'.0.'|'.26.versions.0
-                $res = jm_is_scalar($arr_68_item) && jm_is_string($arr_68_item) && exists $_jm_cst_48{$arr_68_item};
+                $res = jm_is_string($arr_68_item) && exists $_jm_cst_48{$arr_68_item};
                 if (! $res)
                 {
                     last;
@@ -3913,7 +3913,7 @@ sub _jm_obj_21($$$)
             {
                 my $arr_69_item = $$pval[$arr_69_idx];
                 # .'$platforms'.0.'|'.25.versions.0
-                $res = jm_is_scalar($arr_69_item) && jm_is_string($arr_69_item) && exists $_jm_cst_49{$arr_69_item};
+                $res = jm_is_string($arr_69_item) && exists $_jm_cst_49{$arr_69_item};
                 if (! $res)
                 {
                     last;
@@ -4055,7 +4055,7 @@ sub _jm_obj_24($$$)
             {
                 my $arr_72_item = $$pval[$arr_72_idx];
                 # .'$platforms'.0.'|'.22.versions.0
-                $res = jm_is_scalar($arr_72_item) && jm_is_string($arr_72_item) && exists $_jm_cst_50{$arr_72_item};
+                $res = jm_is_string($arr_72_item) && exists $_jm_cst_50{$arr_72_item};
                 if (! $res)
                 {
                     last;
@@ -4291,7 +4291,7 @@ sub _jm_obj_29($$$)
             {
                 my $arr_77_item = $$pval[$arr_77_idx];
                 # .'$platforms'.0.'|'.17.versions.0
-                $res = jm_is_scalar($arr_77_item) && jm_is_string($arr_77_item) && exists $_jm_cst_51{$arr_77_item};
+                $res = jm_is_string($arr_77_item) && exists $_jm_cst_51{$arr_77_item};
                 if (! $res)
                 {
                     last;
@@ -4339,7 +4339,7 @@ sub _jm_obj_30($$$)
             {
                 my $arr_78_item = $$pval[$arr_78_idx];
                 # .'$platforms'.0.'|'.16.versions.0
-                $res = jm_is_scalar($arr_78_item) && jm_is_string($arr_78_item) && exists $_jm_cst_52{$arr_78_item};
+                $res = jm_is_string($arr_78_item) && exists $_jm_cst_52{$arr_78_item};
                 if (! $res)
                 {
                     last;
@@ -4434,7 +4434,7 @@ sub _jm_obj_32($$$)
             {
                 my $arr_80_item = $$pval[$arr_80_idx];
                 # .'$platforms'.0.'|'.14.versions.0
-                $res = jm_is_scalar($arr_80_item) && jm_is_string($arr_80_item) && exists $_jm_cst_53{$arr_80_item};
+                $res = jm_is_string($arr_80_item) && exists $_jm_cst_53{$arr_80_item};
                 if (! $res)
                 {
                     last;
@@ -4482,7 +4482,7 @@ sub _jm_obj_33($$$)
             {
                 my $arr_81_item = $$pval[$arr_81_idx];
                 # .'$platforms'.0.'|'.13.versions.0
-                $res = jm_is_scalar($arr_81_item) && jm_is_string($arr_81_item) && exists $_jm_cst_54{$arr_81_item};
+                $res = jm_is_string($arr_81_item) && exists $_jm_cst_54{$arr_81_item};
                 if (! $res)
                 {
                     last;
@@ -4530,7 +4530,7 @@ sub _jm_obj_34($$$)
             {
                 my $arr_82_item = $$pval[$arr_82_idx];
                 # .'$platforms'.0.'|'.12.versions.0
-                $res = jm_is_scalar($arr_82_item) && jm_is_string($arr_82_item) && exists $_jm_cst_55{$arr_82_item};
+                $res = jm_is_string($arr_82_item) && exists $_jm_cst_55{$arr_82_item};
                 if (! $res)
                 {
                     last;
@@ -4578,7 +4578,7 @@ sub _jm_obj_35($$$)
             {
                 my $arr_83_item = $$pval[$arr_83_idx];
                 # .'$platforms'.0.'|'.11.versions.0
-                $res = jm_is_scalar($arr_83_item) && jm_is_string($arr_83_item) && exists $_jm_cst_56{$arr_83_item};
+                $res = jm_is_string($arr_83_item) && exists $_jm_cst_56{$arr_83_item};
                 if (! $res)
                 {
                     last;
@@ -4626,7 +4626,7 @@ sub _jm_obj_36($$$)
             {
                 my $arr_84_item = $$pval[$arr_84_idx];
                 # .'$platforms'.0.'|'.10.versions.0
-                $res = jm_is_scalar($arr_84_item) && jm_is_string($arr_84_item) && exists $_jm_cst_57{$arr_84_item};
+                $res = jm_is_string($arr_84_item) && exists $_jm_cst_57{$arr_84_item};
                 if (! $res)
                 {
                     last;
@@ -4674,7 +4674,7 @@ sub _jm_obj_37($$$)
             {
                 my $arr_85_item = $$pval[$arr_85_idx];
                 # .'$platforms'.0.'|'.9.versions.0
-                $res = jm_is_scalar($arr_85_item) && jm_is_string($arr_85_item) && exists $_jm_cst_58{$arr_85_item};
+                $res = jm_is_string($arr_85_item) && exists $_jm_cst_58{$arr_85_item};
                 if (! $res)
                 {
                     last;
@@ -4722,7 +4722,7 @@ sub _jm_obj_38($$$)
             {
                 my $arr_86_item = $$pval[$arr_86_idx];
                 # .'$platforms'.0.'|'.8.versions.0
-                $res = jm_is_scalar($arr_86_item) && jm_is_string($arr_86_item) && exists $_jm_cst_59{$arr_86_item};
+                $res = jm_is_string($arr_86_item) && exists $_jm_cst_59{$arr_86_item};
                 if (! $res)
                 {
                     last;
@@ -4817,7 +4817,7 @@ sub _jm_obj_40($$$)
             {
                 my $arr_88_item = $$pval[$arr_88_idx];
                 # .'$platforms'.0.'|'.6.versions.0
-                $res = jm_is_scalar($arr_88_item) && jm_is_string($arr_88_item) && exists $_jm_cst_60{$arr_88_item};
+                $res = jm_is_string($arr_88_item) && exists $_jm_cst_60{$arr_88_item};
                 if (! $res)
                 {
                     last;
@@ -4959,7 +4959,7 @@ sub _jm_obj_43($$$)
             {
                 my $arr_91_item = $$pval[$arr_91_idx];
                 # .'$platforms'.0.'|'.3.versions.0
-                $res = jm_is_scalar($arr_91_item) && jm_is_string($arr_91_item) && exists $_jm_cst_61{$arr_91_item};
+                $res = jm_is_string($arr_91_item) && exists $_jm_cst_61{$arr_91_item};
                 if (! $res)
                 {
                     last;
@@ -5007,7 +5007,7 @@ sub _jm_obj_44($$$)
             {
                 my $arr_92_item = $$pval[$arr_92_idx];
                 # .'$platforms'.0.'|'.2.versions.0
-                $res = jm_is_scalar($arr_92_item) && jm_is_string($arr_92_item) && exists $_jm_cst_62{$arr_92_item};
+                $res = jm_is_string($arr_92_item) && exists $_jm_cst_62{$arr_92_item};
                 if (! $res)
                 {
                     last;
@@ -5102,7 +5102,7 @@ sub _jm_obj_46($$$)
             {
                 my $arr_94_item = $$pval[$arr_94_idx];
                 # .'$platforms'.0.'|'.0.versions.0
-                $res = jm_is_scalar($arr_94_item) && jm_is_string($arr_94_item) && exists $_jm_cst_63{$arr_94_item};
+                $res = jm_is_string($arr_94_item) && exists $_jm_cst_63{$arr_94_item};
                 if (! $res)
                 {
                     last;
@@ -6008,7 +6008,7 @@ sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$DependencyModelLoose'.scm
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_64{$val};
+    return jm_is_string($val) && exists $_jm_cst_64{$val};
 }
 
 # check json_model_57_map_src (.'$DependencyModelLoose'.src)

@@ -25,7 +25,7 @@ sub json_model_1($$$)
     # .'|'.0
     # .'|'.1
     # .'|'.2
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_integer($val) && $val == 200 || !defined($val) || jm_is_numeric($val) && $val == 3.1415927;
+    return jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_integer($val) && $val == 200 || !defined($val) || jm_is_numeric($val) && $val == 3.1415927;
 }
 
 

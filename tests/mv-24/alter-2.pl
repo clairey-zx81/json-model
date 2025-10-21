@@ -82,7 +82,7 @@ sub json_model_3($$$)
     }
     $pval = $$val{'t'};
     # .'$efg'.t
-    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
     if (! $res)
     {
         return 0;
@@ -153,7 +153,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'u'};
     # .'$alternative'.'|'.1.u
-    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
+    $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
     if (! $res)
     {
         return 0;

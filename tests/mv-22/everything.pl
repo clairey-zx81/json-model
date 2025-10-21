@@ -970,7 +970,7 @@ sub _jm_f_35($$$)
                 # .enum.e1.'|'.0
                 # .enum.e1.'|'.1
                 # .enum.e1.'|'.2
-                $res = jm_is_integer($pval) && $pval == 200 || jm_is_integer($pval) && $pval == 201 || jm_is_integer($pval) && $pval == 204;
+                $res = jm_is_integer($pval) && ($pval == 200 || $pval == 201 || $pval == 204);
             }
             if (! $res)
             {
@@ -981,7 +981,7 @@ sub _jm_f_35($$$)
         {
             # handle may e2 property
             # .enum.e2
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
             if (! $res)
             {
                 return 0;
@@ -994,7 +994,7 @@ sub _jm_f_35($$$)
             # .enum.e3.'|'.0
             # .enum.e3.'|'.1
             # .enum.e3.'|'.2
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval} || jm_is_integer($pval) && $pval == 42 || jm_is_boolean($pval) && $pval == 1 || !defined($pval);
+            $res = jm_is_string($pval) && exists $_jm_cst_1{$pval} || jm_is_integer($pval) && $pval == 42 || jm_is_boolean($pval) && $pval == 1 || !defined($pval);
             if (! $res)
             {
                 return 0;

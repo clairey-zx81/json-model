@@ -24,7 +24,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$p1'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    return jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 
@@ -33,7 +33,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$p2'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check $ (.)

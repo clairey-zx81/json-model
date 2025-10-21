@@ -1596,7 +1596,7 @@ sub json_model_14($$$)
             # handle must in property
             $must_count++;
             # .'$commonParameter'.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
             if (! $res)
             {
                 return 0;
@@ -1663,7 +1663,7 @@ sub json_model_15($$$)
     my ($val, $path, $rep) = @_;
     # serialization styles
     # .'$Style'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check json_model_16_map_allowReserved (.'$parameterSchemaOnly'.allowReserved)
@@ -1853,7 +1853,7 @@ sub _jm_obj_4($$$)
             # handle must in property
             $must_count++;
             # .'$Parameter'.'|'.1.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_2{$pval};
             if (! $res)
             {
                 return 0;
@@ -2037,7 +2037,7 @@ sub _jm_obj_6($$$)
             # handle must in property
             $must_count++;
             # .'$Parameter'.'|'.0.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_3{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_3{$pval};
             if (! $res)
             {
                 return 0;
@@ -3783,7 +3783,7 @@ sub json_model_35($$$)
     }
     $pval = $$val{'in'};
     # .'$SS-apikey'.in
-    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_4{$pval};
+    return jm_is_string($pval) && exists $_jm_cst_4{$pval};
 }
 
 # check $SS-http (.'$SS-http')
@@ -3997,7 +3997,7 @@ sub _jm_obj_22($$$)
             # handle must in property
             $must_count++;
             # .'$SecurityScheme'.'|'.0.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_5{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_5{$pval};
             if (! $res)
             {
                 return 0;
@@ -4558,7 +4558,7 @@ sub json_model_52($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema#simpleTypes'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_6{$val};
+    return jm_is_string($val) && exists $_jm_cst_6{$val};
 }
 
 # check $schema#simpleTypesArray (.'$schema#simpleTypesArray')

@@ -202,7 +202,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$atomic-types'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    return jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $atomic (.'$atomic')
@@ -246,7 +246,7 @@ sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.explicitTypeZone
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)

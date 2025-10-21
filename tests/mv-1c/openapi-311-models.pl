@@ -1504,7 +1504,7 @@ sub _jm_obj_3($$$)
             # handle must in property
             $must_count++;
             # .'$openapi#Parameter'.'|'.1.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
             if (! $res)
             {
                 return 0;
@@ -1688,7 +1688,7 @@ sub _jm_obj_5($$$)
             # handle must in property
             $must_count++;
             # .'$openapi#Parameter'.'|'.0.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
             if (! $res)
             {
                 return 0;
@@ -1738,7 +1738,7 @@ sub json_model_17($$$)
     my ($val, $path, $rep) = @_;
     # serialization styles
     # .'$openapi#Style'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_2{$val};
+    return jm_is_string($val) && exists $_jm_cst_2{$val};
 }
 
 # object .'$openapi#RequestBody'.content
@@ -2907,7 +2907,7 @@ sub _jm_obj_20($$$)
             # handle must in property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.0.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_3{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_3{$pval};
             if (! $res)
             {
                 return 0;
@@ -4090,7 +4090,7 @@ sub json_model_67($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#PreDef'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_4{$val};
+    return jm_is_string($val) && exists $_jm_cst_4{$val};
 }
 
 sub _jm_re_10($$$)

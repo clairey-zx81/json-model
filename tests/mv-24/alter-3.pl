@@ -113,7 +113,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'t'};
     # .'$alternative'.'|'.1.t
-    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
     if (! $res)
     {
         return 0;

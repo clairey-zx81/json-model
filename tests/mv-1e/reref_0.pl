@@ -23,7 +23,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$character'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    return jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 sub _jm_xre_0_re($$$)

@@ -154,7 +154,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$color'
-    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
     if (! $res)
     {
         $res = jm_is_string($val);
@@ -212,7 +212,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$custom-commands-prompts-type-property'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check $custom-commands-prompts-title-property (.'$custom-commands-prompts-title-property')
@@ -319,7 +319,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'preset'};
     # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
+    return jm_is_string($pval) && exists $_jm_cst_2{$pval};
 }
 
 # object .'$Prompts'.'|'.0
@@ -862,7 +862,7 @@ sub _jm_obj_7($$$)
             # handle must context property
             $must_count++;
             # .customCommands.'@'.0.context
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_3{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_3{$pval};
             if (! $res)
             {
                 return 0;
@@ -1098,7 +1098,7 @@ sub _jm_f_20($$$)
         {
             # handle may order property
             # .git.log.order
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_4{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_4{$pval};
             if (! $res)
             {
                 return 0;
@@ -1108,7 +1108,7 @@ sub _jm_f_20($$$)
         {
             # handle may showGraph property
             # .git.log.showGraph
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_5{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_5{$pval};
             if (! $res)
             {
                 return 0;
@@ -1199,7 +1199,7 @@ sub _jm_f_23($$$)
         {
             # handle may colorArg property
             # .git.paging.colorArg
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_6{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_6{$pval};
             if (! $res)
             {
                 return 0;
@@ -1330,7 +1330,7 @@ sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.border
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_7{$val};
+    return jm_is_string($val) && exists $_jm_cst_7{$val};
 }
 
 # check _jm_f_26_map_branchColors (.gui.branchColors)
@@ -1417,7 +1417,7 @@ sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.language
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_8{$val};
+    return jm_is_string($val) && exists $_jm_cst_8{$val};
 }
 
 
@@ -1426,7 +1426,7 @@ sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.mainPanelSplitMode
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_9{$val};
+    return jm_is_string($val) && exists $_jm_cst_9{$val};
 }
 
 # check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
@@ -1443,7 +1443,7 @@ sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.nerdFontsVersion
-    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_10{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_10{$val};
     if (! $res)
     {
         $res = jm_is_string($val);
@@ -1573,7 +1573,7 @@ sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.splitDiff
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_11{$val};
+    return jm_is_string($val) && exists $_jm_cst_11{$val};
 }
 
 
@@ -1620,7 +1620,7 @@ sub _jm_f_54($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.windowSize
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_12{$val};
+    return jm_is_string($val) && exists $_jm_cst_12{$val};
 }
 
 
@@ -2050,7 +2050,7 @@ sub _jm_f_67($$$)
 {
     my ($val, $path, $rep) = @_;
     # .notARepository
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_13{$val};
+    return jm_is_string($val) && exists $_jm_cst_13{$val};
 }
 
 # check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
@@ -2091,7 +2091,7 @@ sub _jm_f_73($$$)
 {
     my ($val, $path, $rep) = @_;
     # .os.editPreset
-    my $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_14{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_14{$val};
     if (! $res)
     {
         $res = jm_is_string($val);
@@ -2264,7 +2264,7 @@ sub _jm_f_80($$$)
         {
             # handle may method property
             # .update.method
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_15{$pval};
+            $res = jm_is_string($pval) && exists $_jm_cst_15{$pval};
             if (! $res)
             {
                 return 0;

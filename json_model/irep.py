@@ -686,6 +686,72 @@ def partialEval(code: Jsonable, reporting: bool) -> int:
 
     return changes
 
+def elimCommonSub(code: Jsonable) -> int:
+    """Common subexpression elimination in some cases."""
+    changes: int = 0
+
+    def cseFlt(code: Jsonable, _: Path) -> bool:
+        nonlocal changes
+        nchanges = changes
+        if _isOps(code, {"|", "&"}):
+            ope = code["o"]
+            while True:
+                if any(map(lambda e: _isOp(e, ope), code["exprs"])):
+                    # flatten | in | or & in &
+                    exprs = []
+                    for e in code["exprs"]:
+                        if _isOp(e, ope):
+                            exprs += e["exprs"]
+                        else:
+                            exprs.append(e)
+                    code["exprs"] = exprs
+                    changes += 1
+                if changes == nchanges:
+                    break
+                nchanges = changes
+        return True
+
+    def cseRwt(code: Jsonable, _: Path) -> Jsonable:
+        nonlocal changes
+        # TODO improve generality with partial match
+        if _isOp(code, "|"):
+            common: Jsonable|None = None
+            ncommon = 0
+            exprs = code["exprs"]
+            for expr in exprs:
+                if _isOp(expr, "&"):
+                    if common is None:
+                        common = expr["exprs"][0]
+                        ncommon += 1
+                    elif common == expr["exprs"][0]:
+                        ncommon += 1
+                        continue
+                    else:
+                        common = None
+                        break
+                else:
+                    common = None
+                    break
+            if common:
+                assert ncommon == len(code["exprs"]), "full list common"
+                # |(&(C, 1...), &(C, 2...)) -> &(C, |(&(1...), &(2...)))
+
+                def trunk(andop):
+                    assert _isOp(andop, "&")
+                    andop["exprs"] = andop["exprs"][1:]
+
+                # remove common part
+                list(map(trunk, exprs))
+
+                code["o"] = "&"
+                code["exprs"] = [ common, {"o": "|", "exprs": exprs} ]
+                changes += 1
+
+        return code
+
+    recurseIR(code, cseFlt, cseRwt)
+    return changes
+
 def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool = True,
                if_optim: bool = True, reporting: bool = True) -> Jsonable:
     """Optimize IR code."""
@@ -703,17 +769,17 @@ def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool
         if isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
             if partial:
                 changes = partialEval(ins, reporting)
-                changed &= changes > 0
+                changed |= changes > 0
             # if statement simplification
             if if_optim:
                 optimized += 1
                 _optimSeq(ins["body"], set(), reporting=reporting)
                 changed = True  # maybe
-        if shortcuts:
-            # call shortcuts
+        if shortcuts:  # call shortcuts
             changes = callShortcuts(ins, shortcuts)
             calls += changes
             changed |= changes > 0
+        changed |= elimCommonSub(ins) > 0
         if changed:
             code[i] = json.dumps(ins)
 

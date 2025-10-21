@@ -107,7 +107,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$PreDef'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    return jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 sub _jm_re_1($$$)

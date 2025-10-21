@@ -205,7 +205,7 @@ class Perl(Language):
         elif isinstance(c, str):
             return self.esc(c)
         else:
-            raise Exception("not implemented yet for list and dict") 
+            raise Exception("not implemented yet for list and dict")
 
     def _var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         assign = f" = {val}" if val else ""
@@ -388,3 +388,16 @@ class Perl(Language):
     def indent(self, block: Block, sep: bool = True) -> Block:
         indented =  super().indent(block)
         return (["{"] + indented + ["}"]) if sep else indented
+
+    def filter_code(self, code: Block) -> Block:
+
+        for i in range(len(code)):
+            line = code[i]
+            if line is None:
+                continue
+            # remove redundant scalar check
+            if "jm_is_scalar" in line:
+                code[i] = re.sub(r" jm_is_scalar\((\$\w+)\) && jm_is_string\(\1\)",
+                                 r" jm_is_string(\1)", line)
+
+        return list(filter(lambda line: line is not None, code))

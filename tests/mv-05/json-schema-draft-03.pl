@@ -54,7 +54,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$allTypes'
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    return jm_is_string($val) && exists $_jm_cst_0{$val};
 }
 
 # check $distinctSchemaArray (.'$distinctSchemaArray')
@@ -269,7 +269,7 @@ sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .format
-    return jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return jm_is_string($val) && exists $_jm_cst_1{$val};
 }
 
 # check json_model_1_map_id (.id)

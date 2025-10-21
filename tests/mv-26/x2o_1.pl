@@ -67,7 +67,7 @@ sub json_model_3($$$)
     }
     $pval = $$val{'t'};
     # .'$bc'.t
-    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    return jm_is_string($pval) && exists $_jm_cst_0{$pval};
 }
 
 # check $Nabc (.'$Nabc')

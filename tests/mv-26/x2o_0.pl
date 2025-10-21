@@ -65,7 +65,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'t'};
     # .'|'.1.t
-    return jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    return jm_is_string($pval) && exists $_jm_cst_0{$pval};
 }
 
 # object .'|'.2
