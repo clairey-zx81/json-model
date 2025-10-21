@@ -387,11 +387,8 @@ BEGIN
   -- .'$CModel'
   -- .'$CModel'.'|'.0
   res := json_model_33(val, path, rep);
-  IF NOT res THEN
-    -- .'$CModel'.'|'.1
-    res := json_model_5(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$CModel'.'|'.1
+  RETURN res OR json_model_5(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1249,11 +1246,8 @@ BEGIN
   -- .'$Transformation'
   -- .'$Transformation'.'|'.0
   res := json_model_33(val, path, rep);
-  IF NOT res THEN
-    -- .'$Transformation'.'|'.1
-    res := _jm_obj_7(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Transformation'.'|'.1
+  RETURN res OR _jm_obj_7(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1266,11 +1260,8 @@ BEGIN
   -- .'$ScalarModel'
   -- .'$ScalarModel'.'|'.0
   res := json_model_14(val, path, rep);
-  IF NOT res THEN
-    -- .'$ScalarModel'.'|'.1
-    res := json_model_15(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$ScalarModel'.'|'.1
+  RETURN res OR json_model_15(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

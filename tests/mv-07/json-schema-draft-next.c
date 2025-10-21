@@ -372,7 +372,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x4d746e65746e6f63LL) && jm_str_eq_8(prop + 8, 0x6570795461696465LL) && jm_str_eq_1(prop + 16)))
+        else if (unlikely(jm_str_eq_8(prop, 0x4d746e65746e6f63LL) && jm_str_eq_8(prop + 8, 0x6570795461696465LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may contentMediaType property
             // .'$content'.contentMediaType
@@ -420,7 +420,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x736d657449646574LL) && jm_str_eq_1(prop + 16)))
+        if (unlikely(jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x736d657449646574LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may unevaluatedItems property
             // .'$unevaluated'.unevaluatedItems

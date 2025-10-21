@@ -21,7 +21,7 @@ def _str_cmp_chunk(s: str, chunk: bytes, size: int,
     cmp_fun = "jm_str_eq" if eq else "jm_str_ne"
     assert 1 <= size <= 8, "valid number of bytes"
     if size == 1:
-        return f"{cmp_fun}_1({s})"
+        return f"{cmp_fun}_1({s}, {hex(chunk[0])})" if chunk else f"{cmp_fun}_0({s})"
     else:
         x: str = ""
         for b in chunk:
@@ -38,7 +38,7 @@ def _str_cmp(s: str, cst: str, little: bool = True, eq: bool = True) -> BoolExpr
     """Generate a fast byte string comparison for known constants."""
     bcst = json.loads(cst).encode("UTF8")
     remain = len(bcst) + 1  # add implicit null termination
-    # filter out multiple array call
+    # filter out multiple array calls
     if "json_array_get(" in s and remain > 8:
         cmp_fun = "jm_str_eq" if eq else "jm_str_ne"
         return f"{cmp_fun}({s}, {cst})"

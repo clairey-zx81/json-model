@@ -738,7 +738,7 @@ class Language:
         return self._isep.join(filter(lambda s: s is not None, code)) + "\n"
 
     def filter_code(self, code: Block) -> Block:
-        """Late backend-specific code filtering."""
+        """Textual optimizations: (late) backend-specific code filtering."""
         return code
 
 

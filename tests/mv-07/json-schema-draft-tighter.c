@@ -652,7 +652,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may required property
             // .'$objectKeywords'.required

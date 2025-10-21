@@ -287,7 +287,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AIXPlatformModel'.versions
@@ -351,7 +351,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AlpinePlatformModel'.versions
@@ -416,7 +416,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AmazonLinuxPlatformModel'.versions
@@ -481,7 +481,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AmazonPlatformModel'.versions
@@ -545,7 +545,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$ArchLinuxPlatformModel'.versions
@@ -610,7 +610,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AstraLinuxPlatformModel'.versions
@@ -674,7 +674,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$ClearLinuxPlatformModel'.versions
@@ -739,7 +739,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$CumulusPlatformModel'.versions
@@ -804,7 +804,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$DebianPlatformModel'.versions
@@ -869,7 +869,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$DellOSPlatformModel'.versions
@@ -934,7 +934,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$DevuanPlatformModel'.versions
@@ -999,7 +999,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$DragonFlyBSDPlatformModel'.versions
@@ -1064,7 +1064,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$ELPlatformModel'.versions
@@ -1129,7 +1129,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$FedoraPlatformModel'.versions
@@ -1194,7 +1194,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$FreeBSDPlatformModel'.versions
@@ -1258,7 +1258,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$GenericBSDPlatformModel'.versions
@@ -1322,7 +1322,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$GenericLinuxPlatformModel'.versions
@@ -1386,7 +1386,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$GenericUNIXPlatformModel'.versions
@@ -1450,7 +1450,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$GentooPlatformModel'.versions
@@ -1515,7 +1515,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$HardenedBSDPlatformModel'.versions
@@ -1579,7 +1579,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$IOSPlatformModel'.versions
@@ -1643,7 +1643,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$JunosPlatformModel'.versions
@@ -1708,7 +1708,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$KaliPlatformModel'.versions
@@ -1773,7 +1773,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$MacOSXPlatformModel'.versions
@@ -1838,7 +1838,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$MageiaPlatformModel'.versions
@@ -1902,7 +1902,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$NXOSPlatformModel'.versions
@@ -1967,7 +1967,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$NetBSDPlatformModel'.versions
@@ -2032,7 +2032,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$OpenBSDPlatformModel'.versions
@@ -2097,7 +2097,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$OpenWrtPlatformModel'.versions
@@ -2162,7 +2162,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$OracleLinuxPlatformModel'.versions
@@ -2227,7 +2227,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$PAN-OSPlatformModel'.versions
@@ -2292,7 +2292,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$RockyLinuxPlatformModel'.versions
@@ -2357,7 +2357,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$SLESPlatformModel'.versions
@@ -2421,7 +2421,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$SmartOSPlatformModel'.versions
@@ -2486,7 +2486,7 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$SolarisPlatformModel'.versions
@@ -2543,7 +2543,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may name property
             // .'$SynologyPlatformModel'.name
-            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x79676f6c6f6e7953LL) && jm_str_eq_1(json_string_value(pval) + 8);
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x79676f6c6f6e7953LL) && jm_str_eq_0(json_string_value(pval) + 8);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Synology [.'$SynologyPlatformModel'.name]", (path ? &lpath_35 : NULL));
@@ -2551,7 +2551,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$SynologyPlatformModel'.versions
@@ -2616,7 +2616,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$TMOSPlatformModel'.versions
@@ -2681,7 +2681,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$UbuntuPlatformModel'.versions
@@ -2745,7 +2745,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$Void_LinuxPlatformModel'.versions
@@ -2810,7 +2810,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$WindowsPlatformModel'.versions
@@ -2874,7 +2874,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$aosPlatformModel'.versions
@@ -2938,7 +2938,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$eosPlatformModel'.versions
@@ -3003,7 +3003,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$macOSPlatformModel'.versions
@@ -3060,7 +3060,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may name property
             // .'$opensusePlatformModel'.name
-            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x657375736e65706fLL) && jm_str_eq_1(json_string_value(pval) + 8);
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x657375736e65706fLL) && jm_str_eq_0(json_string_value(pval) + 8);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _opensuse [.'$opensusePlatformModel'.name]", (path ? &lpath_43 : NULL));
@@ -3068,7 +3068,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$opensusePlatformModel'.versions
@@ -3132,7 +3132,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$os10PlatformModel'.versions
@@ -3197,7 +3197,7 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$vCenterPlatformModel'.versions
@@ -3262,7 +3262,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$vSpherePlatformModel'.versions
@@ -4087,7 +4087,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.40.name
-        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x79676f6c6f6e7953LL) && jm_str_eq_1(json_string_value(pval) + 8);
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x79676f6c6f6e7953LL) && jm_str_eq_0(json_string_value(pval) + 8);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Synology [.'$platforms'.0.'|'.40.name]", (path ? &lpath : NULL));
@@ -4589,7 +4589,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.31.name
-        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x657375736e65706fLL) && jm_str_eq_1(json_string_value(pval) + 8);
+        res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x657375736e65706fLL) && jm_str_eq_0(json_string_value(pval) + 8);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected _opensuse [.'$platforms'.0.'|'.31.name]", (path ? &lpath : NULL));
@@ -8279,7 +8279,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_53 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x75645f776f6c6c61LL) && jm_str_eq_8(prop + 8, 0x7365746163696c70LL) && jm_str_eq_1(prop + 16)))
+        if (unlikely(jm_str_eq_8(prop, 0x75645f776f6c6c61LL) && jm_str_eq_8(prop + 8, 0x7365746163696c70LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may allow_duplicates property
             // .'$AnsibleMetaObj'.allow_duplicates

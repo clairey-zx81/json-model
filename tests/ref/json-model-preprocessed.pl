@@ -79,10 +79,9 @@ sub json_model_1($$$)
 sub json_model_42($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#RootModel'
     # .'$Model#RootModel'.'|'.0
-    $res = json_model_34($val, $path, $rep);
+    my $res = json_model_34($val, $path, $rep);
     if (! $res)
     {
         # .'$Model#RootModel'.'|'.1
@@ -100,9 +99,8 @@ sub json_model_42($$$)
 sub json_model_21($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Array'
-    $res = jm_is_array($val);
+    my $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
@@ -123,16 +121,11 @@ sub json_model_21($$$)
 sub json_model_20($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#CModel'
     # .'$Model#CModel'.'|'.0
-    $res = json_model_35($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Model#CModel'.'|'.1
-        $res = json_model_7($val, $path, $rep);
-    }
-    return $res;
+    my $res = json_model_35($val, $path, $rep);
+    # .'$Model#CModel'.'|'.1
+    return $res || json_model_7($val, $path, $rep);
 }
 
 # check $Model#ArrayComment (.'$Model#ArrayComment')
@@ -148,26 +141,20 @@ sub json_model_7($$$)
 sub json_model_34($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#ScalarModel'
     # .'$Model#ScalarModel'.'|'.0
-    $res = json_model_16($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$Model#ScalarModel'.'|'.1
-        $res = json_model_17($val, $path, $rep);
-    }
-    return $res;
+    my $res = json_model_16($val, $path, $rep);
+    # .'$Model#ScalarModel'.'|'.1
+    return $res || json_model_17($val, $path, $rep);
 }
 
 # check $Model#ValModel (.'$Model#ValModel')
 sub json_model_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#ValModel'
     # .'$Model#ValModel'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$Model#ValModel'.'|'.1
@@ -210,10 +197,9 @@ sub json_model_16($$$)
 sub json_model_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#StrModel'
     # .'$Model#StrModel'.'|'.0
-    $res = json_model_11($val, $path, $rep);
+    my $res = json_model_11($val, $path, $rep);
     if (! $res)
     {
         # .'$Model#StrModel'.'|'.1
@@ -351,9 +337,8 @@ sub _jm_xre_1($$$)
 sub json_model_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Regex'
-    $res = jm_is_string($val);
+    my $res = jm_is_string($val);
     if ($res)
     {
         # .'$Model#Regex'.'|'.0
@@ -373,10 +358,9 @@ sub json_model_12($$$)
 sub json_model_35($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Model'
     # .'$Model#Model'.'|'.0
-    $res = json_model_34($val, $path, $rep);
+    my $res = json_model_34($val, $path, $rep);
     if (! $res)
     {
         # .'$Model#Model'.'|'.1
@@ -715,9 +699,8 @@ sub _jm_obj_4($$$)
 sub json_model_31($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Element'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Model#Element'.'|'.0
@@ -750,10 +733,9 @@ sub json_model_31($$$)
 sub json_model_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#CmpValue'
     # .'$Model#CmpValue'.'|'.0
-    $res = jm_is_integer($val);
+    my $res = jm_is_integer($val);
     if (! $res)
     {
         # .'$Model#CmpValue'.'|'.1
@@ -771,10 +753,9 @@ sub json_model_14($$$)
 sub json_model_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#EqValue'
     # .'$Model#EqValue'.'|'.0
-    $res = !defined($val);
+    my $res = !defined($val);
     if (! $res)
     {
         # .'$Model#EqValue'.'|'.1
@@ -799,11 +780,10 @@ sub _jm_re_5($$$)
 sub json_model_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Prop'
     # .'$Model#Prop'.'|'.0
     # "/^[?!]/"
-    $res = jm_is_string($val) && _jm_re_5($val, $path, $rep);
+    my $res = jm_is_string($val) && _jm_re_5($val, $path, $rep);
     if (! $res)
     {
         # .'$Model#Prop'.'|'.1
@@ -1976,9 +1956,8 @@ sub _jm_obj_17($$$)
 sub json_model_41($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Root'
-    $res = jm_is_object($val);
+    my $res = jm_is_object($val);
     if ($res)
     {
         # .'$Model#Root'.'|'.0
@@ -2041,9 +2020,8 @@ sub _jm_re_10($$$)
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Model#Identifier'
-    $res = jm_is_string($val);
+    my $res = jm_is_string($val);
     if ($res)
     {
         # .'$Model#Identifier'.'&'.0

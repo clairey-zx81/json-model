@@ -611,7 +611,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d6978614d65LL) && jm_str_eq_1(prop + 16)))
+        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d6978614d65LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may exclusiveMaximum property
             // .'$Number'.exclusiveMaximum
@@ -671,7 +671,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d696e694d65LL) && jm_str_eq_1(prop + 16)))
+        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d696e694d65LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may exclusiveMinimum property
             // .'$Number'.exclusiveMinimum
@@ -774,7 +774,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d6978614d65LL) && jm_str_eq_1(prop + 16)))
+        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d6978614d65LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may exclusiveMaximum property
             // .'$Integer'.exclusiveMaximum
@@ -798,7 +798,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d696e694d65LL) && jm_str_eq_1(prop + 16)))
+        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d696e694d65LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may exclusiveMinimum property
             // .'$Integer'.exclusiveMinimum

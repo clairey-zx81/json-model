@@ -1636,7 +1636,7 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x677241726f6c6f63LL) && jm_str_eq_1(prop + 8)))
+        if (unlikely(jm_str_eq_8(prop, 0x677241726f6c6f63LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may colorArg property
             // .git.paging.colorArg
@@ -2429,7 +2429,7 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x7244656c67676f74LL) && jm_str_eq_8(prop + 8, 0x7463656c65536761LL) && jm_str_eq_1(prop + 16)))
+        if (unlikely(jm_str_eq_8(prop, 0x7244656c67676f74LL) && jm_str_eq_8(prop + 8, 0x7463656c65536761LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may toggleDragSelect property
             // .keybinding.main.toggleDragSelect
@@ -2453,7 +2453,7 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6553656c67676f74LL) && jm_str_eq_8(prop + 8, 0x6b6e75487463656cLL) && jm_str_eq_1(prop + 16)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6553656c67676f74LL) && jm_str_eq_8(prop + 8, 0x6b6e75487463656cLL) && jm_str_eq_0(prop + 16)))
         {
             // handle may toggleSelectHunk property
             // .keybinding.main.toggleSelectHunk
@@ -2501,7 +2501,7 @@ static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x6873617453706f70LL) && jm_str_eq_1(prop + 8)))
+        if (unlikely(jm_str_eq_8(prop, 0x6873617453706f70LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may popStash property
             // .keybinding.stash.popStash
@@ -2621,7 +2621,7 @@ static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x756e654d6b6c7562LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x756e654d6b6c7562LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may bulkMenu property
             // .keybinding.submodules.bulkMenu

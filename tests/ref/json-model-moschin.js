@@ -31,9 +31,8 @@ var check_model_map = new Map()
 // check $Model (.'$Model')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Model'
-    res = json_model_42(val, path, rep);
+    let res = json_model_42(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $RootModel [.'$Model']", path])
@@ -44,9 +43,8 @@ function json_model_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = json_model_42(val, path, rep);
+    let res = json_model_42(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Model [.]", path])
@@ -57,10 +55,9 @@ function json_model_1(val, path, rep)
 // check $Model#RootModel (.'$Model#RootModel')
 function json_model_42(val, path, rep)
 {
-    let res;
     // .'$Model#RootModel'
     // .'$Model#RootModel'.'|'.0
-    res = json_model_34(val, path, rep);
+    let res = json_model_34(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ScalarModel [.'$Model#RootModel'.'|'.0]", path])
@@ -97,9 +94,8 @@ function json_model_42(val, path, rep)
 // check $Model#Array (.'$Model#Array')
 function json_model_21(val, path, rep)
 {
-    let res;
     // .'$Model#Array'
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
@@ -125,10 +121,9 @@ function json_model_21(val, path, rep)
 // check $Model#CModel (.'$Model#CModel')
 function json_model_20(val, path, rep)
 {
-    let res;
     // .'$Model#CModel'
     // .'$Model#CModel'.'|'.0
-    res = json_model_35(val, path, rep);
+    let res = json_model_35(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Model [.'$Model#CModel'.'|'.0]", path])
@@ -156,10 +151,9 @@ function json_model_20(val, path, rep)
 // check $Model#ArrayComment (.'$Model#ArrayComment')
 function json_model_7(val, path, rep)
 {
-    let res;
     // .'$Model#ArrayComment'
     // "/^#/"
-    res = ((typeof val === 'string' || val instanceof String)) && val.startsWith("#");
+    let res = ((typeof val === 'string' || val instanceof String)) && val.startsWith("#");
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^#/ [.'$Model#ArrayComment']", path])
@@ -170,10 +164,9 @@ function json_model_7(val, path, rep)
 // check $Model#ScalarModel (.'$Model#ScalarModel')
 function json_model_34(val, path, rep)
 {
-    let res;
     // .'$Model#ScalarModel'
     // .'$Model#ScalarModel'.'|'.0
-    res = json_model_16(val, path, rep);
+    let res = json_model_16(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ValModel [.'$Model#ScalarModel'.'|'.0]", path])
@@ -202,9 +195,8 @@ function json_model_34(val, path, rep)
 // check $Model#ValModel (.'$Model#ValModel')
 function json_model_16(val, path, rep)
 {
-    let res;
     // .'$Model#ValModel'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Model#ValModel'.'|']", path])
@@ -215,10 +207,9 @@ function json_model_16(val, path, rep)
 // check $Model#StrModel (.'$Model#StrModel')
 function json_model_17(val, path, rep)
 {
-    let res;
     // .'$Model#StrModel'
     // .'$Model#StrModel'.'|'.0
-    res = json_model_11(val, path, rep);
+    let res = json_model_11(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $StrConst [.'$Model#StrModel'.'|'.0]", path])
@@ -283,9 +274,8 @@ function json_model_17(val, path, rep)
 // check $Model#PreDef (.'$Model#PreDef')
 function json_model_5(val, path, rep)
 {
-    let res;
     // .'$Model#PreDef'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Model#PreDef'.'|']", path])
@@ -298,10 +288,9 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // check $Model#Ref (.'$Model#Ref')
 function json_model_9(val, path, rep)
 {
-    let res;
     // .'$Model#Ref'
     // "/^\\$./"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^\\$./ [.'$Model#Ref']", path])
@@ -314,10 +303,9 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 // check $Model#ValConst (.'$Model#ValConst')
 function json_model_10(val, path, rep)
 {
-    let res;
     // .'$Model#ValConst'
     // "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/ [.'$Model#ValConst']", path])
@@ -330,10 +318,9 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 // check $Model#StrConst (.'$Model#StrConst')
 function json_model_11(val, path, rep)
 {
-    let res;
     // .'$Model#StrConst'
     // "/^[A-Za-z0-9_]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_2(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[A-Za-z0-9_]/ [.'$Model#StrConst']", path])
@@ -380,9 +367,8 @@ function _jm_xre_1(val, path, rep)
 // check $Model#Regex (.'$Model#Regex')
 function json_model_12(val, path, rep)
 {
-    let res;
     // .'$Model#Regex'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$Model#Regex'.'|']", path])
@@ -421,10 +407,9 @@ function json_model_12(val, path, rep)
 // check $Model#Model (.'$Model#Model')
 function json_model_35(val, path, rep)
 {
-    let res;
     // .'$Model#Model'
     // .'$Model#Model'.'|'.0
-    res = json_model_34(val, path, rep);
+    let res = json_model_34(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ScalarModel [.'$Model#Model'.'|'.0]", path])
@@ -1097,9 +1082,8 @@ function _jm_obj_10(val, path, rep)
 // check $Model#Element (.'$Model#Element')
 function json_model_31(val, path, rep)
 {
-    let res;
     // .'$Model#Element'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$Model#Element'.'|']", path])
@@ -1172,10 +1156,9 @@ function json_model_31(val, path, rep)
 // check $Model#CmpValue (.'$Model#CmpValue')
 function json_model_14(val, path, rep)
 {
-    let res;
     // .'$Model#CmpValue'
     // .'$Model#CmpValue'.'|'.0
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$Model#CmpValue'.'|'.0]", path])
@@ -1212,10 +1195,9 @@ function json_model_14(val, path, rep)
 // check $Model#EqValue (.'$Model#EqValue')
 function json_model_15(val, path, rep)
 {
-    let res;
     // .'$Model#EqValue'
     // .'$Model#EqValue'.'|'.0
-    res = val === null;
+    let res = val === null;
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Model#EqValue'.'|'.0]", path])
@@ -1254,11 +1236,10 @@ const _jm_re_5 = (s) => _jm_re_5_re.exec(s) !== null
 // check $Model#Prop (.'$Model#Prop')
 function json_model_28(val, path, rep)
 {
-    let res;
     // .'$Model#Prop'
     // .'$Model#Prop'.'|'.0
     // "/^[?!]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_5(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_5(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[?!]/ [.'$Model#Prop'.'|'.0]", path])
@@ -1324,10 +1305,9 @@ const _jm_re_6 = (s) => _jm_re_6_re.exec(s) !== null
 // check $Model#Name (.'$Model#Name')
 function json_model_13(val, path, rep)
 {
-    let res;
     // .'$Model#Name'
     // "/^\\..+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_6(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^\\..+$/ [.'$Model#Name']", path])
@@ -3093,9 +3073,8 @@ function _jm_obj_36(val, path, rep)
 // check _jm_obj_42_map_! (.'$Model#Root'.'|'.0.'!')
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .'$Model#Root'.'|'.0.'!'
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Model#Root'.'|'.0.'!']", path])
@@ -3106,9 +3085,8 @@ function _jm_f_0(val, path, rep)
 // check _jm_obj_42_map_# (.'$Model#Root'.'|'.0.'#')
 function _jm_f_1(val, path, rep)
 {
-    let res;
     // .'$Model#Root'.'|'.0.'#'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.0.'#']", path])
@@ -3338,9 +3316,8 @@ function _jm_f_3(val, path, rep)
 // check _jm_obj_42_map_.mo (.'$Model#Root'.'|'.0.'.mo')
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .'$Model#Root'.'|'.0.'.mo'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", path])
@@ -3449,9 +3426,8 @@ function _jm_obj_42(val, path, rep)
 // check $Model#Root (.'$Model#Root')
 function json_model_41(val, path, rep)
 {
-    let res;
     // .'$Model#Root'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$Model#Root'.'|']", path])
@@ -3526,10 +3502,9 @@ const _jm_re_9 = (s) => _jm_re_9_re.exec(s) !== null
 // check $Model#Url (.'$Model#Url')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$Model#Url'
     // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_9(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^((file|https?)://.+|\\./.*|\\.\\./.*)$/ [.'$Model#Url']", path])
@@ -3544,9 +3519,8 @@ const _jm_re_11 = (s) => _jm_re_11_re.exec(s) !== null
 // check $Model#Identifier (.'$Model#Identifier')
 function json_model_6(val, path, rep)
 {
-    let res;
     // .'$Model#Identifier'
-    res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String);
     if (res)
     {
         // .'$Model#Identifier'.'&'.0
@@ -3716,10 +3690,9 @@ function _jm_obj_45(val, path, rep)
 // check $Model#Transformation (.'$Model#Transformation')
 function json_model_33(val, path, rep)
 {
-    let res;
     // .'$Model#Transformation'
     // .'$Model#Transformation'.'|'.0
-    res = json_model_35(val, path, rep);
+    let res = json_model_35(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Model [.'$Model#Transformation'.'|'.0]", path])

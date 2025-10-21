@@ -22,6 +22,7 @@
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting
+- [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] perf: add launcher script
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] static: partial discriminator with else?

@@ -220,7 +220,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x7463617274736261LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x7463617274736261LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may abstract property
             // .'$Provide'.abstract
@@ -411,7 +411,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x65676170656d6f68LL) && jm_str_eq_1(prop + 8)))
+        if (unlikely(jm_str_eq_8(prop, 0x65676170656d6f68LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may homepage property
             // .'$Resources'.homepage

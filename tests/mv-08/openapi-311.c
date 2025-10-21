@@ -2072,7 +2072,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may required property
             // .'$parameterShare'.required
@@ -2176,7 +2176,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may required property
             // .'$commonParameter'.required
@@ -2510,7 +2510,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may required property
             // .'$Parameter'.'|'.1.required
@@ -2898,7 +2898,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may required property
             // .'$RequestBody'.required
@@ -3024,7 +3024,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may example property
             // .'$MediaType'.example
             res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may examples property
             // .'$MediaType'.examples
@@ -3036,7 +3036,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x676e69646f636e65LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x676e69646f636e65LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may encoding property
             // .'$MediaType'.encoding
@@ -3911,7 +3911,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may required property
             // .'$Header'.'|'.1.required
@@ -5678,7 +5678,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f4364496e65706fLL) && jm_str_eq_8(prop + 8, 0x6c72557463656e6eLL) && jm_str_eq_1(prop + 16)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6f4364496e65706fLL) && jm_str_eq_8(prop + 8, 0x6c72557463656e6eLL) && jm_str_eq_0(prop + 16)))
         {
             // handle must openIdConnectUrl property
             must_count += 1;
@@ -5840,7 +5840,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_74 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x746963696c706d69LL) && jm_str_eq_1(prop + 8)))
+        if (unlikely(jm_str_eq_8(prop, 0x746963696c706d69LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may implicit property
             // .'$OAuthFlows'.implicit
@@ -5852,7 +5852,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x64726f7773736170LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x64726f7773736170LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may password property
             // .'$OAuthFlows'.password
@@ -5943,7 +5943,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_75 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x7a69726f68747561LL) && jm_str_eq_8(prop + 8, 0x6c72556e6f697461LL) && jm_str_eq_1(prop + 16)))
+        if (unlikely(jm_str_eq_8(prop, 0x7a69726f68747561LL) && jm_str_eq_8(prop + 8, 0x6c72556e6f697461LL) && jm_str_eq_0(prop + 16)))
         {
             // handle must authorizationUrl property
             must_count += 1;
@@ -5956,7 +5956,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c72556e656b6f74LL) && jm_str_eq_1(prop + 8)))
+        else if (unlikely(jm_str_eq_8(prop, 0x6c72556e656b6f74LL) && jm_str_eq_0(prop + 8)))
         {
             // handle must tokenUrl property
             must_count += 1;

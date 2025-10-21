@@ -38,9 +38,8 @@ public class json_model_v2_en extends ModelChecker
     // check $Model (.'$Model')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model'
-        res = json_model_42(val, path, rep);
+        boolean res = json_model_42(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $RootModel [.'$Model']", path);
@@ -51,9 +50,8 @@ public class json_model_v2_en extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        res = json_model_42(val, path, rep);
+        boolean res = json_model_42(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Model [.]", path);
@@ -64,10 +62,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#RootModel (.'$Model#RootModel')
     public boolean json_model_42(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#RootModel'
         // .'$Model#RootModel'.'|'.0
-        res = json_model_34(val, path, rep);
+        boolean res = json_model_34(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $ScalarModel [.'$Model#RootModel'.'|'.0]", path);
@@ -104,9 +101,8 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Array (.'$Model#Array')
     public boolean json_model_21(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Array'
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             int arr_0_idx = -1;
@@ -135,10 +131,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#CModel (.'$Model#CModel')
     public boolean json_model_20(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#CModel'
         // .'$Model#CModel'.'|'.0
-        res = json_model_35(val, path, rep);
+        boolean res = json_model_35(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Model [.'$Model#CModel'.'|'.0]", path);
@@ -166,10 +161,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#ArrayComment (.'$Model#ArrayComment')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#ArrayComment'
         // "/^#/"
-        res = json.isString(val) && json.asString(val).startsWith("#");
+        boolean res = json.isString(val) && json.asString(val).startsWith("#");
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^#/ [.'$Model#ArrayComment']", path);
@@ -180,10 +174,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#ScalarModel (.'$Model#ScalarModel')
     public boolean json_model_34(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#ScalarModel'
         // .'$Model#ScalarModel'.'|'.0
-        res = json_model_16(val, path, rep);
+        boolean res = json_model_16(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $ValModel [.'$Model#ScalarModel'.'|'.0]", path);
@@ -212,9 +205,8 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#ValModel (.'$Model#ValModel')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#ValModel'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$Model#ValModel'.'|']", path);
@@ -225,10 +217,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#StrModel (.'$Model#StrModel')
     public boolean json_model_17(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#StrModel'
         // .'$Model#StrModel'.'|'.0
-        res = json_model_11(val, path, rep);
+        boolean res = json_model_11(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $StrConst [.'$Model#StrModel'.'|'.0]", path);
@@ -293,9 +284,8 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#PreDef (.'$Model#PreDef')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#PreDef'
-        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_1_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$Model#PreDef'.'|']", path);
@@ -311,10 +301,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Ref (.'$Model#Ref')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Ref'
         // "/^\\$./"
-        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^\\$./ [.'$Model#Ref']", path);
@@ -330,10 +319,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#ValConst (.'$Model#ValConst')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#ValConst'
         // "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-        res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/ [.'$Model#ValConst']", path);
@@ -349,10 +337,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#StrConst (.'$Model#StrConst')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#StrConst'
         // "/^[A-Za-z0-9_]/"
-        res = json.isString(val) && _jm_re_2(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_2(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[A-Za-z0-9_]/ [.'$Model#StrConst']", path);
@@ -405,9 +392,8 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Regex (.'$Model#Regex')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Regex'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$Model#Regex'.'|']", path);
@@ -446,10 +432,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Model (.'$Model#Model')
     public boolean json_model_35(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Model'
         // .'$Model#Model'.'|'.0
-        res = json_model_34(val, path, rep);
+        boolean res = json_model_34(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $ScalarModel [.'$Model#Model'.'|'.0]", path);
@@ -990,9 +975,8 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Element (.'$Model#Element')
     public boolean json_model_31(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Element'
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$Model#Element'.'|']", path);
@@ -1065,10 +1049,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#CmpValue (.'$Model#CmpValue')
     public boolean json_model_14(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#CmpValue'
         // .'$Model#CmpValue'.'|'.0
-        res = json.isInteger(val);
+        boolean res = json.isInteger(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$Model#CmpValue'.'|'.0]", path);
@@ -1105,10 +1088,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#EqValue (.'$Model#EqValue')
     public boolean json_model_15(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#EqValue'
         // .'$Model#EqValue'.'|'.0
-        res = json.isNull(val);
+        boolean res = json.isNull(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$Model#EqValue'.'|'.0]", path);
@@ -1150,11 +1132,10 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Prop (.'$Model#Prop')
     public boolean json_model_28(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Prop'
         // .'$Model#Prop'.'|'.0
         // "/^[?!]/"
-        res = json.isString(val) && _jm_re_5(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_5(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[?!]/ [.'$Model#Prop'.'|'.0]", path);
@@ -1223,10 +1204,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Name (.'$Model#Name')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Name'
         // "/^\\..+$/"
-        res = json.isString(val) && _jm_re_6(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_6(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^\\..+$/ [.'$Model#Name']", path);
@@ -3025,9 +3005,8 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Root (.'$Model#Root')
     public boolean json_model_41(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Root'
-        res = json.isObject(val);
+        boolean res = json.isObject(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$Model#Root'.'|']", path);
@@ -3105,10 +3084,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Url (.'$Model#Url')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Url'
         // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-        res = json.isString(val) && _jm_re_9(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_9(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^((file|https?)://.+|\\./.*|\\.\\./.*)$/ [.'$Model#Url']", path);
@@ -3129,9 +3107,8 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Identifier (.'$Model#Identifier')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Identifier'
-        res = json.isString(val);
+        boolean res = json.isString(val);
         if (res)
         {
             // .'$Model#Identifier'.'&'.0
@@ -3283,10 +3260,9 @@ public class json_model_v2_en extends ModelChecker
     // check $Model#Transformation (.'$Model#Transformation')
     public boolean json_model_33(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Model#Transformation'
         // .'$Model#Transformation'.'|'.0
-        res = json_model_35(val, path, rep);
+        boolean res = json_model_35(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Transformation'.'|'.0]", path);
