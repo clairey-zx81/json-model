@@ -16,6 +16,9 @@
 - [x] backend: refactoring, cleanup and generalization
 - [x] static: add likely/unlikely hints to clang
 - [x] c-backend: optimize startwith implementation
+- [ ] static: improve likely hints, eg may only category
+- [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
+- [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "res = E; if (! res) { simple ; res = ; }"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
