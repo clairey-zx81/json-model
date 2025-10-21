@@ -1,0 +1,16 @@
+mixed-xor.values.json[0]: PASS
+mixed-xor.values.json[1]: PASS
+mixed-xor.values.json[2]: PASS
+mixed-xor.values.json[3]: PASS
+mixed-xor.values.json[4]: PASS
+mixed-xor.values.json[5]: PASS
+mixed-xor.values.json[6]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[7]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[8]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[9]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[10]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[11]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[12]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[13]: FAIL (.: tag prop <t> is missing [.'$cs'.'|']; .: not a bool [.'|'.2]; .: tag prop <t> is missing [.'|'])
+mixed-xor.values.json[14]: FAIL (.: tag <t> value not found [.'$cs'.'|']; .: not a bool [.'|'.2]; .: tag <t> value not found [.'|'])
+mixed-xor.values.json[15]: FAIL (.: tag prop <t> is missing [.'$cs'.'|']; .: not a bool [.'|'.2]; .: tag prop <t> is missing [.'|'])
