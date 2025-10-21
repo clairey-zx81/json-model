@@ -20,15 +20,10 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # flatten and xor to or test
     # .
-    my $res = jm_is_integer($val);
-    if ($res)
-    {
-        # .'|'.0
-        # .'|'.1
-        # .'|'.2
-        $res = jm_is_integer($val) && ($val == 1 || $val == 2 || $val == 3);
-    }
-    return $res;
+    # .'|'.0
+    # .'|'.1
+    # .'|'.2
+    return jm_is_integer($val) && (jm_is_integer($val) && ($val == 1 || $val == 2 || $val == 3));
 }
 
 

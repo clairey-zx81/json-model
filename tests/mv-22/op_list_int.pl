@@ -75,15 +75,11 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'t'};
     # .'|'.1.t
-    $res = jm_is_integer($pval);
-    if ($res)
-    {
-        # .'|'.1.t.'|'.0
-        # .'|'.1.t.'|'.1
-        # .'|'.1.t.'|'.2
-        # .'|'.1.t.'|'.3
-        $res = jm_is_integer($pval) && ($pval == 2 || $pval == 4 || $pval == 6 || $pval == 8);
-    }
+    # .'|'.1.t.'|'.0
+    # .'|'.1.t.'|'.1
+    # .'|'.1.t.'|'.2
+    # .'|'.1.t.'|'.3
+    $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 2 || $pval == 4 || $pval == 6 || $pval == 8));
     if (! $res)
     {
         return 0;
@@ -118,16 +114,12 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'t'};
     # .'|'.2.t
-    $res = jm_is_integer($pval);
-    if ($res)
-    {
-        # .'|'.2.t.'|'.0
-        # .'|'.2.t.'|'.1
-        # .'|'.2.t.'|'.2
-        # .'|'.2.t.'|'.3
-        # .'|'.2.t.'|'.4
-        $res = jm_is_integer($pval) && ($pval == 1 || $pval == 3 || $pval == 5 || $pval == 7 || $pval == 9);
-    }
+    # .'|'.2.t.'|'.0
+    # .'|'.2.t.'|'.1
+    # .'|'.2.t.'|'.2
+    # .'|'.2.t.'|'.3
+    # .'|'.2.t.'|'.4
+    $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 1 || $pval == 3 || $pval == 5 || $pval == 7 || $pval == 9));
     if (! $res)
     {
         return 0;

@@ -80,14 +80,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Aa'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Aa'.'|'.0
-        # .'$Aa'.'|'.1
-        $res = _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$Aa'.'|'.0
+    # .'$Aa'.'|'.1
+    return jm_is_object($val) && (_jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
 }
 
 # object .'$Bb'.'|'.1
@@ -143,14 +138,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Bb'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Bb'.'|'.0
-        # .'$Bb'.'|'.1
-        $res = _jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep);
-    }
-    return $res;
+    # .'$Bb'.'|'.0
+    # .'$Bb'.'|'.1
+    return jm_is_object($val) && (_jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep));
 }
 
 # object .'$Cc'.'|'.1
@@ -206,14 +196,9 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Cc'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Cc'.'|'.0
-        # .'$Cc'.'|'.1
-        $res = _jm_obj_5($val, $path, $rep) || _jm_obj_4($val, $path, $rep);
-    }
-    return $res;
+    # .'$Cc'.'|'.0
+    # .'$Cc'.'|'.1
+    return jm_is_object($val) && (_jm_obj_5($val, $path, $rep) || _jm_obj_4($val, $path, $rep));
 }
 
 # object .'|'.3
@@ -373,16 +358,11 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # props: a/b a/c b/c
     # .
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'|'.0
-        # .'|'.1
-        # .'|'.2
-        # .'|'.3
-        $res = _jm_obj_9($val, $path, $rep) || _jm_obj_8($val, $path, $rep) || _jm_obj_7($val, $path, $rep) || _jm_obj_6($val, $path, $rep);
-    }
-    return $res;
+    # .'|'.0
+    # .'|'.1
+    # .'|'.2
+    # .'|'.3
+    return jm_is_object($val) && (_jm_obj_9($val, $path, $rep) || _jm_obj_8($val, $path, $rep) || _jm_obj_7($val, $path, $rep) || _jm_obj_6($val, $path, $rep));
 }
 
 

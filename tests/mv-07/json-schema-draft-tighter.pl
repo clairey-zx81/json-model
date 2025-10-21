@@ -3001,18 +3001,9 @@ sub json_model_25($$$)
     my ($val, $path, $rep) = @_;
     # keyword $schema is mandatory at the root, and optional elsewhere
     # .'$RootSchema'
-    my $res = 1;
-    if ($res)
-    {
-        # .'$RootSchema'.'&'.0
-        $res = _jm_obj_2($val, $path, $rep);
-        if ($res)
-        {
-            # .'$RootSchema'.'&'.1
-            $res = json_model_23($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$RootSchema'.'&'.0
+    # .'$RootSchema'.'&'.1
+    return _jm_obj_2($val, $path, $rep) && json_model_23($val, $path, $rep);
 }
 
 # check $ (.)

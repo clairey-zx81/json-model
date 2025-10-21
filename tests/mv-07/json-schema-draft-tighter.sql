@@ -2961,21 +2961,12 @@ $$ LANGUAGE PLpgSQL;
 -- check $RootSchema (.'$RootSchema')
 CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- keyword $schema is mandatory at the root, and optional elsewhere
   -- .'$RootSchema'
-  res := TRUE;
-  IF res THEN
-    -- .'$RootSchema'.'&'.0
-    res := _jm_obj_2(val, path, rep);
-    IF res THEN
-      -- .'$RootSchema'.'&'.1
-      res := json_model_23(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$RootSchema'.'&'.0
+  -- .'$RootSchema'.'&'.1
+  RETURN _jm_obj_2(val, path, rep) AND json_model_23(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

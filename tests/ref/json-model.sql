@@ -60,22 +60,13 @@ $$ LANGUAGE plpgsql;
 -- check $Identifier (.'$Identifier')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Identifier'
-  res := JSONB_TYPEOF(val) = 'string';
-  IF res THEN
-    -- .'$Identifier'.'&'.0
-    -- "/^\\w(\\w|-)*$/"
-    res := _jm_re_2(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    IF res THEN
-      -- .'$Identifier'.'&'.1
-      -- "/[^A-Z0-9]/"
-      res := _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$Identifier'.'&'.0
+  -- "/^\\w(\\w|-)*$/"
+  -- .'$Identifier'.'&'.1
+  -- "/[^A-Z0-9]/"
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_2(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -230,19 +221,13 @@ $$ LANGUAGE PLpgSQL;
 -- check $Regex (.'$Regex')
 CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Regex'
-  res := JSONB_TYPEOF(val) = 'string';
-  IF res THEN
-    -- .'$Regex'.'|'.0
-    -- "/^/($EXREG)/[a-z]*X[a-z]*$/X"
-    -- .'$Regex'.'|'.1
-    -- "/^/($REGEX)/[a-z]*$/X"
-    res := _jm_xre_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Regex'.'|'.0
+  -- "/^/($EXREG)/[a-z]*X[a-z]*$/X"
+  -- .'$Regex'.'|'.1
+  -- "/^/($REGEX)/[a-z]*$/X"
+  RETURN JSONB_TYPEOF(val) = 'string' AND (_jm_xre_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -981,21 +966,15 @@ $$ LANGUAGE PLpgSQL;
 -- check $Element (.'$Element')
 CREATE OR REPLACE FUNCTION json_model_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Element'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Element'.'|'.0
-    -- .'$Element'.'|'.1
-    -- .'$Element'.'|'.2
-    -- .'$Element'.'|'.3
-    -- .'$Element'.'|'.4
-    -- .'$Element'.'|'.5
-    res := _jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep) OR _jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep) OR _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Element'.'|'.0
+  -- .'$Element'.'|'.1
+  -- .'$Element'.'|'.2
+  -- .'$Element'.'|'.3
+  -- .'$Element'.'|'.4
+  -- .'$Element'.'|'.5
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep) OR _jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep) OR _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2614,21 +2593,15 @@ $$ LANGUAGE PLpgSQL;
 -- check $Root (.'$Root')
 CREATE OR REPLACE FUNCTION json_model_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Root'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Root'.'|'.0
-    -- .'$Root'.'|'.1
-    -- .'$Root'.'|'.2
-    -- .'$Root'.'|'.3
-    -- .'$Root'.'|'.4
-    -- .'$Root'.'|'.5
-    res := _jm_obj_26(val, path, rep) OR _jm_obj_23(val, path, rep) OR _jm_obj_20(val, path, rep) OR _jm_obj_17(val, path, rep) OR _jm_obj_14(val, path, rep) OR _jm_obj_11(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Root'.'|'.0
+  -- .'$Root'.'|'.1
+  -- .'$Root'.'|'.2
+  -- .'$Root'.'|'.3
+  -- .'$Root'.'|'.4
+  -- .'$Root'.'|'.5
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_26(val, path, rep) OR _jm_obj_23(val, path, rep) OR _jm_obj_20(val, path, rep) OR _jm_obj_17(val, path, rep) OR _jm_obj_14(val, path, rep) OR _jm_obj_11(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 

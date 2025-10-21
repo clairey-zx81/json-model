@@ -63,10 +63,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (rep) jm_report_add_entry(rep, "unexpected element [.'^'.1]", path);
     }
-    res = ! is_0;
-    if (res)
-        // empty xor list
-        res = false;
+    // empty xor list
+    res = false;
     if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);

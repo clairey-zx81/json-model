@@ -17,10 +17,14 @@
 - [x] static: add likely/unlikely hints to clang
 - [x] c-backend: optimize startwith implementation
 - [x] backend: optimize pattern "res = E1; if (! res) res = E2;"
-- [x] backend: optimize full pattern "(E && ...) || (E && ...) || ...;"
+- [x] backend: optimize full pattern "(E && ...) || (E && ...)"
 - [x] backend: or/and flattening
-- [x] backend: optimize partial pattern "(E && ...) || (E && ...) || ...;" (?)
-- [ ] backend: optimize pattern "V = E1; if (V) V = E2;"
+- [x] backend: optimize partial pattern "... || (E && ...) || (E && ...) || ...;"
+- [x] backend: optimize pattern "V = E1; if (V) V = E2;"
+- [ ] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql`
+- [ ] backend: fix `unused but set variable` warning
+- [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
+- [ ] backend: useless computations in `mv-17/xor_01.pl`
 - [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] static: improve likely hints, eg may only category
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
@@ -30,7 +34,6 @@
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting
-- [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] perf: add launcher script
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] static: partial discriminator with else?

@@ -246,18 +246,10 @@ sub _jm_f_0($$$)
         {
             # handle may a0 property
             # .and.a0
-            $res = 1;
-            if ($res)
-            {
-                # .and.a0.'&'.0
-                $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
-                if ($res)
-                {
-                    # .and.a0.'&'.1
-                    # "/^2020-/"
-                    $res = jm_is_string($pval) && jm_starts_with($pval, '2020-');
-                }
-            }
+            # .and.a0.'&'.0
+            # .and.a0.'&'.1
+            # "/^2020-/"
+            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep) && jm_is_string($pval) && jm_starts_with($pval, '2020-');
             if (! $res)
             {
                 return 0;
@@ -440,14 +432,9 @@ sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .bool.b5
-    my $res = jm_is_boolean($val);
-    if ($res)
-    {
-        # .bool.b5.'|'.0
-        # .bool.b5.'|'.1
-        $res = $val == 0 || $val == 1;
-    }
-    return $res;
+    # .bool.b5.'|'.0
+    # .bool.b5.'|'.1
+    return jm_is_boolean($val) && ($val == 0 || $val == 1);
 }
 
 
@@ -890,12 +877,7 @@ sub _jm_f_34($$$)
     my ($val, $path, $rep) = @_;
     # .constraints.cua0
     # .constraints.cua0.'@'
-    my $res = jm_is_array($val);
-    if ($res)
-    {
-        $res = jm_is_unique_array($val, $path, $rep);
-    }
-    return $res;
+    return jm_is_array($val) && jm_is_unique_array($val, $path, $rep);
 }
 
 
@@ -948,13 +930,9 @@ sub _jm_f_35($$$)
         {
             # handle may e0 property
             # .enum.e0
-            $res = jm_is_boolean($pval);
-            if ($res)
-            {
-                # .enum.e0.'|'.0
-                # .enum.e0.'|'.1
-                $res = $pval == 1 || $pval == 0;
-            }
+            # .enum.e0.'|'.0
+            # .enum.e0.'|'.1
+            $res = jm_is_boolean($pval) && ($pval == 1 || $pval == 0);
             if (! $res)
             {
                 return 0;
@@ -964,14 +942,10 @@ sub _jm_f_35($$$)
         {
             # handle may e1 property
             # .enum.e1
-            $res = jm_is_integer($pval);
-            if ($res)
-            {
-                # .enum.e1.'|'.0
-                # .enum.e1.'|'.1
-                # .enum.e1.'|'.2
-                $res = jm_is_integer($pval) && ($pval == 200 || $pval == 201 || $pval == 204);
-            }
+            # .enum.e1.'|'.0
+            # .enum.e1.'|'.1
+            # .enum.e1.'|'.2
+            $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 200 || $pval == 201 || $pval == 204));
             if (! $res)
             {
                 return 0;
@@ -1637,13 +1611,9 @@ sub _jm_f_58($$$)
         {
             # handle may m1 property
             # .merge.m1
-            $res = jm_is_object($pval);
-            if ($res)
-            {
-                # .merge.m1.'|'.0
-                # .merge.m1.'|'.1
-                $res = _jm_obj_5($pval, undef, $rep) || _jm_obj_4($pval, undef, $rep);
-            }
+            # .merge.m1.'|'.0
+            # .merge.m1.'|'.1
+            $res = jm_is_object($pval) && (_jm_obj_5($pval, undef, $rep) || _jm_obj_4($pval, undef, $rep));
             if (! $res)
             {
                 return 0;
@@ -1653,13 +1623,9 @@ sub _jm_f_58($$$)
         {
             # handle may m2 property
             # .merge.m2
-            $res = jm_is_object($pval);
-            if ($res)
-            {
-                # .merge.m2.'|'.0
-                # .merge.m2.'|'.1
-                $res = _jm_obj_7($pval, undef, $rep) || _jm_obj_6($pval, undef, $rep);
-            }
+            # .merge.m2.'|'.0
+            # .merge.m2.'|'.1
+            $res = jm_is_object($pval) && (_jm_obj_7($pval, undef, $rep) || _jm_obj_6($pval, undef, $rep));
             if (! $res)
             {
                 return 0;
@@ -1669,15 +1635,11 @@ sub _jm_f_58($$$)
         {
             # handle may m3 property
             # .merge.m3
-            $res = jm_is_object($pval);
-            if ($res)
-            {
-                # .merge.m3.'|'.0
-                # .merge.m3.'|'.1
-                # .merge.m3.'|'.2
-                # .merge.m3.'|'.3
-                $res = _jm_obj_11($pval, undef, $rep) || _jm_obj_10($pval, undef, $rep) || _jm_obj_9($pval, undef, $rep) || _jm_obj_8($pval, undef, $rep);
-            }
+            # .merge.m3.'|'.0
+            # .merge.m3.'|'.1
+            # .merge.m3.'|'.2
+            # .merge.m3.'|'.3
+            $res = jm_is_object($pval) && (_jm_obj_11($pval, undef, $rep) || _jm_obj_10($pval, undef, $rep) || _jm_obj_9($pval, undef, $rep) || _jm_obj_8($pval, undef, $rep));
             if (! $res)
             {
                 return 0;

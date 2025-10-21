@@ -201,22 +201,16 @@ $$ LANGUAGE PLpgSQL;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- multi-type discriminator
   -- .
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'|'.0
-    -- .'|'.1
-    -- .'|'.2
-    -- .'|'.3
-    -- .'|'.4
-    -- .'|'.5
-    res := _jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep) OR _jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep) OR _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'|'.0
+  -- .'|'.1
+  -- .'|'.2
+  -- .'|'.3
+  -- .'|'.4
+  -- .'|'.5
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep) OR _jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep) OR _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 

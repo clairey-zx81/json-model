@@ -170,14 +170,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ee'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Ee'.'|'.0
-        # .'$Ee'.'|'.1
-        $res = _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$Ee'.'|'.0
+    # .'$Ee'.'|'.1
+    return jm_is_object($val) && (_jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
 }
 
 # check $Mm (.'$Mm')

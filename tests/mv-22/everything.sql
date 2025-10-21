@@ -106,16 +106,10 @@ BEGIN
     IF prop = 'a0' THEN
       -- handle may a0 property
       -- .and.a0
-      res := TRUE;
-      IF res THEN
-        -- .and.a0.'&'.0
-        res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
-        IF res THEN
-          -- .and.a0.'&'.1
-          -- "/^2020-/"
-          res := JSONB_TYPEOF(pval) = 'string' AND STARTS_WITH(JSON_VALUE(pval, '$' RETURNING TEXT), '2020-');
-        END IF;
-      END IF;
+      -- .and.a0.'&'.0
+      -- .and.a0.'&'.1
+      -- "/^2020-/"
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep) AND JSONB_TYPEOF(pval) = 'string' AND STARTS_WITH(JSON_VALUE(pval, '$' RETURNING TEXT), '2020-');
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -805,16 +799,10 @@ $$ LANGUAGE PLpgSQL;
 -- check _jm_f_9_map_cua0 (.constraints.cua0)
 CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .constraints.cua0
   -- .constraints.cua0.'@'
-  res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    res := jm_array_is_unique(val, path, rep);
-  END IF;
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'array' AND jm_array_is_unique(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1561,38 +1549,29 @@ BEGIN
     ELSEIF prop = 'm1' THEN
       -- handle may m1 property
       -- .merge.m1
-      res := JSONB_TYPEOF(pval) = 'object';
-      IF res THEN
-        -- .merge.m1.'|'.0
-        -- .merge.m1.'|'.1
-        res := _jm_obj_5(pval, NULL, rep) OR _jm_obj_4(pval, NULL, rep);
-      END IF;
+      -- .merge.m1.'|'.0
+      -- .merge.m1.'|'.1
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_5(pval, NULL, rep) OR _jm_obj_4(pval, NULL, rep));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'm2' THEN
       -- handle may m2 property
       -- .merge.m2
-      res := JSONB_TYPEOF(pval) = 'object';
-      IF res THEN
-        -- .merge.m2.'|'.0
-        -- .merge.m2.'|'.1
-        res := _jm_obj_7(pval, NULL, rep) OR _jm_obj_6(pval, NULL, rep);
-      END IF;
+      -- .merge.m2.'|'.0
+      -- .merge.m2.'|'.1
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_7(pval, NULL, rep) OR _jm_obj_6(pval, NULL, rep));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'm3' THEN
       -- handle may m3 property
       -- .merge.m3
-      res := JSONB_TYPEOF(pval) = 'object';
-      IF res THEN
-        -- .merge.m3.'|'.0
-        -- .merge.m3.'|'.1
-        -- .merge.m3.'|'.2
-        -- .merge.m3.'|'.3
-        res := _jm_obj_11(pval, NULL, rep) OR _jm_obj_10(pval, NULL, rep) OR _jm_obj_9(pval, NULL, rep) OR _jm_obj_8(pval, NULL, rep);
-      END IF;
+      -- .merge.m3.'|'.0
+      -- .merge.m3.'|'.1
+      -- .merge.m3.'|'.2
+      -- .merge.m3.'|'.3
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_11(pval, NULL, rep) OR _jm_obj_10(pval, NULL, rep) OR _jm_obj_9(pval, NULL, rep) OR _jm_obj_8(pval, NULL, rep));
       IF NOT res THEN
         RETURN FALSE;
       END IF;

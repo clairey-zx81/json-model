@@ -604,14 +604,9 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#License'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$openapi#License'.'|'.0
-        # .'$openapi#License'.'|'.1
-        $res = _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#License'.'|'.0
+    # .'$openapi#License'.'|'.1
+    return jm_is_object($val) && (_jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
 }
 
 # object .'$openapi#Server'.variables
@@ -1721,14 +1716,9 @@ sub json_model_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$openapi#Parameter'.'|'.0
-        # .'$openapi#Parameter'.'|'.1
-        $res = _jm_obj_5($val, $path, $rep) || _jm_obj_3($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#Parameter'.'|'.0
+    # .'$openapi#Parameter'.'|'.1
+    return jm_is_object($val) && (_jm_obj_5($val, $path, $rep) || _jm_obj_3($val, $path, $rep));
 }
 
 
@@ -2511,14 +2501,9 @@ sub json_model_29($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Link'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$openapi#Link'.'|'.0
-        # .'$openapi#Link'.'|'.1
-        $res = _jm_obj_15($val, $path, $rep) || _jm_obj_13($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#Link'.'|'.0
+    # .'$openapi#Link'.'|'.1
+    return jm_is_object($val) && (_jm_obj_15($val, $path, $rep) || _jm_obj_13($val, $path, $rep));
 }
 
 # object .'$openapi#Header'.'|'.1.content
@@ -2744,14 +2729,9 @@ sub json_model_30($$$)
     my ($val, $path, $rep) = @_;
     # more or less a parameter but without name and in
     # .'$openapi#Header'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$openapi#Header'.'|'.0
-        # .'$openapi#Header'.'|'.1
-        $res = _jm_obj_19($val, $path, $rep) || _jm_obj_17($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#Header'.'|'.0
+    # .'$openapi#Header'.'|'.1
+    return jm_is_object($val) && (_jm_obj_19($val, $path, $rep) || _jm_obj_17($val, $path, $rep));
 }
 
 # check $openapi#Tag (.'$openapi#Tag')
@@ -3873,18 +3853,13 @@ sub json_model_93($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#Element'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$openapi#model#Element'.'|'.0
-        # .'$openapi#model#Element'.'|'.1
-        # .'$openapi#model#Element'.'|'.2
-        # .'$openapi#model#Element'.'|'.3
-        # .'$openapi#model#Element'.'|'.4
-        # .'$openapi#model#Element'.'|'.5
-        $res = _jm_obj_32($val, $path, $rep) || _jm_obj_31($val, $path, $rep) || _jm_obj_30($val, $path, $rep) || _jm_obj_29($val, $path, $rep) || _jm_obj_28($val, $path, $rep) || _jm_obj_27($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#model#Element'.'|'.0
+    # .'$openapi#model#Element'.'|'.1
+    # .'$openapi#model#Element'.'|'.2
+    # .'$openapi#model#Element'.'|'.3
+    # .'$openapi#model#Element'.'|'.4
+    # .'$openapi#model#Element'.'|'.5
+    return jm_is_object($val) && (_jm_obj_32($val, $path, $rep) || _jm_obj_31($val, $path, $rep) || _jm_obj_30($val, $path, $rep) || _jm_obj_29($val, $path, $rep) || _jm_obj_28($val, $path, $rep) || _jm_obj_27($val, $path, $rep));
 }
 
 # check $openapi#model#CmpValue (.'$openapi#model#CmpValue')
@@ -4016,16 +3991,11 @@ sub json_model_74($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#Regex'
-    my $res = jm_is_string($val);
-    if ($res)
-    {
-        # .'$openapi#model#Regex'.'|'.0
-        # "/^/($EXREG)/[a-z]*X[a-z]*$/X"
-        # .'$openapi#model#Regex'.'|'.1
-        # "/^/($REGEX)/[a-z]*$/X"
-        $res = _jm_xre_1($val, $path, $rep) || _jm_xre_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$openapi#model#Regex'.'|'.0
+    # "/^/($EXREG)/[a-z]*X[a-z]*$/X"
+    # .'$openapi#model#Regex'.'|'.1
+    # "/^/($REGEX)/[a-z]*$/X"
+    return jm_is_string($val) && (_jm_xre_1($val, $path, $rep) || _jm_xre_0($val, $path, $rep));
 }
 
 sub _jm_re_9($$$)

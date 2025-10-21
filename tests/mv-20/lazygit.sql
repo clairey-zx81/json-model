@@ -25,20 +25,11 @@ $$ LANGUAGE plpgsql;
 -- check $color (.'$color')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$color'
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
-  IF NOT res THEN
-    res := JSONB_TYPEOF(val) = 'string';
-    IF res THEN
-      -- .'$color'.'|'.0
-      -- "/^#[0-9a-fA-F]{6}$/"
-      res := _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$color'.'|'.0
+  -- "/^#[0-9a-fA-F]{6}$/"
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val) OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -268,12 +259,9 @@ BEGIN
     ELSEIF prop = 'suggestions' THEN
       -- handle may suggestions property
       -- .'$Prompts'.'|'.0.suggestions
-      res := JSONB_TYPEOF(pval) = 'object';
-      IF res THEN
-        -- .'$Prompts'.'|'.0.suggestions.'|'.0
-        -- .'$Prompts'.'|'.0.suggestions.'|'.1
-        res := _jm_obj_2(pval, NULL, rep) OR _jm_obj_1(pval, NULL, rep);
-      END IF;
+      -- .'$Prompts'.'|'.0.suggestions.'|'.0
+      -- .'$Prompts'.'|'.0.suggestions.'|'.1
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_2(pval, NULL, rep) OR _jm_obj_1(pval, NULL, rep));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1326,19 +1314,10 @@ $$ LANGUAGE plpgsql;
 -- check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
 CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .gui.nerdFontsVersion
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_10(val);
-  IF NOT res THEN
-    res := JSONB_TYPEOF(val) = 'string';
-    IF res THEN
-      -- .gui.nerdFontsVersion.'|'.0
-      res := TRUE;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .gui.nerdFontsVersion.'|'.0
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_10(val) OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2038,19 +2017,10 @@ $$ LANGUAGE plpgsql;
 -- check _jm_f_68_map_editPreset (.os.editPreset)
 CREATE OR REPLACE FUNCTION _jm_f_73(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .os.editPreset
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_14(val);
-  IF NOT res THEN
-    res := JSONB_TYPEOF(val) = 'string';
-    IF res THEN
-      -- .os.editPreset.'|'.0
-      res := TRUE;
-    END IF;
-  END IF;
-  RETURN res;
+  -- .os.editPreset.'|'.0
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_14(val) OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 

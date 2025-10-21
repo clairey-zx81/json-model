@@ -50,13 +50,8 @@ sub json_model_1($$$)
     $res = 1;
     # .'^'.1
     $is_0 = _jm_obj_0($val, $path, $rep);
-    $res = ! $is_0;
-    if ($res)
-    {
-        # empty xor list
-        $res = 0;
-    }
-    return $res;
+    # empty xor list
+    return 0;
 }
 
 

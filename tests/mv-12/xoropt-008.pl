@@ -109,15 +109,10 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # ^ to | based on distinct types on same property
     # .
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'|'.0
-        # .'|'.1
-        # .'|'.2
-        $res = _jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'|'.0
+    # .'|'.1
+    # .'|'.2
+    return jm_is_object($val) && (_jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
 }
 
 

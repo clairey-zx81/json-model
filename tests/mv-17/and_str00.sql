@@ -24,22 +24,13 @@ $$ LANGUAGE plpgsql;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .
-  res := JSONB_TYPEOF(val) = 'string';
-  IF res THEN
-    -- .'&'.0
-    -- "/[a-z]/"
-    res := _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    IF res THEN
-      -- .'&'.1
-      -- "/[0-9]/"
-      res := _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'&'.0
+  -- "/[a-z]/"
+  -- .'&'.1
+  -- "/[0-9]/"
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

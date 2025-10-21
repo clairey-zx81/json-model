@@ -214,7 +214,7 @@ def _isBoolAssign(seq: list[Jsonable], reporting: bool = True) -> Jsonable|None:
     for op in seq:
         if _noOp(op, reporting):
             pass
-        elif _isOp(op, "bv") and op["val"]:
+        elif not assign and _isOp(op, "bv") and op["val"]:
             assign = op
         else:
             return None
@@ -230,6 +230,9 @@ def _isBool(val: Jsonable) -> bool|None:
 
 def _isFalse(val: Jsonable) -> bool:
     return _isBool(val) is False
+
+def _isTrue(val: Jsonable) -> bool:
+    return _isBool(val) is True
 
 # NOTE despite the generality, the only occuring pattern is: "C ? E : F"
 def _simpleBoolAssign(op: Jsonable, reporting: bool = True) -> bool:
@@ -500,21 +503,23 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             decl = None
 
     # simplify "V = E1; if (!V) V = E2;" to "V = E1 || E2;"
+    # simplify "V = E1; if (V) V = E2;" to "V = E1 && E2;"
     assign: Jsonable|None = None
     for op in seq:
         if _noOp(op, reporting):
             pass
         elif _isOp(op, "bv"):
             assign = op
-        elif (assign and _isOp(op, "if") and _isOp(op["cond"], "not") and
-              op["cond"]["e"] == assign["var"] and _noOps(op["false"], reporting)):
-            if (assign2 := _isBoolAssign(op["true"], reporting)) and assign2["var"] == assign["var"]:
+        elif (assign and _isOp(op, "if") and _noOps(op["false"], reporting)):
+            is_not = _isOp(op["cond"], "not")
+            same_var = assign["var"] == (op["cond"]["e"] if is_not else op["cond"])
+            if same_var and (assign2 := _isBoolAssign(op["true"], reporting)) and assign2["var"] == assign["var"]:
                 # ok, save comments and move expression forward
                 newass = copy.copy(assign)
                 newass["val"] = {
-                    "o": "|",
+                    "o": "|" if is_not else "&",
                     "exprs": [assign["val"], assign2["val"]],
-                    "#": "IRO merge or"
+                    "#": f"IRO merge {'or' if is_not else 'and'}"
                 }
                 assign2.clear()
                 assign2.update(o="ign")
@@ -574,9 +579,6 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             prev = None
         else:
             prev = None
-
-    # TODO and(..., T, ...) -> and(..., ...)
-    # TODO or(..., F, ...) -> or(..., ...)
 
     # remove nopes (unless alone)
     rm, nco = [], 0
@@ -720,7 +722,6 @@ def elimCommonSub(code: Jsonable) -> int:
             curidx: list[int] = []
             exprs = code["exprs"]
             for i, expr in enumerate(exprs):
-                log.warning(f"common={common} curidx={curidx}")
                 if _isOp(expr, "&"):
                     if common is None:
                         common = expr["exprs"][0]
@@ -740,8 +741,6 @@ def elimCommonSub(code: Jsonable) -> int:
                     common, curidx = None, []
             if len(curidx) > 1:
                 factor.append(curidx)
-
-            log.warning(f"factor: {factor}")
 
             # rewrite factor sections
             for f in factor:
@@ -766,9 +765,19 @@ def elimCommonSub(code: Jsonable) -> int:
 
                 changes += 1
 
-            if factor:
-                # remove False from list
-                code["exprs"] = list(filter(lambda e: not _isFalse(e), exprs))
+        if _isOps(code, {"&", "|"}):
+            # remove True/False constants in passing
+            keep_it = (lambda o: not _isTrue(o)) if code["o"] == "&" else (lambda o: not _isFalse(o))
+            init_len = len(code["exprs"])
+            code["exprs"] = list(filter(keep_it, code["exprs"]))
+            changes += len(code["exprs"]) - init_len
+            # partial eval
+            if code["o"] == "&" and any(map(_isFalse, code["exprs"])):
+                code.clear()
+                code.update(o="cst", c=False)
+            elif code["o"] == "|" and any(map(_isTrue, code["exprs"])):
+                code.clear()
+                code.update(o="cst", c=True)
 
         return code
 

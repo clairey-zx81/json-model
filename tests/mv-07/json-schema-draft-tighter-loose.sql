@@ -46,21 +46,12 @@ $$ LANGUAGE PLpgSQL;
 -- check $tight#RootSchema (.'$tight#RootSchema')
 CREATE OR REPLACE FUNCTION json_model_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- keyword $schema is mandatory at the root, and optional elsewhere
   -- .'$tight#RootSchema'
-  res := TRUE;
-  IF res THEN
-    -- .'$tight#RootSchema'.'&'.0
-    res := _jm_obj_0(val, path, rep);
-    IF res THEN
-      -- .'$tight#RootSchema'.'&'.1
-      res := json_model_25(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$tight#RootSchema'.'&'.0
+  -- .'$tight#RootSchema'.'&'.1
+  RETURN _jm_obj_0(val, path, rep) AND json_model_25(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

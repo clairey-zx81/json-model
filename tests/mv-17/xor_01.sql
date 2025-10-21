@@ -40,12 +40,8 @@ BEGIN
   res := TRUE;
   -- .'^'.1
   is_0 := _jm_obj_0(val, path, rep);
-  res := NOT is_0;
-  IF res THEN
-    -- empty xor list
-    res := FALSE;
-  END IF;
-  RETURN res;
+  -- empty xor list
+  RETURN FALSE;
 END;
 $$ LANGUAGE PLpgSQL;
 

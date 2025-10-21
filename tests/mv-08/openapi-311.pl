@@ -651,14 +651,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$License'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$License'.'|'.0
-        # .'$License'.'|'.1
-        $res = _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$License'.'|'.0
+    # .'$License'.'|'.1
+    return jm_is_object($val) && (_jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
 }
 
 # object .'$Server'.variables
@@ -2070,14 +2065,9 @@ sub json_model_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Parameter'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Parameter'.'|'.0
-        # .'$Parameter'.'|'.1
-        $res = _jm_obj_6($val, $path, $rep) || _jm_obj_4($val, $path, $rep);
-    }
-    return $res;
+    # .'$Parameter'.'|'.0
+    # .'$Parameter'.'|'.1
+    return jm_is_object($val) && (_jm_obj_6($val, $path, $rep) || _jm_obj_4($val, $path, $rep));
 }
 
 # object .'$RequestBody'.content
@@ -2850,14 +2840,9 @@ sub json_model_27($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Link'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Link'.'|'.0
-        # .'$Link'.'|'.1
-        $res = _jm_obj_16($val, $path, $rep) || _jm_obj_14($val, $path, $rep);
-    }
-    return $res;
+    # .'$Link'.'|'.0
+    # .'$Link'.'|'.1
+    return jm_is_object($val) && (_jm_obj_16($val, $path, $rep) || _jm_obj_14($val, $path, $rep));
 }
 
 # object .'$Header'.'|'.1.content
@@ -3083,14 +3068,9 @@ sub json_model_28($$$)
     my ($val, $path, $rep) = @_;
     # more or less a parameter but without name and in
     # .'$Header'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Header'.'|'.0
-        # .'$Header'.'|'.1
-        $res = _jm_obj_20($val, $path, $rep) || _jm_obj_18($val, $path, $rep);
-    }
-    return $res;
+    # .'$Header'.'|'.0
+    # .'$Header'.'|'.1
+    return jm_is_object($val) && (_jm_obj_20($val, $path, $rep) || _jm_obj_18($val, $path, $rep));
 }
 
 # check $Tag (.'$Tag')

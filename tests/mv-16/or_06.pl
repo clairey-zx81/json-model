@@ -26,15 +26,10 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    my $res = jm_is_string($val);
-    if ($res)
-    {
-        # .'|'.0
-        # .'|'.1
-        # "/^[a-z]+$/"
-        $res = $val eq 'Susie' || _jm_re_0($val, $path, $rep);
-    }
-    return $res;
+    # .'|'.0
+    # .'|'.1
+    # "/^[a-z]+$/"
+    return jm_is_string($val) && ($val eq 'Susie' || _jm_re_0($val, $path, $rep));
 }
 
 

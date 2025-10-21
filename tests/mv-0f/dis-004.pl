@@ -72,14 +72,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Aa'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Aa'.'|'.0
-        # .'$Aa'.'|'.1
-        $res = _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$Aa'.'|'.0
+    # .'$Aa'.'|'.1
+    return jm_is_object($val) && (_jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
 }
 
 # object .'$Bb'.'|'.0

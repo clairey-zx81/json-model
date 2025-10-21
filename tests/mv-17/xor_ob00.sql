@@ -54,17 +54,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Aa (.'$Aa')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Aa'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Aa'.'|'.0
-    -- .'$Aa'.'|'.1
-    res := _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Aa'.'|'.0
+  -- .'$Aa'.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -117,17 +111,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Bb (.'$Bb')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Bb'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Bb'.'|'.0
-    -- .'$Bb'.'|'.1
-    res := _jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Bb'.'|'.0
+  -- .'$Bb'.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -262,20 +250,14 @@ $$ LANGUAGE PLpgSQL;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- 4 property combinations: ac ad bc bd
   -- .
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'|'.0
-    -- .'|'.1
-    -- .'|'.2
-    -- .'|'.3
-    res := _jm_obj_7(val, path, rep) OR _jm_obj_6(val, path, rep) OR _jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'|'.0
+  -- .'|'.1
+  -- .'|'.2
+  -- .'|'.3
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_7(val, path, rep) OR _jm_obj_6(val, path, rep) OR _jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 

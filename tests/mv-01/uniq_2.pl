@@ -21,12 +21,7 @@ sub json_model_1($$$)
     # require generic unique implementation
     # .
     # .'@'
-    my $res = jm_is_array($val);
-    if ($res)
-    {
-        $res = jm_is_unique_array($val, $path, $rep);
-    }
-    return $res;
+    return jm_is_array($val) && jm_is_unique_array($val, $path, $rep);
 }
 
 

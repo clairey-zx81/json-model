@@ -19,16 +19,11 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    my $res = jm_is_integer($val);
-    if ($res)
-    {
-        # .'|'.0
-        # .'|'.1
-        # .'|'.2
-        # .'|'.3
-        $res = jm_is_integer($val) && ($val == 200 || $val == 300 || $val == 400 || $val == 500);
-    }
-    return $res;
+    # .'|'.0
+    # .'|'.1
+    # .'|'.2
+    # .'|'.3
+    return jm_is_integer($val) && (jm_is_integer($val) && ($val == 200 || $val == 300 || $val == 400 || $val == 500));
 }
 
 

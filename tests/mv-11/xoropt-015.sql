@@ -141,17 +141,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Ee (.'$Ee')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Ee'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Ee'.'|'.0
-    -- .'$Ee'.'|'.1
-    res := _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Ee'.'|'.0
+  -- .'$Ee'.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 

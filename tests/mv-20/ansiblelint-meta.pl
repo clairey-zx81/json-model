@@ -5129,58 +5129,54 @@ sub json_model_50($$$)
         {
             my $arr_47_item = $$val[$arr_47_idx];
             # .'$platforms'.0
-            $res = jm_is_object($arr_47_item);
-            if ($res)
-            {
-                # .'$platforms'.0.'|'.0
-                # .'$platforms'.0.'|'.1
-                # .'$platforms'.0.'|'.2
-                # .'$platforms'.0.'|'.3
-                # .'$platforms'.0.'|'.4
-                # .'$platforms'.0.'|'.5
-                # .'$platforms'.0.'|'.6
-                # .'$platforms'.0.'|'.7
-                # .'$platforms'.0.'|'.8
-                # .'$platforms'.0.'|'.9
-                # .'$platforms'.0.'|'.10
-                # .'$platforms'.0.'|'.11
-                # .'$platforms'.0.'|'.12
-                # .'$platforms'.0.'|'.13
-                # .'$platforms'.0.'|'.14
-                # .'$platforms'.0.'|'.15
-                # .'$platforms'.0.'|'.16
-                # .'$platforms'.0.'|'.17
-                # .'$platforms'.0.'|'.18
-                # .'$platforms'.0.'|'.19
-                # .'$platforms'.0.'|'.20
-                # .'$platforms'.0.'|'.21
-                # .'$platforms'.0.'|'.22
-                # .'$platforms'.0.'|'.23
-                # .'$platforms'.0.'|'.24
-                # .'$platforms'.0.'|'.25
-                # .'$platforms'.0.'|'.26
-                # .'$platforms'.0.'|'.27
-                # .'$platforms'.0.'|'.28
-                # .'$platforms'.0.'|'.29
-                # .'$platforms'.0.'|'.30
-                # .'$platforms'.0.'|'.31
-                # .'$platforms'.0.'|'.32
-                # .'$platforms'.0.'|'.33
-                # .'$platforms'.0.'|'.34
-                # .'$platforms'.0.'|'.35
-                # .'$platforms'.0.'|'.36
-                # .'$platforms'.0.'|'.37
-                # .'$platforms'.0.'|'.38
-                # .'$platforms'.0.'|'.39
-                # .'$platforms'.0.'|'.40
-                # .'$platforms'.0.'|'.41
-                # .'$platforms'.0.'|'.42
-                # .'$platforms'.0.'|'.43
-                # .'$platforms'.0.'|'.44
-                # .'$platforms'.0.'|'.45
-                # .'$platforms'.0.'|'.46
-                $res = _jm_obj_46($arr_47_item, undef, $rep) || _jm_obj_45($arr_47_item, undef, $rep) || _jm_obj_44($arr_47_item, undef, $rep) || _jm_obj_43($arr_47_item, undef, $rep) || _jm_obj_42($arr_47_item, undef, $rep) || _jm_obj_41($arr_47_item, undef, $rep) || _jm_obj_40($arr_47_item, undef, $rep) || _jm_obj_39($arr_47_item, undef, $rep) || _jm_obj_38($arr_47_item, undef, $rep) || _jm_obj_37($arr_47_item, undef, $rep) || _jm_obj_36($arr_47_item, undef, $rep) || _jm_obj_35($arr_47_item, undef, $rep) || _jm_obj_34($arr_47_item, undef, $rep) || _jm_obj_33($arr_47_item, undef, $rep) || _jm_obj_32($arr_47_item, undef, $rep) || _jm_obj_31($arr_47_item, undef, $rep) || _jm_obj_30($arr_47_item, undef, $rep) || _jm_obj_29($arr_47_item, undef, $rep) || _jm_obj_28($arr_47_item, undef, $rep) || _jm_obj_27($arr_47_item, undef, $rep) || _jm_obj_26($arr_47_item, undef, $rep) || _jm_obj_25($arr_47_item, undef, $rep) || _jm_obj_24($arr_47_item, undef, $rep) || _jm_obj_23($arr_47_item, undef, $rep) || _jm_obj_22($arr_47_item, undef, $rep) || _jm_obj_21($arr_47_item, undef, $rep) || _jm_obj_20($arr_47_item, undef, $rep) || _jm_obj_19($arr_47_item, undef, $rep) || _jm_obj_18($arr_47_item, undef, $rep) || _jm_obj_17($arr_47_item, undef, $rep) || _jm_obj_16($arr_47_item, undef, $rep) || _jm_obj_15($arr_47_item, undef, $rep) || _jm_obj_14($arr_47_item, undef, $rep) || _jm_obj_13($arr_47_item, undef, $rep) || _jm_obj_12($arr_47_item, undef, $rep) || _jm_obj_11($arr_47_item, undef, $rep) || _jm_obj_10($arr_47_item, undef, $rep) || _jm_obj_9($arr_47_item, undef, $rep) || _jm_obj_8($arr_47_item, undef, $rep) || _jm_obj_7($arr_47_item, undef, $rep) || _jm_obj_6($arr_47_item, undef, $rep) || _jm_obj_5($arr_47_item, undef, $rep) || _jm_obj_4($arr_47_item, undef, $rep) || _jm_obj_3($arr_47_item, undef, $rep) || _jm_obj_2($arr_47_item, undef, $rep) || _jm_obj_1($arr_47_item, undef, $rep) || _jm_obj_0($arr_47_item, undef, $rep);
-            }
+            # .'$platforms'.0.'|'.0
+            # .'$platforms'.0.'|'.1
+            # .'$platforms'.0.'|'.2
+            # .'$platforms'.0.'|'.3
+            # .'$platforms'.0.'|'.4
+            # .'$platforms'.0.'|'.5
+            # .'$platforms'.0.'|'.6
+            # .'$platforms'.0.'|'.7
+            # .'$platforms'.0.'|'.8
+            # .'$platforms'.0.'|'.9
+            # .'$platforms'.0.'|'.10
+            # .'$platforms'.0.'|'.11
+            # .'$platforms'.0.'|'.12
+            # .'$platforms'.0.'|'.13
+            # .'$platforms'.0.'|'.14
+            # .'$platforms'.0.'|'.15
+            # .'$platforms'.0.'|'.16
+            # .'$platforms'.0.'|'.17
+            # .'$platforms'.0.'|'.18
+            # .'$platforms'.0.'|'.19
+            # .'$platforms'.0.'|'.20
+            # .'$platforms'.0.'|'.21
+            # .'$platforms'.0.'|'.22
+            # .'$platforms'.0.'|'.23
+            # .'$platforms'.0.'|'.24
+            # .'$platforms'.0.'|'.25
+            # .'$platforms'.0.'|'.26
+            # .'$platforms'.0.'|'.27
+            # .'$platforms'.0.'|'.28
+            # .'$platforms'.0.'|'.29
+            # .'$platforms'.0.'|'.30
+            # .'$platforms'.0.'|'.31
+            # .'$platforms'.0.'|'.32
+            # .'$platforms'.0.'|'.33
+            # .'$platforms'.0.'|'.34
+            # .'$platforms'.0.'|'.35
+            # .'$platforms'.0.'|'.36
+            # .'$platforms'.0.'|'.37
+            # .'$platforms'.0.'|'.38
+            # .'$platforms'.0.'|'.39
+            # .'$platforms'.0.'|'.40
+            # .'$platforms'.0.'|'.41
+            # .'$platforms'.0.'|'.42
+            # .'$platforms'.0.'|'.43
+            # .'$platforms'.0.'|'.44
+            # .'$platforms'.0.'|'.45
+            # .'$platforms'.0.'|'.46
+            $res = jm_is_object($arr_47_item) && (_jm_obj_46($arr_47_item, undef, $rep) || _jm_obj_45($arr_47_item, undef, $rep) || _jm_obj_44($arr_47_item, undef, $rep) || _jm_obj_43($arr_47_item, undef, $rep) || _jm_obj_42($arr_47_item, undef, $rep) || _jm_obj_41($arr_47_item, undef, $rep) || _jm_obj_40($arr_47_item, undef, $rep) || _jm_obj_39($arr_47_item, undef, $rep) || _jm_obj_38($arr_47_item, undef, $rep) || _jm_obj_37($arr_47_item, undef, $rep) || _jm_obj_36($arr_47_item, undef, $rep) || _jm_obj_35($arr_47_item, undef, $rep) || _jm_obj_34($arr_47_item, undef, $rep) || _jm_obj_33($arr_47_item, undef, $rep) || _jm_obj_32($arr_47_item, undef, $rep) || _jm_obj_31($arr_47_item, undef, $rep) || _jm_obj_30($arr_47_item, undef, $rep) || _jm_obj_29($arr_47_item, undef, $rep) || _jm_obj_28($arr_47_item, undef, $rep) || _jm_obj_27($arr_47_item, undef, $rep) || _jm_obj_26($arr_47_item, undef, $rep) || _jm_obj_25($arr_47_item, undef, $rep) || _jm_obj_24($arr_47_item, undef, $rep) || _jm_obj_23($arr_47_item, undef, $rep) || _jm_obj_22($arr_47_item, undef, $rep) || _jm_obj_21($arr_47_item, undef, $rep) || _jm_obj_20($arr_47_item, undef, $rep) || _jm_obj_19($arr_47_item, undef, $rep) || _jm_obj_18($arr_47_item, undef, $rep) || _jm_obj_17($arr_47_item, undef, $rep) || _jm_obj_16($arr_47_item, undef, $rep) || _jm_obj_15($arr_47_item, undef, $rep) || _jm_obj_14($arr_47_item, undef, $rep) || _jm_obj_13($arr_47_item, undef, $rep) || _jm_obj_12($arr_47_item, undef, $rep) || _jm_obj_11($arr_47_item, undef, $rep) || _jm_obj_10($arr_47_item, undef, $rep) || _jm_obj_9($arr_47_item, undef, $rep) || _jm_obj_8($arr_47_item, undef, $rep) || _jm_obj_7($arr_47_item, undef, $rep) || _jm_obj_6($arr_47_item, undef, $rep) || _jm_obj_5($arr_47_item, undef, $rep) || _jm_obj_4($arr_47_item, undef, $rep) || _jm_obj_3($arr_47_item, undef, $rep) || _jm_obj_2($arr_47_item, undef, $rep) || _jm_obj_1($arr_47_item, undef, $rep) || _jm_obj_0($arr_47_item, undef, $rep));
             if (! $res)
             {
                 last;
@@ -6164,25 +6160,12 @@ sub json_model_58($$$)
     my ($val, $path, $rep) = @_;
     # add non-exclusive mandatory role, src or name props
     # .'$DependencyModel'
-    my $res = 1;
-    if ($res)
-    {
-        # .'$DependencyModel'.'&'.0
-        $res = json_model_57($val, $path, $rep);
-        if ($res)
-        {
-            # .'$DependencyModel'.'&'.1
-            $res = jm_is_object($val);
-            if ($res)
-            {
-                # .'$DependencyModel'.'&'.1.'|'.0
-                # .'$DependencyModel'.'&'.1.'|'.1
-                # .'$DependencyModel'.'&'.1.'|'.2
-                $res = _jm_obj_51($val, $path, $rep) || _jm_obj_50($val, $path, $rep) || _jm_obj_49($val, $path, $rep);
-            }
-        }
-    }
-    return $res;
+    # .'$DependencyModel'.'&'.0
+    # .'$DependencyModel'.'&'.1
+    # .'$DependencyModel'.'&'.1.'|'.0
+    # .'$DependencyModel'.'&'.1.'|'.1
+    # .'$DependencyModel'.'&'.1.'|'.2
+    return json_model_57($val, $path, $rep) && jm_is_object($val) && (_jm_obj_51($val, $path, $rep) || _jm_obj_50($val, $path, $rep) || _jm_obj_49($val, $path, $rep));
 }
 
 # check $AnsibleMetaObj (.'$AnsibleMetaObj')

@@ -333,18 +333,9 @@ sub json_model_27($$$)
     my ($val, $path, $rep) = @_;
     # keyword $schema is mandatory at the root, and optional elsewhere
     # .'$tight#RootSchema'
-    my $res = 1;
-    if ($res)
-    {
-        # .'$tight#RootSchema'.'&'.0
-        $res = _jm_obj_0($val, $path, $rep);
-        if ($res)
-        {
-            # .'$tight#RootSchema'.'&'.1
-            $res = json_model_25($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$tight#RootSchema'.'&'.0
+    # .'$tight#RootSchema'.'&'.1
+    return _jm_obj_0($val, $path, $rep) && json_model_25($val, $path, $rep);
 }
 
 

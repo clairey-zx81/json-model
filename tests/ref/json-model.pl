@@ -129,20 +129,11 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Identifier'
-    my $res = jm_is_string($val);
-    if ($res)
-    {
-        # .'$Identifier'.'&'.0
-        # "/^\\w(\\w|-)*$/"
-        $res = _jm_re_2($val, $path, $rep);
-        if ($res)
-        {
-            # .'$Identifier'.'&'.1
-            # "/[^A-Z0-9]/"
-            $res = _jm_re_1($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$Identifier'.'&'.0
+    # "/^\\w(\\w|-)*$/"
+    # .'$Identifier'.'&'.1
+    # "/[^A-Z0-9]/"
+    return jm_is_string($val) && _jm_re_2($val, $path, $rep) && _jm_re_1($val, $path, $rep);
 }
 
 # check $ArrayComment (.'$ArrayComment')
@@ -292,16 +283,11 @@ sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Regex'
-    my $res = jm_is_string($val);
-    if ($res)
-    {
-        # .'$Regex'.'|'.0
-        # "/^/($EXREG)/[a-z]*X[a-z]*$/X"
-        # .'$Regex'.'|'.1
-        # "/^/($REGEX)/[a-z]*$/X"
-        $res = _jm_xre_1($val, $path, $rep) || _jm_xre_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$Regex'.'|'.0
+    # "/^/($EXREG)/[a-z]*X[a-z]*$/X"
+    # .'$Regex'.'|'.1
+    # "/^/($REGEX)/[a-z]*$/X"
+    return jm_is_string($val) && (_jm_xre_1($val, $path, $rep) || _jm_xre_0($val, $path, $rep));
 }
 
 sub _jm_re_6($$$)
@@ -1101,18 +1087,13 @@ sub json_model_29($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Element'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Element'.'|'.0
-        # .'$Element'.'|'.1
-        # .'$Element'.'|'.2
-        # .'$Element'.'|'.3
-        # .'$Element'.'|'.4
-        # .'$Element'.'|'.5
-        $res = _jm_obj_5($val, $path, $rep) || _jm_obj_4($val, $path, $rep) || _jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'$Element'.'|'.0
+    # .'$Element'.'|'.1
+    # .'$Element'.'|'.2
+    # .'$Element'.'|'.3
+    # .'$Element'.'|'.4
+    # .'$Element'.'|'.5
+    return jm_is_object($val) && (_jm_obj_5($val, $path, $rep) || _jm_obj_4($val, $path, $rep) || _jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
 }
 
 # object .'$Trafo'.'~'
@@ -3073,18 +3054,13 @@ sub json_model_39($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Root'
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'$Root'.'|'.0
-        # .'$Root'.'|'.1
-        # .'$Root'.'|'.2
-        # .'$Root'.'|'.3
-        # .'$Root'.'|'.4
-        # .'$Root'.'|'.5
-        $res = _jm_obj_26($val, $path, $rep) || _jm_obj_23($val, $path, $rep) || _jm_obj_20($val, $path, $rep) || _jm_obj_17($val, $path, $rep) || _jm_obj_14($val, $path, $rep) || _jm_obj_11($val, $path, $rep);
-    }
-    return $res;
+    # .'$Root'.'|'.0
+    # .'$Root'.'|'.1
+    # .'$Root'.'|'.2
+    # .'$Root'.'|'.3
+    # .'$Root'.'|'.4
+    # .'$Root'.'|'.5
+    return jm_is_object($val) && (_jm_obj_26($val, $path, $rep) || _jm_obj_23($val, $path, $rep) || _jm_obj_20($val, $path, $rep) || _jm_obj_17($val, $path, $rep) || _jm_obj_14($val, $path, $rep) || _jm_obj_11($val, $path, $rep));
 }
 
 # check $RootModel (.'$RootModel')

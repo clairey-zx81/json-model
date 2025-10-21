@@ -54,17 +54,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Aa (.'$Aa')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Aa'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Aa'.'|'.0
-    -- .'$Aa'.'|'.1
-    res := _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Aa'.'|'.0
+  -- .'$Aa'.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 

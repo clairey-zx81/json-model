@@ -111,20 +111,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $nomerge (.'$nomerge')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$nomerge'
-  res := TRUE;
-  IF res THEN
-    -- .'$nomerge'.'&'.0
-    res := json_model_2(val, path, rep);
-    IF res THEN
-      -- .'$nomerge'.'&'.1
-      res := _jm_obj_0(val, path, rep);
-    END IF;
-  END IF;
-  RETURN res;
+  -- .'$nomerge'.'&'.0
+  -- .'$nomerge'.'&'.1
+  RETURN json_model_2(val, path, rep) AND _jm_obj_0(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

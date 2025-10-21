@@ -32,7 +32,7 @@ function json_model_1(val, path, rep)
             // handle may all property
             // .all
             // "/.*/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && true;
+            res = ((typeof pval === 'string' || pval instanceof String));
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /.*/ [.all]", (path ? lpath_0 : null)])

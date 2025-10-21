@@ -46,7 +46,7 @@ public class re_3 extends ModelChecker
                 // handle may all property
                 // .all
                 // "/.*/"
-                res = json.isString(pval) && true;
+                res = json.isString(pval);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /.*/ [.all]", (path != null ? lpath_0 : null));

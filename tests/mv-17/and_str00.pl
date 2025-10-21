@@ -33,20 +33,11 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    my $res = jm_is_string($val);
-    if ($res)
-    {
-        # .'&'.0
-        # "/[a-z]/"
-        $res = _jm_re_1($val, $path, $rep);
-        if ($res)
-        {
-            # .'&'.1
-            # "/[0-9]/"
-            $res = _jm_re_0($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'&'.0
+    # "/[a-z]/"
+    # .'&'.1
+    # "/[0-9]/"
+    return jm_is_string($val) && _jm_re_1($val, $path, $rep) && _jm_re_0($val, $path, $rep);
 }
 
 

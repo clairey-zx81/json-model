@@ -8,19 +8,13 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- constraint is either on value or on length
   -- .
   -- .'@'
   -- .'@'.'|'.0
   -- .'@'.'|'.1
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'string';
-  IF res THEN
-    res := jm_check_constraint(val, '>=', 10, path, rep);
-  END IF;
-  RETURN res;
+  RETURN (JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'string') AND jm_check_constraint(val, '>=', 10, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -172,17 +172,12 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # ^ to | on constants
     # .
-    my $res = jm_is_object($val);
-    if ($res)
-    {
-        # .'|'.0
-        # .'|'.1
-        # .'|'.2
-        # .'|'.3
-        # .'|'.4
-        $res = _jm_obj_4($val, $path, $rep) || _jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep);
-    }
-    return $res;
+    # .'|'.0
+    # .'|'.1
+    # .'|'.2
+    # .'|'.3
+    # .'|'.4
+    return jm_is_object($val) && (_jm_obj_4($val, $path, $rep) || _jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
 }
 
 

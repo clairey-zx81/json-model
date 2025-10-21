@@ -154,18 +154,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$color'
-    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
-    if (! $res)
-    {
-        $res = jm_is_string($val);
-        if ($res)
-        {
-            # .'$color'.'|'.0
-            # "/^#[0-9a-fA-F]{6}$/"
-            $res = _jm_re_0($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'$color'.'|'.0
+    # "/^#[0-9a-fA-F]{6}$/"
+    return jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 # check $colorArray (.'$colorArray')
@@ -382,13 +373,9 @@ sub _jm_obj_0($$$)
         {
             # handle may suggestions property
             # .'$Prompts'.'|'.0.suggestions
-            $res = jm_is_object($pval);
-            if ($res)
-            {
-                # .'$Prompts'.'|'.0.suggestions.'|'.0
-                # .'$Prompts'.'|'.0.suggestions.'|'.1
-                $res = _jm_obj_2($pval, undef, $rep) || _jm_obj_1($pval, undef, $rep);
-            }
+            # .'$Prompts'.'|'.0.suggestions.'|'.0
+            # .'$Prompts'.'|'.0.suggestions.'|'.1
+            $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, $rep) || _jm_obj_1($pval, undef, $rep));
             if (! $res)
             {
                 return 0;
@@ -1443,17 +1430,8 @@ sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.nerdFontsVersion
-    my $res = jm_is_string($val) && exists $_jm_cst_10{$val};
-    if (! $res)
-    {
-        $res = jm_is_string($val);
-        if ($res)
-        {
-            # .gui.nerdFontsVersion.'|'.0
-            $res = 1;
-        }
-    }
-    return $res;
+    # .gui.nerdFontsVersion.'|'.0
+    return jm_is_string($val) && exists $_jm_cst_10{$val} || jm_is_string($val);
 }
 
 # check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
@@ -2091,17 +2069,8 @@ sub _jm_f_73($$$)
 {
     my ($val, $path, $rep) = @_;
     # .os.editPreset
-    my $res = jm_is_string($val) && exists $_jm_cst_14{$val};
-    if (! $res)
-    {
-        $res = jm_is_string($val);
-        if ($res)
-        {
-            # .os.editPreset.'|'.0
-            $res = 1;
-        }
-    }
-    return $res;
+    # .os.editPreset.'|'.0
+    return jm_is_string($val) && exists $_jm_cst_14{$val} || jm_is_string($val);
 }
 
 # check _jm_f_68_map_open (.os.open)

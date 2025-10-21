@@ -60,12 +60,8 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected element [.'^'.1]", path])
     }
-    res = ! is_0;
-    if (res)
-    {
-        // empty xor list
-        res = false;
-    }
+    // empty xor list
+    res = false;
     if (res)
     {
         if (rep !== null) rep.length = 0

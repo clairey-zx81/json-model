@@ -397,17 +397,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $License (.'$License')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$License'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$License'.'|'.0
-    -- .'$License'.'|'.1
-    res := _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$License'.'|'.0
+  -- .'$License'.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1807,17 +1801,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Parameter (.'$Parameter')
 CREATE OR REPLACE FUNCTION json_model_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Parameter'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Parameter'.'|'.0
-    -- .'$Parameter'.'|'.1
-    res := _jm_obj_6(val, path, rep) OR _jm_obj_4(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Parameter'.'|'.0
+  -- .'$Parameter'.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_6(val, path, rep) OR _jm_obj_4(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2482,17 +2470,11 @@ $$ LANGUAGE PLpgSQL;
 -- check $Link (.'$Link')
 CREATE OR REPLACE FUNCTION json_model_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- .'$Link'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Link'.'|'.0
-    -- .'$Link'.'|'.1
-    res := _jm_obj_16(val, path, rep) OR _jm_obj_14(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Link'.'|'.0
+  -- .'$Link'.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_16(val, path, rep) OR _jm_obj_14(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2710,18 +2692,12 @@ $$ LANGUAGE PLpgSQL;
 -- check $Header (.'$Header')
 CREATE OR REPLACE FUNCTION json_model_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- more or less a parameter but without name and in
   -- .'$Header'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$Header'.'|'.0
-    -- .'$Header'.'|'.1
-    res := _jm_obj_20(val, path, rep) OR _jm_obj_18(val, path, rep);
-  END IF;
-  RETURN res;
+  -- .'$Header'.'|'.0
+  -- .'$Header'.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_20(val, path, rep) OR _jm_obj_18(val, path, rep));
 END;
 $$ LANGUAGE PLpgSQL;
 

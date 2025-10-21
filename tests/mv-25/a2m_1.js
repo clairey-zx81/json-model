@@ -120,18 +120,9 @@ function _jm_obj_0(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$nomerge'
-    let res = true;
-    if (res)
-    {
-        // .'$nomerge'.'&'.0
-        res = json_model_2(val, path, rep);
-        if (res)
-        {
-            // .'$nomerge'.'&'.1
-            res = _jm_obj_0(val, path, rep);
-        }
-    }
-    return res;
+    // .'$nomerge'.'&'.0
+    // .'$nomerge'.'&'.1
+    return json_model_2(val, path, rep) && _jm_obj_0(val, path, rep);
 }
 
 // check $ (.)

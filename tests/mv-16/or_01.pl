@@ -28,18 +28,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
-    if (! $res)
-    {
-        $res = jm_is_string($val);
-        if ($res)
-        {
-            # .'|'.0
-            # "/[0-9]/"
-            $res = _jm_re_0($val, $path, $rep);
-        }
-    }
-    return $res;
+    # .'|'.0
+    # "/[0-9]/"
+    return jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_string($val) && _jm_re_0($val, $path, $rep);
 }
 
 

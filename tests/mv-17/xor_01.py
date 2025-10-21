@@ -57,10 +57,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     is_0 = _jm_obj_0(val, path, rep)
     if not is_0:
         rep is None or rep.append(("unexpected element [.'^'.1]", path))
-    res = not is_0
-    if res:
-        # empty xor list
-        res = False
+    # empty xor list
+    res = False
     if res:
         rep is None or rep.clear()
     else:

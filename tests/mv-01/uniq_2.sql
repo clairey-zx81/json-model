@@ -8,17 +8,11 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
   -- require generic unique implementation
   -- .
   -- .'@'
-  res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    res := jm_array_is_unique(val, path, rep);
-  END IF;
-  RETURN res;
+  RETURN JSONB_TYPEOF(val) = 'array' AND jm_array_is_unique(val, path, rep);
 END;
 $$ LANGUAGE PLpgSQL;
 

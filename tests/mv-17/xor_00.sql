@@ -18,13 +18,9 @@ BEGIN
   res := TRUE;
   -- .'^'.2
   is_0 := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
-  res := NOT is_0;
-  IF res THEN
-    -- singleton xor list
-    -- .'^'.0
-    res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
-  END IF;
-  RETURN res;
+  -- singleton xor list
+  -- .'^'.0
+  RETURN NOT is_0 AND JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
 END;
 $$ LANGUAGE PLpgSQL;
 
