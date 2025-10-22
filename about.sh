@@ -109,6 +109,12 @@ cloc --md \
     json_model/runtime \
     | sed -n -e '/SUM/s/\([0-9][0-9]*\)/**\1**/g;s/SUM:/**Total**/;/^$/,$p' | grep -v '^-[-|]*$'
 
+nmodels=$(echo tests/[mrb]*/*.model.json | wc -w)
+nschemas=$(echo tests/[mrb]*/*.schema.json | wc -w)
+modellocs=$(cat tests/[mrb]*/*.model.json | wc -l)
+nvalues=$(cat tests/[mrb]*/*.values.json | egrep '(true|false)' | wc -l)
+allvalues=$(( $nvalues + $nmodels + $nschemas ))
+
 cat <<EOF
 
 Note that the generated code may also depend on third-party libraries.
@@ -119,7 +125,8 @@ Test models cover the various features of JSON Model.
 Each model is tested for each target language (Python, C, JavaScript, PL/pgSQL, Perl, Java)
 on a set of test vectors.
 
-- number of models: $(echo tests/*/*.model.json | wc -w)
-- model JSON locs: $(cat tests/*/*.model.json | wc -l)
-- number of test values: $(cat tests/*/*.values.json | egrep '(true|false)' | wc -l)
+- number of JSON models: $nmodels
+- total JSON model locs: $modellocs
+- number of test vector JSON values: $nvalues
+- all tested JSON values (including models and generated schemas): $allvalues
 EOF
