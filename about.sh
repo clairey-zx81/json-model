@@ -57,7 +57,7 @@ cloc --md \
 
 cloc --md \
     json_model/clang.py \
-    json_model/data/*.c \
+    json_model/data/*.[ch] \
     | tail -1 | sed "s/SUM:/C/"
 
 cloc --md \
@@ -85,7 +85,7 @@ cloc --md \
     json_model/python.py \
     json_model/data/*.py \
     json_model/clang.py \
-    json_model/data/*.c \
+    json_model/data/*.[ch] \
     json_model/javascript.py \
     json_model/data/*.js \
     json_model/plpgsql.py \
