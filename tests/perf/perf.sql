@@ -332,13 +332,13 @@ CREATE TABLE ShowPerfSummary AS WITH
   UNION
   SELECT
     3, 'µs/kB',
-    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'blaze')),
-    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-c')),
-    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-js')),
-    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-gson')),
-    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jackson')),
-    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jsonp')),
-    FORMAT('%.02f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-py'))
+    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'blaze')),
+    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-c')),
+    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-js')),
+    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-gson')),
+    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jackson')),
+    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jsonp')),
+    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-py'))
   UNION
   SELECT
     4, 'max',
