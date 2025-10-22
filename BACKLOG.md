@@ -21,6 +21,7 @@
 - [x] backend: or/and flattening
 - [x] backend: optimize partial pattern "... || (E && ...) || (E && ...) || ...;"
 - [x] backend: optimize pattern "V = E1; if (V) V = E2;"
+- [x] perf: add launcher script
 - [ ] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql`
 - [ ] backend: fix `unused but set variable` warning
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
@@ -33,7 +34,6 @@
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting
-- [ ] perf: add launcher script
 - [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] c-backend: strcmp to const inlining and unrolling for all instances

@@ -1,5 +1,28 @@
 # Build and run JSON Model compiler benchmarking artifact
 
+## Start Script
+
+The `start_bench.sh` starts a benchmark into an empty subdirectory.
+
+Arguments:
+
+- TAG: `zx80/jmc-bench` docker tag, defaults to `latest`
+- ...: all others arguments passed to `benchmark.sh`
+
+Environment:
+
+- `JMC_OPTS`: options for jmc, for instance `--no-predef`
+- `JMC`: `zx80/jmc` docker tag
+- `JSC`: `ghcr.io/sourcemeta/jsonschema` docker tag
+
+Example usage:
+
+```bash
+JMC=dev JMC_OPTS=--no-predef \
+  nohup \
+    ./start_bench.sh dev -p 20 -l 1000 -r 5 --cap-py &
+```
+
 ## DooD
 
 ```sh
