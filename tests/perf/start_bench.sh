@@ -59,13 +59,13 @@ else
 fi
 
 echo "# docker options: ${docker_opts[@]}"
-echo "# benchmark options: -id=$bench_id ${bench_opts[@]} $@"
+echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
 
 # check latest version
 docker pull zx80/jmc-bench:$bench
 
 # run
-exec docker run --rm --name imperial_jmcbench \
+exec docker run --rm --name jmcbench_$bench_id \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v .:/workspace \
   -e WORKDIR="$PWD" \
