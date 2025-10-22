@@ -20,8 +20,9 @@ It downloads the benchmark schemas and test values, and runs through docker-in-d
 [sourcemeta/jsonschema](https://github.com/sourcemeta/jsonschema/pkgs/container/jsonschema)
 for comparison using the Blaze CLI.
 
-It is typically started on a large host with the `start_bench.sh` script which
-will span the necessary dockers:
+It is typically started on a large host with the
+[`start_bench.sh` script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/start_bench.sh)
+which will span the necessary dockers:
 
 ```sh
 JMC=latest JMC_OPTS=--no-predef \

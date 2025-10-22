@@ -5,7 +5,7 @@ if [ $1 = "-h" -o $1 = "--help" ] ; then
 Standalone command to start the jmc benchmark using docker-in-doocker.
 
 Arguments:
-- TAG: (zx80:jmc-bench docker tag, defaults to "latest")
+- TAG: (zx80/jmc-bench docker tag, defaults to "latest")
 - others: passed to "benchmark.sh"
 
 Environment:
