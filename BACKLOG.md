@@ -25,7 +25,6 @@
 - [ ] backend: fix `unused but set variable` warning
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] backend: useless computations in `mv-17/xor_01.pl`
-- [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] static: improve likely hints, eg may only category
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`
@@ -35,7 +34,9 @@
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
 - [ ] backend: remove reporting expressions under no reporting
 - [ ] perf: add launcher script
+- [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] c-backend: add number of chunks limit to strcmp optimization
+- [ ] c-backend: strcmp to const inlining and unrolling for all instances
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
 - [ ] perf: compute performance overhead globally instead of per run
