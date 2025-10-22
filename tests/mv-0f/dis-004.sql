@@ -58,7 +58,7 @@ BEGIN
   -- .'$Aa'
   -- .'$Aa'.'|'.0
   -- .'$Aa'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, NULL, NULL) OR _jm_obj_0(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -92,7 +92,7 @@ BEGIN
   -- .'$Bb'
   -- .'$Bb'.'|'.0
   -- .'$Bb'.'|'.1
-  RETURN _jm_obj_2(val, path, rep) OR json_model_2(val, path, rep);
+  RETURN _jm_obj_2(val, NULL, NULL) OR json_model_2(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -101,7 +101,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_3(val, path, rep);
+  RETURN json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -39,7 +39,7 @@ BEGIN
     IF prop = 'a' THEN
       -- handle may a property
       -- .'$Rr'.a
-      res := json_model_7(pval, NULL, rep);
+      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -70,21 +70,21 @@ BEGIN
       -- handle must RA property
       must_count := must_count + 1;
       -- .RA
-      res := json_model_5(pval, NULL, rep);
+      res := json_model_5(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'b' THEN
       -- handle may b property
       -- .b
-      res := json_model_3(pval, NULL, rep);
+      res := json_model_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'a' THEN
       -- handle may a property
       -- .a
-      res := json_model_7(pval, NULL, rep);
+      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

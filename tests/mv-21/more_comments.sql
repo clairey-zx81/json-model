@@ -28,7 +28,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$Qq'.0
-      res := json_model_2(arr_0_item, NULL, rep);
+      res := json_model_2(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -53,14 +53,14 @@ BEGIN
     IF prop = 'p' THEN
       -- handle may p property
       -- .o.p
-      res := json_model_2(pval, NULL, rep);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'q' THEN
       -- handle may q property
       -- .o.q
-      res := json_model_3(pval, NULL, rep);
+      res := json_model_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -105,7 +105,7 @@ BEGIN
       -- handle may o property
       -- an object
       -- .o
-      res := _jm_obj_0(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

@@ -51,7 +51,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, $path, $rep);
+    return json_model_2($val, undef, undef);
 }
 
 

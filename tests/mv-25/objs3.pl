@@ -63,7 +63,7 @@ sub json_model_1($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .0
-            $res = json_model_2($arr_0_item, undef, $rep);
+            $res = json_model_2($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;

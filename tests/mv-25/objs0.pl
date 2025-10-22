@@ -105,7 +105,7 @@ sub json_model_4($$$)
         {
             my $tag_0 = $$val{'t'};
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, $path, $rep);
+            $res = defined($fun_0) && &$fun_0($val, undef, undef);
         }
         else
         {
@@ -148,7 +148,7 @@ sub json_model_1($$$)
         {
             my $arr_0_item = $$pval[$arr_0_idx];
             # .stuff.0
-            $res = json_model_4($arr_0_item, undef, $rep);
+            $res = json_model_4($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;

@@ -52,7 +52,7 @@ sub json_model_3($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$ls0'.0
-            $res = jm_is_string($arr_1_item) && jm_is_valid_url($arr_1_item, undef, $rep);
+            $res = jm_is_string($arr_1_item) && jm_is_valid_url($arr_1_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -115,7 +115,7 @@ sub json_model_1($$$)
     # .'|'.1
     # .'|'.2
     # .'|'.3
-    return json_model_2($val, $path, $rep) || json_model_3($val, $path, $rep) || json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep);
+    return json_model_2($val, undef, undef) || json_model_3($val, undef, undef) || json_model_4($val, undef, undef) || json_model_5($val, undef, undef);
 }
 
 

@@ -105,7 +105,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$nomerge'
     // .'$nomerge'.'&'.0
     // .'$nomerge'.'&'.1
-    return json_model_2(val, path, rep) && _jm_obj_0(val, path, rep);
+    return json_model_2(val, NULL, NULL) && _jm_obj_0(val, NULL, NULL);
 }
 
 // check $ (.)
@@ -114,7 +114,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // .'|'.0
     // .'|'.1
-    return json_model_4(val, path, rep) || json_model_5(val, path, rep);
+    return json_model_4(val, NULL, NULL) || json_model_5(val, NULL, NULL);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

@@ -30,7 +30,7 @@ BEGIN
     ELSEIF prop = '' THEN
       -- handle may  property
       -- .'$'.''
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -77,11 +77,11 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_0(prop, path, rep) THEN
+    ELSEIF _jm_re_0(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'%'.'/^\\..+$/'
       -- "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_1(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_1(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -113,7 +113,7 @@ BEGIN
       -- handle must $ property
       must_count := must_count + 1;
       -- .'$'
-      res := _jm_obj_0(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -130,7 +130,7 @@ BEGIN
       must_count := must_count + 1;
       -- dot-prefixed arbitrary key, one or two char keyword values
       -- .'%'
-      res := _jm_obj_1(pval, NULL, rep);
+      res := _jm_obj_1(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

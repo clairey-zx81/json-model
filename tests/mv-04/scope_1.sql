@@ -15,10 +15,10 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'array' AND JSONB_ARRAY_LENGTH(val) = 2;
   IF res THEN
     -- .'$r'.0
-    res := json_model_5(val -> 0, NULL, rep);
+    res := json_model_5(val -> 0, NULL, NULL);
     IF res THEN
       -- .'$r'.1
-      res := json_model_5(val -> 1, NULL, rep);
+      res := json_model_5(val -> 1, NULL, NULL);
     END IF;
   END IF;
   RETURN res;
@@ -39,7 +39,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$s'
   -- "/[a-z]/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -51,7 +51,7 @@ BEGIN
   -- .
   -- .'|'.0
   -- .'|'.1
-  RETURN json_model_3(val, path, rep) OR json_model_5(val, path, rep);
+  RETURN json_model_3(val, NULL, NULL) OR json_model_5(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -69,7 +69,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$r#s'
   -- "/[0-9]/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

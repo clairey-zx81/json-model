@@ -155,7 +155,7 @@ sub json_model_1($$$)
         {
             my $tag_0 = $$pval{'t'};
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($pval, undef, $rep);
+            $res = defined($fun_0) && &$fun_0($pval, undef, undef);
         }
         else
         {

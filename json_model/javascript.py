@@ -44,6 +44,12 @@ class JavaScript(Language):
     #
     # inlined type test expressions about JSON data
     #
+    def rep(self) -> str:
+        return "rep" if self._with_report else "null"
+
+    def path(self, p: str) -> str:
+        return p if self._with_path else "null"
+
     def is_num(self, var: Var) -> BoolExpr:
         # JS === BF
         # 12.5 instanceof Number === false
@@ -110,11 +116,11 @@ class JavaScript(Language):
         if name == "$UUID":
             return f"runtime.jm_is_valid_uuid({val})"
         elif name == "$DATE":
-            return f"runtime.jm_is_valid_date({val}, {path}, rep)"
+            return f"runtime.jm_is_valid_date({val}, {self.path(path)}, {self.rep()})"
         elif name == "$TIME":
-            return f"runtime.jm_is_valid_time({val}, {path}, rep)"
+            return f"runtime.jm_is_valid_time({val}, {self.path(path)}, {self.rep()})"
         elif name == "$DATETIME":
-            return f"runtime.jm_is_valid_datetime({val}, {path}, rep)"
+            return f"runtime.jm_is_valid_datetime({val}, {self.path(path)}, {self.rep()})"
         elif name == "$REGEX":
             return f"runtime.jm_is_valid_regex({val}, false)"
         elif name == "$EXREG":
@@ -155,10 +161,10 @@ class JavaScript(Language):
         return f"{val}.endsWith({self.esc(end)})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"runtime.jm_array_is_unique({val}, {path}, rep)"
+        return f"runtime.jm_array_is_unique({val}, {self.path(path)}, {self.rep()})"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"runtime.jm_check_constraint({val}, {self.esc(op)}, {self.const(vop)}, {path}, rep)"
+        return f"runtime.jm_check_constraint({val}, {self.esc(op)}, {self.const(vop)}, {self.path(path)}, {self.rep()})"
 
     def nope(self) -> Block:
         return []
@@ -175,7 +181,7 @@ class JavaScript(Language):
         return "rep !== null"
 
     def report(self, msg: str, path: Var) -> Block:
-        return ([ f"rep !== null && rep.push([{self.esc(msg)}, {path}])" ]
+        return ([ f"rep !== null && rep.push([{self.esc(msg)}, {self.path(path)}])" ]
                 if self._with_report else [])
 
     def clean_report(self) -> Block:

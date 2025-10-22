@@ -135,7 +135,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
-            res = fun_0 != NULL && fun_0(val, path, rep);
+            res = fun_0 != NULL && fun_0(val, NULL, NULL);
         }
         else
             res = false;
@@ -147,7 +147,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    return json_model_4(val, path, rep);
+    return json_model_4(val, NULL, NULL);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

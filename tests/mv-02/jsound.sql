@@ -91,7 +91,7 @@ BEGIN
         FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_0_item := pval -> arr_0_idx;
           -- .'$Schema'.types.0
-          res := json_model_3(arr_0_item, NULL, rep);
+          res := json_model_3(arr_0_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -103,7 +103,7 @@ BEGIN
     ELSEIF prop = 'metadata' THEN
       -- handle may metadata property
       -- .'$Schema'.metadata
-      res := _jm_obj_0(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -132,7 +132,7 @@ BEGIN
     IF val ? 'kind' THEN
       tag_0 := val -> 'kind';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
@@ -189,7 +189,7 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_2_item := val -> arr_2_idx;
       -- .'$Atomic'.enumeration.0
-      res := json_model_5(arr_2_item, NULL, rep);
+      res := json_model_5(arr_2_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -318,14 +318,14 @@ BEGIN
       -- handle must baseType property
       must_count := must_count + 1;
       -- .'$Atomic'.baseType
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_6_map(prop) IS NOT NULL THEN
       -- handle 13 may props
       pfun := json_model_6_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -383,7 +383,7 @@ BEGIN
         FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_3_item := pval -> arr_3_idx;
           -- .'$Object'.content.0
-          res := json_model_8(arr_3_item, NULL, rep);
+          res := json_model_8(arr_3_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -434,7 +434,7 @@ BEGIN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$Fields'.type
-      res := json_model_11(pval, NULL, rep);
+      res := json_model_11(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -505,7 +505,7 @@ BEGIN
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$Array'.content
-      res := json_model_11(pval, NULL, rep);
+      res := json_model_11(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -574,7 +574,7 @@ BEGIN
         FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_4_item := pval -> arr_4_idx;
           -- .'$Union'.content.0
-          res := json_model_11(arr_4_item, NULL, rep);
+          res := json_model_11(arr_4_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -605,7 +605,7 @@ BEGIN
   -- .'$type-or-ref'
   -- .'$type-or-ref'.'|'.0
   -- .'$type-or-ref'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'string' OR json_model_3(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' OR json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -614,7 +614,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_2(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

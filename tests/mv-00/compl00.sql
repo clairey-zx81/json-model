@@ -25,7 +25,7 @@ BEGIN
   -- not-case xor list
   -- .'^'.1
   -- "/^[a-z]+$/i"
-  is_0 := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  is_0 := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
   RETURN NOT is_0;
 END;
 $$ LANGUAGE PLpgSQL;

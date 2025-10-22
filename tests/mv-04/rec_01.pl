@@ -29,7 +29,7 @@ sub json_model_1($$$)
     {
         # handle other props
         # .''
-        $res = json_model_1($pval, undef, $rep);
+        $res = json_model_1($pval, undef, undef);
         if (! $res)
         {
             return 0;

@@ -64,7 +64,7 @@ sub json_model_3($$$)
     # JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     # .'$schema'
     # .'$schema'.'@'
-    return json_model_18($val, $path, $rep);
+    return json_model_18($val, undef, undef);
 }
 
 # check $ (.)
@@ -72,7 +72,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_3($val, $path, $rep);
+    return json_model_3($val, undef, undef);
 }
 
 # check $schema#Schema (.'$schema#Schema')
@@ -82,7 +82,7 @@ sub json_model_18($$$)
     # .'$schema#Schema'
     # .'$schema#Schema'.'|'.0
     # .'$schema#Schema'.'|'.1
-    return jm_is_boolean($val) || json_model_17($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_17($val, undef, undef);
 }
 
 # check json_model_17_map_$comment (.'$schema#ObjectSchema'.'$comment')
@@ -108,7 +108,7 @@ sub _jm_f_1($$$)
     {
         # handle other props
         # .'$schema#ObjectSchema'.'$defs'.''
-        $res = json_model_18($pval, undef, $rep);
+        $res = json_model_18($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -122,7 +122,7 @@ sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema#ObjectSchema'.'$schema'
-    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
 }
 
 # check json_model_17_map_$vocabulary (.'$schema#ObjectSchema'.'$vocabulary')
@@ -138,7 +138,7 @@ sub _jm_f_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
@@ -203,7 +203,7 @@ sub _jm_f_8($$$)
     {
         # handle other props
         # .'$schema#ObjectSchema'.definitions.''
-        $res = json_model_18($pval, undef, $rep);
+        $res = json_model_18($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -229,7 +229,7 @@ sub _jm_f_9($$$)
         # .'$schema#ObjectSchema'.dependencies.''
         # .'$schema#ObjectSchema'.dependencies.''.'|'.0
         # .'$schema#ObjectSchema'.dependencies.''.'|'.1
-        $res = json_model_18($pval, undef, $rep) || json_model_12($pval, undef, $rep);
+        $res = json_model_18($pval, undef, undef) || json_model_12($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -253,7 +253,7 @@ sub _jm_f_10($$$)
     {
         # handle other props
         # .'$schema#ObjectSchema'.dependentRequired.''
-        $res = json_model_12($pval, undef, $rep);
+        $res = json_model_12($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -277,7 +277,7 @@ sub _jm_f_11($$$)
     {
         # handle other props
         # .'$schema#ObjectSchema'.dependentSchemas.''
-        $res = json_model_18($pval, undef, $rep);
+        $res = json_model_18($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -389,7 +389,7 @@ sub _jm_f_23($$$)
     {
         # handle other props
         # .'$schema#ObjectSchema'.patternProperties.''
-        $res = json_model_18($pval, undef, $rep);
+        $res = json_model_18($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -413,7 +413,7 @@ sub _jm_f_24($$$)
     {
         # handle other props
         # .'$schema#ObjectSchema'.properties.''
-        $res = json_model_18($pval, undef, $rep);
+        $res = json_model_18($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -436,7 +436,7 @@ sub _jm_obj_0($$$)
     {
         # handle other props
         # .'$schema#ObjectSchema'.propertyDependencies.''.''
-        $res = json_model_18($pval, undef, $rep);
+        $res = json_model_18($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -460,7 +460,7 @@ sub _jm_f_25($$$)
     {
         # handle other props
         # .'$schema#ObjectSchema'.propertyDependencies.''
-        $res = _jm_obj_0($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -492,7 +492,7 @@ sub _jm_f_28($$$)
     # .'$schema#ObjectSchema'.type
     # .'$schema#ObjectSchema'.type.'|'.0
     # .'$schema#ObjectSchema'.type.'|'.1
-    return json_model_10($val, $path, $rep) || json_model_11($val, $path, $rep);
+    return json_model_10($val, undef, undef) || json_model_11($val, undef, undef);
 }
 
 # check json_model_17_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)
@@ -528,7 +528,7 @@ sub json_model_17($$$)
         if (($pfun = $json_model_17_map{$prop}))
         {
             # handle 60 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -572,7 +572,7 @@ sub json_model_11($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$schema#simpleTypesArray'.'@'.0
-            $res = json_model_10($arr_0_item, undef, $rep);
+            $res = json_model_10($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -582,7 +582,7 @@ sub json_model_11($$$)
     if ($res)
     {
         my $ival_0 = scalar @$val;
-        $res = jm_is_unique_array($val, $path, $rep) && $ival_0 >= 1;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_0 >= 1;
     }
     return $res;
 }
@@ -609,7 +609,7 @@ sub json_model_12($$$)
     }
     if ($res)
     {
-        $res = jm_is_unique_array($val, $path, $rep);
+        $res = jm_is_unique_array($val, undef, undef);
     }
     return $res;
 }
@@ -635,7 +635,7 @@ sub json_model_15($$$)
         {
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$schema#schemaArray'.'@'.0
-            $res = json_model_18($arr_2_item, undef, $rep);
+            $res = json_model_18($arr_2_item, undef, undef);
             if (! $res)
             {
                 last;

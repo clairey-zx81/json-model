@@ -74,7 +74,7 @@ sub json_model_7($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$Aa'.0
-            $res = json_model_9($arr_0_item, undef, $rep);
+            $res = json_model_9($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -99,7 +99,7 @@ sub json_model_8($$$)
     {
         # handle other props
         # .'$Oo'.''
-        $res = json_model_9($pval, undef, $rep);
+        $res = json_model_9($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -120,7 +120,7 @@ sub json_model_9($$$)
     # .'$Any'.'|'.4
     # .'$Any'.'|'.5
     # .'$Any'.'|'.6
-    return !defined($val) || json_model_3($val, $path, $rep) || json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep) || json_model_6($val, $path, $rep) || json_model_7($val, $path, $rep) || json_model_8($val, $path, $rep);
+    return !defined($val) || json_model_3($val, undef, undef) || json_model_4($val, undef, undef) || json_model_5($val, undef, undef) || json_model_6($val, undef, undef) || json_model_7($val, undef, undef) || json_model_8($val, undef, undef);
 }
 
 # check $ (.)
@@ -128,7 +128,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_9($val, $path, $rep);
+    return json_model_9($val, undef, undef);
 }
 
 

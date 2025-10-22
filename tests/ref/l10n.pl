@@ -44,7 +44,7 @@ sub _jm_obj_0($$$)
         {
             # handle may  property
             # .'$'.''
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -94,12 +94,12 @@ sub _jm_obj_1($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 2 re props
             # .'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_1($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -133,7 +133,7 @@ sub json_model_1($$$)
             # handle must $ property
             $must_count++;
             # .'$'
-            $res = _jm_obj_0($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -156,7 +156,7 @@ sub json_model_1($$$)
             $must_count++;
             # dot-prefixed arbitrary key, one or two char keyword values
             # .'%'
-            $res = _jm_obj_1($pval, undef, $rep);
+            $res = _jm_obj_1($pval, undef, undef);
             if (! $res)
             {
                 return 0;

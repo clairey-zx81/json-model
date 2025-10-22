@@ -50,7 +50,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
             // .0
-            res = json_model_2(arr_0_item, NULL, rep);
+            res = json_model_2(arr_0_item, NULL, NULL);
             if (unlikely(! res))
                 break;
         }

@@ -12,7 +12,7 @@ BEGIN
   -- JSON Model for JSON Schema Draft 07 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
   -- .'$schema'
   -- .'$schema'.'@'
-  RETURN json_model_9(val, path, rep);
+  RETURN json_model_9(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -21,7 +21,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_3(val, path, rep);
+  RETURN json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -32,7 +32,7 @@ BEGIN
   -- .'$schema#Schema'
   -- .'$schema#Schema'.'|'.0
   -- .'$schema#Schema'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_8(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_8(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -50,7 +50,7 @@ CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[]
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -105,7 +105,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.definitions.''
-    res := json_model_9(pval, NULL, rep);
+    res := json_model_9(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -132,7 +132,7 @@ BEGIN
     -- handle other props
     -- .'$schema#ObjectSchema'.dependencies.''
     -- .'$schema#ObjectSchema'.dependencies.''.'|'.0
-    res := json_model_9(pval, NULL, rep);
+    res := json_model_9(pval, NULL, NULL);
     IF NOT res THEN
       -- .'$schema#ObjectSchema'.dependencies.''.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
@@ -176,7 +176,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     ival_0 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, path, rep) AND ival_0 >= 1;
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_0 >= 1;
   END IF;
   RETURN res;
 END;
@@ -225,7 +225,7 @@ BEGIN
   -- .'$schema#ObjectSchema'.items
   -- .'$schema#ObjectSchema'.items.'|'.0
   -- .'$schema#ObjectSchema'.items.'|'.1
-  RETURN json_model_9(val, path, rep) OR json_model_5(val, path, rep);
+  RETURN json_model_9(val, NULL, NULL) OR json_model_5(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -334,7 +334,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.patternProperties.''
-    res := json_model_9(pval, NULL, rep);
+    res := json_model_9(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -358,7 +358,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.properties.''
-    res := json_model_9(pval, NULL, rep);
+    res := json_model_9(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -416,7 +416,7 @@ BEGIN
   -- .'$schema#ObjectSchema'.type
   -- .'$schema#ObjectSchema'.type.'|'.0
   -- .'$schema#ObjectSchema'.type.'|'.1
-  RETURN json_model_6(val, path, rep) OR json_model_7(val, path, rep);
+  RETURN json_model_6(val, NULL, NULL) OR json_model_7(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -463,7 +463,7 @@ BEGIN
     IF json_model_8_map(prop) IS NOT NULL THEN
       -- handle 46 may props
       pfun := json_model_8_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -500,7 +500,7 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_2_item := val -> arr_2_idx;
       -- .'$schema#schemaArray'.'@'.0
-      res := json_model_9(arr_2_item, NULL, rep);
+      res := json_model_9(arr_2_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -548,7 +548,7 @@ BEGIN
     FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_3_item := val -> arr_3_idx;
       -- .'$schema#arrayTypes'.'@'.0
-      res := json_model_6(arr_3_item, NULL, rep);
+      res := json_model_6(arr_3_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -556,7 +556,7 @@ BEGIN
   END IF;
   IF res THEN
     ival_2 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, path, rep) AND ival_2 >= 1;
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_2 >= 1;
   END IF;
   RETURN res;
 END;

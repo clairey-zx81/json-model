@@ -38,7 +38,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         if pfun := json_model_1_map.get(prop):
             # handle 10 may props
-            if pfun != UNDEFINED and not pfun(pval, None, rep):
+            if pfun != UNDEFINED and not pfun(pval, None, None):
                 return False
         else:
             return False

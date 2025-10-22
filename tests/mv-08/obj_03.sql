@@ -14,7 +14,7 @@ BEGIN
   -- .'$foo'.'|'.1
   -- .'$foo'.'|'.2
   -- .'$foo'.'|'.3
-  RETURN json_model_4(val, path, rep) OR json_model_5(val, path, rep) OR json_model_6(val, path, rep) OR json_model_7(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL) OR json_model_5(val, NULL, NULL) OR json_model_6(val, NULL, NULL) OR json_model_7(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -23,7 +23,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_5(val, path, rep);
+  RETURN json_model_5(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -65,7 +65,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$foo#ls0'.0
-      res := JSONB_TYPEOF(arr_1_item) = 'string' AND jm_is_valid_date(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(arr_1_item) = 'string' AND jm_is_valid_date(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;

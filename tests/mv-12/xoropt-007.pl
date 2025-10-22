@@ -110,13 +110,13 @@ sub json_model_1($$$)
     # generic xor list
     my $xc_0 = 0;
     # .'^'.0
-    my $xr_0 = _jm_obj_0($val, $path, $rep);
+    my $xr_0 = _jm_obj_0($val, undef, undef);
     if ($xr_0)
     {
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = _jm_obj_1($val, $path, $rep);
+    $xr_0 = _jm_obj_1($val, undef, undef);
     if ($xr_0)
     {
         $xc_0++;

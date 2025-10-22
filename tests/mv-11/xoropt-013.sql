@@ -39,7 +39,7 @@ BEGIN
       -- handle other props
       -- .'^'.0.''
       -- "/.../"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -75,7 +75,7 @@ BEGIN
       -- handle other props
       -- .'^'.1.''
       -- "/.../"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -98,12 +98,12 @@ BEGIN
   -- generic xor list
   xc_0 := 0;
   -- .'^'.0
-  xr_0 := _jm_obj_0(val, path, rep);
+  xr_0 := _jm_obj_0(val, NULL, NULL);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
   -- .'^'.1
-  xr_0 := _jm_obj_1(val, path, rep);
+  xr_0 := _jm_obj_1(val, NULL, NULL);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;

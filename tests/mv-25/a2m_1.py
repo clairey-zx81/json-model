@@ -91,14 +91,14 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$nomerge'
     # .'$nomerge'.'&'.0
     # .'$nomerge'.'&'.1
-    return json_model_2(val, path, rep) and _jm_obj_0(val, path, rep)
+    return json_model_2(val, None, None) and _jm_obj_0(val, None, None)
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     # .'|'.0
     # .'|'.1
-    return json_model_4(val, path, rep) or json_model_5(val, path, rep)
+    return json_model_4(val, None, None) or json_model_5(val, None, None)
 
 
 # initialization guard

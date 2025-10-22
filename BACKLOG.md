@@ -3,6 +3,8 @@
 ## Current Tasks
 
 - [x] backend: optimize length-based non-empty string check
+- [x] backend: remove reporting expressions under no reporting
+- [x] backend: nullify reporting parameters under no reporting
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql`
@@ -15,7 +17,6 @@
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
-- [ ] backend: remove reporting expressions under no reporting
 - [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] c-backend: strcmp to const inlining and unrolling for all instances

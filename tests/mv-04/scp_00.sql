@@ -39,7 +39,7 @@ BEGIN
     IF prop = 'a' THEN
       -- handle may a property
       -- .a
-      res := json_model_3(pval, NULL, rep);
+      res := json_model_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

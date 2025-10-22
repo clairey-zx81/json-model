@@ -37,7 +37,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF json_model_2(TO_JSONB(prop), NULL, rep) THEN
+    IF json_model_2(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Xxx'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 >= 0.0;

@@ -33,7 +33,7 @@ sub json_model_1($$$)
             # handle may foo property
             # .foo
             # .foo.'|'.0
-            $res = json_model_1($pval, undef, $rep);
+            $res = json_model_1($pval, undef, undef);
             if (! $res)
             {
                 # .foo.'|'.1
@@ -44,7 +44,7 @@ sub json_model_1($$$)
                     {
                         my $arr_0_item = $$pval[$arr_0_idx];
                         # .foo.'|'.1.0
-                        $res = json_model_1($arr_0_item, undef, $rep);
+                        $res = json_model_1($arr_0_item, undef, undef);
                         if (! $res)
                         {
                             last;

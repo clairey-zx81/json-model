@@ -19,7 +19,7 @@ CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$Key'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -36,10 +36,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$map'.'$URL'
-      res := json_model_2(pval, NULL, rep);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -59,7 +59,7 @@ BEGIN
   -- .'$Ex08'.'|'.0
   -- .'$Ex08'.'|'.1
   -- .'$Ex08'.'|'.2
-  RETURN json_model_4(val, path, rep) OR JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR json_model_2(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL) OR JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL) OR json_model_2(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -68,7 +68,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_5(val, path, rep);
+  RETURN json_model_5(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -22,7 +22,7 @@ BEGIN
   -- .'|'.0
   -- .'|'.1
   -- "/^[a-z]+$/i"
-  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0 OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0 OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

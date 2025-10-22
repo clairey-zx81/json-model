@@ -172,7 +172,7 @@ sub json_model_5($$$)
     # .'$Ee'
     # .'$Ee'.'|'.0
     # .'$Ee'.'|'.1
-    return jm_is_object($val) && (_jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
+    return jm_is_object($val) && (_jm_obj_1($val, undef, undef) || _jm_obj_0($val, undef, undef));
 }
 
 # check $Mm (.'$Mm')
@@ -182,7 +182,7 @@ sub json_model_6($$$)
     # .'$Mm'
     # .'$Mm'.'|'.0
     # .'$Mm'.'|'.1
-    return json_model_2($val, $path, $rep) || json_model_5($val, $path, $rep);
+    return json_model_2($val, undef, undef) || json_model_5($val, undef, undef);
 }
 
 # check $ (.)
@@ -190,7 +190,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_6($val, $path, $rep);
+    return json_model_6($val, undef, undef);
 }
 
 

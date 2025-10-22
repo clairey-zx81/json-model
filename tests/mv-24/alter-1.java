@@ -221,7 +221,7 @@ public class alter_1 extends ModelChecker
             return false;
         }
         // .'$alternative'.'|'.3.t
-        res = json_model_3(pval, null, rep);
+        res = json_model_3(pval, null, null);
         if (! res)
         {
             return false;
@@ -249,7 +249,7 @@ public class alter_1 extends ModelChecker
             {
                 Object tag_0 = json.objectValue(val, "t");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
-                res = fun_0 != null && fun_0.call(val, path, rep);
+                res = fun_0 != null && fun_0.call(val, null, null);
             }
             else
             {
@@ -263,7 +263,7 @@ public class alter_1 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        return json_model_6(val, path, rep);
+        return json_model_6(val, null, null);
     }
 
 

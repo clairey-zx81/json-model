@@ -27,7 +27,7 @@ BEGIN
     END LOOP;
   END IF;
   IF res THEN
-    res := jm_array_is_unique(val, path, rep);
+    res := jm_array_is_unique(val, NULL, NULL);
   END IF;
   RETURN res;
 END;

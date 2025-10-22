@@ -45,13 +45,13 @@ sub json_model_1($$$)
     # generic xor list
     my $xc_0 = 0;
     # .'^'.0
-    my $xr_0 = json_model_2($val, $path, $rep);
+    my $xr_0 = json_model_2($val, undef, undef);
     if ($xr_0)
     {
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = json_model_3($val, $path, $rep);
+    $xr_0 = json_model_3($val, undef, undef);
     if ($xr_0)
     {
         $xc_0++;

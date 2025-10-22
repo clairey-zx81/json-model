@@ -23,7 +23,7 @@ BEGIN
   -- .'$Aa'.'|'.2
   -- .'$Aa'.'|'.3
   -- "/[a-z]/"
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0 OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0 OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -32,7 +32,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_2(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

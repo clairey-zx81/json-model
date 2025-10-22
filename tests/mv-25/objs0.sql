@@ -88,7 +88,7 @@ BEGIN
     IF val ? 't' THEN
       tag_0 := val -> 't';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
@@ -126,7 +126,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_0_item := pval -> arr_0_idx;
       -- .stuff.0
-      res := json_model_4(arr_0_item, NULL, rep);
+      res := json_model_4(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;

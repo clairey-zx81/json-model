@@ -135,7 +135,7 @@ sub json_model_5($$$)
     # .'$nomerge'
     # .'$nomerge'.'&'.0
     # .'$nomerge'.'&'.1
-    return json_model_2($val, $path, $rep) && _jm_obj_0($val, $path, $rep);
+    return json_model_2($val, undef, undef) && _jm_obj_0($val, undef, undef);
 }
 
 # check $ (.)
@@ -145,7 +145,7 @@ sub json_model_1($$$)
     # .
     # .'|'.0
     # .'|'.1
-    return json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep);
+    return json_model_4($val, undef, undef) || json_model_5($val, undef, undef);
 }
 
 

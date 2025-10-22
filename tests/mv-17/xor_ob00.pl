@@ -79,7 +79,7 @@ sub json_model_2($$$)
     # .'$Aa'
     # .'$Aa'.'|'.0
     # .'$Aa'.'|'.1
-    return jm_is_object($val) && (_jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
+    return jm_is_object($val) && (_jm_obj_1($val, undef, undef) || _jm_obj_0($val, undef, undef));
 }
 
 # object .'$Bb'.'|'.1
@@ -137,7 +137,7 @@ sub json_model_3($$$)
     # .'$Bb'
     # .'$Bb'.'|'.0
     # .'$Bb'.'|'.1
-    return jm_is_object($val) && (_jm_obj_3($val, $path, $rep) || _jm_obj_2($val, $path, $rep));
+    return jm_is_object($val) && (_jm_obj_3($val, undef, undef) || _jm_obj_2($val, undef, undef));
 }
 
 # object .'|'.3
@@ -290,7 +290,7 @@ sub json_model_1($$$)
     # .'|'.1
     # .'|'.2
     # .'|'.3
-    return jm_is_object($val) && (_jm_obj_7($val, $path, $rep) || _jm_obj_6($val, $path, $rep) || _jm_obj_5($val, $path, $rep) || _jm_obj_4($val, $path, $rep));
+    return jm_is_object($val) && (_jm_obj_7($val, undef, undef) || _jm_obj_6($val, undef, undef) || _jm_obj_5($val, undef, undef) || _jm_obj_4($val, undef, undef));
 }
 
 

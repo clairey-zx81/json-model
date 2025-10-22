@@ -30,7 +30,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$schemaArray'.'@'.0
-      res := json_model_8(arr_0_item, NULL, rep);
+      res := json_model_8(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -78,7 +78,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$typeArray'.'@'.0
-      res := json_model_4(arr_1_item, NULL, rep);
+      res := json_model_4(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -121,7 +121,7 @@ CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[]
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$ObjectSchema'.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -158,7 +158,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$ObjectSchema'.definitions.''
-    res := json_model_8(pval, NULL, rep);
+    res := json_model_8(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -184,7 +184,7 @@ BEGIN
     -- .'$ObjectSchema'.dependencies.''
     -- .'$ObjectSchema'.dependencies.''.'|'.0
     -- .'$ObjectSchema'.dependencies.''.'|'.1
-    res := json_model_8(pval, NULL, rep) OR json_model_6(pval, NULL, rep);
+    res := json_model_8(pval, NULL, NULL) OR json_model_6(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -214,7 +214,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     ival_2 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, path, rep) AND ival_2 >= 1;
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_2 >= 1;
   END IF;
   RETURN res;
 END;
@@ -263,7 +263,7 @@ BEGIN
   -- .'$ObjectSchema'.items
   -- .'$ObjectSchema'.items.'|'.0
   -- .'$ObjectSchema'.items.'|'.1
-  RETURN json_model_8(val, path, rep) OR json_model_3(val, path, rep);
+  RETURN json_model_8(val, NULL, NULL) OR json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -353,7 +353,7 @@ CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$ObjectSchema'.pattern
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -370,10 +370,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$ObjectSchema'.patternProperties.'$REGEX'
-      res := json_model_8(pval, NULL, rep);
+      res := json_model_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -400,7 +400,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$ObjectSchema'.properties.''
-    res := json_model_8(pval, NULL, rep);
+    res := json_model_8(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -425,7 +425,7 @@ BEGIN
   -- .'$ObjectSchema'.type
   -- .'$ObjectSchema'.type.'|'.0
   -- .'$ObjectSchema'.type.'|'.1
-  RETURN json_model_4(val, path, rep) OR json_model_5(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL) OR json_model_5(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -463,7 +463,7 @@ BEGIN
     IF json_model_7_map(prop) IS NOT NULL THEN
       -- handle 38 may props
       pfun := json_model_7_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -481,7 +481,7 @@ BEGIN
   -- .'$Schema'
   -- .'$Schema'.'|'.0
   -- .'$Schema'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_7(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_7(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -492,7 +492,7 @@ BEGIN
   -- JSON Model for JSON Schema Draft 06 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
   -- .
   -- .'@'
-  RETURN json_model_8(val, path, rep);
+  RETURN json_model_8(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

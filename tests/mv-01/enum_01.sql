@@ -53,12 +53,12 @@ BEGIN
   -- generic xor list
   xc_0 := 0;
   -- .'^'.0
-  xr_0 := json_model_2(val, path, rep);
+  xr_0 := json_model_2(val, NULL, NULL);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
   -- .'^'.1
-  xr_0 := json_model_3(val, path, rep);
+  xr_0 := json_model_3(val, NULL, NULL);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;

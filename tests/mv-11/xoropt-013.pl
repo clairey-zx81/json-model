@@ -52,7 +52,7 @@ sub _jm_obj_0($$$)
             # handle other props
             # .'^'.0.''
             # "/.../"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -91,7 +91,7 @@ sub _jm_obj_1($$$)
             # handle other props
             # .'^'.1.''
             # "/.../"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -111,13 +111,13 @@ sub json_model_1($$$)
     # generic xor list
     my $xc_0 = 0;
     # .'^'.0
-    my $xr_0 = _jm_obj_0($val, $path, $rep);
+    my $xr_0 = _jm_obj_0($val, undef, undef);
     if ($xr_0)
     {
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = _jm_obj_1($val, $path, $rep);
+    $xr_0 = _jm_obj_1($val, undef, undef);
     if ($xr_0)
     {
         $xc_0++;

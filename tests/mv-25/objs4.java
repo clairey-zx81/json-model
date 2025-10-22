@@ -108,7 +108,7 @@ public class objs4 extends ModelChecker
             if ((pfun = json_model_1_map_pmap.get(prop)) != null)
             {
                 // handle 10 may props
-                if (pfun != null && ! pfun.call(pval, null, rep))
+                if (pfun != null && ! pfun.call(pval, null, null))
                 {
                     return false;
                 }

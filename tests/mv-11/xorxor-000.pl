@@ -33,7 +33,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'|'.0
-    my $res = json_model_2($val, $path, $rep);
+    my $res = json_model_2($val, undef, undef);
     if (! $res)
     {
         # .'|'.1
@@ -44,7 +44,7 @@ sub json_model_1($$$)
             {
                 my $arr_0_item = $$val[$arr_0_idx];
                 # .'|'.1.0
-                $res = json_model_2($arr_0_item, undef, $rep);
+                $res = json_model_2($arr_0_item, undef, undef);
                 if (! $res)
                 {
                     last;

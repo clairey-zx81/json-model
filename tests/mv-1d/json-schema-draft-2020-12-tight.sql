@@ -38,7 +38,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$core'.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -52,7 +52,7 @@ CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[]
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$core'.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -69,7 +69,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$core'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -109,7 +109,7 @@ BEGIN
     IF json_model_3_map(prop) IS NOT NULL THEN
       -- handle 9 may props
       pfun := json_model_3_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -208,7 +208,7 @@ BEGIN
     IF json_model_4_map(prop) IS NOT NULL THEN
       -- handle 7 may props
       pfun := json_model_4_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -459,7 +459,7 @@ CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$String'.pattern
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -499,7 +499,7 @@ BEGIN
     ELSEIF json_model_9_map(prop) IS NOT NULL THEN
       -- handle 7 may props
       pfun := json_model_9_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -556,7 +556,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$schemaArray'.'@'.0
-      res := json_model_16(arr_1_item, NULL, rep);
+      res := json_model_16(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -651,7 +651,7 @@ BEGIN
     ELSEIF json_model_12_map(prop) IS NOT NULL THEN
       -- handle 9 may props
       pfun := json_model_12_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -677,7 +677,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Object'.dependentRequired.''
-    res := json_model_10(pval, NULL, rep);
+    res := json_model_10(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -701,7 +701,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Object'.dependentSchemas.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -741,10 +741,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Object'.patternProperties.'$REGEX'
-      res := json_model_16(pval, NULL, rep);
+      res := json_model_16(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -771,7 +771,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Object'.properties.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -816,7 +816,7 @@ BEGIN
     ELSEIF json_model_13_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_13_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -870,7 +870,7 @@ BEGIN
     IF json_model_14_map(prop) IS NOT NULL THEN
       -- handle 9 may props
       pfun := json_model_14_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -905,7 +905,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.0.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -919,7 +919,7 @@ CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.0.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -936,7 +936,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.0.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1049,7 +1049,7 @@ BEGIN
     ELSEIF _jm_obj_0_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := _jm_obj_0_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1084,7 +1084,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.1.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1098,7 +1098,7 @@ CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.1.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1115,7 +1115,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.1.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1228,7 +1228,7 @@ BEGIN
     ELSEIF _jm_obj_1_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := _jm_obj_1_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1263,7 +1263,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.2.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1277,7 +1277,7 @@ CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.2.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1294,7 +1294,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.2.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1462,7 +1462,7 @@ BEGIN
     ELSEIF _jm_obj_2_map(prop) IS NOT NULL THEN
       -- handle 21 may props
       pfun := _jm_obj_2_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1497,7 +1497,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.3.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1511,7 +1511,7 @@ CREATE OR REPLACE FUNCTION _jm_f_70(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.3.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1528,7 +1528,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.3.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1686,7 +1686,7 @@ BEGIN
     ELSEIF _jm_obj_3_map(prop) IS NOT NULL THEN
       -- handle 21 may props
       pfun := _jm_obj_3_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1721,7 +1721,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.4.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1735,7 +1735,7 @@ CREATE OR REPLACE FUNCTION _jm_f_86(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.4.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1752,7 +1752,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1853,7 +1853,7 @@ CREATE OR REPLACE FUNCTION _jm_f_97(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.4.pattern
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1919,7 +1919,7 @@ BEGIN
     ELSEIF _jm_obj_4_map(prop) IS NOT NULL THEN
       -- handle 23 may props
       pfun := _jm_obj_4_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1954,7 +1954,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.5.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1968,7 +1968,7 @@ CREATE OR REPLACE FUNCTION _jm_f_103(val JSONB, path TEXT[], rep jm_report_entry
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.5.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1985,7 +1985,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.5.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2143,7 +2143,7 @@ BEGIN
     ELSEIF _jm_obj_5_map(prop) IS NOT NULL THEN
       -- handle 25 may props
       pfun := _jm_obj_5_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2178,7 +2178,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.6.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2192,7 +2192,7 @@ CREATE OR REPLACE FUNCTION _jm_f_119(val JSONB, path TEXT[], rep jm_report_entry
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.6.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2209,7 +2209,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2248,7 +2248,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.6.dependentRequired.''
-    res := json_model_10(pval, NULL, rep);
+    res := json_model_10(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2272,7 +2272,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.6.dependentSchemas.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2339,10 +2339,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.6.patternProperties.'$REGEX'
-      res := json_model_16(pval, NULL, rep);
+      res := json_model_16(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2369,7 +2369,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.6.properties.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2440,7 +2440,7 @@ BEGIN
     ELSEIF _jm_obj_6_map(prop) IS NOT NULL THEN
       -- handle 26 may props
       pfun := _jm_obj_6_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2475,7 +2475,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$TightSchema'.'|'.7.'$defs'.''
-    res := json_model_16(pval, NULL, rep);
+    res := json_model_16(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2489,7 +2489,7 @@ CREATE OR REPLACE FUNCTION _jm_f_136(val JSONB, path TEXT[], rep jm_report_entry
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$TightSchema'.'|'.7.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2506,7 +2506,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2626,7 +2626,7 @@ BEGIN
     IF _jm_obj_7_map(prop) IS NOT NULL THEN
       -- handle 25 may props
       pfun := _jm_obj_7_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2654,7 +2654,7 @@ BEGIN
     IF val ? 'type' THEN
       tag_0 := val -> 'type';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
@@ -2662,7 +2662,7 @@ BEGIN
     NULL;
   END IF;
   -- .'$TightSchema'.'|'.7
-  RETURN res OR _jm_obj_7(val, path, rep);
+  RETURN res OR _jm_obj_7(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2673,7 +2673,7 @@ BEGIN
   -- .'$Schema'
   -- .'$Schema'.'|'.0
   -- .'$Schema'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_15(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_15(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2682,7 +2682,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_16(val, path, rep);
+  RETURN json_model_16(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

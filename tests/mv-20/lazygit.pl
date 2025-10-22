@@ -156,7 +156,7 @@ sub json_model_2($$$)
     # .'$color'
     # .'$color'.'|'.0
     # "/^#[0-9a-fA-F]{6}$/"
-    return jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check $colorArray (.'$colorArray')
@@ -172,7 +172,7 @@ sub json_model_3($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$colorArray'.'@'.0
-            $res = json_model_2($arr_0_item, undef, $rep);
+            $res = json_model_2($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -182,7 +182,7 @@ sub json_model_3($$$)
     if ($res)
     {
         my $ival_0 = scalar @$val;
-        $res = jm_is_unique_array($val, $path, $rep) && $ival_0 >= 1;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_0 >= 1;
     }
     return $res;
 }
@@ -250,7 +250,7 @@ sub json_model_9($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$stringArray'.'@'.0
-            $res = json_model_8($arr_1_item, undef, $rep);
+            $res = json_model_8($arr_1_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -259,7 +259,7 @@ sub json_model_9($$$)
     }
     if ($res)
     {
-        $res = jm_is_unique_array($val, $path, $rep);
+        $res = jm_is_unique_array($val, undef, undef);
     }
     return $res;
 }
@@ -342,7 +342,7 @@ sub _jm_obj_0($$$)
             # handle must title property
             $must_count++;
             # .'$Prompts'.'|'.0.title
-            $res = json_model_6($pval, undef, $rep);
+            $res = json_model_6($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -353,7 +353,7 @@ sub _jm_obj_0($$$)
             # handle must key property
             $must_count++;
             # .'$Prompts'.'|'.0.key
-            $res = json_model_7($pval, undef, $rep);
+            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -375,7 +375,7 @@ sub _jm_obj_0($$$)
             # .'$Prompts'.'|'.0.suggestions
             # .'$Prompts'.'|'.0.suggestions.'|'.0
             # .'$Prompts'.'|'.0.suggestions.'|'.1
-            $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, $rep) || _jm_obj_1($pval, undef, $rep));
+            $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, undef) || _jm_obj_1($pval, undef, undef));
             if (! $res)
             {
                 return 0;
@@ -418,7 +418,7 @@ sub _jm_obj_3($$$)
             # handle must title property
             $must_count++;
             # .'$Prompts'.'|'.1.title
-            $res = json_model_6($pval, undef, $rep);
+            $res = json_model_6($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -429,7 +429,7 @@ sub _jm_obj_3($$$)
             # handle must key property
             $must_count++;
             # .'$Prompts'.'|'.1.key
-            $res = json_model_7($pval, undef, $rep);
+            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -471,7 +471,7 @@ sub _jm_obj_5($$$)
             # handle must value property
             $must_count++;
             # .'$Prompts'.'|'.2.options.'@'.0.value
-            $res = json_model_8($pval, undef, $rep);
+            $res = json_model_8($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -537,7 +537,7 @@ sub _jm_obj_4($$$)
     }
     $pval = $$val{'title'};
     # .'$Prompts'.'|'.2.title
-    $res = json_model_6($pval, undef, $rep);
+    $res = json_model_6($pval, undef, undef);
     if (! $res)
     {
         return 0;
@@ -548,7 +548,7 @@ sub _jm_obj_4($$$)
     }
     $pval = $$val{'key'};
     # .'$Prompts'.'|'.2.key
-    $res = json_model_7($pval, undef, $rep);
+    $res = json_model_7($pval, undef, undef);
     if (! $res)
     {
         return 0;
@@ -567,7 +567,7 @@ sub _jm_obj_4($$$)
         {
             my $arr_2_item = $$pval[$arr_2_idx];
             # .'$Prompts'.'|'.2.options.'@'.0
-            $res = _jm_obj_5($arr_2_item, undef, $rep);
+            $res = _jm_obj_5($arr_2_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -576,7 +576,7 @@ sub _jm_obj_4($$$)
     }
     if ($res)
     {
-        $res = jm_is_unique_array($pval, undef, $rep);
+        $res = jm_is_unique_array($pval, undef, undef);
     }
     return $res;
 }
@@ -610,7 +610,7 @@ sub _jm_obj_6($$$)
             # handle must title property
             $must_count++;
             # .'$Prompts'.'|'.3.title
-            $res = json_model_6($pval, undef, $rep);
+            $res = json_model_6($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -621,7 +621,7 @@ sub _jm_obj_6($$$)
             # handle must key property
             $must_count++;
             # .'$Prompts'.'|'.3.key
-            $res = json_model_7($pval, undef, $rep);
+            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -691,7 +691,7 @@ sub json_model_10($$$)
         {
             my $tag_0 = $$val{'type'};
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, $path, $rep);
+            $res = defined($fun_0) && &$fun_0($val, undef, undef);
         }
         else
         {
@@ -773,7 +773,7 @@ sub _jm_f_5($$$)
         {
             my $arr_4_item = $$val[$arr_4_idx];
             # .customCommands.'@'.0.prompts.0
-            $res = json_model_10($arr_4_item, undef, $rep);
+            $res = json_model_10($arr_4_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -827,7 +827,7 @@ sub _jm_obj_7($$$)
             # handle must key property
             $must_count++;
             # .customCommands.'@'.0.key
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -858,7 +858,7 @@ sub _jm_obj_7($$$)
         elsif (($pfun = $_jm_obj_7_map{$prop}))
         {
             # handle 7 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -884,7 +884,7 @@ sub _jm_f_1($$$)
         {
             my $arr_3_item = $$val[$arr_3_idx];
             # .customCommands.'@'.0
-            $res = _jm_obj_7($arr_3_item, undef, $rep);
+            $res = _jm_obj_7($arr_3_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -893,7 +893,7 @@ sub _jm_f_1($$$)
     }
     if ($res)
     {
-        $res = jm_is_unique_array($val, $path, $rep);
+        $res = jm_is_unique_array($val, undef, undef);
     }
     return $res;
 }
@@ -997,7 +997,7 @@ sub _jm_obj_8($$$)
     }
     $pval = $$val{'pattern'};
     # .git.commitPrefixes.'/./'.pattern
-    $res = json_model_8($pval, undef, $rep);
+    $res = json_model_8($pval, undef, undef);
     if (! $res)
     {
         return 0;
@@ -1008,7 +1008,7 @@ sub _jm_obj_8($$$)
     }
     $pval = $$val{'replace'};
     # .git.commitPrefixes.'/./'.replace
-    return json_model_8($pval, undef, $rep);
+    return json_model_8($pval, undef, undef);
 }
 
 # check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
@@ -1024,11 +1024,11 @@ sub _jm_f_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_1($prop, $path, $rep))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .git.commitPrefixes.'/./'
-            $res = _jm_obj_8($pval, undef, $rep);
+            $res = _jm_obj_8($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1259,7 +1259,7 @@ sub _jm_f_10($$$)
         if (($pfun = $_jm_f_10_map{$prop}))
         {
             # handle 16 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -1293,11 +1293,11 @@ sub _jm_f_28($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_1($prop, $path, $rep))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .gui.authorColors.'/./'
-            $res = json_model_2($pval, undef, $rep);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1333,11 +1333,11 @@ sub _jm_f_30($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_1($prop, $path, $rep))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .gui.branchColors.'/./'
-            $res = json_model_2($pval, undef, $rep);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1571,7 +1571,7 @@ sub _jm_f_52($$$)
         if (($pfun = $_jm_f_52_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -1618,7 +1618,7 @@ sub _jm_f_26($$$)
         if (($pfun = $_jm_f_26_map{$prop}))
         {
             # handle 28 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -1648,7 +1648,7 @@ sub _jm_f_56($$$)
         if (($pfun = $_jm_f_56_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -1678,7 +1678,7 @@ sub _jm_f_57($$$)
         {
             # handle may checkoutCommitFile property
             # .keybinding.commitFiles.checkoutCommitFile
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1709,7 +1709,7 @@ sub _jm_f_58($$$)
         if (($pfun = $_jm_f_58_map{$prop}))
         {
             # handle 21 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -1739,7 +1739,7 @@ sub _jm_f_59($$$)
         if (($pfun = $_jm_f_59_map{$prop}))
         {
             # handle 14 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -1769,7 +1769,7 @@ sub _jm_f_60($$$)
         {
             # handle may toggleDragSelect property
             # .keybinding.main.toggleDragSelect
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1779,7 +1779,7 @@ sub _jm_f_60($$$)
         {
             # handle may toggleDragSelect-alt property
             # .keybinding.main.'toggleDragSelect-alt'
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1789,7 +1789,7 @@ sub _jm_f_60($$$)
         {
             # handle may toggleSelectHunk property
             # .keybinding.main.toggleSelectHunk
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1799,7 +1799,7 @@ sub _jm_f_60($$$)
         {
             # handle may pickBothHunks property
             # .keybinding.main.pickBothHunks
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1830,7 +1830,7 @@ sub _jm_f_61($$$)
         {
             # handle may popStash property
             # .keybinding.stash.popStash
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1840,7 +1840,7 @@ sub _jm_f_61($$$)
         {
             # handle may renameStash property
             # .keybinding.stash.renameStash
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1871,7 +1871,7 @@ sub _jm_f_62($$$)
         {
             # handle may checkForUpdate property
             # .keybinding.status.checkForUpdate
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1881,7 +1881,7 @@ sub _jm_f_62($$$)
         {
             # handle may recentRepos property
             # .keybinding.status.recentRepos
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1912,7 +1912,7 @@ sub _jm_f_63($$$)
         {
             # handle may init property
             # .keybinding.submodules.init
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1922,7 +1922,7 @@ sub _jm_f_63($$$)
         {
             # handle may update property
             # .keybinding.submodules.update
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1932,7 +1932,7 @@ sub _jm_f_63($$$)
         {
             # handle may bulkMenu property
             # .keybinding.submodules.bulkMenu
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1979,7 +1979,7 @@ sub _jm_f_64($$$)
         if (($pfun = $_jm_f_64_map{$prop}))
         {
             # handle 59 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -2009,7 +2009,7 @@ sub _jm_f_55($$$)
         if (($pfun = $_jm_f_55_map{$prop}))
         {
             # handle 9 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -2106,7 +2106,7 @@ sub _jm_f_68($$$)
         if (($pfun = $_jm_f_68_map{$prop}))
         {
             # handle 7 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -2196,12 +2196,12 @@ sub _jm_f_79($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_1($prop, $path, $rep))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .services.'/./'
             # "/^[^:]+:[^:]+$/"
-            $res = jm_is_string($pval) && _jm_re_2($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2275,7 +2275,7 @@ sub json_model_1($$$)
         if (($pfun = $json_model_1_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }

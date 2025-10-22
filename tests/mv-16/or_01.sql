@@ -29,7 +29,7 @@ BEGIN
   -- .
   -- .'|'.0
   -- "/[0-9]/"
-  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val) OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val) OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

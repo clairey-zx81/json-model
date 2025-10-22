@@ -76,7 +76,7 @@ sub json_model_3($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$schemaArray'.'@'.0
-            $res = json_model_7($arr_0_item, undef, $rep);
+            $res = json_model_7($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -113,7 +113,7 @@ sub json_model_5($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$arrayTypes'.'@'.0
-            $res = json_model_4($arr_1_item, undef, $rep);
+            $res = json_model_4($arr_1_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -123,7 +123,7 @@ sub json_model_5($$$)
     if ($res)
     {
         my $ival_1 = scalar @$val;
-        $res = jm_is_unique_array($val, $path, $rep) && $ival_1 >= 1;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_1 >= 1;
     }
     return $res;
 }
@@ -141,7 +141,7 @@ sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.'$schema'
-    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
 }
 
 # check json_model_6_map_const (.'$ObjectSchema'.const)
@@ -191,7 +191,7 @@ sub _jm_f_6($$$)
     {
         # handle other props
         # .'$ObjectSchema'.definitions.''
-        $res = json_model_7($pval, undef, $rep);
+        $res = json_model_7($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -216,7 +216,7 @@ sub _jm_f_7($$$)
         # handle other props
         # .'$ObjectSchema'.dependencies.''
         # .'$ObjectSchema'.dependencies.''.'|'.0
-        $res = json_model_7($pval, undef, $rep);
+        $res = json_model_7($pval, undef, undef);
         if (! $res)
         {
             # .'$ObjectSchema'.dependencies.''.'|'.1
@@ -261,7 +261,7 @@ sub _jm_f_9($$$)
     if ($res)
     {
         my $ival_2 = scalar @$val;
-        $res = jm_is_unique_array($val, $path, $rep) && $ival_2 >= 1;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_2 >= 1;
     }
     return $res;
 }
@@ -305,7 +305,7 @@ sub _jm_f_14($$$)
     # .'$ObjectSchema'.items
     # .'$ObjectSchema'.items.'|'.0
     # .'$ObjectSchema'.items.'|'.1
-    return json_model_7($val, $path, $rep) || json_model_3($val, $path, $rep);
+    return json_model_7($val, undef, undef) || json_model_3($val, undef, undef);
 }
 
 # check json_model_6_map_maxItems (.'$ObjectSchema'.maxItems)
@@ -385,7 +385,7 @@ sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.pattern
-    return jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_regex($val, undef, undef);
 }
 
 # check json_model_6_map_patternProperties (.'$ObjectSchema'.patternProperties)
@@ -401,11 +401,11 @@ sub _jm_f_25($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, $rep))
+        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$ObjectSchema'.patternProperties.'$REGEX'
-            $res = json_model_7($pval, undef, $rep);
+            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -434,7 +434,7 @@ sub _jm_f_26($$$)
     {
         # handle other props
         # .'$ObjectSchema'.properties.''
-        $res = json_model_7($pval, undef, $rep);
+        $res = json_model_7($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -488,7 +488,7 @@ sub _jm_f_30($$$)
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
     # .'$ObjectSchema'.type.'|'.1
-    return json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep);
+    return json_model_4($val, undef, undef) || json_model_5($val, undef, undef);
 }
 
 # check json_model_6_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
@@ -524,7 +524,7 @@ sub json_model_6($$$)
         if (($pfun = $json_model_6_map{$prop}))
         {
             # handle 46 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -544,7 +544,7 @@ sub json_model_7($$$)
     # .'$Schema'
     # .'$Schema'.'|'.0
     # .'$Schema'.'|'.1
-    return jm_is_boolean($val) || json_model_6($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_6($val, undef, undef);
 }
 
 # check $ (.)
@@ -554,7 +554,7 @@ sub json_model_1($$$)
     # JSON Model for JSON Schema Draft 07 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     # .
     # .'@'
-    return json_model_7($val, $path, $rep);
+    return json_model_7($val, undef, undef);
 }
 
 

@@ -67,7 +67,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (jm_is_string($prop) && jm_is_valid_date($prop, undef, $rep))
+        elsif (jm_is_string($prop) && jm_is_valid_date($prop, undef, undef))
         {
             # handle 1 key props
             # .'$DATE'
@@ -77,7 +77,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'/foo/'

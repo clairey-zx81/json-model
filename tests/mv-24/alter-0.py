@@ -121,7 +121,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         if "t" in val:
             tag_0: Jsonable = val.get("t", UNDEFINED)
             fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
-            res = fun_0 != UNDEFINED and fun_0(val, path, rep)
+            res = fun_0 != UNDEFINED and fun_0(val, None, None)
         else:
             res = False
     else:
@@ -131,7 +131,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
-    return json_model_4(val, path, rep)
+    return json_model_4(val, None, None)
 
 
 # initialization guard

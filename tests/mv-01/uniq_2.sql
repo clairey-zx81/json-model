@@ -12,7 +12,7 @@ BEGIN
   -- require generic unique implementation
   -- .
   -- .'@'
-  RETURN JSONB_TYPEOF(val) = 'array' AND jm_array_is_unique(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'array' AND jm_array_is_unique(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

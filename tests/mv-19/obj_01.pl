@@ -52,7 +52,7 @@ sub json_model_1($$$)
             # handle must foo property
             $must_count++;
             # .foo
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -68,7 +68,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (json_model_2($prop, undef, $rep))
+        elsif (json_model_2($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Xxx'
@@ -78,7 +78,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'/^[0-9]+$/'

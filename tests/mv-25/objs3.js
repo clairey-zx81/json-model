@@ -57,7 +57,7 @@ function json_model_1(val, path, rep)
         {
             let arr_0_item = val[arr_0_idx]
             // .0
-            res = json_model_2(arr_0_item, null, rep);
+            res = json_model_2(arr_0_item, null, null);
             if (! res)
             {
                 break;

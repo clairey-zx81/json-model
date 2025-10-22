@@ -27,7 +27,7 @@ sub json_model_2($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$array'.0
-            $res = json_model_1($arr_0_item, undef, $rep);
+            $res = json_model_1($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -54,7 +54,7 @@ sub json_model_1($$$)
         {
             # handle may prop property
             # .prop
-            $res = json_model_1($pval, undef, $rep);
+            $res = json_model_1($pval, undef, undef);
             if (! $res)
             {
                 return 0;

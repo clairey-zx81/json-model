@@ -40,14 +40,14 @@ BEGIN
       -- .'$distinctSchemaArray'.'@'.0
       -- .'$distinctSchemaArray'.'@'.0.'|'.0
       -- .'$distinctSchemaArray'.'@'.0.'|'.1
-      res := JSONB_TYPEOF(arr_0_item) = 'string' OR json_model_1(arr_0_item, NULL, rep);
+      res := JSONB_TYPEOF(arr_0_item) = 'string' OR json_model_1(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
   END IF;
   IF res THEN
-    res := jm_array_is_unique(val, path, rep);
+    res := jm_array_is_unique(val, NULL, NULL);
   END IF;
   RETURN res;
 END;
@@ -78,7 +78,7 @@ BEGIN
   -- .additionalItems
   -- .additionalItems.'|'.0
   -- .additionalItems.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -89,7 +89,7 @@ BEGIN
   -- .additionalProperties
   -- .additionalProperties.'|'.0
   -- .additionalProperties.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -136,7 +136,7 @@ BEGIN
       END IF;
       IF NOT res THEN
         -- .dependencies.''.'|'.2
-        res := json_model_1(pval, NULL, rep);
+        res := json_model_1(pval, NULL, NULL);
       END IF;
     END IF;
     IF NOT res THEN
@@ -163,7 +163,7 @@ BEGIN
   -- .disallow
   -- .disallow.'|'.0
   -- .disallow.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'string' OR json_model_3(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' OR json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -188,7 +188,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     ival_0 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, path, rep) AND ival_0 >= 1;
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_0 >= 1;
   END IF;
   RETURN res;
 END;
@@ -222,7 +222,7 @@ DECLARE
 BEGIN
   -- .extends
   -- .extends.'|'.0
-  res := json_model_1(val, path, rep);
+  res := json_model_1(val, NULL, NULL);
   IF NOT res THEN
     -- .extends.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
@@ -230,7 +230,7 @@ BEGIN
       FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_2_item := val -> arr_2_idx;
         -- .extends.'|'.1.0
-        res := json_model_1(arr_2_item, NULL, rep);
+        res := json_model_1(arr_2_item, NULL, NULL);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -278,7 +278,7 @@ DECLARE
 BEGIN
   -- .items
   -- .items.'|'.0
-  res := json_model_1(val, path, rep);
+  res := json_model_1(val, NULL, NULL);
   IF NOT res THEN
     -- .items.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
@@ -286,7 +286,7 @@ BEGIN
       FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_3_item := val -> arr_3_idx;
         -- .items.'|'.1.0
-        res := json_model_1(arr_3_item, NULL, rep);
+        res := json_model_1(arr_3_item, NULL, NULL);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -356,7 +356,7 @@ CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .pattern
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -375,7 +375,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .patternProperties.''
-    res := json_model_1(pval, NULL, rep);
+    res := json_model_1(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -399,7 +399,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .properties.''
-    res := json_model_1(pval, NULL, rep);
+    res := json_model_1(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -436,7 +436,7 @@ DECLARE
 BEGIN
   -- .type
   -- .type.'|'.0
-  res := json_model_2(val, path, rep);
+  res := json_model_2(val, NULL, NULL);
   IF NOT res THEN
     -- .type.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
@@ -446,7 +446,7 @@ BEGIN
         -- .type.'|'.1.0
         -- .type.'|'.1.0.'|'.0
         -- .type.'|'.1.0.'|'.1
-        res := JSONB_TYPEOF(arr_4_item) = 'string' OR json_model_1(arr_4_item, NULL, rep);
+        res := JSONB_TYPEOF(arr_4_item) = 'string' OR json_model_1(arr_4_item, NULL, NULL);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -492,7 +492,7 @@ BEGIN
     IF json_model_1_map(prop) IS NOT NULL THEN
       -- handle 29 may props
       pfun := json_model_1_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE

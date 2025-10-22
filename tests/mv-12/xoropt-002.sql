@@ -83,7 +83,7 @@ BEGIN
   -- .'|'.0
   -- .'|'.1
   -- .'|'.2
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_2(val, path, rep) OR _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_2(val, NULL, NULL) OR _jm_obj_1(val, NULL, NULL) OR _jm_obj_0(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 

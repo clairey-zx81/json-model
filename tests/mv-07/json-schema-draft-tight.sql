@@ -84,7 +84,7 @@ BEGIN
     FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_3_item := val -> arr_3_idx;
       -- .'$schemaArray'.0
-      res := json_model_25(arr_3_item, NULL, rep);
+      res := json_model_25(arr_3_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -119,7 +119,7 @@ BEGIN
     IF prop = 'pattern' THEN
       -- handle may pattern property
       -- .'$stringKeywords'.pattern
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -159,7 +159,7 @@ BEGIN
   -- .'$arrayKeywords'.items
   -- .'$arrayKeywords'.items.'|'.0
   -- .'$arrayKeywords'.items.'|'.1
-  RETURN json_model_25(val, path, rep) OR json_model_4(val, path, rep);
+  RETURN json_model_25(val, NULL, NULL) OR json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -216,7 +216,7 @@ BEGIN
     IF json_model_6_map(prop) IS NOT NULL THEN
       -- handle 7 may props
       pfun := json_model_6_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -258,10 +258,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$objectKeywords'.patternProperties.'$REGEX'
-      res := json_model_25(pval, NULL, rep);
+      res := json_model_25(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -288,7 +288,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$objectKeywords'.properties.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -347,7 +347,7 @@ BEGIN
     IF json_model_7_map(prop) IS NOT NULL THEN
       -- handle 8 may props
       pfun := json_model_7_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -427,7 +427,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$metas'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -476,7 +476,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$metas'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -515,7 +515,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$metas'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -613,7 +613,7 @@ BEGIN
     IF json_model_9_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_9_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -657,7 +657,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$String'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -706,7 +706,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$String'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -745,7 +745,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$String'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -831,7 +831,7 @@ CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$String'.pattern
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -898,7 +898,7 @@ BEGIN
     ELSEIF json_model_10_map(prop) IS NOT NULL THEN
       -- handle 20 may props
       pfun := json_model_10_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -942,7 +942,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Array'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -991,7 +991,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Array'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1030,7 +1030,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Array'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1082,7 +1082,7 @@ BEGIN
   -- .'$Array'.items
   -- .'$Array'.items.'|'.0
   -- .'$Array'.items.'|'.1
-  RETURN json_model_25(val, path, rep) OR json_model_4(val, path, rep);
+  RETURN json_model_25(val, NULL, NULL) OR json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1176,7 +1176,7 @@ BEGIN
     ELSEIF json_model_11_map(prop) IS NOT NULL THEN
       -- handle 23 may props
       pfun := json_model_11_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1220,7 +1220,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Object'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1269,7 +1269,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Object'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1308,7 +1308,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Object'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1384,10 +1384,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Object'.patternProperties.'$REGEX'
-      res := json_model_25(pval, NULL, rep);
+      res := json_model_25(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1414,7 +1414,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Object'.properties.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1510,7 +1510,7 @@ BEGIN
     ELSEIF json_model_12_map(prop) IS NOT NULL THEN
       -- handle 24 may props
       pfun := json_model_12_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1554,7 +1554,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Integer'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1603,7 +1603,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Integer'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1642,7 +1642,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Integer'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1768,7 +1768,7 @@ BEGIN
     ELSEIF json_model_13_map(prop) IS NOT NULL THEN
       -- handle 18 may props
       pfun := json_model_13_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1812,7 +1812,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Number'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1861,7 +1861,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Number'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1900,7 +1900,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Number'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2026,7 +2026,7 @@ BEGIN
     ELSEIF json_model_14_map(prop) IS NOT NULL THEN
       -- handle 18 may props
       pfun := json_model_14_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2070,7 +2070,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Bool'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2119,7 +2119,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Bool'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2158,7 +2158,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Bool'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2266,7 +2266,7 @@ BEGIN
     ELSEIF json_model_15_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_15_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2310,7 +2310,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Null'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2359,7 +2359,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Null'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2398,7 +2398,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Null'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2506,7 +2506,7 @@ BEGIN
     ELSEIF json_model_16_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_16_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2550,7 +2550,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$AllOf'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2599,7 +2599,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$AllOf'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2638,7 +2638,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$AllOf'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2739,14 +2739,14 @@ BEGIN
       -- handle must allOf property
       must_count := must_count + 1;
       -- .'$AllOf'.allOf
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_17_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_17_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2790,7 +2790,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$AnyOf'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2839,7 +2839,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$AnyOf'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2878,7 +2878,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$AnyOf'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2979,14 +2979,14 @@ BEGIN
       -- handle must anyOf property
       must_count := must_count + 1;
       -- .'$AnyOf'.anyOf
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_18_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_18_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3030,7 +3030,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$OneOf'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3079,7 +3079,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$OneOf'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -3118,7 +3118,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$OneOf'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3219,14 +3219,14 @@ BEGIN
       -- handle must oneOf property
       must_count := must_count + 1;
       -- .'$OneOf'.oneOf
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_19_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_19_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3270,7 +3270,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Enum'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3319,7 +3319,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Enum'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -3358,7 +3358,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Enum'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3459,14 +3459,14 @@ BEGIN
       -- handle must enum property
       must_count := must_count + 1;
       -- .'$Enum'.enum
-      res := json_model_3(pval, NULL, rep);
+      res := json_model_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_20_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_20_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3510,7 +3510,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Const'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3559,7 +3559,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Const'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -3598,7 +3598,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Const'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3699,14 +3699,14 @@ BEGIN
       -- handle must const property
       must_count := must_count + 1;
       -- .'$Const'.const
-      res := json_model_2(pval, NULL, rep);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_21_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_21_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3750,7 +3750,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Ref'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3799,7 +3799,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Ref'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -3838,7 +3838,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Ref'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3939,14 +3939,14 @@ BEGIN
       -- handle must $ref property
       must_count := must_count + 1;
       -- .'$Ref'.'$ref'
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_22_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_22_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3990,7 +3990,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$DynRef'.'$defs'.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -4039,7 +4039,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$DynRef'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -4078,7 +4078,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$DynRef'.definitions.''
-    res := json_model_25(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -4179,14 +4179,14 @@ BEGIN
       -- handle must $dynamicRef property
       must_count := must_count + 1;
       -- .'$DynRef'.'$dynamicRef'
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_23_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_23_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -4215,14 +4215,14 @@ BEGIN
     IF val ? 'type' THEN
       tag_0 := val -> 'type';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
   ELSE
     NULL;
   END IF;
-  RETURN res OR json_model_9(val, path, rep) OR json_model_21(val, path, rep) OR json_model_20(val, path, rep) OR json_model_17(val, path, rep) OR json_model_18(val, path, rep) OR json_model_19(val, path, rep) OR json_model_22(val, path, rep) OR json_model_23(val, path, rep);
+  RETURN res OR json_model_9(val, NULL, NULL) OR json_model_21(val, NULL, NULL) OR json_model_20(val, NULL, NULL) OR json_model_17(val, NULL, NULL) OR json_model_18(val, NULL, NULL) OR json_model_19(val, NULL, NULL) OR json_model_22(val, NULL, NULL) OR json_model_23(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4233,7 +4233,7 @@ BEGIN
   -- .'$Schema'
   -- .'$Schema'.'|'.0
   -- .'$Schema'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_24(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_24(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4265,7 +4265,7 @@ BEGIN
   -- .'$RootSchema'
   -- .'$RootSchema'.'&'.0
   -- .'$RootSchema'.'&'.1
-  RETURN _jm_obj_0(val, path, rep) AND json_model_24(val, path, rep);
+  RETURN _jm_obj_0(val, NULL, NULL) AND json_model_24(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4274,7 +4274,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_26(val, path, rep);
+  RETURN json_model_26(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

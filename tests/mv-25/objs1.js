@@ -40,7 +40,7 @@ function json_model_3(val, path, rep)
         {
             let arr_0_item = pval[arr_0_idx]
             // .'$objs0'.stuff.0
-            res = json_model_6(arr_0_item, null, rep);
+            res = json_model_6(arr_0_item, null, null);
             if (! res)
             {
                 break;
@@ -71,7 +71,7 @@ function json_model_1(val, path, rep)
     }
     pval = val["foo"];
     // .foo
-    return json_model_3(pval, null, rep);
+    return json_model_3(pval, null, null);
 }
 
 
@@ -88,7 +88,7 @@ function json_model_6(val, path, rep)
         {
             let tag_0 = val["t"];
             let fun_0 = _jm_map_0.get(tag_0);
-            res = fun_0 !== undefined && fun_0(val, path, rep);
+            res = fun_0 !== undefined && fun_0(val, null, null);
         }
         else
         {

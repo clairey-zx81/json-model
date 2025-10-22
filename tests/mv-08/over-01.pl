@@ -21,7 +21,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$over'
-    return json_model_4($val, $path, $rep);
+    return json_model_4($val, undef, undef);
 }
 
 # check $ (.)
@@ -29,7 +29,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_4($val, $path, $rep);
+    return json_model_4($val, undef, undef);
 }
 
 # check $over#Foo (.'$over#Foo')

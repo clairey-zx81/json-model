@@ -120,7 +120,7 @@ BEGIN
     IF json_model_1_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_1_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE

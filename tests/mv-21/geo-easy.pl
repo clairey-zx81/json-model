@@ -71,7 +71,7 @@ sub json_model_3($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$coord_array'.'@'.0
-            $res = json_model_2($arr_1_item, undef, $rep);
+            $res = json_model_2($arr_1_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -99,7 +99,7 @@ sub json_model_4($$$)
         {
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$linear_ring'.'@'.0
-            $res = json_model_2($arr_2_item, undef, $rep);
+            $res = json_model_2($arr_2_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -143,7 +143,7 @@ sub json_model_5($$$)
     }
     $pval = $$val{'coordinates'};
     # .'$Point'.coordinates
-    $res = json_model_2($pval, undef, $rep);
+    $res = json_model_2($pval, undef, undef);
     if (! $res)
     {
         return 0;
@@ -210,7 +210,7 @@ sub json_model_6($$$)
         {
             my $arr_4_item = $$pval[$arr_4_idx];
             # .'$MultiPoint'.coordinates.0
-            $res = json_model_2($arr_4_item, undef, $rep);
+            $res = json_model_2($arr_4_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -276,7 +276,7 @@ sub json_model_7($$$)
     }
     $pval = $$val{'coordinates'};
     # .'$LineString'.coordinates
-    $res = json_model_3($pval, undef, $rep);
+    $res = json_model_3($pval, undef, undef);
     if (! $res)
     {
         return 0;
@@ -343,7 +343,7 @@ sub json_model_8($$$)
         {
             my $arr_7_item = $$pval[$arr_7_idx];
             # .'$MultiLineString'.coordinates.0
-            $res = json_model_3($arr_7_item, undef, $rep);
+            $res = json_model_3($arr_7_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -416,7 +416,7 @@ sub json_model_9($$$)
         {
             my $arr_9_item = $$pval[$arr_9_idx];
             # .'$Polygon'.coordinates.0
-            $res = json_model_4($arr_9_item, undef, $rep);
+            $res = json_model_4($arr_9_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -496,7 +496,7 @@ sub json_model_10($$$)
                 {
                     my $arr_12_item = $$arr_11_item[$arr_12_idx];
                     # .'$MultiPolygon'.coordinates.0.0
-                    $res = json_model_4($arr_12_item, undef, $rep);
+                    $res = json_model_4($arr_12_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -554,7 +554,7 @@ sub json_model_11($$$)
         {
             my $tag_0 = $$val{'type'};
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, $path, $rep);
+            $res = defined($fun_0) && &$fun_0($val, undef, undef);
         }
         else
         {
@@ -604,7 +604,7 @@ sub json_model_12($$$)
         {
             my $arr_14_item = $$pval[$arr_14_idx];
             # .'$GeometryCollection'.geometries.0
-            $res = json_model_11($arr_14_item, undef, $rep);
+            $res = json_model_11($arr_14_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -681,7 +681,7 @@ sub json_model_13($$$)
     # .'$Feature'.geometry.'|'.0
     # .'$Feature'.geometry.'|'.1
     # .'$Feature'.geometry.'|'.2
-    $res = !defined($pval) || json_model_11($pval, undef, $rep) || json_model_12($pval, undef, $rep);
+    $res = !defined($pval) || json_model_11($pval, undef, undef) || json_model_12($pval, undef, undef);
     if (! $res)
     {
         return 0;
@@ -694,7 +694,7 @@ sub json_model_13($$$)
     # .'$Feature'.properties
     # .'$Feature'.properties.'|'.0
     # .'$Feature'.properties.'|'.1
-    $res = !defined($pval) || _jm_obj_0($pval, undef, $rep);
+    $res = !defined($pval) || _jm_obj_0($pval, undef, undef);
     if (! $res)
     {
         return 0;
@@ -773,7 +773,7 @@ sub json_model_14($$$)
         {
             my $arr_17_item = $$pval[$arr_17_idx];
             # .'$FeatureCollection'.features.0
-            $res = json_model_13($arr_17_item, undef, $rep);
+            $res = json_model_13($arr_17_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -826,7 +826,7 @@ sub json_model_1($$$)
         {
             my $tag_1 = $$val{'type'};
             my $fun_1 = $_jm_map_1{$tag_1};
-            $res = defined($fun_1) && &$fun_1($val, $path, $rep);
+            $res = defined($fun_1) && &$fun_1($val, undef, undef);
         }
         else
         {
@@ -837,7 +837,7 @@ sub json_model_1($$$)
     {
         ;
     }
-    return $res || json_model_11($val, $path, $rep);
+    return $res || json_model_11($val, undef, undef);
 }
 
 

@@ -97,7 +97,7 @@ function json_model_1(val, path, rep)
         if ((pfun = json_model_1_map.get(prop)))
         {
             // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, null, rep))
+            if (pfun !== undefined && ! pfun(pval, null, null))
             {
                 return false;
             }

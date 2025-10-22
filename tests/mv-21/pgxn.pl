@@ -62,7 +62,7 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$neStr'
     # "/./"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check $neStrList (.'$neStrList')
@@ -78,7 +78,7 @@ sub json_model_3($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$neStrList'.'@'.0
-            $res = json_model_2($arr_0_item, undef, $rep);
+            $res = json_model_2($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -88,7 +88,7 @@ sub json_model_3($$$)
     if ($res)
     {
         my $ival_0 = scalar @$val;
-        $res = jm_is_unique_array($val, $path, $rep) && $ival_0 >= 1;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_0 >= 1;
     }
     return $res;
 }
@@ -115,7 +115,7 @@ sub json_model_5($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$LicenseList'.'@'.0
-            $res = json_model_4($arr_1_item, undef, $rep);
+            $res = json_model_4($arr_1_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -125,7 +125,7 @@ sub json_model_5($$$)
     if ($res)
     {
         my $ival_1 = scalar @$val;
-        $res = jm_is_unique_array($val, $path, $rep) && $ival_1 >= 1;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_1 >= 1;
     }
     return $res;
 }
@@ -167,7 +167,7 @@ sub json_model_6($$$)
             # handle must version property
             $must_count++;
             # .'$Provide'.version
-            $res = json_model_10($pval, undef, $rep);
+            $res = json_model_10($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -193,7 +193,7 @@ sub json_model_6($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_1($prop, $path, $rep))
+        elsif (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Provide'.'/^[Xx]_/'
@@ -232,7 +232,7 @@ sub _jm_obj_0($$$)
         {
             # handle may web property
             # .'$Resources'.bugtracker.web
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -242,13 +242,13 @@ sub _jm_obj_0($$$)
         {
             # handle may mailto property
             # .'$Resources'.bugtracker.mailto
-            $res = jm_is_string($pval) && jm_is_valid_email($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_email($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_1($prop, $path, $rep))
+        elsif (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Resources'.bugtracker.'/^[Xx]_/'
@@ -278,7 +278,7 @@ sub _jm_obj_1($$$)
         {
             # handle may url property
             # .'$Resources'.repository.url
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -288,7 +288,7 @@ sub _jm_obj_1($$$)
         {
             # handle may web property
             # .'$Resources'.repository.web
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -299,7 +299,7 @@ sub _jm_obj_1($$$)
             # handle may type property
             # .'$Resources'.repository.type
             # "/./"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -330,7 +330,7 @@ sub json_model_8($$$)
         {
             # handle may homepage property
             # .'$Resources'.homepage
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -340,7 +340,7 @@ sub json_model_8($$$)
         {
             # handle may bugtracker property
             # .'$Resources'.bugtracker
-            $res = _jm_obj_0($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -350,7 +350,7 @@ sub json_model_8($$$)
         {
             # handle may repository property
             # .'$Resources'.repository
-            $res = _jm_obj_1($pval, undef, $rep);
+            $res = _jm_obj_1($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -377,7 +377,7 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # .'$SemVer'
     # "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
-    return jm_is_string($val) && _jm_re_2($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_2($val, undef, undef);
 }
 
 # check $Version (.'$Version')
@@ -387,7 +387,7 @@ sub json_model_10($$$)
     # .'$Version'
     # .'$Version'.'|'.0
     # .'$Version'.'|'.1
-    return json_model_9($val, $path, $rep) || jm_is_integer($val) && $val == 0;
+    return json_model_9($val, undef, undef) || jm_is_integer($val) && $val == 0;
 }
 
 sub _jm_re_3($$$)
@@ -403,7 +403,7 @@ sub json_model_11($$$)
     my ($val, $path, $rep) = @_;
     # .'$Ops'
     # "/^(<=|<|>=|>|!=|==)$/"
-    return jm_is_string($val) && _jm_re_3($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_3($val, undef, undef);
 }
 
 sub _jm_re_4($$$)
@@ -419,7 +419,7 @@ sub json_model_12($$$)
     my ($val, $path, $rep) = @_;
     # .'$VersionRange'
     # "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
-    return jm_is_string($val) && _jm_re_4($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_4($val, undef, undef);
 }
 
 
@@ -457,7 +457,7 @@ sub json_model_15($$$)
         # .'$Prereq'.''
         # .'$Prereq'.''.'|'.0
         # .'$Prereq'.''.'|'.1
-        $res = json_model_10($pval, undef, $rep) || json_model_12($pval, undef, $rep);
+        $res = json_model_10($pval, undef, undef) || json_model_12($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -478,17 +478,17 @@ sub _jm_obj_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (json_model_14($prop, undef, $rep))
+        if (json_model_14($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Prereqs'.'$Phase'.'$Relation'
-            $res = json_model_15($pval, undef, $rep);
+            $res = json_model_15($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_1($prop, $path, $rep))
+        elsif (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Prereqs'.'$Phase'.'/^[Xx]_/'
@@ -515,17 +515,17 @@ sub json_model_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (json_model_13($prop, undef, $rep))
+        if (json_model_13($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Prereqs'.'$Phase'
-            $res = _jm_obj_2($pval, undef, $rep);
+            $res = _jm_obj_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_1($prop, $path, $rep))
+        elsif (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Prereqs'.'/^[Xx]_/'
@@ -561,7 +561,7 @@ sub _jm_obj_3($$$)
     {
         # handle other props
         # .license.'|'.2.''
-        $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+        $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -578,7 +578,7 @@ sub _jm_f_1($$$)
     # .license.'|'.0
     # .license.'|'.1
     # .license.'|'.2
-    return json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep) || _jm_obj_3($val, $path, $rep);
+    return json_model_4($val, undef, undef) || json_model_5($val, undef, undef) || _jm_obj_3($val, undef, undef);
 }
 
 # check json_model_1_mup_maintainer (.maintainer)
@@ -588,7 +588,7 @@ sub _jm_f_2($$$)
     # .maintainer
     # .maintainer.'|'.0
     # .maintainer.'|'.1
-    return json_model_2($val, $path, $rep) || json_model_3($val, $path, $rep);
+    return json_model_2($val, undef, undef) || json_model_3($val, undef, undef);
 }
 
 # check json_model_1_mup_meta-spec (.'meta-spec')
@@ -620,13 +620,13 @@ sub _jm_f_3($$$)
         {
             # handle may url property
             # .'meta-spec'.url
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_1($prop, $path, $rep))
+        elsif (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'meta-spec'.'/^[Xx]_/'
@@ -655,7 +655,7 @@ sub _jm_f_4($$$)
     {
         # handle other props
         # .provides.''
-        $res = json_model_6($pval, undef, $rep);
+        $res = json_model_6($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -706,7 +706,7 @@ sub _jm_f_8($$$)
         {
             # handle may file property
             # .no_index.file
-            $res = json_model_3($pval, undef, $rep);
+            $res = json_model_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -716,7 +716,7 @@ sub _jm_f_8($$$)
         {
             # handle may directory property
             # .no_index.directory
-            $res = json_model_3($pval, undef, $rep);
+            $res = json_model_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -735,7 +735,7 @@ sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .url
-    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
 }
 
 
@@ -760,7 +760,7 @@ sub json_model_1($$$)
             if (defined($pfun))
             {
                 $must_count++;
-                if (! &$pfun($pval, undef, $rep))
+                if (! &$pfun($pval, undef, undef))
                 {
                     return 0;
                 }
@@ -769,12 +769,12 @@ sub json_model_1($$$)
         elsif (($pfun = $json_model_1_map{$prop}))
         {
             # handle 8 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_1($prop, $path, $rep))
+        elsif (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'/^[Xx]_/'

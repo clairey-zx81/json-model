@@ -132,7 +132,7 @@ BEGIN
     IF pval ? 't' THEN
       tag_0 := pval -> 't';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, pval, NULL, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, pval, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;

@@ -50,21 +50,21 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$foo'
-    return json_model_2(val, path, rep);
+    return json_model_2(val, null, null);
 }
 
 // check $ob (.'$ob')
 function json_model_4(val, path, rep)
 {
     // .'$ob'
-    return json_model_2(val, path, rep);
+    return json_model_2(val, null, null);
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    return json_model_2(val, path, rep);
+    return json_model_2(val, null, null);
 }
 
 

@@ -39,7 +39,7 @@ sub json_model_1($$$)
     # .
     # .'|'.0
     # .'|'.1
-    return json_model_2($val, $path, $rep) || json_model_3($val, $path, $rep);
+    return json_model_2($val, undef, undef) || json_model_3($val, undef, undef);
 }
 
 

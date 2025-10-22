@@ -46,7 +46,7 @@ sub json_model_1($$$)
     # "/[a-z]/"
     # .'|'.2
     # "/[A-Z]/"
-    return jm_is_string($val) && (_jm_re_2($val, $path, $rep) || _jm_re_1($val, $path, $rep) || _jm_re_0($val, $path, $rep));
+    return jm_is_string($val) && (_jm_re_2($val, undef, undef) || _jm_re_1($val, undef, undef) || _jm_re_0($val, undef, undef));
 }
 
 

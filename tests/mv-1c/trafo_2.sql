@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$Zz'
-  RETURN json_model_6(val, path, rep);
+  RETURN json_model_6(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -19,7 +19,7 @@ CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$z'
-  RETURN json_model_6(val, path, rep);
+  RETURN json_model_6(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -37,7 +37,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$l'.0
-      res := json_model_6(arr_0_item, NULL, rep);
+      res := json_model_6(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -52,7 +52,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_4(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

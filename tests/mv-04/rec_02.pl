@@ -31,7 +31,7 @@ sub json_model_1($$$)
         {
             # handle may foo property
             # .foo
-            $res = json_model_1($pval, undef, $rep);
+            $res = json_model_1($pval, undef, undef);
             if (! $res)
             {
                 return 0;

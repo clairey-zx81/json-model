@@ -21,7 +21,7 @@ BEGIN
   -- .'|'.0
   -- .'|'.1
   -- "/^[a-z]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND (JSON_VALUE(val, '$' RETURNING TEXT) = 'Susie' OR _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep));
+  RETURN JSONB_TYPEOF(val) = 'string' AND (JSON_VALUE(val, '$' RETURNING TEXT) = 'Susie' OR _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 

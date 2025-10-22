@@ -25,7 +25,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ex08'
-    return json_model_9($val, $path, $rep);
+    return json_model_9($val, undef, undef);
 }
 
 # check $Ex08 (.'$Ex08')
@@ -33,7 +33,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ex08'
-    return json_model_9($val, $path, $rep);
+    return json_model_9($val, undef, undef);
 }
 
 # check $Ex09 (.'$Ex09')
@@ -59,11 +59,11 @@ sub json_model_4($$$)
                 return 0;
             }
         }
-        elsif (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        elsif (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Ex09'.'$URL'
-            $res = json_model_6($pval, undef, $rep);
+            $res = json_model_6($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -82,7 +82,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_4($val, $path, $rep);
+    return json_model_4($val, undef, undef);
 }
 
 # check $ex08#Val (.'$ex08#Val')
@@ -101,7 +101,7 @@ sub json_model_9($$$)
     # .'$ex08#Ex08'.'|'.0
     # .'$ex08#Ex08'.'|'.1
     # .'$ex08#Ex08'.'|'.2
-    return json_model_8($val, $path, $rep) || jm_is_string($val) && jm_is_valid_url($val, $path, $rep) || json_model_6($val, $path, $rep);
+    return json_model_8($val, undef, undef) || jm_is_string($val) && jm_is_valid_url($val, undef, undef) || json_model_6($val, undef, undef);
 }
 
 # check $ex08#map (.'$ex08#map')
@@ -117,11 +117,11 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$ex08#map'.'$URL'
-            $res = json_model_6($pval, undef, $rep);
+            $res = json_model_6($pval, undef, undef);
             if (! $res)
             {
                 return 0;

@@ -39,7 +39,7 @@ BEGIN
   -- remove duplicate xor list
   res := TRUE;
   -- .'^'.1
-  is_0 := _jm_obj_0(val, path, rep);
+  is_0 := _jm_obj_0(val, NULL, NULL);
   -- empty xor list
   RETURN FALSE;
 END;

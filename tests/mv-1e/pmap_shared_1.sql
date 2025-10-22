@@ -55,7 +55,7 @@ BEGIN
     ELSE
       -- handle other props
       -- .'$Oo0'.''
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -194,7 +194,7 @@ BEGIN
   -- .'|'.0
   -- .'|'.1
   -- .'|'.2
-  RETURN json_model_2(val, path, rep) OR json_model_3(val, path, rep) OR json_model_4(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL) OR json_model_3(val, NULL, NULL) OR json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

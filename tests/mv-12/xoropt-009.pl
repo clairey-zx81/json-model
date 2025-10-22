@@ -35,7 +35,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_0($prop, $path, $rep))
+        if (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'^'.0.'/a/'
@@ -93,13 +93,13 @@ sub json_model_1($$$)
     # generic xor list
     my $xc_0 = 0;
     # .'^'.0
-    my $xr_0 = _jm_obj_0($val, $path, $rep);
+    my $xr_0 = _jm_obj_0($val, undef, undef);
     if ($xr_0)
     {
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = _jm_obj_1($val, $path, $rep);
+    $xr_0 = _jm_obj_1($val, undef, undef);
     if ($xr_0)
     {
         $xc_0++;

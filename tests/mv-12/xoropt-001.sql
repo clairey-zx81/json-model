@@ -64,7 +64,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$Aa'.0
-      res := json_model_9(arr_0_item, NULL, rep);
+      res := json_model_9(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -89,7 +89,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Oo'.''
-    res := json_model_9(pval, NULL, rep);
+    res := json_model_9(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -110,7 +110,7 @@ BEGIN
   -- .'$Any'.'|'.4
   -- .'$Any'.'|'.5
   -- .'$Any'.'|'.6
-  RETURN JSONB_TYPEOF(val) = 'null' OR json_model_3(val, path, rep) OR json_model_4(val, path, rep) OR json_model_5(val, path, rep) OR json_model_6(val, path, rep) OR json_model_7(val, path, rep) OR json_model_8(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'null' OR json_model_3(val, NULL, NULL) OR json_model_4(val, NULL, NULL) OR json_model_5(val, NULL, NULL) OR json_model_6(val, NULL, NULL) OR json_model_7(val, NULL, NULL) OR json_model_8(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -119,7 +119,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_9(val, path, rep);
+  RETURN json_model_9(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -31,7 +31,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Key'
-    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
 }
 
 # check $map (.'$map')
@@ -47,11 +47,11 @@ sub json_model_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$map'.'$URL'
-            $res = json_model_2($pval, undef, $rep);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -73,7 +73,7 @@ sub json_model_5($$$)
     # .'$Ex08'.'|'.0
     # .'$Ex08'.'|'.1
     # .'$Ex08'.'|'.2
-    return json_model_4($val, $path, $rep) || jm_is_string($val) && jm_is_valid_url($val, $path, $rep) || json_model_2($val, $path, $rep);
+    return json_model_4($val, undef, undef) || jm_is_string($val) && jm_is_valid_url($val, undef, undef) || json_model_2($val, undef, undef);
 }
 
 # check $ (.)
@@ -81,7 +81,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_5($val, $path, $rep);
+    return json_model_5($val, undef, undef);
 }
 
 

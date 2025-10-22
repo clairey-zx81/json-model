@@ -12,7 +12,7 @@ BEGIN
   -- JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
   -- .'$schema'
   -- .'$schema'.'@'
-  RETURN json_model_18(val, path, rep);
+  RETURN json_model_18(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -21,7 +21,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_3(val, path, rep);
+  RETURN json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -32,7 +32,7 @@ BEGIN
   -- .'$schema#Schema'
   -- .'$schema#Schema'.'|'.0
   -- .'$schema#Schema'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_17(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_17(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -60,7 +60,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.'$defs'.''
-    res := json_model_18(pval, NULL, rep);
+    res := json_model_18(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -74,7 +74,7 @@ CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[]
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.'$schema'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -91,7 +91,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -157,7 +157,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.definitions.''
-    res := json_model_18(pval, NULL, rep);
+    res := json_model_18(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -183,7 +183,7 @@ BEGIN
     -- .'$schema#ObjectSchema'.dependencies.''
     -- .'$schema#ObjectSchema'.dependencies.''.'|'.0
     -- .'$schema#ObjectSchema'.dependencies.''.'|'.1
-    res := json_model_18(pval, NULL, rep) OR json_model_12(pval, NULL, rep);
+    res := json_model_18(pval, NULL, NULL) OR json_model_12(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -207,7 +207,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.dependentRequired.''
-    res := json_model_12(pval, NULL, rep);
+    res := json_model_12(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -231,7 +231,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.dependentSchemas.''
-    res := json_model_18(pval, NULL, rep);
+    res := json_model_18(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -354,7 +354,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.patternProperties.''
-    res := json_model_18(pval, NULL, rep);
+    res := json_model_18(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -378,7 +378,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.properties.''
-    res := json_model_18(pval, NULL, rep);
+    res := json_model_18(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -401,7 +401,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.propertyDependencies.''.''
-    res := json_model_18(pval, NULL, rep);
+    res := json_model_18(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -425,7 +425,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema#ObjectSchema'.propertyDependencies.''
-    res := _jm_obj_0(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -459,7 +459,7 @@ BEGIN
   -- .'$schema#ObjectSchema'.type
   -- .'$schema#ObjectSchema'.type.'|'.0
   -- .'$schema#ObjectSchema'.type.'|'.1
-  RETURN json_model_10(val, path, rep) OR json_model_11(val, path, rep);
+  RETURN json_model_10(val, NULL, NULL) OR json_model_11(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -506,7 +506,7 @@ BEGIN
     IF json_model_17_map(prop) IS NOT NULL THEN
       -- handle 60 may props
       pfun := json_model_17_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -561,7 +561,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$schema#simpleTypesArray'.'@'.0
-      res := json_model_10(arr_0_item, NULL, rep);
+      res := json_model_10(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -569,7 +569,7 @@ BEGIN
   END IF;
   IF res THEN
     ival_0 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, path, rep) AND ival_0 >= 1;
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_0 >= 1;
   END IF;
   RETURN res;
 END;
@@ -597,7 +597,7 @@ BEGIN
     END LOOP;
   END IF;
   IF res THEN
-    res := jm_array_is_unique(val, path, rep);
+    res := jm_array_is_unique(val, NULL, NULL);
   END IF;
   RETURN res;
 END;
@@ -628,7 +628,7 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_2_item := val -> arr_2_idx;
       -- .'$schema#schemaArray'.'@'.0
-      res := json_model_18(arr_2_item, NULL, rep);
+      res := json_model_18(arr_2_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;

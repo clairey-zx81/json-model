@@ -51,7 +51,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$coord_array'.'@'.0
-      res := json_model_2(arr_1_item, NULL, rep);
+      res := json_model_2(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -81,7 +81,7 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_2_item := val -> arr_2_idx;
       -- .'$linear_ring'.'@'.0
-      res := json_model_2(arr_2_item, NULL, rep);
+      res := json_model_2(arr_2_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -124,7 +124,7 @@ BEGIN
       -- handle must coordinates property
       must_count := must_count + 1;
       -- .'$Point'.coordinates
-      res := json_model_2(pval, NULL, rep);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -189,7 +189,7 @@ BEGIN
         FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_4_item := pval -> arr_4_idx;
           -- .'$MultiPoint'.coordinates.0
-          res := json_model_2(arr_4_item, NULL, rep);
+          res := json_model_2(arr_4_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -252,7 +252,7 @@ BEGIN
       -- handle must coordinates property
       must_count := must_count + 1;
       -- .'$LineString'.coordinates
-      res := json_model_3(pval, NULL, rep);
+      res := json_model_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -317,7 +317,7 @@ BEGIN
         FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_7_item := pval -> arr_7_idx;
           -- .'$MultiLineString'.coordinates.0
-          res := json_model_3(arr_7_item, NULL, rep);
+          res := json_model_3(arr_7_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -387,7 +387,7 @@ BEGIN
         FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_9_item := pval -> arr_9_idx;
           -- .'$Polygon'.coordinates.0
-          res := json_model_4(arr_9_item, NULL, rep);
+          res := json_model_4(arr_9_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -464,7 +464,7 @@ BEGIN
             FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_11_item) - 1 LOOP
               arr_12_item := arr_11_item -> arr_12_idx;
               -- .'$MultiPolygon'.coordinates.0.0
-              res := json_model_4(arr_12_item, NULL, rep);
+              res := json_model_4(arr_12_item, NULL, NULL);
               IF NOT res THEN
                 EXIT;
               END IF;
@@ -530,7 +530,7 @@ BEGIN
   END IF;
   pval := val -> 'coordinates';
   -- .'$geometry'.'|'.0.coordinates
-  res := json_model_2(pval, NULL, rep);
+  res := json_model_2(pval, NULL, NULL);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -590,7 +590,7 @@ BEGIN
     FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_15_item := pval -> arr_15_idx;
       -- .'$geometry'.'|'.1.coordinates.0
-      res := json_model_2(arr_15_item, NULL, rep);
+      res := json_model_2(arr_15_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -648,7 +648,7 @@ BEGIN
   END IF;
   pval := val -> 'coordinates';
   -- .'$geometry'.'|'.2.coordinates
-  res := json_model_3(pval, NULL, rep);
+  res := json_model_3(pval, NULL, NULL);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -708,7 +708,7 @@ BEGIN
     FOR arr_18_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_18_item := pval -> arr_18_idx;
       -- .'$geometry'.'|'.3.coordinates.0
-      res := json_model_3(arr_18_item, NULL, rep);
+      res := json_model_3(arr_18_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -773,7 +773,7 @@ BEGIN
     FOR arr_20_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_20_item := pval -> arr_20_idx;
       -- .'$geometry'.'|'.4.coordinates.0
-      res := json_model_4(arr_20_item, NULL, rep);
+      res := json_model_4(arr_20_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -845,7 +845,7 @@ BEGIN
         FOR arr_23_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_22_item) - 1 LOOP
           arr_23_item := arr_22_item -> arr_23_idx;
           -- .'$geometry'.'|'.5.coordinates.0.0
-          res := json_model_4(arr_23_item, NULL, rep);
+          res := json_model_4(arr_23_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -898,7 +898,7 @@ BEGIN
     IF val ? 'type' THEN
       tag_0 := val -> 'type';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
@@ -944,7 +944,7 @@ BEGIN
     FOR arr_25_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_25_item := pval -> arr_25_idx;
       -- .'$GeometryCollection'.geometries.0
-      res := json_model_11(arr_25_item, NULL, rep);
+      res := json_model_11(arr_25_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1015,7 +1015,7 @@ BEGIN
   -- .'$Feature'.geometry.'|'.0
   -- .'$Feature'.geometry.'|'.1
   -- .'$Feature'.geometry.'|'.2
-  res := JSONB_TYPEOF(pval) = 'null' OR json_model_11(pval, NULL, rep) OR json_model_12(pval, NULL, rep);
+  res := JSONB_TYPEOF(pval) = 'null' OR json_model_11(pval, NULL, NULL) OR json_model_12(pval, NULL, NULL);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -1026,7 +1026,7 @@ BEGIN
   -- .'$Feature'.properties
   -- .'$Feature'.properties.'|'.0
   -- .'$Feature'.properties.'|'.1
-  res := JSONB_TYPEOF(pval) = 'null' OR _jm_obj_6(pval, NULL, rep);
+  res := JSONB_TYPEOF(pval) = 'null' OR _jm_obj_6(pval, NULL, NULL);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -1097,7 +1097,7 @@ BEGIN
     FOR arr_28_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_28_item := pval -> arr_28_idx;
       -- .'$FeatureCollection'.features.0
-      res := json_model_13(arr_28_item, NULL, rep);
+      res := json_model_13(arr_28_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1146,14 +1146,14 @@ BEGIN
     IF val ? 'type' THEN
       tag_1 := val -> 'type';
       fun_1 := jm_cmap_get('_jm_map_1', tag_1);
-      res := fun_1 IS NOT NULL AND jm_call(fun_1, val, path, rep);
+      res := fun_1 IS NOT NULL AND jm_call(fun_1, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
   ELSE
     NULL;
   END IF;
-  RETURN res OR json_model_11(val, path, rep);
+  RETURN res OR json_model_11(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -58,7 +58,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$foo'
-    return json_model_2($val, $path, $rep);
+    return json_model_2($val, undef, undef);
 }
 
 # check $ob (.'$ob')
@@ -66,7 +66,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ob'
-    return json_model_2($val, $path, $rep);
+    return json_model_2($val, undef, undef);
 }
 
 # check $ (.)
@@ -74,7 +74,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, $path, $rep);
+    return json_model_2($val, undef, undef);
 }
 
 

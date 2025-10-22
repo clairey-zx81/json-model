@@ -25,7 +25,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_re_0(prop, path, rep) THEN
+    IF _jm_re_0(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'^'.0.'/a/'
       res := JSONB_TYPEOF(pval) = 'string';
@@ -80,12 +80,12 @@ BEGIN
   -- generic xor list
   xc_0 := 0;
   -- .'^'.0
-  xr_0 := _jm_obj_0(val, path, rep);
+  xr_0 := _jm_obj_0(val, NULL, NULL);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
   -- .'^'.1
-  xr_0 := _jm_obj_1(val, path, rep);
+  xr_0 := _jm_obj_1(val, NULL, NULL);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;

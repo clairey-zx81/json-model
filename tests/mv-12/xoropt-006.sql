@@ -34,7 +34,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_re_0(prop, path, rep) THEN
+    IF _jm_re_0(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'|'.2.'/^[ab]$/'
       res := FALSE;
@@ -106,7 +106,7 @@ BEGIN
   -- .'|'.0
   -- .'|'.1
   -- .'|'.2
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_2(val, path, rep) OR _jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_2(val, NULL, NULL) OR _jm_obj_1(val, NULL, NULL) OR _jm_obj_0(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 

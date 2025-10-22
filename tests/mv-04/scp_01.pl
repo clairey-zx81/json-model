@@ -51,7 +51,7 @@ sub json_model_5($$$)
         {
             # handle may a property
             # .'$Rr'.a
-            $res = json_model_7($pval, undef, $rep);
+            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -84,7 +84,7 @@ sub json_model_1($$$)
             # handle must RA property
             $must_count++;
             # .RA
-            $res = json_model_5($pval, undef, $rep);
+            $res = json_model_5($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -94,7 +94,7 @@ sub json_model_1($$$)
         {
             # handle may b property
             # .b
-            $res = json_model_3($pval, undef, $rep);
+            $res = json_model_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -104,7 +104,7 @@ sub json_model_1($$$)
         {
             # handle may a property
             # .a
-            $res = json_model_7($pval, undef, $rep);
+            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;

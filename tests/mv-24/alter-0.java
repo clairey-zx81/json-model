@@ -169,7 +169,7 @@ public class alter_0 extends ModelChecker
             {
                 Object tag_0 = json.objectValue(val, "t");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
-                res = fun_0 != null && fun_0.call(val, path, rep);
+                res = fun_0 != null && fun_0.call(val, null, null);
             }
             else
             {
@@ -183,7 +183,7 @@ public class alter_0 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        return json_model_4(val, path, rep);
+        return json_model_4(val, null, null);
     }
 
 

@@ -29,7 +29,7 @@ sub json_model_1($$$)
     # .'|'.0
     # .'|'.1
     # "/^[a-z]+$/"
-    return jm_is_string($val) && ($val eq 'Susie' || _jm_re_0($val, $path, $rep));
+    return jm_is_string($val) && ($val eq 'Susie' || _jm_re_0($val, undef, undef));
 }
 
 

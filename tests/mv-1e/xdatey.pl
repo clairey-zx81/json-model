@@ -32,7 +32,7 @@ sub _jm_xre_0($$$)
         return 0;
     }
     $extract = $+{'s1'};
-    if (! (jm_is_string($extract) && jm_is_valid_date($extract, $path, $rep)))
+    if (! (jm_is_string($extract) && jm_is_valid_date($extract, undef, undef)))
     {
         return 0;
     }
@@ -45,7 +45,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/^X-($DATE)-Y$/X"
-    return jm_is_string($val) && _jm_xre_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_xre_0($val, undef, undef);
 }
 
 

@@ -14,7 +14,7 @@ BEGIN
   -- .'@'
   -- .'@'.'|'.0
   -- .'@'.'|'.1
-  RETURN (JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'string') AND jm_check_constraint(val, '>=', 10, path, rep);
+  RETURN (JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1 OR JSONB_TYPEOF(val) = 'string') AND jm_check_constraint(val, '>=', 10, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

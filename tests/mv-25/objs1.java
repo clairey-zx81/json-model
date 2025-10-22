@@ -50,7 +50,7 @@ public class objs1 extends ModelChecker
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
                 // .'$objs0'.stuff.0
-                res = json_model_6(arr_0_item, null, rep);
+                res = json_model_6(arr_0_item, null, null);
                 if (! res)
                 {
                     break;
@@ -80,7 +80,7 @@ public class objs1 extends ModelChecker
             return false;
         }
         // .foo
-        return json_model_3(pval, null, rep);
+        return json_model_3(pval, null, null);
     }
 
 
@@ -97,7 +97,7 @@ public class objs1 extends ModelChecker
             {
                 Object tag_0 = json.objectValue(val, "t");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
-                res = fun_0 != null && fun_0.call(val, path, rep);
+                res = fun_0 != null && fun_0.call(val, null, null);
             }
             else
             {

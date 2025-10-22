@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$ex08'
-  RETURN json_model_9(val, path, rep);
+  RETURN json_model_9(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -19,7 +19,7 @@ CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$Ex08'
-  RETURN json_model_9(val, path, rep);
+  RETURN json_model_9(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -43,10 +43,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF jm_is_valid_url(prop, NULL, rep) THEN
+    ELSEIF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Ex09'.'$URL'
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -63,7 +63,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_4(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -84,7 +84,7 @@ BEGIN
   -- .'$ex08#Ex08'.'|'.0
   -- .'$ex08#Ex08'.'|'.1
   -- .'$ex08#Ex08'.'|'.2
-  RETURN json_model_8(val, path, rep) OR JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR json_model_6(val, path, rep);
+  RETURN json_model_8(val, NULL, NULL) OR JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL) OR json_model_6(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -101,10 +101,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$ex08#map'.'$URL'
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

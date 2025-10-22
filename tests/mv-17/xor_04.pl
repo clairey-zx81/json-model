@@ -30,7 +30,7 @@ sub json_model_1($$$)
     # .'|'.0
     # .'|'.1
     # "/^[a-z]+$/i"
-    return jm_is_numeric($val) && $val >= 0.0 || jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_numeric($val) && $val >= 0.0 || jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 

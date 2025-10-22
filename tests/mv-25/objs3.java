@@ -66,7 +66,7 @@ public class objs3 extends ModelChecker
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
                 // .0
-                res = json_model_2(arr_0_item, null, rep);
+                res = json_model_2(arr_0_item, null, null);
                 if (! res)
                 {
                     break;

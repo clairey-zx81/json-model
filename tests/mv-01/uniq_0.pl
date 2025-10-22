@@ -36,7 +36,7 @@ sub json_model_1($$$)
     }
     if ($res)
     {
-        $res = jm_is_unique_array($val, $path, $rep);
+        $res = jm_is_unique_array($val, undef, undef);
     }
     return $res;
 }

@@ -84,7 +84,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
-            res = fun_0 != NULL && fun_0(val, path, rep);
+            res = fun_0 != NULL && fun_0(val, NULL, NULL);
         }
         else
             res = false;
@@ -114,7 +114,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         json_array_foreach(pval, arr_0_idx, arr_0_item)
         {
             // .stuff.0
-            res = json_model_4(arr_0_item, NULL, rep);
+            res = json_model_4(arr_0_item, NULL, NULL);
             if (unlikely(! res))
                 break;
         }

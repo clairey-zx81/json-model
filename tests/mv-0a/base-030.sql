@@ -27,7 +27,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_re_0(prop, path, rep) THEN
+    IF _jm_re_0(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'/^(foo|bla)$/'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;

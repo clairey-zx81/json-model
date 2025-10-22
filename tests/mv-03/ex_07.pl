@@ -28,7 +28,7 @@ sub json_model_4($$$)
     # .'$ex5'
     # .'$ex5'.'|'.0
     # .'$ex5'.'|'.1
-    return json_model_5($val, $path, $rep) || json_model_6($val, $path, $rep);
+    return json_model_5($val, undef, undef) || json_model_6($val, undef, undef);
 }
 
 sub _jm_re_0($$$)
@@ -44,7 +44,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$Ex07'
     # "/[a-z]/"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check $__external_0 (.'$__external_0')
@@ -54,7 +54,7 @@ sub json_model_7($$$)
     # .'$__external_0'
     # .'$__external_0'.'|'.0
     # .'$__external_0'.'|'.1
-    return json_model_8($val, $path, $rep) || json_model_9($val, $path, $rep);
+    return json_model_8($val, undef, undef) || json_model_9($val, undef, undef);
 }
 
 # check $ (.)
@@ -66,15 +66,15 @@ sub json_model_1($$$)
     if ($res)
     {
         # .0
-        $res = json_model_5($$val[0], undef, $rep);
+        $res = json_model_5($$val[0], undef, undef);
         if ($res)
         {
             # .1
-            $res = json_model_9($$val[1], undef, $rep);
+            $res = json_model_9($$val[1], undef, undef);
             if ($res)
             {
                 # .2
-                $res = json_model_3($$val[2], undef, $rep);
+                $res = json_model_3($$val[2], undef, undef);
             }
         }
     }

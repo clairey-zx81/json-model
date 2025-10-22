@@ -43,12 +43,12 @@ sub _jm_xre_0($$$)
         return 0;
     }
     $extract = $+{'s1'};
-    if (! json_model_2($extract, $path, $rep))
+    if (! json_model_2($extract, undef, undef))
     {
         return 0;
     }
     $extract = $+{'s2'};
-    if (! json_model_2($extract, $path, $rep))
+    if (! json_model_2($extract, undef, undef))
     {
         return 0;
     }
@@ -61,7 +61,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/'($character:\\w+)'.*'($character:\\w+)'/X"
-    return jm_is_string($val) && _jm_xre_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_xre_0($val, undef, undef);
 }
 
 

@@ -32,7 +32,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_0_item := pval -> arr_0_idx;
       -- .'$bibi'.bibi.0
-      res := json_model_2(arr_0_item, NULL, rep);
+      res := json_model_2(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -47,7 +47,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_2(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -98,7 +98,7 @@ sub json_model_1($$$)
     # .'|'.0
     # .'|'.1
     # .'|'.2
-    return jm_is_object($val) && (_jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
+    return jm_is_object($val) && (_jm_obj_2($val, undef, undef) || _jm_obj_1($val, undef, undef) || _jm_obj_0($val, undef, undef));
 }
 
 

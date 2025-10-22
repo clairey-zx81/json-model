@@ -44,21 +44,21 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$foo'
-    return json_model_2(val, path, rep);
+    return json_model_2(val, NULL, NULL);
 }
 
 // check $ob (.'$ob')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$ob'
-    return json_model_2(val, path, rep);
+    return json_model_2(val, NULL, NULL);
 }
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    return json_model_2(val, path, rep);
+    return json_model_2(val, NULL, NULL);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

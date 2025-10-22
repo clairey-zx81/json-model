@@ -169,7 +169,7 @@ function json_model_4(val, path, rep)
         {
             let tag_0 = val["t"];
             let fun_0 = _jm_map_0.get(tag_0);
-            res = fun_0 !== undefined && fun_0(val, path, rep);
+            res = fun_0 !== undefined && fun_0(val, null, null);
         }
         else
         {
@@ -183,7 +183,7 @@ function json_model_4(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    return json_model_4(val, path, rep);
+    return json_model_4(val, null, null);
 }
 
 

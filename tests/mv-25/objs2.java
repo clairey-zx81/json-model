@@ -56,21 +56,21 @@ public class objs2 extends ModelChecker
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         // .'$foo'
-        return json_model_2(val, path, rep);
+        return json_model_2(val, null, null);
     }
 
     // check $ob (.'$ob')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
         // .'$ob'
-        return json_model_2(val, path, rep);
+        return json_model_2(val, null, null);
     }
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        return json_model_2(val, path, rep);
+        return json_model_2(val, null, null);
     }
 
 

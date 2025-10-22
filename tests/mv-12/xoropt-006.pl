@@ -45,7 +45,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_0($prop, $path, $rep))
+        if (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'|'.2.'/^[ab]$/'
@@ -122,7 +122,7 @@ sub json_model_1($$$)
     # .'|'.0
     # .'|'.1
     # .'|'.2
-    return jm_is_object($val) && (_jm_obj_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep) || _jm_obj_0($val, $path, $rep));
+    return jm_is_object($val) && (_jm_obj_2($val, undef, undef) || _jm_obj_1($val, undef, undef) || _jm_obj_0($val, undef, undef));
 }
 
 

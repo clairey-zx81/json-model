@@ -224,7 +224,7 @@ function _jm_obj_3(val, path, rep)
     }
     pval = val["t"];
     // .'$alternative'.'|'.3.t
-    res = json_model_3(pval, null, rep);
+    res = json_model_3(pval, null, null);
     if (! res)
     {
         return false;
@@ -253,7 +253,7 @@ function json_model_6(val, path, rep)
         {
             let tag_0 = val["t"];
             let fun_0 = _jm_map_0.get(tag_0);
-            res = fun_0 !== undefined && fun_0(val, path, rep);
+            res = fun_0 !== undefined && fun_0(val, null, null);
         }
         else
         {
@@ -267,7 +267,7 @@ function json_model_6(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    return json_model_6(val, path, rep);
+    return json_model_6(val, null, null);
 }
 
 

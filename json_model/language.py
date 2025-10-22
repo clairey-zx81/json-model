@@ -315,9 +315,16 @@ class Language:
     #
     # boolean expression
     #
+    def rep(self) -> str:
+        """Current report variable."""
+        return "rep" if self._with_report else "None"
+
+    def path(self, p: str) -> str:
+        return p if self._with_path else "None"
+
     def str_check_call(self, name: str, val: StrExpr, path: Var) -> BoolExpr:
         """Model check call for a string value."""
-        return f"{name}({val}, {path}, rep)"
+        return f"{name}({val}, {self.path(path)}, {self.rep()})"
 
     def check_call(self, name: Var, val: JsonExpr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
@@ -326,7 +333,7 @@ class Language:
         is_ptr: the name is a function pointer, not a direct function
         is_raw: value is a raw (string) value, not a json
         """
-        return f"{name}({val}, {path}, rep)"
+        return f"{name}({val}, {self.path(path)}, {self.rep()})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         """Check uniqueness."""

@@ -129,7 +129,7 @@ BEGIN
     IF val ? 't' THEN
       tag_0 := val -> 't';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
@@ -137,7 +137,7 @@ BEGIN
     NULL;
   END IF;
   -- .'$alternative'.'|'.0
-  RETURN res OR _jm_obj_0(val, path, rep);
+  RETURN res OR _jm_obj_0(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -146,7 +146,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_3(val, path, rep);
+  RETURN json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

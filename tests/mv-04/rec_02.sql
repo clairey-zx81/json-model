@@ -21,7 +21,7 @@ BEGIN
     IF prop = 'foo' THEN
       -- handle may foo property
       -- .foo
-      res := json_model_1(pval, NULL, rep);
+      res := json_model_1(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

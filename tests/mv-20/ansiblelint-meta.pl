@@ -2873,7 +2873,7 @@ sub json_model_49($$$)
     # .'$any_platform'.'|'.44
     # .'$any_platform'.'|'.45
     # .'$any_platform'.'|'.46
-    return json_model_2($val, $path, $rep) || json_model_3($val, $path, $rep) || json_model_5($val, $path, $rep) || json_model_4($val, $path, $rep) || json_model_42($val, $path, $rep) || json_model_6($val, $path, $rep) || json_model_7($val, $path, $rep) || json_model_8($val, $path, $rep) || json_model_9($val, $path, $rep) || json_model_28($val, $path, $rep) || json_model_10($val, $path, $rep) || json_model_11($val, $path, $rep) || json_model_12($val, $path, $rep) || json_model_13($val, $path, $rep) || json_model_14($val, $path, $rep) || json_model_43($val, $path, $rep) || json_model_15($val, $path, $rep) || json_model_16($val, $path, $rep) || json_model_17($val, $path, $rep) || json_model_18($val, $path, $rep) || json_model_19($val, $path, $rep) || json_model_20($val, $path, $rep) || json_model_21($val, $path, $rep) || json_model_22($val, $path, $rep) || json_model_23($val, $path, $rep) || json_model_24($val, $path, $rep) || json_model_44($val, $path, $rep) || json_model_25($val, $path, $rep) || json_model_26($val, $path, $rep) || json_model_27($val, $path, $rep) || json_model_29($val, $path, $rep) || json_model_45($val, $path, $rep) || json_model_30($val, $path, $rep) || json_model_31($val, $path, $rep) || json_model_46($val, $path, $rep) || json_model_32($val, $path, $rep) || json_model_33($val, $path, $rep) || json_model_34($val, $path, $rep) || json_model_35($val, $path, $rep) || json_model_36($val, $path, $rep) || json_model_37($val, $path, $rep) || json_model_38($val, $path, $rep) || json_model_39($val, $path, $rep) || json_model_47($val, $path, $rep) || json_model_40($val, $path, $rep) || json_model_48($val, $path, $rep) || json_model_41($val, $path, $rep);
+    return json_model_2($val, undef, undef) || json_model_3($val, undef, undef) || json_model_5($val, undef, undef) || json_model_4($val, undef, undef) || json_model_42($val, undef, undef) || json_model_6($val, undef, undef) || json_model_7($val, undef, undef) || json_model_8($val, undef, undef) || json_model_9($val, undef, undef) || json_model_28($val, undef, undef) || json_model_10($val, undef, undef) || json_model_11($val, undef, undef) || json_model_12($val, undef, undef) || json_model_13($val, undef, undef) || json_model_14($val, undef, undef) || json_model_43($val, undef, undef) || json_model_15($val, undef, undef) || json_model_16($val, undef, undef) || json_model_17($val, undef, undef) || json_model_18($val, undef, undef) || json_model_19($val, undef, undef) || json_model_20($val, undef, undef) || json_model_21($val, undef, undef) || json_model_22($val, undef, undef) || json_model_23($val, undef, undef) || json_model_24($val, undef, undef) || json_model_44($val, undef, undef) || json_model_25($val, undef, undef) || json_model_26($val, undef, undef) || json_model_27($val, undef, undef) || json_model_29($val, undef, undef) || json_model_45($val, undef, undef) || json_model_30($val, undef, undef) || json_model_31($val, undef, undef) || json_model_46($val, undef, undef) || json_model_32($val, undef, undef) || json_model_33($val, undef, undef) || json_model_34($val, undef, undef) || json_model_35($val, undef, undef) || json_model_36($val, undef, undef) || json_model_37($val, undef, undef) || json_model_38($val, undef, undef) || json_model_39($val, undef, undef) || json_model_47($val, undef, undef) || json_model_40($val, undef, undef) || json_model_48($val, undef, undef) || json_model_41($val, undef, undef);
 }
 
 
@@ -5176,7 +5176,7 @@ sub json_model_50($$$)
             # .'$platforms'.0.'|'.44
             # .'$platforms'.0.'|'.45
             # .'$platforms'.0.'|'.46
-            $res = jm_is_object($arr_47_item) && (_jm_obj_46($arr_47_item, undef, $rep) || _jm_obj_45($arr_47_item, undef, $rep) || _jm_obj_44($arr_47_item, undef, $rep) || _jm_obj_43($arr_47_item, undef, $rep) || _jm_obj_42($arr_47_item, undef, $rep) || _jm_obj_41($arr_47_item, undef, $rep) || _jm_obj_40($arr_47_item, undef, $rep) || _jm_obj_39($arr_47_item, undef, $rep) || _jm_obj_38($arr_47_item, undef, $rep) || _jm_obj_37($arr_47_item, undef, $rep) || _jm_obj_36($arr_47_item, undef, $rep) || _jm_obj_35($arr_47_item, undef, $rep) || _jm_obj_34($arr_47_item, undef, $rep) || _jm_obj_33($arr_47_item, undef, $rep) || _jm_obj_32($arr_47_item, undef, $rep) || _jm_obj_31($arr_47_item, undef, $rep) || _jm_obj_30($arr_47_item, undef, $rep) || _jm_obj_29($arr_47_item, undef, $rep) || _jm_obj_28($arr_47_item, undef, $rep) || _jm_obj_27($arr_47_item, undef, $rep) || _jm_obj_26($arr_47_item, undef, $rep) || _jm_obj_25($arr_47_item, undef, $rep) || _jm_obj_24($arr_47_item, undef, $rep) || _jm_obj_23($arr_47_item, undef, $rep) || _jm_obj_22($arr_47_item, undef, $rep) || _jm_obj_21($arr_47_item, undef, $rep) || _jm_obj_20($arr_47_item, undef, $rep) || _jm_obj_19($arr_47_item, undef, $rep) || _jm_obj_18($arr_47_item, undef, $rep) || _jm_obj_17($arr_47_item, undef, $rep) || _jm_obj_16($arr_47_item, undef, $rep) || _jm_obj_15($arr_47_item, undef, $rep) || _jm_obj_14($arr_47_item, undef, $rep) || _jm_obj_13($arr_47_item, undef, $rep) || _jm_obj_12($arr_47_item, undef, $rep) || _jm_obj_11($arr_47_item, undef, $rep) || _jm_obj_10($arr_47_item, undef, $rep) || _jm_obj_9($arr_47_item, undef, $rep) || _jm_obj_8($arr_47_item, undef, $rep) || _jm_obj_7($arr_47_item, undef, $rep) || _jm_obj_6($arr_47_item, undef, $rep) || _jm_obj_5($arr_47_item, undef, $rep) || _jm_obj_4($arr_47_item, undef, $rep) || _jm_obj_3($arr_47_item, undef, $rep) || _jm_obj_2($arr_47_item, undef, $rep) || _jm_obj_1($arr_47_item, undef, $rep) || _jm_obj_0($arr_47_item, undef, $rep));
+            $res = jm_is_object($arr_47_item) && (_jm_obj_46($arr_47_item, undef, undef) || _jm_obj_45($arr_47_item, undef, undef) || _jm_obj_44($arr_47_item, undef, undef) || _jm_obj_43($arr_47_item, undef, undef) || _jm_obj_42($arr_47_item, undef, undef) || _jm_obj_41($arr_47_item, undef, undef) || _jm_obj_40($arr_47_item, undef, undef) || _jm_obj_39($arr_47_item, undef, undef) || _jm_obj_38($arr_47_item, undef, undef) || _jm_obj_37($arr_47_item, undef, undef) || _jm_obj_36($arr_47_item, undef, undef) || _jm_obj_35($arr_47_item, undef, undef) || _jm_obj_34($arr_47_item, undef, undef) || _jm_obj_33($arr_47_item, undef, undef) || _jm_obj_32($arr_47_item, undef, undef) || _jm_obj_31($arr_47_item, undef, undef) || _jm_obj_30($arr_47_item, undef, undef) || _jm_obj_29($arr_47_item, undef, undef) || _jm_obj_28($arr_47_item, undef, undef) || _jm_obj_27($arr_47_item, undef, undef) || _jm_obj_26($arr_47_item, undef, undef) || _jm_obj_25($arr_47_item, undef, undef) || _jm_obj_24($arr_47_item, undef, undef) || _jm_obj_23($arr_47_item, undef, undef) || _jm_obj_22($arr_47_item, undef, undef) || _jm_obj_21($arr_47_item, undef, undef) || _jm_obj_20($arr_47_item, undef, undef) || _jm_obj_19($arr_47_item, undef, undef) || _jm_obj_18($arr_47_item, undef, undef) || _jm_obj_17($arr_47_item, undef, undef) || _jm_obj_16($arr_47_item, undef, undef) || _jm_obj_15($arr_47_item, undef, undef) || _jm_obj_14($arr_47_item, undef, undef) || _jm_obj_13($arr_47_item, undef, undef) || _jm_obj_12($arr_47_item, undef, undef) || _jm_obj_11($arr_47_item, undef, undef) || _jm_obj_10($arr_47_item, undef, undef) || _jm_obj_9($arr_47_item, undef, undef) || _jm_obj_8($arr_47_item, undef, undef) || _jm_obj_7($arr_47_item, undef, undef) || _jm_obj_6($arr_47_item, undef, undef) || _jm_obj_5($arr_47_item, undef, undef) || _jm_obj_4($arr_47_item, undef, undef) || _jm_obj_3($arr_47_item, undef, undef) || _jm_obj_2($arr_47_item, undef, undef) || _jm_obj_1($arr_47_item, undef, undef) || _jm_obj_0($arr_47_item, undef, undef));
             if (! $res)
             {
                 last;
@@ -5237,7 +5237,7 @@ sub _jm_f_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModelCollection'.namespace
     # "/^[a-z][-a-z0-9_]+$/"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 sub _jm_re_1($$$)
@@ -5253,7 +5253,7 @@ sub _jm_f_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModelCollection'.role_name
     # "/^[a-z][a-z0-9_]+$/"
-    return jm_is_string($val) && _jm_re_1($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_1($val, undef, undef);
 }
 
 # check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
@@ -5281,7 +5281,7 @@ sub json_model_51($$$)
         if (($pfun = $json_model_51_map{$prop}))
         {
             # handle 7 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -5373,7 +5373,7 @@ sub json_model_52($$$)
         elsif (($pfun = $json_model_52_map{$prop}))
         {
             # handle 6 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -5454,7 +5454,7 @@ sub _jm_f_18($$$)
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModelStandalone'.namespace
     # "/^[a-z][-a-z0-9_]+$/"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
@@ -5463,7 +5463,7 @@ sub _jm_f_19($$$)
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModelStandalone'.role_name
     # "/^[a-z][a-z0-9_]+$/"
-    return jm_is_string($val) && _jm_re_1($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_1($val, undef, undef);
 }
 
 # check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
@@ -5548,7 +5548,7 @@ sub json_model_53($$$)
         elsif (($pfun = $json_model_53_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -5653,7 +5653,7 @@ sub _jm_f_30($$$)
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModel'.'|'.1.namespace
     # "/^[a-z][-a-z0-9_]+$/"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
@@ -5662,7 +5662,7 @@ sub _jm_f_31($$$)
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModel'.'|'.1.role_name
     # "/^[a-z][a-z0-9_]+$/"
-    return jm_is_string($val) && _jm_re_1($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_1($val, undef, undef);
 }
 
 # check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
@@ -5713,7 +5713,7 @@ sub _jm_obj_47($$$)
         elsif (($pfun = $_jm_obj_47_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -5818,7 +5818,7 @@ sub _jm_f_42($$$)
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModel'.'|'.2.namespace
     # "/^[a-z][-a-z0-9_]+$/"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
@@ -5827,7 +5827,7 @@ sub _jm_f_43($$$)
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModel'.'|'.2.role_name
     # "/^[a-z][a-z0-9_]+$/"
-    return jm_is_string($val) && _jm_re_1($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_1($val, undef, undef);
 }
 
 # check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
@@ -5867,7 +5867,7 @@ sub _jm_obj_48($$$)
         elsif (($pfun = $_jm_obj_48_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -5896,7 +5896,7 @@ sub json_model_54($$$)
         {
             my $tag_0 = $$val{'standalone'};
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, $path, $rep);
+            $res = defined($fun_0) && &$fun_0($val, undef, undef);
         }
         else
         {
@@ -5908,7 +5908,7 @@ sub json_model_54($$$)
         ;
     }
     # .'$GalaxyInfoModel'.'|'.2
-    return $res || _jm_obj_48($val, $path, $rep);
+    return $res || _jm_obj_48($val, undef, undef);
 }
 
 sub _jm_re_2($$$)
@@ -5931,7 +5931,7 @@ sub json_model_55($$$)
             my $arr_99_item = $$val[$arr_99_idx];
             # .'$collections'.0
             # "/^[a-z_]+\\.[a-z_]+$/"
-            $res = jm_is_string($arr_99_item) && _jm_re_2($arr_99_item, undef, $rep);
+            $res = jm_is_string($arr_99_item) && _jm_re_2($arr_99_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -6080,7 +6080,7 @@ sub json_model_57($$$)
         if (($pfun = $json_model_57_map{$prop}))
         {
             # handle 9 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -6165,7 +6165,7 @@ sub json_model_58($$$)
     # .'$DependencyModel'.'&'.1.'|'.0
     # .'$DependencyModel'.'&'.1.'|'.1
     # .'$DependencyModel'.'&'.1.'|'.2
-    return json_model_57($val, $path, $rep) && jm_is_object($val) && (_jm_obj_51($val, $path, $rep) || _jm_obj_50($val, $path, $rep) || _jm_obj_49($val, $path, $rep));
+    return json_model_57($val, undef, undef) && jm_is_object($val) && (_jm_obj_51($val, undef, undef) || _jm_obj_50($val, undef, undef) || _jm_obj_49($val, undef, undef));
 }
 
 # check $AnsibleMetaObj (.'$AnsibleMetaObj')
@@ -6195,7 +6195,7 @@ sub json_model_59($$$)
         {
             # handle may collections property
             # .'$AnsibleMetaObj'.collections
-            $res = json_model_55($pval, undef, $rep);
+            $res = json_model_55($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -6214,7 +6214,7 @@ sub json_model_59($$$)
                     # .'$AnsibleMetaObj'.dependencies.0
                     # .'$AnsibleMetaObj'.dependencies.0.'|'.0
                     # .'$AnsibleMetaObj'.dependencies.0.'|'.1
-                    $res = jm_is_string($arr_102_item) || json_model_58($arr_102_item, undef, $rep);
+                    $res = jm_is_string($arr_102_item) || json_model_58($arr_102_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -6230,7 +6230,7 @@ sub json_model_59($$$)
         {
             # handle may galaxy_info property
             # .'$AnsibleMetaObj'.galaxy_info
-            $res = json_model_54($pval, undef, $rep);
+            $res = json_model_54($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -6252,7 +6252,7 @@ sub json_model_60($$$)
     # .'$AnsibleMeta'
     # .'$AnsibleMeta'.'|'.0
     # .'$AnsibleMeta'.'|'.1
-    return !defined($val) || json_model_59($val, $path, $rep);
+    return !defined($val) || json_model_59($val, undef, undef);
 }
 
 # check $ (.)
@@ -6260,7 +6260,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_60($val, $path, $rep);
+    return json_model_60($val, undef, undef);
 }
 
 

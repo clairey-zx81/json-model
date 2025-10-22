@@ -114,7 +114,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (unlikely((pfun = json_model_1_map(prop))))
         {
             // handle 10 may props
-            if (unlikely(pfun != NULL && ! pfun(pval, NULL, rep)))
+            if (unlikely(pfun != NULL && ! pfun(pval, NULL, NULL)))
                 return false;
         }
         else

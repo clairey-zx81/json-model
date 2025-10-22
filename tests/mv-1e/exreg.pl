@@ -19,7 +19,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_string($val) && jm_is_valid_exreg($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_exreg($val, undef, undef);
 }
 
 

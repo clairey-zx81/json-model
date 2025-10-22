@@ -37,7 +37,7 @@ sub json_model_3($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$Qq'.0
-            $res = json_model_2($arr_0_item, undef, $rep);
+            $res = json_model_2($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -63,7 +63,7 @@ sub _jm_obj_0($$$)
         {
             # handle may p property
             # .o.p
-            $res = json_model_2($pval, undef, $rep);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -73,7 +73,7 @@ sub _jm_obj_0($$$)
         {
             # handle may q property
             # .o.q
-            $res = json_model_3($pval, undef, $rep);
+            $res = json_model_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -126,7 +126,7 @@ sub json_model_1($$$)
             # handle may o property
             # an object
             # .o
-            $res = _jm_obj_0($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;

@@ -28,7 +28,7 @@ DECLARE
 BEGIN
   -- .
   -- .'|'.0
-  res := json_model_2(val, path, rep);
+  res := json_model_2(val, NULL, NULL);
   IF NOT res THEN
     -- .'|'.1
     res := JSONB_TYPEOF(val) = 'array';
@@ -36,7 +36,7 @@ BEGIN
       FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_0_item := val -> arr_0_idx;
         -- .'|'.1.0
-        res := json_model_2(arr_0_item, NULL, rep);
+        res := json_model_2(arr_0_item, NULL, NULL);
         IF NOT res THEN
           EXIT;
         END IF;

@@ -19,7 +19,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$neStr'
   -- "/./"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -39,7 +39,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$neStrList'.'@'.0
-      res := json_model_2(arr_0_item, NULL, rep);
+      res := json_model_2(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -47,7 +47,7 @@ BEGIN
   END IF;
   IF res THEN
     ival_0 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, path, rep) AND ival_0 >= 1;
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_0 >= 1;
   END IF;
   RETURN res;
 END;
@@ -87,7 +87,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$LicenseList'.'@'.0
-      res := json_model_4(arr_1_item, NULL, rep);
+      res := json_model_4(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -95,7 +95,7 @@ BEGIN
   END IF;
   IF res THEN
     ival_1 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, path, rep) AND ival_1 >= 1;
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_1 >= 1;
   END IF;
   RETURN res;
 END;
@@ -136,7 +136,7 @@ BEGIN
       -- handle must version property
       must_count := must_count + 1;
       -- .'$Provide'.version
-      res := json_model_10(pval, NULL, rep);
+      res := json_model_10(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -154,7 +154,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, path, rep) THEN
+    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$Provide'.'/^[Xx]_/'
       res := TRUE;
@@ -199,18 +199,18 @@ BEGIN
     IF prop = 'web' THEN
       -- handle may web property
       -- .'$Resources'.bugtracker.web
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'mailto' THEN
       -- handle may mailto property
       -- .'$Resources'.bugtracker.mailto
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_email(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_email(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, path, rep) THEN
+    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$Resources'.bugtracker.'/^[Xx]_/'
       res := TRUE;
@@ -237,14 +237,14 @@ BEGIN
     IF prop = 'url' THEN
       -- handle may url property
       -- .'$Resources'.repository.url
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'web' THEN
       -- handle may web property
       -- .'$Resources'.repository.web
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -252,7 +252,7 @@ BEGIN
       -- handle may type property
       -- .'$Resources'.repository.type
       -- "/./"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -280,21 +280,21 @@ BEGIN
     IF prop = 'homepage' THEN
       -- handle may homepage property
       -- .'$Resources'.homepage
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'bugtracker' THEN
       -- handle may bugtracker property
       -- .'$Resources'.bugtracker
-      res := _jm_obj_0(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'repository' THEN
       -- handle may repository property
       -- .'$Resources'.repository
-      res := _jm_obj_1(pval, NULL, rep);
+      res := _jm_obj_1(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -320,7 +320,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$SemVer'
   -- "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_2(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_2(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -331,7 +331,7 @@ BEGIN
   -- .'$Version'
   -- .'$Version'.'|'.0
   -- .'$Version'.'|'.1
-  RETURN json_model_9(val, path, rep) OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 0;
+  RETURN json_model_9(val, NULL, NULL) OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 0;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -349,7 +349,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$Ops'
   -- "/^(<=|<|>=|>|!=|==)$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_3(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_3(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -367,7 +367,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$VersionRange'
   -- "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_4(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_4(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -424,7 +424,7 @@ BEGIN
     -- .'$Prereq'.''
     -- .'$Prereq'.''.'|'.0
     -- .'$Prereq'.''.'|'.1
-    res := json_model_10(pval, NULL, rep) OR json_model_12(pval, NULL, rep);
+    res := json_model_10(pval, NULL, NULL) OR json_model_12(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -445,14 +445,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF json_model_14(TO_JSONB(prop), NULL, rep) THEN
+    IF json_model_14(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Prereqs'.'$Phase'.'$Relation'
-      res := json_model_15(pval, NULL, rep);
+      res := json_model_15(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, path, rep) THEN
+    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$Prereqs'.'$Phase'.'/^[Xx]_/'
       res := TRUE;
@@ -477,14 +477,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF json_model_13(TO_JSONB(prop), NULL, rep) THEN
+    IF json_model_13(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Prereqs'.'$Phase'
-      res := _jm_obj_2(pval, NULL, rep);
+      res := _jm_obj_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, path, rep) THEN
+    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$Prereqs'.'/^[Xx]_/'
       res := TRUE;
@@ -519,7 +519,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .license.'|'.2.''
-    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -536,7 +536,7 @@ BEGIN
   -- .license.'|'.0
   -- .license.'|'.1
   -- .license.'|'.2
-  RETURN json_model_4(val, path, rep) OR json_model_5(val, path, rep) OR _jm_obj_3(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL) OR json_model_5(val, NULL, NULL) OR _jm_obj_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -547,7 +547,7 @@ BEGIN
   -- .maintainer
   -- .maintainer.'|'.0
   -- .maintainer.'|'.1
-  RETURN json_model_2(val, path, rep) OR json_model_3(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL) OR json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -577,11 +577,11 @@ BEGIN
     ELSEIF prop = 'url' THEN
       -- handle may url property
       -- .'meta-spec'.url
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, path, rep) THEN
+    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'meta-spec'.'/^[Xx]_/'
       res := TRUE;
@@ -608,7 +608,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .provides.''
-    res := json_model_6(pval, NULL, rep);
+    res := json_model_6(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -669,14 +669,14 @@ BEGIN
     IF prop = 'file' THEN
       -- handle may file property
       -- .no_index.file
-      res := json_model_3(pval, NULL, rep);
+      res := json_model_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'directory' THEN
       -- handle may directory property
       -- .no_index.directory
-      res := json_model_3(pval, NULL, rep);
+      res := json_model_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -693,7 +693,7 @@ CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[]
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .url
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -726,16 +726,16 @@ BEGIN
       -- handle 7 mandatory props
       pfun := json_model_1_mup(prop);
       must_count := must_count + 1;
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_1_map(prop) IS NOT NULL THEN
       -- handle 8 may props
       pfun := json_model_1_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, path, rep) THEN
+    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'/^[Xx]_/'
       res := TRUE;

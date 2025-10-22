@@ -35,7 +35,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_0($prop, $path, $rep))
+        if (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'/^[0-9]+$/'

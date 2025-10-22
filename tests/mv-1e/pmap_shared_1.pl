@@ -79,7 +79,7 @@ sub json_model_2($$$)
         {
             # handle other props
             # .'$Oo0'.''
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -246,7 +246,7 @@ sub json_model_1($$$)
     # .'|'.0
     # .'|'.1
     # .'|'.2
-    return json_model_2($val, $path, $rep) || json_model_3($val, $path, $rep) || json_model_4($val, $path, $rep);
+    return json_model_2($val, undef, undef) || json_model_3($val, undef, undef) || json_model_4($val, undef, undef);
 }
 
 

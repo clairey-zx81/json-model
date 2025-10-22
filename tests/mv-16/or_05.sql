@@ -40,7 +40,7 @@ BEGIN
   -- "/[a-z]/"
   -- .'|'.2
   -- "/[A-Z]/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND (_jm_re_2(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep));
+  RETURN JSONB_TYPEOF(val) = 'string' AND (_jm_re_2(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL) OR _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL) OR _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 

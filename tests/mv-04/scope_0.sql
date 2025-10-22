@@ -19,7 +19,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$s'
   -- "/[0-9]/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -33,10 +33,10 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'array' AND JSONB_ARRAY_LENGTH(val) = 2;
   IF res THEN
     -- .0
-    res := json_model_2(val -> 0, NULL, rep);
+    res := json_model_2(val -> 0, NULL, NULL);
     IF res THEN
       -- .1
-      res := json_model_2(val -> 1, NULL, rep);
+      res := json_model_2(val -> 1, NULL, NULL);
     END IF;
   END IF;
   RETURN res;

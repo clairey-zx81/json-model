@@ -29,7 +29,7 @@ BEGIN
   -- .'$color'
   -- .'$color'.'|'.0
   -- "/^#[0-9a-fA-F]{6}$/"
-  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val) OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val) OR JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -49,7 +49,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$colorArray'.'@'.0
-      res := json_model_2(arr_0_item, NULL, rep);
+      res := json_model_2(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -57,7 +57,7 @@ BEGIN
   END IF;
   IF res THEN
     ival_0 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, path, rep) AND ival_0 >= 1;
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_0 >= 1;
   END IF;
   RETURN res;
 END;
@@ -143,14 +143,14 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$stringArray'.'@'.0
-      res := json_model_8(arr_1_item, NULL, rep);
+      res := json_model_8(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
   END IF;
   IF res THEN
-    res := jm_array_is_unique(val, path, rep);
+    res := jm_array_is_unique(val, NULL, NULL);
   END IF;
   RETURN res;
 END;
@@ -237,7 +237,7 @@ BEGIN
       -- handle must title property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.0.title
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -245,7 +245,7 @@ BEGIN
       -- handle must key property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.0.key
-      res := json_model_7(pval, NULL, rep);
+      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -261,7 +261,7 @@ BEGIN
       -- .'$Prompts'.'|'.0.suggestions
       -- .'$Prompts'.'|'.0.suggestions.'|'.0
       -- .'$Prompts'.'|'.0.suggestions.'|'.1
-      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_2(pval, NULL, rep) OR _jm_obj_1(pval, NULL, rep));
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_2(pval, NULL, NULL) OR _jm_obj_1(pval, NULL, NULL));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -299,7 +299,7 @@ BEGIN
       -- handle must title property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.1.title
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -307,7 +307,7 @@ BEGIN
       -- handle must key property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.1.key
-      res := json_model_7(pval, NULL, rep);
+      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -344,7 +344,7 @@ BEGIN
       -- handle must value property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.2.options.'@'.0.value
-      res := json_model_8(pval, NULL, rep);
+      res := json_model_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -400,7 +400,7 @@ BEGIN
   END IF;
   pval := val -> 'title';
   -- .'$Prompts'.'|'.2.title
-  res := json_model_6(pval, NULL, rep);
+  res := json_model_6(pval, NULL, NULL);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -409,7 +409,7 @@ BEGIN
   END IF;
   pval := val -> 'key';
   -- .'$Prompts'.'|'.2.key
-  res := json_model_7(pval, NULL, rep);
+  res := json_model_7(pval, NULL, NULL);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -424,14 +424,14 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_2_item := pval -> arr_2_idx;
       -- .'$Prompts'.'|'.2.options.'@'.0
-      res := _jm_obj_5(arr_2_item, NULL, rep);
+      res := _jm_obj_5(arr_2_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
   END IF;
   IF res THEN
-    res := jm_array_is_unique(pval, NULL, rep);
+    res := jm_array_is_unique(pval, NULL, NULL);
   END IF;
   RETURN res;
 END;
@@ -463,7 +463,7 @@ BEGIN
       -- handle must title property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.3.title
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -471,7 +471,7 @@ BEGIN
       -- handle must key property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.3.key
-      res := json_model_7(pval, NULL, rep);
+      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -529,7 +529,7 @@ BEGIN
     IF val ? 'type' THEN
       tag_0 := val -> 'type';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
@@ -618,7 +618,7 @@ BEGIN
     FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_4_item := val -> arr_4_idx;
       -- .customCommands.'@'.0.prompts.0
-      res := json_model_10(arr_4_item, NULL, rep);
+      res := json_model_10(arr_4_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -683,7 +683,7 @@ BEGIN
       -- handle must key property
       must_count := must_count + 1;
       -- .customCommands.'@'.0.key
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -706,7 +706,7 @@ BEGIN
     ELSEIF _jm_obj_7_map(prop) IS NOT NULL THEN
       -- handle 7 may props
       pfun := _jm_obj_7_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -732,14 +732,14 @@ BEGIN
     FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_3_item := val -> arr_3_idx;
       -- .customCommands.'@'.0
-      res := _jm_obj_7(arr_3_item, NULL, rep);
+      res := _jm_obj_7(arr_3_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
   END IF;
   IF res THEN
-    res := jm_array_is_unique(val, path, rep);
+    res := jm_array_is_unique(val, NULL, NULL);
   END IF;
   RETURN res;
 END;
@@ -845,7 +845,7 @@ BEGIN
   END IF;
   pval := val -> 'pattern';
   -- .git.commitPrefixes.'/./'.pattern
-  res := json_model_8(pval, NULL, rep);
+  res := json_model_8(pval, NULL, NULL);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -854,7 +854,7 @@ BEGIN
   END IF;
   pval := val -> 'replace';
   -- .git.commitPrefixes.'/./'.replace
-  RETURN json_model_8(pval, NULL, rep);
+  RETURN json_model_8(pval, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -871,10 +871,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_re_1(prop, path, rep) THEN
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .git.commitPrefixes.'/./'
-      res := _jm_obj_8(pval, NULL, rep);
+      res := _jm_obj_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1117,7 +1117,7 @@ BEGIN
     IF _jm_f_10_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := _jm_f_10_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1150,10 +1150,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_re_1(prop, path, rep) THEN
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .gui.authorColors.'/./'
-      res := json_model_2(pval, NULL, rep);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1196,10 +1196,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_re_1(prop, path, rep) THEN
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .gui.branchColors.'/./'
-      res := json_model_2(pval, NULL, rep);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1490,7 +1490,7 @@ BEGIN
     IF _jm_f_52_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := _jm_f_52_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1553,7 +1553,7 @@ BEGIN
     IF _jm_f_26_map(prop) IS NOT NULL THEN
       -- handle 28 may props
       pfun := _jm_f_26_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1589,7 +1589,7 @@ BEGIN
     IF _jm_f_56_map(prop) IS NOT NULL THEN
       -- handle 13 may props
       pfun := _jm_f_56_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1616,7 +1616,7 @@ BEGIN
     IF prop = 'checkoutCommitFile' THEN
       -- handle may checkoutCommitFile property
       -- .keybinding.commitFiles.checkoutCommitFile
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1653,7 +1653,7 @@ BEGIN
     IF _jm_f_58_map(prop) IS NOT NULL THEN
       -- handle 21 may props
       pfun := _jm_f_58_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1689,7 +1689,7 @@ BEGIN
     IF _jm_f_59_map(prop) IS NOT NULL THEN
       -- handle 14 may props
       pfun := _jm_f_59_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1716,28 +1716,28 @@ BEGIN
     IF prop = 'toggleDragSelect' THEN
       -- handle may toggleDragSelect property
       -- .keybinding.main.toggleDragSelect
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'toggleDragSelect-alt' THEN
       -- handle may toggleDragSelect-alt property
       -- .keybinding.main.'toggleDragSelect-alt'
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'toggleSelectHunk' THEN
       -- handle may toggleSelectHunk property
       -- .keybinding.main.toggleSelectHunk
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'pickBothHunks' THEN
       -- handle may pickBothHunks property
       -- .keybinding.main.pickBothHunks
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1765,14 +1765,14 @@ BEGIN
     IF prop = 'popStash' THEN
       -- handle may popStash property
       -- .keybinding.stash.popStash
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'renameStash' THEN
       -- handle may renameStash property
       -- .keybinding.stash.renameStash
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1800,14 +1800,14 @@ BEGIN
     IF prop = 'checkForUpdate' THEN
       -- handle may checkForUpdate property
       -- .keybinding.status.checkForUpdate
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'recentRepos' THEN
       -- handle may recentRepos property
       -- .keybinding.status.recentRepos
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1835,21 +1835,21 @@ BEGIN
     IF prop = 'init' THEN
       -- handle may init property
       -- .keybinding.submodules.init
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'update' THEN
       -- handle may update property
       -- .keybinding.submodules.update
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'bulkMenu' THEN
       -- handle may bulkMenu property
       -- .keybinding.submodules.bulkMenu
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1904,7 +1904,7 @@ BEGIN
     IF _jm_f_64_map(prop) IS NOT NULL THEN
       -- handle 59 may props
       pfun := _jm_f_64_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1940,7 +1940,7 @@ BEGIN
     IF _jm_f_55_map(prop) IS NOT NULL THEN
       -- handle 9 may props
       pfun := _jm_f_55_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2067,7 +2067,7 @@ BEGIN
     IF _jm_f_68_map(prop) IS NOT NULL THEN
       -- handle 7 may props
       pfun := _jm_f_68_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2152,11 +2152,11 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_re_1(prop, path, rep) THEN
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .services.'/./'
       -- "/^[^:]+:[^:]+$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_2(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_2(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2238,7 +2238,7 @@ BEGIN
     IF json_model_1_map(prop) IS NOT NULL THEN
       -- handle 13 may props
       pfun := json_model_1_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE

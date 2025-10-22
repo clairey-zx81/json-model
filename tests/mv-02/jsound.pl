@@ -137,7 +137,7 @@ sub json_model_2($$$)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .'$Schema'.types.0
-                    $res = json_model_3($arr_0_item, undef, $rep);
+                    $res = json_model_3($arr_0_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -153,7 +153,7 @@ sub json_model_2($$$)
         {
             # handle may metadata property
             # .'$Schema'.metadata
-            $res = _jm_obj_0($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -182,7 +182,7 @@ sub json_model_3($$$)
         {
             my $tag_0 = $$val{'kind'};
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, $path, $rep);
+            $res = defined($fun_0) && &$fun_0($val, undef, undef);
         }
         else
         {
@@ -230,7 +230,7 @@ sub _jm_f_0($$$)
         {
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$Atomic'.enumeration.0
-            $res = json_model_5($arr_2_item, undef, $rep);
+            $res = json_model_5($arr_2_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -338,7 +338,7 @@ sub json_model_6($$$)
             # handle must baseType property
             $must_count++;
             # .'$Atomic'.baseType
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -347,7 +347,7 @@ sub json_model_6($$$)
         elsif (($pfun = $json_model_6_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -416,7 +416,7 @@ sub json_model_7($$$)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$Object'.content.0
-                    $res = json_model_8($arr_3_item, undef, $rep);
+                    $res = json_model_8($arr_3_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -476,7 +476,7 @@ sub json_model_8($$$)
             # handle must type property
             $must_count++;
             # .'$Fields'.type
-            $res = json_model_11($pval, undef, $rep);
+            $res = json_model_11($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -566,7 +566,7 @@ sub json_model_9($$$)
         {
             # handle may content property
             # .'$Array'.content
-            $res = json_model_11($pval, undef, $rep);
+            $res = json_model_11($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -649,7 +649,7 @@ sub json_model_10($$$)
                 {
                     my $arr_4_item = $$pval[$arr_4_idx];
                     # .'$Union'.content.0
-                    $res = json_model_11($arr_4_item, undef, $rep);
+                    $res = json_model_11($arr_4_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -686,7 +686,7 @@ sub json_model_11($$$)
     # .'$type-or-ref'
     # .'$type-or-ref'.'|'.0
     # .'$type-or-ref'.'|'.1
-    return jm_is_string($val) || json_model_3($val, $path, $rep);
+    return jm_is_string($val) || json_model_3($val, undef, undef);
 }
 
 # check $ (.)
@@ -694,7 +694,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, $path, $rep);
+    return json_model_2($val, undef, undef);
 }
 
 

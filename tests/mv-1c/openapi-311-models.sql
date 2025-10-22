@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi'
-  RETURN json_model_4(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -19,7 +19,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_4(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -36,7 +36,7 @@ CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[]
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#OpenAPI'.jsonModelVersion
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -54,7 +54,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$openapi#OpenAPI'.security.0
-      res := json_model_45(arr_0_item, NULL, rep);
+      res := json_model_45(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -78,7 +78,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$openapi#OpenAPI'.servers.0
-      res := json_model_8(arr_1_item, NULL, rep);
+      res := json_model_8(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -102,7 +102,7 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_2_item := val -> arr_2_idx;
       -- .'$openapi#OpenAPI'.tags.0
-      res := json_model_31(arr_2_item, NULL, rep);
+      res := json_model_31(arr_2_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -127,7 +127,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#OpenAPI'.webhooks.''
-    res := json_model_12(pval, NULL, rep);
+    res := json_model_12(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -166,7 +166,7 @@ BEGIN
       must_count := must_count + 1;
       -- .'$openapi#OpenAPI'.openapi
       -- "/^3\\.1\\.\\d+(-.+)?$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -174,14 +174,14 @@ BEGIN
       -- handle must info property
       must_count := must_count + 1;
       -- .'$openapi#OpenAPI'.info
-      res := json_model_5(pval, NULL, rep);
+      res := json_model_5(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_4_map(prop) IS NOT NULL THEN
       -- handle 8 may props
       pfun := json_model_4_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSEIF STARTS_WITH(prop, 'x-') THEN
@@ -251,14 +251,14 @@ BEGIN
     ELSEIF prop = 'contact' THEN
       -- handle may contact property
       -- .'$openapi#Info'.contact
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'license' THEN
       -- handle may license property
       -- .'$openapi#Info'.license
-      res := json_model_7(pval, NULL, rep);
+      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -297,7 +297,7 @@ BEGIN
     ELSEIF prop = 'url' THEN
       -- handle may url property
       -- .'$openapi#Contact'.url
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -354,11 +354,11 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$openapi#License'.'|'.1.url
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, path, rep) THEN
+    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$openapi#License'.'|'.1.'/^x\\-.*$/'
       res := TRUE;
@@ -400,7 +400,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, path, rep) THEN
+    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$openapi#License'.'|'.0.'/^x\\-.*$/'
       res := TRUE;
@@ -419,7 +419,7 @@ BEGIN
   -- .'$openapi#License'
   -- .'$openapi#License'.'|'.0
   -- .'$openapi#License'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, NULL, NULL) OR _jm_obj_0(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -437,7 +437,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Server'.variables.''
-    res := json_model_9(pval, NULL, rep);
+    res := json_model_9(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -465,7 +465,7 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$openapi#Server'.url
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -479,7 +479,7 @@ BEGIN
     ELSEIF prop = 'variables' THEN
       -- handle may variables property
       -- .'$openapi#Server'.variables
-      res := _jm_obj_2(pval, NULL, rep);
+      res := _jm_obj_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -573,7 +573,7 @@ BEGIN
     -- .'$openapi#Components'.callbacks.''
     -- .'$openapi#Components'.callbacks.''.'|'.0
     -- .'$openapi#Components'.callbacks.''.'|'.1
-    res := json_model_26(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -599,7 +599,7 @@ BEGIN
     -- .'$openapi#Components'.examples.''
     -- .'$openapi#Components'.examples.''.'|'.0
     -- .'$openapi#Components'.examples.''.'|'.1
-    res := json_model_27(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_27(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -625,7 +625,7 @@ BEGIN
     -- .'$openapi#Components'.headers.''
     -- .'$openapi#Components'.headers.''.'|'.0
     -- .'$openapi#Components'.headers.''.'|'.1
-    res := json_model_30(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_30(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -651,7 +651,7 @@ BEGIN
     -- .'$openapi#Components'.links.''
     -- .'$openapi#Components'.links.''.'|'.0
     -- .'$openapi#Components'.links.''.'|'.1
-    res := json_model_29(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_29(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -675,7 +675,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Components'.models.''
-    res := json_model_97(pval, NULL, rep);
+    res := json_model_97(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -701,7 +701,7 @@ BEGIN
     -- .'$openapi#Components'.parameters.''
     -- .'$openapi#Components'.parameters.''.'|'.0
     -- .'$openapi#Components'.parameters.''.'|'.1
-    res := json_model_20(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_20(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -727,7 +727,7 @@ BEGIN
     -- .'$openapi#Components'.pathItems.''
     -- .'$openapi#Components'.pathItems.''.'|'.0
     -- .'$openapi#Components'.pathItems.''.'|'.1
-    res := json_model_12(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_12(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -753,7 +753,7 @@ BEGIN
     -- .'$openapi#Components'.requestBodies.''
     -- .'$openapi#Components'.requestBodies.''.'|'.0
     -- .'$openapi#Components'.requestBodies.''.'|'.1
-    res := json_model_21(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_21(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -779,7 +779,7 @@ BEGIN
     -- .'$openapi#Components'.responses.''
     -- .'$openapi#Components'.responses.''.'|'.0
     -- .'$openapi#Components'.responses.''.'|'.1
-    res := json_model_25(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_25(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -805,7 +805,7 @@ BEGIN
     -- .'$openapi#Components'.securitySchemes.''
     -- .'$openapi#Components'.securitySchemes.''.'|'.0
     -- .'$openapi#Components'.securitySchemes.''.'|'.1
-    res := json_model_42(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_42(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -840,7 +840,7 @@ BEGIN
     IF json_model_10_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_10_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSEIF STARTS_WITH(prop, 'x-') THEN
@@ -871,7 +871,7 @@ BEGIN
     IF STARTS_WITH(prop, '/') THEN
       -- handle 2 re props
       -- .'$openapi#Paths'.'/^//'
-      res := json_model_12(pval, NULL, rep);
+      res := json_model_12(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -892,7 +892,7 @@ CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#PathItem'.'$ref'
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -921,7 +921,7 @@ BEGIN
       -- .'$openapi#PathItem'.parameters.0
       -- .'$openapi#PathItem'.parameters.0.'|'.0
       -- .'$openapi#PathItem'.parameters.0.'|'.1
-      res := json_model_20(arr_4_item, NULL, rep) OR json_model_32(arr_4_item, NULL, rep);
+      res := json_model_20(arr_4_item, NULL, NULL) OR json_model_32(arr_4_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -945,7 +945,7 @@ BEGIN
     FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_5_item := val -> arr_5_idx;
       -- .'$openapi#PathItem'.servers.0
-      res := json_model_13(arr_5_item, NULL, rep);
+      res := json_model_13(arr_5_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -990,7 +990,7 @@ BEGIN
     IF json_model_12_map(prop) IS NOT NULL THEN
       -- handle 13 may props
       pfun := json_model_12_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSEIF STARTS_WITH(prop, 'x-') THEN
@@ -1022,7 +1022,7 @@ BEGIN
     -- .'$openapi#Operation'.callbacks.''
     -- .'$openapi#Operation'.callbacks.''.'|'.0
     -- .'$openapi#Operation'.callbacks.''.'|'.1
-    res := json_model_26(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1074,7 +1074,7 @@ BEGIN
       -- .'$openapi#Operation'.parameters.0
       -- .'$openapi#Operation'.parameters.0.'|'.0
       -- .'$openapi#Operation'.parameters.0.'|'.1
-      res := json_model_20(arr_6_item, NULL, rep) OR json_model_32(arr_6_item, NULL, rep);
+      res := json_model_20(arr_6_item, NULL, NULL) OR json_model_32(arr_6_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1091,7 +1091,7 @@ BEGIN
   -- .'$openapi#Operation'.requestBody
   -- .'$openapi#Operation'.requestBody.'|'.0
   -- .'$openapi#Operation'.requestBody.'|'.1
-  RETURN json_model_21(val, path, rep) OR json_model_32(val, path, rep);
+  RETURN json_model_21(val, NULL, NULL) OR json_model_32(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1109,7 +1109,7 @@ BEGIN
     FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_7_item := val -> arr_7_idx;
       -- .'$openapi#Operation'.security.0
-      res := json_model_45(arr_7_item, NULL, rep);
+      res := json_model_45(arr_7_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1133,7 +1133,7 @@ BEGIN
     FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_8_item := val -> arr_8_idx;
       -- .'$openapi#Operation'.servers.0
-      res := json_model_8(arr_8_item, NULL, rep);
+      res := json_model_8(arr_8_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1202,7 +1202,7 @@ BEGIN
     IF json_model_13_map(prop) IS NOT NULL THEN
       -- handle 12 may props
       pfun := json_model_13_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSEIF STARTS_WITH(prop, 'x-') THEN
@@ -1236,7 +1236,7 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$openapi#ExternalDocumentation'.url
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1282,7 +1282,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Parameter'.'|'.1.content.''
-    res := json_model_22(pval, NULL, rep);
+    res := json_model_22(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1352,7 +1352,7 @@ BEGIN
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#Parameter'.'|'.1.content
-      res := _jm_obj_4(pval, NULL, rep);
+      res := _jm_obj_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1439,7 +1439,7 @@ BEGIN
     -- .'$openapi#Parameter'.'|'.0.examples.''
     -- .'$openapi#Parameter'.'|'.0.examples.''.'|'.0
     -- .'$openapi#Parameter'.'|'.0.examples.''.'|'.1
-    res := json_model_27(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_27(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1509,7 +1509,7 @@ BEGIN
     ELSEIF _jm_obj_5_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := _jm_obj_5_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSEIF STARTS_WITH(prop, 'x-') THEN
@@ -1531,7 +1531,7 @@ BEGIN
   -- .'$openapi#Parameter'
   -- .'$openapi#Parameter'.'|'.0
   -- .'$openapi#Parameter'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_5(val, path, rep) OR _jm_obj_3(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_5(val, NULL, NULL) OR _jm_obj_3(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1568,7 +1568,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#RequestBody'.content.''
-    res := json_model_22(pval, NULL, rep);
+    res := json_model_22(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1600,7 +1600,7 @@ BEGIN
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#RequestBody'.content
-      res := _jm_obj_6(pval, NULL, rep);
+      res := _jm_obj_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1639,7 +1639,7 @@ BEGIN
     -- .'$openapi#MediaType'.examples.''
     -- .'$openapi#MediaType'.examples.''.'|'.0
     -- .'$openapi#MediaType'.examples.''.'|'.1
-    res := json_model_27(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_27(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1662,7 +1662,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#MediaType'.encoding.''
-    res := json_model_23(pval, NULL, rep);
+    res := json_model_23(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1691,21 +1691,21 @@ BEGIN
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$openapi#MediaType'.examples
-      res := _jm_obj_7(pval, NULL, rep);
+      res := _jm_obj_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'encoding' THEN
       -- handle may encoding property
       -- .'$openapi#MediaType'.encoding
-      res := _jm_obj_8(pval, NULL, rep);
+      res := _jm_obj_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'model' THEN
       -- handle may model property
       -- .'$openapi#MediaType'.model
-      res := json_model_97(pval, NULL, rep);
+      res := json_model_97(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1737,7 +1737,7 @@ BEGIN
     -- .'$openapi#Encoding'.headers.''
     -- .'$openapi#Encoding'.headers.''.'|'.0
     -- .'$openapi#Encoding'.headers.''.'|'.1
-    res := json_model_30(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_30(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1769,14 +1769,14 @@ BEGIN
     ELSEIF prop = 'headers' THEN
       -- handle may headers property
       -- .'$openapi#Encoding'.headers
-      res := _jm_obj_9(pval, NULL, rep);
+      res := _jm_obj_9(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'style' THEN
       -- handle may style property
       -- .'$openapi#Encoding'.style
-      res := json_model_17(pval, NULL, rep);
+      res := json_model_17(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1832,16 +1832,16 @@ BEGIN
       -- .'$openapi#Responses'.default
       -- .'$openapi#Responses'.default.'|'.0
       -- .'$openapi#Responses'.default.'|'.1
-      res := json_model_25(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+      res := json_model_25(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_2(prop, path, rep) THEN
+    ELSEIF _jm_re_2(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
       -- .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
       -- .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-      res := json_model_25(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+      res := json_model_25(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1873,7 +1873,7 @@ BEGIN
     -- .'$openapi#Response'.headers.''
     -- .'$openapi#Response'.headers.''.'|'.0
     -- .'$openapi#Response'.headers.''.'|'.1
-    res := json_model_30(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_30(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1896,7 +1896,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Response'.content.''
-    res := json_model_22(pval, NULL, rep);
+    res := json_model_22(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1921,7 +1921,7 @@ BEGIN
     -- .'$openapi#Response'.links.''
     -- .'$openapi#Response'.links.''.'|'.0
     -- .'$openapi#Response'.links.''.'|'.1
-    res := json_model_29(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_29(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1953,21 +1953,21 @@ BEGIN
     ELSEIF prop = 'headers' THEN
       -- handle may headers property
       -- .'$openapi#Response'.headers
-      res := _jm_obj_10(pval, NULL, rep);
+      res := _jm_obj_10(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#Response'.content
-      res := _jm_obj_11(pval, NULL, rep);
+      res := _jm_obj_11(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'links' THEN
       -- handle may links property
       -- .'$openapi#Response'.links
-      res := _jm_obj_12(pval, NULL, rep);
+      res := _jm_obj_12(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1996,12 +1996,12 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF json_model_28(TO_JSONB(prop), NULL, rep) THEN
+    IF json_model_28(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$openapi#Callback'.'$Expression'
       -- .'$openapi#Callback'.'$Expression'.'|'.0
       -- .'$openapi#Callback'.'$Expression'.'|'.1
-      res := json_model_12(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+      res := json_model_12(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2110,7 +2110,7 @@ BEGIN
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$openapi#Link'.'|'.1.parameters
-      res := _jm_obj_14(pval, NULL, rep);
+      res := _jm_obj_14(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2128,7 +2128,7 @@ BEGIN
     ELSEIF prop = 'server' THEN
       -- handle may server property
       -- .'$openapi#Link'.'|'.1.server
-      res := json_model_8(pval, NULL, rep);
+      res := json_model_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2178,7 +2178,7 @@ BEGIN
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$openapi#Link'.'|'.0.parameters
-      res := _jm_obj_16(pval, NULL, rep);
+      res := _jm_obj_16(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2196,7 +2196,7 @@ BEGIN
     ELSEIF prop = 'server' THEN
       -- handle may server property
       -- .'$openapi#Link'.'|'.0.server
-      res := json_model_8(pval, NULL, rep);
+      res := json_model_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2219,7 +2219,7 @@ BEGIN
   -- .'$openapi#Link'
   -- .'$openapi#Link'.'|'.0
   -- .'$openapi#Link'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_15(val, path, rep) OR _jm_obj_13(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_15(val, NULL, NULL) OR _jm_obj_13(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2237,7 +2237,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Header'.'|'.1.content.''
-    res := json_model_22(pval, NULL, rep);
+    res := json_model_22(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2289,7 +2289,7 @@ BEGIN
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#Header'.'|'.1.content
-      res := _jm_obj_18(pval, NULL, rep);
+      res := _jm_obj_18(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2367,7 +2367,7 @@ BEGIN
     -- .'$openapi#Header'.'|'.0.examples.''
     -- .'$openapi#Header'.'|'.0.examples.''.'|'.0
     -- .'$openapi#Header'.'|'.0.examples.''.'|'.1
-    res := json_model_27(pval, NULL, rep) OR json_model_32(pval, NULL, rep);
+    res := json_model_27(pval, NULL, NULL) OR json_model_32(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2419,7 +2419,7 @@ BEGIN
     IF _jm_obj_19_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := _jm_obj_19_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSEIF STARTS_WITH(prop, 'x-') THEN
@@ -2442,7 +2442,7 @@ BEGIN
   -- .'$openapi#Header'
   -- .'$openapi#Header'.'|'.0
   -- .'$openapi#Header'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_19(val, path, rep) OR _jm_obj_17(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_19(val, NULL, NULL) OR _jm_obj_17(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2479,7 +2479,7 @@ BEGIN
     ELSEIF prop = 'externalDocs' THEN
       -- handle may externalDocs property
       -- .'$openapi#Tag'.externalDocs
-      res := json_model_14(pval, NULL, rep);
+      res := json_model_14(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2637,7 +2637,7 @@ BEGIN
       must_count := must_count + 1;
       -- .'$openapi#SecurityScheme'.'|'.1.scheme
       -- "/bearer/i"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_3(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_3(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2734,7 +2734,7 @@ BEGIN
       -- handle must flows property
       must_count := must_count + 1;
       -- .'$openapi#SecurityScheme'.'|'.3.flows
-      res := json_model_43(pval, NULL, rep);
+      res := json_model_43(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2779,7 +2779,7 @@ BEGIN
       -- handle must openIdConnectUrl property
       must_count := must_count + 1;
       -- .'$openapi#SecurityScheme'.'|'.4.openIdConnectUrl
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2846,7 +2846,7 @@ BEGIN
     IF val ? 'type' THEN
       tag_0 := val -> 'type';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
@@ -2855,7 +2855,7 @@ BEGIN
   END IF;
   -- .'$openapi#SecurityScheme'.'|'.5
   -- .'$openapi#SecurityScheme'.'|'.2
-  RETURN res OR _jm_obj_25(val, path, rep) OR _jm_obj_22(val, path, rep);
+  RETURN res OR _jm_obj_25(val, NULL, NULL) OR _jm_obj_22(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2875,28 +2875,28 @@ BEGIN
     IF prop = 'implicit' THEN
       -- handle may implicit property
       -- .'$openapi#OAuthFlows'.implicit
-      res := json_model_44(pval, NULL, rep);
+      res := json_model_44(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'password' THEN
       -- handle may password property
       -- .'$openapi#OAuthFlows'.password
-      res := json_model_44(pval, NULL, rep);
+      res := json_model_44(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'clientCredentials' THEN
       -- handle may clientCredentials property
       -- .'$openapi#OAuthFlows'.clientCredentials
-      res := json_model_44(pval, NULL, rep);
+      res := json_model_44(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'authorizationCode' THEN
       -- handle may authorizationCode property
       -- .'$openapi#OAuthFlows'.authorizationCode
-      res := json_model_44(pval, NULL, rep);
+      res := json_model_44(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2954,7 +2954,7 @@ BEGIN
       -- handle must authorizationUrl property
       must_count := must_count + 1;
       -- .'$openapi#OAuthFlow'.authorizationUrl
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2962,7 +2962,7 @@ BEGIN
       -- handle must tokenUrl property
       must_count := must_count + 1;
       -- .'$openapi#OAuthFlow'.tokenUrl
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2970,14 +2970,14 @@ BEGIN
       -- handle must scopes property
       must_count := must_count + 1;
       -- .'$openapi#OAuthFlow'.scopes
-      res := _jm_obj_26(pval, NULL, rep);
+      res := _jm_obj_26(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'refreshUrl' THEN
       -- handle may refreshUrl property
       -- .'$openapi#OAuthFlow'.refreshUrl
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3034,7 +3034,7 @@ CREATE OR REPLACE FUNCTION json_model_64(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#Model'
-  RETURN json_model_97(val, path, rep);
+  RETURN json_model_97(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3046,7 +3046,7 @@ BEGIN
   -- .'$openapi#model#Model'.'|'.0
   -- .'$openapi#model#Model'.'|'.1
   -- .'$openapi#model#Model'.'|'.2
-  RETURN json_model_96(val, path, rep) OR json_model_83(val, path, rep) OR json_model_93(val, path, rep);
+  RETURN json_model_96(val, NULL, NULL) OR json_model_83(val, NULL, NULL) OR json_model_93(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3064,7 +3064,7 @@ BEGIN
     FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_11_item := val -> arr_11_idx;
       -- .'$openapi#model#Array'.0
-      res := json_model_82(arr_11_item, NULL, rep);
+      res := json_model_82(arr_11_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -3081,7 +3081,7 @@ BEGIN
   -- .'$openapi#model#CModel'
   -- .'$openapi#model#CModel'.'|'.0
   -- .'$openapi#model#CModel'.'|'.1
-  RETURN json_model_97(val, path, rep) OR json_model_69(val, path, rep);
+  RETURN json_model_97(val, NULL, NULL) OR json_model_69(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3114,10 +3114,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_90(TO_JSONB(prop), NULL, rep) THEN
+    ELSEIF json_model_90(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$openapi#model#Element'.'|'.5.'$Prop'
-      res := json_model_97(pval, NULL, rep);
+      res := json_model_97(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3158,7 +3158,7 @@ BEGIN
         FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_12_item := pval -> arr_12_idx;
           -- .'$openapi#model#Element'.'|'.4.'+'.0
-          res := json_model_82(arr_12_item, NULL, rep);
+          res := json_model_82(arr_12_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -3211,7 +3211,7 @@ BEGIN
         FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_13_item := pval -> arr_13_idx;
           -- .'$openapi#model#Element'.'|'.3.'^'.0
-          res := json_model_82(arr_13_item, NULL, rep);
+          res := json_model_82(arr_13_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -3264,7 +3264,7 @@ BEGIN
         FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_14_item := pval -> arr_14_idx;
           -- .'$openapi#model#Element'.'|'.2.'&'.0
-          res := json_model_82(arr_14_item, NULL, rep);
+          res := json_model_82(arr_14_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -3317,7 +3317,7 @@ BEGIN
         FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_15_item := pval -> arr_15_idx;
           -- .'$openapi#model#Element'.'|'.1.'|'.0
-          res := json_model_82(arr_15_item, NULL, rep);
+          res := json_model_82(arr_15_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -3379,7 +3379,7 @@ BEGIN
       -- handle must @ property
       must_count := must_count + 1;
       -- .'$openapi#model#Element'.'|'.0.'@'
-      res := json_model_97(pval, NULL, rep);
+      res := json_model_97(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3401,17 +3401,17 @@ BEGIN
       -- handle 3 re props
       -- .'$openapi#model#Element'.'|'.0.'/^#/'
       res := TRUE;
-    ELSEIF _jm_re_4(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, NULL, NULL) THEN
       -- handle 3 re props
       -- .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
-      res := json_model_76(pval, NULL, rep);
+      res := json_model_76(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_5(prop, NULL, NULL) THEN
       -- handle 3 re props
       -- .'$openapi#model#Element'.'|'.0.'/^(=|!=)$/'
-      res := json_model_77(pval, NULL, rep);
+      res := json_model_77(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3434,7 +3434,7 @@ BEGIN
   -- .'$openapi#model#Element'.'|'.3
   -- .'$openapi#model#Element'.'|'.4
   -- .'$openapi#model#Element'.'|'.5
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_32(val, path, rep) OR _jm_obj_31(val, path, rep) OR _jm_obj_30(val, path, rep) OR _jm_obj_29(val, path, rep) OR _jm_obj_28(val, path, rep) OR _jm_obj_27(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_32(val, NULL, NULL) OR _jm_obj_31(val, NULL, NULL) OR _jm_obj_30(val, NULL, NULL) OR _jm_obj_29(val, NULL, NULL) OR _jm_obj_28(val, NULL, NULL) OR _jm_obj_27(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3458,7 +3458,7 @@ BEGIN
   -- .'$openapi#model#EqValue'.'|'.0
   -- .'$openapi#model#EqValue'.'|'.1
   -- .'$openapi#model#EqValue'.'|'.2
-  RETURN JSONB_TYPEOF(val) = 'null' OR JSONB_TYPEOF(val) = 'boolean' OR json_model_76(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'null' OR JSONB_TYPEOF(val) = 'boolean' OR json_model_76(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3482,7 +3482,7 @@ BEGIN
   -- .'$openapi#model#Prop'.'|'.3
   -- .'$openapi#model#Prop'.'|'.4
   -- .'$openapi#model#Prop'.'|'.5
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_6(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR json_model_73(val, path, rep) OR json_model_74(val, path, rep) OR json_model_71(val, path, rep) OR json_model_75(val, path, rep) OR JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '';
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_6(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL) OR json_model_73(val, NULL, NULL) OR json_model_74(val, NULL, NULL) OR json_model_71(val, NULL, NULL) OR json_model_75(val, NULL, NULL) OR JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3500,7 +3500,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#model#Ref'
   -- "/^\\$./"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_7(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_7(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3518,7 +3518,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#model#StrConst'
   -- "/^[A-Za-z0-9_]/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_8(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_8(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3541,7 +3541,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   extract := match[1];
-  IF NOT jm_is_valid_regex(extract, path, rep) THEN
+  IF NOT jm_is_valid_regex(extract, NULL, NULL) THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -3567,7 +3567,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   extract := match[1];
-  IF NOT jm_is_valid_extreg(extract, path, rep) THEN
+  IF NOT jm_is_valid_extreg(extract, NULL, NULL) THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -3583,7 +3583,7 @@ BEGIN
   -- "/^/($EXREG)/[a-z]*X[a-z]*$/X"
   -- .'$openapi#model#Regex'.'|'.1
   -- "/^/($REGEX)/[a-z]*$/X"
-  RETURN JSONB_TYPEOF(val) = 'string' AND (_jm_xre_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep) OR _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep));
+  RETURN JSONB_TYPEOF(val) = 'string' AND (_jm_xre_1(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL) OR _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3601,7 +3601,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#model#Name'
   -- "/^\\..+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_9(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_9(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3612,7 +3612,7 @@ BEGIN
   -- .'$openapi#model#ScalarModel'
   -- .'$openapi#model#ScalarModel'.'|'.0
   -- .'$openapi#model#ScalarModel'.'|'.1
-  RETURN json_model_78(val, path, rep) OR json_model_79(val, path, rep);
+  RETURN json_model_78(val, NULL, NULL) OR json_model_79(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3645,7 +3645,7 @@ BEGIN
   -- .'$openapi#model#StrModel'.'|'.3
   -- .'$openapi#model#StrModel'.'|'.4
   -- .'$openapi#model#StrModel'.'|'.5
-  RETURN json_model_73(val, path, rep) OR json_model_72(val, path, rep) OR json_model_74(val, path, rep) OR json_model_67(val, path, rep) OR json_model_71(val, path, rep) OR JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '';
+  RETURN json_model_73(val, NULL, NULL) OR json_model_72(val, NULL, NULL) OR json_model_74(val, NULL, NULL) OR json_model_67(val, NULL, NULL) OR json_model_71(val, NULL, NULL) OR JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3681,7 +3681,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#model#ValConst'
   -- "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_10(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_10(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

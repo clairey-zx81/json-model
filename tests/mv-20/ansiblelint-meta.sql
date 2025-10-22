@@ -2555,7 +2555,7 @@ BEGIN
   -- .'$any_platform'.'|'.44
   -- .'$any_platform'.'|'.45
   -- .'$any_platform'.'|'.46
-  RETURN json_model_2(val, path, rep) OR json_model_3(val, path, rep) OR json_model_5(val, path, rep) OR json_model_4(val, path, rep) OR json_model_42(val, path, rep) OR json_model_6(val, path, rep) OR json_model_7(val, path, rep) OR json_model_8(val, path, rep) OR json_model_9(val, path, rep) OR json_model_28(val, path, rep) OR json_model_10(val, path, rep) OR json_model_11(val, path, rep) OR json_model_12(val, path, rep) OR json_model_13(val, path, rep) OR json_model_14(val, path, rep) OR json_model_43(val, path, rep) OR json_model_15(val, path, rep) OR json_model_16(val, path, rep) OR json_model_17(val, path, rep) OR json_model_18(val, path, rep) OR json_model_19(val, path, rep) OR json_model_20(val, path, rep) OR json_model_21(val, path, rep) OR json_model_22(val, path, rep) OR json_model_23(val, path, rep) OR json_model_24(val, path, rep) OR json_model_44(val, path, rep) OR json_model_25(val, path, rep) OR json_model_26(val, path, rep) OR json_model_27(val, path, rep) OR json_model_29(val, path, rep) OR json_model_45(val, path, rep) OR json_model_30(val, path, rep) OR json_model_31(val, path, rep) OR json_model_46(val, path, rep) OR json_model_32(val, path, rep) OR json_model_33(val, path, rep) OR json_model_34(val, path, rep) OR json_model_35(val, path, rep) OR json_model_36(val, path, rep) OR json_model_37(val, path, rep) OR json_model_38(val, path, rep) OR json_model_39(val, path, rep) OR json_model_47(val, path, rep) OR json_model_40(val, path, rep) OR json_model_48(val, path, rep) OR json_model_41(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL) OR json_model_3(val, NULL, NULL) OR json_model_5(val, NULL, NULL) OR json_model_4(val, NULL, NULL) OR json_model_42(val, NULL, NULL) OR json_model_6(val, NULL, NULL) OR json_model_7(val, NULL, NULL) OR json_model_8(val, NULL, NULL) OR json_model_9(val, NULL, NULL) OR json_model_28(val, NULL, NULL) OR json_model_10(val, NULL, NULL) OR json_model_11(val, NULL, NULL) OR json_model_12(val, NULL, NULL) OR json_model_13(val, NULL, NULL) OR json_model_14(val, NULL, NULL) OR json_model_43(val, NULL, NULL) OR json_model_15(val, NULL, NULL) OR json_model_16(val, NULL, NULL) OR json_model_17(val, NULL, NULL) OR json_model_18(val, NULL, NULL) OR json_model_19(val, NULL, NULL) OR json_model_20(val, NULL, NULL) OR json_model_21(val, NULL, NULL) OR json_model_22(val, NULL, NULL) OR json_model_23(val, NULL, NULL) OR json_model_24(val, NULL, NULL) OR json_model_44(val, NULL, NULL) OR json_model_25(val, NULL, NULL) OR json_model_26(val, NULL, NULL) OR json_model_27(val, NULL, NULL) OR json_model_29(val, NULL, NULL) OR json_model_45(val, NULL, NULL) OR json_model_30(val, NULL, NULL) OR json_model_31(val, NULL, NULL) OR json_model_46(val, NULL, NULL) OR json_model_32(val, NULL, NULL) OR json_model_33(val, NULL, NULL) OR json_model_34(val, NULL, NULL) OR json_model_35(val, NULL, NULL) OR json_model_36(val, NULL, NULL) OR json_model_37(val, NULL, NULL) OR json_model_38(val, NULL, NULL) OR json_model_39(val, NULL, NULL) OR json_model_47(val, NULL, NULL) OR json_model_40(val, NULL, NULL) OR json_model_48(val, NULL, NULL) OR json_model_41(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4929,7 +4929,7 @@ BEGIN
       -- .'$platforms'.0.'|'.44
       -- .'$platforms'.0.'|'.45
       -- .'$platforms'.0.'|'.46
-      res := JSONB_TYPEOF(arr_47_item) = 'object' AND (_jm_obj_46(arr_47_item, NULL, rep) OR _jm_obj_45(arr_47_item, NULL, rep) OR _jm_obj_44(arr_47_item, NULL, rep) OR _jm_obj_43(arr_47_item, NULL, rep) OR _jm_obj_42(arr_47_item, NULL, rep) OR _jm_obj_41(arr_47_item, NULL, rep) OR _jm_obj_40(arr_47_item, NULL, rep) OR _jm_obj_39(arr_47_item, NULL, rep) OR _jm_obj_38(arr_47_item, NULL, rep) OR _jm_obj_37(arr_47_item, NULL, rep) OR _jm_obj_36(arr_47_item, NULL, rep) OR _jm_obj_35(arr_47_item, NULL, rep) OR _jm_obj_34(arr_47_item, NULL, rep) OR _jm_obj_33(arr_47_item, NULL, rep) OR _jm_obj_32(arr_47_item, NULL, rep) OR _jm_obj_31(arr_47_item, NULL, rep) OR _jm_obj_30(arr_47_item, NULL, rep) OR _jm_obj_29(arr_47_item, NULL, rep) OR _jm_obj_28(arr_47_item, NULL, rep) OR _jm_obj_27(arr_47_item, NULL, rep) OR _jm_obj_26(arr_47_item, NULL, rep) OR _jm_obj_25(arr_47_item, NULL, rep) OR _jm_obj_24(arr_47_item, NULL, rep) OR _jm_obj_23(arr_47_item, NULL, rep) OR _jm_obj_22(arr_47_item, NULL, rep) OR _jm_obj_21(arr_47_item, NULL, rep) OR _jm_obj_20(arr_47_item, NULL, rep) OR _jm_obj_19(arr_47_item, NULL, rep) OR _jm_obj_18(arr_47_item, NULL, rep) OR _jm_obj_17(arr_47_item, NULL, rep) OR _jm_obj_16(arr_47_item, NULL, rep) OR _jm_obj_15(arr_47_item, NULL, rep) OR _jm_obj_14(arr_47_item, NULL, rep) OR _jm_obj_13(arr_47_item, NULL, rep) OR _jm_obj_12(arr_47_item, NULL, rep) OR _jm_obj_11(arr_47_item, NULL, rep) OR _jm_obj_10(arr_47_item, NULL, rep) OR _jm_obj_9(arr_47_item, NULL, rep) OR _jm_obj_8(arr_47_item, NULL, rep) OR _jm_obj_7(arr_47_item, NULL, rep) OR _jm_obj_6(arr_47_item, NULL, rep) OR _jm_obj_5(arr_47_item, NULL, rep) OR _jm_obj_4(arr_47_item, NULL, rep) OR _jm_obj_3(arr_47_item, NULL, rep) OR _jm_obj_2(arr_47_item, NULL, rep) OR _jm_obj_1(arr_47_item, NULL, rep) OR _jm_obj_0(arr_47_item, NULL, rep));
+      res := JSONB_TYPEOF(arr_47_item) = 'object' AND (_jm_obj_46(arr_47_item, NULL, NULL) OR _jm_obj_45(arr_47_item, NULL, NULL) OR _jm_obj_44(arr_47_item, NULL, NULL) OR _jm_obj_43(arr_47_item, NULL, NULL) OR _jm_obj_42(arr_47_item, NULL, NULL) OR _jm_obj_41(arr_47_item, NULL, NULL) OR _jm_obj_40(arr_47_item, NULL, NULL) OR _jm_obj_39(arr_47_item, NULL, NULL) OR _jm_obj_38(arr_47_item, NULL, NULL) OR _jm_obj_37(arr_47_item, NULL, NULL) OR _jm_obj_36(arr_47_item, NULL, NULL) OR _jm_obj_35(arr_47_item, NULL, NULL) OR _jm_obj_34(arr_47_item, NULL, NULL) OR _jm_obj_33(arr_47_item, NULL, NULL) OR _jm_obj_32(arr_47_item, NULL, NULL) OR _jm_obj_31(arr_47_item, NULL, NULL) OR _jm_obj_30(arr_47_item, NULL, NULL) OR _jm_obj_29(arr_47_item, NULL, NULL) OR _jm_obj_28(arr_47_item, NULL, NULL) OR _jm_obj_27(arr_47_item, NULL, NULL) OR _jm_obj_26(arr_47_item, NULL, NULL) OR _jm_obj_25(arr_47_item, NULL, NULL) OR _jm_obj_24(arr_47_item, NULL, NULL) OR _jm_obj_23(arr_47_item, NULL, NULL) OR _jm_obj_22(arr_47_item, NULL, NULL) OR _jm_obj_21(arr_47_item, NULL, NULL) OR _jm_obj_20(arr_47_item, NULL, NULL) OR _jm_obj_19(arr_47_item, NULL, NULL) OR _jm_obj_18(arr_47_item, NULL, NULL) OR _jm_obj_17(arr_47_item, NULL, NULL) OR _jm_obj_16(arr_47_item, NULL, NULL) OR _jm_obj_15(arr_47_item, NULL, NULL) OR _jm_obj_14(arr_47_item, NULL, NULL) OR _jm_obj_13(arr_47_item, NULL, NULL) OR _jm_obj_12(arr_47_item, NULL, NULL) OR _jm_obj_11(arr_47_item, NULL, NULL) OR _jm_obj_10(arr_47_item, NULL, NULL) OR _jm_obj_9(arr_47_item, NULL, NULL) OR _jm_obj_8(arr_47_item, NULL, NULL) OR _jm_obj_7(arr_47_item, NULL, NULL) OR _jm_obj_6(arr_47_item, NULL, NULL) OR _jm_obj_5(arr_47_item, NULL, NULL) OR _jm_obj_4(arr_47_item, NULL, NULL) OR _jm_obj_3(arr_47_item, NULL, NULL) OR _jm_obj_2(arr_47_item, NULL, NULL) OR _jm_obj_1(arr_47_item, NULL, NULL) OR _jm_obj_0(arr_47_item, NULL, NULL));
       IF NOT res THEN
         EXIT;
       END IF;
@@ -4995,7 +4995,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$GalaxyInfoModelCollection'.namespace
   -- "/^[a-z][-a-z0-9_]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5013,7 +5013,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$GalaxyInfoModelCollection'.role_name
   -- "/^[a-z][a-z0-9_]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5051,7 +5051,7 @@ BEGIN
     IF json_model_51_map(prop) IS NOT NULL THEN
       -- handle 7 may props
       pfun := json_model_51_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -5153,7 +5153,7 @@ BEGIN
     ELSEIF json_model_52_map(prop) IS NOT NULL THEN
       -- handle 6 may props
       pfun := json_model_52_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -5239,7 +5239,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$GalaxyInfoModelStandalone'.namespace
   -- "/^[a-z][-a-z0-9_]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5249,7 +5249,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$GalaxyInfoModelStandalone'.role_name
   -- "/^[a-z][a-z0-9_]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5330,7 +5330,7 @@ BEGIN
     ELSEIF json_model_53_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_53_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -5443,7 +5443,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$GalaxyInfoModel'.'|'.1.namespace
   -- "/^[a-z][-a-z0-9_]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5453,7 +5453,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$GalaxyInfoModel'.'|'.1.role_name
   -- "/^[a-z][a-z0-9_]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5509,7 +5509,7 @@ BEGIN
     ELSEIF _jm_obj_47_map(prop) IS NOT NULL THEN
       -- handle 13 may props
       pfun := _jm_obj_47_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -5622,7 +5622,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$GalaxyInfoModel'.'|'.2.namespace
   -- "/^[a-z][-a-z0-9_]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5632,7 +5632,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$GalaxyInfoModel'.'|'.2.role_name
   -- "/^[a-z][a-z0-9_]+$/"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5680,7 +5680,7 @@ BEGIN
     ELSEIF _jm_obj_48_map(prop) IS NOT NULL THEN
       -- handle 13 may props
       pfun := _jm_obj_48_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -5709,7 +5709,7 @@ BEGIN
     IF val ? 'standalone' THEN
       tag_0 := val -> 'standalone';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
@@ -5717,7 +5717,7 @@ BEGIN
     NULL;
   END IF;
   -- .'$GalaxyInfoModel'.'|'.2
-  RETURN res OR _jm_obj_48(val, path, rep);
+  RETURN res OR _jm_obj_48(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -5744,7 +5744,7 @@ BEGIN
       arr_99_item := val -> arr_99_idx;
       -- .'$collections'.0
       -- "/^[a-z_]+\\.[a-z_]+$/"
-      res := JSONB_TYPEOF(arr_99_item) = 'string' AND _jm_re_2(JSON_VALUE(arr_99_item, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(arr_99_item) = 'string' AND _jm_re_2(JSON_VALUE(arr_99_item, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -5917,7 +5917,7 @@ BEGIN
     IF json_model_57_map(prop) IS NOT NULL THEN
       -- handle 9 may props
       pfun := json_model_57_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -6000,7 +6000,7 @@ BEGIN
   -- .'$DependencyModel'.'&'.1.'|'.0
   -- .'$DependencyModel'.'&'.1.'|'.1
   -- .'$DependencyModel'.'&'.1.'|'.2
-  RETURN json_model_57(val, path, rep) AND JSONB_TYPEOF(val) = 'object' AND (_jm_obj_51(val, path, rep) OR _jm_obj_50(val, path, rep) OR _jm_obj_49(val, path, rep));
+  RETURN json_model_57(val, NULL, NULL) AND JSONB_TYPEOF(val) = 'object' AND (_jm_obj_51(val, NULL, NULL) OR _jm_obj_50(val, NULL, NULL) OR _jm_obj_49(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -6029,7 +6029,7 @@ BEGIN
     ELSEIF prop = 'collections' THEN
       -- handle may collections property
       -- .'$AnsibleMetaObj'.collections
-      res := json_model_55(pval, NULL, rep);
+      res := json_model_55(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -6043,7 +6043,7 @@ BEGIN
           -- .'$AnsibleMetaObj'.dependencies.0
           -- .'$AnsibleMetaObj'.dependencies.0.'|'.0
           -- .'$AnsibleMetaObj'.dependencies.0.'|'.1
-          res := JSONB_TYPEOF(arr_102_item) = 'string' OR json_model_58(arr_102_item, NULL, rep);
+          res := JSONB_TYPEOF(arr_102_item) = 'string' OR json_model_58(arr_102_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -6055,7 +6055,7 @@ BEGIN
     ELSEIF prop = 'galaxy_info' THEN
       -- handle may galaxy_info property
       -- .'$AnsibleMetaObj'.galaxy_info
-      res := json_model_54(pval, NULL, rep);
+      res := json_model_54(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -6075,7 +6075,7 @@ BEGIN
   -- .'$AnsibleMeta'
   -- .'$AnsibleMeta'.'|'.0
   -- .'$AnsibleMeta'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'null' OR json_model_59(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'null' OR json_model_59(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -6084,7 +6084,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_60(val, path, rep);
+  RETURN json_model_60(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

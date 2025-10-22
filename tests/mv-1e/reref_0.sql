@@ -42,11 +42,11 @@ BEGIN
     RETURN FALSE;
   END IF;
   extract := match[1];
-  IF NOT json_model_2(TO_JSONB(extract), path, rep) THEN
+  IF NOT json_model_2(TO_JSONB(extract), NULL, NULL) THEN
     RETURN FALSE;
   END IF;
   extract := match[2];
-  IF NOT json_model_2(TO_JSONB(extract), path, rep) THEN
+  IF NOT json_model_2(TO_JSONB(extract), NULL, NULL) THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -59,7 +59,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
   -- "/'($character:\\w+)'.*'($character:\\w+)'/X"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

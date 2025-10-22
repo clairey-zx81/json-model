@@ -12,7 +12,7 @@ BEGIN
   -- .'$ex5'
   -- .'$ex5'.'|'.0
   -- .'$ex5'.'|'.1
-  RETURN json_model_5(val, path, rep) OR json_model_6(val, path, rep);
+  RETURN json_model_5(val, NULL, NULL) OR json_model_6(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -35,13 +35,13 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'array' AND JSONB_ARRAY_LENGTH(val) = 3;
   IF res THEN
     -- .0
-    res := json_model_5(val -> 0, NULL, rep);
+    res := json_model_5(val -> 0, NULL, NULL);
     IF res THEN
       -- .1
-      res := json_model_6(val -> 1, NULL, rep);
+      res := json_model_6(val -> 1, NULL, NULL);
       IF res THEN
         -- .2
-        res := json_model_3(val -> 2, NULL, rep);
+        res := json_model_3(val -> 2, NULL, NULL);
       END IF;
     END IF;
   END IF;

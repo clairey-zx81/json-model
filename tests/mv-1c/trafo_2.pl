@@ -23,7 +23,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Zz'
-    return json_model_6($val, $path, $rep);
+    return json_model_6($val, undef, undef);
 }
 
 # check $z (.'$z')
@@ -31,7 +31,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$z'
-    return json_model_6($val, $path, $rep);
+    return json_model_6($val, undef, undef);
 }
 
 # check $l (.'$l')
@@ -46,7 +46,7 @@ sub json_model_4($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$l'.0
-            $res = json_model_6($arr_0_item, undef, $rep);
+            $res = json_model_6($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -61,7 +61,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_4($val, $path, $rep);
+    return json_model_4($val, undef, undef);
 }
 
 # check $Zz#zero (.'$Zz#zero')

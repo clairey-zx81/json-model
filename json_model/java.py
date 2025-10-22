@@ -81,6 +81,12 @@ class Java(Language):
     #
     # inlined type test expressions about JSON data
     #
+    def rep(self) -> str:
+        return "rep" if self._with_report else "null"
+
+    def path(self, p: str) -> str:
+        return p if self._with_path else "null"
+
     def is_num(self, var: Var) -> BoolExpr:
         return f"json.isNumber({var})"
 
@@ -191,8 +197,8 @@ class Java(Language):
     def check_call(self, name: Var, val: JsonExpr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
         val = f"json.strToJSON({val})" if is_raw else val
-        return f"{name}.call({val}, {path}, rep)" if is_ptr else \
-               f"{name}({val}, {path}, rep)"
+        return f"{name}.call({val}, {self.path(path)}, {self.rep()})" if is_ptr else \
+               f"{name}({val}, {self.path(path)}, {self.rep()})"
 
     #
     # inlined length computation
@@ -219,7 +225,7 @@ class Java(Language):
         return f"{val}.endsWith({self.esc(end)})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"rt.array_is_unique({val}, {path}, rep)"
+        return f"rt.array_is_unique({val}, {self.path(path)}, {self.rep()})"
 
     CMP_OPS = {
         "=": "json_model.Runtime.Operator.EQ",
@@ -232,7 +238,7 @@ class Java(Language):
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         """Call inefficient type-unaware constraint check."""
-        return f"rt.check_constraint({val}, {self.CMP_OPS[op]}, {self.json_cst(vop)}, {path}, rep)"
+        return f"rt.check_constraint({val}, {self.CMP_OPS[op]}, {self.json_cst(vop)}, {self.path(path)}, {self.rep()})"
 
     #
     # inline comparison expressions for strings
@@ -273,7 +279,7 @@ class Java(Language):
         return "rep != null"
 
     def report(self, msg: str, path: Var) -> Block:
-        return ([ f"if (rep != null) rep.addEntry({self.esc(msg)}, {path});" ]
+        return ([ f"if (rep != null) rep.addEntry({self.esc(msg)}, {self.path(path)});" ]
                 if self._with_report else [])
 
     def clean_report(self) -> Block:

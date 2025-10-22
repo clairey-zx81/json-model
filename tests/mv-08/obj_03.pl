@@ -28,7 +28,7 @@ sub json_model_3($$$)
     # .'$foo'.'|'.1
     # .'$foo'.'|'.2
     # .'$foo'.'|'.3
-    return json_model_4($val, $path, $rep) || json_model_5($val, $path, $rep) || json_model_6($val, $path, $rep) || json_model_7($val, $path, $rep);
+    return json_model_4($val, undef, undef) || json_model_5($val, undef, undef) || json_model_6($val, undef, undef) || json_model_7($val, undef, undef);
 }
 
 # check $ (.)
@@ -36,7 +36,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_5($val, $path, $rep);
+    return json_model_5($val, undef, undef);
 }
 
 # check $foo#li0 (.'$foo#li0')
@@ -73,7 +73,7 @@ sub json_model_5($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$foo#ls0'.0
-            $res = jm_is_string($arr_1_item) && jm_is_valid_date($arr_1_item, undef, $rep);
+            $res = jm_is_string($arr_1_item) && jm_is_valid_date($arr_1_item, undef, undef);
             if (! $res)
             {
                 last;

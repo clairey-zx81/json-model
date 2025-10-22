@@ -42,7 +42,7 @@ sub json_model_2($$$)
         # .'$a'.''
         # .'$a'.''.'|'.0
         # .'$a'.''.'|'.1
-        $res = json_model_3($pval, undef, $rep) || _jm_obj_0($pval, undef, $rep);
+        $res = json_model_3($pval, undef, undef) || _jm_obj_0($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -65,7 +65,7 @@ sub json_model_3($$$)
     # .'$r'
     # .'$r'.'|'.0
     # .'$r'.'|'.1
-    return json_model_2($val, $path, $rep) || _jm_obj_1($val, $path, $rep);
+    return json_model_2($val, undef, undef) || _jm_obj_1($val, undef, undef);
 }
 
 # check $ (.)
@@ -73,7 +73,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_3($val, $path, $rep);
+    return json_model_3($val, undef, undef);
 }
 
 

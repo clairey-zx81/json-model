@@ -61,7 +61,7 @@ sub json_model_1($$$)
             # handle may some property
             # .some
             # "/./"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;

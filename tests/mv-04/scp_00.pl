@@ -49,7 +49,7 @@ sub json_model_1($$$)
         {
             # handle may a property
             # .a
-            $res = json_model_3($pval, undef, $rep);
+            $res = json_model_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;

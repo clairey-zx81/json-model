@@ -23,7 +23,7 @@ DECLARE
 BEGIN
   -- .
   -- .'@'
-  res := _jm_obj_0(val, path, rep);
+  res := _jm_obj_0(val, NULL, NULL);
   IF res THEN
     ival_0 := jm_object_size(val);
     res := ival_0 <= 3 AND ival_0 >= 2;

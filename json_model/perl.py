@@ -27,6 +27,12 @@ class Perl(Language):
     def esc(self, s: str) -> StrExpr:
         return "'" + s.replace("'", r"\'") + "'"
 
+    def rep(self) -> str:
+        return "$rep" if self._with_report else "undef"
+
+    def path(self, p: str) -> str:
+        return p if self._with_path else "undef"
+
     def is_num(self, var: Var) -> BoolExpr:
         var = f"${var}" if self.is_a_var(var) else var
         return f"jm_is_numeric({var})"
@@ -96,31 +102,33 @@ class Perl(Language):
         is_str_and  = self.is_a(var, str) + " && "  # type: ignore
         var, path = self._val(var), self._val(path)  # type: ignore
         if name in ("$URL", "$URI"):  # approximate
-            return is_str_and + f"jm_is_valid_url({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_url({var}, {self.path(path)}, {self.rep()})"
         elif name == "$DATE":
-            return is_str_and + f"jm_is_valid_date({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_date({var}, {self.path(path)}, {self.rep()})"
         elif name == "$TIME":
-            return is_str_and + f"jm_is_valid_time({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_time({var}, {self.path(path)}, {self.rep()})"
         elif name == "$DATETIME":
-            return is_str_and + f"jm_is_valid_datetime({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_datetime({var}, {self.path(path)}, {self.rep()})"
         elif name == "$REGEX":
-            return is_str_and + f"jm_is_valid_regex({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_regex({var}, {self.path(path)}, {self.rep()})"
         elif name == "$EXREG":
-            return is_str_and + f"jm_is_valid_exreg({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_exreg({var}, {self.path(path)}, {self.rep()})"
         elif name == "$UUID":
-            return is_str_and + f"jm_is_valid_uuid({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_uuid({var}, {self.path(path)}, {self.rep()})"
         elif name == "$EMAIL":
-            return is_str_and + f"jm_is_valid_email({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_email({var}, {self.path(path)}, {self.rep()})"
         elif name == "$JSON":
-            return is_str_and + f"jm_is_valid_json({var}, {path}, $rep)"
+            return is_str_and + f"jm_is_valid_json({var}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str)
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"jm_is_unique_array(${val}, {self._val(path)}, $rep)"
+        path = self.path(self._val(path))
+        return f"jm_is_unique_array(${val}, {path}, {self.rep()})"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"jm_check_constraint({self._val(val)}, {self.esc(op)}, {self.const(vop)}, {self._val(path)}, $rep)"
+        path = self.path(self._val(path))
+        return f"jm_check_constraint({self._val(val)}, {self.esc(op)}, {self.const(vop)}, {path}, {self.rep()})"
 
     def file_header(self, exe: bool = True) -> Block:
         code: Block = self.file_load("perl_exe.pl") if exe else []
@@ -143,7 +151,7 @@ class Perl(Language):
         return code
 
     def clean_report(self) -> Block:
-        return [ "defined $rep && $rep = [];" ]
+        return [ "defined $rep && $rep = [];" ] if self._with_report else []
 
     def nope(self) -> Block:
         return [ ";" ]
@@ -229,19 +237,19 @@ class Perl(Language):
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
         # FIXME is_ptr, is_raw
         val = f"${val}" if self.is_a_var(val) else val
-        path = f"${path}" if self.is_a_var(path) else path
+        path = self.path(f"${path}" if self.is_a_var(path) else path)
         name = f"&${name}" if is_ptr else name
-        return f"{name}({val}, {path}, $rep)"
+        return f"{name}({val}, {path}, {self.rep()})"
 
     def str_check_call(self, name: str, val: StrExpr, path: Var) -> BoolExpr:
         return self.check_call(name, val, path)
 
     def is_reporting(self) -> BoolExpr:
-        return "defined $rep"
+        return "defined $rep" if self._with_report else "0"
 
     def report(self, msg: str, path: Var) -> Block:
         # FIXME probably need to copy path
-        path = f"${path}" if self.is_a_var(path) else path
+        path = self.path(f"${path}" if self.is_a_var(path) else path)
         return [ f"push @$rep, [{self.esc(msg)}, {path}] if defined $rep;" ] \
             if self._with_report else []
 

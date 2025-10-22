@@ -92,12 +92,12 @@ BEGIN
   -- generic xor list
   xc_0 := 0;
   -- .'^'.0
-  xr_0 := _jm_obj_0(val, path, rep);
+  xr_0 := _jm_obj_0(val, NULL, NULL);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
   -- .'^'.1
-  xr_0 := _jm_obj_1(val, path, rep);
+  xr_0 := _jm_obj_1(val, NULL, NULL);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;

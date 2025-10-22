@@ -125,7 +125,7 @@ public class a2m_1 extends ModelChecker
         // .'$nomerge'
         // .'$nomerge'.'&'.0
         // .'$nomerge'.'&'.1
-        return json_model_2(val, path, rep) && _jm_obj_0(val, path, rep);
+        return json_model_2(val, null, null) && _jm_obj_0(val, null, null);
     }
 
     // check $ (.)
@@ -134,7 +134,7 @@ public class a2m_1 extends ModelChecker
         // .
         // .'|'.0
         // .'|'.1
-        return json_model_4(val, path, rep) || json_model_5(val, path, rep);
+        return json_model_4(val, null, null) || json_model_5(val, null, null);
     }
 
 

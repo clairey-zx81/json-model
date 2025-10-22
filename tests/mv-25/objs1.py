@@ -40,7 +40,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         for arr_0_idx, arr_0_item in enumerate(pval):
             # .'$objs0'.stuff.0
-            res = json_model_6(arr_0_item, None, rep)
+            res = json_model_6(arr_0_item, None, None)
             if not res:
                 break
     return res
@@ -58,7 +58,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("foo", UNDEFINED)) != UNDEFINED):
         return False
     # .foo
-    return json_model_3(pval, None, rep)
+    return json_model_3(pval, None, None)
 
 
 # check $objs0#furniture (.'$objs0#furniture')
@@ -71,7 +71,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         if "t" in val:
             tag_0: Jsonable = val.get("t", UNDEFINED)
             fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
-            res = fun_0 != UNDEFINED and fun_0(val, path, rep)
+            res = fun_0 != UNDEFINED and fun_0(val, None, None)
         else:
             res = False
     else:

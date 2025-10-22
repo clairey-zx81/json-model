@@ -127,7 +127,7 @@ sub _jm_f_1($$$)
     {
         # handle other props
         # .'$core'.'$defs'.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -141,7 +141,7 @@ sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$core'.'$schema'
-    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
 }
 
 # check json_model_4_map_$vocabulary (.'$core'.'$vocabulary')
@@ -157,7 +157,7 @@ sub _jm_f_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$core'.'$vocabulary'.'$URI'
@@ -192,7 +192,7 @@ sub json_model_4($$$)
         if (($pfun = $json_model_4_map{$prop}))
         {
             # handle 9 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -278,7 +278,7 @@ sub json_model_5($$$)
         if (($pfun = $json_model_5_map{$prop}))
         {
             # handle 7 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -328,7 +328,7 @@ sub json_model_6($$$)
         {
             # handle may contentSchema property
             # .'$content'.contentSchema
-            $res = json_model_17($pval, undef, $rep);
+            $res = json_model_17($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -359,7 +359,7 @@ sub json_model_7($$$)
         {
             # handle may unevaluatedItems property
             # .'$unevaluated'.unevaluatedItems
-            $res = json_model_17($pval, undef, $rep);
+            $res = json_model_17($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -369,7 +369,7 @@ sub json_model_7($$$)
         {
             # handle may unevaluatedProperties property
             # .'$unevaluated'.unevaluatedProperties
-            $res = json_model_17($pval, undef, $rep);
+            $res = json_model_17($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -436,7 +436,7 @@ sub json_model_10($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$simpleTypesArray'.'@'.0
-            $res = json_model_9($arr_0_item, undef, $rep);
+            $res = json_model_9($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -446,7 +446,7 @@ sub json_model_10($$$)
     if ($res)
     {
         my $ival_0 = scalar @$val;
-        $res = jm_is_unique_array($val, $path, $rep) && $ival_0 >= 1;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_0 >= 1;
     }
     return $res;
 }
@@ -473,7 +473,7 @@ sub json_model_11($$$)
     }
     if ($res)
     {
-        $res = jm_is_unique_array($val, $path, $rep);
+        $res = jm_is_unique_array($val, undef, undef);
     }
     return $res;
 }
@@ -509,7 +509,7 @@ sub _jm_f_12($$$)
     {
         # handle other props
         # .'$validation'.dependentRequired.''
-        $res = json_model_11($pval, undef, $rep);
+        $res = json_model_11($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -581,7 +581,7 @@ sub _jm_f_20($$$)
     # .'$validation'.type
     # .'$validation'.type.'|'.0
     # .'$validation'.type.'|'.1
-    return json_model_9($val, $path, $rep) || json_model_10($val, $path, $rep);
+    return json_model_9($val, undef, undef) || json_model_10($val, undef, undef);
 }
 
 # check json_model_13_map_uniqueItems (.'$validation'.uniqueItems)
@@ -609,7 +609,7 @@ sub json_model_13($$$)
         if (($pfun = $json_model_13_map{$prop}))
         {
             # handle 20 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -635,7 +635,7 @@ sub json_model_14($$$)
         {
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$schemaArray'.'@'.0
-            $res = json_model_17($arr_2_item, undef, $rep);
+            $res = json_model_17($arr_2_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -665,7 +665,7 @@ sub _jm_f_22($$$)
     {
         # handle other props
         # .'$applicator'.dependentSchemas.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -689,7 +689,7 @@ sub _jm_f_23($$$)
     {
         # handle other props
         # .'$applicator'.patternProperties.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -713,7 +713,7 @@ sub _jm_f_24($$$)
     {
         # handle other props
         # .'$applicator'.properties.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -739,7 +739,7 @@ sub json_model_15($$$)
         if (($pfun = $json_model_15_map{$prop}))
         {
             # handle 15 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -775,7 +775,7 @@ sub _jm_f_26($$$)
     {
         # handle other props
         # .'$ObjectSchema'.'$defs'.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -805,7 +805,7 @@ sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.'$schema'
-    return jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
 }
 
 # check json_model_16_map_$vocabulary (.'$ObjectSchema'.'$vocabulary')
@@ -821,7 +821,7 @@ sub _jm_f_30($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$ObjectSchema'.'$vocabulary'.'$URI'
@@ -886,7 +886,7 @@ sub _jm_f_35($$$)
     {
         # handle other props
         # .'$ObjectSchema'.definitions.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -912,7 +912,7 @@ sub _jm_f_36($$$)
         # .'$ObjectSchema'.dependencies.''
         # .'$ObjectSchema'.dependencies.''.'|'.0
         # .'$ObjectSchema'.dependencies.''.'|'.1
-        $res = json_model_17($pval, undef, $rep) || json_model_11($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef) || json_model_11($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -936,7 +936,7 @@ sub _jm_f_37($$$)
     {
         # handle other props
         # .'$ObjectSchema'.dependentRequired.''
-        $res = json_model_11($pval, undef, $rep);
+        $res = json_model_11($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -960,7 +960,7 @@ sub _jm_f_38($$$)
     {
         # handle other props
         # .'$ObjectSchema'.dependentSchemas.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1072,7 +1072,7 @@ sub _jm_f_50($$$)
     {
         # handle other props
         # .'$ObjectSchema'.patternProperties.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1096,7 +1096,7 @@ sub _jm_f_51($$$)
     {
         # handle other props
         # .'$ObjectSchema'.properties.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1128,7 +1128,7 @@ sub _jm_f_54($$$)
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
     # .'$ObjectSchema'.type.'|'.1
-    return json_model_9($val, $path, $rep) || json_model_10($val, $path, $rep);
+    return json_model_9($val, undef, undef) || json_model_10($val, undef, undef);
 }
 
 # check json_model_16_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
@@ -1164,7 +1164,7 @@ sub json_model_16($$$)
         if (($pfun = $json_model_16_map{$prop}))
         {
             # handle 61 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -1185,7 +1185,7 @@ sub json_model_17($$$)
     # .'$Schema'
     # .'$Schema'.'|'.0
     # .'$Schema'.'|'.1
-    return jm_is_boolean($val) || json_model_16($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_16($val, undef, undef);
 }
 
 # object .'$deprecated'.definitions
@@ -1202,7 +1202,7 @@ sub _jm_obj_0($$$)
     {
         # handle other props
         # .'$deprecated'.definitions.''
-        $res = json_model_17($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1227,7 +1227,7 @@ sub _jm_obj_1($$$)
         # .'$deprecated'.dependencies.''
         # .'$deprecated'.dependencies.''.'|'.0
         # .'$deprecated'.dependencies.''.'|'.1
-        $res = json_model_17($pval, undef, $rep) || json_model_11($pval, undef, $rep);
+        $res = json_model_17($pval, undef, undef) || json_model_11($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1253,7 +1253,7 @@ sub json_model_18($$$)
         {
             # handle may definitions property
             # .'$deprecated'.definitions
-            $res = _jm_obj_0($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1263,7 +1263,7 @@ sub json_model_18($$$)
         {
             # handle may dependencies property
             # .'$deprecated'.dependencies
-            $res = _jm_obj_1($pval, undef, $rep);
+            $res = _jm_obj_1($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1311,7 +1311,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_17($val, $path, $rep);
+    return json_model_17($val, undef, undef);
 }
 
 

@@ -24,7 +24,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   extract := match[1];
-  IF NOT jm_is_valid_date(extract, path, rep) THEN
+  IF NOT jm_is_valid_date(extract, NULL, NULL) THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -37,7 +37,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
   -- "/^X-($DATE)-Y$/X"
-  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_xre_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

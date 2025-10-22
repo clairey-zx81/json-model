@@ -30,7 +30,7 @@ sub _jm_obj_0($$$)
     {
         # handle other props
         # .'$rec'.'|'.1.''
-        $res = json_model_2($pval, undef, $rep);
+        $res = json_model_2($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -46,7 +46,7 @@ sub json_model_2($$$)
     # .'$rec'
     # .'$rec'.'|'.0
     # .'$rec'.'|'.1
-    return jm_is_boolean($val) || _jm_obj_0($val, $path, $rep);
+    return jm_is_boolean($val) || _jm_obj_0($val, undef, undef);
 }
 
 # check $ (.)
@@ -54,7 +54,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, $path, $rep);
+    return json_model_2($val, undef, undef);
 }
 
 

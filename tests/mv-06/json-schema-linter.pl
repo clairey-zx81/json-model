@@ -294,7 +294,7 @@ sub json_model_4($$$)
         {
             my $arr_3_item = $$val[$arr_3_idx];
             # .'$schemaArray'.0
-            $res = json_model_24($arr_3_item, undef, $rep);
+            $res = json_model_24($arr_3_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -322,7 +322,7 @@ sub json_model_5($$$)
         {
             # handle may pattern property
             # .'$stringKeywords'.pattern
-            $res = jm_is_string($pval) && jm_is_valid_regex($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_regex($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -373,7 +373,7 @@ sub _jm_f_0($$$)
     # .'$arrayKeywords'.items
     # .'$arrayKeywords'.items.'|'.0
     # .'$arrayKeywords'.items.'|'.1
-    return json_model_24($val, $path, $rep) || json_model_4($val, $path, $rep);
+    return json_model_24($val, undef, undef) || json_model_4($val, undef, undef);
 }
 
 # check json_model_6_map_maxItems (.'$arrayKeywords'.maxItems)
@@ -418,7 +418,7 @@ sub json_model_6($$$)
         if (($pfun = $json_model_6_map{$prop}))
         {
             # handle 6 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
@@ -445,7 +445,7 @@ sub _jm_obj_0($$$)
     {
         # handle other props
         # .'$objectKeywords'.properties.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -466,11 +466,11 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, $rep))
+        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$objectKeywords'.patternProperties.'$REGEX'
-            $res = json_model_24($pval, undef, $rep);
+            $res = json_model_24($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -502,7 +502,7 @@ sub json_model_7($$$)
         {
             # handle may properties property
             # .'$objectKeywords'.properties
-            $res = _jm_obj_0($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -535,7 +535,7 @@ sub json_model_7($$$)
         {
             # handle may additionalProperties property
             # .'$objectKeywords'.additionalProperties
-            $res = json_model_24($pval, undef, $rep);
+            $res = json_model_24($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -545,7 +545,7 @@ sub json_model_7($$$)
         {
             # handle may patternProperties property
             # .'$objectKeywords'.patternProperties
-            $res = _jm_obj_1($pval, undef, $rep);
+            $res = _jm_obj_1($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -624,7 +624,7 @@ sub _jm_f_5($$$)
     {
         # handle other props
         # .'$metas'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -672,7 +672,7 @@ sub _jm_f_9($$$)
     {
         # handle other props
         # .'$metas'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -739,12 +739,12 @@ sub json_model_9($$$)
         if (($pfun = $json_model_9_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$metas'.'/^x-.*/'
@@ -781,7 +781,7 @@ sub _jm_f_15($$$)
     {
         # handle other props
         # .'$String'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -829,7 +829,7 @@ sub _jm_f_19($$$)
     {
         # handle other props
         # .'$String'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -892,7 +892,7 @@ sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$String'.pattern
-    return jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
+    return jm_is_string($val) && jm_is_valid_regex($val, undef, undef);
 }
 
 # check json_model_10_map_title (.'$String'.title)
@@ -933,12 +933,12 @@ sub json_model_10($$$)
         elsif (($pfun = $json_model_10_map{$prop}))
         {
             # handle 14 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$String'.'/^x-.*/'
@@ -975,7 +975,7 @@ sub _jm_f_29($$$)
     {
         # handle other props
         # .'$Array'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1023,7 +1023,7 @@ sub _jm_f_33($$$)
     {
         # handle other props
         # .'$Array'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1063,7 +1063,7 @@ sub _jm_f_37($$$)
     # .'$Array'.items
     # .'$Array'.items.'|'.0
     # .'$Array'.items.'|'.1
-    return json_model_24($val, $path, $rep) || json_model_4($val, $path, $rep);
+    return json_model_24($val, undef, undef) || json_model_4($val, undef, undef);
 }
 
 # check json_model_11_map_maxItems (.'$Array'.maxItems)
@@ -1128,12 +1128,12 @@ sub json_model_11($$$)
         elsif (($pfun = $json_model_11_map{$prop}))
         {
             # handle 16 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Array'.'/^x-.*/'
@@ -1170,7 +1170,7 @@ sub _jm_f_43($$$)
     {
         # handle other props
         # .'$Object'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1218,7 +1218,7 @@ sub _jm_f_47($$$)
     {
         # handle other props
         # .'$Object'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1264,11 +1264,11 @@ sub _jm_f_51($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, $rep))
+        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Object'.patternProperties.'$REGEX'
-            $res = json_model_24($pval, undef, $rep);
+            $res = json_model_24($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1297,7 +1297,7 @@ sub _jm_f_52($$$)
     {
         # handle other props
         # .'$Object'.properties.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1366,12 +1366,12 @@ sub json_model_12($$$)
         elsif (($pfun = $json_model_12_map{$prop}))
         {
             # handle 14 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Object'.'/^x-.*/'
@@ -1408,7 +1408,7 @@ sub _jm_f_56($$$)
     {
         # handle other props
         # .'$Integer'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1456,7 +1456,7 @@ sub _jm_f_60($$$)
     {
         # handle other props
         # .'$Integer'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1543,12 +1543,12 @@ sub json_model_13($$$)
         elsif (($pfun = $json_model_13_map{$prop}))
         {
             # handle 12 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Integer'.'/^x-.*/'
@@ -1585,7 +1585,7 @@ sub _jm_f_68($$$)
     {
         # handle other props
         # .'$Number'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1633,7 +1633,7 @@ sub _jm_f_72($$$)
     {
         # handle other props
         # .'$Number'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1720,12 +1720,12 @@ sub json_model_14($$$)
         elsif (($pfun = $json_model_14_map{$prop}))
         {
             # handle 12 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Number'.'/^x-.*/'
@@ -1762,7 +1762,7 @@ sub _jm_f_80($$$)
     {
         # handle other props
         # .'$Bool'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1810,7 +1810,7 @@ sub _jm_f_84($$$)
     {
         # handle other props
         # .'$Bool'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1881,12 +1881,12 @@ sub json_model_15($$$)
         elsif (($pfun = $json_model_15_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Bool'.'/^x-.*/'
@@ -1923,7 +1923,7 @@ sub _jm_f_90($$$)
     {
         # handle other props
         # .'$Null'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -1971,7 +1971,7 @@ sub _jm_f_94($$$)
     {
         # handle other props
         # .'$Null'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2042,12 +2042,12 @@ sub json_model_16($$$)
         elsif (($pfun = $json_model_16_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Null'.'/^x-.*/'
@@ -2084,7 +2084,7 @@ sub _jm_f_100($$$)
     {
         # handle other props
         # .'$AllOf'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2132,7 +2132,7 @@ sub _jm_f_104($$$)
     {
         # handle other props
         # .'$AllOf'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2194,7 +2194,7 @@ sub json_model_17($$$)
             # handle must allOf property
             $must_count++;
             # .'$AllOf'.allOf
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2203,12 +2203,12 @@ sub json_model_17($$$)
         elsif (($pfun = $json_model_17_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$AllOf'.'/^x-.*/'
@@ -2245,7 +2245,7 @@ sub _jm_f_110($$$)
     {
         # handle other props
         # .'$AnyOf'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2293,7 +2293,7 @@ sub _jm_f_114($$$)
     {
         # handle other props
         # .'$AnyOf'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2355,7 +2355,7 @@ sub json_model_18($$$)
             # handle must anyOf property
             $must_count++;
             # .'$AnyOf'.anyOf
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2364,12 +2364,12 @@ sub json_model_18($$$)
         elsif (($pfun = $json_model_18_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$AnyOf'.'/^x-.*/'
@@ -2406,7 +2406,7 @@ sub _jm_f_120($$$)
     {
         # handle other props
         # .'$OneOf'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2454,7 +2454,7 @@ sub _jm_f_124($$$)
     {
         # handle other props
         # .'$OneOf'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2516,7 +2516,7 @@ sub json_model_19($$$)
             # handle must oneOf property
             $must_count++;
             # .'$OneOf'.oneOf
-            $res = json_model_4($pval, undef, $rep);
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2525,12 +2525,12 @@ sub json_model_19($$$)
         elsif (($pfun = $json_model_19_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$OneOf'.'/^x-.*/'
@@ -2567,7 +2567,7 @@ sub _jm_f_130($$$)
     {
         # handle other props
         # .'$Enum'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2615,7 +2615,7 @@ sub _jm_f_134($$$)
     {
         # handle other props
         # .'$Enum'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2677,7 +2677,7 @@ sub json_model_20($$$)
             # handle must enum property
             $must_count++;
             # .'$Enum'.enum
-            $res = json_model_3($pval, undef, $rep);
+            $res = json_model_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2686,12 +2686,12 @@ sub json_model_20($$$)
         elsif (($pfun = $json_model_20_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Enum'.'/^x-.*/'
@@ -2728,7 +2728,7 @@ sub _jm_f_140($$$)
     {
         # handle other props
         # .'$Const'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2776,7 +2776,7 @@ sub _jm_f_144($$$)
     {
         # handle other props
         # .'$Const'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2838,7 +2838,7 @@ sub json_model_21($$$)
             # handle must const property
             $must_count++;
             # .'$Const'.const
-            $res = json_model_2($pval, undef, $rep);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2847,12 +2847,12 @@ sub json_model_21($$$)
         elsif (($pfun = $json_model_21_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Const'.'/^x-.*/'
@@ -2889,7 +2889,7 @@ sub _jm_f_150($$$)
     {
         # handle other props
         # .'$Ref'.'$defs'.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2937,7 +2937,7 @@ sub _jm_f_154($$$)
     {
         # handle other props
         # .'$Ref'.definitions.''
-        $res = json_model_24($pval, undef, $rep);
+        $res = json_model_24($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2999,7 +2999,7 @@ sub json_model_22($$$)
             # handle must $ref property
             $must_count++;
             # .'$Ref'.'$ref'
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -3008,12 +3008,12 @@ sub json_model_22($$$)
         elsif (($pfun = $json_model_22_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
         }
-        elsif (_jm_re_0($prop, $path, $rep))
+        elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Ref'.'/^x-.*/'
@@ -3043,7 +3043,7 @@ sub json_model_23($$$)
         {
             my $tag_0 = $$val{'type'};
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, $path, $rep);
+            $res = defined($fun_0) && &$fun_0($val, undef, undef);
         }
         else
         {
@@ -3054,7 +3054,7 @@ sub json_model_23($$$)
     {
         ;
     }
-    return $res || json_model_9($val, $path, $rep) || json_model_21($val, $path, $rep) || json_model_20($val, $path, $rep) || json_model_17($val, $path, $rep) || json_model_18($val, $path, $rep) || json_model_19($val, $path, $rep) || json_model_22($val, $path, $rep);
+    return $res || json_model_9($val, undef, undef) || json_model_21($val, undef, undef) || json_model_20($val, undef, undef) || json_model_17($val, undef, undef) || json_model_18($val, undef, undef) || json_model_19($val, undef, undef) || json_model_22($val, undef, undef);
 }
 
 # check $Schema (.'$Schema')
@@ -3064,7 +3064,7 @@ sub json_model_24($$$)
     # .'$Schema'
     # .'$Schema'.'|'.0
     # .'$Schema'.'|'.1
-    return jm_is_boolean($val) || json_model_23($val, $path, $rep);
+    return jm_is_boolean($val) || json_model_23($val, undef, undef);
 }
 
 # object .'$RootSchema'.'&'.0
@@ -3095,7 +3095,7 @@ sub json_model_25($$$)
     # .'$RootSchema'
     # .'$RootSchema'.'&'.0
     # .'$RootSchema'.'&'.1
-    return _jm_obj_2($val, $path, $rep) && json_model_23($val, $path, $rep);
+    return _jm_obj_2($val, undef, undef) && json_model_23($val, undef, undef);
 }
 
 # check $ (.)
@@ -3103,7 +3103,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_25($val, $path, $rep);
+    return json_model_25($val, undef, undef);
 }
 
 

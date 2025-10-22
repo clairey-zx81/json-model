@@ -26,11 +26,11 @@ sub json_model_4($$$)
     if ($res)
     {
         # .'$r'.0
-        $res = json_model_5($$val[0], undef, $rep);
+        $res = json_model_5($$val[0], undef, undef);
         if ($res)
         {
             # .'$r'.1
-            $res = json_model_5($$val[1], undef, $rep);
+            $res = json_model_5($$val[1], undef, undef);
         }
     }
     return $res;
@@ -49,7 +49,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$s'
     # "/[a-z]/"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check $ (.)
@@ -60,7 +60,7 @@ sub json_model_1($$$)
     # .
     # .'|'.0
     # .'|'.1
-    return json_model_3($val, $path, $rep) || json_model_5($val, $path, $rep);
+    return json_model_3($val, undef, undef) || json_model_5($val, undef, undef);
 }
 
 sub _jm_re_1($$$)
@@ -76,7 +76,7 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$r#s'
     # "/[0-9]/"
-    return jm_is_string($val) && _jm_re_1($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_1($val, undef, undef);
 }
 
 

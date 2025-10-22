@@ -28,7 +28,7 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$s'
     # "/[0-9]/"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check $ (.)
@@ -40,11 +40,11 @@ sub json_model_1($$$)
     if ($res)
     {
         # .0
-        $res = json_model_2($$val[0], undef, $rep);
+        $res = json_model_2($$val[0], undef, undef);
         if ($res)
         {
             # .1
-            $res = json_model_2($$val[1], undef, $rep);
+            $res = json_model_2($$val[1], undef, undef);
         }
     }
     return $res;

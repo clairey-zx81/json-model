@@ -126,6 +126,12 @@ class CLangJansson(Language):
     #
     # inlined type test expressions about JSON data
     #
+    def rep(self) -> str:
+        return "rep" if self._with_report else "NULL"
+
+    def path(self, p: str) -> str:
+        return p if self._with_path else "NULL"
+
     def is_num(self, var: Var) -> BoolExpr:
         return f"json_is_number({var})"
 
@@ -184,23 +190,23 @@ class CLangJansson(Language):
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
         if name == "$UUID":
-            return f"jm_is_valid_uuid({val}, {path}, rep)"
+            return f"jm_is_valid_uuid({val}, {self.path(path)}, {self.rep()})"
         elif name == "$DATE":
-            return f"jm_is_valid_date({val}, {path}, rep)"
+            return f"jm_is_valid_date({val}, {self.path(path)}, {self.rep()})"
         elif name == "$TIME":
-            return f"jm_is_valid_time({val}, {path}, rep)"
+            return f"jm_is_valid_time({val}, {self.path(path)}, {self.rep()})"
         elif name == "$DATETIME":
-            return f"jm_is_valid_datetime({val}, {path}, rep)"
+            return f"jm_is_valid_datetime({val}, {self.path(path)}, {self.rep()})"
         elif name == "$REGEX":
-            return f"jm_is_valid_regex({val}, false, {path}, rep)"
+            return f"jm_is_valid_regex({val}, false, {self.path(path)}, {self.rep()})"
         elif name == "$EXREG":
-            return f"jm_is_valid_regex({val}, true, {path}, rep)"
+            return f"jm_is_valid_regex({val}, true, {self.path(path)}, {self.rep()})"
         elif name in ("$URL", "$URI"):
-            return f"jm_is_valid_url({val}, {path}, rep)"
+            return f"jm_is_valid_url({val}, {self.path(path)}, {self.rep()})"
         elif name == "$EMAIL":
-            return f"jm_is_valid_email({val}, {path}, rep)"
+            return f"jm_is_valid_email({val}, {self.path(path)}, {self.rep()})"
         elif name == "$JSON":
-            return f"jm_is_valid_json({val}, {path}, rep)"
+            return f"jm_is_valid_json({val}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str)
 
@@ -268,12 +274,12 @@ class CLangJansson(Language):
     def check_call(self, name: str, val: Expr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
         if is_raw:
-            return f"jm_check_fun_string({name}, {val}, {path}, rep)"
+            return f"jm_check_fun_string({name}, {val}, {self.path(path)}, {self.rep()})"
         else:
             return super().check_call(name, val, path, is_ptr=is_ptr, is_raw=is_raw)  # type: ignore
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"jm_array_is_unique({val}, {path}, rep)"
+        return f"jm_array_is_unique({val}, {self.path(path)}, {self.rep()})"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         """Call inefficient type-unaware constraint check."""
@@ -282,7 +288,7 @@ class CLangJansson(Language):
             "<=": "op_le", "<": "op_lt",
             ">=": "op_ge", ">": "op_gt"
         }
-        return f"jm_check_constraint({val}, {OPS[op]}, &{self._cst(vop)}, {path}, rep)"
+        return f"jm_check_constraint({val}, {OPS[op]}, &{self._cst(vop)}, {self.path(path)}, {self.rep()})"
 
     #
     # inline comparison expressions for strings
@@ -330,10 +336,10 @@ class CLangJansson(Language):
     # reporting
     #
     def is_reporting(self) -> BoolExpr:
-        return "rep != NULL"
+        return "rep != NULL" if self._with_report else "false"
 
     def report(self, msg: str, path: Var) -> Block:
-        return ([ f"if (rep) jm_report_add_entry(rep, {self.esc(msg)}, {path});" ]
+        return ([ f"if (rep) jm_report_add_entry(rep, {self.esc(msg)}, {self.path(path)});" ]
                 if self._with_report else [])
 
     def clean_report(self) -> Block:

@@ -652,12 +652,20 @@ def partialEval(code: Jsonable, reporting: bool) -> int:
 
     def peRwt(code: Jsonable, _: Path) -> Jsonable:
         nonlocal changes
-        if not reporting and _isOp(code, "rep"):
-            code.clear()
-            code["o"] = "no"
-            code["#"] = "# IRO no reporting"
-            changes += 1
-        elif _isOp(code, "&"):
+        if not reporting:
+            if _isOp(code, "rep"):
+                code.clear()
+                code.update({"o": "no", "#": "# IRO no reporting"})
+                changes += 1
+            elif _isOp(code, "isr"):
+                code.clear()
+                code.update(o="cst", c=False)
+                changes += 1
+            elif _isOp(code, "cr"):
+                code.clear()
+                code.update(o="ign")
+                changes += 1
+        if _isOp(code, "&"):
             ands = code["exprs"]
             # log.warning(f"&: {ands}")
             assert isinstance(ands, list)

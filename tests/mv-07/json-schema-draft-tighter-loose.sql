@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$tight'
-  RETURN json_model_27(val, path, rep);
+  RETURN json_model_27(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -19,7 +19,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_27(val, path, rep);
+  RETURN json_model_27(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -51,7 +51,7 @@ BEGIN
   -- .'$tight#RootSchema'
   -- .'$tight#RootSchema'.'&'.0
   -- .'$tight#RootSchema'.'&'.1
-  RETURN _jm_obj_0(val, path, rep) AND json_model_25(val, path, rep);
+  RETURN _jm_obj_0(val, NULL, NULL) AND json_model_25(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -73,14 +73,14 @@ BEGIN
     IF val ? 'type' THEN
       tag_0 := val -> 'type';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, path, rep);
+      res := fun_0 IS NOT NULL AND jm_call(fun_0, val, NULL, NULL);
     ELSE
       res := FALSE;
     END IF;
   ELSE
     NULL;
   END IF;
-  RETURN res OR json_model_11(val, path, rep) OR json_model_23(val, path, rep) OR json_model_22(val, path, rep) OR json_model_19(val, path, rep) OR json_model_20(val, path, rep) OR json_model_21(val, path, rep) OR json_model_24(val, path, rep) OR json_model_28(val, path, rep) OR json_model_29(val, path, rep) OR json_model_30(val, path, rep) OR json_model_31(val, path, rep) OR json_model_32(val, path, rep) OR json_model_33(val, path, rep) OR json_model_34(val, path, rep);
+  RETURN res OR json_model_11(val, NULL, NULL) OR json_model_23(val, NULL, NULL) OR json_model_22(val, NULL, NULL) OR json_model_19(val, NULL, NULL) OR json_model_20(val, NULL, NULL) OR json_model_21(val, NULL, NULL) OR json_model_24(val, NULL, NULL) OR json_model_28(val, NULL, NULL) OR json_model_29(val, NULL, NULL) OR json_model_30(val, NULL, NULL) OR json_model_31(val, NULL, NULL) OR json_model_32(val, NULL, NULL) OR json_model_33(val, NULL, NULL) OR json_model_34(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -108,7 +108,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#metas'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -159,7 +159,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#metas'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -230,7 +230,7 @@ BEGIN
     IF json_model_11_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_11_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -265,7 +265,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#String'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -316,7 +316,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#String'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -393,7 +393,7 @@ CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$tight#String'.pattern
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -442,7 +442,7 @@ BEGIN
     ELSEIF json_model_12_map(prop) IS NOT NULL THEN
       -- handle 14 may props
       pfun := json_model_12_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -477,7 +477,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Array'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -528,7 +528,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Array'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -571,7 +571,7 @@ BEGIN
   -- .'$tight#Array'.items
   -- .'$tight#Array'.items.'|'.0
   -- .'$tight#Array'.items.'|'.1
-  RETURN json_model_26(val, path, rep) OR json_model_6(val, path, rep);
+  RETURN json_model_26(val, NULL, NULL) OR json_model_6(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -647,7 +647,7 @@ BEGIN
     ELSEIF json_model_13_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_13_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -672,7 +672,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$tight#schemaArray'.0
-      res := json_model_26(arr_0_item, NULL, rep);
+      res := json_model_26(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -706,7 +706,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Object'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -757,7 +757,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Object'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -806,10 +806,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$tight#Object'.patternProperties.'$REGEX'
-      res := json_model_26(pval, NULL, rep);
+      res := json_model_26(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -836,7 +836,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Object'.properties.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -914,7 +914,7 @@ BEGIN
     ELSEIF json_model_14_map(prop) IS NOT NULL THEN
       -- handle 14 may props
       pfun := json_model_14_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -949,7 +949,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Integer'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1000,7 +1000,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Integer'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1099,7 +1099,7 @@ BEGIN
     ELSEIF json_model_15_map(prop) IS NOT NULL THEN
       -- handle 12 may props
       pfun := json_model_15_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1134,7 +1134,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Number'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1185,7 +1185,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Number'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1284,7 +1284,7 @@ BEGIN
     ELSEIF json_model_16_map(prop) IS NOT NULL THEN
       -- handle 12 may props
       pfun := json_model_16_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1319,7 +1319,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Bool'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1370,7 +1370,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Bool'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1451,7 +1451,7 @@ BEGIN
     ELSEIF json_model_17_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_17_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1486,7 +1486,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Null'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1537,7 +1537,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Null'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1618,7 +1618,7 @@ BEGIN
     ELSEIF json_model_18_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_18_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1653,7 +1653,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#AllOf'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1704,7 +1704,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#AllOf'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1778,14 +1778,14 @@ BEGIN
       -- handle must allOf property
       must_count := must_count + 1;
       -- .'$tight#AllOf'.allOf
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_19_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_19_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1820,7 +1820,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#AnyOf'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1871,7 +1871,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#AnyOf'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1945,14 +1945,14 @@ BEGIN
       -- handle must anyOf property
       must_count := must_count + 1;
       -- .'$tight#AnyOf'.anyOf
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_20_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_20_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1987,7 +1987,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#OneOf'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2038,7 +2038,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#OneOf'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2112,14 +2112,14 @@ BEGIN
       -- handle must oneOf property
       must_count := must_count + 1;
       -- .'$tight#OneOf'.oneOf
-      res := json_model_6(pval, NULL, rep);
+      res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_21_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_21_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2154,7 +2154,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Enum'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2205,7 +2205,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Enum'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2279,14 +2279,14 @@ BEGIN
       -- handle must enum property
       must_count := must_count + 1;
       -- .'$tight#Enum'.enum
-      res := json_model_5(pval, NULL, rep);
+      res := json_model_5(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_22_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_22_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2372,7 +2372,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Const'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2423,7 +2423,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Const'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2497,14 +2497,14 @@ BEGIN
       -- handle must const property
       must_count := must_count + 1;
       -- .'$tight#Const'.const
-      res := json_model_4(pval, NULL, rep);
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_23_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_23_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2553,7 +2553,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Ref'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2604,7 +2604,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#Ref'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2678,14 +2678,14 @@ BEGIN
       -- handle must $ref property
       must_count := must_count + 1;
       -- .'$tight#Ref'.'$ref'
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF json_model_24_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_24_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2703,7 +2703,7 @@ BEGIN
   -- .'$tight#Schema'
   -- .'$tight#Schema'.'|'.0
   -- .'$tight#Schema'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_25(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_25(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2731,7 +2731,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#EnumString'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2782,7 +2782,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#EnumString'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2883,7 +2883,7 @@ BEGIN
     ELSEIF json_model_28_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_28_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2918,7 +2918,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#EnumNum'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2969,7 +2969,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#EnumNum'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3070,7 +3070,7 @@ BEGIN
     ELSEIF json_model_29_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_29_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3105,7 +3105,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#EnumInt'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3156,7 +3156,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#EnumInt'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3257,7 +3257,7 @@ BEGIN
     ELSEIF json_model_30_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_30_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3292,7 +3292,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#ConstString'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3343,7 +3343,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#ConstString'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3432,7 +3432,7 @@ BEGIN
     ELSEIF json_model_31_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_31_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3467,7 +3467,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#ConstNum'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3518,7 +3518,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#ConstNum'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3607,7 +3607,7 @@ BEGIN
     ELSEIF json_model_32_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_32_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3642,7 +3642,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#ConstInt'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3693,7 +3693,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#ConstInt'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3782,7 +3782,7 @@ BEGIN
     ELSEIF json_model_33_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_33_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -3817,7 +3817,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#ConstBool'.'$defs'.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3868,7 +3868,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$tight#ConstBool'.definitions.''
-    res := json_model_26(pval, NULL, rep);
+    res := json_model_26(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3957,7 +3957,7 @@ BEGIN
     ELSEIF json_model_34_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_34_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE

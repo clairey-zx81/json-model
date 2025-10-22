@@ -31,7 +31,7 @@ sub json_model_1($$$)
     # not-case xor list
     # .'^'.1
     # "/^[a-z]+$/i"
-    my $is_0 = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    my $is_0 = jm_is_string($val) && _jm_re_0($val, undef, undef);
     return ! $is_0;
 }
 

@@ -25,7 +25,7 @@ sub json_model_4($$$)
     # .'$ex5'
     # .'$ex5'.'|'.0
     # .'$ex5'.'|'.1
-    return json_model_5($val, $path, $rep) || json_model_6($val, $path, $rep);
+    return json_model_5($val, undef, undef) || json_model_6($val, undef, undef);
 }
 
 # check $Ex06 (.'$Ex06')
@@ -45,15 +45,15 @@ sub json_model_1($$$)
     if ($res)
     {
         # .0
-        $res = json_model_5($$val[0], undef, $rep);
+        $res = json_model_5($$val[0], undef, undef);
         if ($res)
         {
             # .1
-            $res = json_model_6($$val[1], undef, $rep);
+            $res = json_model_6($$val[1], undef, undef);
             if ($res)
             {
                 # .2
-                $res = json_model_3($$val[2], undef, $rep);
+                $res = json_model_3($$val[2], undef, undef);
             }
         }
     }

@@ -109,7 +109,7 @@ BEGIN
       -- .and.a0.'&'.0
       -- .and.a0.'&'.1
       -- "/^2020-/"
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep) AND JSONB_TYPEOF(pval) = 'string' AND STARTS_WITH(JSON_VALUE(pval, '$' RETURNING TEXT), '2020-');
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) AND JSONB_TYPEOF(pval) = 'string' AND STARTS_WITH(JSON_VALUE(pval, '$' RETURNING TEXT), '2020-');
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -185,7 +185,7 @@ BEGIN
         FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_2_item := pval -> arr_2_idx;
           -- .array.a2.0
-          res := JSONB_TYPEOF(arr_2_item) = 'string' AND jm_is_valid_date(JSON_VALUE(arr_2_item, '$' RETURNING TEXT), NULL, rep);
+          res := JSONB_TYPEOF(arr_2_item) = 'string' AND jm_is_valid_date(JSON_VALUE(arr_2_item, '$' RETURNING TEXT), NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -315,7 +315,7 @@ BEGIN
     IF _jm_f_2_map(prop) IS NOT NULL THEN
       -- handle 6 may props
       pfun := _jm_f_2_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -533,7 +533,7 @@ DECLARE
 BEGIN
   -- .constraints.cio0
   -- .constraints.cio0.'@'
-  res := _jm_obj_0(val, path, rep);
+  res := _jm_obj_0(val, NULL, NULL);
   IF res THEN
     ival_5 := jm_object_size(val);
     res := ival_5 = 2;
@@ -560,7 +560,7 @@ DECLARE
 BEGIN
   -- .constraints.cio1
   -- .constraints.cio1.'@'
-  res := _jm_obj_1(val, path, rep);
+  res := _jm_obj_1(val, NULL, NULL);
   IF res THEN
     ival_6 := jm_object_size(val);
     res := ival_6 <> 2 AND ival_6 <= 3 AND ival_6 >= 1;
@@ -587,7 +587,7 @@ DECLARE
 BEGIN
   -- .constraints.cio2
   -- .constraints.cio2.'@'
-  res := _jm_obj_2(val, path, rep);
+  res := _jm_obj_2(val, NULL, NULL);
   IF res THEN
     ival_7 := jm_object_size(val);
     res := ival_7 <= 4 AND ival_7 >= 3;
@@ -802,7 +802,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .constraints.cua0
   -- .constraints.cua0.'@'
-  RETURN JSONB_TYPEOF(val) = 'array' AND jm_array_is_unique(val, path, rep);
+  RETURN JSONB_TYPEOF(val) = 'array' AND jm_array_is_unique(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -831,7 +831,7 @@ BEGIN
     IF _jm_f_9_map(prop) IS NOT NULL THEN
       -- handle 25 may props
       pfun := _jm_f_9_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1035,7 +1035,7 @@ BEGIN
     IF _jm_f_36_map(prop) IS NOT NULL THEN
       -- handle 9 may props
       pfun := _jm_f_36_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1171,7 +1171,7 @@ BEGIN
     IF _jm_f_46_map(prop) IS NOT NULL THEN
       -- handle 11 may props
       pfun := _jm_f_46_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1542,7 +1542,7 @@ BEGIN
     IF prop = 'm0' THEN
       -- handle may m0 property
       -- .merge.m0
-      res := _jm_obj_3(pval, NULL, rep);
+      res := _jm_obj_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1551,7 +1551,7 @@ BEGIN
       -- .merge.m1
       -- .merge.m1.'|'.0
       -- .merge.m1.'|'.1
-      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_5(pval, NULL, rep) OR _jm_obj_4(pval, NULL, rep));
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_5(pval, NULL, NULL) OR _jm_obj_4(pval, NULL, NULL));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1560,7 +1560,7 @@ BEGIN
       -- .merge.m2
       -- .merge.m2.'|'.0
       -- .merge.m2.'|'.1
-      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_7(pval, NULL, rep) OR _jm_obj_6(pval, NULL, rep));
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_7(pval, NULL, NULL) OR _jm_obj_6(pval, NULL, NULL));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1571,14 +1571,14 @@ BEGIN
       -- .merge.m3.'|'.1
       -- .merge.m3.'|'.2
       -- .merge.m3.'|'.3
-      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_11(pval, NULL, rep) OR _jm_obj_10(pval, NULL, rep) OR _jm_obj_9(pval, NULL, rep) OR _jm_obj_8(pval, NULL, rep));
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_11(pval, NULL, NULL) OR _jm_obj_10(pval, NULL, NULL) OR _jm_obj_9(pval, NULL, NULL) OR _jm_obj_8(pval, NULL, NULL));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'm4' THEN
       -- handle may m4 property
       -- .merge.m4
-      res := _jm_obj_12(pval, NULL, rep);
+      res := _jm_obj_12(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1753,7 +1753,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_date(prop, NULL, rep) THEN
+    IF jm_is_valid_date(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .object.o4.'$DATE'
       res := JSONB_TYPEOF(pval) = 'string';
@@ -1828,7 +1828,7 @@ BEGIN
     IF _jm_f_60_map(prop) IS NOT NULL THEN
       -- handle 7 may props
       pfun := _jm_f_60_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -1876,7 +1876,7 @@ BEGIN
       -- .or.o1
       -- .or.o1.'|'.0
       -- .or.o1.'|'.1
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep) OR JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_time(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) OR JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_time(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1887,7 +1887,7 @@ BEGIN
       -- .or.o2.'|'.1
       -- .or.o2.'|'.2
       -- .or.o2.'|'.3
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0 OR JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_uuid(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep) OR JSONB_TYPEOF(pval) = 'array' OR _jm_obj_13(pval, NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0 OR JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_uuid(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) OR JSONB_TYPEOF(pval) = 'array' OR _jm_obj_13(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1931,7 +1931,7 @@ CREATE OR REPLACE FUNCTION _jm_f_73(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.DATE
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_date(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_date(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1940,7 +1940,7 @@ CREATE OR REPLACE FUNCTION _jm_f_74(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.DATETIME
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_datetime(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_datetime(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1949,7 +1949,7 @@ CREATE OR REPLACE FUNCTION _jm_f_75(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.EMAIL
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_email(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_email(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1958,7 +1958,7 @@ CREATE OR REPLACE FUNCTION _jm_f_76(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.EXREG
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_extreg(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_extreg(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2030,7 +2030,7 @@ CREATE OR REPLACE FUNCTION _jm_f_84(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.JSON
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_json(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_json(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2066,7 +2066,7 @@ CREATE OR REPLACE FUNCTION _jm_f_88(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.REGEX
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2084,7 +2084,7 @@ CREATE OR REPLACE FUNCTION _jm_f_90(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.TIME
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_time(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_time(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2111,7 +2111,7 @@ CREATE OR REPLACE FUNCTION _jm_f_93(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.URI
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2120,7 +2120,7 @@ CREATE OR REPLACE FUNCTION _jm_f_94(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.URL
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2129,7 +2129,7 @@ CREATE OR REPLACE FUNCTION _jm_f_95(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.UUID
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_uuid(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_uuid(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2159,7 +2159,7 @@ BEGIN
     IF _jm_f_69_map(prop) IS NOT NULL THEN
       -- handle 26 may props
       pfun := _jm_f_69_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE
@@ -2224,7 +2224,7 @@ BEGIN
       -- handle may s4 property
       -- .string.s4
       -- "/^(Calvin|Susie)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2467,7 +2467,7 @@ BEGIN
     IF json_model_1_map(prop) IS NOT NULL THEN
       -- handle 15 may props
       pfun := json_model_1_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
     ELSE

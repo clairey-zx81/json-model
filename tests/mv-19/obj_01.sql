@@ -51,7 +51,7 @@ BEGIN
       -- handle must foo property
       must_count := must_count + 1;
       -- .foo
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -62,14 +62,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_2(TO_JSONB(prop), NULL, rep) THEN
+    ELSEIF json_model_2(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Xxx'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 >= 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_0(prop, path, rep) THEN
+    ELSEIF _jm_re_0(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'/^[0-9]+$/'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;

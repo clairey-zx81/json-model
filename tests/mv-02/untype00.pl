@@ -23,7 +23,7 @@ sub json_model_1($$$)
     # .'@'
     # .'@'.'|'.0
     # .'@'.'|'.1
-    return (jm_is_integer($val) && $val >= 1 || jm_is_string($val)) && jm_check_constraint($val, '>=', 10, $path, $rep);
+    return (jm_is_integer($val) && $val >= 1 || jm_is_string($val)) && jm_check_constraint($val, '>=', 10, undef, undef);
 }
 
 

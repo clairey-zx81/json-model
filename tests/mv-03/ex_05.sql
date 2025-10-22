@@ -30,7 +30,7 @@ BEGIN
   -- .
   -- .'|'.0
   -- .'|'.1
-  RETURN json_model_2(val, path, rep) OR json_model_3(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL) OR json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -86,7 +86,7 @@ sub json_model_1($$$)
         {
             # handle may ma3 property
             # .ma3
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
+            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
             if (! $res)
             {
                 return 0;

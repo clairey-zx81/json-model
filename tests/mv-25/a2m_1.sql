@@ -115,7 +115,7 @@ BEGIN
   -- .'$nomerge'
   -- .'$nomerge'.'&'.0
   -- .'$nomerge'.'&'.1
-  RETURN json_model_2(val, path, rep) AND _jm_obj_0(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL) AND _jm_obj_0(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -126,7 +126,7 @@ BEGIN
   -- .
   -- .'|'.0
   -- .'|'.1
-  RETURN json_model_4(val, path, rep) OR json_model_5(val, path, rep);
+  RETURN json_model_4(val, NULL, NULL) OR json_model_5(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

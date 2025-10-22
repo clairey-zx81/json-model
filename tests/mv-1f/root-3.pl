@@ -22,7 +22,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$foo'
-    return json_model_5($val, $path, $rep);
+    return json_model_5($val, undef, undef);
 }
 
 # check $ (.)
@@ -30,7 +30,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_5($val, $path, $rep);
+    return json_model_5($val, undef, undef);
 }
 
 # check $foo#Foo (.'$foo#Foo')
@@ -55,7 +55,7 @@ sub json_model_5($$$)
     }
     $pval = $$val{'rt'};
     # .'$foo#Foo'.rt
-    return json_model_12($pval, undef, $rep);
+    return json_model_12($pval, undef, undef);
 }
 
 # check $foo#root#root#Root (.'$foo#root#root#Root')

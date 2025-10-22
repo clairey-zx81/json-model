@@ -50,7 +50,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             # .0
-            res = json_model_2(arr_0_item, None, rep)
+            res = json_model_2(arr_0_item, None, None)
             if not res:
                 break
     return res

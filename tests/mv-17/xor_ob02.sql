@@ -58,7 +58,7 @@ BEGIN
   -- .'$Aa'
   -- .'$Aa'.'|'.0
   -- .'$Aa'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, path, rep) OR _jm_obj_0(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_1(val, NULL, NULL) OR _jm_obj_0(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -115,7 +115,7 @@ BEGIN
   -- .'$Bb'
   -- .'$Bb'.'|'.0
   -- .'$Bb'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_3(val, path, rep) OR _jm_obj_2(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_3(val, NULL, NULL) OR _jm_obj_2(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -172,7 +172,7 @@ BEGIN
   -- .'$Cc'
   -- .'$Cc'.'|'.0
   -- .'$Cc'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_5(val, path, rep) OR _jm_obj_4(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_5(val, NULL, NULL) OR _jm_obj_4(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -323,7 +323,7 @@ BEGIN
   -- .'|'.1
   -- .'|'.2
   -- .'|'.3
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_9(val, path, rep) OR _jm_obj_8(val, path, rep) OR _jm_obj_7(val, path, rep) OR _jm_obj_6(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_9(val, NULL, NULL) OR _jm_obj_8(val, NULL, NULL) OR _jm_obj_7(val, NULL, NULL) OR _jm_obj_6(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 

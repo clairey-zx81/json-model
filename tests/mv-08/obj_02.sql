@@ -43,7 +43,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$ls0'.0
-      res := JSONB_TYPEOF(arr_1_item) = 'string' AND jm_is_valid_url(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(arr_1_item) = 'string' AND jm_is_valid_url(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -110,7 +110,7 @@ BEGIN
   -- .'|'.1
   -- .'|'.2
   -- .'|'.3
-  RETURN json_model_2(val, path, rep) OR json_model_3(val, path, rep) OR json_model_4(val, path, rep) OR json_model_5(val, path, rep);
+  RETURN json_model_2(val, NULL, NULL) OR json_model_3(val, NULL, NULL) OR json_model_4(val, NULL, NULL) OR json_model_5(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

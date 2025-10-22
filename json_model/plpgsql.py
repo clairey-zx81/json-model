@@ -55,6 +55,12 @@ class PLpgSQL(Language):
     #
     # inlined type test expressions about JSON data
     #
+    def rep(self) -> str:
+        return "rep" if self._with_report else "NULL"
+
+    def path(self, p: str) -> str:
+        return p if self._with_path else "NULL"
+
     def is_num(self, var: Var) -> BoolExpr:
         return f"JSONB_TYPEOF({var}) = 'number'"
 
@@ -109,23 +115,23 @@ class PLpgSQL(Language):
         val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
         cktype = "" if is_str else (self.is_a(var, str) + " AND ")  # pyright: ignore
         if name == "$UUID":
-            return cktype + f"jm_is_valid_uuid({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_uuid({val}, {self.path(path)}, {self.rep()})"
         elif name == "$DATE":
-            return cktype + f"jm_is_valid_date({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_date({val}, {self.path(path)}, {self.rep()})"
         elif name == "$TIME":
-            return cktype + f"jm_is_valid_time({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_time({val}, {self.path(path)}, {self.rep()})"
         elif name == "$DATETIME":
-            return cktype + f"jm_is_valid_datetime({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_datetime({val}, {self.path(path)}, {self.rep()})"
         elif name == "$REGEX":
-            return cktype + f"jm_is_valid_regex({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_regex({val}, {self.path(path)}, {self.rep()})"
         elif name == "$EXREG":
-            return cktype + f"jm_is_valid_extreg({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_extreg({val}, {self.path(path)}, {self.rep()})"
         elif name in ("$URL", "$URI"):
-            return cktype + f"jm_is_valid_url({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_url({val}, {self.path(path)}, {self.rep()})"
         elif name == "$EMAIL":
-            return cktype + f"jm_is_valid_email({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_email({val}, {self.path(path)}, {self.rep()})"
         elif name == "$JSON":
-            return cktype + f"jm_is_valid_json({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_json({val}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str)
     
@@ -191,15 +197,15 @@ class PLpgSQL(Language):
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
         if is_raw:
             val = f"TO_JSONB({val})"
-        return f"jm_call({name}, {val}, {path}, rep)" if is_ptr else \
-               f"{name}({val}, {path}, rep)"
+        return f"jm_call({name}, {val}, {self.path(path)}, {self.rep()})" if is_ptr else \
+               f"{name}({val}, {self.path(path)}, {self.rep()})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"jm_array_is_unique({val}, {path}, rep)"
+        return f"jm_array_is_unique({val}, {self.path(path)}, {self.rep()})"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         """Call inefficient type-unaware constraint check."""
-        return f"jm_check_constraint({val}, '{op}', {self._cst(vop)}, {path}, rep)"
+        return f"jm_check_constraint({val}, '{op}', {self._cst(vop)}, {self.path(path)}, {self.rep()})"
 
     #
     # simple instructions
@@ -228,12 +234,12 @@ class PLpgSQL(Language):
     # reporting
     #
     def is_reporting(self) -> BoolExpr:
-        return "rep IS NOT NULL"
+        return "rep IS NOT NULL" if self._with_report else "FALSE"
 
     def report(self, msg: str, path: Var) -> Block:
         return [
             r"IF rep IS NOT NULL THEN",
-            f"  CALL jm_report_add_entry(rep, {self.esc(msg)}, {path});",
+            f"  CALL jm_report_add_entry(rep, {self.esc(msg)}, {self.path(path)});",
             r"END IF;"
         ] if self._with_report else []
 

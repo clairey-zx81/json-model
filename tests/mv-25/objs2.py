@@ -46,17 +46,17 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $foo (.'$foo')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$foo'
-    return json_model_2(val, path, rep)
+    return json_model_2(val, None, None)
 
 # check $ob (.'$ob')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ob'
-    return json_model_2(val, path, rep)
+    return json_model_2(val, None, None)
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
-    return json_model_2(val, path, rep)
+    return json_model_2(val, None, None)
 
 
 # initialization guard

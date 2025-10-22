@@ -38,7 +38,7 @@ BEGIN
     ELSEIF prop = 'a' THEN
       -- handle may a property
       -- .'|'.1.a
-      res := _jm_obj_1(pval, NULL, rep);
+      res := _jm_obj_1(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -90,7 +90,7 @@ BEGIN
   -- .
   -- .'|'.0
   -- .'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_2(val, path, rep) OR _jm_obj_0(val, path, rep));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_2(val, NULL, NULL) OR _jm_obj_0(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -27,7 +27,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$/"
-    return jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 

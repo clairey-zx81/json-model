@@ -32,7 +32,7 @@ sub json_model_2($$$)
     # .'$Aa'.'|'.2
     # .'$Aa'.'|'.3
     # "/[a-z]/"
-    return jm_is_boolean($val) || jm_is_integer($val) && $val >= 1 || jm_is_numeric($val) && $val > 0.0 || jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    return jm_is_boolean($val) || jm_is_integer($val) && $val >= 1 || jm_is_numeric($val) && $val > 0.0 || jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
 # check $ (.)
@@ -40,7 +40,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, $path, $rep);
+    return json_model_2($val, undef, undef);
 }
 
 
