@@ -12,6 +12,13 @@ Environment:
 - JMC_OPTS: options for jmc
 - JMC: zx80/jmc docker tag
 - JSC: ghcr.io/sourcemeta/jsonschema docker tag
+
+Example:
+
+  JMC_OPTS=--no-predef JMC=dev $0 dev -p 8 -l 1000 -r 5
+
+For further details: https://json-model.org/#/BENCH
+
 EOF
   exit 0
 fi

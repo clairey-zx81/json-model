@@ -22,7 +22,7 @@ for comparison using the Blaze CLI.
 
 It is typically started on a large host with the
 [`start_bench.sh` script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/start_bench.sh)
-which will span the necessary dockers:
+which will span the necessary dockers, try `--help` for setting details:
 
 ```sh
 JMC=latest JMC_OPTS=--no-predef \
@@ -35,7 +35,7 @@ The main script options are:
 - `-p PARA` parallelism (a little less that the number of available cores, default is _8_)
 - `-l LOOP` loop iterations for performance average (at least _1000_, the default)
 - `-r RUNS` number of runs (odd number, default is _3_)
-- `--cap-py` reduce python iterations by a factor of 10 (default is _no_)
+- `--no-cap-py` do _not_ reduce python iterations by a factor of 10 (default is to reduce)
 
 ## Benchmarking Conditions
 

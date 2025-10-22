@@ -19,7 +19,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap_py= debug=
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap_py=1 debug=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV JMC_BENCH_TIME_FMT='%e'
 
 # get options
@@ -39,7 +39,8 @@ while [[ "$1" == -* ]] ; do
       echo " --runs|-r R: number of runs ($RUNS)"
       echo " --jmc=TAG: docker tag for JSON Model Compiler docker image ($JMC)"
       echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image ($JSC)"
-      echo " --cap-py: reduce loop iterations for python"
+      echo " --cap-py: reduce loop iterations for python (default)"
+      echo " --no-cap-py: do not reduce loop iterations for python"
       echo " --env|-e VARS: environment variables to export to jmc docker"
       # NOTE setting %U does not work through docker and with subprocesses
       # there is no simple way to collect cumulated user and system cpu usage through docker
@@ -69,6 +70,7 @@ while [[ "$1" == -* ]] ; do
     --time=*) JMC_BENCH_TIME_FMT=${opt#*=} ;;
     --time|-t) JMC_BENCH_TIME_FMT=$1 ; shift ;;
     --cap-py) cap_py=1 ;;
+    --no-cap-py) cap_py= ;;
     -d|--debug) debug=1 ;;
     --task=*) TASK=${opt#*=} ;;
     --task|-T) TASK=$1 ; shift ;;
