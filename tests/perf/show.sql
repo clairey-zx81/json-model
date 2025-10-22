@@ -2,16 +2,6 @@
 -- .width only works for "box" mode
 
 .print
-.print ### Cases Statistics
-.print
-.print For each case and a summary: the schema and model sizes (number of lines, model size 1
-.print denotes a reference to a predefined model), number/min/average/max size of test values.
-.print
-.print RLRRRRRR
-.width -2, 0 -6, -6, -5 -8 -8 -8
-SELECT * FROM ShowCases ORDER BY 1;
-
-.print
 .print ### Tool Performance Per Case
 .print
 .print For each case: number and name, number of test cases, best cumulated median performance (µs),
@@ -59,3 +49,13 @@ SELECT * FROM ShowCompilePerCase ORDER BY 1;
 .print LRRRRR
 .width 0 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompileSummary ORDER BY 1;
+
+.print
+.print ### Cases Statistics
+.print
+.print For each case and a summary: the schema and model sizes (number of lines, model size 1
+.print denotes a reference to a predefined model), number/min/average/max size of test values.
+.print
+.print RLRRRRRR
+.width -2, 0 -6, -6, -5 -8 -8 -8
+SELECT * FROM ShowCases ORDER BY 1;
