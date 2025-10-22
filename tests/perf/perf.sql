@@ -309,7 +309,7 @@ CREATE TABLE ShowPerfSummary AS WITH
     JOIN TotalCaseSize USING (tool)
   )
   SELECT
-    1 AS ordre, 'Best' AS summary,
+    1 AS ordre, 'best count' AS summary,
     COUNT(*) FILTER (WHERE blaze = 1.0) AS blaze,
     COUNT(*) FILTER (WHERE c = 1.0) AS c,
     COUNT(*) FILTER (WHERE js = 1.0) AS js,
@@ -320,7 +320,7 @@ CREATE TABLE ShowPerfSummary AS WITH
   FROM RelativeComparison
   UNION
   SELECT
-    2, 'KO',
+    2, 'broken count',
     COUNT(*) FILTER (WHERE blaze IS NULL),
     COUNT(*) FILTER (WHERE c IS NULL),
     COUNT(*) FILTER (WHERE js IS NULL),
@@ -331,7 +331,7 @@ CREATE TABLE ShowPerfSummary AS WITH
   FROM RelativeComparison
   UNION
   SELECT
-    3, 'µs/kB',
+    3, 'perf µs/kB',
     FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'blaze')),
     FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-c')),
     FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-js')),
@@ -341,7 +341,7 @@ CREATE TABLE ShowPerfSummary AS WITH
     FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-py'))
   UNION
   SELECT
-    4, 'max',
+    4, 'ratio max',
     FORMAT('%.02f', MAX(blaze)),
     FORMAT('%.02f', MAX(c)),
     FORMAT('%.02f', MAX(js)),
@@ -352,7 +352,7 @@ CREATE TABLE ShowPerfSummary AS WITH
   FROM RelativeComparison
   UNION
   SELECT
-    5, 'gav',
+    5, 'ratio geo-avg',
     FORMAT('%.02f', EXP(AVG(LN(blaze)))),
     FORMAT('%.02f', EXP(AVG(LN(c)))),
     FORMAT('%.02f', EXP(AVG(LN(js)))),
@@ -363,7 +363,7 @@ CREATE TABLE ShowPerfSummary AS WITH
   FROM RelativeComparison
   UNION
   SELECT
-    6, 'min',
+    6, 'ratio min',
     FORMAT('%.02f', MIN(blaze)),
     FORMAT('%.02f', MIN(c)),
     FORMAT('%.02f', MIN(js)),
