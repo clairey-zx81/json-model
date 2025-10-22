@@ -2,35 +2,13 @@
 
 ## Current Tasks
 
-- [x] pr: improve radar chart responsiveness and sorting
-- [x] backend: remove intermediate variable on return
-- [x] backend: remove unused boolean variable declaration on simple direct return
-- [x] ~backend: remove redundant scalar test in some cases~
-- [x] backend: remove reporting instructions under no reporting
-- [x] backend: add late code filtering to catch some backend-specific stuff
-- [x] c-backend: remove redundant scalar test in some cases (with late filtering)
-- [x] c-backend: remove some useless braces around one instruction (with late filtering)
-- [x] backend: simplify conditional assignment patterns with one boolean constant
-- [x] backend: merge boolean declaration and first assignment if possible
-- [x] backend: optimize pattern "if (! res) res = E; ret res;"
-- [x] backend: refactoring, cleanup and generalization
-- [x] static: add likely/unlikely hints to clang
-- [x] c-backend: optimize startwith implementation
-- [x] backend: optimize pattern "res = E1; if (! res) res = E2;"
-- [x] backend: optimize full pattern "(E && ...) || (E && ...)"
-- [x] backend: or/and flattening
-- [x] backend: optimize partial pattern "... || (E && ...) || (E && ...) || ...;"
-- [x] backend: optimize pattern "V = E1; if (V) V = E2;"
-- [x] perf: add launcher script
-- [x] c-backend: cleanup duplicated `json_is_boolean` calls
-- [x] c-backend: fix bad constant string expression syntax
+- [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql`
-- [ ] backend: fix `unused but set variable` warning
-- [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
+- [ ] backend: fix `unused but set variable` warning and remove `-Wno-…`
 - [ ] backend: useless computations in `mv-17/xor_01.pl`
+- [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] static: improve likely hints, eg may only category
-- [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
@@ -698,3 +676,25 @@
 - [x] perf: allow running over a subset of tools only
 - [x] static: remove unexpected `$ANY` messages (irep dead code elimination)
 - [x] pr: add new artifact (2025101808)
+- [x] pr: improve radar chart responsiveness and sorting
+- [x] backend: remove intermediate variable on return
+- [x] backend: remove unused boolean variable declaration on simple direct return
+- [x] ~backend: remove redundant scalar test in some cases~
+- [x] backend: remove reporting instructions under no reporting
+- [x] backend: add late code filtering to catch some backend-specific stuff
+- [x] c-backend: remove redundant scalar test in some cases (with late filtering)
+- [x] c-backend: remove some useless braces around one instruction (with late filtering)
+- [x] backend: simplify conditional assignment patterns with one boolean constant
+- [x] backend: merge boolean declaration and first assignment if possible
+- [x] backend: optimize pattern "if (! res) res = E; ret res;"
+- [x] backend: refactoring, cleanup and generalization
+- [x] static: add likely/unlikely hints to clang
+- [x] c-backend: optimize startwith implementation
+- [x] backend: optimize pattern "res = E1; if (! res) res = E2;"
+- [x] backend: optimize full pattern "(E && ...) || (E && ...)"
+- [x] backend: or/and flattening
+- [x] backend: optimize partial pattern "... || (E && ...) || (E && ...) || ...;"
+- [x] backend: optimize pattern "V = E1; if (V) V = E2;"
+- [x] perf: add launcher script
+- [x] c-backend: cleanup duplicated `json_is_boolean` calls
+- [x] c-backend: fix bad constant string expression syntax
