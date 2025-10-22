@@ -594,7 +594,7 @@ class CLangJansson(Language):
         if len(types) == 1:
             tcs = types.pop()
             val = self._var_cst(var, tcs)
-            return f"{self.is_a(var, tcs)} && jm_search_cst(&{val}, {name}, {len(constants)});"
+            return f"{self.is_a(var, tcs)} && jm_search_cst(&{val}, {name}, {len(constants)})"
         else:  # multi type managed in a generated function
             return f"{name}_test({var})"
 
@@ -665,10 +665,15 @@ class CLangJansson(Language):
             line = code[i]
             if line is None:
                 continue
-            # remove redundant scalar check
+            # remove redundant checks generated in some cases
             if "jm_json_is_scalar" in line:
-                code[i] = re.sub(r" jm_json_is_scalar\((\w+)\) && json_is_string\(\1\)",
-                                 r" json_is_string(\1)", line)
+                line = re.sub(r" jm_json_is_scalar\((\w+)\) && json_is_string\(\1\)",
+                              r" json_is_string(\1)", line)
+                code[i] = line
+            if "json_is_boolean" in line:
+                line = re.sub(r" json_is_boolean\((\w+)\) && json_is_boolean\(\1\)",
+                              r" json_is_boolean(\1)", line)
+                code[i] = line
             # remove useless braces around one instruction in some safe cases
             if re.match(r"^ +\{$", line):
                 ninst, n, opened = 0, 0, 1

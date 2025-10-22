@@ -22,6 +22,9 @@
 - [x] backend: optimize partial pattern "... || (E && ...) || (E && ...) || ...;"
 - [x] backend: optimize pattern "V = E1; if (V) V = E2;"
 - [x] perf: add launcher script
+- [x] c-backend: cleanup duplicated `json_is_boolean` calls
+- [x] c-backend: fix bad constant string expression syntax
+- [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql`
 - [ ] backend: fix `unused but set variable` warning
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
