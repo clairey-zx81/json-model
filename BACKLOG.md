@@ -2,7 +2,7 @@
 
 ## Current Tasks
 
-- [ ] c-backend: try with `clang` instead of `gcc`
+- [x] c-backend: try with `clang` instead of `gcc`
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql`
