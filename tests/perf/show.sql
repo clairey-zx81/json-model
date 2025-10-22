@@ -19,7 +19,7 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 .print overall validation time per kB, maximum/geometrical average/minimum performance ratio.
 .print
 .print LRRRRRRR
-.width 0 -5 -5 -5 -5 -5 -5 -5
+.width 0 -6 -6 -6 -6 -6 -6 -6
 SELECT summary, blaze, c, js, jv1, jv2, jv3, py
 FROM ShowPerfSummary ORDER BY ordre;
 
