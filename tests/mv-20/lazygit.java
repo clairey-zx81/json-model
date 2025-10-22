@@ -210,8 +210,8 @@ public class lazygit extends ModelChecker
         }
         if (res)
         {
-            long ival_1 = json.asString(val).length();
-            res = ival_1 >= 1;
+            String sval_0 = json.asString(val);
+            res = sval_0.compareTo("") != 0;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$neString']", path);
@@ -1583,8 +1583,8 @@ public class lazygit extends ModelChecker
                 }
                 if (res)
                 {
-                    long ival_2 = json.asString(pval).length();
-                    res = ival_2 >= 1;
+                    String sval_1 = json.asString(pval);
+                    res = sval_1.compareTo("") != 0;
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("constraints failed [.git.paging.pager]", (path != null ? lpath_12 : null));

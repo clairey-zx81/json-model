@@ -115,14 +115,14 @@ CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  ival_1 int;
+  sval_0 TEXT;
 BEGIN
   -- .'$neString'
   -- .'$neString'.'@'
   res := JSONB_TYPEOF(val) = 'string';
   IF res THEN
-    ival_1 := LENGTH(JSON_VALUE(val, '$' RETURNING TEXT));
-    res := ival_1 >= 1;
+    sval_0 := JSON_VALUE(val, '$' RETURNING TEXT);
+    res := sval_0 <> '';
   END IF;
   RETURN res;
 END;
@@ -1033,7 +1033,7 @@ DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
-  ival_2 int;
+  sval_1 TEXT;
 BEGIN
   -- .git.paging
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1060,8 +1060,8 @@ BEGIN
       -- .git.paging.pager.'@'
       res := JSONB_TYPEOF(pval) = 'string';
       IF res THEN
-        ival_2 := LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT));
-        res := ival_2 >= 1;
+        sval_1 := JSON_VALUE(pval, '$' RETURNING TEXT);
+        res := sval_1 <> '';
       END IF;
       IF NOT res THEN
         RETURN FALSE;

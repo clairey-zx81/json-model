@@ -309,8 +309,8 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (likely(res))
     {
-        int64_t ival_1 = jm_str_len(json_string_value(val));
-        res = ival_1 >= 1;
+        const char * sval_0 = json_string_value(val);
+        res = (jm_str_ne_0(sval_0));
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$neString']", path);
@@ -1672,8 +1672,8 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (likely(res))
             {
-                int64_t ival_2 = jm_str_len(json_string_value(pval));
-                res = ival_2 >= 1;
+                const char * sval_1 = json_string_value(pval);
+                res = (jm_str_ne_0(sval_1));
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "constraints failed [.git.paging.pager]", (path ? &lpath_12 : NULL));

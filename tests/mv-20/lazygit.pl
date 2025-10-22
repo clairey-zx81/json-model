@@ -231,8 +231,8 @@ sub json_model_8($$$)
     my $res = jm_is_string($val);
     if ($res)
     {
-        my $ival_1 = length $val;
-        $res = $ival_1 >= 1;
+        my $sval_0 = $val;
+        $res = $sval_0 ne '';
     }
     return $res;
 }
@@ -1210,8 +1210,8 @@ sub _jm_f_23($$$)
             $res = jm_is_string($pval);
             if ($res)
             {
-                my $ival_2 = length $pval;
-                $res = $ival_2 >= 1;
+                my $sval_1 = $pval;
+                $res = $sval_1 ne '';
             }
             if (! $res)
             {

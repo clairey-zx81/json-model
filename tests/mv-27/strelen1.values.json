@@ -1,0 +1,19 @@
+[
+  [ true,  " " ],
+  [ true,  "Susie" ],
+  [ true,  "谢谢" ],
+  [ false, "" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 0 ],
+  [ false, 1 ],
+  [ false, 3.1415927 ],
+  [ false, 1.0 ],
+  [ false, 0.0 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

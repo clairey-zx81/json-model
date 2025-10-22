@@ -231,6 +231,15 @@ class CodeGenerator:
         has_unique = "!" in model
         if has_unique and not isinstance(model["!"], bool):  # should not get there
             raise ModelError("unique constraint value must be a boolean")
+
+        # simplify non empty string check based on length
+        if (tmodel is str and len(cmp_props) == 1 and
+            ((">=" in cmp_props and isinstance(model[">="], (int, float)) and 0 < model[">="] <= 1) or
+             (">" in cmp_props and isinstance(model[">"], (int, float)) and 0 <= model[">"] < 1))):
+            del model[">" if ">" in cmp_props else ">="]
+            model["!="] = ""
+            cmp_props = {"!="}
+
         # TODO ensure that not bool
         has_int = any(isinstance(model[k], int) for k in cmp_props)
         has_flt = any(isinstance(model[k], float) for k in cmp_props)

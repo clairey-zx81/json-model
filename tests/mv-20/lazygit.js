@@ -196,8 +196,8 @@ function json_model_8(val, path, rep)
     }
     if (res)
     {
-        let ival_1 = val.length;
-        res = ival_1 >= 1;
+        let sval_0 = val;
+        res = sval_0 != "";
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.'$neString']", path])
@@ -1529,8 +1529,8 @@ function _jm_f_23(val, path, rep)
             }
             if (res)
             {
-                let ival_2 = pval.length;
-                res = ival_2 >= 1;
+                let sval_1 = pval;
+                res = sval_1 != "";
                 if (! res)
                 {
                     rep !== null && rep.push(["constraints failed [.git.paging.pager]", (path ? lpath_12 : null)])

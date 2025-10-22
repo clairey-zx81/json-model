@@ -152,8 +152,8 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("unexpected string [.'$neString'.'@']", path))
     if res:
-        ival_1: int = len(val)
-        res = ival_1 >= 1
+        sval_0: str = val
+        res = sval_0 != ""
         if not res:
             rep is None or rep.append(("constraints failed [.'$neString']", path))
     return res
@@ -1006,8 +1006,8 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.git.paging.pager.'@']", lpath_12 if path is not None else None))
             if res:
-                ival_2: int = len(pval)
-                res = ival_2 >= 1
+                sval_1: str = pval
+                res = sval_1 != ""
                 if not res:
                     rep is None or rep.append(("constraints failed [.git.paging.pager]", lpath_12 if path is not None else None))
             if not res:

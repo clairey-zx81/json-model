@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] backend: optimize length-based non-empty string check
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql`
