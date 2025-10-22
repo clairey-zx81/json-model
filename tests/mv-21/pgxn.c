@@ -126,7 +126,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$License'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 28);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 28);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$License'.'|']", path);
@@ -277,7 +277,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Status'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Status'.'|']", path);
@@ -548,7 +548,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Phase'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 5);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 5);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Phase'.'|']", path);
@@ -561,7 +561,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Relation'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_3, 4);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_3, 4);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Relation'.'|']", path);

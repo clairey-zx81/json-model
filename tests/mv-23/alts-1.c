@@ -102,7 +102,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'$oB'.t
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$oB'.t.'|']", (path ? &lpath : NULL));
@@ -232,7 +232,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
     // .'$oX'.t
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$oX'.t.'|']", (path ? &lpath : NULL));

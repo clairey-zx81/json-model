@@ -2156,7 +2156,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must in property
             must_count += 1;
             // .'$commonParameter'.in
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 4);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 4);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$commonParameter'.in.'|']", (path ? &lpath_26 : NULL));
@@ -2246,7 +2246,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // serialization styles
     // .'$Style'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 7);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 7);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Style'.'|']", path);
@@ -2490,7 +2490,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must in property
             must_count += 1;
             // .'$Parameter'.'|'.1.in
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 4);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 4);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$Parameter'.'|'.1.in.'|']", (path ? &lpath_31 : NULL));
@@ -2750,7 +2750,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must in property
             must_count += 1;
             // .'$Parameter'.'|'.0.in
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 4);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 4);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$Parameter'.'|'.0.in.'|']", (path ? &lpath_33 : NULL));
@@ -5069,7 +5069,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     lpath = (jm_path_t) { "in", 0, path, NULL };
     // .'$SS-apikey'.in
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_4, 3);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_4, 3);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$SS-apikey'.in.'|']", (path ? &lpath : NULL));
@@ -5358,7 +5358,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must in property
             must_count += 1;
             // .'$SecurityScheme'.'|'.0.in
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_5, 3);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_5, 3);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$SecurityScheme'.'|'.0.in.'|']", (path ? &lpath_68 : NULL));
@@ -6126,7 +6126,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schema#simpleTypes'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_6, 7);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_6, 7);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$schema#simpleTypes'.'|']", path);

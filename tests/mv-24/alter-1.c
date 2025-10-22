@@ -39,7 +39,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$h_ou_i'
-    return json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);;
+    return json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);
 }
 
 // check $d (.'$d')
@@ -80,7 +80,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
         return false;
     // .'$ef'.t
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);
     if (unlikely(! res))
         return false;
     if (unlikely(! ((pval = json_object_get(val, "ef")) != NULL)))
@@ -125,7 +125,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
         return false;
     // .'$alternative'.'|'.1.t
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 2);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 2);
     if (unlikely(! res))
         return false;
     if (unlikely(! ((pval = json_object_get(val, "bc")) != NULL)))

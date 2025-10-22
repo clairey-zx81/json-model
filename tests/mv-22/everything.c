@@ -543,7 +543,7 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .bool.b5
-    bool res = jm_json_is_scalar(val) && json_is_boolean(val) && jm_search_cst(&(jm_constant_t) { cst_is_bool, { .b = json_boolean_value(val) } }, _jm_cst_0, 2);;
+    bool res = jm_json_is_scalar(val) && json_is_boolean(val) && jm_search_cst(&(jm_constant_t) { cst_is_bool, { .b = json_boolean_value(val) } }, _jm_cst_0, 2);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.bool.b5.'|']", path);
@@ -1262,7 +1262,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may e0 property
             // .enum.e0
-            res = jm_json_is_scalar(pval) && json_is_boolean(pval) && jm_search_cst(&(jm_constant_t) { cst_is_bool, { .b = json_boolean_value(pval) } }, _jm_cst_1, 2);;
+            res = jm_json_is_scalar(pval) && json_is_boolean(pval) && jm_search_cst(&(jm_constant_t) { cst_is_bool, { .b = json_boolean_value(pval) } }, _jm_cst_1, 2);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e0.'|']", (path ? &lpath_5 : NULL));
@@ -1274,7 +1274,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may e1 property
             // .enum.e1
-            res = jm_json_is_scalar(pval) && json_is_integer(pval) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(pval) } }, _jm_cst_2, 3);;
+            res = jm_json_is_scalar(pval) && json_is_integer(pval) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(pval) } }, _jm_cst_2, 3);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e1.'|']", (path ? &lpath_5 : NULL));
@@ -1286,7 +1286,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may e2 property
             // .enum.e2
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 3);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 3);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e2.'|']", (path ? &lpath_5 : NULL));

@@ -161,7 +161,7 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$color'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 13);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 13);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$color'.'|']", path);
@@ -265,7 +265,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$custom-commands-prompts-type-property'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 4);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 4);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$custom-commands-prompts-type-property'.'|']", path);
@@ -415,7 +415,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     lpath = (jm_path_t) { "preset", 0, path, NULL };
     // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 7);;
+    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 7);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", (path ? &lpath : NULL));
@@ -1195,7 +1195,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must context property
             must_count += 1;
             // .customCommands.'@'.0.context
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 13);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 13);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.customCommands.'@'.0.context.'|']", (path ? &lpath_5 : NULL));
@@ -1519,7 +1519,7 @@ static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may order property
             // .git.log.order
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_4, 4);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_4, 4);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_10 : NULL));
@@ -1531,7 +1531,7 @@ static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may showGraph property
             // .git.log.showGraph
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_5, 3);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_5, 3);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_10 : NULL));
@@ -1640,7 +1640,7 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may colorArg property
             // .git.paging.colorArg
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_6, 2);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_6, 2);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_12 : NULL));
@@ -1808,7 +1808,7 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .gui.border
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_7, 4);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_7, 4);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.border.'|']", path);
@@ -1916,7 +1916,7 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .gui.language
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_8, 9);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_8, 9);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.language.'|']", path);
@@ -1929,7 +1929,7 @@ static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .gui.mainPanelSplitMode
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_9, 3);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_9, 3);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.mainPanelSplitMode.'|']", path);
@@ -1954,7 +1954,7 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .gui.nerdFontsVersion
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_10, 2);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_10, 2);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.nerdFontsVersion.'|']", path);
@@ -2155,7 +2155,7 @@ static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .gui.splitDiff
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_11, 2);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_11, 2);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.splitDiff.'|']", path);
@@ -2218,7 +2218,7 @@ static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .gui.windowSize
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_12, 3);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_12, 3);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.windowSize.'|']", path);
@@ -2747,7 +2747,7 @@ static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .notARepository
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_13, 4);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_13, 4);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.notARepository.'|']", path);
@@ -2808,7 +2808,7 @@ static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .os.editPreset
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_14, 10);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_14, 10);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.os.editPreset.'|']", path);
@@ -3034,7 +3034,7 @@ static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may method property
             // .update.method
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_15, 3);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_15, 3);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.update.method.'|']", (path ? &lpath_31 : NULL));

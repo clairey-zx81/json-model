@@ -2095,7 +2095,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must in property
             must_count += 1;
             // .'$openapi#Parameter'.'|'.1.in
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 4);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 4);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#Parameter'.'|'.1.in.'|']", (path ? &lpath_25 : NULL));
@@ -2355,7 +2355,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must in property
             must_count += 1;
             // .'$openapi#Parameter'.'|'.0.in
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 4);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 4);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#Parameter'.'|'.0.in.'|']", (path ? &lpath_27 : NULL));
@@ -2444,7 +2444,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // serialization styles
     // .'$openapi#Style'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 7);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 7);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#Style'.'|']", path);
@@ -3993,7 +3993,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must in property
             must_count += 1;
             // .'$openapi#SecurityScheme'.'|'.0.in
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 3);;
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 3);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#SecurityScheme'.'|'.0.in.'|']", (path ? &lpath_51 : NULL));
@@ -5800,7 +5800,7 @@ static bool json_model_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#model#PreDef'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_5, 29);;
+    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_5, 29);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#model#PreDef'.'|']", path);
