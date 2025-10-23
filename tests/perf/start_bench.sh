@@ -31,7 +31,7 @@ function err()
   exit $status
 }
 
-docker_opts=()
+docker_opts=(--hostname=$(hostname))
 bench_opts=()
 
 let count=0 now=$(date +%Y%m%d)

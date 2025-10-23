@@ -257,7 +257,7 @@ Cases are sorted per decreasing performance of the fastest tools.
 
 - **id:** $ID
 - **now:** $(date)
-- **host:** $(hostname) (NOTE docker gives a 6-byte hexadecimal)
+- **host:** $(hostname)
 - **cpu model:** $cpu_model
 - **cpu cores:** $cpu_count
 - **jmc version:** $(jmc --version)

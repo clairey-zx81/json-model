@@ -5,7 +5,7 @@
 # 2025-09-27: latest=v11.8.3
 
 docker_image="ghcr.io/sourcemeta/jsonschema:${JSC:-latest}"
-docker_root="docker run --name blaze_cli_$$ -v ${WORKDIR:-.}:/workspace --rm"
+docker_root="docker run --name blaze_cli_$$ -v ${WORKDIR:-.}:/workspace --rm --hostname=$(hostname)"
 docker_user="$docker_root --user $(id -u):$(id -g)"
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
