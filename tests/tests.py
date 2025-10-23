@@ -223,10 +223,11 @@ EXPECT: dict[str, int] = {
     "mv-26:values": 109,
     # mv-27
     "mv-27:cmp-opts": {"strcmp": True, "report": False},
-    "mv-27:models": 2,
-    "mv-27:values": 34,
+    "mv-27:models": 3,
+    "mv-27:values": 42,
     # miscellaneous tests
     "bads:models": 58,
+    "jsts-files": 313,
     # tests json models of json schema versions
     "draft3:jsts": 105,
     "draft4:jsts": 159,
@@ -860,6 +861,20 @@ def json_schema_test_suite(version, fmodel):
                 okay = checker(schema, "", reasons)
                 assert okay, f"{jstest}[{idx}] is valid for {fmodel} ({reasons})"
     assert ntests == EXPECT.get(f"{version}:jsts", 0)
+
+def test_schema_suite_tests():
+    ntests = 0
+    checker = model_checker_from_url("../models/test-schema.model.json")
+    path = pathlib.Path("./JSON-Schema-Test-Suite/tests/")
+    for tfile in path.glob("*/*.json"):
+        with open(tfile) as f:
+            value = json.load(f)
+            assert isinstance(value, list)
+            ntests += 1
+            reasons = []
+            okay = checker(value, "", reasons)
+            assert okay, f"{tfile} matches its model"
+    assert ntests == EXPECT.get("jsts-files", 0)
 
 def test_draft3():
     # strict: fails on infinite-loop-detection.json[0]

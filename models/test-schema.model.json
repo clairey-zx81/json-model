@@ -1,0 +1,41 @@
+{
+  "#": "Model for the JSON Schema Test Suite tests",
+  "~": "https://json-model.org/models/test-schema.model.json",
+  "$": {
+    "Test": {
+      "#": "A single test",
+      "description": "",
+      "?comment": "",
+      "data": "$ANY",
+      "valid": true
+    },
+    "Specification": {
+      "@": {
+        "?core": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+        "?validation": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+        "?ecma262": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+        "?perl5": "",
+        "?quote": "",
+        "/^rfc\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+        "/^iso\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+      },
+      ">": 0
+    },
+    "TestCase": {
+      "description": "",
+      "?comment": "",
+      "schema": "$ANY",
+      "tests": {
+        "@": [ "$Test" ],
+        ">": 0
+      },
+      "?specification": {
+        "@": [ "$Specification" ],
+        ">": 0,
+        "!": true
+      }
+    }
+  },
+  "@": [ "$TestCase" ],
+  ">": 0
+}

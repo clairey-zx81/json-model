@@ -109,11 +109,15 @@ cloc --md \
     json_model/runtime \
     | sed -n -e '/SUM/s/\([0-9][0-9]*\)/**\1**/g;s/SUM:/**Total**/;/^$/,$p' | grep -v '^-[-|]*$'
 
-nmodels=$(echo tests/[mrb]*/*.model.json | wc -w)
-nschemas=$(echo tests/[mrb]*/*.schema.json | wc -w)
-modellocs=$(cat tests/[mrb]*/*.model.json | wc -l)
-nvalues=$(cat tests/[mrb]*/*.values.json | egrep '(true|false)' | wc -l)
-allvalues=$(( $nvalues + $nmodels + $nschemas ))
+n_models=$(ls tests/[mrb]*/*.model.json | wc -l)
+n_values=$(cat tests/[mrb]*/*.values.json | egrep '(true|false)' | wc -l)
+n_value_files=$(ls tests/[mrb]*/*.values.json | wc -l)
+n_schemas=$(echo tests/[mrb]*/*.schema.json | wc -w)
+n_test_schemas=$(grep '^        "schema": {' tests/JSON-Schema-Test-Suite/tests/*/*.json | wc -l)
+n_test_files=$(ls tests/JSON-Schema-Test-Suite/tests/*/*.json | wc -l)
+model_locs=$(cat tests/[mrb]*/*.model.json | wc -l)
+
+all_values=$(( $n_values + $n_models + $n_value_files + $n_schemas + $n_test_schemas + $n_test_files ))
 
 cat <<EOF
 
@@ -125,8 +129,8 @@ Test models cover the various features of JSON Model.
 Each model is tested for each target language (Python, C, JavaScript, PL/pgSQL, Perl, Java)
 on a set of test vectors.
 
-- number of JSON models: $nmodels
-- total JSON model locs: $modellocs
-- number of test vector JSON values: $nvalues
-- all tested JSON values (including models and generated schemas): $allvalues
+- number of JSON models: $n_models
+- total JSON model locs: $model_locs
+- number of test vector JSON values: $n_values
+- all tested JSON values (including models, generated schemas and test suite schemas): $all_values
 EOF

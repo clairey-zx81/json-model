@@ -1,0 +1,92 @@
+[
+  {
+    "@": [
+      "$TestCase"
+    ],
+    ">=": 1,
+    "#": "JsonModel 1",
+    "$": {
+      "Test": {
+        "description": "",
+        "?comment": "",
+        "data": "$ANY",
+        "valid": true,
+        "#": "JsonModel 2"
+      },
+      "Specification": {
+        "@": {
+          "?core": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+          "?validation": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+          "?ecma262": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+          "?perl5": "",
+          "?quote": "",
+          "/^rfc\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+          "/^iso\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+        },
+        ">=": 1,
+        "#": "JsonModel 3"
+      },
+      "TestCase": {
+        "description": "",
+        "?comment": "",
+        "schema": "$ANY",
+        "tests": {
+          "@": [
+            "$Test"
+          ],
+          ">=": 1
+        },
+        "?specification": {
+          "@": [
+            "$Specification"
+          ],
+          "!": true,
+          ">=": 1
+        },
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 1",
+      "": "./test-schema.model.json"
+    },
+    "~": "https://json-model.org/models/test-schema.model.json"
+  },
+  {
+    "description": "",
+    "?comment": "",
+    "data": "$ANY",
+    "valid": true,
+    "#": "JsonModel 2"
+  },
+  {
+    "@": {
+      "?core": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+      "?validation": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+      "?ecma262": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+      "?perl5": "",
+      "?quote": "",
+      "/^rfc\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+      "/^iso\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+    },
+    ">=": 1,
+    "#": "JsonModel 3"
+  },
+  {
+    "description": "",
+    "?comment": "",
+    "schema": "$ANY",
+    "tests": {
+      "@": [
+        "$Test"
+      ],
+      ">=": 1
+    },
+    "?specification": {
+      "@": [
+        "$Specification"
+      ],
+      "!": true,
+      ">=": 1
+    },
+    "#": "JsonModel 4"
+  }
+]
