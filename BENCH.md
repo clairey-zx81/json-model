@@ -23,11 +23,11 @@ for comparison using the Blaze CLI.
 
 It is typically started on a large host with the
 [`start_bench.sh` script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/start_bench.sh)
-which will span the necessary dockers, try `--help` for setting details:
+which will span the necessary dockers:
 
 ```sh
-JMC=latest JMC_OPTS=--no-predef \
-  nohup ./start_bench.sh latest -p 20 -l 1000 -r 5 --cap-py &
+JMC=latest JMC_OPTS="--no-predef --cc=clang-20" \
+  nohup ./start_bench.sh latest -p 16 -l 1000 -r 5 &
 # in the generated directory, look for the summary markdown and radar json files.
 ```
 

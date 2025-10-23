@@ -280,7 +280,6 @@ Cases are sorted per decreasing performance of the fastest tools.
 - **exported environment variables:** $JMC_ENV
 $(for var in $JMC_ENV ; do echo "  - $var: \`${!var}\`" ; done)
 
-## Stats and Results
 EOF
 
 # for markdown
