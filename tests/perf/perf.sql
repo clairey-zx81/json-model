@@ -304,7 +304,7 @@ CREATE TABLE ShowPerfSummary AS WITH
     GROUP BY 1
   ),
   MusPerKbTool AS (
-    SELECT tool, 1024 * run / tsize AS perf
+    SELECT tool, tsize / run AS speed
     FROM TotalToolTime
     JOIN TotalCaseSize USING (tool)
   )
@@ -331,14 +331,14 @@ CREATE TABLE ShowPerfSummary AS WITH
   FROM RelativeComparison
   UNION
   SELECT
-    3, 'perf µs/kB',
-    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'blaze')),
-    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-c')),
-    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-js')),
-    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-gson')),
-    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jackson')),
-    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jsonp')),
-    FORMAT('%.03f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-py'))
+    3, 'speed B/µs',
+    FORMAT('%.0f', (SELECT perf FROM MusPerKbTool WHERE tool = 'blaze')),
+    FORMAT('%.0f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-c')),
+    FORMAT('%.0f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-js')),
+    FORMAT('%.0f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-gson')),
+    FORMAT('%.0f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jackson')),
+    FORMAT('%.0f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-java-jsonp')),
+    FORMAT('%.0f', (SELECT perf FROM MusPerKbTool WHERE tool = 'jmc-py'))
   UNION
   SELECT
     4, 'ratio max',

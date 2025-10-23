@@ -15,11 +15,11 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 .print
 .print ### Tool Performance Summary
 .print
-.print For each tool: number of best performance, number of case failures,
-.print overall validation time per kB, maximum/geometrical average/minimum performance ratio.
+.print For each tool: number of best performance, number of case failures, overall
+.print validation speed in bytes per µs, maximum/geometrical average/minimum performance ratio.
 .print
 .print LRRRRRRR
-.width 0 -6 -6 -6 -6 -6 -6 -6
+.width 0 -5 -5 -5 -5 -5 -5 -5
 SELECT summary, blaze, c, js, jv1, jv2, jv3, py
 FROM ShowPerfSummary ORDER BY ordre;
 
