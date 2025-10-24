@@ -6,25 +6,26 @@
     ">=": 1,
     "#": "JsonModel 1",
     "$": {
+      "Version": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
       "Test": {
         "description": "",
         "?comment": "",
         "data": "$ANY",
         "valid": true,
-        "#": "JsonModel 2"
+        "#": "JsonModel 3"
       },
       "Specification": {
         "@": {
-          "?core": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
-          "?validation": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
-          "?ecma262": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+          "?core": "$Version",
+          "?validation": "$Version",
+          "?ecma262": "$Version",
           "?perl5": "",
           "?quote": "",
-          "/^rfc\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
-          "/^iso\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+          "/^rfc\\d+$/": "$Version",
+          "/^iso\\d+$/": "$Version"
         },
         ">=": 1,
-        "#": "JsonModel 3"
+        "#": "JsonModel 4"
       },
       "TestCase": {
         "description": "",
@@ -43,32 +44,33 @@
           "!": true,
           ">=": 1
         },
-        "#": "JsonModel 4"
+        "#": "JsonModel 5"
       },
       "#": "Symbol 1",
-      "": "./test-schema.model.json"
+      "": "https://json-model.org/models/test-schema"
     },
-    "~": "https://json-model.org/models/test-schema.model.json"
+    "~": "https://json-model.org/models/json-model"
   },
+  "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
   {
     "description": "",
     "?comment": "",
     "data": "$ANY",
     "valid": true,
-    "#": "JsonModel 2"
+    "#": "JsonModel 3"
   },
   {
     "@": {
-      "?core": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
-      "?validation": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
-      "?ecma262": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+      "?core": "$Version",
+      "?validation": "$Version",
+      "?ecma262": "$Version",
       "?perl5": "",
       "?quote": "",
-      "/^rfc\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
-      "/^iso\\d+$/": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+      "/^rfc\\d+$/": "$Version",
+      "/^iso\\d+$/": "$Version"
     },
     ">=": 1,
-    "#": "JsonModel 3"
+    "#": "JsonModel 4"
   },
   {
     "description": "",
@@ -87,6 +89,6 @@
       "!": true,
       ">=": 1
     },
-    "#": "JsonModel 4"
+    "#": "JsonModel 5"
   }
 ]

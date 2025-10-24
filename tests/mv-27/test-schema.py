@@ -28,8 +28,15 @@ _jm_re_2_reco: object
 _jm_re_2: RegexFun
 check_model_map: PropMap
 
-# check $Test (.'$Test')
+
+# check $Version (.'$Version')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Version'
+    # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+    return isinstance(val, str) and _jm_re_0(val, None, None)
+
+# check $Test (.'$Test')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # A single test
     # .'$Test'
     if not isinstance(val, dict):
@@ -68,7 +75,6 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 
-
 # object .'$Specification'.'@'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -78,22 +84,19 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "core":
             # handle may core property
             # .'$Specification'.'@'.core
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = isinstance(pval, str) and _jm_re_0(pval, None, None)
+            res = json_model_2(pval, None, None)
             if not res:
                 return False
         elif prop == "validation":
             # handle may validation property
             # .'$Specification'.'@'.validation
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = isinstance(pval, str) and _jm_re_0(pval, None, None)
+            res = json_model_2(pval, None, None)
             if not res:
                 return False
         elif prop == "ecma262":
             # handle may ecma262 property
             # .'$Specification'.'@'.ecma262
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = isinstance(pval, str) and _jm_re_0(pval, None, None)
+            res = json_model_2(pval, None, None)
             if not res:
                 return False
         elif prop == "perl5":
@@ -111,15 +114,13 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         elif _jm_re_1(prop, None, None):
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = isinstance(pval, str) and _jm_re_0(pval, None, None)
+            res = json_model_2(pval, None, None)
             if not res:
                 return False
         elif _jm_re_2(prop, None, None):
             # handle 2 re props
             # .'$Specification'.'@'.'/^iso\\d+$/'
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = isinstance(pval, str) and _jm_re_0(pval, None, None)
+            res = json_model_2(pval, None, None)
             if not res:
                 return False
         else:
@@ -127,7 +128,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check $Specification (.'$Specification')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Specification'
     # .'$Specification'.'@'
     res: bool = _jm_obj_0(val, None, None)
@@ -137,7 +138,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check $TestCase (.'$TestCase')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TestCase'
     if not isinstance(val, dict):
         return False
@@ -165,7 +166,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if res:
                 for arr_0_idx, arr_0_item in enumerate(pval):
                     # .'$TestCase'.tests.'@'.0
-                    res = json_model_2(arr_0_item, None, None)
+                    res = json_model_3(arr_0_item, None, None)
                     if not res:
                         break
             if res:
@@ -187,7 +188,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if res:
                 for arr_1_idx, arr_1_item in enumerate(pval):
                     # .'$TestCase'.specification.'@'.0
-                    res = json_model_3(arr_1_item, None, None)
+                    res = json_model_4(arr_1_item, None, None)
                     if not res:
                         break
             if res:
@@ -208,7 +209,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         for arr_2_idx, arr_2_item in enumerate(val):
             # .'@'.0
-            res = json_model_4(arr_2_item, None, None)
+            res = json_model_5(arr_2_item, None, None)
             if not res:
                 break
     if res:
@@ -237,9 +238,10 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "Test": json_model_2,
-            "Specification": json_model_3,
-            "TestCase": json_model_4,
+            "Version": json_model_2,
+            "Test": json_model_3,
+            "Specification": json_model_4,
+            "TestCase": json_model_5,
         }
 
 # differed module cleanup

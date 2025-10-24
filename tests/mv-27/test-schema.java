@@ -22,8 +22,21 @@ public class test_schema extends ModelChecker
     public Pattern _jm_re_2_pat = null;
     public Map<String, Checker> test_schema_map_pmap;
 
-    // check $Test (.'$Test')
+    public boolean _jm_re_0(String val, Path path, Report rep)
+    {
+        return _jm_re_0_pat.matcher(val).find();
+    }
+
+    // check $Version (.'$Version')
     public boolean json_model_2(Object val, Path path, Report rep)
+    {
+        // .'$Version'
+        // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+        return json.isString(val) && _jm_re_0(json.asString(val), null, null);
+    }
+
+    // check $Test (.'$Test')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
         // A single test
         // .'$Test'
@@ -85,11 +98,6 @@ public class test_schema extends ModelChecker
         return must_count == 3;
     }
 
-    public boolean _jm_re_0(String val, Path path, Report rep)
-    {
-        return _jm_re_0_pat.matcher(val).find();
-    }
-
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
@@ -117,8 +125,7 @@ public class test_schema extends ModelChecker
             {
                 // handle may core property
                 // .'$Specification'.'@'.core
-                // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-                res = json.isString(pval) && _jm_re_0(json.asString(pval), null, null);
+                res = json_model_2(pval, null, null);
                 if (! res)
                 {
                     return false;
@@ -128,8 +135,7 @@ public class test_schema extends ModelChecker
             {
                 // handle may validation property
                 // .'$Specification'.'@'.validation
-                // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-                res = json.isString(pval) && _jm_re_0(json.asString(pval), null, null);
+                res = json_model_2(pval, null, null);
                 if (! res)
                 {
                     return false;
@@ -139,8 +145,7 @@ public class test_schema extends ModelChecker
             {
                 // handle may ecma262 property
                 // .'$Specification'.'@'.ecma262
-                // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-                res = json.isString(pval) && _jm_re_0(json.asString(pval), null, null);
+                res = json_model_2(pval, null, null);
                 if (! res)
                 {
                     return false;
@@ -170,8 +175,7 @@ public class test_schema extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Specification'.'@'.'/^rfc\\d+$/'
-                // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-                res = json.isString(pval) && _jm_re_0(json.asString(pval), null, null);
+                res = json_model_2(pval, null, null);
                 if (! res)
                 {
                     return false;
@@ -181,8 +185,7 @@ public class test_schema extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Specification'.'@'.'/^iso\\d+$/'
-                // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-                res = json.isString(pval) && _jm_re_0(json.asString(pval), null, null);
+                res = json_model_2(pval, null, null);
                 if (! res)
                 {
                     return false;
@@ -197,7 +200,7 @@ public class test_schema extends ModelChecker
     }
 
     // check $Specification (.'$Specification')
-    public boolean json_model_3(Object val, Path path, Report rep)
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
         // .'$Specification'
         // .'$Specification'.'@'
@@ -211,7 +214,7 @@ public class test_schema extends ModelChecker
     }
 
     // check $TestCase (.'$TestCase')
-    public boolean json_model_4(Object val, Path path, Report rep)
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
         // .'$TestCase'
         if (! json.isObject(val))
@@ -259,7 +262,7 @@ public class test_schema extends ModelChecker
                         arr_0_idx++;
                         Object arr_0_item = arr_0_item_loop.next();
                         // .'$TestCase'.tests.'@'.0
-                        res = json_model_2(arr_0_item, null, null);
+                        res = json_model_3(arr_0_item, null, null);
                         if (! res)
                         {
                             break;
@@ -301,7 +304,7 @@ public class test_schema extends ModelChecker
                         arr_1_idx++;
                         Object arr_1_item = arr_1_item_loop.next();
                         // .'$TestCase'.specification.'@'.0
-                        res = json_model_3(arr_1_item, null, null);
+                        res = json_model_4(arr_1_item, null, null);
                         if (! res)
                         {
                             break;
@@ -342,7 +345,7 @@ public class test_schema extends ModelChecker
                 arr_2_idx++;
                 Object arr_2_item = arr_2_item_loop.next();
                 // .'@'.0
-                res = json_model_4(arr_2_item, null, null);
+                res = json_model_5(arr_2_item, null, null);
                 if (! res)
                 {
                     break;
@@ -368,9 +371,10 @@ public class test_schema extends ModelChecker
             _jm_re_2_pat = Pattern.compile("^iso\\d+$");
             test_schema_map_pmap = new HashMap<String, Checker>();
             test_schema_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            test_schema_map_pmap.put("Test", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            test_schema_map_pmap.put("Specification", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            test_schema_map_pmap.put("TestCase", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            test_schema_map_pmap.put("Version", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            test_schema_map_pmap.put("Test", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            test_schema_map_pmap.put("Specification", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            test_schema_map_pmap.put("TestCase", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

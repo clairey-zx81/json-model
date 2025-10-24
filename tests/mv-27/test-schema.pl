@@ -12,14 +12,31 @@ use constant JMC_VERSION => '2';
 
 
 sub json_model_2($$$);
-sub _jm_obj_0($$$);
 sub json_model_3($$$);
+sub _jm_obj_0($$$);
 sub json_model_4($$$);
+sub json_model_5($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $Test (.'$Test')
+sub _jm_re_0($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$/;
+    return $res;
+}
+
+# check $Version (.'$Version')
 sub json_model_2($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # .'$Version'
+    # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
+}
+
+# check $Test (.'$Test')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # A single test
@@ -80,13 +97,6 @@ sub json_model_2($$$)
     return $must_count == 3;
 }
 
-sub _jm_re_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$/;
-    return $res;
-}
-
 sub _jm_re_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -117,8 +127,7 @@ sub _jm_obj_0($$$)
         {
             # handle may core property
             # .'$Specification'.'@'.core
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -128,8 +137,7 @@ sub _jm_obj_0($$$)
         {
             # handle may validation property
             # .'$Specification'.'@'.validation
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -139,8 +147,7 @@ sub _jm_obj_0($$$)
         {
             # handle may ecma262 property
             # .'$Specification'.'@'.ecma262
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -170,8 +177,7 @@ sub _jm_obj_0($$$)
         {
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -181,8 +187,7 @@ sub _jm_obj_0($$$)
         {
             # handle 2 re props
             # .'$Specification'.'@'.'/^iso\\d+$/'
-            # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -197,7 +202,7 @@ sub _jm_obj_0($$$)
 }
 
 # check $Specification (.'$Specification')
-sub json_model_3($$$)
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Specification'
@@ -212,7 +217,7 @@ sub json_model_3($$$)
 }
 
 # check $TestCase (.'$TestCase')
-sub json_model_4($$$)
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$TestCase'
@@ -256,7 +261,7 @@ sub json_model_4($$$)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .'$TestCase'.tests.'@'.0
-                    $res = json_model_2($arr_0_item, undef, undef);
+                    $res = json_model_3($arr_0_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -295,7 +300,7 @@ sub json_model_4($$$)
                 {
                     my $arr_1_item = $$pval[$arr_1_idx];
                     # .'$TestCase'.specification.'@'.0
-                    $res = json_model_3($arr_1_item, undef, undef);
+                    $res = json_model_4($arr_1_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -334,7 +339,7 @@ sub json_model_1($$$)
         {
             my $arr_2_item = $$val[$arr_2_idx];
             # .'@'.0
-            $res = json_model_4($arr_2_item, undef, undef);
+            $res = json_model_5($arr_2_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -361,9 +366,10 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'Test' => \&json_model_2,
-            'Specification' => \&json_model_3,
-            'TestCase' => \&json_model_4,
+            'Version' => \&json_model_2,
+            'Test' => \&json_model_3,
+            'Specification' => \&json_model_4,
+            'TestCase' => \&json_model_5,
         );
     }
 }

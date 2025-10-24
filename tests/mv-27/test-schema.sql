@@ -5,8 +5,26 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- check $Test (.'$Test')
+-- regex=^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$ opts=n
+CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$', 'n');
+END;
+$$ LANGUAGE plpgsql;
+
+-- check $Version (.'$Version')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- .'$Version'
+  -- "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+  RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check $Test (.'$Test')
+CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -57,14 +75,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$', 'n');
-END;
-$$ LANGUAGE plpgsql;
-
 -- regex=^rfc\d+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -96,24 +106,21 @@ BEGIN
     IF prop = 'core' THEN
       -- handle may core property
       -- .'$Specification'.'@'.core
-      -- "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'validation' THEN
       -- handle may validation property
       -- .'$Specification'.'@'.validation
-      -- "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'ecma262' THEN
       -- handle may ecma262 property
       -- .'$Specification'.'@'.ecma262
-      -- "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -134,16 +141,14 @@ BEGIN
     ELSEIF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$Specification'.'@'.'/^rfc\\d+$/'
-      -- "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF _jm_re_2(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$Specification'.'@'.'/^iso\\d+$/'
-      -- "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -156,7 +161,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Specification (.'$Specification')
-CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -174,7 +179,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $TestCase (.'$TestCase')
-CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -217,7 +222,7 @@ BEGIN
         FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_0_item := pval -> arr_0_idx;
           -- .'$TestCase'.tests.'@'.0
-          res := json_model_2(arr_0_item, NULL, NULL);
+          res := json_model_3(arr_0_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -246,7 +251,7 @@ BEGIN
         FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_1_item := pval -> arr_1_idx;
           -- .'$TestCase'.specification.'@'.0
-          res := json_model_3(arr_1_item, NULL, NULL);
+          res := json_model_4(arr_1_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -284,7 +289,7 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_2_item := val -> arr_2_idx;
       -- .'@'.0
-      res := json_model_4(arr_2_item, NULL, NULL);
+      res := json_model_5(arr_2_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -301,7 +306,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","Test":"json_model_2","Specification":"json_model_3","TestCase":"json_model_4"}';
+  map JSONB := JSONB '{"":"json_model_1","Version":"json_model_2","Test":"json_model_3","Specification":"json_model_4","TestCase":"json_model_5"}';
 BEGIN
   RETURN map->>name;
 END;

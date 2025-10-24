@@ -10,10 +10,11 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_1_re2 = NULL;
 static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
@@ -21,14 +22,28 @@ static cre2_regexp_t *_jm_re_2_re2 = NULL;
 static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
-jm_propmap_t check_model_map_tab[4];
-const size_t check_model_map_size = 4;
+jm_propmap_t check_model_map_tab[5];
+const size_t check_model_map_size = 5;
+
+static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+// check $Version (.'$Version')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // .'$Version'
+    // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+    return json_is_string(val) && _jm_re_0(json_string_value(val), NULL, NULL);
+}
 
 // check $Test (.'$Test')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // A single test
     // .'$Test'
@@ -79,12 +94,6 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return must_count == 3;
 }
 
-static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
-{
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
-}
-
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
@@ -111,8 +120,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may core property
             // .'$Specification'.'@'.core
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), NULL, NULL);
+            res = json_model_2(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
         }
@@ -120,8 +128,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may validation property
             // .'$Specification'.'@'.validation
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), NULL, NULL);
+            res = json_model_2(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
         }
@@ -129,8 +136,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may ecma262 property
             // .'$Specification'.'@'.ecma262
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), NULL, NULL);
+            res = json_model_2(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
         }
@@ -154,8 +160,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), NULL, NULL);
+            res = json_model_2(pval, NULL, NULL);
             if (! res)
                 return false;
         }
@@ -163,8 +168,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), NULL, NULL);
+            res = json_model_2(pval, NULL, NULL);
             if (! res)
                 return false;
         }
@@ -175,7 +179,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // check $Specification (.'$Specification')
-static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Specification'
     // .'$Specification'.'@'
@@ -189,7 +193,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check $TestCase (.'$TestCase')
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$TestCase'
     if (unlikely(! json_is_object(val)))
@@ -230,7 +234,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 json_array_foreach(pval, arr_0_idx, arr_0_item)
                 {
                     // .'$TestCase'.tests.'@'.0
-                    res = json_model_2(arr_0_item, NULL, NULL);
+                    res = json_model_3(arr_0_item, NULL, NULL);
                     if (unlikely(! res))
                         break;
                 }
@@ -264,7 +268,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 json_array_foreach(pval, arr_1_idx, arr_1_item)
                 {
                     // .'$TestCase'.specification.'@'.0
-                    res = json_model_3(arr_1_item, NULL, NULL);
+                    res = json_model_4(arr_1_item, NULL, NULL);
                     if (unlikely(! res))
                         break;
                 }
@@ -297,7 +301,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         json_array_foreach(val, arr_2_idx, arr_2_item)
         {
             // .'@'.0
-            res = json_model_4(arr_2_item, NULL, NULL);
+            res = json_model_5(arr_2_item, NULL, NULL);
             if (unlikely(! res))
                 break;
         }
@@ -312,7 +316,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 jm_check_fun_t check_model_map(const char *pname)
 {
-    return jm_search_propmap(pname, check_model_map_tab, 4);
+    return jm_search_propmap(pname, check_model_map_tab, 5);
 }
 
 static bool initialized = false;
@@ -336,10 +340,11 @@ const char *check_model_init(void)
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "Test", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "Specification", json_model_3 };
-        check_model_map_tab[3] = (jm_propmap_t) { "TestCase", json_model_4 };
-        jm_sort_propmap(check_model_map_tab, 4);
+        check_model_map_tab[1] = (jm_propmap_t) { "Version", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Test", json_model_3 };
+        check_model_map_tab[3] = (jm_propmap_t) { "Specification", json_model_4 };
+        check_model_map_tab[4] = (jm_propmap_t) { "TestCase", json_model_5 };
+        jm_sort_propmap(check_model_map_tab, 5);
     }
     return NULL;
 }

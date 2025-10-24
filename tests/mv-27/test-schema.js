@@ -14,8 +14,18 @@ const _jm_re_1_re = new runtime.RX("^rfc\\d+$", "")
 const _jm_re_2_re = new runtime.RX("^iso\\d+$", "")
 var check_model_map = new Map()
 
-// check $Test (.'$Test')
+const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
+
+// check $Version (.'$Version')
 function json_model_2(val, path, rep)
+{
+    // .'$Version'
+    // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+    return ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, null, null);
+}
+
+// check $Test (.'$Test')
+function json_model_3(val, path, rep)
 {
     // A single test
     // .'$Test'
@@ -74,8 +84,6 @@ function json_model_2(val, path, rep)
     return must_count == 3;
 }
 
-const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
-
 const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 
 const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
@@ -94,8 +102,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may core property
             // .'$Specification'.'@'.core
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null);
+            res = json_model_2(pval, null, null);
             if (! res)
             {
                 return false;
@@ -105,8 +112,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may validation property
             // .'$Specification'.'@'.validation
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null);
+            res = json_model_2(pval, null, null);
             if (! res)
             {
                 return false;
@@ -116,8 +122,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may ecma262 property
             // .'$Specification'.'@'.ecma262
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null);
+            res = json_model_2(pval, null, null);
             if (! res)
             {
                 return false;
@@ -147,8 +152,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null);
+            res = json_model_2(pval, null, null);
             if (! res)
             {
                 return false;
@@ -158,8 +162,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'
-            // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null);
+            res = json_model_2(pval, null, null);
             if (! res)
             {
                 return false;
@@ -174,7 +177,7 @@ function _jm_obj_0(val, path, rep)
 }
 
 // check $Specification (.'$Specification')
-function json_model_3(val, path, rep)
+function json_model_4(val, path, rep)
 {
     // .'$Specification'
     // .'$Specification'.'@'
@@ -188,7 +191,7 @@ function json_model_3(val, path, rep)
 }
 
 // check $TestCase (.'$TestCase')
-function json_model_4(val, path, rep)
+function json_model_5(val, path, rep)
 {
     // .'$TestCase'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -230,7 +233,7 @@ function json_model_4(val, path, rep)
                 {
                     let arr_0_item = pval[arr_0_idx]
                     // .'$TestCase'.tests.'@'.0
-                    res = json_model_2(arr_0_item, null, null);
+                    res = json_model_3(arr_0_item, null, null);
                     if (! res)
                     {
                         break;
@@ -269,7 +272,7 @@ function json_model_4(val, path, rep)
                 {
                     let arr_1_item = pval[arr_1_idx]
                     // .'$TestCase'.specification.'@'.0
-                    res = json_model_3(arr_1_item, null, null);
+                    res = json_model_4(arr_1_item, null, null);
                     if (! res)
                     {
                         break;
@@ -307,7 +310,7 @@ function json_model_1(val, path, rep)
         {
             let arr_2_item = val[arr_2_idx]
             // .'@'.0
-            res = json_model_4(arr_2_item, null, null);
+            res = json_model_5(arr_2_item, null, null);
             if (! res)
             {
                 break;
@@ -333,9 +336,10 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
-        check_model_map.set("Test", json_model_2)
-        check_model_map.set("Specification", json_model_3)
-        check_model_map.set("TestCase", json_model_4)
+        check_model_map.set("Version", json_model_2)
+        check_model_map.set("Test", json_model_3)
+        check_model_map.set("Specification", json_model_4)
+        check_model_map.set("TestCase", json_model_5)
     }
 }
 

@@ -3,6 +3,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Model for the JSON Schema Test Suite tests",
   "$defs": {
+    "Version": {
+      "type": "string",
+      "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$"
+    },
     "Test": {
       "description": "A single test",
       "type": "object",
@@ -29,26 +33,21 @@
       "type": "object",
       "patternProperties": {
         "^rfc\\d+$": {
-          "type": "string",
-          "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$"
+          "$ref": "#/$defs/Version"
         },
         "^iso\\d+$": {
-          "type": "string",
-          "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$"
+          "$ref": "#/$defs/Version"
         }
       },
       "properties": {
         "core": {
-          "type": "string",
-          "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$"
+          "$ref": "#/$defs/Version"
         },
         "validation": {
-          "type": "string",
-          "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$"
+          "$ref": "#/$defs/Version"
         },
         "ecma262": {
-          "type": "string",
-          "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$"
+          "$ref": "#/$defs/Version"
         },
         "perl5": {
           "type": "string"
