@@ -12,7 +12,7 @@ BEGIN
   -- .
   -- .'&'.0
   -- .'&'.1
-  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0 AND TRUE;
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -21,7 +21,7 @@ sub json_model_1($$$)
     # .
     # .'&'.0
     # .'&'.1
-    return jm_is_integer($val) && $val >= 0 && 1;
+    return jm_is_integer($val) && $val >= 0;
 }
 
 

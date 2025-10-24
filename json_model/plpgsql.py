@@ -446,3 +446,11 @@ class PLpgSQL(Language):
 
     def gen_free(self, free: Block) -> Block:
         return []
+
+    def filter_code(self, code: Block) -> Block:
+        for i in range(len(code)):
+            line = code[i]
+            if " AND TRUE" in line:
+                line = re.sub(r" AND TRUE", "", line)
+                code[i] = line
+        return list(filter(lambda s: s is not None, code))
