@@ -1,7 +1,8 @@
 {
   "#": "Model for the JSON Schema Test Suite tests",
-  "~": "https://json-model.org/models/test-schema.model.json",
+  "~": "https://json-model.org/models/json-model",
   "$": {
+    "": "https://json-model.org/models/test-schema",
     "Test": {
       "#": "A single test",
       "description": "",
