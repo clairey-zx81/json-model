@@ -565,7 +565,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_9_map(prop))))
+        if (likely((pfun = json_model_9_map(prop))))
         {
             // handle 38 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep)))

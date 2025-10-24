@@ -71,7 +71,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_is_valid_url(prop, (path ? &lpath_0 : NULL), rep)))
+        else if (likely(jm_is_valid_url(prop, (path ? &lpath_0 : NULL), rep)))
         {
             // handle 1 key props
             // .'$Ex09'.'$URL'
@@ -169,7 +169,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_url(prop, (path ? &lpath_1 : NULL), rep)))
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_1 : NULL), rep)))
         {
             // handle 1 key props
             // .'$ex08#map'.'$URL'

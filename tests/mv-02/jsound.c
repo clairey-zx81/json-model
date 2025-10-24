@@ -192,7 +192,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "types") != NULL)))
+            if (! (json_object_get(val, "types") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <types> [.'$Schema']", path);
             }
@@ -487,7 +487,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely((pfun = json_model_6_map(prop))))
+        else if (likely((pfun = json_model_6_map(prop))))
         {
             // handle 13 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_2 : NULL), rep)))
@@ -506,11 +506,11 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "baseType") != NULL)))
+            if (! (json_object_get(val, "baseType") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <baseType> [.'$Atomic']", path);
             }
-            if (unlikely(! (json_object_get(val, "kind") != NULL)))
+            if (! (json_object_get(val, "kind") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <kind> [.'$Atomic']", path);
             }
@@ -623,7 +623,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "kind") != NULL)))
+            if (! (json_object_get(val, "kind") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <kind> [.'$Object']", path);
             }
@@ -713,11 +713,11 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$Fields']", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Fields']", path);
             }
@@ -827,7 +827,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "kind") != NULL)))
+            if (! (json_object_get(val, "kind") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <kind> [.'$Array']", path);
             }
@@ -931,15 +931,15 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "content") != NULL)))
+            if (! (json_object_get(val, "content") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <content> [.'$Union']", path);
             }
-            if (unlikely(! (json_object_get(val, "kind") != NULL)))
+            if (! (json_object_get(val, "kind") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <kind> [.'$Union']", path);
             }
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$Union']", path);
             }

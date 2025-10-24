@@ -170,7 +170,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_url(prop, (path ? &lpath_2 : NULL), rep)))
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_2 : NULL), rep)))
         {
             // handle 1 key props
             // .'$core'.'$vocabulary'.'$URI'
@@ -210,7 +210,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_3_map(prop))))
+        if (likely((pfun = json_model_3_map(prop))))
         {
             // handle 9 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep)))
@@ -327,7 +327,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_4_map(prop))))
+        if (likely((pfun = json_model_4_map(prop))))
         {
             // handle 7 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_3 : NULL), rep)))
@@ -769,7 +769,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_12_map(prop))))
+        if (likely((pfun = json_model_12_map(prop))))
         {
             // handle 20 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_7 : NULL), rep)))
@@ -867,7 +867,7 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_regex(prop, false, (path ? &lpath_11 : NULL), rep)))
+        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_11 : NULL), rep)))
         {
             // handle 1 key props
             // .'$applicator'.patternProperties.'$REGEX'
@@ -987,7 +987,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_14_map(prop))))
+        if (likely((pfun = json_model_14_map(prop))))
         {
             // handle 16 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_9 : NULL), rep)))
@@ -1071,7 +1071,7 @@ static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_url(prop, (path ? &lpath_17 : NULL), rep)))
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_17 : NULL), rep)))
         {
             // handle 1 key props
             // .'$ObjectSchema'.'$vocabulary'.'$URI'
@@ -1330,7 +1330,7 @@ static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_regex(prop, false, (path ? &lpath_20 : NULL), rep)))
+        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_20 : NULL), rep)))
         {
             // handle 1 key props
             // .'$ObjectSchema'.patternProperties.'$REGEX'
@@ -1528,7 +1528,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_15_map(prop))))
+        if (likely((pfun = json_model_15_map(prop))))
         {
             // handle 58 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_15 : NULL), rep)))

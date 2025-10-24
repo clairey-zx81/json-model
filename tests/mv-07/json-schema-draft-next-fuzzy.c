@@ -179,7 +179,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_url(prop, (path ? &lpath_2 : NULL), rep)))
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_2 : NULL), rep)))
         {
             // handle 1 key props
             // .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
@@ -700,7 +700,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_17_map(prop))))
+        if (likely((pfun = json_model_17_map(prop))))
         {
             // handle 60 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep)))

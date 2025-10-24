@@ -2,13 +2,13 @@
 
 ## Current Tasks
 
+- [x] static: improve likely hints depending on expectations
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql`
 - [ ] backend: fix `unused but set variable` warning and remove `-Wno-…`
 - [ ] backend: useless computations in `mv-17/xor_01.pl`
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
-- [ ] static: improve likely hints, eg may only category
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"

@@ -39,7 +39,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(_jm_re_0(prop, path, rep)))
+        if (likely(_jm_re_0(prop, path, rep)))
         {
             // handle 1 re props
             // .'/^[0-9]+$/'

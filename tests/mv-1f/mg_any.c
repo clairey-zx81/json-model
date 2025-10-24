@@ -77,7 +77,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_is_valid_date(prop, (path ? &lpath_0 : NULL), rep)))
+        else if (jm_is_valid_date(prop, (path ? &lpath_0 : NULL), rep))
         {
             // handle 1 key props
             // .'$DATE'
@@ -88,7 +88,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(_jm_re_0(prop, path, rep)))
+        else if (likely(_jm_re_0(prop, path, rep)))
         {
             // handle 1 re props
             // .'/foo/'
@@ -109,11 +109,11 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "a") != NULL)))
+            if (! (json_object_get(val, "a") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.]", path);
             }
-            if (unlikely(! (json_object_get(val, "b") != NULL)))
+            if (! (json_object_get(val, "b") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.]", path);
             }

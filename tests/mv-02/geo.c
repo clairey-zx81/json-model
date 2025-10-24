@@ -230,11 +230,11 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "coordinates") != NULL)))
+            if (! (json_object_get(val, "coordinates") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$Point']", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Point']", path);
             }
@@ -340,11 +340,11 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "coordinates") != NULL)))
+            if (! (json_object_get(val, "coordinates") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$MultiPoint']", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$MultiPoint']", path);
             }
@@ -434,11 +434,11 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "coordinates") != NULL)))
+            if (! (json_object_get(val, "coordinates") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$LineString']", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$LineString']", path);
             }
@@ -544,11 +544,11 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "coordinates") != NULL)))
+            if (! (json_object_get(val, "coordinates") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$MultiLineString']", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$MultiLineString']", path);
             }
@@ -654,11 +654,11 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "coordinates") != NULL)))
+            if (! (json_object_get(val, "coordinates") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$Polygon']", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Polygon']", path);
             }
@@ -780,11 +780,11 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "coordinates") != NULL)))
+            if (! (json_object_get(val, "coordinates") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$MultiPolygon']", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$MultiPolygon']", path);
             }

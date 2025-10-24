@@ -408,7 +408,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely((pfun = json_model_2_map(prop))))
+        else if (likely((pfun = json_model_2_map(prop))))
         {
             // handle 8 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep)))
@@ -417,7 +417,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$OpenAPI'.'/^x-/'
             res = true;
@@ -431,11 +431,11 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "info") != NULL)))
+            if (! (json_object_get(val, "info") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <info> [.'$OpenAPI']", path);
             }
-            if (unlikely(! (json_object_get(val, "openapi") != NULL)))
+            if (! (json_object_get(val, "openapi") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <openapi> [.'$OpenAPI']", path);
             }
@@ -547,7 +547,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Info'.'/^x-/'
             res = true;
@@ -561,11 +561,11 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "title") != NULL)))
+            if (! (json_object_get(val, "title") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <title> [.'$Info']", path);
             }
-            if (unlikely(! (json_object_get(val, "version") != NULL)))
+            if (! (json_object_get(val, "version") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <version> [.'$Info']", path);
             }
@@ -626,7 +626,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Contact'.'/^x-/'
             res = true;
@@ -686,7 +686,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(_jm_re_1(prop, path, rep)))
+        else if (likely(_jm_re_1(prop, path, rep)))
             // handle 1 re props
             // .'$License'.'|'.1.'/^x\\-.*$/'
             res = true;
@@ -700,11 +700,11 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$License'.'|'.1]", path);
             }
-            if (unlikely(! (json_object_get(val, "url") != NULL)))
+            if (! (json_object_get(val, "url") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <url> [.'$License'.'|'.1]", path);
             }
@@ -755,7 +755,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(_jm_re_1(prop, path, rep)))
+        else if (likely(_jm_re_1(prop, path, rep)))
             // handle 1 re props
             // .'$License'.'|'.0.'/^x\\-.*$/'
             res = true;
@@ -769,11 +769,11 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "identifier") != NULL)))
+            if (! (json_object_get(val, "identifier") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <identifier> [.'$License'.'|'.0]", path);
             }
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$License'.'|'.0]", path);
             }
@@ -900,7 +900,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Server'.'/^x-/'
             res = true;
@@ -914,7 +914,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "url") != NULL)))
+            if (! (json_object_get(val, "url") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <url> [.'$Server']", path);
             }
@@ -993,7 +993,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$ServerVariable'.'/^x-/'
             res = true;
@@ -1007,7 +1007,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "default") != NULL)))
+            if (! (json_object_get(val, "default") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <default> [.'$ServerVariable']", path);
             }
@@ -1470,7 +1470,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_8_map(prop))))
+        if (likely((pfun = json_model_8_map(prop))))
         {
             // handle 10 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_9 : NULL), rep)))
@@ -1479,7 +1479,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Components'.'/^x-/'
             res = true;
@@ -1507,7 +1507,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_1(prop, 0x2f)))
+        if (jm_str_eq_1(prop, 0x2f))
         {
             // handle 2 re props
             // .'$Paths'.'/^//'
@@ -1518,7 +1518,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 2 re props
             // .'$Paths'.'/^x-/'
             res = true;
@@ -1662,7 +1662,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_10_map(prop))))
+        if (likely((pfun = json_model_10_map(prop))))
         {
             // handle 13 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_21 : NULL), rep)))
@@ -1671,7 +1671,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$PathItem'.'/^x-/'
             res = true;
@@ -1958,7 +1958,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_11_map(prop))))
+        if (likely((pfun = json_model_11_map(prop))))
         {
             // handle 12 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_22 : NULL), rep)))
@@ -1967,7 +1967,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Operation'.'/^x-/'
             res = true;
@@ -2021,7 +2021,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$ExternalDocumentation'.'/^x-/'
             res = true;
@@ -2035,7 +2035,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "url") != NULL)))
+            if (! (json_object_get(val, "url") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <url> [.'$ExternalDocumentation']", path);
             }
@@ -2108,7 +2108,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$parameterShare'.'/^x-/'
             res = true;
@@ -2212,7 +2212,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$commonParameter'.'/^x-/'
             res = true;
@@ -2226,11 +2226,11 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "in") != NULL)))
+            if (! (json_object_get(val, "in") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$commonParameter']", path);
             }
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$commonParameter']", path);
             }
@@ -2350,7 +2350,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_16_map(prop))))
+        if (likely((pfun = json_model_16_map(prop))))
         {
             // handle 6 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_27 : NULL), rep)))
@@ -2558,7 +2558,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Parameter'.'|'.1.'/^x-/'
             res = true;
@@ -2572,11 +2572,11 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "in") != NULL)))
+            if (! (json_object_get(val, "in") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$Parameter'.'|'.1]", path);
             }
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$Parameter'.'|'.1]", path);
             }
@@ -2758,7 +2758,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely((pfun = _jm_obj_6_map(prop))))
+        else if (likely((pfun = _jm_obj_6_map(prop))))
         {
             // handle 10 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_33 : NULL), rep)))
@@ -2767,7 +2767,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Parameter'.'|'.0.'/^x-/'
             res = true;
@@ -2781,11 +2781,11 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "in") != NULL)))
+            if (! (json_object_get(val, "in") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$Parameter'.'|'.0]", path);
             }
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$Parameter'.'|'.0]", path);
             }
@@ -2910,7 +2910,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$RequestBody'.'/^x-/'
             res = true;
@@ -3048,7 +3048,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$MediaType'.'/^x-/'
             res = true;
@@ -3180,7 +3180,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Encoding'.'/^x-/'
             res = true;
@@ -3244,7 +3244,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(_jm_re_2(prop, path, rep)))
+        else if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -3273,7 +3273,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 2 re props
             // .'$Responses'.'/^x-/'
             res = true;
@@ -3463,7 +3463,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Response'.'/^x-/'
             res = true;
@@ -3491,7 +3491,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_47 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_check_fun_string(json_model_26, prop, (path ? &lpath_47 : NULL), rep)))
+        if (jm_check_fun_string(json_model_26, prop, (path ? &lpath_47 : NULL), rep))
         {
             // handle 1 key props
             // .'$Callback'.'$Expression'
@@ -3520,7 +3520,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Callback'.'/^x-/'
             res = true;
@@ -3588,7 +3588,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Example'.'/^x-/'
             res = true;
@@ -3693,7 +3693,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Link'.'|'.1.'/^x-/'
             res = true;
@@ -3707,7 +3707,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "operationId") != NULL)))
+            if (! (json_object_get(val, "operationId") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <operationId> [.'$Link'.'|'.1]", path);
             }
@@ -3797,7 +3797,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Link'.'|'.0.'/^x-/'
             res = true;
@@ -3811,7 +3811,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "operationRef") != NULL)))
+            if (! (json_object_get(val, "operationRef") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <operationRef> [.'$Link'.'|'.0]", path);
             }
@@ -3959,7 +3959,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Header'.'|'.1.'/^x-/'
             res = true;
@@ -4116,7 +4116,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_53 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = _jm_obj_20_map(prop))))
+        if (likely((pfun = _jm_obj_20_map(prop))))
         {
             // handle 10 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_53 : NULL), rep)))
@@ -4125,7 +4125,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Header'.'|'.0.'/^x-/'
             res = true;
@@ -4230,7 +4230,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Tag'.'/^x-/'
             res = true;
@@ -4244,7 +4244,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$Tag']", path);
             }
@@ -4317,7 +4317,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "$ref") != NULL)))
+            if (! (json_object_get(val, "$ref") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <$ref> [.'$Reference']", path);
             }
@@ -4407,7 +4407,7 @@ static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_59 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_url(prop, (path ? &lpath_59 : NULL), rep)))
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_59 : NULL), rep)))
         {
             // handle 1 key props
             // .'$Schema'.'$vocabulary'.'$URI'
@@ -4673,7 +4673,7 @@ static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_62 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_regex(prop, false, (path ? &lpath_62 : NULL), rep)))
+        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_62 : NULL), rep)))
         {
             // handle 1 key props
             // .'$Schema'.patternProperties.'$REGEX'
@@ -4818,7 +4818,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_57 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_32_map(prop))))
+        if (likely((pfun = json_model_32_map(prop))))
         {
             // handle 61 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_57 : NULL), rep)))
@@ -4903,7 +4903,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Discriminator'.'/^x-/'
             res = true;
@@ -4917,7 +4917,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "propertyName") != NULL)))
+            if (! (json_object_get(val, "propertyName") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <propertyName> [.'$Discriminator']", path);
             }
@@ -5002,7 +5002,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$xml'.'/^x-/'
             res = true;
@@ -5199,11 +5199,11 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "scheme") != NULL)))
+            if (! (json_object_get(val, "scheme") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <scheme> [.'$SS-http-bearer']", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-http-bearer']", path);
             }
@@ -5388,15 +5388,15 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "in") != NULL)))
+            if (! (json_object_get(val, "in") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$SecurityScheme'.'|'.0]", path);
             }
-            if (unlikely(! (json_object_get(val, "name") != NULL)))
+            if (! (json_object_get(val, "name") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$SecurityScheme'.'|'.0]", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SecurityScheme'.'|'.0]", path);
             }
@@ -5482,11 +5482,11 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "scheme") != NULL)))
+            if (! (json_object_get(val, "scheme") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <scheme> [.'$SecurityScheme'.'|'.1]", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SecurityScheme'.'|'.1]", path);
             }
@@ -5559,11 +5559,11 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "scheme") != NULL)))
+            if (! (json_object_get(val, "scheme") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <scheme> [.'$SecurityScheme'.'|'.2]", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SecurityScheme'.'|'.2]", path);
             }
@@ -5636,11 +5636,11 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "flows") != NULL)))
+            if (! (json_object_get(val, "flows") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <flows> [.'$SecurityScheme'.'|'.3]", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SecurityScheme'.'|'.3]", path);
             }
@@ -5713,11 +5713,11 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "openIdConnectUrl") != NULL)))
+            if (! (json_object_get(val, "openIdConnectUrl") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <openIdConnectUrl> [.'$SecurityScheme'.'|'.4]", path);
             }
-            if (unlikely(! (json_object_get(val, "type") != NULL)))
+            if (! (json_object_get(val, "type") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SecurityScheme'.'|'.4]", path);
             }
@@ -5753,7 +5753,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$SecurityScheme'.'|'.5.'/^x-/'
             res = true;
@@ -5888,7 +5888,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$OAuthFlows'.'/^x-/'
             res = true;
@@ -5994,7 +5994,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$OAuthFlow'.'/^x-/'
             res = true;
@@ -6008,15 +6008,15 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "authorizationUrl") != NULL)))
+            if (! (json_object_get(val, "authorizationUrl") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <authorizationUrl> [.'$OAuthFlow']", path);
             }
-            if (unlikely(! (json_object_get(val, "scopes") != NULL)))
+            if (! (json_object_get(val, "scopes") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <scopes> [.'$OAuthFlow']", path);
             }
-            if (unlikely(! (json_object_get(val, "tokenUrl") != NULL)))
+            if (! (json_object_get(val, "tokenUrl") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <tokenUrl> [.'$OAuthFlow']", path);
             }
@@ -6084,7 +6084,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_78 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$Extension'.'/^x-/'
             res = true;
@@ -6355,7 +6355,7 @@ static bool _jm_f_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_81 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_url(prop, (path ? &lpath_81 : NULL), rep)))
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_81 : NULL), rep)))
         {
             // handle 1 key props
             // .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
@@ -6614,7 +6614,7 @@ static bool _jm_f_100(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_84 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_regex(prop, false, (path ? &lpath_84 : NULL), rep)))
+        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_84 : NULL), rep)))
         {
             // handle 1 key props
             // .'$schema#ObjectSchema'.patternProperties.'$REGEX'
@@ -6759,7 +6759,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_79 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_59_map(prop))))
+        if (likely((pfun = json_model_59_map(prop))))
         {
             // handle 57 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_79 : NULL), rep)))

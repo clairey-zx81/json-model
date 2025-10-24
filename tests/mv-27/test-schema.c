@@ -156,7 +156,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (unlikely(! res))
                 return false;
         }
-        else if (unlikely(_jm_re_1(prop, NULL, NULL)))
+        else if (_jm_re_1(prop, NULL, NULL))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
@@ -164,7 +164,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
                 return false;
         }
-        else if (unlikely(_jm_re_2(prop, NULL, NULL)))
+        else if (likely(_jm_re_2(prop, NULL, NULL)))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'

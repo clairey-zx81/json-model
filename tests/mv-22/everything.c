@@ -572,7 +572,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = _jm_f_2_map(prop))))
+        if (likely((pfun = _jm_f_2_map(prop))))
         {
             // handle 6 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_3 : NULL), rep)))
@@ -1214,7 +1214,7 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = _jm_f_9_map(prop))))
+        if (likely((pfun = _jm_f_9_map(prop))))
         {
             // handle 25 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_4 : NULL), rep)))
@@ -1444,7 +1444,7 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = _jm_f_36_map(prop))))
+        if (likely((pfun = _jm_f_36_map(prop))))
         {
             // handle 9 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_6 : NULL), rep)))
@@ -1615,7 +1615,7 @@ static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = _jm_f_46_map(prop))))
+        if (likely((pfun = _jm_f_46_map(prop))))
         {
             // handle 11 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_7 : NULL), rep)))
@@ -1683,7 +1683,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "a") != NULL)))
+            if (! (json_object_get(val, "a") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.merge.m0]", path);
             }
@@ -2536,7 +2536,7 @@ static bool _jm_f_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_1(prop, 0x61)))
+        if (likely(jm_str_eq_1(prop, 0x61)))
         {
             // handle 1 re props
             // .object.o3.'/^a/'
@@ -2571,7 +2571,7 @@ static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_is_valid_date(prop, (path ? &lpath_14 : NULL), rep)))
+        if (likely(jm_is_valid_date(prop, (path ? &lpath_14 : NULL), rep)))
         {
             // handle 1 key props
             // .object.o4.'$DATE'
@@ -2652,7 +2652,7 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = _jm_f_60_map(prop))))
+        if (likely((pfun = _jm_f_60_map(prop))))
         {
             // handle 7 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_11 : NULL), rep)))
@@ -3140,7 +3140,7 @@ static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = _jm_f_69_map(prop))))
+        if (likely((pfun = _jm_f_69_map(prop))))
         {
             // handle 26 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_17 : NULL), rep)))
@@ -3625,7 +3625,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_1_map(prop))))
+        if (likely((pfun = json_model_1_map(prop))))
         {
             // handle 15 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep)))

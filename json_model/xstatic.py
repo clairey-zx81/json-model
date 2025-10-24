@@ -543,6 +543,7 @@ class CodeGenerator:
                         self._gen_fail(f"not an object [{smpath}]", vpath),
                         likely=False) +
             # filter ahead on the number of properties
+            # NOTE necessary to detect unexpected misc property as the object is not scanned
             gen.if_stmt(gen.num_cmp(gen.obj_len(val), "!=", gen.const(len(must))),
                         self._gen_fail(f"bad property count [{smpath}]", vpath),
                         likely=False)
@@ -709,7 +710,7 @@ class CodeGenerator:
                 return code
             # only check values, fine code will be generated below
 
-        # TODO devise a dynamic choice
+        # TODO devise a dynamic choice? choice depends on target?
         # shortcut for open object with simple props only
         if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
             # if there are many may values, this may be too costly…
@@ -718,9 +719,13 @@ class CodeGenerator:
                 return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
 
         # shortcut for must-only object
-        # NOTE we assume that this strategy is always beneficial
+        # NOTE we assume that this strategy is always beneficial, but it may depend on the target
         if must and not may and not defs and not regs and not oth:
             return self._closeMuObject(jm, must, mpath, oname, res, val, vpath)
+
+        # used for evaluating likely-ness
+        # TODO parametric weight?
+        expected_nprops = len(must) + 0.5 * (len(may) + len(defs) + len(regs)) + (1 if oth else 0)
 
         # path + [ prop ]
         lpath = gen.ident("lpath")
@@ -736,6 +741,9 @@ class CodeGenerator:
             # we need a function pointer for simple properties
             code += gen.fun_var(pfun, declare=True)
 
+        def is_likely(count, threshold) -> bool|None:
+            return None if abs(count - threshold) < 0.1 else count > threshold
+
         # build multi-if structure to put in prop/val loop
         if must:
 
@@ -745,6 +753,10 @@ class CodeGenerator:
             if len(must) <= self._map_threshold:  # direct property checks
 
                 for p, m in must.items():
+
+                    likely = is_likely(1, 0.5 * expected_nprops)
+                    expected_nprops -= 1
+
                     mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
                     mu_code = (
                         gen.lcom(f"handle must {p} property") +
@@ -760,6 +772,9 @@ class CodeGenerator:
                     multi_if += [(mu_expr, False, mu_code)]
 
             else:  # generic code above threshold
+
+                likely = is_likely(len(must), 0.5 * expected_nprops)
+                expected_nprops -= len(must)
 
                 candidate = f"{oname}_mup"
                 prop_must = self._propmap_name(must, candidate)
@@ -781,7 +796,7 @@ class CodeGenerator:
                     mu_expr = gen.assign_prop_fun(pfun, prop, prop_must)
                     mu_code = (
                         gen.lcom(f"handle {len(must)} mandatory props") +
-                        gen.if_stmt(gen.is_def(pfun), mu_prop_code)
+                        gen.if_stmt(gen.is_def(pfun), mu_prop_code, likely=likely)
                     )
                 else:
                     mu_expr = gen.has_prop_fun(prop, prop_must)
@@ -791,13 +806,17 @@ class CodeGenerator:
                         mu_prop_code
                     )
 
-                multi_if += [(mu_expr, False, mu_code)]
+                multi_if += [(mu_expr, likely, mu_code)]
 
         if may:
 
             if len(may) <= self._map_threshold:  # simple few-property code
 
                 for p, m in may.items():
+
+                    likely = is_likely(0.5, 0.5 * expected_nprops)
+                    expected_nprops -= 0.5
+
                     ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
                     ma_code = (
                         gen.lcom(f"handle may {p} property") +
@@ -812,6 +831,9 @@ class CodeGenerator:
                     multi_if += [(ma_expr, False, ma_code)]
 
             else:  # generic code
+
+                likely = is_likely(0.5 * len(may), 0.5 * expected_nprops)
+                expected_nprops -= 0.5 * len(may)
 
                 candidate = f"{oname}_map"
                 prop_may = self._propmap_name(may, candidate)
@@ -842,26 +864,34 @@ class CodeGenerator:
                         )
                     )
 
-                multi_if += [(ma_expr, False, ma_code)]
+                multi_if += [(ma_expr, likely, ma_code)]
 
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.items():
+
+            likely = is_likely(0.5, 0.5 * expected_nprops)
+            expected_nprops -= 0.5
+
             ref = "$" + d
             dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, is_raw=True)  # FIXME lpath &lpath?
             dl_code = gen.lcom(f"handle {len(defs)} key props") + \
                 self._compileModel(jm, m, mpath + [ref], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
-            multi_if += [(dl_expr, False, dl_code)]
+            multi_if += [(dl_expr, likely, dl_code)]
 
         # // is inlined
         for r, v in regs.items():
+
+            likely = is_likely(0.5, 0.5 * expected_nprops)
+            expected_nprops -= 0.5
+
             # FIXME options?!
             regex = f"/{r}/"
             rg_expr = self._regExpr(jm, regex, prop, vpath, True)  # FIXME lpath &lpath?
             rg_code = gen.lcom(f"handle {len(regs)} re props") + \
                 self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
-            multi_if += [(rg_expr, False, rg_code)]
+            multi_if += [(rg_expr, likely, rg_code)]
 
         # catchall is inlined?
         ot_code: Block
@@ -889,7 +919,7 @@ class CodeGenerator:
                 missing += \
                     gen.if_stmt(gen.not_op(gen.has_prop(val, prop)),
                                 gen.report(f"missing mandatory prop <{prop}> [{smpath}]", vpath),
-                                likely=False
+                                likely=None
                     )
             code += \
                 gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must))),

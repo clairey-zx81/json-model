@@ -6929,7 +6929,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_47 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_51_map(prop))))
+        if (likely((pfun = json_model_51_map(prop))))
         {
             // handle 7 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_47 : NULL), rep)))
@@ -7055,7 +7055,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely((pfun = json_model_52_map(prop))))
+        else if (likely((pfun = json_model_52_map(prop))))
         {
             // handle 6 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_48 : NULL), rep)))
@@ -7074,7 +7074,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "description") != NULL)))
+            if (! (json_object_get(val, "description") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <description> [.'$GalaxyInfoModelLoose']", path);
             }
@@ -7292,7 +7292,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely((pfun = json_model_53_map(prop))))
+        else if (likely((pfun = json_model_53_map(prop))))
         {
             // handle 10 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_49 : NULL), rep)))
@@ -7311,23 +7311,23 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "author") != NULL)))
+            if (! (json_object_get(val, "author") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <author> [.'$GalaxyInfoModelStandalone']", path);
             }
-            if (unlikely(! (json_object_get(val, "description") != NULL)))
+            if (! (json_object_get(val, "description") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <description> [.'$GalaxyInfoModelStandalone']", path);
             }
-            if (unlikely(! (json_object_get(val, "license") != NULL)))
+            if (! (json_object_get(val, "license") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <license> [.'$GalaxyInfoModelStandalone']", path);
             }
-            if (unlikely(! (json_object_get(val, "min_ansible_version") != NULL)))
+            if (! (json_object_get(val, "min_ansible_version") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <min_ansible_version> [.'$GalaxyInfoModelStandalone']", path);
             }
-            if (unlikely(! (json_object_get(val, "standalone") != NULL)))
+            if (! (json_object_get(val, "standalone") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <standalone> [.'$GalaxyInfoModelStandalone']", path);
             }
@@ -7541,7 +7541,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely((pfun = _jm_obj_47_map(prop))))
+        else if (likely((pfun = _jm_obj_47_map(prop))))
         {
             // handle 13 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_50 : NULL), rep)))
@@ -7560,11 +7560,11 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "description") != NULL)))
+            if (! (json_object_get(val, "description") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path);
             }
-            if (unlikely(! (json_object_get(val, "standalone") != NULL)))
+            if (! (json_object_get(val, "standalone") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.1]", path);
             }
@@ -7765,7 +7765,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely((pfun = _jm_obj_48_map(prop))))
+        else if (likely((pfun = _jm_obj_48_map(prop))))
         {
             // handle 13 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_51 : NULL), rep)))
@@ -7784,7 +7784,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "description") != NULL)))
+            if (! (json_object_get(val, "description") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.2]", path);
             }
@@ -8090,7 +8090,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_52 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely((pfun = json_model_57_map(prop))))
+        if (likely((pfun = json_model_57_map(prop))))
         {
             // handle 9 may props
             if (unlikely(pfun != NULL && ! pfun(pval, (path ? &lpath_52 : NULL), rep)))

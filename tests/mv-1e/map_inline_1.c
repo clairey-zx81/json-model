@@ -116,15 +116,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "mu1") != NULL)))
+            if (! (json_object_get(val, "mu1") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <mu1> [.]", path);
             }
-            if (unlikely(! (json_object_get(val, "mu2") != NULL)))
+            if (! (json_object_get(val, "mu2") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <mu2> [.]", path);
             }
-            if (unlikely(! (json_object_get(val, "mu3") != NULL)))
+            if (! (json_object_get(val, "mu3") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <mu3> [.]", path);
             }

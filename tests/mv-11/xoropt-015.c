@@ -171,7 +171,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "Y") != NULL)))
+            if (! (json_object_get(val, "Y") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <Y> [.'$Ee'.'|'.1]", path);
             }
@@ -231,7 +231,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "X") != NULL)))
+            if (! (json_object_get(val, "X") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <X> [.'$Ee'.'|'.0]", path);
             }

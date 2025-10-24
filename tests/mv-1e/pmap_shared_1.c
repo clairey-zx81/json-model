@@ -101,19 +101,19 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "a") != NULL)))
+            if (! (json_object_get(val, "a") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.'$Oo0'.'']", path);
             }
-            if (unlikely(! (json_object_get(val, "b") != NULL)))
+            if (! (json_object_get(val, "b") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.'$Oo0'.'']", path);
             }
-            if (unlikely(! (json_object_get(val, "c") != NULL)))
+            if (! (json_object_get(val, "c") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.'$Oo0'.'']", path);
             }
-            if (unlikely(! (json_object_get(val, "d") != NULL)))
+            if (! (json_object_get(val, "d") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.'$Oo0'.'']", path);
             }
@@ -210,7 +210,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "z") != NULL)))
+            if (! (json_object_get(val, "z") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <z> [.'$Oo1']", path);
             }
@@ -310,19 +310,19 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (likely(rep != NULL))
         {
-            if (unlikely(! (json_object_get(val, "a") != NULL)))
+            if (! (json_object_get(val, "a") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.'$Oo2']", path);
             }
-            if (unlikely(! (json_object_get(val, "b") != NULL)))
+            if (! (json_object_get(val, "b") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.'$Oo2']", path);
             }
-            if (unlikely(! (json_object_get(val, "c") != NULL)))
+            if (! (json_object_get(val, "c") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.'$Oo2']", path);
             }
-            if (unlikely(! (json_object_get(val, "d") != NULL)))
+            if (! (json_object_get(val, "d") != NULL))
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.'$Oo2']", path);
             }
