@@ -43,13 +43,9 @@ sub _jm_obj_0($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # remove duplicate xor list
-    my $is_0;
-    $res = 1;
     # .'^'.1
-    $is_0 = _jm_obj_0($val, undef, undef);
     # empty xor list
     return 0;
 }

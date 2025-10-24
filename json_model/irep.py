@@ -792,6 +792,36 @@ def elimCommonSub(code: Jsonable) -> int:
     recurseIR(code, cseFlt, cseRwt)
     return changes
 
+def elimDeadCode(code: Jsonable, reporting: bool) -> int:
+    """Eliminate dead code in simple cases."""
+    changes = 0
+
+    def edcRwt(code: Jsonable, _: Path) -> Jsonable:
+        nonlocal changes
+        if isinstance(code, list):
+            # sequence with a constant return and only assignments
+            ret: Jsonable|None = None
+            for op in code:
+                if _noOp(op, reporting):
+                    pass
+                elif _isOps(op, {"bv", "iv"}):
+                    pass
+                elif _isOp(op, "seq") and _noOps(op["seq"], reporting):
+                    pass
+                elif _isOp(op, "ret") and _isBool(op["res"]) is not None:
+                    ret = op
+                    break
+                else:
+                    break
+            if ret:
+                # return comments and return
+                changes += 1
+                return list(filter(lambda o: _isOps(o, {"co", "ret", "seq"}), code))
+        return code
+
+    recurseIR(code, lambda _c, _p: True, edcRwt)
+    return changes
+
 def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool = True,
                if_optim: bool = True, reporting: bool = True) -> Jsonable:
     """Optimize IR code."""
@@ -820,6 +850,7 @@ def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool
             calls += changes
             changed |= changes > 0
         changed |= elimCommonSub(ins) > 0
+        changed |= elimDeadCode(ins, reporting) > 0
         if changed:
             code[i] = json.dumps(ins)
 

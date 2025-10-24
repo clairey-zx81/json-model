@@ -31,15 +31,10 @@ $$ LANGUAGE PLpgSQL;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  is_0 bool;
 BEGIN
   -- .
   -- remove duplicate xor list
-  res := TRUE;
   -- .'^'.1
-  is_0 := _jm_obj_0(val, NULL, NULL);
   -- empty xor list
   RETURN FALSE;
 END;

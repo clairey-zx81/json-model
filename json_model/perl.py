@@ -403,18 +403,12 @@ class Perl(Language):
             line = code[i]
             if line is None:
                 continue
+            if " && 1" in line:
+                line = re.sub(r" && 1", "", line)
+                code[i] = line
             # remove redundant scalar check
             if "jm_is_scalar" in line:
                 code[i] = re.sub(r" jm_is_scalar\((\$\w+)\) && jm_is_string\(\1\)",
                                  r" jm_is_string(\1)", line)
 
         return list(filter(lambda line: line is not None, code))
-
-    def filter_code(self, code: Block) -> Block:
-        for i in range(len(code)):
-            line = code[i]
-            # NOTE should be safe, comparisons have the value after: && X >= 1
-            if " && 1" in line:
-                line = re.sub(r" && 1", "", line)
-                code[i] = line
-        return list(filter(lambda s: s is not None, code))
