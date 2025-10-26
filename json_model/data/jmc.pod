@@ -20,7 +20,7 @@ B<jmc> - JSON Model Compiler
      [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
-     [--unroll-may-ratio RATIO] [--unroll-may-threshold THRESHOLD]
+     [--may-must-open-ratio RATIO] [--may-must-open-threshold THRESHOLD]
      [--must-only-threshold THRESHOLD] [-[-no]-predef] [--short-version]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] model [values ...]
@@ -168,14 +168,14 @@ maximum number of props to inline property checks in objects.
 
 whether to share common maps, may result in smaller generated code.
 
-=item B<--unroll-may-ratio RATIO>
+=item B<--may-must-open-ratio RATIO>
 
-consider object property unrolling if the ratio of optional properties
+consider mmo object property scheme if the ratio of optional properties
 is below the provided ratio, default is 0.5.
 
-=item B<--unroll-may-threshold THRESHOLD>
+=item B<--may-must-open-threshold THRESHOLD>
 
-consider object property unrolling if the number of optional properties
+consider mmo object property scheme if the number of optional properties
 is below the provided threshold, default is 5.
 
 =item B<--must-only-threshold THRESHOLD>

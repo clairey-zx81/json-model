@@ -381,10 +381,10 @@ def jmc_script():
     # NOTE mostly a bad idea: it can trigger an large code size expansion
     arg("--map-threshold", "-mt", default=5, type=int, help="property map threshold, default 5")
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
-    arg("--unroll-may-ratio", "-umr", default=0.5, type=float,
-        help="unroll if optional props under this ratio, default 0.5")
-    arg("--unroll-may-threshold", "-umt", default=5, type=int,
-        help="unroll if number of optional props below threshold, default 5")
+    arg("--may-must-open-ratio", "-mmor", default=0.5, type=float,
+        help="mmo scheme if optional props under this ratio, default 0.5")
+    arg("--may-must-open-threshold", "-mmot", default=5, type=int,
+        help="mmo scheme if number of optional props below threshold, default 5")
     arg("--must-only-threshold", "-mot", default=5, type=int,
         help="must-only scheme if number of mandatory props below threshold, default 5")
     arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
@@ -660,7 +660,8 @@ def jmc_script():
             short_version=args.short_version, package=args.package,
             predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize,
             strcmp=args.strcmp_opt, byte_order=args.byte_order,
-            unroll_may_ratio=args.unroll_may_ratio, unroll_may_threshold=args.unroll_may_threshold,
+            may_must_open_ratio=args.may_must_open_ratio,
+            may_must_open_threshold=args.may_must_open_threshold,
             must_only_threshold=args.must_only_threshold
         )
         source = str(code)

@@ -7,6 +7,7 @@
 - [x] backend: useless computations in `mv-17/xor_01.pl`
 - [x] static: for must-only scheme controlled by option
 - [x] static: further improve likely hints
+- [x] command: rename `--unroll-may-…` options for `--may-must-open-threshold`
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: generate direct code for search constant on small sets

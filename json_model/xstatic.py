@@ -35,8 +35,8 @@ class CodeGenerator:
     - prefix: use this prefix for file-level identifiers.
     - map_threshold: whether to inline property name checks (up to threshold) or use a map.
     - map_share: whether to share property maps
-    - unroll_may_ratio: max ratio of optional props to unroll, default 0.5
-    - unroll_may_threshold: max number of optional props to unroll, default 5
+    - may_must_open_ratio: max ratio of optional props for mmop scheme, default 0.5
+    - may_must_open_threshold: max number of optional props to mmop scheme, default 5
     - must_only_threshold: max number of mandatory props for must-only scheme, default 5
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
@@ -45,7 +45,7 @@ class CodeGenerator:
 
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
-                 unroll_may_ratio: float = 0.5, unroll_may_threshold: int = 5,
+                 may_must_open_ratio: float = 0.5, may_must_open_threshold: int = 5,
                  must_only_threshold: int = 5,
                  execute: bool = True, report: bool = True, path: bool = True,
                  package: str|None = None, debug: bool = False):
@@ -56,8 +56,8 @@ class CodeGenerator:
         self._lang = language
         self._prefix = prefix
         self._map_threshold = map_threshold
-        self._unroll_may_ratio = unroll_may_ratio
-        self._unroll_may_threshold = unroll_may_threshold
+        self._may_must_open_ratio = may_must_open_ratio
+        self._may_must_open_threshold = may_must_open_threshold
         self.must_only_threshold = must_only_threshold
         self._map_share = map_share
         self._report = report
@@ -735,8 +735,8 @@ class CodeGenerator:
         # shortcut for open object with simple props only
         if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
             # if there are many may values, this may be too costly…
-            if (1.0 * len(may) / (len(must) + len(may)) < self._unroll_may_ratio or
-                len(may) <= self._unroll_may_threshold):
+            if (1.0 * len(may) / (len(must) + len(may)) < self._may_must_open_ratio or
+                len(may) <= self._may_must_open_threshold):
                 return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
 
         # shortcut for must-only object
@@ -1679,8 +1679,8 @@ def xstatic_compile(
         relib: str|None = None,
         map_threshold: int = 3,
         map_share: bool = False,
-        unroll_may_ratio: float = 0.5,
-        unroll_may_threshold: int = 5,
+        may_must_open_ratio: float = 0.5,
+        may_must_open_threshold: int = 5,
         must_only_threshold: int = 5,
         execute: bool = True,
         debug: bool = False,
@@ -1701,8 +1701,8 @@ def xstatic_compile(
     - prefix: prefix for generated functions.
     - map_threshold: inline property checks under this threshold.
     - map_share: share generated property maps.
-    - unroll_may_ratio: unroll if less that ratio opt props/all props
-    - unroll_may_threshold: unroll if below threshold opt props
+    - may_must_open_ratio: mmop scheme if less that ratio opt props/all props
+    - may_must_open_threshold: mmop scheme if below threshold opt props
     - must_only_threshold: must-only scheme if below threshold mandatory props
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
@@ -1763,7 +1763,8 @@ def xstatic_compile(
     gen = CodeGenerator(
         model._globs, target, fname, prefix=prefix,  # type: ignore
         execute=execute, map_threshold=map_threshold, map_share=map_share,
-        unroll_may_ratio=unroll_may_ratio, unroll_may_threshold=unroll_may_threshold,
+        may_must_open_ratio=may_must_open_ratio,
+        may_must_open_threshold=may_must_open_threshold,
         must_only_threshold=must_only_threshold,
         debug=debug, report=report, package=package
     )
