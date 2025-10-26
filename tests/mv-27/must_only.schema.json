@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "mo0": {
+      "description": "empty object",
+      "type": "object",
+      "additionalProperties": false
+    },
+    "mo1": {
+      "description": "one mandatory prop",
+      "type": "object",
+      "properties": {
+        "p10": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "p10"
+      ],
+      "additionalProperties": false
+    },
+    "mo2": {
+      "description": "two mandatory props",
+      "type": "object",
+      "properties": {
+        "p20": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "p21": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "p20",
+        "p21"
+      ],
+      "additionalProperties": false
+    },
+    "mo3": {
+      "description": "three mandatory props",
+      "type": "object",
+      "properties": {
+        "p30": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "p31": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "p32": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "p30",
+        "p31",
+        "p32"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

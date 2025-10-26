@@ -71,7 +71,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .'$Test'.data
             res = true;
         }
-        else if (unlikely(jm_str_eq_6(prop, 0x00000064696c6176LL)))
+        else if (likely(jm_str_eq_6(prop, 0x00000064696c6176LL)))
         {
             // handle must valid property
             must_count += 1;
@@ -80,7 +80,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (unlikely(! res))
                 return false;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746e656d6d6f63LL)))
+        else if (likely(jm_str_eq_8(prop, 0x00746e656d6d6f63LL)))
         {
             // handle may comment property
             // .'$Test'.comment
@@ -220,7 +220,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .'$TestCase'.schema
             res = true;
         }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007374736574LL)))
+        else if (jm_str_eq_6(prop, 0x0000007374736574LL))
         {
             // handle must tests property
             must_count += 1;
@@ -247,7 +247,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (unlikely(! res))
                 return false;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746e656d6d6f63LL)))
+        else if (jm_str_eq_8(prop, 0x00746e656d6d6f63LL))
         {
             // handle may comment property
             // .'$TestCase'.comment
@@ -255,7 +255,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (unlikely(! res))
                 return false;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6369666963657073LL) && jm_str_eq_6(prop + 8, 0x0000006e6f697461LL)))
+        else if (likely(jm_str_eq_8(prop, 0x6369666963657073LL) && jm_str_eq_6(prop + 8, 0x0000006e6f697461LL)))
         {
             // handle may specification property
             // .'$TestCase'.specification

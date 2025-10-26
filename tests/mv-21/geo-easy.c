@@ -185,7 +185,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$Point']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$Point'.bbox
@@ -273,7 +273,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$MultiPoint']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$MultiPoint'.bbox
@@ -345,7 +345,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$LineString']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$LineString'.bbox
@@ -433,7 +433,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$MultiLineString']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$MultiLineString'.bbox
@@ -521,7 +521,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$Polygon']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$Polygon'.bbox
@@ -625,7 +625,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$MultiPolygon']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$MultiPolygon'.bbox
@@ -754,7 +754,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <geometries> [.'$GeometryCollection']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$GeometryCollection'.bbox
@@ -897,7 +897,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <properties> [.'$Feature']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "id")) != NULL))
+    if ((pval = json_object_get(val, "id")) != NULL)
     {
         lpath = (jm_path_t) { "id", 0, path, NULL };
         // .'$Feature'.id
@@ -927,7 +927,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$Feature'.bbox
@@ -1015,7 +1015,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <features> [.'$FeatureCollection']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$FeatureCollection'.bbox

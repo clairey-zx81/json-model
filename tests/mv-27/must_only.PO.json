@@ -1,0 +1,21 @@
+{
+  "?mo0": {
+    "#": "empty object"
+  },
+  "?mo1": {
+    "#": "one mandatory prop",
+    "p10": 0
+  },
+  "?mo2": {
+    "#": "two mandatory props",
+    "p20": 0,
+    "p21": 0
+  },
+  "?mo3": {
+    "#": "three mandatory props",
+    "p30": 0,
+    "p31": 0,
+    "p32": 0
+  },
+  "#": "JsonModel 1"
+}

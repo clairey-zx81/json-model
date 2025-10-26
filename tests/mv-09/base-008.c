@@ -43,7 +43,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_7(prop, 0x00006d6f6e657270LL)))
+        else if (likely(jm_str_eq_7(prop, 0x00006d6f6e657270LL)))
         {
             // handle must prenom property
             must_count += 1;
@@ -56,7 +56,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x00656761)))
+        else if (likely(jm_str_eq_4(prop, 0x00656761)))
         {
             // handle may age property
             // .age

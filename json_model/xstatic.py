@@ -13,6 +13,17 @@ from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr, PathExpr, PropMap, JsonExpr, StrExpr, Var
 from .irep import IRep, optimizeIR, evaluate
 
+# probability of named optional props in an object
+MAY_P = 0.5
+
+# expected number of props
+DEF_E, REG_E, OTH_E = 0.5, 0.5, 1.0
+
+# likely hint generation depending on threshold
+# > => likely, ~ 0.0 => None, < => unlikely
+def is_likely(count, threshold) -> bool|None:
+    return None if abs(count - threshold) < 0.1 else count > threshold
+
 
 class CodeGenerator:
     """JSON Models Compilation.
@@ -26,6 +37,7 @@ class CodeGenerator:
     - map_share: whether to share property maps
     - unroll_may_ratio: max ratio of optional props to unroll, default 0.5
     - unroll_may_threshold: max number of optional props to unroll, default 5
+    - must_only_threshold: max number of mandatory props for must-only scheme, default 5
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
@@ -34,6 +46,7 @@ class CodeGenerator:
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
                  unroll_may_ratio: float = 0.5, unroll_may_threshold: int = 5,
+                 must_only_threshold: int = 5,
                  execute: bool = True, report: bool = True, path: bool = True,
                  package: str|None = None, debug: bool = False):
 
@@ -45,6 +58,7 @@ class CodeGenerator:
         self._map_threshold = map_threshold
         self._unroll_may_ratio = unroll_may_ratio
         self._unroll_may_threshold = unroll_may_threshold
+        self.must_only_threshold = must_only_threshold
         self._map_share = map_share
         self._report = report
         self._path = path
@@ -646,8 +660,13 @@ class CodeGenerator:
                     )
                 )
 
+        expected_nprops = MAY_P * len(may)
+
         for prop, pmodel in may.items():
+
             if pmodel != "$ANY":
+                likely = is_likely(MAY_P, 0.5 * expected_nprops)
+                expected_nprops -= MAY_P
                 check_value: Block = gen.path_var("lpath", gen.path_val(vpath, prop, True, False))
                 has_prop: str
                 if combined:
@@ -663,8 +682,10 @@ class CodeGenerator:
                                        lpath_ref),
                         likely=False)
                 )
-                code += gen.if_stmt(has_prop, check_value, likely=False)
-            # else covered by catchall
+                code += gen.if_stmt(has_prop, check_value, likely=likely)
+            else:
+                # covered by catchall, nothing to check!
+                code += gen.lcom(f"ignored {smpath}.{prop}")
 
         return code + gen.ret(gen.true())
 
@@ -720,12 +741,16 @@ class CodeGenerator:
 
         # shortcut for must-only object
         # NOTE we assume that this strategy is always beneficial, but it may depend on the target
-        if must and not may and not defs and not regs and not oth:
+        if must and not may and not defs and not regs and not oth and \
+                len(must) <= self.must_only_threshold:
             return self._closeMuObject(jm, must, mpath, oname, res, val, vpath)
 
         # used for evaluating likely-ness
-        # TODO parametric weight?
-        expected_nprops = len(must) + 0.5 * (len(may) + len(defs) + len(regs)) + (1 if oth else 0)
+        expected_nprops = (
+            len(must) +
+            MAY_P * len(may) + DEF_E * len(defs) + REG_E * len(regs) +
+            (OTH_E if oth else 0.0)
+        )
 
         # path + [ prop ]
         lpath = gen.ident("lpath")
@@ -741,16 +766,13 @@ class CodeGenerator:
             # we need a function pointer for simple properties
             code += gen.fun_var(pfun, declare=True)
 
-        def is_likely(count, threshold) -> bool|None:
-            return None if abs(count - threshold) < 0.1 else count > threshold
-
         # build multi-if structure to put in prop/val loop
         if must:
 
             # must prop counter to check at the end if all were seen
             code += gen.int_var(must_c, gen.const(0), True)
 
-            if len(must) <= self._map_threshold:  # direct property checks
+            if len(must) <= self._map_threshold:  # unroll property checks
 
                 for p, m in must.items():
 
@@ -769,9 +791,9 @@ class CodeGenerator:
                             likely=False
                         )
                     )
-                    multi_if += [(mu_expr, False, mu_code)]
+                    multi_if += [(mu_expr, likely, mu_code)]
 
-            else:  # generic code above threshold
+            else:  # generic code with a map above threshold
 
                 likely = is_likely(len(must), 0.5 * expected_nprops)
                 expected_nprops -= len(must)
@@ -814,8 +836,8 @@ class CodeGenerator:
 
                 for p, m in may.items():
 
-                    likely = is_likely(0.5, 0.5 * expected_nprops)
-                    expected_nprops -= 0.5
+                    likely = is_likely(MAY_P, 0.5 * expected_nprops)
+                    expected_nprops -= MAY_P
 
                     ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
                     ma_code = (
@@ -828,12 +850,12 @@ class CodeGenerator:
                             likely=False
                         )
                     )
-                    multi_if += [(ma_expr, False, ma_code)]
+                    multi_if += [(ma_expr, likely, ma_code)]
 
             else:  # generic code
 
-                likely = is_likely(0.5 * len(may), 0.5 * expected_nprops)
-                expected_nprops -= 0.5 * len(may)
+                likely = is_likely(MAY_P * len(may), 0.5 * expected_nprops)
+                expected_nprops -= MAY_P * len(may)
 
                 candidate = f"{oname}_map"
                 prop_may = self._propmap_name(may, candidate)
@@ -869,8 +891,8 @@ class CodeGenerator:
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.items():
 
-            likely = is_likely(0.5, 0.5 * expected_nprops)
-            expected_nprops -= 0.5
+            likely = is_likely(DEF_E, 0.5 * expected_nprops)
+            expected_nprops -= DEF_E
 
             ref = "$" + d
             dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, is_raw=True)  # FIXME lpath &lpath?
@@ -882,8 +904,8 @@ class CodeGenerator:
         # // is inlined
         for r, v in regs.items():
 
-            likely = is_likely(0.5, 0.5 * expected_nprops)
-            expected_nprops -= 0.5
+            likely = is_likely(REG_E, 0.5 * expected_nprops)
+            expected_nprops -= REG_E
 
             # FIXME options?!
             regex = f"/{r}/"
@@ -1659,6 +1681,7 @@ def xstatic_compile(
         map_share: bool = False,
         unroll_may_ratio: float = 0.5,
         unroll_may_threshold: int = 5,
+        must_only_threshold: int = 5,
         execute: bool = True,
         debug: bool = False,
         report: bool = True,
@@ -1679,7 +1702,8 @@ def xstatic_compile(
     - map_threshold: inline property checks under this threshold.
     - map_share: share generated property maps.
     - unroll_may_ratio: unroll if less that ratio opt props/all props
-    - unroll_may_threshold: unroll if less than threshold opt props
+    - unroll_may_threshold: unroll if below threshold opt props
+    - must_only_threshold: must-only scheme if below threshold mandatory props
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
@@ -1740,6 +1764,7 @@ def xstatic_compile(
         model._globs, target, fname, prefix=prefix,  # type: ignore
         execute=execute, map_threshold=map_threshold, map_share=map_share,
         unroll_may_ratio=unroll_may_ratio, unroll_may_threshold=unroll_may_threshold,
+        must_only_threshold=must_only_threshold,
         debug=debug, report=report, package=package
     )
 

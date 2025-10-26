@@ -58,6 +58,7 @@ public class muma_0 extends ModelChecker
                 return false;
             }
         }
+        // ignored ..useless
         return true;
     }
 

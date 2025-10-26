@@ -1,0 +1,19 @@
+[
+  [ true,  {} ],
+  [ true,  {"mo0": {} } ],
+  [ true,  {"mo1": {"p10": 42}} ],
+  [ true,  {"mo2": {"p20": 42, "p21": 18}} ],
+  [ true,  {"mo3": {"p30": 42, "p31": 18, "p32": 0}} ],
+  [ false, {"oops": "Hobbes"} ],
+  [ false, {"mo0": {"p": "Susie"}} ],
+  [ false, {"mo1": {"p10": 42, "p": "Calvin"}} ],
+  [ false, {"mo2": {"p20": 42, "p21": 18, "p": "Moe"}} ],
+  [ false, {"mo3": {"p30": 42, "p31": 18, "p32": 0, "p": "Miss Wormwood"}} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

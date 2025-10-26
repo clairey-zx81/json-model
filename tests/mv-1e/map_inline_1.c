@@ -82,7 +82,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x0032616d)))
+        else if (jm_str_eq_4(prop, 0x0032616d))
         {
             // handle may ma2 property
             // .ma2
@@ -94,7 +94,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x0033616d)))
+        else if (likely(jm_str_eq_4(prop, 0x0033616d)))
         {
             // handle may ma3 property
             // .ma3

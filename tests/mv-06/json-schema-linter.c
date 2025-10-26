@@ -429,7 +429,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068)))
+        else if (jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068))
         {
             // handle may maxLength property
             // .'$stringKeywords'.maxLength
@@ -441,7 +441,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_7(prop, 0x000074616d726f66LL)))
+        else if (likely(jm_str_eq_7(prop, 0x000074616d726f66LL)))
         {
             // handle may format property
             // .'$stringKeywords'.format
@@ -683,7 +683,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6e6f697469646461LL) && jm_str_eq_8(prop + 8, 0x7265706f72506c61LL) && jm_str_eq_5(prop + 16, 0x0000000073656974LL)))
+        else if (jm_str_eq_8(prop, 0x6e6f697469646461LL) && jm_str_eq_8(prop + 8, 0x7265706f72506c61LL) && jm_str_eq_5(prop + 16, 0x0000000073656974LL))
         {
             // handle may additionalProperties property
             // .'$objectKeywords'.additionalProperties
@@ -695,7 +695,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x506e726574746170LL) && jm_str_eq_8(prop + 8, 0x6569747265706f72LL) && jm_str_eq_2(prop + 16, 0x00000073)))
+        else if (likely(jm_str_eq_8(prop, 0x506e726574746170LL) && jm_str_eq_8(prop + 8, 0x6569747265706f72LL) && jm_str_eq_2(prop + 16, 0x00000073)))
         {
             // handle may patternProperties property
             // .'$objectKeywords'.patternProperties
@@ -732,7 +732,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x006d756d696e696dLL)))
+        if (jm_str_eq_8(prop, 0x006d756d696e696dLL))
         {
             // handle may minimum property
             // .'$numberKeywords'.minimum
@@ -744,7 +744,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x006d756d6978616dLL)))
+        else if (likely(jm_str_eq_8(prop, 0x006d756d6978616dLL)))
         {
             // handle may maximum property
             // .'$numberKeywords'.maximum

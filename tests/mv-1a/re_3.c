@@ -51,7 +51,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_3(prop, 0x00007a6e)))
+        else if (jm_str_eq_3(prop, 0x00007a6e))
         {
             // handle may nz property
             // .nz
@@ -64,7 +64,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000656d6f73LL)))
+        else if (likely(jm_str_eq_5(prop, 0x00000000656d6f73LL)))
         {
             // handle may some property
             // .some

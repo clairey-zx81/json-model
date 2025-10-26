@@ -76,7 +76,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000065746164LL)))
+        else if (jm_str_eq_5(prop, 0x0000000065746164LL))
         {
             // handle may date property
             // .'$Schema'.metadata.date
@@ -88,7 +88,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x0073726f68747561LL)))
+        else if (likely(jm_str_eq_8(prop, 0x0073726f68747561LL)))
         {
             // handle may authors property
             // .'$Schema'.metadata.authors
@@ -141,7 +141,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_6(prop, 0x0000007365707974LL)))
+        if (likely(jm_str_eq_6(prop, 0x0000007365707974LL)))
         {
             // handle must types property
             must_count += 1;
@@ -170,7 +170,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x617461646174656dLL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x617461646174656dLL) && jm_str_eq_0(prop + 8)))
         {
             // handle may metadata property
             // .'$Schema'.metadata
@@ -573,7 +573,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746e65746e6f63LL)))
+        else if (jm_str_eq_8(prop, 0x00746e65746e6f63LL))
         {
             // handle may content property
             // .'$Object'.content
@@ -601,7 +601,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_7(prop, 0x00006465736f6c63LL)))
+        else if (likely(jm_str_eq_7(prop, 0x00006465736f6c63LL)))
         {
             // handle may closed property
             // .'$Object'.closed
@@ -687,11 +687,11 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
+        else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
             // handle may default property
             // .'$Fields'.default
             res = true;
-        else if (unlikely(jm_str_eq_7(prop, 0x0000657571696e75LL)))
+        else if (likely(jm_str_eq_7(prop, 0x0000657571696e75LL)))
         {
             // handle may unique property
             // .'$Fields'.unique
@@ -793,7 +793,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x74676e654c6e696dLL) && jm_str_eq_2(prop + 8, 0x00000068)))
+        else if (jm_str_eq_8(prop, 0x74676e654c6e696dLL) && jm_str_eq_2(prop + 8, 0x00000068))
         {
             // handle may minLength property
             // .'$Array'.minLength
@@ -805,7 +805,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068)))
+        else if (likely(jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068)))
         {
             // handle may maxLength property
             // .'$Array'.maxLength
@@ -880,7 +880,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746e65746e6f63LL)))
+        else if (likely(jm_str_eq_8(prop, 0x00746e65746e6f63LL)))
         {
             // handle must content property
             must_count += 1;
@@ -909,7 +909,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6570795465736162LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x6570795465736162LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may baseType property
             // .'$Union'.baseType

@@ -58,7 +58,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000706f7270LL)))
+        if (likely(jm_str_eq_5(prop, 0x00000000706f7270LL)))
         {
             // handle may prop property
             // .prop

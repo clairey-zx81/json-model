@@ -222,9 +222,9 @@ EXPECT: dict[str, int] = {
     "mv-26:models": 7,
     "mv-26:values": 109,
     # mv-27
-    "mv-27:cmp-opts": {"strcmp": True, "report": False},
-    "mv-27:models": 3,
-    "mv-27:values": 42,
+    "mv-27:cmp-opts": {"strcmp": True, "report": False, "must_only_threshold": 2},
+    "mv-27:models": 4,
+    "mv-27:values": 59,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 313,

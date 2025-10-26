@@ -59,7 +59,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$Ex09'.'#'

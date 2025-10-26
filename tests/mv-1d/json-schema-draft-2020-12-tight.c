@@ -641,7 +641,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x006d756d696e696dLL)))
+        else if (jm_str_eq_8(prop, 0x006d756d696e696dLL))
         {
             // handle may minimum property
             // .'$Number'.minimum
@@ -671,7 +671,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d696e694d65LL) && jm_str_eq_0(prop + 16)))
+        else if (likely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d696e694d65LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may exclusiveMinimum property
             // .'$Number'.exclusiveMinimum
@@ -786,7 +786,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x006d756d696e696dLL)))
+        else if (jm_str_eq_8(prop, 0x006d756d696e696dLL))
         {
             // handle may minimum property
             // .'$Integer'.minimum
@@ -798,7 +798,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d696e694d65LL) && jm_str_eq_0(prop + 16)))
+        else if (likely(jm_str_eq_8(prop, 0x766973756c637865LL) && jm_str_eq_8(prop + 8, 0x6d756d696e694d65LL) && jm_str_eq_0(prop + 16)))
         {
             // handle may exclusiveMinimum property
             // .'$Integer'.exclusiveMinimum

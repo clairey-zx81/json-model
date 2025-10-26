@@ -98,72 +98,96 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+-- check json_model_1_mup_a (.a)
+CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- .a
+  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_01';
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check json_model_1_mup_b (.b)
+CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- .b
+  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_01';
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check json_model_1_mup_c (.c)
+CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- .c
+  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_01';
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check json_model_1_mup_d (.d)
+CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- .d
+  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_01';
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check json_model_1_mup_e (.e)
+CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- .e
+  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_02';
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check json_model_1_mup_f (.f)
+CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- .f
+  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_02';
+END;
+$$ LANGUAGE PLpgSQL;
+
+CREATE OR REPLACE FUNCTION json_model_1_mup(name TEXT)
+RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  map JSONB := JSONB '{"a":"_jm_f_0","b":"_jm_f_1","c":"_jm_f_2","d":"_jm_f_3","e":"_jm_f_4","f":"_jm_f_5"}';
+BEGIN
+  RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  pfun TEXT;
+  must_count int;
+  prop TEXT;
   pval JSONB;
-  res bool;
 BEGIN
   -- .
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 6 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'a' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'a';
-  -- .a
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'b' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'b';
-  -- .b
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'e' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'e';
-  -- .e
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'f' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'f';
-  -- .f
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'c' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'c';
-  -- .c
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'd' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'd';
-  -- .d
-  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF json_model_1_mup(prop) IS NOT NULL THEN
+      -- handle 6 mandatory props
+      pfun := json_model_1_mup(prop);
+      must_count := must_count + 1;
+      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 6;
 END;
 $$ LANGUAGE PLpgSQL;
 

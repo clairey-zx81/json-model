@@ -34,6 +34,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END IF;
+  -- ignored ..useless
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;

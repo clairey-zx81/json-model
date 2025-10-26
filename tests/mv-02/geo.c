@@ -179,7 +179,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
+        else if (likely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
         {
             // handle must coordinates property
             must_count += 1;
@@ -192,7 +192,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
+        else if (likely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
         {
             // handle may bbox property
             // .'$Point'.bbox
@@ -273,7 +273,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
+        else if (likely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
         {
             // handle must coordinates property
             must_count += 1;
@@ -302,7 +302,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
+        else if (likely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
         {
             // handle may bbox property
             // .'$MultiPoint'.bbox
@@ -383,7 +383,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
+        else if (likely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
         {
             // handle must coordinates property
             must_count += 1;
@@ -396,7 +396,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
+        else if (likely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
         {
             // handle may bbox property
             // .'$LineString'.bbox
@@ -477,7 +477,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
+        else if (likely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
         {
             // handle must coordinates property
             must_count += 1;
@@ -506,7 +506,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
+        else if (likely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
         {
             // handle may bbox property
             // .'$MultiLineString'.bbox
@@ -587,7 +587,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
+        else if (likely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
         {
             // handle must coordinates property
             must_count += 1;
@@ -616,7 +616,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
+        else if (likely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
         {
             // handle may bbox property
             // .'$Polygon'.bbox
@@ -697,7 +697,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
+        else if (likely(jm_str_eq_8(prop, 0x616e6964726f6f63LL) && jm_str_eq_4(prop + 8, 0x00736574)))
         {
             // handle must coordinates property
             must_count += 1;
@@ -742,7 +742,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
+        else if (likely(jm_str_eq_5(prop, 0x00000000786f6262LL)))
         {
             // handle may bbox property
             // .'$MultiPolygon'.bbox
@@ -834,7 +834,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.0]", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$geometry'.'|'.0.bbox
@@ -921,7 +921,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.1]", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$geometry'.'|'.1.bbox
@@ -992,7 +992,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.2]", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$geometry'.'|'.2.bbox
@@ -1079,7 +1079,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.3]", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$geometry'.'|'.3.bbox
@@ -1166,7 +1166,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.4]", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$geometry'.'|'.4.bbox
@@ -1269,7 +1269,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.5]", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$geometry'.'|'.5.bbox
@@ -1398,7 +1398,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <geometries> [.'$GeometryCollection']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$GeometryCollection'.bbox
@@ -1541,7 +1541,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <properties> [.'$Feature']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "id")) != NULL))
+    if ((pval = json_object_get(val, "id")) != NULL)
     {
         lpath = (jm_path_t) { "id", 0, path, NULL };
         // .'$Feature'.id
@@ -1571,7 +1571,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$Feature'.bbox
@@ -1659,7 +1659,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <features> [.'$FeatureCollection']", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "bbox")) != NULL))
+    if (likely((pval = json_object_get(val, "bbox")) != NULL))
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
         // .'$FeatureCollection'.bbox

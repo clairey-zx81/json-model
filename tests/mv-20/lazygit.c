@@ -466,7 +466,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x0079656b)))
+        else if (jm_str_eq_4(prop, 0x0079656b))
         {
             // handle must key property
             must_count += 1;
@@ -479,7 +479,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x566c616974696e69LL) && jm_str_eq_5(prop + 8, 0x0000000065756c61LL)))
+        else if (jm_str_eq_8(prop, 0x566c616974696e69LL) && jm_str_eq_5(prop + 8, 0x0000000065756c61LL))
         {
             // handle may initialValue property
             // .'$Prompts'.'|'.0.initialValue
@@ -491,7 +491,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974736567677573LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
+        else if (likely(jm_str_eq_8(prop, 0x6974736567677573LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
         {
             // handle may suggestions property
             // .'$Prompts'.'|'.0.suggestions
@@ -601,7 +601,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x0079656b)))
+        else if (likely(jm_str_eq_4(prop, 0x0079656b)))
         {
             // handle must key property
             must_count += 1;
@@ -614,7 +614,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000079646f62LL)))
+        else if (likely(jm_str_eq_5(prop, 0x0000000079646f62LL)))
         {
             // handle may body property
             // .'$Prompts'.'|'.1.body
@@ -669,7 +669,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_6(prop, 0x00000065756c6176LL)))
+        if (jm_str_eq_6(prop, 0x00000065756c6176LL))
         {
             // handle must value property
             must_count += 1;
@@ -682,7 +682,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
+        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
             // handle may description property
             // .'$Prompts'.'|'.2.options.'@'.0.description
@@ -694,7 +694,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        else if (likely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
         {
             // handle may name property
             // .'$Prompts'.'|'.2.options.'@'.0.name
@@ -909,7 +909,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x726f4665756c6176LL) && jm_str_eq_4(prop + 8, 0x0074616d)))
+        else if (jm_str_eq_8(prop, 0x726f4665756c6176LL) && jm_str_eq_4(prop + 8, 0x0074616d))
         {
             // handle may valueFormat property
             // .'$Prompts'.'|'.3.valueFormat
@@ -921,7 +921,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x726f466c6562616cLL) && jm_str_eq_4(prop + 8, 0x0074616d)))
+        else if (likely(jm_str_eq_8(prop, 0x726f466c6562616cLL) && jm_str_eq_4(prop + 8, 0x0074616d)))
         {
             // handle may labelFormat property
             // .'$Prompts'.'|'.3.labelFormat
@@ -1034,7 +1034,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x726f466b63656863LL) && jm_str_eq_8(prop + 8, 0x7463696c666e6f43LL) && jm_str_eq_2(prop + 16, 0x00000073)))
+        if (likely(jm_str_eq_8(prop, 0x726f466b63656863LL) && jm_str_eq_8(prop + 8, 0x7463696c666e6f43LL) && jm_str_eq_2(prop + 16, 0x00000073)))
         {
             // handle may checkForConflicts property
             // .customCommands.'@'.0.after.checkForConflicts
@@ -1352,7 +1352,7 @@ static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x0066664f6e676973LL)))
+        if (likely(jm_str_eq_8(prop, 0x0066664f6e676973LL)))
         {
             // handle may signOff property
             // .git.commit.signOff
@@ -1527,7 +1527,7 @@ static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x70617247776f6873LL) && jm_str_eq_2(prop + 8, 0x00000068)))
+        else if (jm_str_eq_8(prop, 0x70617247776f6873LL) && jm_str_eq_2(prop + 8, 0x00000068))
         {
             // handle may showGraph property
             // .git.log.showGraph
@@ -1539,7 +1539,7 @@ static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6f6857776f6873LL) && jm_str_eq_7(prop + 8, 0x0000687061724765LL)))
+        else if (likely(jm_str_eq_8(prop, 0x6c6f6857776f6873LL) && jm_str_eq_7(prop + 8, 0x0000687061724765LL)))
         {
             // handle may showWholeGraph property
             // .git.log.showWholeGraph
@@ -1575,7 +1575,7 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x6f436c61756e616dLL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL)))
+        if (jm_str_eq_8(prop, 0x6f436c61756e616dLL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL))
         {
             // handle may manualCommit property
             // .git.merging.manualCommit
@@ -1587,7 +1587,7 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000073677261LL)))
+        else if (likely(jm_str_eq_5(prop, 0x0000000073677261LL)))
         {
             // handle may args property
             // .git.merging.args
@@ -1648,7 +1648,7 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x69666e6f43657375LL) && jm_str_eq_2(prop + 8, 0x00000067)))
+        else if (jm_str_eq_8(prop, 0x69666e6f43657375LL) && jm_str_eq_2(prop + 8, 0x00000067))
         {
             // handle may useConfig property
             // .git.paging.useConfig
@@ -1660,7 +1660,7 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007265676170LL)))
+        else if (likely(jm_str_eq_6(prop, 0x0000007265676170LL)))
         {
             // handle may pager property
             // .git.paging.pager
@@ -1878,7 +1878,7 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000776f6873LL)))
+        if (likely(jm_str_eq_5(prop, 0x00000000776f6873LL)))
         {
             // handle may show property
             // .gui.commitLength.show
@@ -2317,7 +2317,7 @@ static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x74756f6b63656863LL) && jm_str_eq_8(prop + 8, 0x694674696d6d6f43LL) && jm_str_eq_3(prop + 16, 0x0000656c)))
+        if (likely(jm_str_eq_8(prop, 0x74756f6b63656863LL) && jm_str_eq_8(prop + 8, 0x694674696d6d6f43LL) && jm_str_eq_3(prop + 16, 0x0000656c)))
         {
             // handle may checkoutCommitFile property
             // .keybinding.commitFiles.checkoutCommitFile
@@ -2453,7 +2453,7 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6553656c67676f74LL) && jm_str_eq_8(prop + 8, 0x6b6e75487463656cLL) && jm_str_eq_0(prop + 16)))
+        else if (jm_str_eq_8(prop, 0x6553656c67676f74LL) && jm_str_eq_8(prop + 8, 0x6b6e75487463656cLL) && jm_str_eq_0(prop + 16))
         {
             // handle may toggleSelectHunk property
             // .keybinding.main.toggleSelectHunk
@@ -2465,7 +2465,7 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x68746f426b636970LL) && jm_str_eq_6(prop + 8, 0x000000736b6e7548LL)))
+        else if (likely(jm_str_eq_8(prop, 0x68746f426b636970LL) && jm_str_eq_6(prop + 8, 0x000000736b6e7548LL)))
         {
             // handle may pickBothHunks property
             // .keybinding.main.pickBothHunks
@@ -2501,7 +2501,7 @@ static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x6873617453706f70LL) && jm_str_eq_0(prop + 8)))
+        if (jm_str_eq_8(prop, 0x6873617453706f70LL) && jm_str_eq_0(prop + 8))
         {
             // handle may popStash property
             // .keybinding.stash.popStash
@@ -2513,7 +2513,7 @@ static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x7453656d616e6572LL) && jm_str_eq_4(prop + 8, 0x00687361)))
+        else if (likely(jm_str_eq_8(prop, 0x7453656d616e6572LL) && jm_str_eq_4(prop + 8, 0x00687361)))
         {
             // handle may renameStash property
             // .keybinding.stash.renameStash
@@ -2549,7 +2549,7 @@ static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_25 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x726f466b63656863LL) && jm_str_eq_7(prop + 8, 0x0000657461647055LL)))
+        if (jm_str_eq_8(prop, 0x726f466b63656863LL) && jm_str_eq_7(prop + 8, 0x0000657461647055LL))
         {
             // handle may checkForUpdate property
             // .keybinding.status.checkForUpdate
@@ -2561,7 +2561,7 @@ static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6552746e65636572LL) && jm_str_eq_4(prop + 8, 0x00736f70)))
+        else if (likely(jm_str_eq_8(prop, 0x6552746e65636572LL) && jm_str_eq_4(prop + 8, 0x00736f70)))
         {
             // handle may recentRepos property
             // .keybinding.status.recentRepos
@@ -2609,7 +2609,7 @@ static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_7(prop, 0x0000657461647075LL)))
+        else if (jm_str_eq_7(prop, 0x0000657461647075LL))
         {
             // handle may update property
             // .keybinding.submodules.update
@@ -2621,7 +2621,7 @@ static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x756e654d6b6c7562LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x756e654d6b6c7562LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may bulkMenu property
             // .keybinding.submodules.bulkMenu
@@ -2939,7 +2939,7 @@ static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x4968736572666572LL) && jm_str_eq_8(prop + 8, 0x006c61767265746eLL)))
+        if (jm_str_eq_8(prop, 0x4968736572666572LL) && jm_str_eq_8(prop + 8, 0x006c61767265746eLL))
         {
             // handle may refreshInterval property
             // .refresher.refreshInterval
@@ -2951,7 +2951,7 @@ static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x746e496863746566LL) && jm_str_eq_6(prop + 8, 0x0000006c61767265LL)))
+        else if (likely(jm_str_eq_8(prop, 0x746e496863746566LL) && jm_str_eq_6(prop + 8, 0x0000006c61767265LL)))
         {
             // handle may fetchInterval property
             // .refresher.fetchInterval
@@ -3030,7 +3030,7 @@ static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_7(prop, 0x0000646f6874656dLL)))
+        if (jm_str_eq_7(prop, 0x0000646f6874656dLL))
         {
             // handle may method property
             // .update.method
@@ -3042,7 +3042,7 @@ static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000073796164LL)))
+        else if (likely(jm_str_eq_5(prop, 0x0000000073796164LL)))
         {
             // handle may days property
             // .update.days

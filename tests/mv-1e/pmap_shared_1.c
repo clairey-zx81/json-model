@@ -72,7 +72,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000064)))
+        else if (jm_str_eq_2(prop, 0x00000064))
         {
             // handle must d property
             must_count += 1;
@@ -176,7 +176,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000063)))
+        else if (jm_str_eq_2(prop, 0x00000063))
         {
             // handle may c property
             // .'$Oo1'.c
@@ -188,7 +188,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000064)))
+        else if (likely(jm_str_eq_2(prop, 0x00000064)))
         {
             // handle may d property
             // .'$Oo1'.d
@@ -275,7 +275,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000064)))
+        else if (likely(jm_str_eq_2(prop, 0x00000064)))
         {
             // handle must d property
             must_count += 1;
@@ -288,7 +288,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000079)))
+        else if (likely(jm_str_eq_2(prop, 0x00000079)))
         {
             // handle may y property
             // .'$Oo2'.y

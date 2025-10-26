@@ -30,7 +30,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_2(prop, 0x00000062)))
+        if (likely(jm_str_eq_2(prop, 0x00000062)))
         {
             // handle must b property
             must_count += 1;
@@ -43,7 +43,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        else if (likely(jm_str_eq_2(prop, 0x00000061)))
         {
             // handle may a property
             // .a

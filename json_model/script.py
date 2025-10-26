@@ -384,7 +384,9 @@ def jmc_script():
     arg("--unroll-may-ratio", "-umr", default=0.5, type=float,
         help="unroll if optional props under this ratio, default 0.5")
     arg("--unroll-may-threshold", "-umt", default=5, type=int,
-        help="unroll if number of optional props less than threshold, default 5")
+        help="unroll if number of optional props below threshold, default 5")
+    arg("--must-only-threshold", "-mot", default=5, type=int,
+        help="must-only scheme if number of mandatory props below threshold, default 5")
     arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
         help="optimize some string comparisons")
     arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
@@ -651,12 +653,16 @@ def jmc_script():
             log.warning(f"{args.model}: {LANG[args.format]} backend does not support strict numbers")
 
         # compile to source
-        code = xstatic_compile(model, args.entry, lang=args.format, execute=with_main,
-                               map_threshold=args.map_threshold, map_share=args.map_share,
-                               debug=args.debug, report=args.reporting, relib=args.regex_engine,
-                               short_version=args.short_version, package=args.package,
-                               predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize,
-                               strcmp=args.strcmp_opt, byte_order=args.byte_order)
+        code = xstatic_compile(
+            model, args.entry, lang=args.format, execute=with_main,
+            map_threshold=args.map_threshold, map_share=args.map_share,
+            debug=args.debug, report=args.reporting, relib=args.regex_engine,
+            short_version=args.short_version, package=args.package,
+            predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize,
+            strcmp=args.strcmp_opt, byte_order=args.byte_order,
+            unroll_may_ratio=args.unroll_may_ratio, unroll_may_threshold=args.unroll_may_threshold,
+            must_only_threshold=args.must_only_threshold
+        )
         source = str(code)
 
         # source to executable for C and java

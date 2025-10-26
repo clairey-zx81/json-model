@@ -28,7 +28,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "a")) != NULL))
+    if (likely((pval = json_object_get(val, "a")) != NULL))
     {
         // .'$Oa'.a
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
@@ -47,7 +47,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "b")) != NULL))
+    if (likely((pval = json_object_get(val, "b")) != NULL))
     {
         // .'$Ob'.b
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
@@ -66,14 +66,14 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "a")) != NULL))
+    if ((pval = json_object_get(val, "a")) != NULL)
     {
         // .'$merge'.a
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (unlikely(! res))
             return false;
     }
-    if (unlikely((pval = json_object_get(val, "b")) != NULL))
+    if (likely((pval = json_object_get(val, "b")) != NULL))
     {
         // .'$merge'.b
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;

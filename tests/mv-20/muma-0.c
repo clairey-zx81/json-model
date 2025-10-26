@@ -41,7 +41,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.]", (path ? &lpath : NULL));
         return false;
     }
-    if (unlikely((pval = json_object_get(val, "born")) != NULL))
+    if ((pval = json_object_get(val, "born")) != NULL)
     {
         lpath = (jm_path_t) { "born", 0, path, NULL };
         // .born
@@ -53,6 +53,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             return false;
         }
     }
+    // ignored ..useless
     return true;
 }
 

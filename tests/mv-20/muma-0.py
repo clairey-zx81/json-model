@@ -50,6 +50,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("unexpected $DATE [.born]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <born> [.]", lpath if path is not None else None))
             return False
+    # ignored ..useless
     return True
 
 

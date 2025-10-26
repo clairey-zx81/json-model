@@ -725,7 +725,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d656863732eLL)))
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.4.'.schema'
@@ -829,7 +829,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d656863732eLL)))
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.3.'.schema'
@@ -933,7 +933,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d656863732eLL)))
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.2.'.schema'
@@ -1037,7 +1037,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d656863732eLL)))
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.1.'.schema'
@@ -2137,7 +2137,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d656863732eLL)))
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.4.'.schema'
@@ -2495,7 +2495,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d656863732eLL)))
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.3.'.schema'
@@ -2853,7 +2853,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d656863732eLL)))
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.2.'.schema'
@@ -3211,7 +3211,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d656863732eLL)))
+        else if (jm_str_eq_8(prop, 0x00616d656863732eLL))
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.1.'.schema'
@@ -3864,7 +3864,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x0000002a)))
+        else if (jm_str_eq_2(prop, 0x0000002a))
             // handle may * property
             // .'$Model#Transformation'.'|'.1.'*'
             res = true;

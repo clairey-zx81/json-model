@@ -275,7 +275,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AIXPlatformModel'.name
@@ -287,7 +287,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AIXPlatformModel'.versions
@@ -339,7 +339,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AlpinePlatformModel'.name
@@ -351,7 +351,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AlpinePlatformModel'.versions
@@ -404,7 +404,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AmazonLinuxPlatformModel'.name
@@ -416,7 +416,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AmazonLinuxPlatformModel'.versions
@@ -469,7 +469,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AmazonPlatformModel'.name
@@ -481,7 +481,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AmazonPlatformModel'.versions
@@ -533,7 +533,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$ArchLinuxPlatformModel'.name
@@ -545,7 +545,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$ArchLinuxPlatformModel'.versions
@@ -598,7 +598,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$AstraLinuxPlatformModel'.name
@@ -610,7 +610,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$AstraLinuxPlatformModel'.versions
@@ -662,7 +662,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$ClearLinuxPlatformModel'.name
@@ -674,7 +674,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$ClearLinuxPlatformModel'.versions
@@ -727,7 +727,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$CumulusPlatformModel'.name
@@ -739,7 +739,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$CumulusPlatformModel'.versions
@@ -792,7 +792,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$DebianPlatformModel'.name
@@ -804,7 +804,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$DebianPlatformModel'.versions
@@ -857,7 +857,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$DellOSPlatformModel'.name
@@ -869,7 +869,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$DellOSPlatformModel'.versions
@@ -922,7 +922,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$DevuanPlatformModel'.name
@@ -934,7 +934,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$DevuanPlatformModel'.versions
@@ -987,7 +987,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$DragonFlyBSDPlatformModel'.name
@@ -999,7 +999,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$DragonFlyBSDPlatformModel'.versions
@@ -1052,7 +1052,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$ELPlatformModel'.name
@@ -1064,7 +1064,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$ELPlatformModel'.versions
@@ -1117,7 +1117,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$FedoraPlatformModel'.name
@@ -1129,7 +1129,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$FedoraPlatformModel'.versions
@@ -1182,7 +1182,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$FreeBSDPlatformModel'.name
@@ -1194,7 +1194,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$FreeBSDPlatformModel'.versions
@@ -1246,7 +1246,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$GenericBSDPlatformModel'.name
@@ -1258,7 +1258,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$GenericBSDPlatformModel'.versions
@@ -1310,7 +1310,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$GenericLinuxPlatformModel'.name
@@ -1322,7 +1322,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$GenericLinuxPlatformModel'.versions
@@ -1374,7 +1374,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$GenericUNIXPlatformModel'.name
@@ -1386,7 +1386,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$GenericUNIXPlatformModel'.versions
@@ -1438,7 +1438,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$GentooPlatformModel'.name
@@ -1450,7 +1450,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$GentooPlatformModel'.versions
@@ -1503,7 +1503,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$HardenedBSDPlatformModel'.name
@@ -1515,7 +1515,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$HardenedBSDPlatformModel'.versions
@@ -1567,7 +1567,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$IOSPlatformModel'.name
@@ -1579,7 +1579,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$IOSPlatformModel'.versions
@@ -1631,7 +1631,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$JunosPlatformModel'.name
@@ -1643,7 +1643,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$JunosPlatformModel'.versions
@@ -1696,7 +1696,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$KaliPlatformModel'.name
@@ -1708,7 +1708,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$KaliPlatformModel'.versions
@@ -1761,7 +1761,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$MacOSXPlatformModel'.name
@@ -1773,7 +1773,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$MacOSXPlatformModel'.versions
@@ -1826,7 +1826,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$MageiaPlatformModel'.name
@@ -1838,7 +1838,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$MageiaPlatformModel'.versions
@@ -1890,7 +1890,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_25 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$NXOSPlatformModel'.name
@@ -1902,7 +1902,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$NXOSPlatformModel'.versions
@@ -1955,7 +1955,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$NetBSDPlatformModel'.name
@@ -1967,7 +1967,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$NetBSDPlatformModel'.versions
@@ -2020,7 +2020,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$OpenBSDPlatformModel'.name
@@ -2032,7 +2032,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$OpenBSDPlatformModel'.versions
@@ -2085,7 +2085,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$OpenWrtPlatformModel'.name
@@ -2097,7 +2097,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$OpenWrtPlatformModel'.versions
@@ -2150,7 +2150,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$OracleLinuxPlatformModel'.name
@@ -2162,7 +2162,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$OracleLinuxPlatformModel'.versions
@@ -2215,7 +2215,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$PAN-OSPlatformModel'.name
@@ -2227,7 +2227,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$PAN-OSPlatformModel'.versions
@@ -2280,7 +2280,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$RockyLinuxPlatformModel'.name
@@ -2292,7 +2292,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$RockyLinuxPlatformModel'.versions
@@ -2345,7 +2345,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_32 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$SLESPlatformModel'.name
@@ -2357,7 +2357,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$SLESPlatformModel'.versions
@@ -2409,7 +2409,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_33 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$SmartOSPlatformModel'.name
@@ -2421,7 +2421,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$SmartOSPlatformModel'.versions
@@ -2474,7 +2474,7 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_34 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$SolarisPlatformModel'.name
@@ -2486,7 +2486,7 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$SolarisPlatformModel'.versions
@@ -2539,7 +2539,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_35 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$SynologyPlatformModel'.name
@@ -2551,7 +2551,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$SynologyPlatformModel'.versions
@@ -2604,7 +2604,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$TMOSPlatformModel'.name
@@ -2616,7 +2616,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$TMOSPlatformModel'.versions
@@ -2669,7 +2669,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_37 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$UbuntuPlatformModel'.name
@@ -2681,7 +2681,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$UbuntuPlatformModel'.versions
@@ -2733,7 +2733,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_38 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$Void_LinuxPlatformModel'.name
@@ -2745,7 +2745,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$Void_LinuxPlatformModel'.versions
@@ -2798,7 +2798,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_39 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$WindowsPlatformModel'.name
@@ -2810,7 +2810,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$WindowsPlatformModel'.versions
@@ -2862,7 +2862,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_40 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$aosPlatformModel'.name
@@ -2874,7 +2874,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$aosPlatformModel'.versions
@@ -2926,7 +2926,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_41 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$eosPlatformModel'.name
@@ -2938,7 +2938,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$eosPlatformModel'.versions
@@ -2991,7 +2991,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$macOSPlatformModel'.name
@@ -3003,7 +3003,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$macOSPlatformModel'.versions
@@ -3056,7 +3056,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_43 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$opensusePlatformModel'.name
@@ -3068,7 +3068,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$opensusePlatformModel'.versions
@@ -3120,7 +3120,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_44 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$os10PlatformModel'.name
@@ -3132,7 +3132,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$os10PlatformModel'.versions
@@ -3185,7 +3185,7 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_45 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$vCenterPlatformModel'.name
@@ -3197,7 +3197,7 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$vCenterPlatformModel'.versions
@@ -3250,7 +3250,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_46 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
         {
             // handle may name property
             // .'$vSpherePlatformModel'.name
@@ -3262,7 +3262,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
+        else if (likely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may versions property
             // .'$vSpherePlatformModel'.versions
@@ -3748,7 +3748,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.46.name
@@ -3760,7 +3760,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.46.versions
@@ -3804,7 +3804,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.45.name
@@ -3816,7 +3816,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.45.versions
@@ -3859,7 +3859,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.44.name
@@ -3871,7 +3871,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.44.versions
@@ -3915,7 +3915,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.43.name
@@ -3927,7 +3927,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.43.versions
@@ -3971,7 +3971,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.42.name
@@ -3983,7 +3983,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.42.versions
@@ -4027,7 +4027,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.41.name
@@ -4039,7 +4039,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.41.versions
@@ -4083,7 +4083,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.40.name
@@ -4095,7 +4095,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.40.versions
@@ -4139,7 +4139,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.39.name
@@ -4151,7 +4151,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.39.versions
@@ -4194,7 +4194,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.38.name
@@ -4206,7 +4206,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.38.versions
@@ -4250,7 +4250,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.37.name
@@ -4262,7 +4262,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.37.versions
@@ -4306,7 +4306,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.36.name
@@ -4318,7 +4318,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.36.versions
@@ -4362,7 +4362,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.35.name
@@ -4374,7 +4374,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.35.versions
@@ -4417,7 +4417,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.34.name
@@ -4429,7 +4429,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.34.versions
@@ -4473,7 +4473,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.33.name
@@ -4485,7 +4485,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.33.versions
@@ -4529,7 +4529,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.32.name
@@ -4541,7 +4541,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.32.versions
@@ -4585,7 +4585,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.31.name
@@ -4597,7 +4597,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.31.versions
@@ -4641,7 +4641,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.30.name
@@ -4653,7 +4653,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.30.versions
@@ -4696,7 +4696,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.29.name
@@ -4708,7 +4708,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.29.versions
@@ -4752,7 +4752,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.28.name
@@ -4764,7 +4764,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.28.versions
@@ -4808,7 +4808,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.27.name
@@ -4820,7 +4820,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.27.versions
@@ -4864,7 +4864,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.26.name
@@ -4876,7 +4876,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.26.versions
@@ -4920,7 +4920,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.25.name
@@ -4932,7 +4932,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.25.versions
@@ -4975,7 +4975,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.24.name
@@ -4987,7 +4987,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.24.versions
@@ -5030,7 +5030,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.23.name
@@ -5042,7 +5042,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.23.versions
@@ -5086,7 +5086,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.22.name
@@ -5098,7 +5098,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.22.versions
@@ -5141,7 +5141,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.21.name
@@ -5153,7 +5153,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.21.versions
@@ -5196,7 +5196,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.20.name
@@ -5208,7 +5208,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.20.versions
@@ -5251,7 +5251,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.19.name
@@ -5263,7 +5263,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.19.versions
@@ -5306,7 +5306,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.18.name
@@ -5318,7 +5318,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.18.versions
@@ -5362,7 +5362,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.17.name
@@ -5374,7 +5374,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.17.versions
@@ -5418,7 +5418,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.16.name
@@ -5430,7 +5430,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.16.versions
@@ -5473,7 +5473,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.15.name
@@ -5485,7 +5485,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.15.versions
@@ -5529,7 +5529,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.14.name
@@ -5541,7 +5541,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.14.versions
@@ -5585,7 +5585,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.13.name
@@ -5597,7 +5597,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.13.versions
@@ -5641,7 +5641,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.12.name
@@ -5653,7 +5653,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.12.versions
@@ -5697,7 +5697,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.11.name
@@ -5709,7 +5709,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.11.versions
@@ -5753,7 +5753,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.10.name
@@ -5765,7 +5765,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.10.versions
@@ -5809,7 +5809,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.9.name
@@ -5821,7 +5821,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.9.versions
@@ -5865,7 +5865,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.8.name
@@ -5877,7 +5877,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.8.versions
@@ -5920,7 +5920,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.7.name
@@ -5932,7 +5932,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.7.versions
@@ -5976,7 +5976,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.6.name
@@ -5988,7 +5988,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.6.versions
@@ -6031,7 +6031,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.5.name
@@ -6043,7 +6043,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.5.versions
@@ -6086,7 +6086,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.4.name
@@ -6098,7 +6098,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.4.versions
@@ -6142,7 +6142,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.3.name
@@ -6154,7 +6154,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.3.versions
@@ -6198,7 +6198,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.2.name
@@ -6210,7 +6210,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.2.versions
@@ -6253,7 +6253,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.1.name
@@ -6265,7 +6265,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.1.versions
@@ -6309,7 +6309,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (unlikely((pval = json_object_get(val, "name")) != NULL))
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
         // .'$platforms'.0.'|'.0.name
@@ -6321,7 +6321,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (unlikely((pval = json_object_get(val, "versions")) != NULL))
+    if (likely((pval = json_object_get(val, "versions")) != NULL))
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
         // .'$platforms'.0.'|'.0.versions
@@ -8303,7 +8303,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x6e65646e65706564LL) && jm_str_eq_5(prop + 8, 0x0000000073656963LL)))
+        else if (jm_str_eq_8(prop, 0x6e65646e65706564LL) && jm_str_eq_5(prop + 8, 0x0000000073656963LL))
         {
             // handle may dependencies property
             // .'$AnsibleMetaObj'.dependencies
@@ -8349,7 +8349,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x695f7978616c6167LL) && jm_str_eq_4(prop + 8, 0x006f666e)))
+        else if (likely(jm_str_eq_8(prop, 0x695f7978616c6167LL) && jm_str_eq_4(prop + 8, 0x006f666e)))
         {
             // handle may galaxy_info property
             // .'$AnsibleMetaObj'.galaxy_info
