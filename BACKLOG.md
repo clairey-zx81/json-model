@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] static: order must/may props by increasing size
+- [x] command: fix bad mmo threshold initializations
 - [ ] static: maybe skip must checks if all must props already seen
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] backend: fix `unused but set variable` warning and remove `-Wno-…` (dead code)

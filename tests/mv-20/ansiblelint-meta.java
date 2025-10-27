@@ -8005,165 +8005,157 @@ public class ansiblelint_meta extends ModelChecker
         // 
         // Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
         // .'$DependencyModelLoose'
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose']", path);
             return false;
         }
+        Path lpath;
+        Object pval;
         boolean res;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if ((pval = json.objectValue(val, "become")) != null)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_52 = new Path(prop, path);
-            if (prop.compareTo("scm") == 0)
+            lpath = new Path("become", path);
+            // .'$DependencyModelLoose'.become
+            res = json.isBoolean(pval);
+            if (! res)
             {
-                // handle may scm property
-                // .'$DependencyModelLoose'.scm
-                res = json.isScalar(pval) && _jm_cst_64_set.contains(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.scm]", (path != null ? lpath_52 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <become> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
             }
-            else if (prop.compareTo("src") == 0)
+        }
+        if ((pval = json.objectValue(val, "name")) != null)
+        {
+            lpath = new Path("name", path);
+            // .'$DependencyModelLoose'.name
+            res = json.isString(pval);
+            if (! res)
             {
-                // handle may src property
-                // .'$DependencyModelLoose'.src
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
             }
-            else if (prop.compareTo("name") == 0)
+        }
+        if ((pval = json.objectValue(val, "role")) != null)
+        {
+            lpath = new Path("role", path);
+            // .'$DependencyModelLoose'.role
+            res = json.isString(pval);
+            if (! res)
             {
-                // handle may name property
-                // .'$DependencyModelLoose'.name
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.name]", (path != null ? lpath_52 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <role> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
             }
-            else if (prop.compareTo("role") == 0)
+        }
+        if ((pval = json.objectValue(val, "src")) != null)
+        {
+            lpath = new Path("src", path);
+            // .'$DependencyModelLoose'.src
+            res = json.isString(pval);
+            if (! res)
             {
-                // handle may role property
-                // .'$DependencyModelLoose'.role
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <src> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
             }
-            else if (prop.compareTo("tags") == 0)
+        }
+        if ((pval = json.objectValue(val, "scm")) != null)
+        {
+            lpath = new Path("scm", path);
+            // .'$DependencyModelLoose'.scm
+            res = json.isScalar(pval) && _jm_cst_64_set.contains(pval);
+            if (! res)
             {
-                // handle may tags property
-                // .'$DependencyModelLoose'.tags
-                // .'$DependencyModelLoose'.tags.'|'.0
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path != null ? lpath_52 : null));
-                }
-                if (! res)
-                {
-                    // .'$DependencyModelLoose'.tags.'|'.1
-                    res = json.isArray(pval);
-                    if (res)
-                    {
-                        int arr_101_idx = -1;
-                        Iterator<Object> arr_101_item_loop = json.arrayIterator(pval);
-                        while (arr_101_item_loop.hasNext())
-                        {
-                            arr_101_idx++;
-                            Object arr_101_item = arr_101_item_loop.next();
-                            Path arr_101_lpath = new Path(arr_101_idx, (path != null ? lpath_52 : null));
-                            // .'$DependencyModelLoose'.tags.'|'.1.0
-                            res = json.isString(arr_101_item);
-                            if (! res)
-                            {
-                                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path != null ? lpath_52 : null) != null ? arr_101_lpath : null));
-                                break;
-                            }
-                        }
-                    }
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path != null ? lpath_52 : null));
-                    }
-                }
+                if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <scm> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
+            }
+        }
+        if ((pval = json.objectValue(val, "tags")) != null)
+        {
+            lpath = new Path("tags", path);
+            // .'$DependencyModelLoose'.tags
+            // .'$DependencyModelLoose'.tags.'|'.0
+            res = json.isString(pval);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path != null ? lpath : null));
+            }
+            if (! res)
+            {
+                // .'$DependencyModelLoose'.tags.'|'.1
+                res = json.isArray(pval);
                 if (res)
                 {
-                    if (rep != null) rep.clearEntries();
+                    int arr_101_idx = -1;
+                    Iterator<Object> arr_101_item_loop = json.arrayIterator(pval);
+                    while (arr_101_item_loop.hasNext())
+                    {
+                        arr_101_idx++;
+                        Object arr_101_item = arr_101_item_loop.next();
+                        Path arr_101_lpath = new Path(arr_101_idx, (path != null ? lpath : null));
+                        // .'$DependencyModelLoose'.tags.'|'.1.0
+                        res = json.isString(arr_101_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path != null ? lpath : null) != null ? arr_101_lpath : null));
+                            break;
+                        }
+                    }
                 }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.tags]", (path != null ? lpath_52 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("vars") == 0)
-            {
-                // handle may vars property
-                // .'$DependencyModelLoose'.vars
-                res = _jm_obj_49(pval, (path != null ? lpath_52 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.vars]", (path != null ? lpath_52 : null));
-                    return false;
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path != null ? lpath : null));
                 }
             }
-            else if (prop.compareTo("when") == 0)
+            if (res)
             {
-                // handle may when property
-                // .'$DependencyModelLoose'.when
-                res = json_model_56(pval, (path != null ? lpath_52 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("become") == 0)
-            {
-                // handle may become property
-                // .'$DependencyModelLoose'.become
-                res = json.isBoolean(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.become]", (path != null ? lpath_52 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("version") == 0)
-            {
-                // handle may version property
-                // .'$DependencyModelLoose'.version
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
-                    return false;
-                }
+                if (rep != null) rep.clearEntries();
             }
             else
             {
-                // accept any other props
+                if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <tags> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
+            }
+        }
+        if ((pval = json.objectValue(val, "vars")) != null)
+        {
+            lpath = new Path("vars", path);
+            // .'$DependencyModelLoose'.vars
+            res = _jm_obj_49(pval, (path != null ? lpath : null), rep);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
+            }
+        }
+        if ((pval = json.objectValue(val, "version")) != null)
+        {
+            lpath = new Path("version", path);
+            // .'$DependencyModelLoose'.version
+            res = json.isString(pval);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <version> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
+            }
+        }
+        if ((pval = json.objectValue(val, "when")) != null)
+        {
+            lpath = new Path("when", path);
+            // .'$DependencyModelLoose'.when
+            res = json_model_56(pval, (path != null ? lpath : null), rep);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <when> [.'$DependencyModelLoose']", (path != null ? lpath : null));
+                return false;
             }
         }
         return true;
@@ -8341,16 +8333,16 @@ public class ansiblelint_meta extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_53 = new Path(prop, path);
+            Path lpath_52 = new Path(prop, path);
             if (prop.compareTo("collections") == 0)
             {
                 // handle may collections property
                 // .'$AnsibleMetaObj'.collections
-                res = json_model_55(pval, (path != null ? lpath_53 : null), rep);
+                res = json_model_55(pval, (path != null ? lpath_52 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
                     return false;
                 }
             }
@@ -8358,11 +8350,11 @@ public class ansiblelint_meta extends ModelChecker
             {
                 // handle may galaxy_info property
                 // .'$AnsibleMetaObj'.galaxy_info
-                res = json_model_54(pval, (path != null ? lpath_53 : null), rep);
+                res = json_model_54(pval, (path != null ? lpath_52 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
                     return false;
                 }
             }
@@ -8379,21 +8371,21 @@ public class ansiblelint_meta extends ModelChecker
                     {
                         arr_102_idx++;
                         Object arr_102_item = arr_102_item_loop.next();
-                        Path arr_102_lpath = new Path(arr_102_idx, (path != null ? lpath_53 : null));
+                        Path arr_102_lpath = new Path(arr_102_idx, (path != null ? lpath_52 : null));
                         // .'$AnsibleMetaObj'.dependencies.0
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.0
                         res = json.isString(arr_102_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
                         }
                         if (! res)
                         {
                             // .'$AnsibleMetaObj'.dependencies.0.'|'.1
-                            res = json_model_58(arr_102_item, ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null), rep);
+                            res = json_model_58(arr_102_item, ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
                             }
                         }
                         if (res)
@@ -8402,15 +8394,15 @@ public class ansiblelint_meta extends ModelChecker
                         }
                         else
                         {
-                            if (rep != null) rep.addEntry("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
+                            if (rep != null) rep.addEntry("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
                             break;
                         }
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
                     return false;
                 }
             }
@@ -8421,14 +8413,14 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMetaObj']", (path != null ? lpath_53 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMetaObj']", (path != null ? lpath_52 : null));
                 return false;
             }
         }

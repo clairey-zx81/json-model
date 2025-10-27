@@ -99,53 +99,58 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_3_idx INT8;
   arr_3_item JSONB;
 BEGIN
   -- .'$Point'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$Point'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Point';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'coordinates' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'coordinates';
-  -- .'$Point'.coordinates
-  res := json_model_2(pval, NULL, NULL);
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$Point'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_3_item := pval -> arr_3_idx;
-        -- .'$Point'.bbox.0
-        res := JSONB_TYPEOF(arr_3_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$Point'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Point';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'coordinates' THEN
+      -- handle must coordinates property
+      must_count := must_count + 1;
+      -- .'$Point'.coordinates
+      res := json_model_2(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$Point'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_3_item := pval -> arr_3_idx;
+          -- .'$Point'.bbox.0
+          res := JSONB_TYPEOF(arr_3_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -153,65 +158,70 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_4_idx INT8;
   arr_4_item JSONB;
   arr_5_idx INT8;
   arr_5_item JSONB;
 BEGIN
   -- .'$MultiPoint'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$MultiPoint'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiPoint';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'coordinates' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'coordinates';
-  -- .'$MultiPoint'.coordinates
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_4_item := pval -> arr_4_idx;
-      -- .'$MultiPoint'.coordinates.0
-      res := json_model_2(arr_4_item, NULL, NULL);
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$MultiPoint'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiPoint';
       IF NOT res THEN
-        EXIT;
+        RETURN FALSE;
       END IF;
-    END LOOP;
-  END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$MultiPoint'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_5_item := pval -> arr_5_idx;
-        -- .'$MultiPoint'.bbox.0
-        res := JSONB_TYPEOF(arr_5_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
+    ELSEIF prop = 'coordinates' THEN
+      -- handle must coordinates property
+      must_count := must_count + 1;
+      -- .'$MultiPoint'.coordinates
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_4_item := pval -> arr_4_idx;
+          -- .'$MultiPoint'.coordinates.0
+          res := json_model_2(arr_4_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$MultiPoint'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_5_item := pval -> arr_5_idx;
+          -- .'$MultiPoint'.bbox.0
+          res := JSONB_TYPEOF(arr_5_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -219,53 +229,58 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_6_idx INT8;
   arr_6_item JSONB;
 BEGIN
   -- .'$LineString'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$LineString'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'LineString';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'coordinates' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'coordinates';
-  -- .'$LineString'.coordinates
-  res := json_model_3(pval, NULL, NULL);
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$LineString'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_6_item := pval -> arr_6_idx;
-        -- .'$LineString'.bbox.0
-        res := JSONB_TYPEOF(arr_6_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$LineString'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'LineString';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'coordinates' THEN
+      -- handle must coordinates property
+      must_count := must_count + 1;
+      -- .'$LineString'.coordinates
+      res := json_model_3(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$LineString'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_6_item := pval -> arr_6_idx;
+          -- .'$LineString'.bbox.0
+          res := JSONB_TYPEOF(arr_6_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -273,65 +288,70 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_7_idx INT8;
   arr_7_item JSONB;
   arr_8_idx INT8;
   arr_8_item JSONB;
 BEGIN
   -- .'$MultiLineString'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$MultiLineString'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiLineString';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'coordinates' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'coordinates';
-  -- .'$MultiLineString'.coordinates
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_7_item := pval -> arr_7_idx;
-      -- .'$MultiLineString'.coordinates.0
-      res := json_model_3(arr_7_item, NULL, NULL);
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$MultiLineString'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiLineString';
       IF NOT res THEN
-        EXIT;
+        RETURN FALSE;
       END IF;
-    END LOOP;
-  END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$MultiLineString'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_8_item := pval -> arr_8_idx;
-        -- .'$MultiLineString'.bbox.0
-        res := JSONB_TYPEOF(arr_8_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
+    ELSEIF prop = 'coordinates' THEN
+      -- handle must coordinates property
+      must_count := must_count + 1;
+      -- .'$MultiLineString'.coordinates
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_7_item := pval -> arr_7_idx;
+          -- .'$MultiLineString'.coordinates.0
+          res := json_model_3(arr_7_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$MultiLineString'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_8_item := pval -> arr_8_idx;
+          -- .'$MultiLineString'.bbox.0
+          res := JSONB_TYPEOF(arr_8_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -339,65 +359,70 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_9_idx INT8;
   arr_9_item JSONB;
   arr_10_idx INT8;
   arr_10_item JSONB;
 BEGIN
   -- .'$Polygon'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$Polygon'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Polygon';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'coordinates' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'coordinates';
-  -- .'$Polygon'.coordinates
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_9_item := pval -> arr_9_idx;
-      -- .'$Polygon'.coordinates.0
-      res := json_model_4(arr_9_item, NULL, NULL);
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$Polygon'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Polygon';
       IF NOT res THEN
-        EXIT;
+        RETURN FALSE;
       END IF;
-    END LOOP;
-  END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$Polygon'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_10_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_10_item := pval -> arr_10_idx;
-        -- .'$Polygon'.bbox.0
-        res := JSONB_TYPEOF(arr_10_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
+    ELSEIF prop = 'coordinates' THEN
+      -- handle must coordinates property
+      must_count := must_count + 1;
+      -- .'$Polygon'.coordinates
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_9_item := pval -> arr_9_idx;
+          -- .'$Polygon'.coordinates.0
+          res := json_model_4(arr_9_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$Polygon'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_10_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_10_item := pval -> arr_10_idx;
+          -- .'$Polygon'.bbox.0
+          res := JSONB_TYPEOF(arr_10_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -405,8 +430,10 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_11_idx INT8;
   arr_11_item JSONB;
   arr_12_idx INT8;
@@ -415,67 +442,70 @@ DECLARE
   arr_13_item JSONB;
 BEGIN
   -- .'$MultiPolygon'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$MultiPolygon'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiPolygon';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'coordinates' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'coordinates';
-  -- .'$MultiPolygon'.coordinates
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_11_item := pval -> arr_11_idx;
-      -- .'$MultiPolygon'.coordinates.0
-      res := JSONB_TYPEOF(arr_11_item) = 'array';
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$MultiPolygon'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiPolygon';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'coordinates' THEN
+      -- handle must coordinates property
+      must_count := must_count + 1;
+      -- .'$MultiPolygon'.coordinates
+      res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_11_item) - 1 LOOP
-          arr_12_item := arr_11_item -> arr_12_idx;
-          -- .'$MultiPolygon'.coordinates.0.0
-          res := json_model_4(arr_12_item, NULL, NULL);
+        FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_11_item := pval -> arr_11_idx;
+          -- .'$MultiPolygon'.coordinates.0
+          res := JSONB_TYPEOF(arr_11_item) = 'array';
+          IF res THEN
+            FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_11_item) - 1 LOOP
+              arr_12_item := arr_11_item -> arr_12_idx;
+              -- .'$MultiPolygon'.coordinates.0.0
+              res := json_model_4(arr_12_item, NULL, NULL);
+              IF NOT res THEN
+                EXIT;
+              END IF;
+            END LOOP;
+          END IF;
           IF NOT res THEN
             EXIT;
           END IF;
         END LOOP;
       END IF;
       IF NOT res THEN
-        EXIT;
+        RETURN FALSE;
       END IF;
-    END LOOP;
-  END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$MultiPolygon'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_13_item := pval -> arr_13_idx;
-        -- .'$MultiPolygon'.bbox.0
-        res := JSONB_TYPEOF(arr_13_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$MultiPolygon'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_13_item := pval -> arr_13_idx;
+          -- .'$MultiPolygon'.bbox.0
+          res := JSONB_TYPEOF(arr_13_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -511,65 +541,70 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_14_idx INT8;
   arr_14_item JSONB;
   arr_15_idx INT8;
   arr_15_item JSONB;
 BEGIN
   -- .'$GeometryCollection'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$GeometryCollection'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'GeometryCollection';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'geometries' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'geometries';
-  -- .'$GeometryCollection'.geometries
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_14_item := pval -> arr_14_idx;
-      -- .'$GeometryCollection'.geometries.0
-      res := json_model_11(arr_14_item, NULL, NULL);
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$GeometryCollection'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'GeometryCollection';
       IF NOT res THEN
-        EXIT;
+        RETURN FALSE;
       END IF;
-    END LOOP;
-  END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$GeometryCollection'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_15_item := pval -> arr_15_idx;
-        -- .'$GeometryCollection'.bbox.0
-        res := JSONB_TYPEOF(arr_15_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
+    ELSEIF prop = 'geometries' THEN
+      -- handle must geometries property
+      must_count := must_count + 1;
+      -- .'$GeometryCollection'.geometries
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_14_item := pval -> arr_14_idx;
+          -- .'$GeometryCollection'.geometries.0
+          res := json_model_11(arr_14_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$GeometryCollection'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_15_item := pval -> arr_15_idx;
+          -- .'$GeometryCollection'.bbox.0
+          res := JSONB_TYPEOF(arr_15_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -586,77 +621,80 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_16_idx INT8;
   arr_16_item JSONB;
 BEGIN
   -- .'$Feature'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$Feature'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Feature';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'geometry' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'geometry';
-  -- .'$Feature'.geometry
-  -- .'$Feature'.geometry.'|'.0
-  -- .'$Feature'.geometry.'|'.1
-  -- .'$Feature'.geometry.'|'.2
-  res := JSONB_TYPEOF(pval) = 'null' OR json_model_11(pval, NULL, NULL) OR json_model_12(pval, NULL, NULL);
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'properties' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'properties';
-  -- .'$Feature'.properties
-  -- .'$Feature'.properties.'|'.0
-  -- .'$Feature'.properties.'|'.1
-  res := JSONB_TYPEOF(pval) = 'null' OR _jm_obj_0(pval, NULL, NULL);
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'id' THEN
-    pval := val -> 'id';
-    -- .'$Feature'.id
-    -- .'$Feature'.id.'|'.0
-    -- .'$Feature'.id.'|'.1
-    res := JSONB_TYPEOF(pval) = 'string' OR JSONB_TYPEOF(pval) = 'number';
-    IF NOT res THEN
-      RETURN FALSE;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$Feature'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Feature';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'geometry' THEN
+      -- handle must geometry property
+      must_count := must_count + 1;
+      -- .'$Feature'.geometry
+      -- .'$Feature'.geometry.'|'.0
+      -- .'$Feature'.geometry.'|'.1
+      -- .'$Feature'.geometry.'|'.2
+      res := JSONB_TYPEOF(pval) = 'null' OR json_model_11(pval, NULL, NULL) OR json_model_12(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'properties' THEN
+      -- handle must properties property
+      must_count := must_count + 1;
+      -- .'$Feature'.properties
+      -- .'$Feature'.properties.'|'.0
+      -- .'$Feature'.properties.'|'.1
+      res := JSONB_TYPEOF(pval) = 'null' OR _jm_obj_0(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'id' THEN
+      -- handle may id property
+      -- .'$Feature'.id
+      -- .'$Feature'.id.'|'.0
+      -- .'$Feature'.id.'|'.1
+      res := JSONB_TYPEOF(pval) = 'string' OR JSONB_TYPEOF(pval) = 'number';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$Feature'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_16_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_16_item := pval -> arr_16_idx;
+          -- .'$Feature'.bbox.0
+          res := JSONB_TYPEOF(arr_16_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$Feature'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_16_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_16_item := pval -> arr_16_idx;
-        -- .'$Feature'.bbox.0
-        res := JSONB_TYPEOF(arr_16_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
-    END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 3;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -664,65 +702,70 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_17_idx INT8;
   arr_17_item JSONB;
   arr_18_idx INT8;
   arr_18_item JSONB;
 BEGIN
   -- .'$FeatureCollection'
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF NOT val ? 'type' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'type';
-  -- .'$FeatureCollection'.type
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'FeatureCollection';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'features' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'features';
-  -- .'$FeatureCollection'.features
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_17_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_17_item := pval -> arr_17_idx;
-      -- .'$FeatureCollection'.features.0
-      res := json_model_13(arr_17_item, NULL, NULL);
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'type' THEN
+      -- handle must type property
+      must_count := must_count + 1;
+      -- .'$FeatureCollection'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'FeatureCollection';
       IF NOT res THEN
-        EXIT;
+        RETURN FALSE;
       END IF;
-    END LOOP;
-  END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF val ? 'bbox' THEN
-    pval := val -> 'bbox';
-    -- .'$FeatureCollection'.bbox
-    res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      FOR arr_18_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_18_item := pval -> arr_18_idx;
-        -- .'$FeatureCollection'.bbox.0
-        res := JSONB_TYPEOF(arr_18_item) = 'number';
-        IF NOT res THEN
-          EXIT;
-        END IF;
-      END LOOP;
+    ELSEIF prop = 'features' THEN
+      -- handle must features property
+      must_count := must_count + 1;
+      -- .'$FeatureCollection'.features
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_17_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_17_item := pval -> arr_17_idx;
+          -- .'$FeatureCollection'.features.0
+          res := json_model_13(arr_17_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'bbox' THEN
+      -- handle may bbox property
+      -- .'$FeatureCollection'.bbox
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_18_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_18_item := pval -> arr_18_idx;
+          -- .'$FeatureCollection'.bbox.0
+          res := JSONB_TYPEOF(arr_18_item) = 'number';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  RETURN TRUE;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 

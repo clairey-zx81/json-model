@@ -161,7 +161,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
             res = json_model_2(pval, NULL, NULL);
-            if (! res)
+            if (unlikely(! res))
                 return false;
         }
         else if (likely(_jm_re_2(prop, NULL, NULL)))
@@ -169,7 +169,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'
             res = json_model_2(pval, NULL, NULL);
-            if (! res)
+            if (unlikely(! res))
                 return false;
         }
         else

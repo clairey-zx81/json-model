@@ -18,21 +18,38 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    // check open must/may only props
     if (unlikely(! json_is_object(val)))
         return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "a")) != NULL)))
-        return false;
-    // .a
-    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-    if (unlikely(! res))
-        return false;
-    if (unlikely(! ((pval = json_object_get(val, "b")) != NULL)))
-        return false;
-    // .b
-    return json_is_integer(pval) && json_integer_value(pval) >= 0;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        {
+            // handle must a property
+            must_count += 1;
+            // .a
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+                return false;
+        }
+        else if (jm_str_eq_2(prop, 0x00000062))
+        {
+            // handle must b property
+            must_count += 1;
+            // .b
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+                return false;
+        }
+        else
+        {
+            // accept any other props
+        }
+    }
+    return must_count == 2;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

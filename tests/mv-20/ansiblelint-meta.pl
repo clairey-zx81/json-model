@@ -216,20 +216,12 @@ my %_jm_map_0;
 sub json_model_54($$$);
 sub json_model_55($$$);
 sub json_model_56($$$);
-sub _jm_f_33($$$);
-sub _jm_f_34($$$);
-sub _jm_f_35($$$);
 my %_jm_cst_64;
-sub _jm_f_36($$$);
-sub _jm_f_37($$$);
-sub _jm_f_38($$$);
-sub _jm_f_39($$$);
-sub _jm_f_40($$$);
-my %json_model_57_map;
-sub json_model_57($$$);
 sub _jm_obj_49($$$);
+sub json_model_57($$$);
 sub _jm_obj_50($$$);
 sub _jm_obj_51($$$);
+sub _jm_obj_52($$$);
 sub json_model_58($$$);
 sub json_model_59($$$);
 sub json_model_60($$$);
@@ -5970,92 +5962,14 @@ sub json_model_56($$$)
     return $res;
 }
 
-# check json_model_57_map_become (.'$DependencyModelLoose'.become)
-sub _jm_f_33($$$)
+
+# object .'$DependencyModelLoose'.vars
+sub _jm_obj_49($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$DependencyModelLoose'.become
-    return jm_is_boolean($val);
-}
-
-# check json_model_57_map_name (.'$DependencyModelLoose'.name)
-sub _jm_f_34($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$DependencyModelLoose'.name
-    return jm_is_string($val);
-}
-
-# check json_model_57_map_role (.'$DependencyModelLoose'.role)
-sub _jm_f_35($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$DependencyModelLoose'.role
-    return jm_is_string($val);
-}
-
-
-# check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
-sub _jm_f_36($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$DependencyModelLoose'.scm
-    return jm_is_string($val) && exists $_jm_cst_64{$val};
-}
-
-# check json_model_57_map_src (.'$DependencyModelLoose'.src)
-sub _jm_f_37($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$DependencyModelLoose'.src
-    return jm_is_string($val);
-}
-
-# check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
-sub _jm_f_38($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$DependencyModelLoose'.tags
-    # .'$DependencyModelLoose'.tags.'|'.0
-    my $res = jm_is_string($val);
-    if (! $res)
-    {
-        # .'$DependencyModelLoose'.tags.'|'.1
-        $res = jm_is_array($val);
-        if ($res)
-        {
-            for my $arr_101_idx (0 .. $#$val)
-            {
-                my $arr_101_item = $$val[$arr_101_idx];
-                # .'$DependencyModelLoose'.tags.'|'.1.0
-                $res = jm_is_string($arr_101_item);
-                if (! $res)
-                {
-                    last;
-                }
-            }
-        }
-    }
-    return $res;
-}
-
-# check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
-sub _jm_f_39($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$DependencyModelLoose'.vars
     # accept any object
     return jm_is_object($val);
 }
-
-# check json_model_57_map_version (.'$DependencyModelLoose'.version)
-sub _jm_f_40($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$DependencyModelLoose'.version
-    return jm_is_string($val);
-}
-
 
 # check $DependencyModelLoose (.'$DependencyModelLoose')
 sub json_model_57($$$)
@@ -6065,33 +5979,127 @@ sub json_model_57($$$)
     # 
     # Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
     # .'$DependencyModelLoose'
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $pfun;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    my $pval;
+    my $res;
+    if (exists $$val{'become'})
     {
-        if (($pfun = $json_model_57_map{$prop}))
+        $pval = $$val{'become'};
+        # .'$DependencyModelLoose'.become
+        $res = jm_is_boolean($pval);
+        if (! $res)
         {
-            # handle 9 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
+            return 0;
+        }
+    }
+    if (exists $$val{'name'})
+    {
+        $pval = $$val{'name'};
+        # .'$DependencyModelLoose'.name
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'role'})
+    {
+        $pval = $$val{'role'};
+        # .'$DependencyModelLoose'.role
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'src'})
+    {
+        $pval = $$val{'src'};
+        # .'$DependencyModelLoose'.src
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'scm'})
+    {
+        $pval = $$val{'scm'};
+        # .'$DependencyModelLoose'.scm
+        $res = jm_is_string($pval) && exists $_jm_cst_64{$pval};
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'tags'})
+    {
+        $pval = $$val{'tags'};
+        # .'$DependencyModelLoose'.tags
+        # .'$DependencyModelLoose'.tags.'|'.0
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            # .'$DependencyModelLoose'.tags.'|'.1
+            $res = jm_is_array($pval);
+            if ($res)
             {
-                return 0;
+                for my $arr_101_idx (0 .. $#$pval)
+                {
+                    my $arr_101_item = $$pval[$arr_101_idx];
+                    # .'$DependencyModelLoose'.tags.'|'.1.0
+                    $res = jm_is_string($arr_101_item);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
             }
         }
-        else
+        if (! $res)
         {
-            # accept any other props
-            ;
+            return 0;
+        }
+    }
+    if (exists $$val{'vars'})
+    {
+        $pval = $$val{'vars'};
+        # .'$DependencyModelLoose'.vars
+        $res = _jm_obj_49($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'version'})
+    {
+        $pval = $$val{'version'};
+        # .'$DependencyModelLoose'.version
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'when'})
+    {
+        $pval = $$val{'when'};
+        # .'$DependencyModelLoose'.when
+        $res = json_model_56($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
         }
     }
     return 1;
 }
 
 # object .'$DependencyModel'.'&'.1.'|'.2
-sub _jm_obj_49($$$)
+sub _jm_obj_50($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
@@ -6111,7 +6119,7 @@ sub _jm_obj_49($$$)
 }
 
 # object .'$DependencyModel'.'&'.1.'|'.1
-sub _jm_obj_50($$$)
+sub _jm_obj_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
@@ -6131,7 +6139,7 @@ sub _jm_obj_50($$$)
 }
 
 # object .'$DependencyModel'.'&'.1.'|'.0
-sub _jm_obj_51($$$)
+sub _jm_obj_52($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
@@ -6161,7 +6169,7 @@ sub json_model_58($$$)
     # .'$DependencyModel'.'&'.1.'|'.0
     # .'$DependencyModel'.'&'.1.'|'.1
     # .'$DependencyModel'.'&'.1.'|'.2
-    return json_model_57($val, undef, undef) && jm_is_object($val) && (_jm_obj_51($val, undef, undef) || _jm_obj_50($val, undef, undef) || _jm_obj_49($val, undef, undef));
+    return json_model_57($val, undef, undef) && jm_is_object($val) && (_jm_obj_52($val, undef, undef) || _jm_obj_51($val, undef, undef) || _jm_obj_50($val, undef, undef));
 }
 
 # check $AnsibleMetaObj (.'$AnsibleMetaObj')
@@ -7151,17 +7159,6 @@ sub check_model_init()
             'hg' => 1,
             'git' => 1,
         );
-        %json_model_57_map = (
-            'become' => \&_jm_f_33,
-            'name' => \&_jm_f_34,
-            'role' => \&_jm_f_35,
-            'scm' => \&_jm_f_36,
-            'src' => \&_jm_f_37,
-            'tags' => \&_jm_f_38,
-            'vars' => \&_jm_f_39,
-            'version' => \&_jm_f_40,
-            'when' => \&json_model_56,
-        );
         %check_model_map = (
             '' => \&json_model_60,
             'AIXPlatformModel' => \&json_model_2,
@@ -7301,7 +7298,6 @@ sub check_model_free()
         %_jm_obj_48_map = ();
         %_jm_map_0 = ();
         %_jm_cst_64 = ();
-        %json_model_57_map = ();
         %check_model_map = ();
     }
 }

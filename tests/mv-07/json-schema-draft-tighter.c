@@ -3972,27 +3972,45 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$RootSchema'.'&'.0
 static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check open must/may only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$RootSchema'.'&'.0]", path);
         return false;
     }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "$schema")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path);
-        return false;
+        jm_path_t lpath_50 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+        {
+            // handle must $schema property
+            must_count += 1;
+            // .'$RootSchema'.'&'.0.'$schema'
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$RootSchema'.'&'.0.'$schema']", (path ? &lpath_50 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$RootSchema'.'&'.0.'$schema']", (path ? &lpath_50 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            // accept any other props
+        }
     }
-    lpath = (jm_path_t) { "$schema", 0, path, NULL };
-    // .'$RootSchema'.'&'.0.'$schema'
-    res = json_is_string(pval);
-    if (unlikely(! res))
+    if (unlikely(must_count != 1))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$RootSchema'.'&'.0.'$schema']", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <$schema> [.'$RootSchema'.'&'.0]", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "$schema") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <$schema> [.'$RootSchema'.'&'.0.'']", path);
+            }
+        }
         return false;
     }
     return true;

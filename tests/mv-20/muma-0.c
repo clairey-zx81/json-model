@@ -18,42 +18,63 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    // check open must/may only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "name")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.]", path);
-        return false;
-    }
-    lpath = (jm_path_t) { "name", 0, path, NULL };
-    // .name
-    res = json_is_string(pval);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.name]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.]", (path ? &lpath : NULL));
-        return false;
-    }
-    if ((pval = json_object_get(val, "born")) != NULL)
-    {
-        lpath = (jm_path_t) { "born", 0, path, NULL };
-        // .born
-        res = jm_is_valid_date(json_string_value(pval), (path ? &lpath : NULL), rep);
-        if (unlikely(! res))
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $DATE [.born]", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <born> [.]", (path ? &lpath : NULL));
-            return false;
+            // handle must name property
+            must_count += 1;
+            // .name
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.name]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.name]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (unlikely(jm_str_eq_5(prop, 0x000000006e726f62LL)))
+        {
+            // handle may born property
+            // .born
+            res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $DATE [.born]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.born]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (unlikely(jm_str_eq_8(prop, 0x007373656c657375LL)))
+            // handle may useless property
+            // .useless
+            res = true;
+        else
+        {
+            // accept any other props
         }
     }
-    // ignored ..useless
+    if (unlikely(must_count != 1))
+    {
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "name") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'']", path);
+            }
+        }
+        return false;
+    }
     return true;
 }
 

@@ -14,39 +14,14 @@ use constant JMC_VERSION => '2';
 sub json_model_3($$$);
 sub json_model_1($$$);
 sub json_model_18($$$);
-sub _jm_f_0($$$);
-sub _jm_f_1($$$);
-sub _jm_f_2($$$);
-sub _jm_f_3($$$);
-sub _jm_f_4($$$);
-sub _jm_f_5($$$);
-sub _jm_f_6($$$);
-sub _jm_f_7($$$);
-sub _jm_f_8($$$);
-sub _jm_f_9($$$);
-sub _jm_f_10($$$);
-sub _jm_f_11($$$);
-sub _jm_f_12($$$);
-sub _jm_f_13($$$);
-sub _jm_f_14($$$);
-sub _jm_f_15($$$);
-sub _jm_f_16($$$);
-sub _jm_f_17($$$);
-sub _jm_f_18($$$);
-sub _jm_f_19($$$);
-sub _jm_f_20($$$);
-sub _jm_f_21($$$);
-sub _jm_f_22($$$);
-sub _jm_f_23($$$);
-sub _jm_f_24($$$);
-sub _jm_f_25($$$);
-sub _jm_f_26($$$);
-sub _jm_f_27($$$);
-sub _jm_f_28($$$);
-sub _jm_f_29($$$);
-sub _jm_f_30($$$);
-sub _jm_f_31($$$);
-my %json_model_17_map;
+sub _jm_obj_0($$$);
+sub _jm_obj_1($$$);
+sub _jm_obj_2($$$);
+sub _jm_obj_3($$$);
+sub _jm_obj_4($$$);
+sub _jm_obj_5($$$);
+sub _jm_obj_6($$$);
+sub _jm_obj_7($$$);
 sub json_model_17($$$);
 sub json_model_4($$$);
 sub json_model_5($$$);
@@ -86,59 +61,10 @@ sub json_model_18($$$)
     return jm_is_boolean($val) || json_model_17($val, undef, undef);
 }
 
-# check json_model_17_map_$comment (.'$schema#ObjectSchema'.'$comment')
-sub _jm_f_0($$$)
+# object .'$schema#ObjectSchema'.'$vocabulary'
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.'$comment'
-    return jm_is_string($val);
-}
-
-# check json_model_17_map_$defs (.'$schema#ObjectSchema'.'$defs')
-sub _jm_f_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.'$defs'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$schema#ObjectSchema'.'$defs'.''
-        $res = json_model_18($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check json_model_17_map_$recursiveAnchor (.'$schema#ObjectSchema'.'$recursiveAnchor')
-sub _jm_f_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.'$recursiveAnchor'
-    return jm_is_boolean($val);
-}
-
-# check json_model_17_map_$schema (.'$schema#ObjectSchema'.'$schema')
-sub _jm_f_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.'$schema'
-    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
-}
-
-# check json_model_17_map_$vocabulary (.'$schema#ObjectSchema'.'$vocabulary')
-sub _jm_f_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.'$vocabulary'
     if (! jm_is_object($val))
     {
         return 0;
@@ -165,43 +91,125 @@ sub _jm_f_4($$$)
     return 1;
 }
 
-# check json_model_17_map_const (.'$schema#ObjectSchema'.const)
-sub _jm_f_5($$$)
+# object .'$schema#ObjectSchema'.'$defs'
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.const
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$schema#ObjectSchema'.'$defs'.''
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
     return 1;
 }
 
-# check json_model_17_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
-sub _jm_f_6($$$)
+# object .'$schema#ObjectSchema'.properties
+sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.contentEncoding
-    return jm_is_string($val);
-}
-
-# check json_model_17_map_contentMediaType (.'$schema#ObjectSchema'.contentMediaType)
-sub _jm_f_7($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.contentMediaType
-    return jm_is_string($val);
-}
-
-# check json_model_17_map_default (.'$schema#ObjectSchema'.default)
-sub _jm_f_8($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.default
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$schema#ObjectSchema'.properties.''
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
     return 1;
 }
 
-# check json_model_17_map_definitions (.'$schema#ObjectSchema'.definitions)
-sub _jm_f_9($$$)
+# object .'$schema#ObjectSchema'.patternProperties
+sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.definitions
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$schema#ObjectSchema'.patternProperties.''
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'$schema#ObjectSchema'.dependentSchemas
+sub _jm_obj_4($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$schema#ObjectSchema'.dependentSchemas.''
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'$schema#ObjectSchema'.dependentRequired
+sub _jm_obj_5($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$schema#ObjectSchema'.dependentRequired.''
+        $res = json_model_12($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'$schema#ObjectSchema'.definitions
+sub _jm_obj_6($$$)
+{
+    my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
     {
         return 0;
@@ -221,11 +229,10 @@ sub _jm_f_9($$$)
     return 1;
 }
 
-# check json_model_17_map_dependencies (.'$schema#ObjectSchema'.dependencies)
-sub _jm_f_10($$$)
+# object .'$schema#ObjectSchema'.dependencies
+sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.dependencies
     if (! jm_is_object($val))
     {
         return 0;
@@ -247,268 +254,592 @@ sub _jm_f_10($$$)
     return 1;
 }
 
-# check json_model_17_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)
-sub _jm_f_11($$$)
+# check $schema#ObjectSchema (.'$schema#ObjectSchema')
+sub json_model_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.dependentRequired
+    # .'$schema#ObjectSchema'
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
     }
+    my $pval;
     my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (exists $$val{'$id'})
     {
-        # handle other props
-        # .'$schema#ObjectSchema'.dependentRequired.''
+        $pval = $$val{'$id'};
+        # .'$schema#ObjectSchema'.'$id'
+        $res = json_model_4($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'$schema'})
+    {
+        $pval = $$val{'$schema'};
+        # .'$schema#ObjectSchema'.'$schema'
+        $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'$ref'})
+    {
+        $pval = $$val{'$ref'};
+        # .'$schema#ObjectSchema'.'$ref'
+        $res = json_model_4($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'$anchor'})
+    {
+        $pval = $$val{'$anchor'};
+        # .'$schema#ObjectSchema'.'$anchor'
+        $res = json_model_4($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'$recursiveRef'})
+    {
+        $pval = $$val{'$recursiveRef'};
+        # .'$schema#ObjectSchema'.'$recursiveRef'
+        $res = json_model_4($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'$recursiveAnchor'})
+    {
+        $pval = $$val{'$recursiveAnchor'};
+        # .'$schema#ObjectSchema'.'$recursiveAnchor'
+        $res = jm_is_boolean($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'$vocabulary'})
+    {
+        $pval = $$val{'$vocabulary'};
+        # .'$schema#ObjectSchema'.'$vocabulary'
+        $res = _jm_obj_0($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'$comment'})
+    {
+        $pval = $$val{'$comment'};
+        # .'$schema#ObjectSchema'.'$comment'
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'$defs'})
+    {
+        $pval = $$val{'$defs'};
+        # .'$schema#ObjectSchema'.'$defs'
+        $res = _jm_obj_1($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'items'})
+    {
+        $pval = $$val{'items'};
+        # .'$schema#ObjectSchema'.items
+        # .'$schema#ObjectSchema'.items.'|'.0
+        # .'$schema#ObjectSchema'.items.'|'.1
+        $res = json_model_18($pval, undef, undef) || json_model_15($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'contains'})
+    {
+        $pval = $$val{'contains'};
+        # .'$schema#ObjectSchema'.contains
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'additionalItems'})
+    {
+        $pval = $$val{'additionalItems'};
+        # .'$schema#ObjectSchema'.additionalItems
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'additionalProperties'})
+    {
+        $pval = $$val{'additionalProperties'};
+        # .'$schema#ObjectSchema'.additionalProperties
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'properties'})
+    {
+        $pval = $$val{'properties'};
+        # .'$schema#ObjectSchema'.properties
+        $res = _jm_obj_2($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'patternProperties'})
+    {
+        $pval = $$val{'patternProperties'};
+        # .'$schema#ObjectSchema'.patternProperties
+        $res = _jm_obj_3($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'dependentSchemas'})
+    {
+        $pval = $$val{'dependentSchemas'};
+        # .'$schema#ObjectSchema'.dependentSchemas
+        $res = _jm_obj_4($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'propertyNames'})
+    {
+        $pval = $$val{'propertyNames'};
+        # .'$schema#ObjectSchema'.propertyNames
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'unevaluatedItems'})
+    {
+        $pval = $$val{'unevaluatedItems'};
+        # .'$schema#ObjectSchema'.unevaluatedItems
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'unevaluatedProperties'})
+    {
+        $pval = $$val{'unevaluatedProperties'};
+        # .'$schema#ObjectSchema'.unevaluatedProperties
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'if'})
+    {
+        $pval = $$val{'if'};
+        # .'$schema#ObjectSchema'.if
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'then'})
+    {
+        $pval = $$val{'then'};
+        # .'$schema#ObjectSchema'.then
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'else'})
+    {
+        $pval = $$val{'else'};
+        # .'$schema#ObjectSchema'.else
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'not'})
+    {
+        $pval = $$val{'not'};
+        # .'$schema#ObjectSchema'.not
+        $res = json_model_18($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'allOf'})
+    {
+        $pval = $$val{'allOf'};
+        # .'$schema#ObjectSchema'.allOf
+        $res = json_model_15($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'anyOf'})
+    {
+        $pval = $$val{'anyOf'};
+        # .'$schema#ObjectSchema'.anyOf
+        $res = json_model_15($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'oneOf'})
+    {
+        $pval = $$val{'oneOf'};
+        # .'$schema#ObjectSchema'.oneOf
+        $res = json_model_15($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'type'})
+    {
+        $pval = $$val{'type'};
+        # .'$schema#ObjectSchema'.type
+        # .'$schema#ObjectSchema'.type.'|'.0
+        # .'$schema#ObjectSchema'.type.'|'.1
+        $res = json_model_10($pval, undef, undef) || json_model_11($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    # ignored .'$schema#ObjectSchema'.const
+    if (exists $$val{'enum'})
+    {
+        $pval = $$val{'enum'};
+        # .'$schema#ObjectSchema'.enum
+        $res = jm_is_array($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'multipleOf'})
+    {
+        $pval = $$val{'multipleOf'};
+        # .'$schema#ObjectSchema'.multipleOf
+        $res = jm_is_numeric($pval) && $pval > 0.0;
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'maximum'})
+    {
+        $pval = $$val{'maximum'};
+        # .'$schema#ObjectSchema'.maximum
+        $res = jm_is_numeric($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'exclusiveMaximum'})
+    {
+        $pval = $$val{'exclusiveMaximum'};
+        # .'$schema#ObjectSchema'.exclusiveMaximum
+        $res = jm_is_numeric($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'minimum'})
+    {
+        $pval = $$val{'minimum'};
+        # .'$schema#ObjectSchema'.minimum
+        $res = jm_is_numeric($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'exclusiveMinimum'})
+    {
+        $pval = $$val{'exclusiveMinimum'};
+        # .'$schema#ObjectSchema'.exclusiveMinimum
+        $res = jm_is_numeric($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'maxLength'})
+    {
+        $pval = $$val{'maxLength'};
+        # .'$schema#ObjectSchema'.maxLength
+        $res = json_model_13($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'minLength'})
+    {
+        $pval = $$val{'minLength'};
+        # .'$schema#ObjectSchema'.minLength
+        $res = json_model_13($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'pattern'})
+    {
+        $pval = $$val{'pattern'};
+        # .'$schema#ObjectSchema'.pattern
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'maxItems'})
+    {
+        $pval = $$val{'maxItems'};
+        # .'$schema#ObjectSchema'.maxItems
+        $res = json_model_13($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'minItems'})
+    {
+        $pval = $$val{'minItems'};
+        # .'$schema#ObjectSchema'.minItems
+        $res = json_model_13($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'uniqueItems'})
+    {
+        $pval = $$val{'uniqueItems'};
+        # .'$schema#ObjectSchema'.uniqueItems
+        $res = jm_is_boolean($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'maxContains'})
+    {
+        $pval = $$val{'maxContains'};
+        # .'$schema#ObjectSchema'.maxContains
+        $res = json_model_13($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'minContains'})
+    {
+        $pval = $$val{'minContains'};
+        # .'$schema#ObjectSchema'.minContains
+        $res = json_model_13($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'maxProperties'})
+    {
+        $pval = $$val{'maxProperties'};
+        # .'$schema#ObjectSchema'.maxProperties
+        $res = json_model_13($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'minProperties'})
+    {
+        $pval = $$val{'minProperties'};
+        # .'$schema#ObjectSchema'.minProperties
+        $res = json_model_13($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'required'})
+    {
+        $pval = $$val{'required'};
+        # .'$schema#ObjectSchema'.required
         $res = json_model_12($pval, undef, undef);
         if (! $res)
         {
             return 0;
         }
     }
-    return 1;
-}
-
-# check json_model_17_map_dependentSchemas (.'$schema#ObjectSchema'.dependentSchemas)
-sub _jm_f_12($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.dependentSchemas
-    if (! jm_is_object($val))
+    if (exists $$val{'dependentRequired'})
     {
-        return 0;
+        $pval = $$val{'dependentRequired'};
+        # .'$schema#ObjectSchema'.dependentRequired
+        $res = _jm_obj_5($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
     }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (exists $$val{'title'})
     {
-        # handle other props
-        # .'$schema#ObjectSchema'.dependentSchemas.''
+        $pval = $$val{'title'};
+        # .'$schema#ObjectSchema'.title
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'description'})
+    {
+        $pval = $$val{'description'};
+        # .'$schema#ObjectSchema'.description
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    # ignored .'$schema#ObjectSchema'.default
+    if (exists $$val{'deprecated'})
+    {
+        $pval = $$val{'deprecated'};
+        # .'$schema#ObjectSchema'.deprecated
+        $res = jm_is_boolean($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'readOnly'})
+    {
+        $pval = $$val{'readOnly'};
+        # .'$schema#ObjectSchema'.readOnly
+        $res = jm_is_boolean($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'writeOnly'})
+    {
+        $pval = $$val{'writeOnly'};
+        # .'$schema#ObjectSchema'.writeOnly
+        $res = jm_is_boolean($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'examples'})
+    {
+        $pval = $$val{'examples'};
+        # .'$schema#ObjectSchema'.examples
+        $res = jm_is_array($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'format'})
+    {
+        $pval = $$val{'format'};
+        # .'$schema#ObjectSchema'.format
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'contentEncoding'})
+    {
+        $pval = $$val{'contentEncoding'};
+        # .'$schema#ObjectSchema'.contentEncoding
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'contentMediaType'})
+    {
+        $pval = $$val{'contentMediaType'};
+        # .'$schema#ObjectSchema'.contentMediaType
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'contentSchema'})
+    {
+        $pval = $$val{'contentSchema'};
+        # .'$schema#ObjectSchema'.contentSchema
         $res = json_model_18($pval, undef, undef);
         if (! $res)
         {
             return 0;
         }
     }
-    return 1;
-}
-
-# check json_model_17_map_deprecated (.'$schema#ObjectSchema'.deprecated)
-sub _jm_f_13($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.deprecated
-    return jm_is_boolean($val);
-}
-
-# check json_model_17_map_description (.'$schema#ObjectSchema'.description)
-sub _jm_f_14($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.description
-    return jm_is_string($val);
-}
-
-# check json_model_17_map_enum (.'$schema#ObjectSchema'.enum)
-sub _jm_f_15($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.enum
-    return jm_is_array($val);
-}
-
-# check json_model_17_map_examples (.'$schema#ObjectSchema'.examples)
-sub _jm_f_16($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.examples
-    return jm_is_array($val);
-}
-
-# check json_model_17_map_exclusiveMaximum (.'$schema#ObjectSchema'.exclusiveMaximum)
-sub _jm_f_17($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.exclusiveMaximum
-    return jm_is_numeric($val);
-}
-
-# check json_model_17_map_exclusiveMinimum (.'$schema#ObjectSchema'.exclusiveMinimum)
-sub _jm_f_18($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.exclusiveMinimum
-    return jm_is_numeric($val);
-}
-
-# check json_model_17_map_format (.'$schema#ObjectSchema'.format)
-sub _jm_f_19($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.format
-    return jm_is_string($val);
-}
-
-# check json_model_17_map_items (.'$schema#ObjectSchema'.items)
-sub _jm_f_20($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.items
-    # .'$schema#ObjectSchema'.items.'|'.0
-    # .'$schema#ObjectSchema'.items.'|'.1
-    return json_model_18($val, undef, undef) || json_model_15($val, undef, undef);
-}
-
-# check json_model_17_map_maximum (.'$schema#ObjectSchema'.maximum)
-sub _jm_f_21($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.maximum
-    return jm_is_numeric($val);
-}
-
-# check json_model_17_map_minimum (.'$schema#ObjectSchema'.minimum)
-sub _jm_f_22($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.minimum
-    return jm_is_numeric($val);
-}
-
-# check json_model_17_map_multipleOf (.'$schema#ObjectSchema'.multipleOf)
-sub _jm_f_23($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.multipleOf
-    return jm_is_numeric($val) && $val > 0.0;
-}
-
-# check json_model_17_map_pattern (.'$schema#ObjectSchema'.pattern)
-sub _jm_f_24($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.pattern
-    return jm_is_string($val);
-}
-
-# check json_model_17_map_patternProperties (.'$schema#ObjectSchema'.patternProperties)
-sub _jm_f_25($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.patternProperties
-    if (! jm_is_object($val))
+    if (exists $$val{'definitions'})
     {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$schema#ObjectSchema'.patternProperties.''
-        $res = json_model_18($pval, undef, undef);
+        $pval = $$val{'definitions'};
+        # .'$schema#ObjectSchema'.definitions
+        $res = _jm_obj_6($pval, undef, undef);
         if (! $res)
         {
             return 0;
         }
     }
-    return 1;
-}
-
-# check json_model_17_map_properties (.'$schema#ObjectSchema'.properties)
-sub _jm_f_26($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.properties
-    if (! jm_is_object($val))
+    if (exists $$val{'dependencies'})
     {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$schema#ObjectSchema'.properties.''
-        $res = json_model_18($pval, undef, undef);
+        $pval = $$val{'dependencies'};
+        # .'$schema#ObjectSchema'.dependencies
+        $res = _jm_obj_7($pval, undef, undef);
         if (! $res)
         {
             return 0;
-        }
-    }
-    return 1;
-}
-
-# check json_model_17_map_readOnly (.'$schema#ObjectSchema'.readOnly)
-sub _jm_f_27($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.readOnly
-    return jm_is_boolean($val);
-}
-
-# check json_model_17_map_title (.'$schema#ObjectSchema'.title)
-sub _jm_f_28($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.title
-    return jm_is_string($val);
-}
-
-# check json_model_17_map_type (.'$schema#ObjectSchema'.type)
-sub _jm_f_29($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.type
-    # .'$schema#ObjectSchema'.type.'|'.0
-    # .'$schema#ObjectSchema'.type.'|'.1
-    return json_model_10($val, undef, undef) || json_model_11($val, undef, undef);
-}
-
-# check json_model_17_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)
-sub _jm_f_30($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.uniqueItems
-    return jm_is_boolean($val);
-}
-
-# check json_model_17_map_writeOnly (.'$schema#ObjectSchema'.writeOnly)
-sub _jm_f_31($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'.writeOnly
-    return jm_is_boolean($val);
-}
-
-
-# check $schema#ObjectSchema (.'$schema#ObjectSchema')
-sub json_model_17($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema#ObjectSchema'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $pfun;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (($pfun = $json_model_17_map{$prop}))
-        {
-            # handle 59 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            # accept any other props
-            ;
         }
     }
     return 1;
@@ -640,67 +971,6 @@ sub check_model_init()
     if (!$initialized)
     {
         $initialized = 1;
-        %json_model_17_map = (
-            '$anchor' => \&json_model_4,
-            '$comment' => \&_jm_f_0,
-            '$defs' => \&_jm_f_1,
-            '$id' => \&json_model_4,
-            '$recursiveAnchor' => \&_jm_f_2,
-            '$recursiveRef' => \&json_model_4,
-            '$ref' => \&json_model_4,
-            '$schema' => \&_jm_f_3,
-            '$vocabulary' => \&_jm_f_4,
-            'additionalItems' => \&json_model_18,
-            'additionalProperties' => \&json_model_18,
-            'allOf' => \&json_model_15,
-            'anyOf' => \&json_model_15,
-            'const' => \&_jm_f_5,
-            'contains' => \&json_model_18,
-            'contentEncoding' => \&_jm_f_6,
-            'contentMediaType' => \&_jm_f_7,
-            'contentSchema' => \&json_model_18,
-            'default' => \&_jm_f_8,
-            'definitions' => \&_jm_f_9,
-            'dependencies' => \&_jm_f_10,
-            'dependentRequired' => \&_jm_f_11,
-            'dependentSchemas' => \&_jm_f_12,
-            'deprecated' => \&_jm_f_13,
-            'description' => \&_jm_f_14,
-            'else' => \&json_model_18,
-            'enum' => \&_jm_f_15,
-            'examples' => \&_jm_f_16,
-            'exclusiveMaximum' => \&_jm_f_17,
-            'exclusiveMinimum' => \&_jm_f_18,
-            'format' => \&_jm_f_19,
-            'if' => \&json_model_18,
-            'items' => \&_jm_f_20,
-            'maxContains' => \&json_model_13,
-            'maxItems' => \&json_model_13,
-            'maxLength' => \&json_model_13,
-            'maxProperties' => \&json_model_13,
-            'maximum' => \&_jm_f_21,
-            'minContains' => \&json_model_13,
-            'minItems' => \&json_model_13,
-            'minLength' => \&json_model_13,
-            'minProperties' => \&json_model_13,
-            'minimum' => \&_jm_f_22,
-            'multipleOf' => \&_jm_f_23,
-            'not' => \&json_model_18,
-            'oneOf' => \&json_model_15,
-            'pattern' => \&_jm_f_24,
-            'patternProperties' => \&_jm_f_25,
-            'properties' => \&_jm_f_26,
-            'propertyNames' => \&json_model_18,
-            'readOnly' => \&_jm_f_27,
-            'required' => \&json_model_12,
-            'then' => \&json_model_18,
-            'title' => \&_jm_f_28,
-            'type' => \&_jm_f_29,
-            'unevaluatedItems' => \&json_model_18,
-            'unevaluatedProperties' => \&json_model_18,
-            'uniqueItems' => \&_jm_f_30,
-            'writeOnly' => \&_jm_f_31,
-        );
         %_jm_cst_0 = (
             'array' => 1,
             'boolean' => 1,
@@ -722,7 +992,6 @@ sub check_model_free()
     if ($initialized)
     {
         $initialized = 0;
-        %json_model_17_map = ();
         %_jm_cst_0 = ();
         %check_model_map = ();
     }

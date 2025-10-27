@@ -7621,159 +7621,163 @@ function json_model_57(val, path, rep)
     // 
     // Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
     // .'$DependencyModelLoose'
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$DependencyModelLoose']", path])
         return false;
     }
+    let lpath;
+    let pval;
     let res;
-    for (const [prop, pval] of Object.entries(val))
+    if (val.hasOwnProperty("become"))
     {
-        let lpath_52 = path ? path.concat([prop]) : null;
-        if (prop == "scm")
+        lpath = path ? path.concat(["become"]) : null;
+        pval = val["become"];
+        // .'$DependencyModelLoose'.become
+        res = (typeof pval === 'boolean' || pval instanceof Boolean);
+        if (! res)
         {
-            // handle may scm property
-            // .'$DependencyModelLoose'.scm
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_64.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.'$DependencyModelLoose'.scm.'|']", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.scm]", (path ? lpath_52 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["not a bool [.'$DependencyModelLoose'.become]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <become> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
         }
-        else if (prop == "src")
+    }
+    if (val.hasOwnProperty("name"))
+    {
+        lpath = path ? path.concat(["name"]) : null;
+        pval = val["name"];
+        // .'$DependencyModelLoose'.name
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
         {
-            // handle may src property
-            // .'$DependencyModelLoose'.src
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.src]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.src]", (path ? lpath_52 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
         }
-        else if (prop == "name")
+    }
+    if (val.hasOwnProperty("role"))
+    {
+        lpath = path ? path.concat(["role"]) : null;
+        pval = val["role"];
+        // .'$DependencyModelLoose'.role
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
         {
-            // handle may name property
-            // .'$DependencyModelLoose'.name
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.name]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.name]", (path ? lpath_52 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.role]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <role> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
         }
-        else if (prop == "role")
+    }
+    if (val.hasOwnProperty("src"))
+    {
+        lpath = path ? path.concat(["src"]) : null;
+        pval = val["src"];
+        // .'$DependencyModelLoose'.src
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
         {
-            // handle may role property
-            // .'$DependencyModelLoose'.role
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.role]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.role]", (path ? lpath_52 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.src]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <src> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
         }
-        else if (prop == "tags")
+    }
+    if (val.hasOwnProperty("scm"))
+    {
+        lpath = path ? path.concat(["scm"]) : null;
+        pval = val["scm"];
+        // .'$DependencyModelLoose'.scm
+        res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_64.has(pval);
+        if (! res)
         {
-            // handle may tags property
-            // .'$DependencyModelLoose'.tags
-            // .'$DependencyModelLoose'.tags.'|'.0
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path ? lpath_52 : null)])
-            }
-            if (! res)
-            {
-                // .'$DependencyModelLoose'.tags.'|'.1
-                res = Array.isArray(pval);
-                if (res)
-                {
-                    for (let arr_101_idx = 0; arr_101_idx < pval.length; arr_101_idx++)
-                    {
-                        let arr_101_item = pval[arr_101_idx]
-                        let arr_101_lpath = (path ? lpath_52 : null) ? (path ? lpath_52 : null).concat([arr_101_idx]) : null;
-                        // .'$DependencyModelLoose'.tags.'|'.1.0
-                        res = (typeof arr_101_item === 'string' || arr_101_item instanceof String);
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? lpath_52 : null) ? arr_101_lpath : null)])
-                            break;
-                        }
-                    }
-                }
-                if (! res)
-                {
-                    rep !== null && rep.push(["not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path ? lpath_52 : null)])
-                }
-            }
+            rep !== null && rep.push(["value not in enum [.'$DependencyModelLoose'.scm.'|']", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <scm> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("tags"))
+    {
+        lpath = path ? path.concat(["tags"]) : null;
+        pval = val["tags"];
+        // .'$DependencyModelLoose'.tags
+        // .'$DependencyModelLoose'.tags.'|'.0
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path ? lpath : null)])
+        }
+        if (! res)
+        {
+            // .'$DependencyModelLoose'.tags.'|'.1
+            res = Array.isArray(pval);
             if (res)
             {
-                if (rep !== null) rep.length = 0
+                for (let arr_101_idx = 0; arr_101_idx < pval.length; arr_101_idx++)
+                {
+                    let arr_101_item = pval[arr_101_idx]
+                    let arr_101_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_101_idx]) : null;
+                    // .'$DependencyModelLoose'.tags.'|'.1.0
+                    res = (typeof arr_101_item === 'string' || arr_101_item instanceof String);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? lpath : null) ? arr_101_lpath : null)])
+                        break;
+                    }
+                }
             }
-            else
-            {
-                rep !== null && rep.push(["no model matched [.'$DependencyModelLoose'.tags.'|']", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.tags]", (path ? lpath_52 : null)])
-                return false;
-            }
-        }
-        else if (prop == "vars")
-        {
-            // handle may vars property
-            // .'$DependencyModelLoose'.vars
-            res = _jm_obj_49(pval, (path ? lpath_52 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$DependencyModelLoose'.vars]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.vars]", (path ? lpath_52 : null)])
-                return false;
+                rep !== null && rep.push(["not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path ? lpath : null)])
             }
         }
-        else if (prop == "when")
+        if (res)
         {
-            // handle may when property
-            // .'$DependencyModelLoose'.when
-            res = json_model_56(pval, (path ? lpath_52 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.when]", (path ? lpath_52 : null)])
-                return false;
-            }
-        }
-        else if (prop == "become")
-        {
-            // handle may become property
-            // .'$DependencyModelLoose'.become
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$DependencyModelLoose'.become]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.become]", (path ? lpath_52 : null)])
-                return false;
-            }
-        }
-        else if (prop == "version")
-        {
-            // handle may version property
-            // .'$DependencyModelLoose'.version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.version]", (path ? lpath_52 : null)])
-                return false;
-            }
+            if (rep !== null) rep.length = 0
         }
         else
         {
-            // accept any other props
+            rep !== null && rep.push(["no model matched [.'$DependencyModelLoose'.tags.'|']", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <tags> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("vars"))
+    {
+        lpath = path ? path.concat(["vars"]) : null;
+        pval = val["vars"];
+        // .'$DependencyModelLoose'.vars
+        res = _jm_obj_49(pval, (path ? lpath : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$DependencyModelLoose'.vars]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <vars> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("version"))
+    {
+        lpath = path ? path.concat(["version"]) : null;
+        pval = val["version"];
+        // .'$DependencyModelLoose'.version
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <version> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("when"))
+    {
+        lpath = path ? path.concat(["when"]) : null;
+        pval = val["when"];
+        // .'$DependencyModelLoose'.when
+        res = json_model_56(pval, (path ? lpath : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <when> [.'$DependencyModelLoose']", (path ? lpath : null)])
+            return false;
         }
     }
     return true;
@@ -7951,16 +7955,16 @@ function json_model_59(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_53 = path ? path.concat([prop]) : null;
+        let lpath_52 = path ? path.concat([prop]) : null;
         if (prop == "collections")
         {
             // handle may collections property
             // .'$AnsibleMetaObj'.collections
-            res = json_model_55(pval, (path ? lpath_53 : null), rep);
+            res = json_model_55(pval, (path ? lpath_52 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $collections [.'$AnsibleMetaObj'.collections]", (path ? lpath_53 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["unexpected $collections [.'$AnsibleMetaObj'.collections]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path ? lpath_52 : null)])
                 return false;
             }
         }
@@ -7968,11 +7972,11 @@ function json_model_59(val, path, rep)
         {
             // handle may galaxy_info property
             // .'$AnsibleMetaObj'.galaxy_info
-            res = json_model_54(pval, (path ? lpath_53 : null), rep);
+            res = json_model_54(pval, (path ? lpath_52 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_53 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_52 : null)])
                 return false;
             }
         }
@@ -7986,21 +7990,21 @@ function json_model_59(val, path, rep)
                 for (let arr_102_idx = 0; arr_102_idx < pval.length; arr_102_idx++)
                 {
                     let arr_102_item = pval[arr_102_idx]
-                    let arr_102_lpath = (path ? lpath_53 : null) ? (path ? lpath_53 : null).concat([arr_102_idx]) : null;
+                    let arr_102_lpath = (path ? lpath_52 : null) ? (path ? lpath_52 : null).concat([arr_102_idx]) : null;
                     // .'$AnsibleMetaObj'.dependencies.0
                     // .'$AnsibleMetaObj'.dependencies.0.'|'.0
                     res = (typeof arr_102_item === 'string' || arr_102_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? lpath_53 : null) ? arr_102_lpath : null)])
+                        rep !== null && rep.push(["unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
                     }
                     if (! res)
                     {
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.1
-                        res = json_model_58(arr_102_item, ((path ? lpath_53 : null) ? arr_102_lpath : null), rep);
+                        res = json_model_58(arr_102_item, ((path ? lpath_52 : null) ? arr_102_lpath : null), rep);
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? lpath_53 : null) ? arr_102_lpath : null)])
+                            rep !== null && rep.push(["unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
                         }
                     }
                     if (res)
@@ -8009,15 +8013,15 @@ function json_model_59(val, path, rep)
                     }
                     else
                     {
-                        rep !== null && rep.push(["no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path ? lpath_53 : null) ? arr_102_lpath : null)])
+                        rep !== null && rep.push(["no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
                         break;
                     }
                 }
             }
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path ? lpath_53 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path ? lpath_52 : null)])
                 return false;
             }
         }
@@ -8028,14 +8032,14 @@ function json_model_59(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_53 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_52 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$AnsibleMetaObj']", (path ? lpath_53 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$AnsibleMetaObj']", (path ? lpath_52 : null)])
             return false;
         }
     }

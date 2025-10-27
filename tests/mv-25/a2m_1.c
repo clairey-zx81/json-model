@@ -23,17 +23,25 @@ const size_t check_model_map_size = 5;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Oa'
-    // check open must/may only props
     if (unlikely(! json_is_object(val)))
         return false;
-    json_t * pval;
     bool res;
-    if (likely((pval = json_object_get(val, "a")) != NULL))
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        // .'$Oa'.a
-        res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (unlikely(! res))
-            return false;
+        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        {
+            // handle may a property
+            // .'$Oa'.a
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+                return false;
+        }
+        else
+        {
+            // accept any other props
+        }
     }
     return true;
 }
@@ -42,17 +50,25 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Ob'
-    // check open must/may only props
     if (unlikely(! json_is_object(val)))
         return false;
-    json_t * pval;
     bool res;
-    if (likely((pval = json_object_get(val, "b")) != NULL))
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        // .'$Ob'.b
-        res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (unlikely(! res))
-            return false;
+        if (unlikely(jm_str_eq_2(prop, 0x00000062)))
+        {
+            // handle may b property
+            // .'$Ob'.b
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+                return false;
+        }
+        else
+        {
+            // accept any other props
+        }
     }
     return true;
 }
@@ -61,24 +77,33 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$merge'
-    // check open must/may only props
     if (unlikely(! json_is_object(val)))
         return false;
-    json_t * pval;
     bool res;
-    if ((pval = json_object_get(val, "a")) != NULL)
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        // .'$merge'.a
-        res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (unlikely(! res))
-            return false;
-    }
-    if (likely((pval = json_object_get(val, "b")) != NULL))
-    {
-        // .'$merge'.b
-        res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (unlikely(! res))
-            return false;
+        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        {
+            // handle may a property
+            // .'$merge'.a
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_2(prop, 0x00000062)))
+        {
+            // handle may b property
+            // .'$merge'.b
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+                return false;
+        }
+        else
+        {
+            // accept any other props
+        }
     }
     return true;
 }

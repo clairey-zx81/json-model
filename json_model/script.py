@@ -386,7 +386,7 @@ def jmc_script():
         help="property map sharing")
     arg("--no-map-share", "-nms", dest="map_share", action="store_false",
         help="no property map sharing")
-    arg("--may-must-open-threshold", "-mmot", default=5, type=int,
+    arg("--may-must-open-threshold", "-mmot", default=None, type=int,
         help="mmo scheme if number of optional props below threshold, target-dependent default")
     arg("--must-only-threshold", "-mot", default=None, type=int,
         help="must-only scheme if number of mandatory props below threshold,"

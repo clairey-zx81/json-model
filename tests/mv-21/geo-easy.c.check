@@ -32,15 +32,15 @@ geo-easy.values.json[30]: FAIL (.: not array or unexpected array [.'$linear_ring
 geo-easy.values.json[31]: PASS
 geo-easy.values.json[32]: PASS
 geo-easy.values.json[33]: PASS
-geo-easy.values.json[34]: FAIL (.: missing mandatory prop <coordinates> [.'$Point'])
-geo-easy.values.json[35]: FAIL (.: missing mandatory prop <coordinates> [.'$Point'])
-geo-easy.values.json[36]: FAIL (.: missing mandatory prop <type> [.'$Point'])
+geo-easy.values.json[34]: FAIL (.: missing mandatory prop <coordinates> [.'$Point'.''])
+geo-easy.values.json[35]: FAIL (.: missing mandatory prop <coordinates> [.'$Point'.''])
+geo-easy.values.json[36]: FAIL (.: missing mandatory prop <type> [.'$Point'.'']; .: missing mandatory prop <coordinates> [.'$Point'.''])
 geo-easy.values.json[37]: FAIL (.: not an object [.'$Point'])
 geo-easy.values.json[38]: FAIL (.: not an object [.'$Point'])
 geo-easy.values.json[39]: FAIL (.: not an object [.'$Point'])
 geo-easy.values.json[40]: PASS
-geo-easy.values.json[41]: FAIL (.type: unexpected value for mandatory prop <type> [.'$MultiPoint']; .type: unexpected MultiPoint [.'$MultiPoint'.type])
-geo-easy.values.json[42]: FAIL (.type: unexpected value for mandatory prop <type> [.'$MultiPoint']; .type: unexpected MultiPoint [.'$MultiPoint'.type])
+geo-easy.values.json[41]: FAIL (.type: invalid mandatory prop value [.'$MultiPoint'.type]; .type: unexpected MultiPoint [.'$MultiPoint'.type])
+geo-easy.values.json[42]: FAIL (.type: invalid mandatory prop value [.'$MultiPoint'.type]; .type: unexpected MultiPoint [.'$MultiPoint'.type])
 geo-easy.values.json[43]: PASS
-geo-easy.values.json[44]: FAIL (.coordinates: unexpected value for mandatory prop <coordinates> [.'$LineString']; .coordinates: unexpected $coord_array [.'$LineString'.coordinates]; .coordinates: constraints failed [.'$coord_array'])
-geo-easy.values.json[45]: FAIL (.type: unexpected value for mandatory prop <type> [.'$LineString']; .type: unexpected LineString [.'$LineString'.type])
+geo-easy.values.json[44]: FAIL (.coordinates: invalid mandatory prop value [.'$LineString'.coordinates]; .coordinates: unexpected $coord_array [.'$LineString'.coordinates]; .coordinates: constraints failed [.'$coord_array'])
+geo-easy.values.json[45]: FAIL (.type: invalid mandatory prop value [.'$LineString'.type]; .type: unexpected LineString [.'$LineString'.type])
