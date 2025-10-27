@@ -2,19 +2,13 @@
 
 ## Current Tasks
 
-- [x] static: improve likely hints depending on expectations
-- [x] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql` (late)
-- [x] backend: useless computations in `mv-17/xor_01.pl`
-- [x] static: for must-only scheme controlled by option
-- [x] static: further improve likely hints
-- [x] command: rename `--unroll-may-…` options for `--may-must-open-threshold`
-- [x] command: set optimization parameters depending on target language
-- [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
-- [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
-- [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: fix `unused but set variable` warning and remove `-Wno-…` (dead code)
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`
+- [ ] command: export before/after model optimization
+- [ ] perf: experiment object matching with various mandatory/optional properties
+- [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
+- [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
 - [ ] backend: simplify assignment patterns with ternary operator when available?
@@ -63,6 +57,7 @@
 - [ ] tests: parallelize per-case instead of per-dir?
 - [ ] static: shorten xor exit?
 - [ ] perf: profile some cases
+- [ ] c-backend: use vector instructions for larger strcmp?
 
 ## Re Do
 
@@ -706,3 +701,10 @@
 - [x] backend: nullify reporting parameters under no reporting
 - [x] command: silent more cc warnings
 - [x] c-backend: try with `clang` instead of `gcc`
+- [x] static: improve likely hints depending on expectations
+- [x] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql` (late)
+- [x] backend: useless computations in `mv-17/xor_01.pl`
+- [x] static: for must-only scheme controlled by option
+- [x] static: further improve likely hints
+- [x] command: rename `--unroll-may-…` options for `--may-must-open-threshold`
+- [x] command: set optimization parameters depending on target language
