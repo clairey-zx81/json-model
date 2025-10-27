@@ -860,6 +860,11 @@ class CodeGenerator:
                             likely=False
                         )
                     )
+                    if len(must) == 0 and len(may) == 1 and len(regs) == 0 and len(defs) == 0:
+                        if oth == {"": "$ANY"}:
+                            # shortcut: expecting only one may prop and no other checks needed
+                            ma_code += gen.ret(gen.const(True))
+
                     multi_if += [(ma_expr, likely, ma_code)]
 
             else:  # generic code

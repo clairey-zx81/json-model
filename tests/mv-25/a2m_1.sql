@@ -21,10 +21,7 @@ BEGIN
     IF prop = 'a' THEN
       -- handle may a property
       -- .'$Oa'.a
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
     ELSE
       -- accept any other props
       NULL;
@@ -50,10 +47,7 @@ BEGIN
     IF prop = 'b' THEN
       -- handle may b property
       -- .'$Ob'.b
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
     ELSE
       -- accept any other props
       NULL;

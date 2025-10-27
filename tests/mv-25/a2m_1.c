@@ -31,13 +31,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         if (unlikely(jm_str_eq_2(prop, 0x00000061)))
-        {
             // handle may a property
             // .'$Oa'.a
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-                return false;
-        }
+            return json_is_integer(pval) && json_integer_value(pval) >= 0;
         else
         {
             // accept any other props
@@ -58,13 +54,9 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         if (unlikely(jm_str_eq_2(prop, 0x00000062)))
-        {
             // handle may b property
             // .'$Ob'.b
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-                return false;
-        }
+            return json_is_integer(pval) && json_integer_value(pval) >= 0;
         else
         {
             // accept any other props

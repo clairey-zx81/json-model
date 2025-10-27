@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "hello": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

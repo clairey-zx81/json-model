@@ -1,0 +1,16 @@
+[
+  [ true,  {} ],
+  [ true,  {"a": 0} ],
+  [ true,  {"a": 0, "hello": "world!"} ],
+  [ true,  {"a": 0, "hello": "world!", "b": 1, "c": 3, "d": 3} ],
+  [ false, {"hello": 42} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, "" ],
+  [ false, "hello" ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]
