@@ -20,14 +20,11 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_f_2_map: PropMap
-_jm_f_9_map: PropMap
+_jm_f_3_map: PropMap
 _jm_cst_0: set[str]
 _jm_cst_1: set[str]
-_jm_f_36_map: PropMap
-_jm_f_46_map: PropMap
-_jm_f_60_map: PropMap
-_jm_f_69_map: PropMap
+_jm_f_31_map: PropMap
+_jm_f_47_map: PropMap
 _jm_re_0_reco: object
 _jm_re_0: RegexFun
 json_model_1_map: PropMap
@@ -242,69 +239,6 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_2_map_b0 (.bool.b0)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .bool.b0
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.bool.b0]", path))
-    return res
-
-# check _jm_f_2_map_b1 (.bool.b1)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .bool.b1
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("unexpected $BOOL [.bool.b1]", path))
-    return res
-
-# check _jm_f_2_map_b2 (.bool.b2)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .bool.b2
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("unexpected $BOOLEAN [.bool.b2]", path))
-    return res
-
-# check _jm_f_2_map_b3 (.bool.b3)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .bool.b3
-    res: bool = isinstance(val, bool) and val == True
-    if not res:
-        rep is None or rep.append(("unexpected =true [.bool.b3]", path))
-    return res
-
-# check _jm_f_2_map_b4 (.bool.b4)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .bool.b4
-    res: bool = isinstance(val, bool) and val == False
-    if not res:
-        rep is None or rep.append(("unexpected =false [.bool.b4]", path))
-    return res
-
-# check _jm_f_2_map_b5 (.bool.b5)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .bool.b5
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("unexpected type [.bool.b5.'|']", path))
-    if res:
-        # .bool.b5.'|'.0
-        res = val == False
-        if not res:
-            rep is None or rep.append(("unexpected =false [.bool.b5.'|'.0]", path))
-        if not res:
-            # .bool.b5.'|'.1
-            res = val == True
-            if not res:
-                rep is None or rep.append(("unexpected =true [.bool.b5.'|'.1]", path))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.bool.b5.'|']", path))
-    return res
-
-
 # check json_model_1_map_bool (.bool)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # booleans: inference, predefs, constants, enum
@@ -312,21 +246,79 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.bool]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         lpath_3: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_2_map.get(prop):
-            # handle 6 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_3 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.bool]", lpath_3 if path is not None else None))
+        if prop == "b0":
+            # handle may b0 property
+            # .bool.b0
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.bool.b0]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.bool.b0]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "b1":
+            # handle may b1 property
+            # .bool.b1
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("unexpected $BOOL [.bool.b1]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.bool.b1]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "b2":
+            # handle may b2 property
+            # .bool.b2
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("unexpected $BOOLEAN [.bool.b2]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.bool.b2]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "b3":
+            # handle may b3 property
+            # .bool.b3
+            res = isinstance(pval, bool) and pval == True
+            if not res:
+                rep is None or rep.append(("unexpected =true [.bool.b3]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.bool.b3]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "b4":
+            # handle may b4 property
+            # .bool.b4
+            res = isinstance(pval, bool) and pval == False
+            if not res:
+                rep is None or rep.append(("unexpected =false [.bool.b4]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.bool.b4]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "b5":
+            # handle may b5 property
+            # .bool.b5
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("unexpected type [.bool.b5.'|']", lpath_3 if path is not None else None))
+            if res:
+                # .bool.b5.'|'.0
+                res = pval == False
+                if not res:
+                    rep is None or rep.append(("unexpected =false [.bool.b5.'|'.0]", lpath_3 if path is not None else None))
+                if not res:
+                    # .bool.b5.'|'.1
+                    res = pval == True
+                    if not res:
+                        rep is None or rep.append(("unexpected =true [.bool.b5.'|'.1]", lpath_3 if path is not None else None))
+                if res:
+                    rep is None or rep.clear()
+                else:
+                    rep is None or rep.append(("no model matched [.bool.b5.'|']", lpath_3 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.bool.b5]", lpath_3 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.bool]", lpath_3 if path is not None else None))
             return False
     return True
 
-# check _jm_f_9_map_cia0 (.constraints.cia0)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cia0 (.constraints.cia0)
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cia0
     # .constraints.cia0.'@'
     res: bool = isinstance(val, list)
@@ -347,8 +339,8 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cia0]", path))
     return res
 
-# check _jm_f_9_map_cia1 (.constraints.cia1)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cia1 (.constraints.cia1)
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cia1
     # .constraints.cia1.'@'
     res: bool = isinstance(val, list)
@@ -369,8 +361,8 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cia1]", path))
     return res
 
-# check _jm_f_9_map_cia2 (.constraints.cia2)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cia2 (.constraints.cia2)
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cia2
     # .constraints.cia2.'@'
     res: bool = isinstance(val, list)
@@ -391,16 +383,16 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cia2]", path))
     return res
 
-# check _jm_f_9_map_cii0 (.constraints.cii0)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cii0 (.constraints.cii0)
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cii0
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val == 10
     if not res:
         rep is None or rep.append(("unexpected =10 [.constraints.cii0]", path))
     return res
 
-# check _jm_f_9_map_cii1 (.constraints.cii1)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cii1 (.constraints.cii1)
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cii1
     # .constraints.cii1.'@'
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -413,8 +405,8 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cii1]", path))
     return res
 
-# check _jm_f_9_map_cii2 (.constraints.cii2)
-def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cii2 (.constraints.cii2)
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cii2
     # .constraints.cii2.'@'
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -427,8 +419,8 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cii2]", path))
     return res
 
-# check _jm_f_9_map_cin0 (.constraints.cin0)
-def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cin0 (.constraints.cin0)
+def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cin0
     # .constraints.cin0.'@'
     res: bool = isinstance(val, float) and val >= 0.0
@@ -441,8 +433,8 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cin0]", path))
     return res
 
-# check _jm_f_9_map_cin1 (.constraints.cin1)
-def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cin1 (.constraints.cin1)
+def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cin1
     # .constraints.cin1.'@'
     res: bool = isinstance(val, float) and val >= 0.0
@@ -455,8 +447,8 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cin1]", path))
     return res
 
-# check _jm_f_9_map_cin2 (.constraints.cin2)
-def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cin2 (.constraints.cin2)
+def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cin2
     # .constraints.cin2.'@'
     res: bool = isinstance(val, float) and val >= 0.0
@@ -477,8 +469,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # accept any object
     return True
 
-# check _jm_f_9_map_cio0 (.constraints.cio0)
-def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cio0 (.constraints.cio0)
+def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio0
     # .constraints.cio0.'@'
     res: bool = _jm_obj_0(val, path, rep)
@@ -499,8 +491,8 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # accept any object
     return True
 
-# check _jm_f_9_map_cio1 (.constraints.cio1)
-def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cio1 (.constraints.cio1)
+def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio1
     # .constraints.cio1.'@'
     res: bool = _jm_obj_1(val, path, rep)
@@ -521,8 +513,8 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # accept any object
     return True
 
-# check _jm_f_9_map_cio2 (.constraints.cio2)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cio2 (.constraints.cio2)
+def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio2
     # .constraints.cio2.'@'
     res: bool = _jm_obj_2(val, path, rep)
@@ -535,8 +527,8 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cio2]", path))
     return res
 
-# check _jm_f_9_map_cis0 (.constraints.cis0)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cis0 (.constraints.cis0)
+def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cis0
     # .constraints.cis0.'@'
     res: bool = isinstance(val, str)
@@ -549,8 +541,8 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cis0]", path))
     return res
 
-# check _jm_f_9_map_cis1 (.constraints.cis1)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cis1 (.constraints.cis1)
+def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cis1
     # .constraints.cis1.'@'
     res: bool = isinstance(val, str)
@@ -563,8 +555,8 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cis1]", path))
     return res
 
-# check _jm_f_9_map_cis2 (.constraints.cis2)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cis2 (.constraints.cis2)
+def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cis2
     # .constraints.cis2.'@'
     res: bool = isinstance(val, str)
@@ -577,16 +569,16 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cis2]", path))
     return res
 
-# check _jm_f_9_map_cni0 (.constraints.cni0)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cni0 (.constraints.cni0)
+def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cni0
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val == 42
     if not res:
         rep is None or rep.append(("unexpected =42 [.constraints.cni0]", path))
     return res
 
-# check _jm_f_9_map_cni1 (.constraints.cni1)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cni1 (.constraints.cni1)
+def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cni1
     # .constraints.cni1.'@'
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 1
@@ -600,16 +592,16 @@ def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cni1]", path))
     return res
 
-# check _jm_f_9_map_cni2 (.constraints.cni2)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cni2 (.constraints.cni2)
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cni2
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val == 42
     if not res:
         rep is None or rep.append(("unexpected =42 [.constraints.cni2]", path))
     return res
 
-# check _jm_f_9_map_cnn0 (.constraints.cnn0)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cnn0 (.constraints.cnn0)
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cnn0
     # .constraints.cnn0.'@'
     res: bool = isinstance(val, float) and val >= 0.0
@@ -622,8 +614,8 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cnn0]", path))
     return res
 
-# check _jm_f_9_map_cnn1 (.constraints.cnn1)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cnn1 (.constraints.cnn1)
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cnn1
     # .constraints.cnn1.'@'
     res: bool = isinstance(val, float) and val >= 0.0
@@ -636,8 +628,8 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cnn1]", path))
     return res
 
-# check _jm_f_9_map_cnn2 (.constraints.cnn2)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cnn2 (.constraints.cnn2)
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cnn2
     # .constraints.cnn2.'@'
     res: bool = isinstance(val, float) and val >= 0.0
@@ -650,8 +642,8 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.cnn2]", path))
     return res
 
-# check _jm_f_9_map_css0 (.constraints.css0)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_css0 (.constraints.css0)
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.css0
     # .constraints.css0.'@'
     res: bool = isinstance(val, str)
@@ -664,8 +656,8 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.css0]", path))
     return res
 
-# check _jm_f_9_map_css1 (.constraints.css1)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_css1 (.constraints.css1)
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.css1
     # .constraints.css1.'@'
     res: bool = isinstance(val, str)
@@ -678,8 +670,8 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.css1]", path))
     return res
 
-# check _jm_f_9_map_css2 (.constraints.css2)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_css2 (.constraints.css2)
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.css2
     # .constraints.css2.'@'
     res: bool = isinstance(val, str)
@@ -692,8 +684,8 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.constraints.css2]", path))
     return res
 
-# check _jm_f_9_map_cua0 (.constraints.cua0)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_cua0 (.constraints.cua0)
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cua0
     # .constraints.cua0.'@'
     res: bool = isinstance(val, list)
@@ -707,7 +699,7 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_constraints (.constraints)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.constraints]", path))
@@ -715,7 +707,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_4: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_9_map.get(prop):
+        if pfun := _jm_f_3_map.get(prop):
             # handle 25 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_4 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.constraints]", lpath_4 if path is not None else None))
@@ -728,7 +720,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_enum (.enum)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     # an enumeration only contains constants
     # .enum
     if not isinstance(val, dict):
@@ -829,181 +821,175 @@ def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_36_map_f0 (.float.f0)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f0
-    res: bool = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.float.f0]", path))
-    return res
-
-# check _jm_f_36_map_f1 (.float.f1)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f1
-    res: bool = isinstance(val, float) and val > 0.0
-    if not res:
-        rep is None or rep.append(("not a 1.0 strict float [.float.f1]", path))
-    return res
-
-# check _jm_f_36_map_f2 (.float.f2)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f2
-    res: bool = isinstance(val, float)
-    if not res:
-        rep is None or rep.append(("not a -1.0 strict float [.float.f2]", path))
-    return res
-
-# check _jm_f_36_map_f3 (.float.f3)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f3
-    res: bool = isinstance(val, float)
-    if not res:
-        rep is None or rep.append(("unexpected $FLOAT [.float.f3]", path))
-    return res
-
-# check _jm_f_36_map_f4 (.float.f4)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f4
-    res: bool = isinstance(val, float)
-    if not res:
-        rep is None or rep.append(("unexpected $F32 [.float.f4]", path))
-    return res
-
-# check _jm_f_36_map_f5 (.float.f5)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f5
-    res: bool = isinstance(val, float)
-    if not res:
-        rep is None or rep.append(("unexpected $F64 [.float.f5]", path))
-    return res
-
-# check _jm_f_36_map_f6 (.float.f6)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f6
-    res: bool = isinstance(val, float) and val == 3.1415927
-    if not res:
-        rep is None or rep.append(("unexpected =3.1415927 [.float.f6]", path))
-    return res
-
-# check _jm_f_36_map_f7 (.float.f7)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f7
-    res: bool = isinstance(val, float) and val == 1e+100
-    if not res:
-        rep is None or rep.append(("unexpected =1.0E100 [.float.f7]", path))
-    return res
-
-# check _jm_f_36_map_f8 (.float.f8)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .float.f8
-    res: bool = isinstance(val, float) and val == -42.1
-    if not res:
-        rep is None or rep.append(("unexpected =-42.1 [.float.f8]", path))
-    return res
-
-
 # check json_model_1_map_float (.float)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     # floats: inference, predefs, constants
     # .float
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.float]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         lpath_6: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_36_map.get(prop):
-            # handle 9 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_6 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.float]", lpath_6 if path is not None else None))
+        if prop == "f0":
+            # handle may f0 property
+            # .float.f0
+            res = isinstance(pval, float) and pval >= 0.0
+            if not res:
+                rep is None or rep.append(("not a 0.0 strict float [.float.f0]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f0]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "f1":
+            # handle may f1 property
+            # .float.f1
+            res = isinstance(pval, float) and pval > 0.0
+            if not res:
+                rep is None or rep.append(("not a 1.0 strict float [.float.f1]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f1]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "f2":
+            # handle may f2 property
+            # .float.f2
+            res = isinstance(pval, float)
+            if not res:
+                rep is None or rep.append(("not a -1.0 strict float [.float.f2]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f2]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "f3":
+            # handle may f3 property
+            # .float.f3
+            res = isinstance(pval, float)
+            if not res:
+                rep is None or rep.append(("unexpected $FLOAT [.float.f3]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f3]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "f4":
+            # handle may f4 property
+            # .float.f4
+            res = isinstance(pval, float)
+            if not res:
+                rep is None or rep.append(("unexpected $F32 [.float.f4]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f4]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "f5":
+            # handle may f5 property
+            # .float.f5
+            res = isinstance(pval, float)
+            if not res:
+                rep is None or rep.append(("unexpected $F64 [.float.f5]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f5]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "f6":
+            # handle may f6 property
+            # .float.f6
+            res = isinstance(pval, float) and pval == 3.1415927
+            if not res:
+                rep is None or rep.append(("unexpected =3.1415927 [.float.f6]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f6]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "f7":
+            # handle may f7 property
+            # .float.f7
+            res = isinstance(pval, float) and pval == 1e+100
+            if not res:
+                rep is None or rep.append(("unexpected =1.0E100 [.float.f7]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f7]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "f8":
+            # handle may f8 property
+            # .float.f8
+            res = isinstance(pval, float) and pval == -42.1
+            if not res:
+                rep is None or rep.append(("unexpected =-42.1 [.float.f8]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.float.f8]", lpath_6 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.float]", lpath_6 if path is not None else None))
             return False
     return True
 
-# check _jm_f_46_map_i0 (.int.i0)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i0 (.int.i0)
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i0
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.int.i0]", path))
     return res
 
-# check _jm_f_46_map_i1 (.int.i1)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i1 (.int.i1)
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i1
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 1
     if not res:
         rep is None or rep.append(("not a 1 strict int [.int.i1]", path))
     return res
 
-# check _jm_f_46_map_i2 (.int.i2)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i2 (.int.i2)
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i2
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1 strict int [.int.i2]", path))
     return res
 
-# check _jm_f_46_map_i3 (.int.i3)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i3 (.int.i3)
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i3
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $INT [.int.i3]", path))
     return res
 
-# check _jm_f_46_map_i4 (.int.i4)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i4 (.int.i4)
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i4
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $INTEGER [.int.i4]", path))
     return res
 
-# check _jm_f_46_map_i5 (.int.i5)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i5 (.int.i5)
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i5
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $I32 [.int.i5]", path))
     return res
 
-# check _jm_f_46_map_i6 (.int.i6)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i6 (.int.i6)
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i6
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $I64 [.int.i6]", path))
     return res
 
-# check _jm_f_46_map_i7 (.int.i7)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i7 (.int.i7)
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i7
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("unexpected $U32 [.int.i7]", path))
     return res
 
-# check _jm_f_46_map_i8 (.int.i8)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i8 (.int.i8)
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i8
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("unexpected $U64 [.int.i8]", path))
     return res
 
-# check _jm_f_46_map_i9 (.int.i9)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_i9 (.int.i9)
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.i9
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val == 42
     if not res:
         rep is None or rep.append(("unexpected =42 [.int.i9]", path))
     return res
 
-# check _jm_f_46_map_ia (.int.ia)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_31_map_ia (.int.ia)
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     # .int.ia
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val == -42
     if not res:
@@ -1012,7 +998,7 @@ def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_int (.int)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     # integers: inference, predefs, constants
     # .int
     if not isinstance(val, dict):
@@ -1021,7 +1007,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_7: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_46_map.get(prop):
+        if pfun := _jm_f_31_map.get(prop):
             # handle 11 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_7 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.int]", lpath_7 if path is not None else None))
@@ -1394,7 +1380,7 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_merge (.merge)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     # merge object properties
     # .merge
     if not isinstance(val, dict):
@@ -1504,7 +1490,7 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_null (.null)
-def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     # null: inference, predefs, constants
     # .null
     if not isinstance(val, dict):
@@ -1542,9 +1528,8 @@ def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_60_map_o0 (.object.o0)
-def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .object.o0
+# object .object.o0
+def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o0]", path))
         return False
@@ -1554,9 +1539,8 @@ def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("expecting empty object [.object.o0]", path))
         return False
 
-# check _jm_f_60_map_o1 (.object.o1)
-def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .object.o1
+# object .object.o1
+def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o1]", path))
@@ -1599,9 +1583,8 @@ def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_f_60_map_o2 (.object.o2)
-def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .object.o2
+# object .object.o2
+def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o2]", path))
         return False
@@ -1621,9 +1604,8 @@ def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_60_map_o3 (.object.o3)
-def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .object.o3
+# object .object.o3
+def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o3]", path))
         return False
@@ -1642,9 +1624,8 @@ def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_60_map_o4 (.object.o4)
-def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .object.o4
+# object .object.o4
+def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o4]", path))
         return False
@@ -1663,9 +1644,8 @@ def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_60_map_o5 (.object.o5)
-def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .object.o5
+# object .object.o5
+def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o5]", path))
         return False
@@ -1680,30 +1660,79 @@ def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_60_map_o6 (.object.o6)
-def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .object.o6
+# object .object.o6
+def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o6]", path))
         return False
     # accept any object
     return True
 
-
 # check json_model_1_map_object (.object)
-def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     # object map property names to values
     # .object
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         lpath_11: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_60_map.get(prop):
-            # handle 7 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_11 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.object]", lpath_11 if path is not None else None))
+        if prop == "o0":
+            # handle may o0 property
+            # .object.o0
+            res = _jm_obj_13(pval, lpath_11 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.object.o0]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.object.o0]", lpath_11 if path is not None else None))
+                return False
+        elif prop == "o1":
+            # handle may o1 property
+            # .object.o1
+            res = _jm_obj_14(pval, lpath_11 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.object.o1]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.object.o1]", lpath_11 if path is not None else None))
+                return False
+        elif prop == "o2":
+            # handle may o2 property
+            # .object.o2
+            res = _jm_obj_15(pval, lpath_11 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.object.o2]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.object.o2]", lpath_11 if path is not None else None))
+                return False
+        elif prop == "o3":
+            # handle may o3 property
+            # .object.o3
+            res = _jm_obj_16(pval, lpath_11 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.object.o3]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.object.o3]", lpath_11 if path is not None else None))
+                return False
+        elif prop == "o4":
+            # handle may o4 property
+            # .object.o4
+            res = _jm_obj_17(pval, lpath_11 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.object.o4]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.object.o4]", lpath_11 if path is not None else None))
+                return False
+        elif prop == "o5":
+            # handle may o5 property
+            # .object.o5
+            res = _jm_obj_18(pval, lpath_11 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.object.o5]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.object.o5]", lpath_11 if path is not None else None))
+                return False
+        elif prop == "o6":
+            # handle may o6 property
+            # .object.o6
+            res = _jm_obj_19(pval, lpath_11 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.object.o6]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.object.o6]", lpath_11 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.object]", lpath_11 if path is not None else None))
@@ -1711,7 +1740,7 @@ def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .or.o2.'|'.3
-def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.or.o2.'|'.3]", path))
         return False
@@ -1719,7 +1748,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_or (.or)
-def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     # soft alternative, first match
     # .or
     if not isinstance(val, dict):
@@ -1783,7 +1812,7 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
                         rep is None or rep.append(("not array or unexpected array [.or.o2.'|'.2]", lpath_16 if path is not None else None))
                     if not res:
                         # .or.o2.'|'.3
-                        res = _jm_obj_13(pval, lpath_16 if path is not None else None, rep)
+                        res = _jm_obj_20(pval, lpath_16 if path is not None else None, rep)
                         if not res:
                             rep is None or rep.append(("unexpected element [.or.o2.'|'.3]", lpath_16 if path is not None else None))
             if res:
@@ -1797,204 +1826,204 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_69_map_ANY (.predefs.ANY)
-def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_ANY (.predefs.ANY)
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.ANY
     return True
 
-# check _jm_f_69_map_BOOL (.predefs.BOOL)
-def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_BOOL (.predefs.BOOL)
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.BOOL
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $BOOL [.predefs.BOOL]", path))
     return res
 
-# check _jm_f_69_map_BOOLEAN (.predefs.BOOLEAN)
-def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_BOOLEAN (.predefs.BOOLEAN)
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.BOOLEAN
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $BOOLEAN [.predefs.BOOLEAN]", path))
     return res
 
-# check _jm_f_69_map_DATE (.predefs.DATE)
-def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_DATE (.predefs.DATE)
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.DATE
     res: bool = is_valid_date(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $DATE [.predefs.DATE]", path))
     return res
 
-# check _jm_f_69_map_DATETIME (.predefs.DATETIME)
-def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_DATETIME (.predefs.DATETIME)
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.DATETIME
     res: bool = is_valid_datetime(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $DATETIME [.predefs.DATETIME]", path))
     return res
 
-# check _jm_f_69_map_EMAIL (.predefs.EMAIL)
-def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_EMAIL (.predefs.EMAIL)
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.EMAIL
     res: bool = is_valid_email(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $EMAIL [.predefs.EMAIL]", path))
     return res
 
-# check _jm_f_69_map_EXREG (.predefs.EXREG)
-def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_EXREG (.predefs.EXREG)
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.EXREG
     res: bool = is_valid_exreg(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $EXREG [.predefs.EXREG]", path))
     return res
 
-# check _jm_f_69_map_F32 (.predefs.F32)
-def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_F32 (.predefs.F32)
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.F32
     res: bool = isinstance(val, float)
     if not res:
         rep is None or rep.append(("unexpected $F32 [.predefs.F32]", path))
     return res
 
-# check _jm_f_69_map_F64 (.predefs.F64)
-def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_F64 (.predefs.F64)
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.F64
     res: bool = isinstance(val, float)
     if not res:
         rep is None or rep.append(("unexpected $F64 [.predefs.F64]", path))
     return res
 
-# check _jm_f_69_map_FLOAT (.predefs.FLOAT)
-def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_FLOAT (.predefs.FLOAT)
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.FLOAT
     res: bool = isinstance(val, float)
     if not res:
         rep is None or rep.append(("unexpected $FLOAT [.predefs.FLOAT]", path))
     return res
 
-# check _jm_f_69_map_I32 (.predefs.I32)
-def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_I32 (.predefs.I32)
+def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.I32
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $I32 [.predefs.I32]", path))
     return res
 
-# check _jm_f_69_map_I64 (.predefs.I64)
-def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_I64 (.predefs.I64)
+def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.I64
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $I64 [.predefs.I64]", path))
     return res
 
-# check _jm_f_69_map_INT (.predefs.INT)
-def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_INT (.predefs.INT)
+def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.INT
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $INT [.predefs.INT]", path))
     return res
 
-# check _jm_f_69_map_INTEGER (.predefs.INTEGER)
-def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_INTEGER (.predefs.INTEGER)
+def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.INTEGER
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $INTEGER [.predefs.INTEGER]", path))
     return res
 
-# check _jm_f_69_map_JSON (.predefs.JSON)
-def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_JSON (.predefs.JSON)
+def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.JSON
     res: bool = is_valid_json(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $JSON [.predefs.JSON]", path))
     return res
 
-# check _jm_f_69_map_NONE (.predefs.NONE)
-def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_NONE (.predefs.NONE)
+def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.NONE
     res: bool = False
     rep is None or rep.append(("unexpected $NONE [.predefs.NONE]", path))
     return res
 
-# check _jm_f_69_map_NULL (.predefs.NULL)
-def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_NULL (.predefs.NULL)
+def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.NULL
     res: bool = val is None
     if not res:
         rep is None or rep.append(("unexpected $NULL [.predefs.NULL]", path))
     return res
 
-# check _jm_f_69_map_NUMBER (.predefs.NUMBER)
-def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_NUMBER (.predefs.NUMBER)
+def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.NUMBER
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected $NUMBER [.predefs.NUMBER]", path))
     return res
 
-# check _jm_f_69_map_REGEX (.predefs.REGEX)
-def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_REGEX (.predefs.REGEX)
+def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.REGEX
     res: bool = is_valid_regex(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $REGEX [.predefs.REGEX]", path))
     return res
 
-# check _jm_f_69_map_STRING (.predefs.STRING)
-def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_STRING (.predefs.STRING)
+def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.STRING
     res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected $STRING [.predefs.STRING]", path))
     return res
 
-# check _jm_f_69_map_TIME (.predefs.TIME)
-def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_TIME (.predefs.TIME)
+def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.TIME
     res: bool = is_valid_time(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $TIME [.predefs.TIME]", path))
     return res
 
-# check _jm_f_69_map_U32 (.predefs.U32)
-def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_U32 (.predefs.U32)
+def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.U32
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("unexpected $U32 [.predefs.U32]", path))
     return res
 
-# check _jm_f_69_map_U64 (.predefs.U64)
-def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_U64 (.predefs.U64)
+def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.U64
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("unexpected $U64 [.predefs.U64]", path))
     return res
 
-# check _jm_f_69_map_URI (.predefs.URI)
-def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_URI (.predefs.URI)
+def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.URI
     res: bool = is_valid_url(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $URI [.predefs.URI]", path))
     return res
 
-# check _jm_f_69_map_URL (.predefs.URL)
-def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_URL (.predefs.URL)
+def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.URL
     res: bool = is_valid_url(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $URL [.predefs.URL]", path))
     return res
 
-# check _jm_f_69_map_UUID (.predefs.UUID)
-def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_47_map_UUID (.predefs.UUID)
+def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.UUID
     res: bool = is_valid_uuid(val, path, rep)
     if not res:
@@ -2003,7 +2032,7 @@ def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_predefs (.predefs)
-def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     # predefined models
     # .predefs
     if not isinstance(val, dict):
@@ -2012,7 +2041,7 @@ def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_17: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_69_map.get(prop):
+        if pfun := _jm_f_47_map.get(prop):
             # handle 26 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_17 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.predefs]", lpath_17 if path is not None else None))
@@ -2024,7 +2053,7 @@ def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_string (.string)
-def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     # strings: inference, predef, constants, regex
     # .string
     if not isinstance(val, dict):
@@ -2080,7 +2109,7 @@ def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_tuple (.tuple)
-def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     # tuple items have a type
     # .tuple
     if not isinstance(val, dict):
@@ -2204,7 +2233,7 @@ def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_xor (.xor)
-def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     # hard alternative, only one must match
     # .xor
     if not isinstance(val, dict):
@@ -2331,111 +2360,80 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_f_2_map
-        _jm_f_2_map = {
-            "b0": _jm_f_3,
-            "b1": _jm_f_4,
-            "b2": _jm_f_5,
-            "b3": _jm_f_6,
-            "b4": _jm_f_7,
-            "b5": _jm_f_8,
-        }
-        global _jm_f_9_map
-        _jm_f_9_map = {
-            "cia0": _jm_f_10,
-            "cia1": _jm_f_11,
-            "cia2": _jm_f_12,
-            "cii0": _jm_f_13,
-            "cii1": _jm_f_14,
-            "cii2": _jm_f_15,
-            "cin0": _jm_f_16,
-            "cin1": _jm_f_17,
-            "cin2": _jm_f_18,
-            "cio0": _jm_f_19,
-            "cio1": _jm_f_20,
-            "cio2": _jm_f_21,
-            "cis0": _jm_f_22,
-            "cis1": _jm_f_23,
-            "cis2": _jm_f_24,
-            "cni0": _jm_f_25,
-            "cni1": _jm_f_26,
-            "cni2": _jm_f_27,
-            "cnn0": _jm_f_28,
-            "cnn1": _jm_f_29,
-            "cnn2": _jm_f_30,
-            "css0": _jm_f_31,
-            "css1": _jm_f_32,
-            "css2": _jm_f_33,
-            "cua0": _jm_f_34,
+        global _jm_f_3_map
+        _jm_f_3_map = {
+            "cia0": _jm_f_4,
+            "cia1": _jm_f_5,
+            "cia2": _jm_f_6,
+            "cii0": _jm_f_7,
+            "cii1": _jm_f_8,
+            "cii2": _jm_f_9,
+            "cin0": _jm_f_10,
+            "cin1": _jm_f_11,
+            "cin2": _jm_f_12,
+            "cio0": _jm_f_13,
+            "cio1": _jm_f_14,
+            "cio2": _jm_f_15,
+            "cis0": _jm_f_16,
+            "cis1": _jm_f_17,
+            "cis2": _jm_f_18,
+            "cni0": _jm_f_19,
+            "cni1": _jm_f_20,
+            "cni2": _jm_f_21,
+            "cnn0": _jm_f_22,
+            "cnn1": _jm_f_23,
+            "cnn2": _jm_f_24,
+            "css0": _jm_f_25,
+            "css1": _jm_f_26,
+            "css2": _jm_f_27,
+            "cua0": _jm_f_28,
         }
         global _jm_cst_0
         _jm_cst_0 = {'Calvin', 'Hobbes', 'Susie'}
         global _jm_cst_1
         _jm_cst_1 = {'Susie'}
-        global _jm_f_36_map
-        _jm_f_36_map = {
-            "f0": _jm_f_37,
-            "f1": _jm_f_38,
-            "f2": _jm_f_39,
-            "f3": _jm_f_40,
-            "f4": _jm_f_41,
-            "f5": _jm_f_42,
-            "f6": _jm_f_43,
-            "f7": _jm_f_44,
-            "f8": _jm_f_45,
+        global _jm_f_31_map
+        _jm_f_31_map = {
+            "i0": _jm_f_32,
+            "i1": _jm_f_33,
+            "i2": _jm_f_34,
+            "i3": _jm_f_35,
+            "i4": _jm_f_36,
+            "i5": _jm_f_37,
+            "i6": _jm_f_38,
+            "i7": _jm_f_39,
+            "i8": _jm_f_40,
+            "i9": _jm_f_41,
+            "ia": _jm_f_42,
         }
-        global _jm_f_46_map
-        _jm_f_46_map = {
-            "i0": _jm_f_47,
-            "i1": _jm_f_48,
-            "i2": _jm_f_49,
-            "i3": _jm_f_50,
-            "i4": _jm_f_51,
-            "i5": _jm_f_52,
-            "i6": _jm_f_53,
-            "i7": _jm_f_54,
-            "i8": _jm_f_55,
-            "i9": _jm_f_56,
-            "ia": _jm_f_57,
-        }
-        global _jm_f_60_map
-        _jm_f_60_map = {
-            "o0": _jm_f_61,
-            "o1": _jm_f_62,
-            "o2": _jm_f_63,
-            "o3": _jm_f_64,
-            "o4": _jm_f_65,
-            "o5": _jm_f_66,
-            "o6": _jm_f_67,
-        }
-        global _jm_f_69_map
-        _jm_f_69_map = {
-            "ANY": _jm_f_70,
-            "BOOL": _jm_f_71,
-            "BOOLEAN": _jm_f_72,
-            "DATE": _jm_f_73,
-            "DATETIME": _jm_f_74,
-            "EMAIL": _jm_f_75,
-            "EXREG": _jm_f_76,
-            "F32": _jm_f_77,
-            "F64": _jm_f_78,
-            "FLOAT": _jm_f_79,
-            "I32": _jm_f_80,
-            "I64": _jm_f_81,
-            "INT": _jm_f_82,
-            "INTEGER": _jm_f_83,
-            "JSON": _jm_f_84,
-            "NONE": _jm_f_85,
-            "NULL": _jm_f_86,
-            "NUMBER": _jm_f_87,
-            "REGEX": _jm_f_88,
-            "STRING": _jm_f_89,
-            "TIME": _jm_f_90,
-            "U32": _jm_f_91,
-            "U64": _jm_f_92,
-            "URI": _jm_f_93,
-            "URL": _jm_f_94,
-            "UUID": _jm_f_95,
+        global _jm_f_47_map
+        _jm_f_47_map = {
+            "ANY": _jm_f_48,
+            "BOOL": _jm_f_49,
+            "BOOLEAN": _jm_f_50,
+            "DATE": _jm_f_51,
+            "DATETIME": _jm_f_52,
+            "EMAIL": _jm_f_53,
+            "EXREG": _jm_f_54,
+            "F32": _jm_f_55,
+            "F64": _jm_f_56,
+            "FLOAT": _jm_f_57,
+            "I32": _jm_f_58,
+            "I64": _jm_f_59,
+            "INT": _jm_f_60,
+            "INTEGER": _jm_f_61,
+            "JSON": _jm_f_62,
+            "NONE": _jm_f_63,
+            "NULL": _jm_f_64,
+            "NUMBER": _jm_f_65,
+            "REGEX": _jm_f_66,
+            "STRING": _jm_f_67,
+            "TIME": _jm_f_68,
+            "U32": _jm_f_69,
+            "U64": _jm_f_70,
+            "URI": _jm_f_71,
+            "URL": _jm_f_72,
+            "UUID": _jm_f_73,
         }
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("^(Calvin|Susie)$")
@@ -2445,18 +2443,18 @@ def check_model_init():
             "and": _jm_f_0,
             "array": _jm_f_1,
             "bool": _jm_f_2,
-            "constraints": _jm_f_9,
-            "enum": _jm_f_35,
-            "float": _jm_f_36,
-            "int": _jm_f_46,
-            "merge": _jm_f_58,
-            "null": _jm_f_59,
-            "object": _jm_f_60,
-            "or": _jm_f_68,
-            "predefs": _jm_f_69,
-            "string": _jm_f_96,
-            "tuple": _jm_f_97,
-            "xor": _jm_f_98,
+            "constraints": _jm_f_3,
+            "enum": _jm_f_29,
+            "float": _jm_f_30,
+            "int": _jm_f_31,
+            "merge": _jm_f_43,
+            "null": _jm_f_44,
+            "object": _jm_f_45,
+            "or": _jm_f_46,
+            "predefs": _jm_f_47,
+            "string": _jm_f_74,
+            "tuple": _jm_f_75,
+            "xor": _jm_f_76,
         }
         global check_model_map
         check_model_map = {

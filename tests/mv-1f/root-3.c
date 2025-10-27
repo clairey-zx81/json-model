@@ -45,32 +45,46 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$foo#Foo'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$foo#Foo']", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 1))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.'$foo#Foo']", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "rt")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <rt> [.'$foo#Foo']", path);
-        return false;
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_3(prop, 0x00007472)))
+        {
+            // handle must rt property
+            must_count += 1;
+            // .'$foo#Foo'.rt
+            res = json_model_12(pval, (path ? &lpath_0 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $root#Root [.'$foo#Foo'.rt]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$foo#Foo'.rt]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$foo#Foo']", (path ? &lpath_0 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "rt", 0, path, NULL };
-    // .'$foo#Foo'.rt
-    res = json_model_12(pval, (path ? &lpath : NULL), rep);
-    if (unlikely(! res))
+    if (unlikely(must_count != 1))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $root#Root [.'$foo#Foo'.rt]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <rt> [.'$foo#Foo']", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "rt") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <rt> [.'$foo#Foo']", path);
+            }
+        }
         return false;
     }
     return true;
@@ -80,46 +94,63 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$foo#root#root#Root'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$foo#root#root#Root']", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 2))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.'$foo#root#root#Root']", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "id")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <id> [.'$foo#root#root#Root']", path);
-        return false;
+        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_3(prop, 0x00006469))
+        {
+            // handle must id property
+            must_count += 1;
+            // .'$foo#root#root#Root'.id
+            res = json_is_integer(pval) && json_integer_value(pval) == 1;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected =1 [.'$foo#root#root#Root'.id]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$foo#root#root#Root'.id]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        {
+            // handle must name property
+            must_count += 1;
+            // .'$foo#root#root#Root'.name
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$foo#root#root#Root'.name]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$foo#root#root#Root'.name]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$foo#root#root#Root']", (path ? &lpath_1 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "id", 0, path, NULL };
-    // .'$foo#root#root#Root'.id
-    res = json_is_integer(pval) && json_integer_value(pval) == 1;
-    if (unlikely(! res))
+    if (unlikely(must_count != 2))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =1 [.'$foo#root#root#Root'.id]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", (path ? &lpath : NULL));
-        return false;
-    }
-    if (unlikely(! ((pval = json_object_get(val, "name")) != NULL)))
-    {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$foo#root#root#Root']", path);
-        return false;
-    }
-    lpath = (jm_path_t) { "name", 0, path, NULL };
-    // .'$foo#root#root#Root'.name
-    res = json_is_string(pval);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$foo#root#root#Root'.name]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.'$foo#root#root#Root']", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "id") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <id> [.'$foo#root#root#Root']", path);
+            }
+            if (! (json_object_get(val, "name") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$foo#root#root#Root']", path);
+            }
+        }
         return false;
     }
     return true;

@@ -1,9 +1,9 @@
 base-002.values.json[0]: PASS
 base-002.values.json[1]: PASS
-base-002.values.json[2]: FAIL (.: bad property count [.])
-base-002.values.json[3]: FAIL (.: bad property count [.])
-base-002.values.json[4]: FAIL (.: bad property count [.])
-base-002.values.json[5]: FAIL (.: bad property count [.])
+base-002.values.json[2]: FAIL (.c: unexpected prop [.])
+base-002.values.json[3]: FAIL (.: missing mandatory prop <a> [.])
+base-002.values.json[4]: FAIL (.: missing mandatory prop <b> [.])
+base-002.values.json[5]: FAIL (.: missing mandatory prop <b> [.]; .: missing mandatory prop <a> [.])
 base-002.values.json[6]: FAIL (.: not an object [.])
 base-002.values.json[7]: FAIL (.: not an object [.])
 base-002.values.json[8]: FAIL (.: not an object [.])

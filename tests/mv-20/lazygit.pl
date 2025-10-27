@@ -33,52 +33,52 @@ my %_jm_map_0;
 sub json_model_10($$$);
 sub _jm_f_0($$$);
 my %_jm_cst_3;
+sub _jm_obj_8($$$);
+sub _jm_obj_7($$$);
+sub _jm_f_1($$$);
 sub _jm_f_2($$$);
-sub _jm_f_3($$$);
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
-my %_jm_obj_7_map;
-sub _jm_obj_7($$$);
-sub _jm_f_1($$$);
+sub _jm_obj_9($$$);
 sub _jm_f_9($$$);
+sub _jm_f_10($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
+my %_jm_cst_4;
+my %_jm_cst_5;
 sub _jm_f_13($$$);
 sub _jm_f_14($$$);
 sub _jm_f_15($$$);
-sub _jm_obj_8($$$);
+my %_jm_cst_6;
 sub _jm_f_16($$$);
 sub _jm_f_17($$$);
 sub _jm_f_18($$$);
-sub _jm_f_19($$$);
-my %_jm_cst_4;
-my %_jm_cst_5;
+my %_jm_f_3_map;
+sub _jm_f_3($$$);
 sub _jm_f_20($$$);
 sub _jm_f_21($$$);
+my %_jm_cst_7;
 sub _jm_f_22($$$);
-my %_jm_cst_6;
 sub _jm_f_23($$$);
 sub _jm_f_24($$$);
 sub _jm_f_25($$$);
-my %_jm_f_10_map;
-sub _jm_f_10($$$);
+sub _jm_f_26($$$);
+my %_jm_cst_8;
 sub _jm_f_27($$$);
+my %_jm_cst_9;
 sub _jm_f_28($$$);
-my %_jm_cst_7;
 sub _jm_f_29($$$);
+my %_jm_cst_10;
 sub _jm_f_30($$$);
 sub _jm_f_31($$$);
 sub _jm_f_32($$$);
 sub _jm_f_33($$$);
-my %_jm_cst_8;
 sub _jm_f_34($$$);
-my %_jm_cst_9;
 sub _jm_f_35($$$);
 sub _jm_f_36($$$);
-my %_jm_cst_10;
 sub _jm_f_37($$$);
 sub _jm_f_38($$$);
 sub _jm_f_39($$$);
@@ -86,57 +86,42 @@ sub _jm_f_40($$$);
 sub _jm_f_41($$$);
 sub _jm_f_42($$$);
 sub _jm_f_43($$$);
+my %_jm_cst_11;
 sub _jm_f_44($$$);
+my %_jm_f_45_map;
 sub _jm_f_45($$$);
 sub _jm_f_46($$$);
+my %_jm_cst_12;
 sub _jm_f_47($$$);
-sub _jm_f_48($$$);
+my %_jm_f_19_map;
+sub _jm_f_19($$$);
+my %_jm_f_49_map;
 sub _jm_f_49($$$);
 sub _jm_f_50($$$);
-my %_jm_cst_11;
+my %_jm_f_51_map;
 sub _jm_f_51($$$);
 my %_jm_f_52_map;
 sub _jm_f_52($$$);
 sub _jm_f_53($$$);
-my %_jm_cst_12;
 sub _jm_f_54($$$);
-my %_jm_f_26_map;
-sub _jm_f_26($$$);
-my %_jm_f_56_map;
+sub _jm_f_55($$$);
 sub _jm_f_56($$$);
-sub _jm_f_57($$$);
-my %_jm_f_58_map;
 sub _jm_f_58($$$);
-my %_jm_f_59_map;
 sub _jm_f_59($$$);
+my %_jm_f_57_map;
+sub _jm_f_57($$$);
+my %_jm_f_48_map;
+sub _jm_f_48($$$);
+my %_jm_cst_13;
 sub _jm_f_60($$$);
+my %_jm_cst_14;
 sub _jm_f_61($$$);
 sub _jm_f_62($$$);
 sub _jm_f_63($$$);
-sub _jm_f_65($$$);
-sub _jm_f_66($$$);
-my %_jm_f_64_map;
 sub _jm_f_64($$$);
-my %_jm_f_55_map;
-sub _jm_f_55($$$);
-my %_jm_cst_13;
-sub _jm_f_67($$$);
-sub _jm_f_69($$$);
-sub _jm_f_70($$$);
-sub _jm_f_71($$$);
-sub _jm_f_72($$$);
-my %_jm_cst_14;
-sub _jm_f_73($$$);
-sub _jm_f_74($$$);
-sub _jm_f_75($$$);
-my %_jm_f_68_map;
-sub _jm_f_68($$$);
-sub _jm_f_76($$$);
-sub _jm_f_77($$$);
-sub _jm_f_78($$$);
-sub _jm_f_79($$$);
+sub _jm_f_65($$$);
 my %_jm_cst_15;
-sub _jm_f_80($$$);
+sub _jm_f_66($$$);
 my %json_model_1_map;
 sub json_model_1($$$);
 my %check_model_map;
@@ -714,11 +699,10 @@ sub _jm_f_0($$$)
 }
 
 
-# check _jm_obj_7_map_after (.customCommands.'@'.0.after)
-sub _jm_f_2($$$)
+# object .customCommands.'@'.0.after
+sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .customCommands.'@'.0.after
     if (! jm_is_object($val))
     {
         return 0;
@@ -745,69 +729,6 @@ sub _jm_f_2($$$)
     return 1;
 }
 
-# check _jm_obj_7_map_description (.customCommands.'@'.0.description)
-sub _jm_f_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .customCommands.'@'.0.description
-    return jm_is_string($val);
-}
-
-# check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
-sub _jm_f_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .customCommands.'@'.0.loadingText
-    return jm_is_string($val);
-}
-
-# check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
-sub _jm_f_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .customCommands.'@'.0.prompts
-    my $res = jm_is_array($val);
-    if ($res)
-    {
-        for my $arr_4_idx (0 .. $#$val)
-        {
-            my $arr_4_item = $$val[$arr_4_idx];
-            # .customCommands.'@'.0.prompts.0
-            $res = json_model_10($arr_4_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
-        }
-    }
-    return $res;
-}
-
-# check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
-sub _jm_f_6($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .customCommands.'@'.0.showOutput
-    return jm_is_boolean($val);
-}
-
-# check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
-sub _jm_f_7($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .customCommands.'@'.0.stream
-    return jm_is_boolean($val);
-}
-
-# check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
-sub _jm_f_8($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .customCommands.'@'.0.subprocess
-    return jm_is_boolean($val);
-}
-
-
 # object .customCommands.'@'.0
 sub _jm_obj_7($$$)
 {
@@ -817,7 +738,6 @@ sub _jm_obj_7($$$)
         return 0;
     }
     my $res;
-    my $pfun;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -855,10 +775,85 @@ sub _jm_obj_7($$$)
                 return 0;
             }
         }
-        elsif (($pfun = $_jm_obj_7_map{$prop}))
+        elsif ($prop eq 'subprocess')
         {
-            # handle 7 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
+            # handle may subprocess property
+            # .customCommands.'@'.0.subprocess
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'prompts')
+        {
+            # handle may prompts property
+            # .customCommands.'@'.0.prompts
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_4_idx (0 .. $#$pval)
+                {
+                    my $arr_4_item = $$pval[$arr_4_idx];
+                    # .customCommands.'@'.0.prompts.0
+                    $res = json_model_10($arr_4_item, undef, undef);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'loadingText')
+        {
+            # handle may loadingText property
+            # .customCommands.'@'.0.loadingText
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle may description property
+            # .customCommands.'@'.0.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'stream')
+        {
+            # handle may stream property
+            # .customCommands.'@'.0.stream
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'showOutput')
+        {
+            # handle may showOutput property
+            # .customCommands.'@'.0.showOutput
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'after')
+        {
+            # handle may after property
+            # .customCommands.'@'.0.after
+            $res = _jm_obj_8($pval, undef, undef);
+            if (! $res)
             {
                 return 0;
             }
@@ -899,47 +894,47 @@ sub _jm_f_1($$$)
 }
 
 # check json_model_1_map_disableStartupPopups (.disableStartupPopups)
-sub _jm_f_9($$$)
+sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .disableStartupPopups
     return jm_is_boolean($val);
 }
 
-# check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
-sub _jm_f_11($$$)
+# check _jm_f_3_map_allBranchesLogCmd (.git.allBranchesLogCmd)
+sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.allBranchesLogCmd
     return jm_is_string($val);
 }
 
-# check _jm_f_10_map_autoFetch (.git.autoFetch)
-sub _jm_f_12($$$)
+# check _jm_f_3_map_autoFetch (.git.autoFetch)
+sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.autoFetch
     return jm_is_boolean($val);
 }
 
-# check _jm_f_10_map_autoRefresh (.git.autoRefresh)
-sub _jm_f_13($$$)
+# check _jm_f_3_map_autoRefresh (.git.autoRefresh)
+sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.autoRefresh
     return jm_is_boolean($val);
 }
 
-# check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
-sub _jm_f_14($$$)
+# check _jm_f_3_map_branchLogCmd (.git.branchLogCmd)
+sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.branchLogCmd
     return jm_is_string($val);
 }
 
-# check _jm_f_10_map_commit (.git.commit)
-sub _jm_f_15($$$)
+# check _jm_f_3_map_commit (.git.commit)
+sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.commit
@@ -977,7 +972,7 @@ sub _jm_re_1($$$)
 }
 
 # object .git.commitPrefixes.'/./'
-sub _jm_obj_8($$$)
+sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1011,8 +1006,8 @@ sub _jm_obj_8($$$)
     return json_model_8($pval, undef, undef);
 }
 
-# check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
-sub _jm_f_16($$$)
+# check _jm_f_3_map_commitPrefixes (.git.commitPrefixes)
+sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.commitPrefixes
@@ -1028,7 +1023,7 @@ sub _jm_f_16($$$)
         {
             # handle 1 re props
             # .git.commitPrefixes.'/./'
-            $res = _jm_obj_8($pval, undef, undef);
+            $res = _jm_obj_9($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1042,24 +1037,24 @@ sub _jm_f_16($$$)
     return 1;
 }
 
-# check _jm_f_10_map_diffContextSize (.git.diffContextSize)
-sub _jm_f_17($$$)
+# check _jm_f_3_map_diffContextSize (.git.diffContextSize)
+sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.diffContextSize
     return jm_is_integer($val) && $val >= 0;
 }
 
-# check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
-sub _jm_f_18($$$)
+# check _jm_f_3_map_disableForcePushing (.git.disableForcePushing)
+sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.disableForcePushing
     return jm_is_boolean($val);
 }
 
-# check _jm_f_10_map_fetchAll (.git.fetchAll)
-sub _jm_f_19($$$)
+# check _jm_f_3_map_fetchAll (.git.fetchAll)
+sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.fetchAll
@@ -1068,8 +1063,8 @@ sub _jm_f_19($$$)
 
 
 
-# check _jm_f_10_map_log (.git.log)
-sub _jm_f_20($$$)
+# check _jm_f_3_map_log (.git.log)
+sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.log
@@ -1119,8 +1114,8 @@ sub _jm_f_20($$$)
     return 1;
 }
 
-# check _jm_f_10_map_merging (.git.merging)
-sub _jm_f_21($$$)
+# check _jm_f_3_map_merging (.git.merging)
+sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.merging
@@ -1160,8 +1155,8 @@ sub _jm_f_21($$$)
     return 1;
 }
 
-# check _jm_f_10_map_overrideGpg (.git.overrideGpg)
-sub _jm_f_22($$$)
+# check _jm_f_3_map_overrideGpg (.git.overrideGpg)
+sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.overrideGpg
@@ -1169,8 +1164,8 @@ sub _jm_f_22($$$)
 }
 
 
-# check _jm_f_10_map_paging (.git.paging)
-sub _jm_f_23($$$)
+# check _jm_f_3_map_paging (.git.paging)
+sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.paging
@@ -1226,16 +1221,16 @@ sub _jm_f_23($$$)
     return 1;
 }
 
-# check _jm_f_10_map_parseEmoji (.git.parseEmoji)
-sub _jm_f_24($$$)
+# check _jm_f_3_map_parseEmoji (.git.parseEmoji)
+sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.parseEmoji
     return jm_is_boolean($val);
 }
 
-# check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
-sub _jm_f_25($$$)
+# check _jm_f_3_map_skipHookPrefix (.git.skipHookPrefix)
+sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.skipHookPrefix
@@ -1244,7 +1239,7 @@ sub _jm_f_25($$$)
 
 
 # check json_model_1_map_git (.git)
-sub _jm_f_10($$$)
+sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git
@@ -1256,7 +1251,7 @@ sub _jm_f_10($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_10_map{$prop}))
+        if (($pfun = $_jm_f_3_map{$prop}))
         {
             # handle 16 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -1272,16 +1267,16 @@ sub _jm_f_10($$$)
     return 1;
 }
 
-# check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
-sub _jm_f_27($$$)
+# check _jm_f_19_map_animateExplosion (.gui.animateExplosion)
+sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.animateExplosion
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_authorColors (.gui.authorColors)
-sub _jm_f_28($$$)
+# check _jm_f_19_map_authorColors (.gui.authorColors)
+sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.authorColors
@@ -1312,16 +1307,16 @@ sub _jm_f_28($$$)
 }
 
 
-# check _jm_f_26_map_border (.gui.border)
-sub _jm_f_29($$$)
+# check _jm_f_19_map_border (.gui.border)
+sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.border
     return jm_is_string($val) && exists $_jm_cst_7{$val};
 }
 
-# check _jm_f_26_map_branchColors (.gui.branchColors)
-sub _jm_f_30($$$)
+# check _jm_f_19_map_branchColors (.gui.branchColors)
+sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.branchColors
@@ -1351,16 +1346,16 @@ sub _jm_f_30($$$)
     return 1;
 }
 
-# check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
-sub _jm_f_31($$$)
+# check _jm_f_19_map_commandLogSize (.gui.commandLogSize)
+sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.commandLogSize
     return jm_is_integer($val) && $val >= 0;
 }
 
-# check _jm_f_26_map_commitLength (.gui.commitLength)
-sub _jm_f_32($$$)
+# check _jm_f_19_map_commitLength (.gui.commitLength)
+sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.commitLength
@@ -1390,8 +1385,8 @@ sub _jm_f_32($$$)
     return 1;
 }
 
-# check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
-sub _jm_f_33($$$)
+# check _jm_f_19_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
+sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.expandFocusedSidePanel
@@ -1399,8 +1394,8 @@ sub _jm_f_33($$$)
 }
 
 
-# check _jm_f_26_map_language (.gui.language)
-sub _jm_f_34($$$)
+# check _jm_f_19_map_language (.gui.language)
+sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.language
@@ -1408,16 +1403,16 @@ sub _jm_f_34($$$)
 }
 
 
-# check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
-sub _jm_f_35($$$)
+# check _jm_f_19_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
+sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.mainPanelSplitMode
     return jm_is_string($val) && exists $_jm_cst_9{$val};
 }
 
-# check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
-sub _jm_f_36($$$)
+# check _jm_f_19_map_mouseEvents (.gui.mouseEvents)
+sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.mouseEvents
@@ -1425,8 +1420,8 @@ sub _jm_f_36($$$)
 }
 
 
-# check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
-sub _jm_f_37($$$)
+# check _jm_f_19_map_nerdFontsVersion (.gui.nerdFontsVersion)
+sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.nerdFontsVersion
@@ -1434,80 +1429,80 @@ sub _jm_f_37($$$)
     return jm_is_string($val) && exists $_jm_cst_10{$val} || jm_is_string($val);
 }
 
-# check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
-sub _jm_f_38($$$)
+# check _jm_f_19_map_scrollHeight (.gui.scrollHeight)
+sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.scrollHeight
     return jm_is_integer($val) && $val >= 1;
 }
 
-# check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
-sub _jm_f_39($$$)
+# check _jm_f_19_map_scrollPastBottom (.gui.scrollPastBottom)
+sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.scrollPastBottom
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
-sub _jm_f_40($$$)
+# check _jm_f_19_map_shortTimeFormat (.gui.shortTimeFormat)
+sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.shortTimeFormat
     return jm_is_string($val);
 }
 
-# check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
-sub _jm_f_41($$$)
+# check _jm_f_19_map_showBottomLine (.gui.showBottomLine)
+sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.showBottomLine
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
-sub _jm_f_42($$$)
+# check _jm_f_19_map_showBranchCommitHash (.gui.showBranchCommitHash)
+sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.showBranchCommitHash
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
-sub _jm_f_43($$$)
+# check _jm_f_19_map_showCommandLog (.gui.showCommandLog)
+sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.showCommandLog
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_showFileTree (.gui.showFileTree)
-sub _jm_f_44($$$)
+# check _jm_f_19_map_showFileTree (.gui.showFileTree)
+sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.showFileTree
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_showListFooter (.gui.showListFooter)
-sub _jm_f_45($$$)
+# check _jm_f_19_map_showListFooter (.gui.showListFooter)
+sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.showListFooter
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
-sub _jm_f_46($$$)
+# check _jm_f_19_map_showRandomTip (.gui.showRandomTip)
+sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.showRandomTip
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
-sub _jm_f_47($$$)
+# check _jm_f_19_map_sidePanelWidth (.gui.sidePanelWidth)
+sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.sidePanelWidth
@@ -1521,24 +1516,24 @@ sub _jm_f_47($$$)
     return $res;
 }
 
-# check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
-sub _jm_f_48($$$)
+# check _jm_f_19_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
+sub _jm_f_41($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.skipDiscardChangeWarning
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
-sub _jm_f_49($$$)
+# check _jm_f_19_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
+sub _jm_f_42($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.skipRewordInEditorWarning
     return jm_is_boolean($val);
 }
 
-# check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
-sub _jm_f_50($$$)
+# check _jm_f_19_map_skipStashWarning (.gui.skipStashWarning)
+sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.skipStashWarning
@@ -1546,8 +1541,8 @@ sub _jm_f_50($$$)
 }
 
 
-# check _jm_f_26_map_splitDiff (.gui.splitDiff)
-sub _jm_f_51($$$)
+# check _jm_f_19_map_splitDiff (.gui.splitDiff)
+sub _jm_f_44($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.splitDiff
@@ -1555,8 +1550,8 @@ sub _jm_f_51($$$)
 }
 
 
-# check _jm_f_26_map_theme (.gui.theme)
-sub _jm_f_52($$$)
+# check _jm_f_19_map_theme (.gui.theme)
+sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.theme
@@ -1568,7 +1563,7 @@ sub _jm_f_52($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_52_map{$prop}))
+        if (($pfun = $_jm_f_45_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -1584,8 +1579,8 @@ sub _jm_f_52($$$)
     return 1;
 }
 
-# check _jm_f_26_map_timeFormat (.gui.timeFormat)
-sub _jm_f_53($$$)
+# check _jm_f_19_map_timeFormat (.gui.timeFormat)
+sub _jm_f_46($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.timeFormat
@@ -1593,8 +1588,8 @@ sub _jm_f_53($$$)
 }
 
 
-# check _jm_f_26_map_windowSize (.gui.windowSize)
-sub _jm_f_54($$$)
+# check _jm_f_19_map_windowSize (.gui.windowSize)
+sub _jm_f_47($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.windowSize
@@ -1603,7 +1598,7 @@ sub _jm_f_54($$$)
 
 
 # check json_model_1_map_gui (.gui)
-sub _jm_f_26($$$)
+sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui
@@ -1615,7 +1610,7 @@ sub _jm_f_26($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_26_map{$prop}))
+        if (($pfun = $_jm_f_19_map{$prop}))
         {
             # handle 28 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -1632,8 +1627,8 @@ sub _jm_f_26($$$)
 }
 
 
-# check _jm_f_55_map_branches (.keybinding.branches)
-sub _jm_f_56($$$)
+# check _jm_f_48_map_branches (.keybinding.branches)
+sub _jm_f_49($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.branches
@@ -1645,7 +1640,7 @@ sub _jm_f_56($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_56_map{$prop}))
+        if (($pfun = $_jm_f_49_map{$prop}))
         {
             # handle 13 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -1661,8 +1656,8 @@ sub _jm_f_56($$$)
     return 1;
 }
 
-# check _jm_f_55_map_commitFiles (.keybinding.commitFiles)
-sub _jm_f_57($$$)
+# check _jm_f_48_map_commitFiles (.keybinding.commitFiles)
+sub _jm_f_50($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.commitFiles
@@ -1693,8 +1688,8 @@ sub _jm_f_57($$$)
 }
 
 
-# check _jm_f_55_map_commits (.keybinding.commits)
-sub _jm_f_58($$$)
+# check _jm_f_48_map_commits (.keybinding.commits)
+sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.commits
@@ -1706,7 +1701,7 @@ sub _jm_f_58($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_58_map{$prop}))
+        if (($pfun = $_jm_f_51_map{$prop}))
         {
             # handle 21 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -1723,8 +1718,8 @@ sub _jm_f_58($$$)
 }
 
 
-# check _jm_f_55_map_files (.keybinding.files)
-sub _jm_f_59($$$)
+# check _jm_f_48_map_files (.keybinding.files)
+sub _jm_f_52($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.files
@@ -1736,7 +1731,7 @@ sub _jm_f_59($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_59_map{$prop}))
+        if (($pfun = $_jm_f_52_map{$prop}))
         {
             # handle 14 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -1752,8 +1747,8 @@ sub _jm_f_59($$$)
     return 1;
 }
 
-# check _jm_f_55_map_main (.keybinding.main)
-sub _jm_f_60($$$)
+# check _jm_f_48_map_main (.keybinding.main)
+sub _jm_f_53($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.main
@@ -1813,8 +1808,8 @@ sub _jm_f_60($$$)
     return 1;
 }
 
-# check _jm_f_55_map_stash (.keybinding.stash)
-sub _jm_f_61($$$)
+# check _jm_f_48_map_stash (.keybinding.stash)
+sub _jm_f_54($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.stash
@@ -1854,8 +1849,8 @@ sub _jm_f_61($$$)
     return 1;
 }
 
-# check _jm_f_55_map_status (.keybinding.status)
-sub _jm_f_62($$$)
+# check _jm_f_48_map_status (.keybinding.status)
+sub _jm_f_55($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.status
@@ -1895,8 +1890,8 @@ sub _jm_f_62($$$)
     return 1;
 }
 
-# check _jm_f_55_map_submodules (.keybinding.submodules)
-sub _jm_f_63($$$)
+# check _jm_f_48_map_submodules (.keybinding.submodules)
+sub _jm_f_56($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.submodules
@@ -1946,16 +1941,16 @@ sub _jm_f_63($$$)
     return 1;
 }
 
-# check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
-sub _jm_f_65($$$)
+# check _jm_f_57_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+sub _jm_f_58($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.universal.jumpToBlock
     return jm_is_array($val);
 }
 
-# check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
-sub _jm_f_66($$$)
+# check _jm_f_57_map_optionMenu (.keybinding.universal.optionMenu)
+sub _jm_f_59($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.universal.optionMenu
@@ -1963,8 +1958,8 @@ sub _jm_f_66($$$)
 }
 
 
-# check _jm_f_55_map_universal (.keybinding.universal)
-sub _jm_f_64($$$)
+# check _jm_f_48_map_universal (.keybinding.universal)
+sub _jm_f_57($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.universal
@@ -1976,7 +1971,7 @@ sub _jm_f_64($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_64_map{$prop}))
+        if (($pfun = $_jm_f_57_map{$prop}))
         {
             # handle 59 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -1994,7 +1989,7 @@ sub _jm_f_64($$$)
 
 
 # check json_model_1_map_keybinding (.keybinding)
-sub _jm_f_55($$$)
+sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding
@@ -2006,7 +2001,7 @@ sub _jm_f_55($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_55_map{$prop}))
+        if (($pfun = $_jm_f_48_map{$prop}))
         {
             # handle 9 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -2024,74 +2019,16 @@ sub _jm_f_55($$$)
 
 
 # check json_model_1_map_notARepository (.notARepository)
-sub _jm_f_67($$$)
+sub _jm_f_60($$$)
 {
     my ($val, $path, $rep) = @_;
     # .notARepository
     return jm_is_string($val) && exists $_jm_cst_13{$val};
 }
 
-# check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
-sub _jm_f_69($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .os.copyToClipboardCmd
-    return jm_is_string($val);
-}
-
-# check _jm_f_68_map_edit (.os.edit)
-sub _jm_f_70($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .os.edit
-    return jm_is_string($val);
-}
-
-# check _jm_f_68_map_editAtLine (.os.editAtLine)
-sub _jm_f_71($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .os.editAtLine
-    return jm_is_string($val);
-}
-
-# check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
-sub _jm_f_72($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .os.editAtLineAndWait
-    return jm_is_string($val);
-}
-
-
-# check _jm_f_68_map_editPreset (.os.editPreset)
-sub _jm_f_73($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .os.editPreset
-    # .os.editPreset.'|'.0
-    return jm_is_string($val) && exists $_jm_cst_14{$val} || jm_is_string($val);
-}
-
-# check _jm_f_68_map_open (.os.open)
-sub _jm_f_74($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .os.open
-    return jm_is_string($val);
-}
-
-# check _jm_f_68_map_openLink (.os.openLink)
-sub _jm_f_75($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .os.openLink
-    return jm_is_string($val);
-}
-
 
 # check json_model_1_map_os (.os)
-sub _jm_f_68($$$)
+sub _jm_f_61($$$)
 {
     my ($val, $path, $rep) = @_;
     # .os
@@ -2099,14 +2036,77 @@ sub _jm_f_68($$$)
     {
         return 0;
     }
-    my $pfun;
+    my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_f_68_map{$prop}))
+        if ($prop eq 'copyToClipboardCmd')
         {
-            # handle 7 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
+            # handle may copyToClipboardCmd property
+            # .os.copyToClipboardCmd
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'editPreset')
+        {
+            # handle may editPreset property
+            # .os.editPreset
+            # .os.editPreset.'|'.0
+            $res = jm_is_string($pval) && exists $_jm_cst_14{$pval} || jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'edit')
+        {
+            # handle may edit property
+            # .os.edit
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'editAtLine')
+        {
+            # handle may editAtLine property
+            # .os.editAtLine
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'editAtLineAndWait')
+        {
+            # handle may editAtLineAndWait property
+            # .os.editAtLineAndWait
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'open')
+        {
+            # handle may open property
+            # .os.open
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'openLink')
+        {
+            # handle may openLink property
+            # .os.openLink
+            $res = jm_is_string($pval);
+            if (! $res)
             {
                 return 0;
             }
@@ -2120,7 +2120,7 @@ sub _jm_f_68($$$)
 }
 
 # check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
-sub _jm_f_76($$$)
+sub _jm_f_62($$$)
 {
     my ($val, $path, $rep) = @_;
     # .promptToReturnFromSubprocess
@@ -2128,7 +2128,7 @@ sub _jm_f_76($$$)
 }
 
 # check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
-sub _jm_f_77($$$)
+sub _jm_f_63($$$)
 {
     my ($val, $path, $rep) = @_;
     # .quitOnTopLevelReturn
@@ -2136,7 +2136,7 @@ sub _jm_f_77($$$)
 }
 
 # check json_model_1_map_refresher (.refresher)
-sub _jm_f_78($$$)
+sub _jm_f_64($$$)
 {
     my ($val, $path, $rep) = @_;
     # .refresher
@@ -2184,7 +2184,7 @@ sub _jm_re_2($$$)
 }
 
 # check json_model_1_map_services (.services)
-sub _jm_f_79($$$)
+sub _jm_f_65($$$)
 {
     my ($val, $path, $rep) = @_;
     # .services
@@ -2217,7 +2217,7 @@ sub _jm_f_79($$$)
 
 
 # check json_model_1_map_update (.update)
-sub _jm_f_80($$$)
+sub _jm_f_66($$$)
 {
     my ($val, $path, $rep) = @_;
     # .update
@@ -2349,15 +2349,6 @@ sub check_model_init()
             'stash' => 1,
             'global' => 1,
         );
-        %_jm_obj_7_map = (
-            'after' => \&_jm_f_2,
-            'description' => \&_jm_f_3,
-            'loadingText' => \&_jm_f_4,
-            'prompts' => \&_jm_f_5,
-            'showOutput' => \&_jm_f_6,
-            'stream' => \&_jm_f_7,
-            'subprocess' => \&_jm_f_8,
-        );
         %_jm_cst_4 = (
             'date-order' => 1,
             'author-date-order' => 1,
@@ -2373,23 +2364,23 @@ sub check_model_init()
             'always' => 1,
             'never' => 1,
         );
-        %_jm_f_10_map = (
-            'allBranchesLogCmd' => \&_jm_f_11,
-            'autoFetch' => \&_jm_f_12,
-            'autoRefresh' => \&_jm_f_13,
-            'branchLogCmd' => \&_jm_f_14,
-            'commit' => \&_jm_f_15,
-            'commitPrefixes' => \&_jm_f_16,
-            'diffContextSize' => \&_jm_f_17,
-            'disableForcePushing' => \&_jm_f_18,
-            'fetchAll' => \&_jm_f_19,
-            'log' => \&_jm_f_20,
+        %_jm_f_3_map = (
+            'allBranchesLogCmd' => \&_jm_f_4,
+            'autoFetch' => \&_jm_f_5,
+            'autoRefresh' => \&_jm_f_6,
+            'branchLogCmd' => \&_jm_f_7,
+            'commit' => \&_jm_f_8,
+            'commitPrefixes' => \&_jm_f_9,
+            'diffContextSize' => \&_jm_f_10,
+            'disableForcePushing' => \&_jm_f_11,
+            'fetchAll' => \&_jm_f_12,
+            'log' => \&_jm_f_13,
             'mainBranches' => \&json_model_9,
-            'merging' => \&_jm_f_21,
-            'overrideGpg' => \&_jm_f_22,
-            'paging' => \&_jm_f_23,
-            'parseEmoji' => \&_jm_f_24,
-            'skipHookPrefix' => \&_jm_f_25,
+            'merging' => \&_jm_f_14,
+            'overrideGpg' => \&_jm_f_15,
+            'paging' => \&_jm_f_16,
+            'parseEmoji' => \&_jm_f_17,
+            'skipHookPrefix' => \&_jm_f_18,
         );
         %_jm_cst_7 = (
             'single' => 1,
@@ -2421,7 +2412,7 @@ sub check_model_init()
             'auto' => 1,
             'always' => 1,
         );
-        %_jm_f_52_map = (
+        %_jm_f_45_map = (
             'activeBorderColor' => \&json_model_3,
             'cherryPickedCommitBgColor' => \&json_model_3,
             'cherryPickedCommitFgColor' => \&json_model_3,
@@ -2438,37 +2429,37 @@ sub check_model_init()
             'half' => 1,
             'full' => 1,
         );
-        %_jm_f_26_map = (
-            'animateExplosion' => \&_jm_f_27,
-            'authorColors' => \&_jm_f_28,
-            'border' => \&_jm_f_29,
-            'branchColors' => \&_jm_f_30,
-            'commandLogSize' => \&_jm_f_31,
-            'commitLength' => \&_jm_f_32,
-            'expandFocusedSidePanel' => \&_jm_f_33,
-            'language' => \&_jm_f_34,
-            'mainPanelSplitMode' => \&_jm_f_35,
-            'mouseEvents' => \&_jm_f_36,
-            'nerdFontsVersion' => \&_jm_f_37,
-            'scrollHeight' => \&_jm_f_38,
-            'scrollPastBottom' => \&_jm_f_39,
-            'shortTimeFormat' => \&_jm_f_40,
-            'showBottomLine' => \&_jm_f_41,
-            'showBranchCommitHash' => \&_jm_f_42,
-            'showCommandLog' => \&_jm_f_43,
-            'showFileTree' => \&_jm_f_44,
-            'showListFooter' => \&_jm_f_45,
-            'showRandomTip' => \&_jm_f_46,
-            'sidePanelWidth' => \&_jm_f_47,
-            'skipDiscardChangeWarning' => \&_jm_f_48,
-            'skipRewordInEditorWarning' => \&_jm_f_49,
-            'skipStashWarning' => \&_jm_f_50,
-            'splitDiff' => \&_jm_f_51,
-            'theme' => \&_jm_f_52,
-            'timeFormat' => \&_jm_f_53,
-            'windowSize' => \&_jm_f_54,
+        %_jm_f_19_map = (
+            'animateExplosion' => \&_jm_f_20,
+            'authorColors' => \&_jm_f_21,
+            'border' => \&_jm_f_22,
+            'branchColors' => \&_jm_f_23,
+            'commandLogSize' => \&_jm_f_24,
+            'commitLength' => \&_jm_f_25,
+            'expandFocusedSidePanel' => \&_jm_f_26,
+            'language' => \&_jm_f_27,
+            'mainPanelSplitMode' => \&_jm_f_28,
+            'mouseEvents' => \&_jm_f_29,
+            'nerdFontsVersion' => \&_jm_f_30,
+            'scrollHeight' => \&_jm_f_31,
+            'scrollPastBottom' => \&_jm_f_32,
+            'shortTimeFormat' => \&_jm_f_33,
+            'showBottomLine' => \&_jm_f_34,
+            'showBranchCommitHash' => \&_jm_f_35,
+            'showCommandLog' => \&_jm_f_36,
+            'showFileTree' => \&_jm_f_37,
+            'showListFooter' => \&_jm_f_38,
+            'showRandomTip' => \&_jm_f_39,
+            'sidePanelWidth' => \&_jm_f_40,
+            'skipDiscardChangeWarning' => \&_jm_f_41,
+            'skipRewordInEditorWarning' => \&_jm_f_42,
+            'skipStashWarning' => \&_jm_f_43,
+            'splitDiff' => \&_jm_f_44,
+            'theme' => \&_jm_f_45,
+            'timeFormat' => \&_jm_f_46,
+            'windowSize' => \&_jm_f_47,
         );
-        %_jm_f_56_map = (
+        %_jm_f_49_map = (
             'checkoutBranchByName' => \&json_model_4,
             'createPullRequest' => \&json_model_4,
             'createTag' => \&json_model_4,
@@ -2483,7 +2474,7 @@ sub check_model_init()
             'viewGitFlowOptions' => \&json_model_4,
             'viewPullRequestOptions' => \&json_model_4,
         );
-        %_jm_f_58_map = (
+        %_jm_f_51_map = (
             'amendToCommit' => \&json_model_4,
             'checkoutCommit' => \&json_model_4,
             'cherryPickCopy' => \&json_model_4,
@@ -2506,7 +2497,7 @@ sub check_model_init()
             'viewBisectOptions' => \&json_model_4,
             'viewResetOptions' => \&json_model_4,
         );
-        %_jm_f_59_map = (
+        %_jm_f_52_map = (
             'amendLastCommit' => \&json_model_4,
             'commitChanges' => \&json_model_4,
             'commitChangesWithEditor' => \&json_model_4,
@@ -2522,7 +2513,7 @@ sub check_model_init()
             'viewResetOptions' => \&json_model_4,
             'viewStashOptions' => \&json_model_4,
         );
-        %_jm_f_64_map = (
+        %_jm_f_57_map = (
             'confirm' => \&json_model_4,
             'copyToClipboard' => \&json_model_4,
             'createPatchOptionsMenu' => \&json_model_4,
@@ -2538,7 +2529,7 @@ sub check_model_init()
             'gotoBottom' => \&json_model_4,
             'gotoTop' => \&json_model_4,
             'increaseContextInDiffView' => \&json_model_4,
-            'jumpToBlock' => \&_jm_f_65,
+            'jumpToBlock' => \&_jm_f_58,
             'new' => \&json_model_4,
             'nextBlock' => \&json_model_4,
             'nextBlock-alt' => \&json_model_4,
@@ -2550,7 +2541,7 @@ sub check_model_init()
             'nextTab' => \&json_model_4,
             'openFile' => \&json_model_4,
             'openRecentRepos' => \&json_model_4,
-            'optionMenu' => \&_jm_f_66,
+            'optionMenu' => \&_jm_f_59,
             'optionMenu-alt1' => \&json_model_4,
             'prevBlock' => \&json_model_4,
             'prevBlock-alt' => \&json_model_4,
@@ -2583,16 +2574,16 @@ sub check_model_init()
             'toggleWhitespaceInDiffView' => \&json_model_4,
             'undo' => \&json_model_4,
         );
-        %_jm_f_55_map = (
-            'branches' => \&_jm_f_56,
-            'commitFiles' => \&_jm_f_57,
-            'commits' => \&_jm_f_58,
-            'files' => \&_jm_f_59,
-            'main' => \&_jm_f_60,
-            'stash' => \&_jm_f_61,
-            'status' => \&_jm_f_62,
-            'submodules' => \&_jm_f_63,
-            'universal' => \&_jm_f_64,
+        %_jm_f_48_map = (
+            'branches' => \&_jm_f_49,
+            'commitFiles' => \&_jm_f_50,
+            'commits' => \&_jm_f_51,
+            'files' => \&_jm_f_52,
+            'main' => \&_jm_f_53,
+            'stash' => \&_jm_f_54,
+            'status' => \&_jm_f_55,
+            'submodules' => \&_jm_f_56,
+            'universal' => \&_jm_f_57,
         );
         %_jm_cst_13 = (
             'prompt' => 1,
@@ -2612,15 +2603,6 @@ sub check_model_init()
             'helix' => 1,
             'xcode' => 1,
         );
-        %_jm_f_68_map = (
-            'copyToClipboardCmd' => \&_jm_f_69,
-            'edit' => \&_jm_f_70,
-            'editAtLine' => \&_jm_f_71,
-            'editAtLineAndWait' => \&_jm_f_72,
-            'editPreset' => \&_jm_f_73,
-            'open' => \&_jm_f_74,
-            'openLink' => \&_jm_f_75,
-        );
         %_jm_cst_15 = (
             'prompt' => 1,
             'background' => 1,
@@ -2629,17 +2611,17 @@ sub check_model_init()
         %json_model_1_map = (
             'confirmOnQuit' => \&_jm_f_0,
             'customCommands' => \&_jm_f_1,
-            'disableStartupPopups' => \&_jm_f_9,
-            'git' => \&_jm_f_10,
-            'gui' => \&_jm_f_26,
-            'keybinding' => \&_jm_f_55,
-            'notARepository' => \&_jm_f_67,
-            'os' => \&_jm_f_68,
-            'promptToReturnFromSubprocess' => \&_jm_f_76,
-            'quitOnTopLevelReturn' => \&_jm_f_77,
-            'refresher' => \&_jm_f_78,
-            'services' => \&_jm_f_79,
-            'update' => \&_jm_f_80,
+            'disableStartupPopups' => \&_jm_f_2,
+            'git' => \&_jm_f_3,
+            'gui' => \&_jm_f_19,
+            'keybinding' => \&_jm_f_48,
+            'notARepository' => \&_jm_f_60,
+            'os' => \&_jm_f_61,
+            'promptToReturnFromSubprocess' => \&_jm_f_62,
+            'quitOnTopLevelReturn' => \&_jm_f_63,
+            'refresher' => \&_jm_f_64,
+            'services' => \&_jm_f_65,
+            'update' => \&_jm_f_66,
         );
         %check_model_map = (
             '' => \&json_model_1,
@@ -2666,27 +2648,25 @@ sub check_model_free()
         %_jm_cst_2 = ();
         %_jm_map_0 = ();
         %_jm_cst_3 = ();
-        %_jm_obj_7_map = ();
         %_jm_cst_4 = ();
         %_jm_cst_5 = ();
         %_jm_cst_6 = ();
-        %_jm_f_10_map = ();
+        %_jm_f_3_map = ();
         %_jm_cst_7 = ();
         %_jm_cst_8 = ();
         %_jm_cst_9 = ();
         %_jm_cst_10 = ();
         %_jm_cst_11 = ();
-        %_jm_f_52_map = ();
+        %_jm_f_45_map = ();
         %_jm_cst_12 = ();
-        %_jm_f_26_map = ();
-        %_jm_f_56_map = ();
-        %_jm_f_58_map = ();
-        %_jm_f_59_map = ();
-        %_jm_f_64_map = ();
-        %_jm_f_55_map = ();
+        %_jm_f_19_map = ();
+        %_jm_f_49_map = ();
+        %_jm_f_51_map = ();
+        %_jm_f_52_map = ();
+        %_jm_f_57_map = ();
+        %_jm_f_48_map = ();
         %_jm_cst_13 = ();
         %_jm_cst_14 = ();
-        %_jm_f_68_map = ();
         %_jm_cst_15 = ();
         %json_model_1_map = ();
         %check_model_map = ();

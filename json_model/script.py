@@ -379,14 +379,19 @@ def jmc_script():
 
     # code generation settings
     # NOTE mostly a bad idea: it can trigger an large code size expansion
-    arg("--map-threshold", "-mt", default=5, type=int, help="property map threshold, default 5")
-    arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
+    arg("--map-threshold", "-mt", default=None, type=int,
+        help="property map vs unrolling threshold, target-dependent default, 0 to force map")
+    arg("--map-share", "-ms", default=False, action="store_true",
+        help="property map sharing")
+    arg("--no-map-share", "-nms", dest="map_share", action="store_false",
+        help="no property map sharing")
     arg("--may-must-open-ratio", "-mmor", default=0.5, type=float,
         help="mmo scheme if optional props under this ratio, default 0.5")
     arg("--may-must-open-threshold", "-mmot", default=5, type=int,
-        help="mmo scheme if number of optional props below threshold, default 5")
-    arg("--must-only-threshold", "-mot", default=5, type=int,
-        help="must-only scheme if number of mandatory props below threshold, default 5")
+        help="mmo scheme if number of optional props below threshold, target-dependent default")
+    arg("--must-only-threshold", "-mot", default=None, type=int,
+        help="must-only scheme if number of mandatory props below threshold,"
+              " target-dependent default, 0 to disable")
     arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
         help="optimize some string comparisons")
     arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
@@ -574,6 +579,45 @@ def jmc_script():
             log.warning("keeping float strictness as already set")
 
     with_main = args.gen == "exec" or args.gen == "source" and args.format == "java"
+
+    # TODO add option for smaller vs faster code?
+
+    # set default threshold for must-only scheme
+    MUST_ONLY_THRESHOLD: dict[str, int] = {
+        "c": 0,        # never good enough vs unroll
+        "js": 256,     # no cutoff?
+        "py": 256,     # no cutoff?
+        "pl": 128,     # ?
+        "java": 256,   # GSON
+        "plpgsql": 0,  # FIXME not tested
+    }
+    if args.must_only_threshold is None:
+        args.must_only_threshold = MUST_ONLY_THRESHOLD.get(args.format, 0)
+
+    # set default threshold for may-must-open scheme
+    MAY_MUST_OPEN_THRESHOLD: dict[str, int] = {
+        "c": 0,        # never good enough vs unroll, but faster than map
+        "js": 256,     # no cutoff? better than unroll and map
+        "py": 256,     # much better than unroll, slightly better than map
+        "pl": 256,     # idem py
+        "java": 128,   # better than map < 256
+        "plpgsql": 0,  # FIXME not tested
+    }
+    if args.may_must_open_threshold is None:
+        args.may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(args.format, 0)
+
+    # set default map threshold depending on target language
+    MAP_THRESHOLD: dict[str, int] = {
+        "c": 256,  # NOTE the actual cutoff is _very_ far, probably over 1000/1300
+        "js": 40,
+        "py": 10,
+        "pl": 8,
+        "java": 12,
+        "plpgsql": 8,  # FIXME not tested
+    }
+
+    if args.map_threshold is None:
+        args.map_threshold = MAP_THRESHOLD.get(args.format, 12)
 
     # debug
     log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)

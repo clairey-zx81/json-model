@@ -27,29 +27,25 @@ _jm_cst_1: set[str]
 _jm_cst_2: set[str]
 _jm_map_0: dict[str, str]
 _jm_cst_3: set[str]
-_jm_obj_7_map: PropMap
 _jm_re_1_reco: object
 _jm_re_1: RegexFun
 _jm_cst_4: set[str]
 _jm_cst_5: set[str]
 _jm_cst_6: set[str]
-_jm_f_10_map: PropMap
+_jm_f_3_map: PropMap
 _jm_cst_7: set[str]
 _jm_cst_8: set[str]
 _jm_cst_9: set[str]
 _jm_cst_10: set[str]
 _jm_cst_11: set[str]
-_jm_f_52_map: PropMap
 _jm_cst_12: set[str]
-_jm_f_26_map: PropMap
-_jm_f_56_map: PropMap
-_jm_f_58_map: PropMap
-_jm_f_59_map: PropMap
-_jm_f_64_map: PropMap
-_jm_f_55_map: PropMap
+_jm_f_19_map: PropMap
+_jm_obj_10_map: PropMap
+_jm_obj_12_map: PropMap
+_jm_obj_13_map: PropMap
+_jm_obj_14_map: PropMap
 _jm_cst_13: set[str]
 _jm_cst_14: set[str]
-_jm_f_68_map: PropMap
 _jm_re_2_reco: object
 _jm_re_2: RegexFun
 _jm_cst_15: set[str]
@@ -596,9 +592,8 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_obj_7_map_after (.customCommands.'@'.0.after)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .customCommands.'@'.0.after
+# object .customCommands.'@'.0.after
+def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.customCommands.'@'.0.after]", path))
         return False
@@ -618,70 +613,12 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_obj_7_map_description (.customCommands.'@'.0.description)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .customCommands.'@'.0.description
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.customCommands.'@'.0.description]", path))
-    return res
-
-# check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .customCommands.'@'.0.loadingText
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.customCommands.'@'.0.loadingText]", path))
-    return res
-
-# check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .customCommands.'@'.0.prompts
-    res: bool = isinstance(val, list)
-    if res:
-        for arr_4_idx, arr_4_item in enumerate(val):
-            arr_4_lpath: Path = (path + [ arr_4_idx ]) if path is not None else None
-            # .customCommands.'@'.0.prompts.0
-            res = json_model_10(arr_4_item, arr_4_lpath if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Prompts [.customCommands.'@'.0.prompts.0]", arr_4_lpath if path is not None else None))
-                break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.customCommands.'@'.0.prompts]", path))
-    return res
-
-# check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .customCommands.'@'.0.showOutput
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.customCommands.'@'.0.showOutput]", path))
-    return res
-
-# check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .customCommands.'@'.0.stream
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.customCommands.'@'.0.stream]", path))
-    return res
-
-# check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .customCommands.'@'.0.subprocess
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.customCommands.'@'.0.subprocess]", path))
-    return res
-
-
 # object .customCommands.'@'.0
 def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.customCommands.'@'.0]", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         lpath_5: Path = (path + [ prop ]) if path is not None else None
@@ -712,10 +649,69 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("value not in enum [.customCommands.'@'.0.context.'|']", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.customCommands.'@'.0.context]", lpath_5 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_7_map.get(prop):
-            # handle 7 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_5 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.customCommands.'@'.0]", lpath_5 if path is not None else None))
+        elif prop == "subprocess":
+            # handle may subprocess property
+            # .customCommands.'@'.0.subprocess
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.customCommands.'@'.0.subprocess]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.customCommands.'@'.0.subprocess]", lpath_5 if path is not None else None))
+                return False
+        elif prop == "prompts":
+            # handle may prompts property
+            # .customCommands.'@'.0.prompts
+            res = isinstance(pval, list)
+            if res:
+                for arr_4_idx, arr_4_item in enumerate(pval):
+                    arr_4_lpath: Path = ((lpath_5 if path is not None else None) + [ arr_4_idx ]) if (lpath_5 if path is not None else None) is not None else None
+                    # .customCommands.'@'.0.prompts.0
+                    res = json_model_10(arr_4_item, arr_4_lpath if (lpath_5 if path is not None else None) is not None else None, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $Prompts [.customCommands.'@'.0.prompts.0]", arr_4_lpath if (lpath_5 if path is not None else None) is not None else None))
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.customCommands.'@'.0.prompts]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.customCommands.'@'.0.prompts]", lpath_5 if path is not None else None))
+                return False
+        elif prop == "loadingText":
+            # handle may loadingText property
+            # .customCommands.'@'.0.loadingText
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.customCommands.'@'.0.loadingText]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.customCommands.'@'.0.loadingText]", lpath_5 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .customCommands.'@'.0.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.customCommands.'@'.0.description]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.customCommands.'@'.0.description]", lpath_5 if path is not None else None))
+                return False
+        elif prop == "stream":
+            # handle may stream property
+            # .customCommands.'@'.0.stream
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.customCommands.'@'.0.stream]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.customCommands.'@'.0.stream]", lpath_5 if path is not None else None))
+                return False
+        elif prop == "showOutput":
+            # handle may showOutput property
+            # .customCommands.'@'.0.showOutput
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.customCommands.'@'.0.showOutput]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.customCommands.'@'.0.showOutput]", lpath_5 if path is not None else None))
+                return False
+        elif prop == "after":
+            # handle may after property
+            # .customCommands.'@'.0.after
+            res = _jm_obj_8(pval, lpath_5 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.customCommands.'@'.0.after]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.customCommands.'@'.0.after]", lpath_5 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.customCommands.'@'.0]", lpath_5 if path is not None else None))
@@ -753,47 +749,47 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_1_map_disableStartupPopups (.disableStartupPopups)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .disableStartupPopups
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.disableStartupPopups]", path))
     return res
 
-# check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_allBranchesLogCmd (.git.allBranchesLogCmd)
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.allBranchesLogCmd
     res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.git.allBranchesLogCmd]", path))
     return res
 
-# check _jm_f_10_map_autoFetch (.git.autoFetch)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_autoFetch (.git.autoFetch)
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.autoFetch
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.autoFetch]", path))
     return res
 
-# check _jm_f_10_map_autoRefresh (.git.autoRefresh)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_autoRefresh (.git.autoRefresh)
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.autoRefresh
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.autoRefresh]", path))
     return res
 
-# check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_branchLogCmd (.git.branchLogCmd)
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.branchLogCmd
     res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.git.branchLogCmd]", path))
     return res
 
-# check _jm_f_10_map_commit (.git.commit)
-def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_commit (.git.commit)
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.commit
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git.commit]", path))
@@ -816,7 +812,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .git.commitPrefixes.'/./'
-def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git.commitPrefixes.'/./']", path))
@@ -849,8 +845,8 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
-def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_commitPrefixes (.git.commitPrefixes)
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.commitPrefixes
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git.commitPrefixes]", path))
@@ -861,7 +857,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
         if _jm_re_1(prop, path, rep):
             # handle 1 re props
             # .git.commitPrefixes.'/./'
-            res = _jm_obj_8(pval, lpath_9 if path is not None else None, rep)
+            res = _jm_obj_9(pval, lpath_9 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.git.commitPrefixes.'/./']", lpath_9 if path is not None else None))
                 return False
@@ -870,24 +866,24 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_10_map_diffContextSize (.git.diffContextSize)
-def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_diffContextSize (.git.diffContextSize)
+def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.diffContextSize
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.git.diffContextSize]", path))
     return res
 
-# check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
-def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_disableForcePushing (.git.disableForcePushing)
+def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.disableForcePushing
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.disableForcePushing]", path))
     return res
 
-# check _jm_f_10_map_fetchAll (.git.fetchAll)
-def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_fetchAll (.git.fetchAll)
+def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.fetchAll
     res: bool = isinstance(val, bool)
     if not res:
@@ -896,8 +892,8 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 
-# check _jm_f_10_map_log (.git.log)
-def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_log (.git.log)
+def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.log
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git.log]", path))
@@ -934,8 +930,8 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_10_map_merging (.git.merging)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_merging (.git.merging)
+def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.merging
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git.merging]", path))
@@ -964,8 +960,8 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_10_map_overrideGpg (.git.overrideGpg)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_overrideGpg (.git.overrideGpg)
+def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.overrideGpg
     res: bool = isinstance(val, bool)
     if not res:
@@ -973,8 +969,8 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_10_map_paging (.git.paging)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_paging (.git.paging)
+def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.paging
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git.paging]", path))
@@ -1018,16 +1014,16 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_10_map_parseEmoji (.git.parseEmoji)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_parseEmoji (.git.parseEmoji)
+def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.parseEmoji
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.git.parseEmoji]", path))
     return res
 
-# check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_3_map_skipHookPrefix (.git.skipHookPrefix)
+def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.skipHookPrefix
     res: bool = isinstance(val, str)
     if not res:
@@ -1036,7 +1032,7 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_git (.git)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git]", path))
@@ -1044,7 +1040,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_7: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_10_map.get(prop):
+        if pfun := _jm_f_3_map.get(prop):
             # handle 16 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_7 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.git]", lpath_7 if path is not None else None))
@@ -1054,16 +1050,16 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_animateExplosion (.gui.animateExplosion)
+def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.animateExplosion
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.animateExplosion]", path))
     return res
 
-# check _jm_f_26_map_authorColors (.gui.authorColors)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_authorColors (.gui.authorColors)
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.authorColors
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui.authorColors]", path))
@@ -1084,16 +1080,16 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 
-# check _jm_f_26_map_border (.gui.border)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_border (.gui.border)
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.border
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_7
     if not res:
         rep is None or rep.append(("value not in enum [.gui.border.'|']", path))
     return res
 
-# check _jm_f_26_map_branchColors (.gui.branchColors)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_branchColors (.gui.branchColors)
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.branchColors
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui.branchColors]", path))
@@ -1113,16 +1109,16 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_commandLogSize (.gui.commandLogSize)
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.commandLogSize
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.gui.commandLogSize]", path))
     return res
 
-# check _jm_f_26_map_commitLength (.gui.commitLength)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_commitLength (.gui.commitLength)
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.commitLength
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui.commitLength]", path))
@@ -1143,8 +1139,8 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.expandFocusedSidePanel
     res: bool = isinstance(val, bool)
     if not res:
@@ -1152,8 +1148,8 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_26_map_language (.gui.language)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_language (.gui.language)
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.language
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_8
     if not res:
@@ -1161,16 +1157,16 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.mainPanelSplitMode
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_9
     if not res:
         rep is None or rep.append(("value not in enum [.gui.mainPanelSplitMode.'|']", path))
     return res
 
-# check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_mouseEvents (.gui.mouseEvents)
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.mouseEvents
     res: bool = isinstance(val, bool)
     if not res:
@@ -1178,8 +1174,8 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_nerdFontsVersion (.gui.nerdFontsVersion)
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.nerdFontsVersion
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_10
     if not res:
@@ -1198,80 +1194,80 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.gui.nerdFontsVersion.'|']", path))
     return res
 
-# check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_scrollHeight (.gui.scrollHeight)
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.scrollHeight
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 1
     if not res:
         rep is None or rep.append(("not a 1 strict int [.gui.scrollHeight]", path))
     return res
 
-# check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_scrollPastBottom (.gui.scrollPastBottom)
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.scrollPastBottom
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.scrollPastBottom]", path))
     return res
 
-# check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_shortTimeFormat (.gui.shortTimeFormat)
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.shortTimeFormat
     res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.gui.shortTimeFormat]", path))
     return res
 
-# check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_showBottomLine (.gui.showBottomLine)
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.showBottomLine
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showBottomLine]", path))
     return res
 
-# check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_showBranchCommitHash (.gui.showBranchCommitHash)
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.showBranchCommitHash
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showBranchCommitHash]", path))
     return res
 
-# check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_showCommandLog (.gui.showCommandLog)
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.showCommandLog
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showCommandLog]", path))
     return res
 
-# check _jm_f_26_map_showFileTree (.gui.showFileTree)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_showFileTree (.gui.showFileTree)
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.showFileTree
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showFileTree]", path))
     return res
 
-# check _jm_f_26_map_showListFooter (.gui.showListFooter)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_showListFooter (.gui.showListFooter)
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.showListFooter
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showListFooter]", path))
     return res
 
-# check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_showRandomTip (.gui.showRandomTip)
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.showRandomTip
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.showRandomTip]", path))
     return res
 
-# check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_sidePanelWidth (.gui.sidePanelWidth)
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.sidePanelWidth
     # .gui.sidePanelWidth.'@'
     res: bool = isinstance(val, float) and val >= 0.0
@@ -1284,24 +1280,24 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.gui.sidePanelWidth]", path))
     return res
 
-# check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.skipDiscardChangeWarning
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.skipDiscardChangeWarning]", path))
     return res
 
-# check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.skipRewordInEditorWarning
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.gui.skipRewordInEditorWarning]", path))
     return res
 
-# check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_skipStashWarning (.gui.skipStashWarning)
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.skipStashWarning
     res: bool = isinstance(val, bool)
     if not res:
@@ -1309,36 +1305,110 @@ def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_26_map_splitDiff (.gui.splitDiff)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_splitDiff (.gui.splitDiff)
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.splitDiff
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_11
     if not res:
         rep is None or rep.append(("value not in enum [.gui.splitDiff.'|']", path))
     return res
 
-
-# check _jm_f_26_map_theme (.gui.theme)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_theme (.gui.theme)
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.theme
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui.theme]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         lpath_17: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_52_map.get(prop):
-            # handle 10 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_17 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.gui.theme]", lpath_17 if path is not None else None))
+        if prop == "activeBorderColor":
+            # handle may activeBorderColor property
+            # .gui.theme.activeBorderColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.activeBorderColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.activeBorderColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "inactiveBorderColor":
+            # handle may inactiveBorderColor property
+            # .gui.theme.inactiveBorderColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.inactiveBorderColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.inactiveBorderColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "searchingActiveBorderColor":
+            # handle may searchingActiveBorderColor property
+            # .gui.theme.searchingActiveBorderColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.searchingActiveBorderColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "optionsTextColor":
+            # handle may optionsTextColor property
+            # .gui.theme.optionsTextColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.optionsTextColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.optionsTextColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "selectedLineBgColor":
+            # handle may selectedLineBgColor property
+            # .gui.theme.selectedLineBgColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.selectedLineBgColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.selectedLineBgColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "selectedRangeBgColor":
+            # handle may selectedRangeBgColor property
+            # .gui.theme.selectedRangeBgColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.selectedRangeBgColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.selectedRangeBgColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "cherryPickedCommitBgColor":
+            # handle may cherryPickedCommitBgColor property
+            # .gui.theme.cherryPickedCommitBgColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "cherryPickedCommitFgColor":
+            # handle may cherryPickedCommitFgColor property
+            # .gui.theme.cherryPickedCommitFgColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "unstagedChangesColor":
+            # handle may unstagedChangesColor property
+            # .gui.theme.unstagedChangesColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.unstagedChangesColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.unstagedChangesColor]", lpath_17 if path is not None else None))
+                return False
+        elif prop == "defaultFgColor":
+            # handle may defaultFgColor property
+            # .gui.theme.defaultFgColor
+            res = json_model_3(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $colorArray [.gui.theme.defaultFgColor]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.gui.theme.defaultFgColor]", lpath_17 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.gui.theme]", lpath_17 if path is not None else None))
             return False
     return True
 
-# check _jm_f_26_map_timeFormat (.gui.timeFormat)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_timeFormat (.gui.timeFormat)
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.timeFormat
     res: bool = isinstance(val, str)
     if not res:
@@ -1346,8 +1416,8 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_26_map_windowSize (.gui.windowSize)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_19_map_windowSize (.gui.windowSize)
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.windowSize
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_12
     if not res:
@@ -1356,7 +1426,7 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_gui (.gui)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui]", path))
@@ -1364,7 +1434,7 @@ def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_13: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_26_map.get(prop):
+        if pfun := _jm_f_19_map.get(prop):
             # handle 28 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_13 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.gui]", lpath_13 if path is not None else None))
@@ -1374,137 +1444,129 @@ def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
+# check _jm_obj_10_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .keybinding.universal.jumpToBlock
+    res: bool = isinstance(val, list)
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.keybinding.universal.jumpToBlock]", path))
+    return res
 
-# check _jm_f_55_map_branches (.keybinding.branches)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.branches
+# check _jm_obj_10_map_optionMenu (.keybinding.universal.optionMenu)
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .keybinding.universal.optionMenu
+    res: bool = val is None
+    if not res:
+        rep is None or rep.append(("not null [.keybinding.universal.optionMenu]", path))
+    return res
+
+
+# object .keybinding.universal
+def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.keybinding.branches]", path))
+        rep is None or rep.append(("not an object [.keybinding.universal]", path))
         return False
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_19: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_56_map.get(prop):
-            # handle 13 may props
+        if pfun := _jm_obj_10_map.get(prop):
+            # handle 59 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_19 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.keybinding.branches]", lpath_19 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.universal]", lpath_19 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.keybinding.branches]", lpath_19 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.keybinding.universal]", lpath_19 if path is not None else None))
             return False
     return True
 
-# check _jm_f_55_map_commitFiles (.keybinding.commitFiles)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.commitFiles
+# object .keybinding.status
+def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.keybinding.commitFiles]", path))
+        rep is None or rep.append(("not an object [.keybinding.status]", path))
         return False
     res: bool
     for prop, pval in val.items():
         lpath_20: Path = (path + [ prop ]) if path is not None else None
-        if prop == "checkoutCommitFile":
-            # handle may checkoutCommitFile property
-            # .keybinding.commitFiles.checkoutCommitFile
+        if prop == "checkForUpdate":
+            # handle may checkForUpdate property
+            # .keybinding.status.checkForUpdate
             res = json_model_4(pval, lpath_20 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", lpath_20 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", lpath_20 if path is not None else None))
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.status.checkForUpdate]", lpath_20 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.status.checkForUpdate]", lpath_20 if path is not None else None))
+                return False
+        elif prop == "recentRepos":
+            # handle may recentRepos property
+            # .keybinding.status.recentRepos
+            res = json_model_4(pval, lpath_20 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.status.recentRepos]", lpath_20 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.status.recentRepos]", lpath_20 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.keybinding.commitFiles]", lpath_20 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.keybinding.status]", lpath_20 if path is not None else None))
             return False
     return True
 
 
-# check _jm_f_55_map_commits (.keybinding.commits)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.commits
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.keybinding.commits]", path))
-        return False
-    pfun: CheckFun
-    for prop, pval in val.items():
-        lpath_21: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_58_map.get(prop):
-            # handle 21 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_21 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.keybinding.commits]", lpath_21 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.keybinding.commits]", lpath_21 if path is not None else None))
-            return False
-    return True
-
-
-# check _jm_f_55_map_files (.keybinding.files)
-def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.files
+# object .keybinding.files
+def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.files]", path))
         return False
     pfun: CheckFun
     for prop, pval in val.items():
-        lpath_22: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_59_map.get(prop):
+        lpath_21: Path = (path + [ prop ]) if path is not None else None
+        if pfun := _jm_obj_12_map.get(prop):
             # handle 14 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_22 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.keybinding.files]", lpath_22 if path is not None else None))
+            if pfun != UNDEFINED and not pfun(pval, lpath_21 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.keybinding.files]", lpath_21 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.keybinding.files]", lpath_22 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.keybinding.files]", lpath_21 if path is not None else None))
             return False
     return True
 
-# check _jm_f_55_map_main (.keybinding.main)
-def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.main
+
+# object .keybinding.branches
+def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.keybinding.main]", path))
+        rep is None or rep.append(("not an object [.keybinding.branches]", path))
         return False
-    res: bool
+    pfun: CheckFun
+    for prop, pval in val.items():
+        lpath_22: Path = (path + [ prop ]) if path is not None else None
+        if pfun := _jm_obj_13_map.get(prop):
+            # handle 13 may props
+            if pfun != UNDEFINED and not pfun(pval, lpath_22 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.keybinding.branches]", lpath_22 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.keybinding.branches]", lpath_22 if path is not None else None))
+            return False
+    return True
+
+
+# object .keybinding.commits
+def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.keybinding.commits]", path))
+        return False
+    pfun: CheckFun
     for prop, pval in val.items():
         lpath_23: Path = (path + [ prop ]) if path is not None else None
-        if prop == "toggleDragSelect":
-            # handle may toggleDragSelect property
-            # .keybinding.main.toggleDragSelect
-            res = json_model_4(pval, lpath_23 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.main.toggleDragSelect]", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.main.toggleDragSelect]", lpath_23 if path is not None else None))
-                return False
-        elif prop == "toggleDragSelect-alt":
-            # handle may toggleDragSelect-alt property
-            # .keybinding.main.'toggleDragSelect-alt'
-            res = json_model_4(pval, lpath_23 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", lpath_23 if path is not None else None))
-                return False
-        elif prop == "toggleSelectHunk":
-            # handle may toggleSelectHunk property
-            # .keybinding.main.toggleSelectHunk
-            res = json_model_4(pval, lpath_23 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.main.toggleSelectHunk]", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.main.toggleSelectHunk]", lpath_23 if path is not None else None))
-                return False
-        elif prop == "pickBothHunks":
-            # handle may pickBothHunks property
-            # .keybinding.main.pickBothHunks
-            res = json_model_4(pval, lpath_23 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.main.pickBothHunks]", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.main.pickBothHunks]", lpath_23 if path is not None else None))
+        if pfun := _jm_obj_14_map.get(prop):
+            # handle 21 may props
+            if pfun != UNDEFINED and not pfun(pval, lpath_23 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.keybinding.commits]", lpath_23 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.keybinding.main]", lpath_23 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.keybinding.commits]", lpath_23 if path is not None else None))
             return False
     return True
 
-# check _jm_f_55_map_stash (.keybinding.stash)
-def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.stash
+# object .keybinding.stash
+def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.stash]", path))
         return False
@@ -1532,124 +1594,189 @@ def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_55_map_status (.keybinding.status)
-def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.status
+# object .keybinding.commitFiles
+def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.keybinding.status]", path))
+        rep is None or rep.append(("not an object [.keybinding.commitFiles]", path))
         return False
     res: bool
     for prop, pval in val.items():
         lpath_25: Path = (path + [ prop ]) if path is not None else None
-        if prop == "checkForUpdate":
-            # handle may checkForUpdate property
-            # .keybinding.status.checkForUpdate
+        if prop == "checkoutCommitFile":
+            # handle may checkoutCommitFile property
+            # .keybinding.commitFiles.checkoutCommitFile
             res = json_model_4(pval, lpath_25 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.status.checkForUpdate]", lpath_25 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.status.checkForUpdate]", lpath_25 if path is not None else None))
-                return False
-        elif prop == "recentRepos":
-            # handle may recentRepos property
-            # .keybinding.status.recentRepos
-            res = json_model_4(pval, lpath_25 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.status.recentRepos]", lpath_25 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.status.recentRepos]", lpath_25 if path is not None else None))
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", lpath_25 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", lpath_25 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.keybinding.status]", lpath_25 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.keybinding.commitFiles]", lpath_25 if path is not None else None))
             return False
     return True
 
-# check _jm_f_55_map_submodules (.keybinding.submodules)
-def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.submodules
+# object .keybinding.main
+def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.keybinding.main]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_26: Path = (path + [ prop ]) if path is not None else None
+        if prop == "toggleDragSelect":
+            # handle may toggleDragSelect property
+            # .keybinding.main.toggleDragSelect
+            res = json_model_4(pval, lpath_26 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.main.toggleDragSelect]", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.main.toggleDragSelect]", lpath_26 if path is not None else None))
+                return False
+        elif prop == "toggleDragSelect-alt":
+            # handle may toggleDragSelect-alt property
+            # .keybinding.main.'toggleDragSelect-alt'
+            res = json_model_4(pval, lpath_26 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", lpath_26 if path is not None else None))
+                return False
+        elif prop == "toggleSelectHunk":
+            # handle may toggleSelectHunk property
+            # .keybinding.main.toggleSelectHunk
+            res = json_model_4(pval, lpath_26 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.main.toggleSelectHunk]", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.main.toggleSelectHunk]", lpath_26 if path is not None else None))
+                return False
+        elif prop == "pickBothHunks":
+            # handle may pickBothHunks property
+            # .keybinding.main.pickBothHunks
+            res = json_model_4(pval, lpath_26 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.main.pickBothHunks]", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.main.pickBothHunks]", lpath_26 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.keybinding.main]", lpath_26 if path is not None else None))
+            return False
+    return True
+
+# object .keybinding.submodules
+def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.submodules]", path))
         return False
     res: bool
     for prop, pval in val.items():
-        lpath_26: Path = (path + [ prop ]) if path is not None else None
+        lpath_27: Path = (path + [ prop ]) if path is not None else None
         if prop == "init":
             # handle may init property
             # .keybinding.submodules.init
-            res = json_model_4(pval, lpath_26 if path is not None else None, rep)
+            res = json_model_4(pval, lpath_27 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.submodules.init]", lpath_26 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.submodules.init]", lpath_26 if path is not None else None))
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.submodules.init]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.submodules.init]", lpath_27 if path is not None else None))
                 return False
         elif prop == "update":
             # handle may update property
             # .keybinding.submodules.update
-            res = json_model_4(pval, lpath_26 if path is not None else None, rep)
+            res = json_model_4(pval, lpath_27 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.submodules.update]", lpath_26 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.submodules.update]", lpath_26 if path is not None else None))
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.submodules.update]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.submodules.update]", lpath_27 if path is not None else None))
                 return False
         elif prop == "bulkMenu":
             # handle may bulkMenu property
             # .keybinding.submodules.bulkMenu
-            res = json_model_4(pval, lpath_26 if path is not None else None, rep)
+            res = json_model_4(pval, lpath_27 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $keybinding [.keybinding.submodules.bulkMenu]", lpath_26 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.keybinding.submodules.bulkMenu]", lpath_26 if path is not None else None))
+                rep is None or rep.append(("unexpected $keybinding [.keybinding.submodules.bulkMenu]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.submodules.bulkMenu]", lpath_27 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.keybinding.submodules]", lpath_26 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.keybinding.submodules]", lpath_27 if path is not None else None))
             return False
     return True
-
-# check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
-def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.universal.jumpToBlock
-    res: bool = isinstance(val, list)
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.keybinding.universal.jumpToBlock]", path))
-    return res
-
-# check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
-def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.universal.optionMenu
-    res: bool = val is None
-    if not res:
-        rep is None or rep.append(("not null [.keybinding.universal.optionMenu]", path))
-    return res
-
-
-# check _jm_f_55_map_universal (.keybinding.universal)
-def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .keybinding.universal
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.keybinding.universal]", path))
-        return False
-    pfun: CheckFun
-    for prop, pval in val.items():
-        lpath_27: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_64_map.get(prop):
-            # handle 59 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_27 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.keybinding.universal]", lpath_27 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.keybinding.universal]", lpath_27 if path is not None else None))
-            return False
-    return True
-
 
 # check json_model_1_map_keybinding (.keybinding)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         lpath_18: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_55_map.get(prop):
-            # handle 9 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_18 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.keybinding]", lpath_18 if path is not None else None))
+        if prop == "universal":
+            # handle may universal property
+            # .keybinding.universal
+            res = _jm_obj_10(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.universal]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.universal]", lpath_18 if path is not None else None))
+                return False
+        elif prop == "status":
+            # handle may status property
+            # .keybinding.status
+            res = _jm_obj_11(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.status]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.status]", lpath_18 if path is not None else None))
+                return False
+        elif prop == "files":
+            # handle may files property
+            # .keybinding.files
+            res = _jm_obj_12(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.files]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.files]", lpath_18 if path is not None else None))
+                return False
+        elif prop == "branches":
+            # handle may branches property
+            # .keybinding.branches
+            res = _jm_obj_13(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.branches]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.branches]", lpath_18 if path is not None else None))
+                return False
+        elif prop == "commits":
+            # handle may commits property
+            # .keybinding.commits
+            res = _jm_obj_14(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.commits]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.commits]", lpath_18 if path is not None else None))
+                return False
+        elif prop == "stash":
+            # handle may stash property
+            # .keybinding.stash
+            res = _jm_obj_15(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.stash]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.stash]", lpath_18 if path is not None else None))
+                return False
+        elif prop == "commitFiles":
+            # handle may commitFiles property
+            # .keybinding.commitFiles
+            res = _jm_obj_16(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.commitFiles]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.commitFiles]", lpath_18 if path is not None else None))
+                return False
+        elif prop == "main":
+            # handle may main property
+            # .keybinding.main
+            res = _jm_obj_17(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.main]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.main]", lpath_18 if path is not None else None))
+                return False
+        elif prop == "submodules":
+            # handle may submodules property
+            # .keybinding.submodules
+            res = _jm_obj_18(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.keybinding.submodules]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.keybinding.submodules]", lpath_18 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.keybinding]", lpath_18 if path is not None else None))
@@ -1658,96 +1785,91 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_notARepository (.notARepository)
-def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     # .notARepository
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_13
     if not res:
         rep is None or rep.append(("value not in enum [.notARepository.'|']", path))
     return res
 
-# check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
-def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .os.copyToClipboardCmd
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.os.copyToClipboardCmd]", path))
-    return res
-
-# check _jm_f_68_map_edit (.os.edit)
-def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .os.edit
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.os.edit]", path))
-    return res
-
-# check _jm_f_68_map_editAtLine (.os.editAtLine)
-def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .os.editAtLine
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.os.editAtLine]", path))
-    return res
-
-# check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
-def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .os.editAtLineAndWait
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.os.editAtLineAndWait]", path))
-    return res
-
-
-# check _jm_f_68_map_editPreset (.os.editPreset)
-def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .os.editPreset
-    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_14
-    if not res:
-        rep is None or rep.append(("value not in enum [.os.editPreset.'|']", path))
-    if not res:
-        res = isinstance(val, str)
-        if not res:
-            rep is None or rep.append(("unexpected type [.os.editPreset.'|']", path))
-        if res:
-            # .os.editPreset.'|'.0
-            res = True
-            if res:
-                rep is None or rep.clear()
-            else:
-                rep is None or rep.append(("unexpected string [.os.editPreset.'|'.0]", path))
-                rep is None or rep.append(("no model matched [.os.editPreset.'|']", path))
-    return res
-
-# check _jm_f_68_map_open (.os.open)
-def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .os.open
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.os.open]", path))
-    return res
-
-# check _jm_f_68_map_openLink (.os.openLink)
-def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .os.openLink
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.os.openLink]", path))
-    return res
-
 
 # check json_model_1_map_os (.os)
-def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     # .os
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.os]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         lpath_28: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_68_map.get(prop):
-            # handle 7 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_28 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.os]", lpath_28 if path is not None else None))
+        if prop == "copyToClipboardCmd":
+            # handle may copyToClipboardCmd property
+            # .os.copyToClipboardCmd
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.os.copyToClipboardCmd]", lpath_28 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.os.copyToClipboardCmd]", lpath_28 if path is not None else None))
+                return False
+        elif prop == "editPreset":
+            # handle may editPreset property
+            # .os.editPreset
+            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_14
+            if not res:
+                rep is None or rep.append(("value not in enum [.os.editPreset.'|']", lpath_28 if path is not None else None))
+            if not res:
+                res = isinstance(pval, str)
+                if not res:
+                    rep is None or rep.append(("unexpected type [.os.editPreset.'|']", lpath_28 if path is not None else None))
+                if res:
+                    # .os.editPreset.'|'.0
+                    res = True
+                    if res:
+                        rep is None or rep.clear()
+                    else:
+                        rep is None or rep.append(("unexpected string [.os.editPreset.'|'.0]", lpath_28 if path is not None else None))
+                        rep is None or rep.append(("no model matched [.os.editPreset.'|']", lpath_28 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.os.editPreset]", lpath_28 if path is not None else None))
+                return False
+        elif prop == "edit":
+            # handle may edit property
+            # .os.edit
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.os.edit]", lpath_28 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.os.edit]", lpath_28 if path is not None else None))
+                return False
+        elif prop == "editAtLine":
+            # handle may editAtLine property
+            # .os.editAtLine
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.os.editAtLine]", lpath_28 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.os.editAtLine]", lpath_28 if path is not None else None))
+                return False
+        elif prop == "editAtLineAndWait":
+            # handle may editAtLineAndWait property
+            # .os.editAtLineAndWait
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.os.editAtLineAndWait]", lpath_28 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.os.editAtLineAndWait]", lpath_28 if path is not None else None))
+                return False
+        elif prop == "open":
+            # handle may open property
+            # .os.open
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.os.open]", lpath_28 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.os.open]", lpath_28 if path is not None else None))
+                return False
+        elif prop == "openLink":
+            # handle may openLink property
+            # .os.openLink
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.os.openLink]", lpath_28 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.os.openLink]", lpath_28 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.os]", lpath_28 if path is not None else None))
@@ -1755,7 +1877,7 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
-def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     # .promptToReturnFromSubprocess
     res: bool = isinstance(val, bool)
     if not res:
@@ -1763,7 +1885,7 @@ def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
-def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     # .quitOnTopLevelReturn
     res: bool = isinstance(val, bool)
     if not res:
@@ -1771,7 +1893,7 @@ def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_1_map_refresher (.refresher)
-def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     # .refresher
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.refresher]", path))
@@ -1802,7 +1924,7 @@ def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_services (.services)
-def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     # .services
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.services]", path))
@@ -1825,7 +1947,7 @@ def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_update (.update)
-def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     # .update
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.update]", path))
@@ -1902,16 +2024,6 @@ def check_model_init():
         }
         global _jm_cst_3
         _jm_cst_3 = {'commitFiles', 'commits', 'files', 'global', 'localBranches', 'reflogCommits', 'remoteBranches', 'remotes', 'stash', 'status', 'subCommits', 'tags', 'worktrees'}
-        global _jm_obj_7_map
-        _jm_obj_7_map = {
-            "after": _jm_f_2,
-            "description": _jm_f_3,
-            "loadingText": _jm_f_4,
-            "prompts": _jm_f_5,
-            "showOutput": _jm_f_6,
-            "stream": _jm_f_7,
-            "subprocess": _jm_f_8,
-        }
         global _jm_re_1_reco, _jm_re_1
         _jm_re_1_reco = re.compile(".")
         _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
@@ -1921,24 +2033,24 @@ def check_model_init():
         _jm_cst_5 = {'always', 'never', 'when-maximised'}
         global _jm_cst_6
         _jm_cst_6 = {'always', 'never'}
-        global _jm_f_10_map
-        _jm_f_10_map = {
-            "allBranchesLogCmd": _jm_f_11,
-            "autoFetch": _jm_f_12,
-            "autoRefresh": _jm_f_13,
-            "branchLogCmd": _jm_f_14,
-            "commit": _jm_f_15,
-            "commitPrefixes": _jm_f_16,
-            "diffContextSize": _jm_f_17,
-            "disableForcePushing": _jm_f_18,
-            "fetchAll": _jm_f_19,
-            "log": _jm_f_20,
+        global _jm_f_3_map
+        _jm_f_3_map = {
+            "allBranchesLogCmd": _jm_f_4,
+            "autoFetch": _jm_f_5,
+            "autoRefresh": _jm_f_6,
+            "branchLogCmd": _jm_f_7,
+            "commit": _jm_f_8,
+            "commitPrefixes": _jm_f_9,
+            "diffContextSize": _jm_f_10,
+            "disableForcePushing": _jm_f_11,
+            "fetchAll": _jm_f_12,
+            "log": _jm_f_13,
             "mainBranches": json_model_9,
-            "merging": _jm_f_21,
-            "overrideGpg": _jm_f_22,
-            "paging": _jm_f_23,
-            "parseEmoji": _jm_f_24,
-            "skipHookPrefix": _jm_f_25,
+            "merging": _jm_f_14,
+            "overrideGpg": _jm_f_15,
+            "paging": _jm_f_16,
+            "parseEmoji": _jm_f_17,
+            "skipHookPrefix": _jm_f_18,
         }
         global _jm_cst_7
         _jm_cst_7 = {'double', 'hidden', 'rounded', 'single'}
@@ -1950,111 +2062,41 @@ def check_model_init():
         _jm_cst_10 = {'2', '3'}
         global _jm_cst_11
         _jm_cst_11 = {'always', 'auto'}
-        global _jm_f_52_map
-        _jm_f_52_map = {
-            "activeBorderColor": json_model_3,
-            "cherryPickedCommitBgColor": json_model_3,
-            "cherryPickedCommitFgColor": json_model_3,
-            "defaultFgColor": json_model_3,
-            "inactiveBorderColor": json_model_3,
-            "optionsTextColor": json_model_3,
-            "searchingActiveBorderColor": json_model_3,
-            "selectedLineBgColor": json_model_3,
-            "selectedRangeBgColor": json_model_3,
-            "unstagedChangesColor": json_model_3,
-        }
         global _jm_cst_12
         _jm_cst_12 = {'full', 'half', 'normal'}
-        global _jm_f_26_map
-        _jm_f_26_map = {
-            "animateExplosion": _jm_f_27,
-            "authorColors": _jm_f_28,
-            "border": _jm_f_29,
-            "branchColors": _jm_f_30,
-            "commandLogSize": _jm_f_31,
-            "commitLength": _jm_f_32,
-            "expandFocusedSidePanel": _jm_f_33,
-            "language": _jm_f_34,
-            "mainPanelSplitMode": _jm_f_35,
-            "mouseEvents": _jm_f_36,
-            "nerdFontsVersion": _jm_f_37,
-            "scrollHeight": _jm_f_38,
-            "scrollPastBottom": _jm_f_39,
-            "shortTimeFormat": _jm_f_40,
-            "showBottomLine": _jm_f_41,
-            "showBranchCommitHash": _jm_f_42,
-            "showCommandLog": _jm_f_43,
-            "showFileTree": _jm_f_44,
-            "showListFooter": _jm_f_45,
-            "showRandomTip": _jm_f_46,
-            "sidePanelWidth": _jm_f_47,
-            "skipDiscardChangeWarning": _jm_f_48,
-            "skipRewordInEditorWarning": _jm_f_49,
-            "skipStashWarning": _jm_f_50,
-            "splitDiff": _jm_f_51,
-            "theme": _jm_f_52,
-            "timeFormat": _jm_f_53,
-            "windowSize": _jm_f_54,
+        global _jm_f_19_map
+        _jm_f_19_map = {
+            "animateExplosion": _jm_f_20,
+            "authorColors": _jm_f_21,
+            "border": _jm_f_22,
+            "branchColors": _jm_f_23,
+            "commandLogSize": _jm_f_24,
+            "commitLength": _jm_f_25,
+            "expandFocusedSidePanel": _jm_f_26,
+            "language": _jm_f_27,
+            "mainPanelSplitMode": _jm_f_28,
+            "mouseEvents": _jm_f_29,
+            "nerdFontsVersion": _jm_f_30,
+            "scrollHeight": _jm_f_31,
+            "scrollPastBottom": _jm_f_32,
+            "shortTimeFormat": _jm_f_33,
+            "showBottomLine": _jm_f_34,
+            "showBranchCommitHash": _jm_f_35,
+            "showCommandLog": _jm_f_36,
+            "showFileTree": _jm_f_37,
+            "showListFooter": _jm_f_38,
+            "showRandomTip": _jm_f_39,
+            "sidePanelWidth": _jm_f_40,
+            "skipDiscardChangeWarning": _jm_f_41,
+            "skipRewordInEditorWarning": _jm_f_42,
+            "skipStashWarning": _jm_f_43,
+            "splitDiff": _jm_f_44,
+            "theme": _jm_f_45,
+            "timeFormat": _jm_f_46,
+            "windowSize": _jm_f_47,
         }
-        global _jm_f_56_map
-        _jm_f_56_map = {
-            "checkoutBranchByName": json_model_4,
-            "createPullRequest": json_model_4,
-            "createTag": json_model_4,
-            "fastForward": json_model_4,
-            "fetchRemote": json_model_4,
-            "forceCheckoutBranch": json_model_4,
-            "mergeIntoCurrentBranch": json_model_4,
-            "pushTag": json_model_4,
-            "rebaseBranch": json_model_4,
-            "renameBranch": json_model_4,
-            "setUpstream": json_model_4,
-            "viewGitFlowOptions": json_model_4,
-            "viewPullRequestOptions": json_model_4,
-        }
-        global _jm_f_58_map
-        _jm_f_58_map = {
-            "amendToCommit": json_model_4,
-            "checkoutCommit": json_model_4,
-            "cherryPickCopy": json_model_4,
-            "cherryPickCopyRange": json_model_4,
-            "copyCommitMessageToClipboard": json_model_4,
-            "createFixupCommit": json_model_4,
-            "markCommitAsFixup": json_model_4,
-            "moveDownCommit": json_model_4,
-            "moveUpCommit": json_model_4,
-            "openLogMenu": json_model_4,
-            "pasteCommits": json_model_4,
-            "pickCommit": json_model_4,
-            "renameCommit": json_model_4,
-            "renameCommitWithEditor": json_model_4,
-            "resetCherryPick": json_model_4,
-            "revertCommit": json_model_4,
-            "squashAboveCommits": json_model_4,
-            "squashDown": json_model_4,
-            "tagCommit": json_model_4,
-            "viewBisectOptions": json_model_4,
-            "viewResetOptions": json_model_4,
-        }
-        global _jm_f_59_map
-        _jm_f_59_map = {
-            "amendLastCommit": json_model_4,
-            "commitChanges": json_model_4,
-            "commitChangesWithEditor": json_model_4,
-            "commitChangesWithoutHook": json_model_4,
-            "fetch": json_model_4,
-            "ignoreFile": json_model_4,
-            "openMergeTool": json_model_4,
-            "openStatusFilter": json_model_4,
-            "refreshFiles": json_model_4,
-            "stashAllChanges": json_model_4,
-            "toggleStagedAll": json_model_4,
-            "toggleTreeView": json_model_4,
-            "viewResetOptions": json_model_4,
-            "viewStashOptions": json_model_4,
-        }
-        global _jm_f_64_map
-        _jm_f_64_map = {
+        global _jm_obj_10_map
+        _jm_obj_10_map = {
             "confirm": json_model_4,
             "copyToClipboard": json_model_4,
             "createPatchOptionsMenu": json_model_4,
@@ -2070,7 +2112,7 @@ def check_model_init():
             "gotoBottom": json_model_4,
             "gotoTop": json_model_4,
             "increaseContextInDiffView": json_model_4,
-            "jumpToBlock": _jm_f_65,
+            "jumpToBlock": _jm_f_49,
             "new": json_model_4,
             "nextBlock": json_model_4,
             "nextBlock-alt": json_model_4,
@@ -2082,7 +2124,7 @@ def check_model_init():
             "nextTab": json_model_4,
             "openFile": json_model_4,
             "openRecentRepos": json_model_4,
-            "optionMenu": _jm_f_66,
+            "optionMenu": _jm_f_50,
             "optionMenu-alt1": json_model_4,
             "prevBlock": json_model_4,
             "prevBlock-alt": json_model_4,
@@ -2115,32 +2157,67 @@ def check_model_init():
             "toggleWhitespaceInDiffView": json_model_4,
             "undo": json_model_4,
         }
-        global _jm_f_55_map
-        _jm_f_55_map = {
-            "branches": _jm_f_56,
-            "commitFiles": _jm_f_57,
-            "commits": _jm_f_58,
-            "files": _jm_f_59,
-            "main": _jm_f_60,
-            "stash": _jm_f_61,
-            "status": _jm_f_62,
-            "submodules": _jm_f_63,
-            "universal": _jm_f_64,
+        global _jm_obj_12_map
+        _jm_obj_12_map = {
+            "amendLastCommit": json_model_4,
+            "commitChanges": json_model_4,
+            "commitChangesWithEditor": json_model_4,
+            "commitChangesWithoutHook": json_model_4,
+            "fetch": json_model_4,
+            "ignoreFile": json_model_4,
+            "openMergeTool": json_model_4,
+            "openStatusFilter": json_model_4,
+            "refreshFiles": json_model_4,
+            "stashAllChanges": json_model_4,
+            "toggleStagedAll": json_model_4,
+            "toggleTreeView": json_model_4,
+            "viewResetOptions": json_model_4,
+            "viewStashOptions": json_model_4,
+        }
+        global _jm_obj_13_map
+        _jm_obj_13_map = {
+            "checkoutBranchByName": json_model_4,
+            "createPullRequest": json_model_4,
+            "createTag": json_model_4,
+            "fastForward": json_model_4,
+            "fetchRemote": json_model_4,
+            "forceCheckoutBranch": json_model_4,
+            "mergeIntoCurrentBranch": json_model_4,
+            "pushTag": json_model_4,
+            "rebaseBranch": json_model_4,
+            "renameBranch": json_model_4,
+            "setUpstream": json_model_4,
+            "viewGitFlowOptions": json_model_4,
+            "viewPullRequestOptions": json_model_4,
+        }
+        global _jm_obj_14_map
+        _jm_obj_14_map = {
+            "amendToCommit": json_model_4,
+            "checkoutCommit": json_model_4,
+            "cherryPickCopy": json_model_4,
+            "cherryPickCopyRange": json_model_4,
+            "copyCommitMessageToClipboard": json_model_4,
+            "createFixupCommit": json_model_4,
+            "markCommitAsFixup": json_model_4,
+            "moveDownCommit": json_model_4,
+            "moveUpCommit": json_model_4,
+            "openLogMenu": json_model_4,
+            "pasteCommits": json_model_4,
+            "pickCommit": json_model_4,
+            "renameCommit": json_model_4,
+            "renameCommitWithEditor": json_model_4,
+            "resetCherryPick": json_model_4,
+            "revertCommit": json_model_4,
+            "squashAboveCommits": json_model_4,
+            "squashDown": json_model_4,
+            "tagCommit": json_model_4,
+            "viewBisectOptions": json_model_4,
+            "viewResetOptions": json_model_4,
         }
         global _jm_cst_13
         _jm_cst_13 = {'create', 'prompt', 'quit', 'skip'}
         global _jm_cst_14
         _jm_cst_14 = {'bbedit', 'emacs', 'helix', 'kakoune', 'nano', 'nvim', 'sublime', 'vim', 'vscode', 'xcode'}
-        global _jm_f_68_map
-        _jm_f_68_map = {
-            "copyToClipboardCmd": _jm_f_69,
-            "edit": _jm_f_70,
-            "editAtLine": _jm_f_71,
-            "editAtLineAndWait": _jm_f_72,
-            "editPreset": _jm_f_73,
-            "open": _jm_f_74,
-            "openLink": _jm_f_75,
-        }
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = re.compile("^[^:]+:[^:]+$")
         _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
@@ -2150,17 +2227,17 @@ def check_model_init():
         json_model_1_map = {
             "confirmOnQuit": _jm_f_0,
             "customCommands": _jm_f_1,
-            "disableStartupPopups": _jm_f_9,
-            "git": _jm_f_10,
-            "gui": _jm_f_26,
-            "keybinding": _jm_f_55,
-            "notARepository": _jm_f_67,
-            "os": _jm_f_68,
-            "promptToReturnFromSubprocess": _jm_f_76,
-            "quitOnTopLevelReturn": _jm_f_77,
-            "refresher": _jm_f_78,
-            "services": _jm_f_79,
-            "update": _jm_f_80,
+            "disableStartupPopups": _jm_f_2,
+            "git": _jm_f_3,
+            "gui": _jm_f_19,
+            "keybinding": _jm_f_48,
+            "notARepository": _jm_f_51,
+            "os": _jm_f_52,
+            "promptToReturnFromSubprocess": _jm_f_53,
+            "quitOnTopLevelReturn": _jm_f_54,
+            "refresher": _jm_f_55,
+            "services": _jm_f_56,
+            "update": _jm_f_57,
         }
         global check_model_map
         check_model_map = {

@@ -83,15 +83,11 @@ public class ansiblelint_meta extends ModelChecker
     Set<Object> _jm_cst_63_set;
     public Pattern _jm_re_0_pat = null;
     public Pattern _jm_re_1_pat = null;
-    Map<String, Checker> json_model_51_map_pmap;
-    Map<String, Checker> json_model_52_map_pmap;
-    Map<String, Checker> json_model_53_map_pmap;
     Map<String, Checker> _jm_obj_47_map_pmap;
     Map<String, Checker> _jm_obj_48_map_pmap;
     Map<Object, Checker> _jm_map_0_cmap;
     public Pattern _jm_re_2_pat = null;
     Set<Object> _jm_cst_64_set;
-    Map<String, Checker> json_model_57_map_pmap;
     public Map<String, Checker> ansiblelint_meta_map_pmap;
 
 
@@ -6886,103 +6882,15 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check json_model_51_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
-    public boolean _jm_f_0(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelCollection'.cloud_platforms
-        return true;
-    }
-
-    // check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
-    public boolean _jm_f_1(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelCollection'.galaxy_tags
-        boolean res = json.isArray(val);
-        if (res)
-        {
-            int arr_95_idx = -1;
-            Iterator<Object> arr_95_item_loop = json.arrayIterator(val);
-            while (arr_95_item_loop.hasNext())
-            {
-                arr_95_idx++;
-                Object arr_95_item = arr_95_item_loop.next();
-                Path arr_95_lpath = new Path(arr_95_idx, path);
-                // .'$GalaxyInfoModelCollection'.galaxy_tags.0
-                res = json.isString(arr_95_item);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", (path != null ? arr_95_lpath : null));
-                    break;
-                }
-            }
-        }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", path);
-        }
-        return res;
-    }
-
-    // check json_model_51_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
-    public boolean _jm_f_2(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelCollection'.min_ansible_version
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", path);
-        }
-        return res;
-    }
-
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
-    }
-
-    // check json_model_51_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
-    public boolean _jm_f_3(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelCollection'.namespace
-        // "/^[a-z][-a-z0-9_]+$/"
-        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", path);
-        }
-        return res;
     }
 
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
-
-    // check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
-    public boolean _jm_f_4(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelCollection'.role_name
-        // "/^[a-z][a-z0-9_]+$/"
-        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", path);
-        }
-        return res;
-    }
-
-    // check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelCollection'.video_links
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", path);
-        }
-        return res;
-    }
-
 
     // check $GalaxyInfoModelCollection (.'$GalaxyInfoModelCollection')
     public boolean json_model_51(Object val, Path path, Report rep)
@@ -6993,19 +6901,108 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$GalaxyInfoModelCollection']", path);
             return false;
         }
-        Checker pfun;
+        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_47 = new Path(prop, path);
-            if ((pfun = json_model_51_map_pmap.get(prop)) != null)
+            if (prop.compareTo("cloud_platforms") == 0)
             {
-                // handle 7 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_47 : null), rep)))
+                // handle may cloud_platforms property
+                // .'$GalaxyInfoModelCollection'.cloud_platforms
+                res = true;
+            }
+            else if (prop.compareTo("galaxy_tags") == 0)
+            {
+                // handle may galaxy_tags property
+                // .'$GalaxyInfoModelCollection'.galaxy_tags
+                res = json.isArray(pval);
+                if (res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection']", (path != null ? lpath_47 : null));
+                    int arr_95_idx = -1;
+                    Iterator<Object> arr_95_item_loop = json.arrayIterator(pval);
+                    while (arr_95_item_loop.hasNext())
+                    {
+                        arr_95_idx++;
+                        Object arr_95_item = arr_95_item_loop.next();
+                        Path arr_95_lpath = new Path(arr_95_idx, (path != null ? lpath_47 : null));
+                        // .'$GalaxyInfoModelCollection'.galaxy_tags.0
+                        res = json.isString(arr_95_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path != null ? lpath_47 : null) != null ? arr_95_lpath : null));
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("min_ansible_version") == 0)
+            {
+                // handle may min_ansible_version property
+                // .'$GalaxyInfoModelCollection'.min_ansible_version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("namespace") == 0)
+            {
+                // handle may namespace property
+                // .'$GalaxyInfoModelCollection'.namespace
+                // "/^[a-z][-a-z0-9_]+$/"
+                res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_47 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("platforms") == 0)
+            {
+                // handle may platforms property
+                // .'$GalaxyInfoModelCollection'.platforms
+                res = json_model_50(pval, (path != null ? lpath_47 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("role_name") == 0)
+            {
+                // handle may role_name property
+                // .'$GalaxyInfoModelCollection'.role_name
+                // "/^[a-z][a-z0-9_]+$/"
+                res = json.isString(pval) && _jm_re_1(json.asString(pval), (path != null ? lpath_47 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("video_links") == 0)
+            {
+                // handle may video_links property
+                // .'$GalaxyInfoModelCollection'.video_links
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", (path != null ? lpath_47 : null));
                     return false;
                 }
             }
@@ -7018,79 +7015,6 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
-    public boolean _jm_f_6(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelLoose'.author
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.author]", path);
-        }
-        return res;
-    }
-
-    // check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
-    public boolean _jm_f_7(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelLoose'.company
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.company]", path);
-        }
-        return res;
-    }
-
-    // check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
-    public boolean _jm_f_8(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelLoose'.github_branch
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", path);
-        }
-        return res;
-    }
-
-    // check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelLoose'.issue_tracker_url
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", path);
-        }
-        return res;
-    }
-
-    // check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
-    public boolean _jm_f_10(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelLoose'.license
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.license]", path);
-        }
-        return res;
-    }
-
-    // check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
-    public boolean _jm_f_11(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelLoose'.min_ansible_container_version
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", path);
-        }
-        return res;
-    }
-
-
     // check $GalaxyInfoModelLoose (.'$GalaxyInfoModelLoose')
     public boolean json_model_52(Object val, Path path, Report rep)
     {
@@ -7102,7 +7026,6 @@ public class ansiblelint_meta extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -7123,12 +7046,75 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_52_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("author") == 0)
             {
-                // handle 6 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_48 : null), rep)))
+                // handle may author property
+                // .'$GalaxyInfoModelLoose'.author
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose']", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.author]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", (path != null ? lpath_48 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("company") == 0)
+            {
+                // handle may company property
+                // .'$GalaxyInfoModelLoose'.company
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.company]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", (path != null ? lpath_48 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("github_branch") == 0)
+            {
+                // handle may github_branch property
+                // .'$GalaxyInfoModelLoose'.github_branch
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", (path != null ? lpath_48 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("issue_tracker_url") == 0)
+            {
+                // handle may issue_tracker_url property
+                // .'$GalaxyInfoModelLoose'.issue_tracker_url
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path != null ? lpath_48 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("license") == 0)
+            {
+                // handle may license property
+                // .'$GalaxyInfoModelLoose'.license
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("min_ansible_container_version") == 0)
+            {
+                // handle may min_ansible_container_version property
+                // .'$GalaxyInfoModelLoose'.min_ansible_container_version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path != null ? lpath_48 : null));
                     return false;
                 }
             }
@@ -7152,130 +7138,6 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
-    public boolean _jm_f_12(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.cloud_platforms
-        return true;
-    }
-
-    // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
-    public boolean _jm_f_13(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.company
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.company]", path);
-        }
-        return res;
-    }
-
-    // check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
-    public boolean _jm_f_14(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.galaxy_tags
-        boolean res = json.isArray(val);
-        if (res)
-        {
-            int arr_96_idx = -1;
-            Iterator<Object> arr_96_item_loop = json.arrayIterator(val);
-            while (arr_96_item_loop.hasNext())
-            {
-                arr_96_idx++;
-                Object arr_96_item = arr_96_item_loop.next();
-                Path arr_96_lpath = new Path(arr_96_idx, path);
-                // .'$GalaxyInfoModelStandalone'.galaxy_tags.0
-                res = json.isString(arr_96_item);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", (path != null ? arr_96_lpath : null));
-                    break;
-                }
-            }
-        }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", path);
-        }
-        return res;
-    }
-
-    // check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
-    public boolean _jm_f_15(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.github_branch
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", path);
-        }
-        return res;
-    }
-
-    // check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
-    public boolean _jm_f_16(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.issue_tracker_url
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", path);
-        }
-        return res;
-    }
-
-    // check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
-    public boolean _jm_f_17(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", path);
-        }
-        return res;
-    }
-
-    // check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
-    public boolean _jm_f_18(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.namespace
-        // "/^[a-z][-a-z0-9_]+$/"
-        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", path);
-        }
-        return res;
-    }
-
-    // check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
-    public boolean _jm_f_19(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.role_name
-        // "/^[a-z][a-z0-9_]+$/"
-        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", path);
-        }
-        return res;
-    }
-
-    // check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
-    public boolean _jm_f_20(Object val, Path path, Report rep)
-    {
-        // .'$GalaxyInfoModelStandalone'.video_links
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", path);
-        }
-        return res;
-    }
-
-
     // check $GalaxyInfoModelStandalone (.'$GalaxyInfoModelStandalone')
     public boolean json_model_53(Object val, Path path, Report rep)
     {
@@ -7286,7 +7148,6 @@ public class ansiblelint_meta extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -7359,12 +7220,137 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_53_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("company") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_49 : null), rep)))
+                // handle may company property
+                // .'$GalaxyInfoModelStandalone'.company
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone']", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.company]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("github_branch") == 0)
+            {
+                // handle may github_branch property
+                // .'$GalaxyInfoModelStandalone'.github_branch
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("issue_tracker_url") == 0)
+            {
+                // handle may issue_tracker_url property
+                // .'$GalaxyInfoModelStandalone'.issue_tracker_url
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("min_ansible_container_version") == 0)
+            {
+                // handle may min_ansible_container_version property
+                // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("cloud_platforms") == 0)
+            {
+                // handle may cloud_platforms property
+                // .'$GalaxyInfoModelStandalone'.cloud_platforms
+                res = true;
+            }
+            else if (prop.compareTo("galaxy_tags") == 0)
+            {
+                // handle may galaxy_tags property
+                // .'$GalaxyInfoModelStandalone'.galaxy_tags
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_96_idx = -1;
+                    Iterator<Object> arr_96_item_loop = json.arrayIterator(pval);
+                    while (arr_96_item_loop.hasNext())
+                    {
+                        arr_96_idx++;
+                        Object arr_96_item = arr_96_item_loop.next();
+                        Path arr_96_lpath = new Path(arr_96_idx, (path != null ? lpath_49 : null));
+                        // .'$GalaxyInfoModelStandalone'.galaxy_tags.0
+                        res = json.isString(arr_96_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path != null ? lpath_49 : null) != null ? arr_96_lpath : null));
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("namespace") == 0)
+            {
+                // handle may namespace property
+                // .'$GalaxyInfoModelStandalone'.namespace
+                // "/^[a-z][-a-z0-9_]+$/"
+                res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_49 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.namespace]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("platforms") == 0)
+            {
+                // handle may platforms property
+                // .'$GalaxyInfoModelStandalone'.platforms
+                res = json_model_50(pval, (path != null ? lpath_49 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.platforms]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("role_name") == 0)
+            {
+                // handle may role_name property
+                // .'$GalaxyInfoModelStandalone'.role_name
+                // "/^[a-z][a-z0-9_]+$/"
+                res = json.isString(pval) && _jm_re_1(json.asString(pval), (path != null ? lpath_49 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.role_name]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("video_links") == 0)
+            {
+                // handle may video_links property
+                // .'$GalaxyInfoModelStandalone'.video_links
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.video_links]", (path != null ? lpath_49 : null));
                     return false;
                 }
             }
@@ -7405,7 +7391,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-    public boolean _jm_f_21(Object val, Path path, Report rep)
+    public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.author
         boolean res = json.isString(val);
@@ -7417,14 +7403,14 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-    public boolean _jm_f_22(Object val, Path path, Report rep)
+    public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
         return true;
     }
 
     // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-    public boolean _jm_f_23(Object val, Path path, Report rep)
+    public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.company
         boolean res = json.isString(val);
@@ -7436,7 +7422,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-    public boolean _jm_f_24(Object val, Path path, Report rep)
+    public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
         boolean res = json.isArray(val);
@@ -7466,7 +7452,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-    public boolean _jm_f_25(Object val, Path path, Report rep)
+    public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.github_branch
         boolean res = json.isString(val);
@@ -7478,7 +7464,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-    public boolean _jm_f_26(Object val, Path path, Report rep)
+    public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
         boolean res = json.isString(val);
@@ -7490,7 +7476,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-    public boolean _jm_f_27(Object val, Path path, Report rep)
+    public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.license
         boolean res = json.isString(val);
@@ -7502,7 +7488,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-    public boolean _jm_f_28(Object val, Path path, Report rep)
+    public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
         boolean res = json.isString(val);
@@ -7514,7 +7500,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-    public boolean _jm_f_29(Object val, Path path, Report rep)
+    public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
         boolean res = json.isString(val);
@@ -7526,7 +7512,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-    public boolean _jm_f_30(Object val, Path path, Report rep)
+    public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.namespace
         // "/^[a-z][-a-z0-9_]+$/"
@@ -7539,7 +7525,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-    public boolean _jm_f_31(Object val, Path path, Report rep)
+    public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.role_name
         // "/^[a-z][a-z0-9_]+$/"
@@ -7552,7 +7538,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-    public boolean _jm_f_32(Object val, Path path, Report rep)
+    public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.1.video_links
         boolean res = json.isArray(val);
@@ -7641,7 +7627,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
-    public boolean _jm_f_33(Object val, Path path, Report rep)
+    public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.author
         boolean res = json.isString(val);
@@ -7653,14 +7639,14 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-    public boolean _jm_f_34(Object val, Path path, Report rep)
+    public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
         return true;
     }
 
     // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-    public boolean _jm_f_35(Object val, Path path, Report rep)
+    public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.company
         boolean res = json.isString(val);
@@ -7672,7 +7658,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-    public boolean _jm_f_36(Object val, Path path, Report rep)
+    public boolean _jm_f_15(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
         boolean res = json.isArray(val);
@@ -7702,7 +7688,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-    public boolean _jm_f_37(Object val, Path path, Report rep)
+    public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.github_branch
         boolean res = json.isString(val);
@@ -7714,7 +7700,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-    public boolean _jm_f_38(Object val, Path path, Report rep)
+    public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
         boolean res = json.isString(val);
@@ -7726,7 +7712,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-    public boolean _jm_f_39(Object val, Path path, Report rep)
+    public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.license
         boolean res = json.isString(val);
@@ -7738,7 +7724,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-    public boolean _jm_f_40(Object val, Path path, Report rep)
+    public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
         boolean res = json.isString(val);
@@ -7750,7 +7736,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-    public boolean _jm_f_41(Object val, Path path, Report rep)
+    public boolean _jm_f_20(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
         boolean res = json.isString(val);
@@ -7762,7 +7748,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-    public boolean _jm_f_42(Object val, Path path, Report rep)
+    public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.namespace
         // "/^[a-z][-a-z0-9_]+$/"
@@ -7775,7 +7761,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-    public boolean _jm_f_43(Object val, Path path, Report rep)
+    public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.role_name
         // "/^[a-z][a-z0-9_]+$/"
@@ -7788,7 +7774,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-    public boolean _jm_f_44(Object val, Path path, Report rep)
+    public boolean _jm_f_23(Object val, Path path, Report rep)
     {
         // .'$GalaxyInfoModel'.'|'.2.video_links
         boolean res = json.isArray(val);
@@ -7999,119 +7985,10 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check json_model_57_map_become (.'$DependencyModelLoose'.become)
-    public boolean _jm_f_45(Object val, Path path, Report rep)
-    {
-        // .'$DependencyModelLoose'.become
-        boolean res = json.isBoolean(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", path);
-        }
-        return res;
-    }
 
-    // check json_model_57_map_name (.'$DependencyModelLoose'.name)
-    public boolean _jm_f_46(Object val, Path path, Report rep)
+    // object .'$DependencyModelLoose'.vars
+    public boolean _jm_obj_49(Object val, Path path, Report rep)
     {
-        // .'$DependencyModelLoose'.name
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", path);
-        }
-        return res;
-    }
-
-    // check json_model_57_map_role (.'$DependencyModelLoose'.role)
-    public boolean _jm_f_47(Object val, Path path, Report rep)
-    {
-        // .'$DependencyModelLoose'.role
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", path);
-        }
-        return res;
-    }
-
-
-    // check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
-    public boolean _jm_f_48(Object val, Path path, Report rep)
-    {
-        // .'$DependencyModelLoose'.scm
-        boolean res = json.isScalar(val) && _jm_cst_64_set.contains(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", path);
-        }
-        return res;
-    }
-
-    // check json_model_57_map_src (.'$DependencyModelLoose'.src)
-    public boolean _jm_f_49(Object val, Path path, Report rep)
-    {
-        // .'$DependencyModelLoose'.src
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", path);
-        }
-        return res;
-    }
-
-    // check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
-    public boolean _jm_f_50(Object val, Path path, Report rep)
-    {
-        // .'$DependencyModelLoose'.tags
-        // .'$DependencyModelLoose'.tags.'|'.0
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // .'$DependencyModelLoose'.tags.'|'.1
-            res = json.isArray(val);
-            if (res)
-            {
-                int arr_101_idx = -1;
-                Iterator<Object> arr_101_item_loop = json.arrayIterator(val);
-                while (arr_101_item_loop.hasNext())
-                {
-                    arr_101_idx++;
-                    Object arr_101_item = arr_101_item_loop.next();
-                    Path arr_101_lpath = new Path(arr_101_idx, path);
-                    // .'$DependencyModelLoose'.tags.'|'.1.0
-                    res = json.isString(arr_101_item);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", (path != null ? arr_101_lpath : null));
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", path);
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", path);
-        }
-        return res;
-    }
-
-    // check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
-    public boolean _jm_f_51(Object val, Path path, Report rep)
-    {
-        // .'$DependencyModelLoose'.vars
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose'.vars]", path);
@@ -8120,19 +7997,6 @@ public class ansiblelint_meta extends ModelChecker
         // accept any object
         return true;
     }
-
-    // check json_model_57_map_version (.'$DependencyModelLoose'.version)
-    public boolean _jm_f_52(Object val, Path path, Report rep)
-    {
-        // .'$DependencyModelLoose'.version
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", path);
-        }
-        return res;
-    }
-
 
     // check $DependencyModelLoose (.'$DependencyModelLoose')
     public boolean json_model_57(Object val, Path path, Report rep)
@@ -8146,19 +8010,154 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose']", path);
             return false;
         }
-        Checker pfun;
+        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_52 = new Path(prop, path);
-            if ((pfun = json_model_57_map_pmap.get(prop)) != null)
+            if (prop.compareTo("become") == 0)
             {
-                // handle 9 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_52 : null), rep)))
+                // handle may become property
+                // .'$DependencyModelLoose'.become
+                res = json.isBoolean(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose']", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.become]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$DependencyModelLoose'.name
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.name]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("role") == 0)
+            {
+                // handle may role property
+                // .'$DependencyModelLoose'.role
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("src") == 0)
+            {
+                // handle may src property
+                // .'$DependencyModelLoose'.src
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("scm") == 0)
+            {
+                // handle may scm property
+                // .'$DependencyModelLoose'.scm
+                res = json.isScalar(pval) && _jm_cst_64_set.contains(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.scm]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("tags") == 0)
+            {
+                // handle may tags property
+                // .'$DependencyModelLoose'.tags
+                // .'$DependencyModelLoose'.tags.'|'.0
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path != null ? lpath_52 : null));
+                }
+                if (! res)
+                {
+                    // .'$DependencyModelLoose'.tags.'|'.1
+                    res = json.isArray(pval);
+                    if (res)
+                    {
+                        int arr_101_idx = -1;
+                        Iterator<Object> arr_101_item_loop = json.arrayIterator(pval);
+                        while (arr_101_item_loop.hasNext())
+                        {
+                            arr_101_idx++;
+                            Object arr_101_item = arr_101_item_loop.next();
+                            Path arr_101_lpath = new Path(arr_101_idx, (path != null ? lpath_52 : null));
+                            // .'$DependencyModelLoose'.tags.'|'.1.0
+                            res = json.isString(arr_101_item);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path != null ? lpath_52 : null) != null ? arr_101_lpath : null));
+                                break;
+                            }
+                        }
+                    }
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path != null ? lpath_52 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.tags]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("vars") == 0)
+            {
+                // handle may vars property
+                // .'$DependencyModelLoose'.vars
+                res = _jm_obj_49(pval, (path != null ? lpath_52 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.vars]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("version") == 0)
+            {
+                // handle may version property
+                // .'$DependencyModelLoose'.version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("when") == 0)
+            {
+                // handle may when property
+                // .'$DependencyModelLoose'.when
+                res = json_model_56(pval, (path != null ? lpath_52 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
                     return false;
                 }
             }
@@ -8171,7 +8170,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$DependencyModel'.'&'.1.'|'.2
-    public boolean _jm_obj_49(Object val, Path path, Report rep)
+    public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -8200,7 +8199,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$DependencyModel'.'&'.1.'|'.1
-    public boolean _jm_obj_50(Object val, Path path, Report rep)
+    public boolean _jm_obj_51(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -8229,7 +8228,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$DependencyModel'.'&'.1.'|'.0
-    public boolean _jm_obj_51(Object val, Path path, Report rep)
+    public boolean _jm_obj_52(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -8282,7 +8281,7 @@ public class ansiblelint_meta extends ModelChecker
                 if (res)
                 {
                     // .'$DependencyModel'.'&'.1.'|'.0
-                    res = _jm_obj_51(val, path, rep);
+                    res = _jm_obj_52(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path);
@@ -8290,7 +8289,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         // .'$DependencyModel'.'&'.1.'|'.1
-                        res = _jm_obj_50(val, path, rep);
+                        res = _jm_obj_51(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path);
@@ -8298,7 +8297,7 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             // .'$DependencyModel'.'&'.1.'|'.2
-                            res = _jm_obj_49(val, path, rep);
+                            res = _jm_obj_50(val, path, rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path);
@@ -9255,60 +9254,34 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_63_set.add(json.safeJSON("\"all\""));
             _jm_re_0_pat = Pattern.compile("^[a-z][-a-z0-9_]+$");
             _jm_re_1_pat = Pattern.compile("^[a-z][a-z0-9_]+$");
-            json_model_51_map_pmap = new HashMap<String, Checker>();
-            json_model_51_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            json_model_51_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            json_model_51_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            json_model_51_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            json_model_51_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
-            json_model_51_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            json_model_51_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            json_model_52_map_pmap = new HashMap<String, Checker>();
-            json_model_52_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            json_model_52_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            json_model_52_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            json_model_52_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            json_model_52_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            json_model_52_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            json_model_53_map_pmap = new HashMap<String, Checker>();
-            json_model_53_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            json_model_53_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            json_model_53_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            json_model_53_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            json_model_53_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            json_model_53_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            json_model_53_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            json_model_53_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
-            json_model_53_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            json_model_53_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
             _jm_obj_47_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_47_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            _jm_obj_47_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            _jm_obj_47_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            _jm_obj_47_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            _jm_obj_47_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
-            _jm_obj_47_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
-            _jm_obj_47_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
-            _jm_obj_47_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            _jm_obj_47_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
-            _jm_obj_47_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
+            _jm_obj_47_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
+            _jm_obj_47_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
+            _jm_obj_47_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            _jm_obj_47_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            _jm_obj_47_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            _jm_obj_47_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            _jm_obj_47_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            _jm_obj_47_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            _jm_obj_47_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            _jm_obj_47_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
             _jm_obj_47_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
-            _jm_obj_47_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
-            _jm_obj_47_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
+            _jm_obj_47_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            _jm_obj_47_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
             _jm_obj_48_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_48_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
-            _jm_obj_48_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
-            _jm_obj_48_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
-            _jm_obj_48_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            _jm_obj_48_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
-            _jm_obj_48_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
-            _jm_obj_48_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
-            _jm_obj_48_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
-            _jm_obj_48_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
-            _jm_obj_48_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
+            _jm_obj_48_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            _jm_obj_48_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
+            _jm_obj_48_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            _jm_obj_48_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            _jm_obj_48_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            _jm_obj_48_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
+            _jm_obj_48_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
+            _jm_obj_48_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            _jm_obj_48_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
+            _jm_obj_48_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
             _jm_obj_48_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
-            _jm_obj_48_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            _jm_obj_48_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
+            _jm_obj_48_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            _jm_obj_48_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
             _jm_map_0_cmap = new HashMap<Object, Checker>();
             _jm_map_0_cmap.put(json.safeJSON("true"), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_53(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("false"), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_47(o, p, r);} });
@@ -9316,16 +9289,6 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_64_set = new HashSet<Object>();
             _jm_cst_64_set.add(json.safeJSON("\"hg\""));
             _jm_cst_64_set.add(json.safeJSON("\"git\""));
-            json_model_57_map_pmap = new HashMap<String, Checker>();
-            json_model_57_map_pmap.put("become", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
-            json_model_57_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            json_model_57_map_pmap.put("role", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            json_model_57_map_pmap.put("scm", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
-            json_model_57_map_pmap.put("src", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
-            json_model_57_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
-            json_model_57_map_pmap.put("vars", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
-            json_model_57_map_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
-            json_model_57_map_pmap.put("when", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_56(o, p, r);} });
             ansiblelint_meta_map_pmap = new HashMap<String, Checker>();
             ansiblelint_meta_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_60(o, p, r);} });
             ansiblelint_meta_map_pmap.put("AIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -9466,15 +9429,11 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_63_set = null;
             _jm_re_0_pat = null;
             _jm_re_1_pat = null;
-            json_model_51_map_pmap = null;
-            json_model_52_map_pmap = null;
-            json_model_53_map_pmap = null;
             _jm_obj_47_map_pmap = null;
             _jm_obj_48_map_pmap = null;
             _jm_map_0_cmap = null;
             _jm_re_2_pat = null;
             _jm_cst_64_set = null;
-            json_model_57_map_pmap = null;
             ansiblelint_meta_map_pmap = null;
         }
     }

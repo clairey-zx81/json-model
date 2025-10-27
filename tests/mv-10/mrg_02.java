@@ -17,7 +17,6 @@ public class mrg_02 extends ModelChecker
 {
     static public final String VERSION = "2";
 
-    Map<String, Checker> json_model_1_mup_pmap;
     public Map<String, Checker> mrg_02_map_pmap;
 
     // check $t (.'$t')
@@ -158,144 +157,106 @@ public class mrg_02 extends ModelChecker
         return true;
     }
 
-    // check json_model_1_mup_a (.a)
-    public boolean _jm_f_0(Object val, Path path, Report rep)
-    {
-        // .a
-        boolean res = json.isString(val) && json.asString(val).compareTo("cst_01") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.a]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_mup_b (.b)
-    public boolean _jm_f_1(Object val, Path path, Report rep)
-    {
-        // .b
-        boolean res = json.isString(val) && json.asString(val).compareTo("cst_01") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.b]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_mup_c (.c)
-    public boolean _jm_f_2(Object val, Path path, Report rep)
-    {
-        // .c
-        boolean res = json.isString(val) && json.asString(val).compareTo("cst_01") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.c]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_mup_d (.d)
-    public boolean _jm_f_3(Object val, Path path, Report rep)
-    {
-        // .d
-        boolean res = json.isString(val) && json.asString(val).compareTo("cst_01") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.d]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_mup_e (.e)
-    public boolean _jm_f_4(Object val, Path path, Report rep)
-    {
-        // .e
-        boolean res = json.isString(val) && json.asString(val).compareTo("cst_02") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _cst_02 [.e]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_mup_f (.f)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
-    {
-        // .f
-        boolean res = json.isString(val) && json.asString(val).compareTo("cst_02") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _cst_02 [.f]", path);
-        }
-        return res;
-    }
-
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
             return false;
         }
-        Checker pfun;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 6)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_0 = new Path(prop, path);
-            if ((pfun = json_model_1_mup_pmap.get(prop)) != null)
-            {
-                // handle 6 mandatory props
-                if (pfun != null)
-                {
-                    must_count += 1;
-                    if (! (pfun.call(pval, (path != null ? lpath_0 : null), rep)))
-                    {
-                        if (rep != null) rep.addEntry("invalid mandatory prop value [.]", (path != null ? lpath_0 : null));
-                        return false;
-                    }
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.]", path);
+            return false;
         }
-        if (must_count != 6)
+        Path lpath;
+        Object pval;
+        boolean res;
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "a"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <a> [.]", path);
-                }
-                if (! json.objectHasProp(val, "b"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <b> [.]", path);
-                }
-                if (! json.objectHasProp(val, "c"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <c> [.]", path);
-                }
-                if (! json.objectHasProp(val, "d"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <d> [.]", path);
-                }
-                if (! json.objectHasProp(val, "e"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <e> [.]", path);
-                }
-                if (! json.objectHasProp(val, "f"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <f> [.]", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <a> [.]", path);
+            return false;
+        }
+        lpath = new Path("a", path);
+        // .a
+        res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected _cst_01 [.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.]", (path != null ? lpath : null));
+            return false;
+        }
+        if (! ((pval = json.objectValue(val, "b")) != null))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <b> [.]", path);
+            return false;
+        }
+        lpath = new Path("b", path);
+        // .b
+        res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected _cst_01 [.b]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.]", (path != null ? lpath : null));
+            return false;
+        }
+        if (! ((pval = json.objectValue(val, "e")) != null))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <e> [.]", path);
+            return false;
+        }
+        lpath = new Path("e", path);
+        // .e
+        res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected _cst_02 [.e]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <e> [.]", (path != null ? lpath : null));
+            return false;
+        }
+        if (! ((pval = json.objectValue(val, "f")) != null))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <f> [.]", path);
+            return false;
+        }
+        lpath = new Path("f", path);
+        // .f
+        res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected _cst_02 [.f]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <f> [.]", (path != null ? lpath : null));
+            return false;
+        }
+        if (! ((pval = json.objectValue(val, "c")) != null))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <c> [.]", path);
+            return false;
+        }
+        lpath = new Path("c", path);
+        // .c
+        res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected _cst_01 [.c]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.]", (path != null ? lpath : null));
+            return false;
+        }
+        if (! ((pval = json.objectValue(val, "d")) != null))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <d> [.]", path);
+            return false;
+        }
+        lpath = new Path("d", path);
+        // .d
+        res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected _cst_01 [.d]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <d> [.]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -307,13 +268,6 @@ public class mrg_02 extends ModelChecker
         if (!initialized)
         {
             try {
-            json_model_1_mup_pmap = new HashMap<String, Checker>();
-            json_model_1_mup_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            json_model_1_mup_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            json_model_1_mup_pmap.put("c", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            json_model_1_mup_pmap.put("d", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            json_model_1_mup_pmap.put("e", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            json_model_1_mup_pmap.put("f", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
             mrg_02_map_pmap = new HashMap<String, Checker>();
             mrg_02_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             mrg_02_map_pmap.put("t", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -332,7 +286,6 @@ public class mrg_02 extends ModelChecker
         if (initialized)
         {
             super.free();
-            json_model_1_mup_pmap = null;
             mrg_02_map_pmap = null;
         }
     }

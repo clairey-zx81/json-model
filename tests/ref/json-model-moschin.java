@@ -30,7 +30,6 @@ public class json_model_moschin extends ModelChecker
     public Pattern _jm_re_6_pat = null;
     public Pattern _jm_re_7_pat = null;
     public Pattern _jm_re_8_pat = null;
-    Map<String, Checker> _jm_obj_42_map_pmap;
     public Pattern _jm_re_9_pat = null;
     public Pattern _jm_re_10_pat = null;
     public Pattern _jm_re_11_pat = null;
@@ -3216,32 +3215,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_42_map_! (.'$Model#Root'.'|'.0.'!')
-    public boolean _jm_f_0(Object val, Path path, Report rep)
-    {
-        // .'$Model#Root'.'|'.0.'!'
-        boolean res = json.isBoolean(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a bool [.'$Model#Root'.'|'.0.'!']", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_42_map_# (.'$Model#Root'.'|'.0.'#')
-    public boolean _jm_f_1(Object val, Path path, Report rep)
-    {
-        // .'$Model#Root'.'|'.0.'#'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Model#Root'.'|'.0.'#']", path);
-        }
-        return res;
-    }
-
     // object .'$Model#Root'.'|'.0.'$'.'.schema'
-    public boolean _jm_obj_43(Object val, Path path, Report rep)
+    public boolean _jm_obj_44(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3252,10 +3227,9 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_42_map_$ (.'$Model#Root'.'|'.0.'$')
-    public boolean _jm_f_2(Object val, Path path, Report rep)
+    // object .'$Model#Root'.'|'.0.'$'
+    public boolean _jm_obj_43(Object val, Path path, Report rep)
     {
-        // .'$Model#Root'.'|'.0.'$'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.0.'$']", path);
@@ -3284,7 +3258,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.0.'$'.'.schema'
-                res = _jm_obj_43(pval, (path != null ? lpath_22 : null), rep);
+                res = _jm_obj_44(pval, (path != null ? lpath_22 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'$'.'.schema']", (path != null ? lpath_22 : null));
@@ -3331,7 +3305,7 @@ public class json_model_moschin extends ModelChecker
     }
 
     // object .'$Model#Root'.'|'.0.'%'.'.schema'
-    public boolean _jm_obj_44(Object val, Path path, Report rep)
+    public boolean _jm_obj_46(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3342,10 +3316,9 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_42_map_% (.'$Model#Root'.'|'.0.'%')
-    public boolean _jm_f_3(Object val, Path path, Report rep)
+    // object .'$Model#Root'.'|'.0.'%'
+    public boolean _jm_obj_45(Object val, Path path, Report rep)
     {
-        // .'$Model#Root'.'|'.0.'%'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.0.'%']", path);
@@ -3374,7 +3347,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.0.'%'.'.schema'
-                res = _jm_obj_44(pval, (path != null ? lpath_23 : null), rep);
+                res = _jm_obj_46(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'%'.'.schema']", (path != null ? lpath_23 : null));
@@ -3468,22 +3441,9 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_42_map_.mo (.'$Model#Root'.'|'.0.'.mo')
-    public boolean _jm_f_4(Object val, Path path, Report rep)
+    // object .'$Model#Root'.'|'.0.'.schema'
+    public boolean _jm_obj_47(Object val, Path path, Report rep)
     {
-        // .'$Model#Root'.'|'.0.'.mo'
-        boolean res = json.isInteger(val) && json.asLong(val) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
-    public boolean _jm_f_5(Object val, Path path, Report rep)
-    {
-        // .'$Model#Root'.'|'.0.'.schema'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.0.'.schema']", path);
@@ -3492,7 +3452,6 @@ public class json_model_moschin extends ModelChecker
         // accept any object
         return true;
     }
-
 
     // object .'$Model#Root'.'|'.0
     public boolean _jm_obj_42(Object val, Path path, Report rep)
@@ -3503,7 +3462,6 @@ public class json_model_moschin extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -3524,12 +3482,99 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_42_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("~") == 0)
             {
-                // handle 8 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_21 : null), rep)))
+                // handle may ~ property
+                // .'$Model#Root'.'|'.0.'~'
+                res = json_model_4(pval, (path != null ? lpath_21 : null), rep);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0]", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("unexpected $Url [.'$Model#Root'.'|'.0.'~']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'~']", (path != null ? lpath_21 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$") == 0)
+            {
+                // handle may $ property
+                // .'$Model#Root'.'|'.0.'$'
+                res = _jm_obj_43(pval, (path != null ? lpath_21 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'$']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'$']", (path != null ? lpath_21 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("%") == 0)
+            {
+                // handle may % property
+                // .'$Model#Root'.'|'.0.'%'
+                res = _jm_obj_45(pval, (path != null ? lpath_21 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'%']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'%']", (path != null ? lpath_21 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("#") == 0)
+            {
+                // handle may # property
+                // .'$Model#Root'.'|'.0.'#'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Model#Root'.'|'.0.'#']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'#']", (path != null ? lpath_21 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo(".schema") == 0)
+            {
+                // handle may .schema property
+                // .'$Model#Root'.'|'.0.'.schema'
+                res = _jm_obj_47(pval, (path != null ? lpath_21 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'.schema']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.schema']", (path != null ? lpath_21 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("!") == 0)
+            {
+                // handle may ! property
+                // .'$Model#Root'.'|'.0.'!'
+                res = json.isBoolean(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a bool [.'$Model#Root'.'|'.0.'!']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'!']", (path != null ? lpath_21 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo(".mo") == 0)
+            {
+                // handle may .mo property
+                // .'$Model#Root'.'|'.0.'.mo'
+                res = json.isInteger(pval) && json.asLong(pval) >= 1;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_21 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo(".in") == 0)
+            {
+                // handle may .in property
+                // .'$Model#Root'.'|'.0.'.in'
+                res = json_model_35(pval, (path != null ? lpath_21 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.0.'.in']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.in']", (path != null ? lpath_21 : null));
                     return false;
                 }
             }
@@ -3720,7 +3765,7 @@ public class json_model_moschin extends ModelChecker
     }
 
     // object .'$Model#Transformation'.'|'.1.'.schema'
-    public boolean _jm_obj_46(Object val, Path path, Report rep)
+    public boolean _jm_obj_49(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3732,7 +3777,7 @@ public class json_model_moschin extends ModelChecker
     }
 
     // object .'$Model#Transformation'.'|'.1.'~'
-    public boolean _jm_obj_47(Object val, Path path, Report rep)
+    public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3759,7 +3804,7 @@ public class json_model_moschin extends ModelChecker
     }
 
     // object .'$Model#Transformation'.'|'.1
-    public boolean _jm_obj_45(Object val, Path path, Report rep)
+    public boolean _jm_obj_48(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3789,7 +3834,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Transformation'.'|'.1.'.schema'
-                res = _jm_obj_46(pval, (path != null ? lpath_24 : null), rep);
+                res = _jm_obj_49(pval, (path != null ? lpath_24 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1.'.schema']", (path != null ? lpath_24 : null));
@@ -3831,7 +3876,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may ~ property
                 // .'$Model#Transformation'.'|'.1.'~'
-                res = _jm_obj_47(pval, (path != null ? lpath_24 : null), rep);
+                res = _jm_obj_50(pval, (path != null ? lpath_24 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1.'~']", (path != null ? lpath_24 : null));
@@ -3873,7 +3918,7 @@ public class json_model_moschin extends ModelChecker
         if (! res)
         {
             // .'$Model#Transformation'.'|'.1
-            res = _jm_obj_45(val, path, rep);
+            res = _jm_obj_48(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1]", path);
@@ -3946,15 +3991,6 @@ public class json_model_moschin extends ModelChecker
             _jm_re_6_pat = Pattern.compile("^\\..+$");
             _jm_re_7_pat = Pattern.compile("^([#|&^+/*@~=$%]|[<>!]=?)$");
             _jm_re_8_pat = Pattern.compile("^\\$.*$");
-            _jm_obj_42_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_42_map_pmap.put("!", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            _jm_obj_42_map_pmap.put("#", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            _jm_obj_42_map_pmap.put("$", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            _jm_obj_42_map_pmap.put("%", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            _jm_obj_42_map_pmap.put(".in", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_35(o, p, r);} });
-            _jm_obj_42_map_pmap.put(".mo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            _jm_obj_42_map_pmap.put(".schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            _jm_obj_42_map_pmap.put("~", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             _jm_re_9_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
             _jm_re_10_pat = Pattern.compile("[^A-Z0-9]");
             _jm_re_11_pat = Pattern.compile("^\\w(\\w|-)*$");
@@ -3987,7 +4023,6 @@ public class json_model_moschin extends ModelChecker
             _jm_re_6_pat = null;
             _jm_re_7_pat = null;
             _jm_re_8_pat = null;
-            _jm_obj_42_map_pmap = null;
             _jm_re_9_pat = null;
             _jm_re_10_pat = null;
             _jm_re_11_pat = null;

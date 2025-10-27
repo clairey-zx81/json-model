@@ -440,36 +440,42 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_1_idx INT8;
   arr_1_item JSONB;
 BEGIN
   -- .'$Or'
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? '|' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> '|';
-  -- .'$Or'.'|'
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_1_item := pval -> arr_1_idx;
-      -- .'$Or'.'|'.0
-      res := json_model_18(arr_1_item, NULL, NULL);
-      IF NOT res THEN
-        EXIT;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = '|' THEN
+      -- handle must | property
+      must_count := must_count + 1;
+      -- .'$Or'.'|'
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_1_item := pval -> arr_1_idx;
+          -- .'$Or'.'|'.0
+          res := json_model_18(arr_1_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
       END IF;
-    END LOOP;
-  END IF;
-  RETURN res;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -477,36 +483,42 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_2_idx INT8;
   arr_2_item JSONB;
 BEGIN
   -- .'$And'
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? '&' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> '&';
-  -- .'$And'.'&'
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_2_item := pval -> arr_2_idx;
-      -- .'$And'.'&'.0
-      res := json_model_18(arr_2_item, NULL, NULL);
-      IF NOT res THEN
-        EXIT;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = '&' THEN
+      -- handle must & property
+      must_count := must_count + 1;
+      -- .'$And'.'&'
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_2_item := pval -> arr_2_idx;
+          -- .'$And'.'&'.0
+          res := json_model_18(arr_2_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
       END IF;
-    END LOOP;
-  END IF;
-  RETURN res;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -514,36 +526,42 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_3_idx INT8;
   arr_3_item JSONB;
 BEGIN
   -- .'$Xor'
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? '^' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> '^';
-  -- .'$Xor'.'^'
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_3_item := pval -> arr_3_idx;
-      -- .'$Xor'.'^'.0
-      res := json_model_18(arr_3_item, NULL, NULL);
-      IF NOT res THEN
-        EXIT;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = '^' THEN
+      -- handle must ^ property
+      must_count := must_count + 1;
+      -- .'$Xor'.'^'
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_3_item := pval -> arr_3_idx;
+          -- .'$Xor'.'^'.0
+          res := json_model_18(arr_3_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
       END IF;
-    END LOOP;
-  END IF;
-  RETURN res;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -551,36 +569,42 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_4_idx INT8;
   arr_4_item JSONB;
 BEGIN
   -- .'$Add'
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? '+' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> '+';
-  -- .'$Add'.'+'
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_4_item := pval -> arr_4_idx;
-      -- .'$Add'.'+'.0
-      res := json_model_18(arr_4_item, NULL, NULL);
-      IF NOT res THEN
-        EXIT;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = '+' THEN
+      -- handle must + property
+      must_count := must_count + 1;
+      -- .'$Add'.'+'
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_4_item := pval -> arr_4_idx;
+          -- .'$Add'.'+'.0
+          res := json_model_18(arr_4_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
       END IF;
-    END LOOP;
-  END IF;
-  RETURN res;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 

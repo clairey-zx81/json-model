@@ -23,32 +23,46 @@ const size_t check_model_map_size = 4;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$a'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$a']", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 1))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.'$a']", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'$a']", path);
-        return false;
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_2(prop, 0x00000074)))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$a'.t
+            res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected a [.'$a'.t]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$a'.t]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$a']", (path ? &lpath_0 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "t", 0, path, NULL };
-    // .'$a'.t
-    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
-    if (unlikely(! res))
+    if (unlikely(must_count != 1))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected a [.'$a'.t]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'$a']", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'$a']", path);
+            }
+        }
         return false;
     }
     return true;
@@ -59,32 +73,46 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$bc'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$bc']", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 1))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.'$bc']", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'$bc']", path);
-        return false;
+        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_2(prop, 0x00000074)))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$bc'.t
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "value not in enum [.'$bc'.t.'|']", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$bc'.t]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$bc']", (path ? &lpath_1 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "t", 0, path, NULL };
-    // .'$bc'.t
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);
-    if (unlikely(! res))
+    if (unlikely(must_count != 1))
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [.'$bc'.t.'|']", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'$bc']", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'$bc']", path);
+            }
+        }
         return false;
     }
     return true;
@@ -94,76 +122,90 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Nabc'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Nabc']", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 1))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.'$Nabc']", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'$Nabc']", path);
-        return false;
-    }
-    lpath = (jm_path_t) { "t", 0, path, NULL };
-    // .'$Nabc'.t
-    // generic xor list
-    int64_t xc_0 = 0;
-    // .'$Nabc'.t.'^'.0
-    bool xr_0 = json_is_string(pval);
-    if (unlikely(xr_0))
-        xc_0 += 1;
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Nabc'.t.'^'.0]", (path ? &lpath : NULL));
-    }
-    // .'$Nabc'.t.'^'.1
-    xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
-    if (unlikely(xr_0))
-        xc_0 += 1;
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _a [.'$Nabc'.t.'^'.1]", (path ? &lpath : NULL));
-    }
-    if (xc_0 <= 1)
-    {
-        // .'$Nabc'.t.'^'.2
-        xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000062);
-        if (unlikely(xr_0))
-            xc_0 += 1;
+        jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_2(prop, 0x00000074)))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$Nabc'.t
+            // generic xor list
+            int64_t xc_0 = 0;
+            // .'$Nabc'.t.'^'.0
+            bool xr_0 = json_is_string(pval);
+            if (unlikely(xr_0))
+                xc_0 += 1;
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Nabc'.t.'^'.0]", (path ? &lpath_2 : NULL));
+            }
+            // .'$Nabc'.t.'^'.1
+            xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
+            if (unlikely(xr_0))
+                xc_0 += 1;
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected _a [.'$Nabc'.t.'^'.1]", (path ? &lpath_2 : NULL));
+            }
+            if (xc_0 <= 1)
+            {
+                // .'$Nabc'.t.'^'.2
+                xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000062);
+                if (unlikely(xr_0))
+                    xc_0 += 1;
+                else
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected _b [.'$Nabc'.t.'^'.2]", (path ? &lpath_2 : NULL));
+                }
+            }
+            if (xc_0 <= 1)
+            {
+                // .'$Nabc'.t.'^'.3
+                xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000063);
+                if (unlikely(xr_0))
+                    xc_0 += 1;
+                else
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected _c [.'$Nabc'.t.'^'.3]", (path ? &lpath_2 : NULL));
+                }
+            }
+            res = xc_0 == 1;
+            if (likely(res))
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "not one model match [.'$Nabc'.t.'^']", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Nabc'.t]", (path ? &lpath_2 : NULL));
+                return false;
+            }
+        }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected _b [.'$Nabc'.t.'^'.2]", (path ? &lpath : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Nabc']", (path ? &lpath_2 : NULL));
+            return false;
         }
     }
-    if (xc_0 <= 1)
+    if (unlikely(must_count != 1))
     {
-        // .'$Nabc'.t.'^'.3
-        xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000063);
-        if (unlikely(xr_0))
-            xc_0 += 1;
-        else
+        if (likely(rep != NULL))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected _c [.'$Nabc'.t.'^'.3]", (path ? &lpath : NULL));
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'$Nabc']", path);
+            }
         }
-    }
-    res = xc_0 == 1;
-    if (likely(res))
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "not one model match [.'$Nabc'.t.'^']", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'$Nabc']", (path ? &lpath : NULL));
         return false;
     }
     return true;

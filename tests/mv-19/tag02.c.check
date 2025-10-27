@@ -1,7 +1,7 @@
 tag02.values.json[0]: PASS
 tag02.values.json[1]: PASS
 tag02.values.json[2]: FAIL (.: tag <t> value not found [.'|'])
-tag02.values.json[3]: FAIL (.: missing mandatory prop <a> [.'|'.0])
+tag02.values.json[3]: FAIL (.b: unexpected prop [.'|'.0])
 tag02.values.json[4]: FAIL (.: tag prop <t> is missing [.'|'])
 tag02.values.json[5]: FAIL (.: value is not an object [.'|'])
 tag02.values.json[6]: FAIL (.: tag <t> value not found [.'|'])

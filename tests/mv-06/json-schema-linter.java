@@ -18,23 +18,11 @@ public class json_schema_linter extends ModelChecker
     static public final String VERSION = "2";
 
     Set<Object> _jm_cst_0_set;
-    Map<String, Checker> json_model_6_map_pmap;
-    Map<String, Checker> json_model_9_map_pmap;
     public Pattern _jm_re_0_pat = null;
     Set<Object> _jm_cst_1_set;
     Map<String, Checker> json_model_10_map_pmap;
     Map<String, Checker> json_model_11_map_pmap;
     Map<String, Checker> json_model_12_map_pmap;
-    Map<String, Checker> json_model_13_map_pmap;
-    Map<String, Checker> json_model_14_map_pmap;
-    Map<String, Checker> json_model_15_map_pmap;
-    Map<String, Checker> json_model_16_map_pmap;
-    Map<String, Checker> json_model_17_map_pmap;
-    Map<String, Checker> json_model_18_map_pmap;
-    Map<String, Checker> json_model_19_map_pmap;
-    Map<String, Checker> json_model_20_map_pmap;
-    Map<String, Checker> json_model_21_map_pmap;
-    Map<String, Checker> json_model_22_map_pmap;
     Map<Object, Checker> _jm_map_0_cmap;
     public Map<String, Checker> json_schema_linter_map_pmap;
 
@@ -288,73 +276,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_6_map_items (.'$arrayKeywords'.items)
-    public boolean _jm_f_0(Object val, Path path, Report rep)
-    {
-        // .'$arrayKeywords'.items
-        // .'$arrayKeywords'.items.'|'.0
-        boolean res = json_model_24(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $Schema [.'$arrayKeywords'.items.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // .'$arrayKeywords'.items.'|'.1
-            res = json_model_4(val, path, rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $schemaArray [.'$arrayKeywords'.items.'|'.1]", path);
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'$arrayKeywords'.items.'|']", path);
-        }
-        return res;
-    }
-
-    // check json_model_6_map_maxItems (.'$arrayKeywords'.maxItems)
-    public boolean _jm_f_1(Object val, Path path, Report rep)
-    {
-        // .'$arrayKeywords'.maxItems
-        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$arrayKeywords'.maxItems]", path);
-        }
-        return res;
-    }
-
-    // check json_model_6_map_minItems (.'$arrayKeywords'.minItems)
-    public boolean _jm_f_2(Object val, Path path, Report rep)
-    {
-        // .'$arrayKeywords'.minItems
-        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$arrayKeywords'.minItems]", path);
-        }
-        return res;
-    }
-
-    // check json_model_6_map_uniqueItems (.'$arrayKeywords'.uniqueItems)
-    public boolean _jm_f_3(Object val, Path path, Report rep)
-    {
-        // .'$arrayKeywords'.uniqueItems
-        boolean res = json.isBoolean(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a bool [.'$arrayKeywords'.uniqueItems]", path);
-        }
-        return res;
-    }
-
-
     // check $arrayKeywords (.'$arrayKeywords')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -365,19 +286,100 @@ public class json_schema_linter extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$arrayKeywords']", path);
             return false;
         }
-        Checker pfun;
+        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_1 = new Path(prop, path);
-            if ((pfun = json_model_6_map_pmap.get(prop)) != null)
+            if (prop.compareTo("prefixItems") == 0)
             {
-                // handle 6 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_1 : null), rep)))
+                // handle may prefixItems property
+                // .'$arrayKeywords'.prefixItems
+                res = json_model_4(pval, (path != null ? lpath_1 : null), rep);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords']", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("items") == 0)
+            {
+                // handle may items property
+                // .'$arrayKeywords'.items
+                // .'$arrayKeywords'.items.'|'.0
+                res = json_model_24(pval, (path != null ? lpath_1 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $Schema [.'$arrayKeywords'.items.'|'.0]", (path != null ? lpath_1 : null));
+                }
+                if (! res)
+                {
+                    // .'$arrayKeywords'.items.'|'.1
+                    res = json_model_4(pval, (path != null ? lpath_1 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected $schemaArray [.'$arrayKeywords'.items.'|'.1]", (path != null ? lpath_1 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$arrayKeywords'.items.'|']", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.items]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("additionalItems") == 0)
+            {
+                // handle may additionalItems property
+                // .'$arrayKeywords'.additionalItems
+                res = json_model_24(pval, (path != null ? lpath_1 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $Schema [.'$arrayKeywords'.additionalItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.additionalItems]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("minItems") == 0)
+            {
+                // handle may minItems property
+                // .'$arrayKeywords'.minItems
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$arrayKeywords'.minItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.minItems]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("maxItems") == 0)
+            {
+                // handle may maxItems property
+                // .'$arrayKeywords'.maxItems
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$arrayKeywords'.maxItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.maxItems]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("uniqueItems") == 0)
+            {
+                // handle may uniqueItems property
+                // .'$arrayKeywords'.uniqueItems
+                res = json.isBoolean(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a bool [.'$arrayKeywords'.uniqueItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.uniqueItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
@@ -594,22 +596,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_9_map_$comment (.'$metas'.'$comment')
-    public boolean _jm_f_4(Object val, Path path, Report rep)
+    // object .'$metas'.'$defs'
+    public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        // .'$metas'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_9_map_$defs (.'$metas'.'$defs')
-    public boolean _jm_f_5(Object val, Path path, Report rep)
-    {
-        // .'$metas'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$metas'.'$defs']", path);
@@ -634,41 +623,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_9_map_$id (.'$metas'.'$id')
-    public boolean _jm_f_6(Object val, Path path, Report rep)
+    // object .'$metas'.definitions
+    public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
-        // .'$metas'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_9_map_$schema (.'$metas'.'$schema')
-    public boolean _jm_f_7(Object val, Path path, Report rep)
-    {
-        // .'$metas'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_9_map_default (.'$metas'.default)
-    public boolean _jm_f_8(Object val, Path path, Report rep)
-    {
-        // .'$metas'.default
-        return true;
-    }
-
-    // check json_model_9_map_definitions (.'$metas'.definitions)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
-    {
-        // .'$metas'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$metas'.definitions]", path);
@@ -693,55 +650,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_9_map_description (.'$metas'.description)
-    public boolean _jm_f_10(Object val, Path path, Report rep)
-    {
-        // .'$metas'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$metas'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_9_map_examples (.'$metas'.examples)
-    public boolean _jm_f_11(Object val, Path path, Report rep)
-    {
-        // .'$metas'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$metas'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_9_map_id (.'$metas'.id)
-    public boolean _jm_f_12(Object val, Path path, Report rep)
-    {
-        // .'$metas'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$metas'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_9_map_title (.'$metas'.title)
-    public boolean _jm_f_13(Object val, Path path, Report rep)
-    {
-        // .'$metas'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$metas'.title]", path);
-        }
-        return res;
-    }
-
-
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
@@ -758,19 +666,123 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_6 = new Path(prop, path);
-            if ((pfun = json_model_9_map_pmap.get(prop)) != null)
+            if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_6 : null), rep)))
+                // handle may $schema property
+                // .'$metas'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$schema']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$schema']", (path != null ? lpath_6 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$metas'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$id']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$id']", (path != null ? lpath_6 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$metas'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.id]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.id]", (path != null ? lpath_6 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$metas'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$comment']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$comment']", (path != null ? lpath_6 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$metas'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.title]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.title]", (path != null ? lpath_6 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$metas'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$metas'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$metas'.examples]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.examples]", (path != null ? lpath_6 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$metas'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.description]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.description]", (path != null ? lpath_6 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$metas'.'$defs'
+                res = _jm_obj_2(pval, (path != null ? lpath_6 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$metas'.'$defs']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$defs']", (path != null ? lpath_6 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$metas'.definitions
+                res = _jm_obj_3(pval, (path != null ? lpath_6 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$metas'.definitions]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.definitions]", (path != null ? lpath_6 : null));
                     return false;
                 }
             }
@@ -790,7 +802,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_$comment (.'$String'.'$comment')
-    public boolean _jm_f_14(Object val, Path path, Report rep)
+    public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         // .'$String'.'$comment'
         boolean res = json.isString(val);
@@ -802,7 +814,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_$defs (.'$String'.'$defs')
-    public boolean _jm_f_15(Object val, Path path, Report rep)
+    public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         // .'$String'.'$defs'
         if (! json.isObject(val))
@@ -830,7 +842,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_$id (.'$String'.'$id')
-    public boolean _jm_f_16(Object val, Path path, Report rep)
+    public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         // .'$String'.'$id'
         boolean res = json.isString(val);
@@ -842,7 +854,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_$schema (.'$String'.'$schema')
-    public boolean _jm_f_17(Object val, Path path, Report rep)
+    public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         // .'$String'.'$schema'
         boolean res = json.isString(val);
@@ -854,14 +866,14 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_default (.'$String'.default)
-    public boolean _jm_f_18(Object val, Path path, Report rep)
+    public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         // .'$String'.default
         return true;
     }
 
     // check json_model_10_map_definitions (.'$String'.definitions)
-    public boolean _jm_f_19(Object val, Path path, Report rep)
+    public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         // .'$String'.definitions
         if (! json.isObject(val))
@@ -889,7 +901,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_description (.'$String'.description)
-    public boolean _jm_f_20(Object val, Path path, Report rep)
+    public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         // .'$String'.description
         boolean res = json.isString(val);
@@ -901,7 +913,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_examples (.'$String'.examples)
-    public boolean _jm_f_21(Object val, Path path, Report rep)
+    public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         // .'$String'.examples
         boolean res = json.isArray(val);
@@ -914,7 +926,7 @@ public class json_schema_linter extends ModelChecker
 
 
     // check json_model_10_map_format (.'$String'.format)
-    public boolean _jm_f_22(Object val, Path path, Report rep)
+    public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         // .'$String'.format
         boolean res = json.isScalar(val) && _jm_cst_1_set.contains(val);
@@ -926,7 +938,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_id (.'$String'.id)
-    public boolean _jm_f_23(Object val, Path path, Report rep)
+    public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         // .'$String'.id
         boolean res = json.isString(val);
@@ -938,7 +950,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_maxLength (.'$String'.maxLength)
-    public boolean _jm_f_24(Object val, Path path, Report rep)
+    public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         // .'$String'.maxLength
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
@@ -950,7 +962,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_minLength (.'$String'.minLength)
-    public boolean _jm_f_25(Object val, Path path, Report rep)
+    public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         // .'$String'.minLength
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
@@ -962,7 +974,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_pattern (.'$String'.pattern)
-    public boolean _jm_f_26(Object val, Path path, Report rep)
+    public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         // .'$String'.pattern
         boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
@@ -974,7 +986,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_10_map_title (.'$String'.title)
-    public boolean _jm_f_27(Object val, Path path, Report rep)
+    public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         // .'$String'.title
         boolean res = json.isString(val);
@@ -1053,7 +1065,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_$comment (.'$Array'.'$comment')
-    public boolean _jm_f_28(Object val, Path path, Report rep)
+    public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         // .'$Array'.'$comment'
         boolean res = json.isString(val);
@@ -1065,7 +1077,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_$defs (.'$Array'.'$defs')
-    public boolean _jm_f_29(Object val, Path path, Report rep)
+    public boolean _jm_f_15(Object val, Path path, Report rep)
     {
         // .'$Array'.'$defs'
         if (! json.isObject(val))
@@ -1093,7 +1105,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_$id (.'$Array'.'$id')
-    public boolean _jm_f_30(Object val, Path path, Report rep)
+    public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         // .'$Array'.'$id'
         boolean res = json.isString(val);
@@ -1105,7 +1117,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_$schema (.'$Array'.'$schema')
-    public boolean _jm_f_31(Object val, Path path, Report rep)
+    public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         // .'$Array'.'$schema'
         boolean res = json.isString(val);
@@ -1117,14 +1129,14 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_default (.'$Array'.default)
-    public boolean _jm_f_32(Object val, Path path, Report rep)
+    public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         // .'$Array'.default
         return true;
     }
 
     // check json_model_11_map_definitions (.'$Array'.definitions)
-    public boolean _jm_f_33(Object val, Path path, Report rep)
+    public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         // .'$Array'.definitions
         if (! json.isObject(val))
@@ -1152,7 +1164,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_description (.'$Array'.description)
-    public boolean _jm_f_34(Object val, Path path, Report rep)
+    public boolean _jm_f_20(Object val, Path path, Report rep)
     {
         // .'$Array'.description
         boolean res = json.isString(val);
@@ -1164,7 +1176,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_examples (.'$Array'.examples)
-    public boolean _jm_f_35(Object val, Path path, Report rep)
+    public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         // .'$Array'.examples
         boolean res = json.isArray(val);
@@ -1176,7 +1188,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_id (.'$Array'.id)
-    public boolean _jm_f_36(Object val, Path path, Report rep)
+    public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         // .'$Array'.id
         boolean res = json.isString(val);
@@ -1188,7 +1200,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_items (.'$Array'.items)
-    public boolean _jm_f_37(Object val, Path path, Report rep)
+    public boolean _jm_f_23(Object val, Path path, Report rep)
     {
         // .'$Array'.items
         // .'$Array'.items.'|'.0
@@ -1218,7 +1230,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_maxItems (.'$Array'.maxItems)
-    public boolean _jm_f_38(Object val, Path path, Report rep)
+    public boolean _jm_f_24(Object val, Path path, Report rep)
     {
         // .'$Array'.maxItems
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
@@ -1230,7 +1242,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_minItems (.'$Array'.minItems)
-    public boolean _jm_f_39(Object val, Path path, Report rep)
+    public boolean _jm_f_25(Object val, Path path, Report rep)
     {
         // .'$Array'.minItems
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
@@ -1242,7 +1254,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_title (.'$Array'.title)
-    public boolean _jm_f_40(Object val, Path path, Report rep)
+    public boolean _jm_f_26(Object val, Path path, Report rep)
     {
         // .'$Array'.title
         boolean res = json.isString(val);
@@ -1254,7 +1266,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_11_map_uniqueItems (.'$Array'.uniqueItems)
-    public boolean _jm_f_41(Object val, Path path, Report rep)
+    public boolean _jm_f_27(Object val, Path path, Report rep)
     {
         // .'$Array'.uniqueItems
         boolean res = json.isBoolean(val);
@@ -1333,7 +1345,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_$comment (.'$Object'.'$comment')
-    public boolean _jm_f_42(Object val, Path path, Report rep)
+    public boolean _jm_f_28(Object val, Path path, Report rep)
     {
         // .'$Object'.'$comment'
         boolean res = json.isString(val);
@@ -1345,7 +1357,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_$defs (.'$Object'.'$defs')
-    public boolean _jm_f_43(Object val, Path path, Report rep)
+    public boolean _jm_f_29(Object val, Path path, Report rep)
     {
         // .'$Object'.'$defs'
         if (! json.isObject(val))
@@ -1373,7 +1385,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_$id (.'$Object'.'$id')
-    public boolean _jm_f_44(Object val, Path path, Report rep)
+    public boolean _jm_f_30(Object val, Path path, Report rep)
     {
         // .'$Object'.'$id'
         boolean res = json.isString(val);
@@ -1385,7 +1397,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_$schema (.'$Object'.'$schema')
-    public boolean _jm_f_45(Object val, Path path, Report rep)
+    public boolean _jm_f_31(Object val, Path path, Report rep)
     {
         // .'$Object'.'$schema'
         boolean res = json.isString(val);
@@ -1397,14 +1409,14 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_default (.'$Object'.default)
-    public boolean _jm_f_46(Object val, Path path, Report rep)
+    public boolean _jm_f_32(Object val, Path path, Report rep)
     {
         // .'$Object'.default
         return true;
     }
 
     // check json_model_12_map_definitions (.'$Object'.definitions)
-    public boolean _jm_f_47(Object val, Path path, Report rep)
+    public boolean _jm_f_33(Object val, Path path, Report rep)
     {
         // .'$Object'.definitions
         if (! json.isObject(val))
@@ -1432,7 +1444,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_description (.'$Object'.description)
-    public boolean _jm_f_48(Object val, Path path, Report rep)
+    public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         // .'$Object'.description
         boolean res = json.isString(val);
@@ -1444,7 +1456,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_examples (.'$Object'.examples)
-    public boolean _jm_f_49(Object val, Path path, Report rep)
+    public boolean _jm_f_35(Object val, Path path, Report rep)
     {
         // .'$Object'.examples
         boolean res = json.isArray(val);
@@ -1456,7 +1468,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_id (.'$Object'.id)
-    public boolean _jm_f_50(Object val, Path path, Report rep)
+    public boolean _jm_f_36(Object val, Path path, Report rep)
     {
         // .'$Object'.id
         boolean res = json.isString(val);
@@ -1468,7 +1480,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_patternProperties (.'$Object'.patternProperties)
-    public boolean _jm_f_51(Object val, Path path, Report rep)
+    public boolean _jm_f_37(Object val, Path path, Report rep)
     {
         // .'$Object'.patternProperties
         if (! json.isObject(val))
@@ -1504,7 +1516,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_properties (.'$Object'.properties)
-    public boolean _jm_f_52(Object val, Path path, Report rep)
+    public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         // .'$Object'.properties
         if (! json.isObject(val))
@@ -1532,7 +1544,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_required (.'$Object'.required)
-    public boolean _jm_f_53(Object val, Path path, Report rep)
+    public boolean _jm_f_39(Object val, Path path, Report rep)
     {
         // .'$Object'.required
         boolean res = json.isArray(val);
@@ -1562,7 +1574,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // check json_model_12_map_title (.'$Object'.title)
-    public boolean _jm_f_54(Object val, Path path, Report rep)
+    public boolean _jm_f_40(Object val, Path path, Report rep)
     {
         // .'$Object'.title
         boolean res = json.isString(val);
@@ -1640,22 +1652,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_13_map_$comment (.'$Integer'.'$comment')
-    public boolean _jm_f_55(Object val, Path path, Report rep)
+    // object .'$Integer'.'$defs'
+    public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
-        // .'$Integer'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_13_map_$defs (.'$Integer'.'$defs')
-    public boolean _jm_f_56(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Integer'.'$defs']", path);
@@ -1680,41 +1679,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_13_map_$id (.'$Integer'.'$id')
-    public boolean _jm_f_57(Object val, Path path, Report rep)
+    // object .'$Integer'.definitions
+    public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
-        // .'$Integer'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_13_map_$schema (.'$Integer'.'$schema')
-    public boolean _jm_f_58(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_13_map_default (.'$Integer'.default)
-    public boolean _jm_f_59(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.default
-        return true;
-    }
-
-    // check json_model_13_map_definitions (.'$Integer'.definitions)
-    public boolean _jm_f_60(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Integer'.definitions]", path);
@@ -1739,79 +1706,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_13_map_description (.'$Integer'.description)
-    public boolean _jm_f_61(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Integer'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_13_map_examples (.'$Integer'.examples)
-    public boolean _jm_f_62(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Integer'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_13_map_id (.'$Integer'.id)
-    public boolean _jm_f_63(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Integer'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_13_map_maximum (.'$Integer'.maximum)
-    public boolean _jm_f_64(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.maximum
-        boolean res = json.isDouble(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Integer'.maximum]", path);
-        }
-        return res;
-    }
-
-    // check json_model_13_map_minimum (.'$Integer'.minimum)
-    public boolean _jm_f_65(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.minimum
-        boolean res = json.isDouble(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Integer'.minimum]", path);
-        }
-        return res;
-    }
-
-    // check json_model_13_map_title (.'$Integer'.title)
-    public boolean _jm_f_66(Object val, Path path, Report rep)
-    {
-        // .'$Integer'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Integer'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $Integer (.'$Integer')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
@@ -1822,7 +1716,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -1843,12 +1736,141 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_13_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 12 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_20 : null), rep)))
+                // handle may $schema property
+                // .'$Integer'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$schema']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$schema']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$Integer'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$id']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$id']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$Integer'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.id]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.id]", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$Integer'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$comment']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$comment']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$Integer'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.title]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.title]", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$Integer'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$Integer'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$Integer'.examples]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.examples]", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$Integer'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.description]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.description]", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$Integer'.'$defs'
+                res = _jm_obj_4(pval, (path != null ? lpath_20 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Integer'.'$defs']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$defs']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$Integer'.definitions
+                res = _jm_obj_5(pval, (path != null ? lpath_20 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Integer'.definitions]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.definitions]", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("minimum") == 0)
+            {
+                // handle may minimum property
+                // .'$Integer'.minimum
+                res = json.isDouble(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Integer'.minimum]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.minimum]", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("maximum") == 0)
+            {
+                // handle may maximum property
+                // .'$Integer'.maximum
+                res = json.isDouble(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Integer'.maximum]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.maximum]", (path != null ? lpath_20 : null));
                     return false;
                 }
             }
@@ -1878,22 +1900,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_14_map_$comment (.'$Number'.'$comment')
-    public boolean _jm_f_67(Object val, Path path, Report rep)
+    // object .'$Number'.'$defs'
+    public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
-        // .'$Number'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_14_map_$defs (.'$Number'.'$defs')
-    public boolean _jm_f_68(Object val, Path path, Report rep)
-    {
-        // .'$Number'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Number'.'$defs']", path);
@@ -1918,41 +1927,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_14_map_$id (.'$Number'.'$id')
-    public boolean _jm_f_69(Object val, Path path, Report rep)
+    // object .'$Number'.definitions
+    public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
-        // .'$Number'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_14_map_$schema (.'$Number'.'$schema')
-    public boolean _jm_f_70(Object val, Path path, Report rep)
-    {
-        // .'$Number'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_14_map_default (.'$Number'.default)
-    public boolean _jm_f_71(Object val, Path path, Report rep)
-    {
-        // .'$Number'.default
-        return true;
-    }
-
-    // check json_model_14_map_definitions (.'$Number'.definitions)
-    public boolean _jm_f_72(Object val, Path path, Report rep)
-    {
-        // .'$Number'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Number'.definitions]", path);
@@ -1977,79 +1954,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_14_map_description (.'$Number'.description)
-    public boolean _jm_f_73(Object val, Path path, Report rep)
-    {
-        // .'$Number'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Number'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_14_map_examples (.'$Number'.examples)
-    public boolean _jm_f_74(Object val, Path path, Report rep)
-    {
-        // .'$Number'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Number'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_14_map_id (.'$Number'.id)
-    public boolean _jm_f_75(Object val, Path path, Report rep)
-    {
-        // .'$Number'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Number'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_14_map_maximum (.'$Number'.maximum)
-    public boolean _jm_f_76(Object val, Path path, Report rep)
-    {
-        // .'$Number'.maximum
-        boolean res = json.isDouble(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Number'.maximum]", path);
-        }
-        return res;
-    }
-
-    // check json_model_14_map_minimum (.'$Number'.minimum)
-    public boolean _jm_f_77(Object val, Path path, Report rep)
-    {
-        // .'$Number'.minimum
-        boolean res = json.isDouble(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Number'.minimum]", path);
-        }
-        return res;
-    }
-
-    // check json_model_14_map_title (.'$Number'.title)
-    public boolean _jm_f_78(Object val, Path path, Report rep)
-    {
-        // .'$Number'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Number'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $Number (.'$Number')
     public boolean json_model_14(Object val, Path path, Report rep)
     {
@@ -2060,7 +1964,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -2081,12 +1984,141 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_14_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 12 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_23 : null), rep)))
+                // handle may $schema property
+                // .'$Number'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$schema']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$schema']", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$Number'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$id']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$id']", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$Number'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.id]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.id]", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$Number'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$comment']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$comment']", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$Number'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.title]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.title]", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$Number'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$Number'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$Number'.examples]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.examples]", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$Number'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.description]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.description]", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$Number'.'$defs'
+                res = _jm_obj_6(pval, (path != null ? lpath_23 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Number'.'$defs']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$defs']", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$Number'.definitions
+                res = _jm_obj_7(pval, (path != null ? lpath_23 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Number'.definitions]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.definitions]", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("minimum") == 0)
+            {
+                // handle may minimum property
+                // .'$Number'.minimum
+                res = json.isDouble(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Number'.minimum]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.minimum]", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("maximum") == 0)
+            {
+                // handle may maximum property
+                // .'$Number'.maximum
+                res = json.isDouble(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Number'.maximum]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.maximum]", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
@@ -2116,22 +2148,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_15_map_$comment (.'$Bool'.'$comment')
-    public boolean _jm_f_79(Object val, Path path, Report rep)
+    // object .'$Bool'.'$defs'
+    public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
-        // .'$Bool'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_15_map_$defs (.'$Bool'.'$defs')
-    public boolean _jm_f_80(Object val, Path path, Report rep)
-    {
-        // .'$Bool'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Bool'.'$defs']", path);
@@ -2156,41 +2175,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_15_map_$id (.'$Bool'.'$id')
-    public boolean _jm_f_81(Object val, Path path, Report rep)
+    // object .'$Bool'.definitions
+    public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
-        // .'$Bool'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_15_map_$schema (.'$Bool'.'$schema')
-    public boolean _jm_f_82(Object val, Path path, Report rep)
-    {
-        // .'$Bool'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_15_map_default (.'$Bool'.default)
-    public boolean _jm_f_83(Object val, Path path, Report rep)
-    {
-        // .'$Bool'.default
-        return true;
-    }
-
-    // check json_model_15_map_definitions (.'$Bool'.definitions)
-    public boolean _jm_f_84(Object val, Path path, Report rep)
-    {
-        // .'$Bool'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Bool'.definitions]", path);
@@ -2215,55 +2202,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_15_map_description (.'$Bool'.description)
-    public boolean _jm_f_85(Object val, Path path, Report rep)
-    {
-        // .'$Bool'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Bool'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_15_map_examples (.'$Bool'.examples)
-    public boolean _jm_f_86(Object val, Path path, Report rep)
-    {
-        // .'$Bool'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Bool'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_15_map_id (.'$Bool'.id)
-    public boolean _jm_f_87(Object val, Path path, Report rep)
-    {
-        // .'$Bool'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Bool'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_15_map_title (.'$Bool'.title)
-    public boolean _jm_f_88(Object val, Path path, Report rep)
-    {
-        // .'$Bool'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Bool'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $Bool (.'$Bool')
     public boolean json_model_15(Object val, Path path, Report rep)
     {
@@ -2274,7 +2212,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -2295,12 +2232,117 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_15_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_26 : null), rep)))
+                // handle may $schema property
+                // .'$Bool'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$schema']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$schema']", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$Bool'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$id']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$id']", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$Bool'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.id]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.id]", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$Bool'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$comment']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$comment']", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$Bool'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.title]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.title]", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$Bool'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$Bool'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$Bool'.examples]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.examples]", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$Bool'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.description]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.description]", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$Bool'.'$defs'
+                res = _jm_obj_8(pval, (path != null ? lpath_26 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Bool'.'$defs']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$defs']", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$Bool'.definitions
+                res = _jm_obj_9(pval, (path != null ? lpath_26 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Bool'.definitions]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.definitions]", (path != null ? lpath_26 : null));
                     return false;
                 }
             }
@@ -2330,22 +2372,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_16_map_$comment (.'$Null'.'$comment')
-    public boolean _jm_f_89(Object val, Path path, Report rep)
+    // object .'$Null'.'$defs'
+    public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
-        // .'$Null'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_16_map_$defs (.'$Null'.'$defs')
-    public boolean _jm_f_90(Object val, Path path, Report rep)
-    {
-        // .'$Null'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Null'.'$defs']", path);
@@ -2370,41 +2399,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_16_map_$id (.'$Null'.'$id')
-    public boolean _jm_f_91(Object val, Path path, Report rep)
+    // object .'$Null'.definitions
+    public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
-        // .'$Null'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_16_map_$schema (.'$Null'.'$schema')
-    public boolean _jm_f_92(Object val, Path path, Report rep)
-    {
-        // .'$Null'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_16_map_default (.'$Null'.default)
-    public boolean _jm_f_93(Object val, Path path, Report rep)
-    {
-        // .'$Null'.default
-        return true;
-    }
-
-    // check json_model_16_map_definitions (.'$Null'.definitions)
-    public boolean _jm_f_94(Object val, Path path, Report rep)
-    {
-        // .'$Null'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Null'.definitions]", path);
@@ -2429,55 +2426,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_16_map_description (.'$Null'.description)
-    public boolean _jm_f_95(Object val, Path path, Report rep)
-    {
-        // .'$Null'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Null'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_16_map_examples (.'$Null'.examples)
-    public boolean _jm_f_96(Object val, Path path, Report rep)
-    {
-        // .'$Null'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Null'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_16_map_id (.'$Null'.id)
-    public boolean _jm_f_97(Object val, Path path, Report rep)
-    {
-        // .'$Null'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Null'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_16_map_title (.'$Null'.title)
-    public boolean _jm_f_98(Object val, Path path, Report rep)
-    {
-        // .'$Null'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Null'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $Null (.'$Null')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
@@ -2488,7 +2436,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -2509,12 +2456,117 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_16_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_29 : null), rep)))
+                // handle may $schema property
+                // .'$Null'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$schema']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$schema']", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$Null'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$id']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$id']", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$Null'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.id]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.id]", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$Null'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$comment']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$comment']", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$Null'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.title]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.title]", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$Null'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$Null'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$Null'.examples]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.examples]", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$Null'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.description]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.description]", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$Null'.'$defs'
+                res = _jm_obj_10(pval, (path != null ? lpath_29 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Null'.'$defs']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$defs']", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$Null'.definitions
+                res = _jm_obj_11(pval, (path != null ? lpath_29 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Null'.definitions]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.definitions]", (path != null ? lpath_29 : null));
                     return false;
                 }
             }
@@ -2544,22 +2596,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_17_map_$comment (.'$AllOf'.'$comment')
-    public boolean _jm_f_99(Object val, Path path, Report rep)
+    // object .'$AllOf'.'$defs'
+    public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
-        // .'$AllOf'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_17_map_$defs (.'$AllOf'.'$defs')
-    public boolean _jm_f_100(Object val, Path path, Report rep)
-    {
-        // .'$AllOf'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AllOf'.'$defs']", path);
@@ -2584,41 +2623,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_17_map_$id (.'$AllOf'.'$id')
-    public boolean _jm_f_101(Object val, Path path, Report rep)
+    // object .'$AllOf'.definitions
+    public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
-        // .'$AllOf'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_17_map_$schema (.'$AllOf'.'$schema')
-    public boolean _jm_f_102(Object val, Path path, Report rep)
-    {
-        // .'$AllOf'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_17_map_default (.'$AllOf'.default)
-    public boolean _jm_f_103(Object val, Path path, Report rep)
-    {
-        // .'$AllOf'.default
-        return true;
-    }
-
-    // check json_model_17_map_definitions (.'$AllOf'.definitions)
-    public boolean _jm_f_104(Object val, Path path, Report rep)
-    {
-        // .'$AllOf'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AllOf'.definitions]", path);
@@ -2643,55 +2650,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_17_map_description (.'$AllOf'.description)
-    public boolean _jm_f_105(Object val, Path path, Report rep)
-    {
-        // .'$AllOf'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_17_map_examples (.'$AllOf'.examples)
-    public boolean _jm_f_106(Object val, Path path, Report rep)
-    {
-        // .'$AllOf'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$AllOf'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_17_map_id (.'$AllOf'.id)
-    public boolean _jm_f_107(Object val, Path path, Report rep)
-    {
-        // .'$AllOf'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_17_map_title (.'$AllOf'.title)
-    public boolean _jm_f_108(Object val, Path path, Report rep)
-    {
-        // .'$AllOf'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $AllOf (.'$AllOf')
     public boolean json_model_17(Object val, Path path, Report rep)
     {
@@ -2702,7 +2660,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -2723,12 +2680,117 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_17_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_32 : null), rep)))
+                // handle may $schema property
+                // .'$AllOf'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$schema']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$schema']", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$AllOf'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$id']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$id']", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$AllOf'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.id]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.id]", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$AllOf'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$comment']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$comment']", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$AllOf'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.title]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.title]", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$AllOf'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$AllOf'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AllOf'.examples]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.examples]", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$AllOf'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.description]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.description]", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$AllOf'.'$defs'
+                res = _jm_obj_12(pval, (path != null ? lpath_32 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$AllOf'.'$defs']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$defs']", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$AllOf'.definitions
+                res = _jm_obj_13(pval, (path != null ? lpath_32 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$AllOf'.definitions]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.definitions]", (path != null ? lpath_32 : null));
                     return false;
                 }
             }
@@ -2758,22 +2820,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_18_map_$comment (.'$AnyOf'.'$comment')
-    public boolean _jm_f_109(Object val, Path path, Report rep)
+    // object .'$AnyOf'.'$defs'
+    public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
-        // .'$AnyOf'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_18_map_$defs (.'$AnyOf'.'$defs')
-    public boolean _jm_f_110(Object val, Path path, Report rep)
-    {
-        // .'$AnyOf'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AnyOf'.'$defs']", path);
@@ -2798,41 +2847,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_18_map_$id (.'$AnyOf'.'$id')
-    public boolean _jm_f_111(Object val, Path path, Report rep)
+    // object .'$AnyOf'.definitions
+    public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
-        // .'$AnyOf'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_18_map_$schema (.'$AnyOf'.'$schema')
-    public boolean _jm_f_112(Object val, Path path, Report rep)
-    {
-        // .'$AnyOf'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_18_map_default (.'$AnyOf'.default)
-    public boolean _jm_f_113(Object val, Path path, Report rep)
-    {
-        // .'$AnyOf'.default
-        return true;
-    }
-
-    // check json_model_18_map_definitions (.'$AnyOf'.definitions)
-    public boolean _jm_f_114(Object val, Path path, Report rep)
-    {
-        // .'$AnyOf'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AnyOf'.definitions]", path);
@@ -2857,55 +2874,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_18_map_description (.'$AnyOf'.description)
-    public boolean _jm_f_115(Object val, Path path, Report rep)
-    {
-        // .'$AnyOf'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_18_map_examples (.'$AnyOf'.examples)
-    public boolean _jm_f_116(Object val, Path path, Report rep)
-    {
-        // .'$AnyOf'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$AnyOf'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_18_map_id (.'$AnyOf'.id)
-    public boolean _jm_f_117(Object val, Path path, Report rep)
-    {
-        // .'$AnyOf'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_18_map_title (.'$AnyOf'.title)
-    public boolean _jm_f_118(Object val, Path path, Report rep)
-    {
-        // .'$AnyOf'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $AnyOf (.'$AnyOf')
     public boolean json_model_18(Object val, Path path, Report rep)
     {
@@ -2916,7 +2884,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -2937,12 +2904,117 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_18_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_35 : null), rep)))
+                // handle may $schema property
+                // .'$AnyOf'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$schema']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$schema']", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$AnyOf'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$id']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$id']", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$AnyOf'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.id]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.id]", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$AnyOf'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$comment']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$comment']", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$AnyOf'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.title]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.title]", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$AnyOf'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$AnyOf'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AnyOf'.examples]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.examples]", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$AnyOf'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.description]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.description]", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$AnyOf'.'$defs'
+                res = _jm_obj_14(pval, (path != null ? lpath_35 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$AnyOf'.'$defs']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$defs']", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$AnyOf'.definitions
+                res = _jm_obj_15(pval, (path != null ? lpath_35 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$AnyOf'.definitions]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.definitions]", (path != null ? lpath_35 : null));
                     return false;
                 }
             }
@@ -2972,22 +3044,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_19_map_$comment (.'$OneOf'.'$comment')
-    public boolean _jm_f_119(Object val, Path path, Report rep)
+    // object .'$OneOf'.'$defs'
+    public boolean _jm_obj_16(Object val, Path path, Report rep)
     {
-        // .'$OneOf'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_19_map_$defs (.'$OneOf'.'$defs')
-    public boolean _jm_f_120(Object val, Path path, Report rep)
-    {
-        // .'$OneOf'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$OneOf'.'$defs']", path);
@@ -3012,41 +3071,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_19_map_$id (.'$OneOf'.'$id')
-    public boolean _jm_f_121(Object val, Path path, Report rep)
+    // object .'$OneOf'.definitions
+    public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
-        // .'$OneOf'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_19_map_$schema (.'$OneOf'.'$schema')
-    public boolean _jm_f_122(Object val, Path path, Report rep)
-    {
-        // .'$OneOf'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_19_map_default (.'$OneOf'.default)
-    public boolean _jm_f_123(Object val, Path path, Report rep)
-    {
-        // .'$OneOf'.default
-        return true;
-    }
-
-    // check json_model_19_map_definitions (.'$OneOf'.definitions)
-    public boolean _jm_f_124(Object val, Path path, Report rep)
-    {
-        // .'$OneOf'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$OneOf'.definitions]", path);
@@ -3071,55 +3098,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_19_map_description (.'$OneOf'.description)
-    public boolean _jm_f_125(Object val, Path path, Report rep)
-    {
-        // .'$OneOf'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_19_map_examples (.'$OneOf'.examples)
-    public boolean _jm_f_126(Object val, Path path, Report rep)
-    {
-        // .'$OneOf'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$OneOf'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_19_map_id (.'$OneOf'.id)
-    public boolean _jm_f_127(Object val, Path path, Report rep)
-    {
-        // .'$OneOf'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_19_map_title (.'$OneOf'.title)
-    public boolean _jm_f_128(Object val, Path path, Report rep)
-    {
-        // .'$OneOf'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $OneOf (.'$OneOf')
     public boolean json_model_19(Object val, Path path, Report rep)
     {
@@ -3130,7 +3108,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -3151,12 +3128,117 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_19_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_38 : null), rep)))
+                // handle may $schema property
+                // .'$OneOf'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$schema']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$schema']", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$OneOf'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$id']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$id']", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$OneOf'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.id]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.id]", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$OneOf'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$comment']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$comment']", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$OneOf'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.title]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.title]", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$OneOf'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$OneOf'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$OneOf'.examples]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.examples]", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$OneOf'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.description]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.description]", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$OneOf'.'$defs'
+                res = _jm_obj_16(pval, (path != null ? lpath_38 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$OneOf'.'$defs']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$defs']", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$OneOf'.definitions
+                res = _jm_obj_17(pval, (path != null ? lpath_38 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$OneOf'.definitions]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.definitions]", (path != null ? lpath_38 : null));
                     return false;
                 }
             }
@@ -3186,22 +3268,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_20_map_$comment (.'$Enum'.'$comment')
-    public boolean _jm_f_129(Object val, Path path, Report rep)
+    // object .'$Enum'.'$defs'
+    public boolean _jm_obj_18(Object val, Path path, Report rep)
     {
-        // .'$Enum'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_20_map_$defs (.'$Enum'.'$defs')
-    public boolean _jm_f_130(Object val, Path path, Report rep)
-    {
-        // .'$Enum'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Enum'.'$defs']", path);
@@ -3226,41 +3295,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_20_map_$id (.'$Enum'.'$id')
-    public boolean _jm_f_131(Object val, Path path, Report rep)
+    // object .'$Enum'.definitions
+    public boolean _jm_obj_19(Object val, Path path, Report rep)
     {
-        // .'$Enum'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_20_map_$schema (.'$Enum'.'$schema')
-    public boolean _jm_f_132(Object val, Path path, Report rep)
-    {
-        // .'$Enum'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_20_map_default (.'$Enum'.default)
-    public boolean _jm_f_133(Object val, Path path, Report rep)
-    {
-        // .'$Enum'.default
-        return true;
-    }
-
-    // check json_model_20_map_definitions (.'$Enum'.definitions)
-    public boolean _jm_f_134(Object val, Path path, Report rep)
-    {
-        // .'$Enum'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Enum'.definitions]", path);
@@ -3285,55 +3322,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_20_map_description (.'$Enum'.description)
-    public boolean _jm_f_135(Object val, Path path, Report rep)
-    {
-        // .'$Enum'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Enum'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_20_map_examples (.'$Enum'.examples)
-    public boolean _jm_f_136(Object val, Path path, Report rep)
-    {
-        // .'$Enum'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Enum'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_20_map_id (.'$Enum'.id)
-    public boolean _jm_f_137(Object val, Path path, Report rep)
-    {
-        // .'$Enum'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Enum'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_20_map_title (.'$Enum'.title)
-    public boolean _jm_f_138(Object val, Path path, Report rep)
-    {
-        // .'$Enum'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Enum'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $Enum (.'$Enum')
     public boolean json_model_20(Object val, Path path, Report rep)
     {
@@ -3344,7 +3332,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -3365,12 +3352,117 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_20_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_41 : null), rep)))
+                // handle may $schema property
+                // .'$Enum'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$schema']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$schema']", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$Enum'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$id']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$id']", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$Enum'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.id]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.id]", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$Enum'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$comment']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$comment']", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$Enum'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.title]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.title]", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$Enum'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$Enum'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$Enum'.examples]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.examples]", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$Enum'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.description]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.description]", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$Enum'.'$defs'
+                res = _jm_obj_18(pval, (path != null ? lpath_41 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Enum'.'$defs']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$defs']", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$Enum'.definitions
+                res = _jm_obj_19(pval, (path != null ? lpath_41 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Enum'.definitions]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.definitions]", (path != null ? lpath_41 : null));
                     return false;
                 }
             }
@@ -3400,22 +3492,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_21_map_$comment (.'$Const'.'$comment')
-    public boolean _jm_f_139(Object val, Path path, Report rep)
+    // object .'$Const'.'$defs'
+    public boolean _jm_obj_20(Object val, Path path, Report rep)
     {
-        // .'$Const'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_21_map_$defs (.'$Const'.'$defs')
-    public boolean _jm_f_140(Object val, Path path, Report rep)
-    {
-        // .'$Const'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Const'.'$defs']", path);
@@ -3440,41 +3519,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_21_map_$id (.'$Const'.'$id')
-    public boolean _jm_f_141(Object val, Path path, Report rep)
+    // object .'$Const'.definitions
+    public boolean _jm_obj_21(Object val, Path path, Report rep)
     {
-        // .'$Const'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_21_map_$schema (.'$Const'.'$schema')
-    public boolean _jm_f_142(Object val, Path path, Report rep)
-    {
-        // .'$Const'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_21_map_default (.'$Const'.default)
-    public boolean _jm_f_143(Object val, Path path, Report rep)
-    {
-        // .'$Const'.default
-        return true;
-    }
-
-    // check json_model_21_map_definitions (.'$Const'.definitions)
-    public boolean _jm_f_144(Object val, Path path, Report rep)
-    {
-        // .'$Const'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Const'.definitions]", path);
@@ -3499,55 +3546,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_21_map_description (.'$Const'.description)
-    public boolean _jm_f_145(Object val, Path path, Report rep)
-    {
-        // .'$Const'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Const'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_21_map_examples (.'$Const'.examples)
-    public boolean _jm_f_146(Object val, Path path, Report rep)
-    {
-        // .'$Const'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Const'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_21_map_id (.'$Const'.id)
-    public boolean _jm_f_147(Object val, Path path, Report rep)
-    {
-        // .'$Const'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Const'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_21_map_title (.'$Const'.title)
-    public boolean _jm_f_148(Object val, Path path, Report rep)
-    {
-        // .'$Const'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Const'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $Const (.'$Const')
     public boolean json_model_21(Object val, Path path, Report rep)
     {
@@ -3558,7 +3556,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -3579,12 +3576,117 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_21_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_44 : null), rep)))
+                // handle may $schema property
+                // .'$Const'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$schema']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$schema']", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$Const'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$id']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$id']", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$Const'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.id]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.id]", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$Const'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$comment']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$comment']", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$Const'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.title]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.title]", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$Const'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$Const'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$Const'.examples]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.examples]", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$Const'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.description]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.description]", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$Const'.'$defs'
+                res = _jm_obj_20(pval, (path != null ? lpath_44 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Const'.'$defs']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$defs']", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$Const'.definitions
+                res = _jm_obj_21(pval, (path != null ? lpath_44 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Const'.definitions]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.definitions]", (path != null ? lpath_44 : null));
                     return false;
                 }
             }
@@ -3614,22 +3716,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_22_map_$comment (.'$Ref'.'$comment')
-    public boolean _jm_f_149(Object val, Path path, Report rep)
+    // object .'$Ref'.'$defs'
+    public boolean _jm_obj_22(Object val, Path path, Report rep)
     {
-        // .'$Ref'.'$comment'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$comment']", path);
-        }
-        return res;
-    }
-
-    // check json_model_22_map_$defs (.'$Ref'.'$defs')
-    public boolean _jm_f_150(Object val, Path path, Report rep)
-    {
-        // .'$Ref'.'$defs'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Ref'.'$defs']", path);
@@ -3654,41 +3743,9 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_22_map_$id (.'$Ref'.'$id')
-    public boolean _jm_f_151(Object val, Path path, Report rep)
+    // object .'$Ref'.definitions
+    public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
-        // .'$Ref'.'$id'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$id']", path);
-        }
-        return res;
-    }
-
-    // check json_model_22_map_$schema (.'$Ref'.'$schema')
-    public boolean _jm_f_152(Object val, Path path, Report rep)
-    {
-        // .'$Ref'.'$schema'
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$schema']", path);
-        }
-        return res;
-    }
-
-    // check json_model_22_map_default (.'$Ref'.default)
-    public boolean _jm_f_153(Object val, Path path, Report rep)
-    {
-        // .'$Ref'.default
-        return true;
-    }
-
-    // check json_model_22_map_definitions (.'$Ref'.definitions)
-    public boolean _jm_f_154(Object val, Path path, Report rep)
-    {
-        // .'$Ref'.definitions
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Ref'.definitions]", path);
@@ -3713,55 +3770,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    // check json_model_22_map_description (.'$Ref'.description)
-    public boolean _jm_f_155(Object val, Path path, Report rep)
-    {
-        // .'$Ref'.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Ref'.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_22_map_examples (.'$Ref'.examples)
-    public boolean _jm_f_156(Object val, Path path, Report rep)
-    {
-        // .'$Ref'.examples
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Ref'.examples]", path);
-        }
-        return res;
-    }
-
-    // check json_model_22_map_id (.'$Ref'.id)
-    public boolean _jm_f_157(Object val, Path path, Report rep)
-    {
-        // .'$Ref'.id
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Ref'.id]", path);
-        }
-        return res;
-    }
-
-    // check json_model_22_map_title (.'$Ref'.title)
-    public boolean _jm_f_158(Object val, Path path, Report rep)
-    {
-        // .'$Ref'.title
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$Ref'.title]", path);
-        }
-        return res;
-    }
-
-
     // check $Ref (.'$Ref')
     public boolean json_model_22(Object val, Path path, Report rep)
     {
@@ -3772,7 +3780,6 @@ public class json_schema_linter extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -3793,12 +3800,117 @@ public class json_schema_linter extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = json_model_22_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_47 : null), rep)))
+                // handle may $schema property
+                // .'$Ref'.'$schema'
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$schema']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$schema']", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$id") == 0)
+            {
+                // handle may $id property
+                // .'$Ref'.'$id'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$id']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$id']", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("id") == 0)
+            {
+                // handle may id property
+                // .'$Ref'.id
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.id]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.id]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$Ref'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$comment']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$comment']", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$Ref'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.title]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.title]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$Ref'.default
+                res = true;
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$Ref'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$Ref'.examples]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.examples]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$Ref'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.description]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.description]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$Ref'.'$defs'
+                res = _jm_obj_22(pval, (path != null ? lpath_47 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Ref'.'$defs']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$defs']", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$Ref'.definitions
+                res = _jm_obj_23(pval, (path != null ? lpath_47 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Ref'.definitions]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.definitions]", (path != null ? lpath_47 : null));
                     return false;
                 }
             }
@@ -3897,7 +4009,7 @@ public class json_schema_linter extends ModelChecker
     }
 
     // object .'$RootSchema'.'&'.0
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    public boolean _jm_obj_24(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -3934,7 +4046,7 @@ public class json_schema_linter extends ModelChecker
         if (res)
         {
             // .'$RootSchema'.'&'.0
-            res = _jm_obj_2(val, path, rep);
+            res = _jm_obj_24(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$RootSchema'.'&'.0]", path);
@@ -4006,24 +4118,6 @@ public class json_schema_linter extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"double\""));
             _jm_cst_0_set.add(json.safeJSON("\"int\""));
             _jm_cst_0_set.add(json.safeJSON("\"mime-type\""));
-            json_model_6_map_pmap = new HashMap<String, Checker>();
-            json_model_6_map_pmap.put("additionalItems", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_24(o, p, r);} });
-            json_model_6_map_pmap.put("items", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            json_model_6_map_pmap.put("maxItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            json_model_6_map_pmap.put("minItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            json_model_6_map_pmap.put("prefixItems", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            json_model_6_map_pmap.put("uniqueItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            json_model_9_map_pmap = new HashMap<String, Checker>();
-            json_model_9_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            json_model_9_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            json_model_9_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            json_model_9_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            json_model_9_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            json_model_9_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            json_model_9_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            json_model_9_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            json_model_9_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            json_model_9_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
             _jm_re_0_pat = Pattern.compile("^x-.*");
             _jm_cst_1_set = new HashSet<Object>();
             _jm_cst_1_set.add(json.safeJSON("\"uri\""));
@@ -4054,166 +4148,52 @@ public class json_schema_linter extends ModelChecker
             _jm_cst_1_set.add(json.safeJSON("\"int\""));
             _jm_cst_1_set.add(json.safeJSON("\"mime-type\""));
             json_model_10_map_pmap = new HashMap<String, Checker>();
-            json_model_10_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            json_model_10_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            json_model_10_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            json_model_10_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            json_model_10_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            json_model_10_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            json_model_10_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
-            json_model_10_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            json_model_10_map_pmap.put("format", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            json_model_10_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            json_model_10_map_pmap.put("maxLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            json_model_10_map_pmap.put("minLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
-            json_model_10_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
-            json_model_10_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
+            json_model_10_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
+            json_model_10_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
+            json_model_10_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            json_model_10_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            json_model_10_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            json_model_10_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            json_model_10_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_10_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            json_model_10_map_pmap.put("format", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            json_model_10_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            json_model_10_map_pmap.put("maxLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            json_model_10_map_pmap.put("minLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
+            json_model_10_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            json_model_10_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
             json_model_11_map_pmap = new HashMap<String, Checker>();
-            json_model_11_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            json_model_11_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
-            json_model_11_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
-            json_model_11_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
+            json_model_11_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            json_model_11_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            json_model_11_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            json_model_11_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
             json_model_11_map_pmap.put("additionalItems", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_24(o, p, r);} });
-            json_model_11_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
-            json_model_11_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
-            json_model_11_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
-            json_model_11_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
-            json_model_11_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            json_model_11_map_pmap.put("items", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
-            json_model_11_map_pmap.put("maxItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
-            json_model_11_map_pmap.put("minItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
+            json_model_11_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
+            json_model_11_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            json_model_11_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
+            json_model_11_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
+            json_model_11_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            json_model_11_map_pmap.put("items", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
+            json_model_11_map_pmap.put("maxItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
+            json_model_11_map_pmap.put("minItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
             json_model_11_map_pmap.put("prefixItems", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            json_model_11_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
-            json_model_11_map_pmap.put("uniqueItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
+            json_model_11_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
+            json_model_11_map_pmap.put("uniqueItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
             json_model_12_map_pmap = new HashMap<String, Checker>();
-            json_model_12_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
-            json_model_12_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            json_model_12_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
-            json_model_12_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
+            json_model_12_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
+            json_model_12_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
+            json_model_12_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
+            json_model_12_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
             json_model_12_map_pmap.put("additionalProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_24(o, p, r);} });
-            json_model_12_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            json_model_12_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            json_model_12_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
-            json_model_12_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
-            json_model_12_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
-            json_model_12_map_pmap.put("patternProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
-            json_model_12_map_pmap.put("properties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
-            json_model_12_map_pmap.put("required", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
-            json_model_12_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
-            json_model_13_map_pmap = new HashMap<String, Checker>();
-            json_model_13_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
-            json_model_13_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
-            json_model_13_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
-            json_model_13_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
-            json_model_13_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_59(o, p, r);} });
-            json_model_13_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_60(o, p, r);} });
-            json_model_13_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_61(o, p, r);} });
-            json_model_13_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_62(o, p, r);} });
-            json_model_13_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_63(o, p, r);} });
-            json_model_13_map_pmap.put("maximum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_64(o, p, r);} });
-            json_model_13_map_pmap.put("minimum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_65(o, p, r);} });
-            json_model_13_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_66(o, p, r);} });
-            json_model_14_map_pmap = new HashMap<String, Checker>();
-            json_model_14_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_67(o, p, r);} });
-            json_model_14_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_68(o, p, r);} });
-            json_model_14_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_69(o, p, r);} });
-            json_model_14_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_70(o, p, r);} });
-            json_model_14_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_71(o, p, r);} });
-            json_model_14_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_72(o, p, r);} });
-            json_model_14_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_73(o, p, r);} });
-            json_model_14_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_74(o, p, r);} });
-            json_model_14_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_75(o, p, r);} });
-            json_model_14_map_pmap.put("maximum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_76(o, p, r);} });
-            json_model_14_map_pmap.put("minimum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_77(o, p, r);} });
-            json_model_14_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_78(o, p, r);} });
-            json_model_15_map_pmap = new HashMap<String, Checker>();
-            json_model_15_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_79(o, p, r);} });
-            json_model_15_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_80(o, p, r);} });
-            json_model_15_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_81(o, p, r);} });
-            json_model_15_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_82(o, p, r);} });
-            json_model_15_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_83(o, p, r);} });
-            json_model_15_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_84(o, p, r);} });
-            json_model_15_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_85(o, p, r);} });
-            json_model_15_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_86(o, p, r);} });
-            json_model_15_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_87(o, p, r);} });
-            json_model_15_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_88(o, p, r);} });
-            json_model_16_map_pmap = new HashMap<String, Checker>();
-            json_model_16_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_89(o, p, r);} });
-            json_model_16_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_90(o, p, r);} });
-            json_model_16_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_91(o, p, r);} });
-            json_model_16_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_92(o, p, r);} });
-            json_model_16_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_93(o, p, r);} });
-            json_model_16_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_94(o, p, r);} });
-            json_model_16_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_95(o, p, r);} });
-            json_model_16_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_96(o, p, r);} });
-            json_model_16_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_97(o, p, r);} });
-            json_model_16_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_98(o, p, r);} });
-            json_model_17_map_pmap = new HashMap<String, Checker>();
-            json_model_17_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_99(o, p, r);} });
-            json_model_17_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_100(o, p, r);} });
-            json_model_17_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_101(o, p, r);} });
-            json_model_17_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_102(o, p, r);} });
-            json_model_17_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_103(o, p, r);} });
-            json_model_17_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_104(o, p, r);} });
-            json_model_17_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_105(o, p, r);} });
-            json_model_17_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_106(o, p, r);} });
-            json_model_17_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_107(o, p, r);} });
-            json_model_17_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_108(o, p, r);} });
-            json_model_18_map_pmap = new HashMap<String, Checker>();
-            json_model_18_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_109(o, p, r);} });
-            json_model_18_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_110(o, p, r);} });
-            json_model_18_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_111(o, p, r);} });
-            json_model_18_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_112(o, p, r);} });
-            json_model_18_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_113(o, p, r);} });
-            json_model_18_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_114(o, p, r);} });
-            json_model_18_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_115(o, p, r);} });
-            json_model_18_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_116(o, p, r);} });
-            json_model_18_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_117(o, p, r);} });
-            json_model_18_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_118(o, p, r);} });
-            json_model_19_map_pmap = new HashMap<String, Checker>();
-            json_model_19_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_119(o, p, r);} });
-            json_model_19_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_120(o, p, r);} });
-            json_model_19_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_121(o, p, r);} });
-            json_model_19_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_122(o, p, r);} });
-            json_model_19_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_123(o, p, r);} });
-            json_model_19_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_124(o, p, r);} });
-            json_model_19_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_125(o, p, r);} });
-            json_model_19_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_126(o, p, r);} });
-            json_model_19_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_127(o, p, r);} });
-            json_model_19_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_128(o, p, r);} });
-            json_model_20_map_pmap = new HashMap<String, Checker>();
-            json_model_20_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_129(o, p, r);} });
-            json_model_20_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_130(o, p, r);} });
-            json_model_20_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_131(o, p, r);} });
-            json_model_20_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_132(o, p, r);} });
-            json_model_20_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_133(o, p, r);} });
-            json_model_20_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_134(o, p, r);} });
-            json_model_20_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_135(o, p, r);} });
-            json_model_20_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_136(o, p, r);} });
-            json_model_20_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_137(o, p, r);} });
-            json_model_20_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_138(o, p, r);} });
-            json_model_21_map_pmap = new HashMap<String, Checker>();
-            json_model_21_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_139(o, p, r);} });
-            json_model_21_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_140(o, p, r);} });
-            json_model_21_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_141(o, p, r);} });
-            json_model_21_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_142(o, p, r);} });
-            json_model_21_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_143(o, p, r);} });
-            json_model_21_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_144(o, p, r);} });
-            json_model_21_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_145(o, p, r);} });
-            json_model_21_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_146(o, p, r);} });
-            json_model_21_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_147(o, p, r);} });
-            json_model_21_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_148(o, p, r);} });
-            json_model_22_map_pmap = new HashMap<String, Checker>();
-            json_model_22_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_149(o, p, r);} });
-            json_model_22_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_150(o, p, r);} });
-            json_model_22_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_151(o, p, r);} });
-            json_model_22_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_152(o, p, r);} });
-            json_model_22_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_153(o, p, r);} });
-            json_model_22_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_154(o, p, r);} });
-            json_model_22_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_155(o, p, r);} });
-            json_model_22_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_156(o, p, r);} });
-            json_model_22_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_157(o, p, r);} });
-            json_model_22_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_158(o, p, r);} });
+            json_model_12_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
+            json_model_12_map_pmap.put("definitions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
+            json_model_12_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
+            json_model_12_map_pmap.put("examples", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
+            json_model_12_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
+            json_model_12_map_pmap.put("patternProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
+            json_model_12_map_pmap.put("properties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
+            json_model_12_map_pmap.put("required", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
+            json_model_12_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
             _jm_map_0_cmap = new HashMap<Object, Checker>();
             _jm_map_0_cmap.put(json.safeJSON("\"null\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"boolean\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_15(o, p, r);} });
@@ -4262,23 +4242,11 @@ public class json_schema_linter extends ModelChecker
         {
             super.free();
             _jm_cst_0_set = null;
-            json_model_6_map_pmap = null;
-            json_model_9_map_pmap = null;
             _jm_re_0_pat = null;
             _jm_cst_1_set = null;
             json_model_10_map_pmap = null;
             json_model_11_map_pmap = null;
             json_model_12_map_pmap = null;
-            json_model_13_map_pmap = null;
-            json_model_14_map_pmap = null;
-            json_model_15_map_pmap = null;
-            json_model_16_map_pmap = null;
-            json_model_17_map_pmap = null;
-            json_model_18_map_pmap = null;
-            json_model_19_map_pmap = null;
-            json_model_20_map_pmap = null;
-            json_model_21_map_pmap = null;
-            json_model_22_map_pmap = null;
             _jm_map_0_cmap = null;
             json_schema_linter_map_pmap = null;
         }

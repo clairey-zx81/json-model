@@ -731,15 +731,15 @@ class CodeGenerator:
                 return code
             # only check values, fine code will be generated below
 
-        # TODO devise a dynamic choice? choice depends on target?
         # shortcut for open object with simple props only
+        # TODO accept any other prop?
         if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
             # if there are many may values, this may be too costly…
-            if (1.0 * len(may) / (len(must) + len(may)) < self._may_must_open_ratio or
-                len(may) <= self._may_must_open_threshold):
+            ## if (len(may) / (len(must) + len(may)) < self._may_must_open_ratio or
+            if (len(must) + len(may)) <= self._may_must_open_threshold:
                 return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
 
-        # shortcut for must-only object
+        # shortcut for must-only close object
         # NOTE we assume that this strategy is always beneficial, but it may depend on the target
         if must and not may and not defs and not regs and not oth and \
                 len(must) <= self.must_only_threshold:

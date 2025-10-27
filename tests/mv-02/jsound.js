@@ -12,7 +12,6 @@ const JSON_MODEL_VERSION = "2";
 let _jm_map_0 = new Map()
 let _jm_cst_0 = new Set()
 let _jm_cst_1 = new Set()
-var json_model_6_map = new Map()
 var check_model_map = new Map()
 
 // object .'$Schema'.metadata
@@ -280,130 +279,6 @@ function json_model_5(val, path, rep)
     return res;
 }
 
-// check json_model_6_map_enumeration (.'$Atomic'.enumeration)
-function _jm_f_0(val, path, rep)
-{
-    // .'$Atomic'.enumeration
-    let res = Array.isArray(val);
-    if (res)
-    {
-        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
-        {
-            let arr_2_item = val[arr_2_idx]
-            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
-            // .'$Atomic'.enumeration.0
-            res = json_model_5(arr_2_item, (path ? arr_2_lpath : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.enumeration.0]", (path ? arr_2_lpath : null)])
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$Atomic'.enumeration]", path])
-    }
-    return res;
-}
-
-
-// check json_model_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
-function _jm_f_1(val, path, rep)
-{
-    // .'$Atomic'.explicitTypeZone
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'$Atomic'.explicitTypeZone.'|']", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
-function _jm_f_2(val, path, rep)
-{
-    // .'$Atomic'.fractionDigits
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.fractionDigits]", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_length (.'$Atomic'.length)
-function _jm_f_3(val, path, rep)
-{
-    // .'$Atomic'.length
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.length]", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_maxLength (.'$Atomic'.maxLength)
-function _jm_f_4(val, path, rep)
-{
-    // .'$Atomic'.maxLength
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.maxLength]", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_minLength (.'$Atomic'.minLength)
-function _jm_f_5(val, path, rep)
-{
-    // .'$Atomic'.minLength
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.minLength]", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_name (.'$Atomic'.name)
-function _jm_f_6(val, path, rep)
-{
-    // .'$Atomic'.name
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$Atomic'.name]", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_pattern (.'$Atomic'.pattern)
-function _jm_f_7(val, path, rep)
-{
-    // .'$Atomic'.pattern
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$Atomic'.pattern]", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
-function _jm_f_8(val, path, rep)
-{
-    // .'$Atomic'.totalDigits
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.totalDigits]", path])
-    }
-    return res;
-}
-
 
 // check $Atomic (.'$Atomic')
 function json_model_6(val, path, rep)
@@ -416,7 +291,6 @@ function json_model_6(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -447,12 +321,174 @@ function json_model_6(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_6_map.get(prop)))
+        else if (prop == "name")
         {
-            // handle 13 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_2 : null), rep))
+            // handle may name property
+            // .'$Atomic'.name
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Atomic']", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Atomic'.name]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.name]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "pattern")
+        {
+            // handle may pattern property
+            // .'$Atomic'.pattern
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "length")
+        {
+            // handle may length property
+            // .'$Atomic'.length
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.length]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.length]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minLength")
+        {
+            // handle may minLength property
+            // .'$Atomic'.minLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.minLength]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minLength]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxLength")
+        {
+            // handle may maxLength property
+            // .'$Atomic'.maxLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.maxLength]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxLength]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "totalDigits")
+        {
+            // handle may totalDigits property
+            // .'$Atomic'.totalDigits
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.totalDigits]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.totalDigits]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "fractionDigits")
+        {
+            // handle may fractionDigits property
+            // .'$Atomic'.fractionDigits
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.fractionDigits]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.fractionDigits]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxInclusive")
+        {
+            // handle may maxInclusive property
+            // .'$Atomic'.maxInclusive
+            res = json_model_5(pval, (path ? lpath_2 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.maxInclusive]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxInclusive]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxExclusive")
+        {
+            // handle may maxExclusive property
+            // .'$Atomic'.maxExclusive
+            res = json_model_5(pval, (path ? lpath_2 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.maxExclusive]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxExclusive]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minInclusive")
+        {
+            // handle may minInclusive property
+            // .'$Atomic'.minInclusive
+            res = json_model_5(pval, (path ? lpath_2 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.minInclusive]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minInclusive]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minExclusive")
+        {
+            // handle may minExclusive property
+            // .'$Atomic'.minExclusive
+            res = json_model_5(pval, (path ? lpath_2 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.minExclusive]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minExclusive]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "enumeration")
+        {
+            // handle may enumeration property
+            // .'$Atomic'.enumeration
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
+                {
+                    let arr_2_item = pval[arr_2_idx]
+                    let arr_2_lpath = (path ? lpath_2 : null) ? (path ? lpath_2 : null).concat([arr_2_idx]) : null;
+                    // .'$Atomic'.enumeration.0
+                    res = json_model_5(arr_2_item, ((path ? lpath_2 : null) ? arr_2_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.enumeration.0]", ((path ? lpath_2 : null) ? arr_2_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$Atomic'.enumeration]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.enumeration]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "explicitTypeZone")
+        {
+            // handle may explicitTypeZone property
+            // .'$Atomic'.explicitTypeZone
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.'$Atomic'.explicitTypeZone.'|']", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.explicitTypeZone]", (path ? lpath_2 : null)])
                 return false;
             }
         }
@@ -974,19 +1010,6 @@ export function check_model_init()
         _jm_cst_1.add("required")
         _jm_cst_1.add("prohibited")
         _jm_cst_1.add("optional")
-        json_model_6_map.set("enumeration", _jm_f_0)
-        json_model_6_map.set("explicitTypeZone", _jm_f_1)
-        json_model_6_map.set("fractionDigits", _jm_f_2)
-        json_model_6_map.set("length", _jm_f_3)
-        json_model_6_map.set("maxExclusive", json_model_5)
-        json_model_6_map.set("maxInclusive", json_model_5)
-        json_model_6_map.set("maxLength", _jm_f_4)
-        json_model_6_map.set("minExclusive", json_model_5)
-        json_model_6_map.set("minInclusive", json_model_5)
-        json_model_6_map.set("minLength", _jm_f_5)
-        json_model_6_map.set("name", _jm_f_6)
-        json_model_6_map.set("pattern", _jm_f_7)
-        json_model_6_map.set("totalDigits", _jm_f_8)
         check_model_map.set("", json_model_2)
         check_model_map.set("Schema", json_model_2)
         check_model_map.set("Type", json_model_3)

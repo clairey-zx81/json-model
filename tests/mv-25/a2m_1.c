@@ -86,17 +86,27 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$nomerge'.'&'.1
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 1))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "c")) != NULL)))
-        return false;
-    // .'$nomerge'.'&'.1.c
-    return json_is_integer(pval) && json_integer_value(pval) >= 1;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (likely(jm_str_eq_2(prop, 0x00000063)))
+        {
+            // handle must c property
+            must_count += 1;
+            // .'$nomerge'.'&'.1.c
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 1;
 }
 
 // check $nomerge (.'$nomerge')

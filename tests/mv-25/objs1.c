@@ -23,47 +23,66 @@ const size_t check_model_map_size = 2;
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$objs0'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 1))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "stuff")) != NULL)))
-        return false;
-    // .'$objs0'.stuff
-    res = json_is_array(pval);
-    if (res)
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        size_t arr_0_idx;
-        json_t *arr_0_item;
-        json_array_foreach(pval, arr_0_idx, arr_0_item)
+        if (likely(jm_str_eq_6(prop, 0x0000006666757473LL)))
         {
-            // .'$objs0'.stuff.0
-            res = json_model_6(arr_0_item, NULL, NULL);
+            // handle must stuff property
+            must_count += 1;
+            // .'$objs0'.stuff
+            res = json_is_array(pval);
+            if (res)
+            {
+                size_t arr_0_idx;
+                json_t *arr_0_item;
+                json_array_foreach(pval, arr_0_idx, arr_0_item)
+                {
+                    // .'$objs0'.stuff.0
+                    res = json_model_6(arr_0_item, NULL, NULL);
+                    if (unlikely(! res))
+                        break;
+                }
+            }
             if (unlikely(! res))
-                break;
+                return false;
         }
+        else
+            return false;
     }
-    return res;
+    return must_count == 1;
 }
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 1))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "foo")) != NULL)))
-        return false;
-    // .foo
-    return json_model_3(pval, NULL, NULL);
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (likely(jm_str_eq_4(prop, 0x006f6f66)))
+        {
+            // handle must foo property
+            must_count += 1;
+            // .foo
+            res = json_model_3(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 1;
 }
 
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)
@@ -98,46 +117,72 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$objs0#table'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 2))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
-        return false;
-    // .'$objs0#table'.t
-    res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000656c626174LL);
-    if (unlikely(! res))
-        return false;
-    if (unlikely(! ((pval = json_object_get(val, "legs")) != NULL)))
-        return false;
-    // .'$objs0#table'.legs
-    return json_is_integer(pval) && json_integer_value(pval) >= 1;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (jm_str_eq_2(prop, 0x00000074))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$objs0#table'.t
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000656c626174LL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_5(prop, 0x000000007367656cLL)))
+        {
+            // handle must legs property
+            must_count += 1;
+            // .'$objs0#table'.legs
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 2;
 }
 
 // check $objs0#chair (.'$objs0#chair')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$objs0#chair'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 2))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
-        return false;
-    // .'$objs0#chair'.t
-    res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007269616863LL);
-    if (unlikely(! res))
-        return false;
-    if (unlikely(! ((pval = json_object_get(val, "color")) != NULL)))
-        return false;
-    // .'$objs0#chair'.color
-    return json_is_string(pval);
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (jm_str_eq_2(prop, 0x00000074))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$objs0#chair'.t
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007269616863LL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_6(prop, 0x000000726f6c6f63LL)))
+        {
+            // handle must color property
+            must_count += 1;
+            // .'$objs0#chair'.color
+            res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 2;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

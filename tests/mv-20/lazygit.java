@@ -23,28 +23,24 @@ public class lazygit extends ModelChecker
     Set<Object> _jm_cst_2_set;
     Map<Object, Checker> _jm_map_0_cmap;
     Set<Object> _jm_cst_3_set;
-    Map<String, Checker> _jm_obj_7_map_pmap;
     public Pattern _jm_re_1_pat = null;
     Set<Object> _jm_cst_4_set;
     Set<Object> _jm_cst_5_set;
     Set<Object> _jm_cst_6_set;
-    Map<String, Checker> _jm_f_10_map_pmap;
+    Map<String, Checker> _jm_f_3_map_pmap;
     Set<Object> _jm_cst_7_set;
     Set<Object> _jm_cst_8_set;
     Set<Object> _jm_cst_9_set;
     Set<Object> _jm_cst_10_set;
     Set<Object> _jm_cst_11_set;
-    Map<String, Checker> _jm_f_52_map_pmap;
     Set<Object> _jm_cst_12_set;
-    Map<String, Checker> _jm_f_26_map_pmap;
-    Map<String, Checker> _jm_f_56_map_pmap;
-    Map<String, Checker> _jm_f_58_map_pmap;
-    Map<String, Checker> _jm_f_59_map_pmap;
-    Map<String, Checker> _jm_f_64_map_pmap;
-    Map<String, Checker> _jm_f_55_map_pmap;
+    Map<String, Checker> _jm_f_19_map_pmap;
+    Map<String, Checker> _jm_obj_10_map_pmap;
+    Map<String, Checker> _jm_obj_12_map_pmap;
+    Map<String, Checker> _jm_obj_13_map_pmap;
+    Map<String, Checker> _jm_obj_14_map_pmap;
     Set<Object> _jm_cst_13_set;
     Set<Object> _jm_cst_14_set;
-    Map<String, Checker> _jm_f_68_map_pmap;
     public Pattern _jm_re_2_pat = null;
     Set<Object> _jm_cst_15_set;
     Map<String, Checker> json_model_1_map_pmap;
@@ -924,10 +920,9 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_obj_7_map_after (.customCommands.'@'.0.after)
-    public boolean _jm_f_2(Object val, Path path, Report rep)
+    // object .customCommands.'@'.0.after
+    public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
-        // .customCommands.'@'.0.after
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.customCommands.'@'.0.after]", path);
@@ -961,97 +956,6 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_description (.customCommands.'@'.0.description)
-    public boolean _jm_f_3(Object val, Path path, Report rep)
-    {
-        // .customCommands.'@'.0.description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.description]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
-    public boolean _jm_f_4(Object val, Path path, Report rep)
-    {
-        // .customCommands.'@'.0.loadingText
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.loadingText]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
-    {
-        // .customCommands.'@'.0.prompts
-        boolean res = json.isArray(val);
-        if (res)
-        {
-            int arr_4_idx = -1;
-            Iterator<Object> arr_4_item_loop = json.arrayIterator(val);
-            while (arr_4_item_loop.hasNext())
-            {
-                arr_4_idx++;
-                Object arr_4_item = arr_4_item_loop.next();
-                Path arr_4_lpath = new Path(arr_4_idx, path);
-                // .customCommands.'@'.0.prompts.0
-                res = json_model_10(arr_4_item, (path != null ? arr_4_lpath : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $Prompts [.customCommands.'@'.0.prompts.0]", (path != null ? arr_4_lpath : null));
-                    break;
-                }
-            }
-        }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.customCommands.'@'.0.prompts]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
-    public boolean _jm_f_6(Object val, Path path, Report rep)
-    {
-        // .customCommands.'@'.0.showOutput
-        boolean res = json.isBoolean(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.showOutput]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
-    public boolean _jm_f_7(Object val, Path path, Report rep)
-    {
-        // .customCommands.'@'.0.stream
-        boolean res = json.isBoolean(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.stream]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
-    public boolean _jm_f_8(Object val, Path path, Report rep)
-    {
-        // .customCommands.'@'.0.subprocess
-        boolean res = json.isBoolean(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.subprocess]", path);
-        }
-        return res;
-    }
-
-
     // object .customCommands.'@'.0
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -1061,7 +965,6 @@ public class lazygit extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -1108,12 +1011,105 @@ public class lazygit extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_7_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("subprocess") == 0)
             {
-                // handle 7 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_5 : null), rep)))
+                // handle may subprocess property
+                // .customCommands.'@'.0.subprocess
+                res = json.isBoolean(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.subprocess]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.subprocess]", (path != null ? lpath_5 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("prompts") == 0)
+            {
+                // handle may prompts property
+                // .customCommands.'@'.0.prompts
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_4_idx = -1;
+                    Iterator<Object> arr_4_item_loop = json.arrayIterator(pval);
+                    while (arr_4_item_loop.hasNext())
+                    {
+                        arr_4_idx++;
+                        Object arr_4_item = arr_4_item_loop.next();
+                        Path arr_4_lpath = new Path(arr_4_idx, (path != null ? lpath_5 : null));
+                        // .customCommands.'@'.0.prompts.0
+                        res = json_model_10(arr_4_item, ((path != null ? lpath_5 : null) != null ? arr_4_lpath : null), rep);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected $Prompts [.customCommands.'@'.0.prompts.0]", ((path != null ? lpath_5 : null) != null ? arr_4_lpath : null));
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.customCommands.'@'.0.prompts]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.prompts]", (path != null ? lpath_5 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("loadingText") == 0)
+            {
+                // handle may loadingText property
+                // .customCommands.'@'.0.loadingText
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.loadingText]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.loadingText]", (path != null ? lpath_5 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .customCommands.'@'.0.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.description]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.description]", (path != null ? lpath_5 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("stream") == 0)
+            {
+                // handle may stream property
+                // .customCommands.'@'.0.stream
+                res = json.isBoolean(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.stream]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.stream]", (path != null ? lpath_5 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("showOutput") == 0)
+            {
+                // handle may showOutput property
+                // .customCommands.'@'.0.showOutput
+                res = json.isBoolean(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.showOutput]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.showOutput]", (path != null ? lpath_5 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("after") == 0)
+            {
+                // handle may after property
+                // .customCommands.'@'.0.after
+                res = _jm_obj_8(pval, (path != null ? lpath_5 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.customCommands.'@'.0.after]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.after]", (path != null ? lpath_5 : null));
                     return false;
                 }
             }
@@ -1185,7 +1181,7 @@ public class lazygit extends ModelChecker
     }
 
     // check json_model_1_map_disableStartupPopups (.disableStartupPopups)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
+    public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         // .disableStartupPopups
         boolean res = json.isBoolean(val);
@@ -1196,8 +1192,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
-    public boolean _jm_f_11(Object val, Path path, Report rep)
+    // check _jm_f_3_map_allBranchesLogCmd (.git.allBranchesLogCmd)
+    public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         // .git.allBranchesLogCmd
         boolean res = json.isString(val);
@@ -1208,8 +1204,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_10_map_autoFetch (.git.autoFetch)
-    public boolean _jm_f_12(Object val, Path path, Report rep)
+    // check _jm_f_3_map_autoFetch (.git.autoFetch)
+    public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         // .git.autoFetch
         boolean res = json.isBoolean(val);
@@ -1220,8 +1216,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_10_map_autoRefresh (.git.autoRefresh)
-    public boolean _jm_f_13(Object val, Path path, Report rep)
+    // check _jm_f_3_map_autoRefresh (.git.autoRefresh)
+    public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         // .git.autoRefresh
         boolean res = json.isBoolean(val);
@@ -1232,8 +1228,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
-    public boolean _jm_f_14(Object val, Path path, Report rep)
+    // check _jm_f_3_map_branchLogCmd (.git.branchLogCmd)
+    public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         // .git.branchLogCmd
         boolean res = json.isString(val);
@@ -1244,8 +1240,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_10_map_commit (.git.commit)
-    public boolean _jm_f_15(Object val, Path path, Report rep)
+    // check _jm_f_3_map_commit (.git.commit)
+    public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         // .git.commit
         if (! json.isObject(val))
@@ -1287,7 +1283,7 @@ public class lazygit extends ModelChecker
     }
 
     // object .git.commitPrefixes.'/./'
-    public boolean _jm_obj_8(Object val, Path path, Report rep)
+    public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1334,8 +1330,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
-    public boolean _jm_f_16(Object val, Path path, Report rep)
+    // check _jm_f_3_map_commitPrefixes (.git.commitPrefixes)
+    public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         // .git.commitPrefixes
         if (! json.isObject(val))
@@ -1354,7 +1350,7 @@ public class lazygit extends ModelChecker
             {
                 // handle 1 re props
                 // .git.commitPrefixes.'/./'
-                res = _jm_obj_8(pval, (path != null ? lpath_9 : null), rep);
+                res = _jm_obj_9(pval, (path != null ? lpath_9 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.git.commitPrefixes.'/./']", (path != null ? lpath_9 : null));
@@ -1370,8 +1366,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_10_map_diffContextSize (.git.diffContextSize)
-    public boolean _jm_f_17(Object val, Path path, Report rep)
+    // check _jm_f_3_map_diffContextSize (.git.diffContextSize)
+    public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         // .git.diffContextSize
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
@@ -1382,8 +1378,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
-    public boolean _jm_f_18(Object val, Path path, Report rep)
+    // check _jm_f_3_map_disableForcePushing (.git.disableForcePushing)
+    public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         // .git.disableForcePushing
         boolean res = json.isBoolean(val);
@@ -1394,8 +1390,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_10_map_fetchAll (.git.fetchAll)
-    public boolean _jm_f_19(Object val, Path path, Report rep)
+    // check _jm_f_3_map_fetchAll (.git.fetchAll)
+    public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         // .git.fetchAll
         boolean res = json.isBoolean(val);
@@ -1408,8 +1404,8 @@ public class lazygit extends ModelChecker
 
 
 
-    // check _jm_f_10_map_log (.git.log)
-    public boolean _jm_f_20(Object val, Path path, Report rep)
+    // check _jm_f_3_map_log (.git.log)
+    public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         // .git.log
         if (! json.isObject(val))
@@ -1469,8 +1465,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_10_map_merging (.git.merging)
-    public boolean _jm_f_21(Object val, Path path, Report rep)
+    // check _jm_f_3_map_merging (.git.merging)
+    public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         // .git.merging
         if (! json.isObject(val))
@@ -1518,8 +1514,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_10_map_overrideGpg (.git.overrideGpg)
-    public boolean _jm_f_22(Object val, Path path, Report rep)
+    // check _jm_f_3_map_overrideGpg (.git.overrideGpg)
+    public boolean _jm_f_15(Object val, Path path, Report rep)
     {
         // .git.overrideGpg
         boolean res = json.isBoolean(val);
@@ -1531,8 +1527,8 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_f_10_map_paging (.git.paging)
-    public boolean _jm_f_23(Object val, Path path, Report rep)
+    // check _jm_f_3_map_paging (.git.paging)
+    public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         // .git.paging
         if (! json.isObject(val))
@@ -1605,8 +1601,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_10_map_parseEmoji (.git.parseEmoji)
-    public boolean _jm_f_24(Object val, Path path, Report rep)
+    // check _jm_f_3_map_parseEmoji (.git.parseEmoji)
+    public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         // .git.parseEmoji
         boolean res = json.isBoolean(val);
@@ -1617,8 +1613,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
-    public boolean _jm_f_25(Object val, Path path, Report rep)
+    // check _jm_f_3_map_skipHookPrefix (.git.skipHookPrefix)
+    public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         // .git.skipHookPrefix
         boolean res = json.isString(val);
@@ -1631,7 +1627,7 @@ public class lazygit extends ModelChecker
 
 
     // check json_model_1_map_git (.git)
-    public boolean _jm_f_10(Object val, Path path, Report rep)
+    public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         // .git
         if (! json.isObject(val))
@@ -1646,7 +1642,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_7 = new Path(prop, path);
-            if ((pfun = _jm_f_10_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_3_map_pmap.get(prop)) != null)
             {
                 // handle 16 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_7 : null), rep)))
@@ -1664,8 +1660,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
-    public boolean _jm_f_27(Object val, Path path, Report rep)
+    // check _jm_f_19_map_animateExplosion (.gui.animateExplosion)
+    public boolean _jm_f_20(Object val, Path path, Report rep)
     {
         // .gui.animateExplosion
         boolean res = json.isBoolean(val);
@@ -1676,8 +1672,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_authorColors (.gui.authorColors)
-    public boolean _jm_f_28(Object val, Path path, Report rep)
+    // check _jm_f_19_map_authorColors (.gui.authorColors)
+    public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         // .gui.authorColors
         if (! json.isObject(val))
@@ -1713,8 +1709,8 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_f_26_map_border (.gui.border)
-    public boolean _jm_f_29(Object val, Path path, Report rep)
+    // check _jm_f_19_map_border (.gui.border)
+    public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         // .gui.border
         boolean res = json.isScalar(val) && _jm_cst_7_set.contains(val);
@@ -1725,8 +1721,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_branchColors (.gui.branchColors)
-    public boolean _jm_f_30(Object val, Path path, Report rep)
+    // check _jm_f_19_map_branchColors (.gui.branchColors)
+    public boolean _jm_f_23(Object val, Path path, Report rep)
     {
         // .gui.branchColors
         if (! json.isObject(val))
@@ -1761,8 +1757,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
-    public boolean _jm_f_31(Object val, Path path, Report rep)
+    // check _jm_f_19_map_commandLogSize (.gui.commandLogSize)
+    public boolean _jm_f_24(Object val, Path path, Report rep)
     {
         // .gui.commandLogSize
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
@@ -1773,8 +1769,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_commitLength (.gui.commitLength)
-    public boolean _jm_f_32(Object val, Path path, Report rep)
+    // check _jm_f_19_map_commitLength (.gui.commitLength)
+    public boolean _jm_f_25(Object val, Path path, Report rep)
     {
         // .gui.commitLength
         if (! json.isObject(val))
@@ -1810,8 +1806,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
-    public boolean _jm_f_33(Object val, Path path, Report rep)
+    // check _jm_f_19_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
+    public boolean _jm_f_26(Object val, Path path, Report rep)
     {
         // .gui.expandFocusedSidePanel
         boolean res = json.isBoolean(val);
@@ -1823,8 +1819,8 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_f_26_map_language (.gui.language)
-    public boolean _jm_f_34(Object val, Path path, Report rep)
+    // check _jm_f_19_map_language (.gui.language)
+    public boolean _jm_f_27(Object val, Path path, Report rep)
     {
         // .gui.language
         boolean res = json.isScalar(val) && _jm_cst_8_set.contains(val);
@@ -1836,8 +1832,8 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
-    public boolean _jm_f_35(Object val, Path path, Report rep)
+    // check _jm_f_19_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
+    public boolean _jm_f_28(Object val, Path path, Report rep)
     {
         // .gui.mainPanelSplitMode
         boolean res = json.isScalar(val) && _jm_cst_9_set.contains(val);
@@ -1848,8 +1844,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
-    public boolean _jm_f_36(Object val, Path path, Report rep)
+    // check _jm_f_19_map_mouseEvents (.gui.mouseEvents)
+    public boolean _jm_f_29(Object val, Path path, Report rep)
     {
         // .gui.mouseEvents
         boolean res = json.isBoolean(val);
@@ -1861,8 +1857,8 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
-    public boolean _jm_f_37(Object val, Path path, Report rep)
+    // check _jm_f_19_map_nerdFontsVersion (.gui.nerdFontsVersion)
+    public boolean _jm_f_30(Object val, Path path, Report rep)
     {
         // .gui.nerdFontsVersion
         boolean res = json.isScalar(val) && _jm_cst_10_set.contains(val);
@@ -1895,8 +1891,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
-    public boolean _jm_f_38(Object val, Path path, Report rep)
+    // check _jm_f_19_map_scrollHeight (.gui.scrollHeight)
+    public boolean _jm_f_31(Object val, Path path, Report rep)
     {
         // .gui.scrollHeight
         boolean res = json.isInteger(val) && json.asLong(val) >= 1;
@@ -1907,8 +1903,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
-    public boolean _jm_f_39(Object val, Path path, Report rep)
+    // check _jm_f_19_map_scrollPastBottom (.gui.scrollPastBottom)
+    public boolean _jm_f_32(Object val, Path path, Report rep)
     {
         // .gui.scrollPastBottom
         boolean res = json.isBoolean(val);
@@ -1919,8 +1915,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
-    public boolean _jm_f_40(Object val, Path path, Report rep)
+    // check _jm_f_19_map_shortTimeFormat (.gui.shortTimeFormat)
+    public boolean _jm_f_33(Object val, Path path, Report rep)
     {
         // .gui.shortTimeFormat
         boolean res = json.isString(val);
@@ -1931,8 +1927,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
-    public boolean _jm_f_41(Object val, Path path, Report rep)
+    // check _jm_f_19_map_showBottomLine (.gui.showBottomLine)
+    public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         // .gui.showBottomLine
         boolean res = json.isBoolean(val);
@@ -1943,8 +1939,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
-    public boolean _jm_f_42(Object val, Path path, Report rep)
+    // check _jm_f_19_map_showBranchCommitHash (.gui.showBranchCommitHash)
+    public boolean _jm_f_35(Object val, Path path, Report rep)
     {
         // .gui.showBranchCommitHash
         boolean res = json.isBoolean(val);
@@ -1955,8 +1951,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
-    public boolean _jm_f_43(Object val, Path path, Report rep)
+    // check _jm_f_19_map_showCommandLog (.gui.showCommandLog)
+    public boolean _jm_f_36(Object val, Path path, Report rep)
     {
         // .gui.showCommandLog
         boolean res = json.isBoolean(val);
@@ -1967,8 +1963,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_showFileTree (.gui.showFileTree)
-    public boolean _jm_f_44(Object val, Path path, Report rep)
+    // check _jm_f_19_map_showFileTree (.gui.showFileTree)
+    public boolean _jm_f_37(Object val, Path path, Report rep)
     {
         // .gui.showFileTree
         boolean res = json.isBoolean(val);
@@ -1979,8 +1975,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_showListFooter (.gui.showListFooter)
-    public boolean _jm_f_45(Object val, Path path, Report rep)
+    // check _jm_f_19_map_showListFooter (.gui.showListFooter)
+    public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         // .gui.showListFooter
         boolean res = json.isBoolean(val);
@@ -1991,8 +1987,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
-    public boolean _jm_f_46(Object val, Path path, Report rep)
+    // check _jm_f_19_map_showRandomTip (.gui.showRandomTip)
+    public boolean _jm_f_39(Object val, Path path, Report rep)
     {
         // .gui.showRandomTip
         boolean res = json.isBoolean(val);
@@ -2003,8 +1999,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
-    public boolean _jm_f_47(Object val, Path path, Report rep)
+    // check _jm_f_19_map_sidePanelWidth (.gui.sidePanelWidth)
+    public boolean _jm_f_40(Object val, Path path, Report rep)
     {
         // .gui.sidePanelWidth
         // .gui.sidePanelWidth.'@'
@@ -2025,8 +2021,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
-    public boolean _jm_f_48(Object val, Path path, Report rep)
+    // check _jm_f_19_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
+    public boolean _jm_f_41(Object val, Path path, Report rep)
     {
         // .gui.skipDiscardChangeWarning
         boolean res = json.isBoolean(val);
@@ -2037,8 +2033,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
-    public boolean _jm_f_49(Object val, Path path, Report rep)
+    // check _jm_f_19_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
+    public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         // .gui.skipRewordInEditorWarning
         boolean res = json.isBoolean(val);
@@ -2049,8 +2045,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
-    public boolean _jm_f_50(Object val, Path path, Report rep)
+    // check _jm_f_19_map_skipStashWarning (.gui.skipStashWarning)
+    public boolean _jm_f_43(Object val, Path path, Report rep)
     {
         // .gui.skipStashWarning
         boolean res = json.isBoolean(val);
@@ -2062,8 +2058,8 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_f_26_map_splitDiff (.gui.splitDiff)
-    public boolean _jm_f_51(Object val, Path path, Report rep)
+    // check _jm_f_19_map_splitDiff (.gui.splitDiff)
+    public boolean _jm_f_44(Object val, Path path, Report rep)
     {
         // .gui.splitDiff
         boolean res = json.isScalar(val) && _jm_cst_11_set.contains(val);
@@ -2074,9 +2070,8 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-
-    // check _jm_f_26_map_theme (.gui.theme)
-    public boolean _jm_f_52(Object val, Path path, Report rep)
+    // check _jm_f_19_map_theme (.gui.theme)
+    public boolean _jm_f_45(Object val, Path path, Report rep)
     {
         // .gui.theme
         if (! json.isObject(val))
@@ -2084,19 +2079,130 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.gui.theme]", path);
             return false;
         }
-        Checker pfun;
+        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_17 = new Path(prop, path);
-            if ((pfun = _jm_f_52_map_pmap.get(prop)) != null)
+            if (prop.compareTo("activeBorderColor") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_17 : null), rep)))
+                // handle may activeBorderColor property
+                // .gui.theme.activeBorderColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.activeBorderColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.activeBorderColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("inactiveBorderColor") == 0)
+            {
+                // handle may inactiveBorderColor property
+                // .gui.theme.inactiveBorderColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.inactiveBorderColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("searchingActiveBorderColor") == 0)
+            {
+                // handle may searchingActiveBorderColor property
+                // .gui.theme.searchingActiveBorderColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("optionsTextColor") == 0)
+            {
+                // handle may optionsTextColor property
+                // .gui.theme.optionsTextColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.optionsTextColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.optionsTextColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("selectedLineBgColor") == 0)
+            {
+                // handle may selectedLineBgColor property
+                // .gui.theme.selectedLineBgColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.selectedLineBgColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("selectedRangeBgColor") == 0)
+            {
+                // handle may selectedRangeBgColor property
+                // .gui.theme.selectedRangeBgColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("cherryPickedCommitBgColor") == 0)
+            {
+                // handle may cherryPickedCommitBgColor property
+                // .gui.theme.cherryPickedCommitBgColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("cherryPickedCommitFgColor") == 0)
+            {
+                // handle may cherryPickedCommitFgColor property
+                // .gui.theme.cherryPickedCommitFgColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("unstagedChangesColor") == 0)
+            {
+                // handle may unstagedChangesColor property
+                // .gui.theme.unstagedChangesColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.unstagedChangesColor]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("defaultFgColor") == 0)
+            {
+                // handle may defaultFgColor property
+                // .gui.theme.defaultFgColor
+                res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.defaultFgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.defaultFgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
             }
@@ -2109,8 +2215,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_26_map_timeFormat (.gui.timeFormat)
-    public boolean _jm_f_53(Object val, Path path, Report rep)
+    // check _jm_f_19_map_timeFormat (.gui.timeFormat)
+    public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         // .gui.timeFormat
         boolean res = json.isString(val);
@@ -2122,8 +2228,8 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_f_26_map_windowSize (.gui.windowSize)
-    public boolean _jm_f_54(Object val, Path path, Report rep)
+    // check _jm_f_19_map_windowSize (.gui.windowSize)
+    public boolean _jm_f_47(Object val, Path path, Report rep)
     {
         // .gui.windowSize
         boolean res = json.isScalar(val) && _jm_cst_12_set.contains(val);
@@ -2136,7 +2242,7 @@ public class lazygit extends ModelChecker
 
 
     // check json_model_1_map_gui (.gui)
-    public boolean _jm_f_26(Object val, Path path, Report rep)
+    public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         // .gui
         if (! json.isObject(val))
@@ -2151,7 +2257,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_13 = new Path(prop, path);
-            if ((pfun = _jm_f_26_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_19_map_pmap.get(prop)) != null)
             {
                 // handle 28 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_13 : null), rep)))
@@ -2169,14 +2275,37 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-
-    // check _jm_f_55_map_branches (.keybinding.branches)
-    public boolean _jm_f_56(Object val, Path path, Report rep)
+    // check _jm_obj_10_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+    public boolean _jm_f_49(Object val, Path path, Report rep)
     {
-        // .keybinding.branches
+        // .keybinding.universal.jumpToBlock
+        boolean res = json.isArray(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.keybinding.universal.jumpToBlock]", path);
+        }
+        return res;
+    }
+
+    // check _jm_obj_10_map_optionMenu (.keybinding.universal.optionMenu)
+    public boolean _jm_f_50(Object val, Path path, Report rep)
+    {
+        // .keybinding.universal.optionMenu
+        boolean res = json.isNull(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("not null [.keybinding.universal.optionMenu]", path);
+        }
+        return res;
+    }
+
+
+    // object .keybinding.universal
+    public boolean _jm_obj_10(Object val, Path path, Report rep)
+    {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.keybinding.branches]", path);
+            if (rep != null) rep.addEntry("not an object [.keybinding.universal]", path);
             return false;
         }
         Checker pfun;
@@ -2186,31 +2315,30 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_19 = new Path(prop, path);
-            if ((pfun = _jm_f_56_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_obj_10_map_pmap.get(prop)) != null)
             {
-                // handle 13 may props
+                // handle 59 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_19 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.branches]", (path != null ? lpath_19 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.universal]", (path != null ? lpath_19 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.branches]", (path != null ? lpath_19 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.universal]", (path != null ? lpath_19 : null));
                 return false;
             }
         }
         return true;
     }
 
-    // check _jm_f_55_map_commitFiles (.keybinding.commitFiles)
-    public boolean _jm_f_57(Object val, Path path, Report rep)
+    // object .keybinding.status
+    public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
-        // .keybinding.commitFiles
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.keybinding.commitFiles]", path);
+            if (rep != null) rep.addEntry("not an object [.keybinding.status]", path);
             return false;
         }
         boolean res;
@@ -2220,56 +2348,33 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_20 = new Path(prop, path);
-            if (prop.compareTo("checkoutCommitFile") == 0)
+            if (prop.compareTo("checkForUpdate") == 0)
             {
-                // handle may checkoutCommitFile property
-                // .keybinding.commitFiles.checkoutCommitFile
+                // handle may checkForUpdate property
+                // .keybinding.status.checkForUpdate
                 res = json_model_4(pval, (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.checkForUpdate]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.checkForUpdate]", (path != null ? lpath_20 : null));
                     return false;
                 }
             }
-            else
+            else if (prop.compareTo("recentRepos") == 0)
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commitFiles]", (path != null ? lpath_20 : null));
-                return false;
-            }
-        }
-        return true;
-    }
-
-
-    // check _jm_f_55_map_commits (.keybinding.commits)
-    public boolean _jm_f_58(Object val, Path path, Report rep)
-    {
-        // .keybinding.commits
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.keybinding.commits]", path);
-            return false;
-        }
-        Checker pfun;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
-        {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_21 = new Path(prop, path);
-            if ((pfun = _jm_f_58_map_pmap.get(prop)) != null)
-            {
-                // handle 21 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_21 : null), rep)))
+                // handle may recentRepos property
+                // .keybinding.status.recentRepos
+                res = json_model_4(pval, (path != null ? lpath_20 : null), rep);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commits]", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.recentRepos]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.recentRepos]", (path != null ? lpath_20 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commits]", (path != null ? lpath_21 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.status]", (path != null ? lpath_20 : null));
                 return false;
             }
         }
@@ -2277,10 +2382,9 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_f_55_map_files (.keybinding.files)
-    public boolean _jm_f_59(Object val, Path path, Report rep)
+    // object .keybinding.files
+    public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
-        // .keybinding.files
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.files]", path);
@@ -2292,102 +2396,96 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_22 = new Path(prop, path);
-            if ((pfun = _jm_f_59_map_pmap.get(prop)) != null)
+            Path lpath_21 = new Path(prop, path);
+            if ((pfun = _jm_obj_12_map_pmap.get(prop)) != null)
             {
                 // handle 14 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_22 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_21 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.files]", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.files]", (path != null ? lpath_21 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.files]", (path != null ? lpath_22 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.files]", (path != null ? lpath_21 : null));
                 return false;
             }
         }
         return true;
     }
 
-    // check _jm_f_55_map_main (.keybinding.main)
-    public boolean _jm_f_60(Object val, Path path, Report rep)
+
+    // object .keybinding.branches
+    public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
-        // .keybinding.main
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.keybinding.main]", path);
+            if (rep != null) rep.addEntry("not an object [.keybinding.branches]", path);
             return false;
         }
-        boolean res;
+        Checker pfun;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_22 = new Path(prop, path);
+            if ((pfun = _jm_obj_13_map_pmap.get(prop)) != null)
+            {
+                // handle 13 may props
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_22 : null), rep)))
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.branches]", (path != null ? lpath_22 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.branches]", (path != null ? lpath_22 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    // object .keybinding.commits
+    public boolean _jm_obj_14(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.keybinding.commits]", path);
+            return false;
+        }
+        Checker pfun;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_23 = new Path(prop, path);
-            if (prop.compareTo("toggleDragSelect") == 0)
+            if ((pfun = _jm_obj_14_map_pmap.get(prop)) != null)
             {
-                // handle may toggleDragSelect property
-                // .keybinding.main.toggleDragSelect
-                res = json_model_4(pval, (path != null ? lpath_23 : null), rep);
-                if (! res)
+                // handle 21 may props
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_23 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleDragSelect]", (path != null ? lpath_23 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("toggleDragSelect-alt") == 0)
-            {
-                // handle may toggleDragSelect-alt property
-                // .keybinding.main.'toggleDragSelect-alt'
-                res = json_model_4(pval, (path != null ? lpath_23 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_23 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("toggleSelectHunk") == 0)
-            {
-                // handle may toggleSelectHunk property
-                // .keybinding.main.toggleSelectHunk
-                res = json_model_4(pval, (path != null ? lpath_23 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_23 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("pickBothHunks") == 0)
-            {
-                // handle may pickBothHunks property
-                // .keybinding.main.pickBothHunks
-                res = json_model_4(pval, (path != null ? lpath_23 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.pickBothHunks]", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.pickBothHunks]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commits]", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.main]", (path != null ? lpath_23 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commits]", (path != null ? lpath_23 : null));
                 return false;
             }
         }
         return true;
     }
 
-    // check _jm_f_55_map_stash (.keybinding.stash)
-    public boolean _jm_f_61(Object val, Path path, Report rep)
+    // object .keybinding.stash
+    public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
-        // .keybinding.stash
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.stash]", path);
@@ -2433,13 +2531,12 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_f_55_map_status (.keybinding.status)
-    public boolean _jm_f_62(Object val, Path path, Report rep)
+    // object .keybinding.commitFiles
+    public boolean _jm_obj_16(Object val, Path path, Report rep)
     {
-        // .keybinding.status
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.keybinding.status]", path);
+            if (rep != null) rep.addEntry("not an object [.keybinding.commitFiles]", path);
             return false;
         }
         boolean res;
@@ -2449,43 +2546,102 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_25 = new Path(prop, path);
-            if (prop.compareTo("checkForUpdate") == 0)
+            if (prop.compareTo("checkoutCommitFile") == 0)
             {
-                // handle may checkForUpdate property
-                // .keybinding.status.checkForUpdate
+                // handle may checkoutCommitFile property
+                // .keybinding.commitFiles.checkoutCommitFile
                 res = json_model_4(pval, (path != null ? lpath_25 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.checkForUpdate]", (path != null ? lpath_25 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.checkForUpdate]", (path != null ? lpath_25 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("recentRepos") == 0)
-            {
-                // handle may recentRepos property
-                // .keybinding.status.recentRepos
-                res = json_model_4(pval, (path != null ? lpath_25 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.recentRepos]", (path != null ? lpath_25 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.recentRepos]", (path != null ? lpath_25 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_25 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_25 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.status]", (path != null ? lpath_25 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commitFiles]", (path != null ? lpath_25 : null));
                 return false;
             }
         }
         return true;
     }
 
-    // check _jm_f_55_map_submodules (.keybinding.submodules)
-    public boolean _jm_f_63(Object val, Path path, Report rep)
+    // object .keybinding.main
+    public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
-        // .keybinding.submodules
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.keybinding.main]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_26 = new Path(prop, path);
+            if (prop.compareTo("toggleDragSelect") == 0)
+            {
+                // handle may toggleDragSelect property
+                // .keybinding.main.toggleDragSelect
+                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleDragSelect]", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("toggleDragSelect-alt") == 0)
+            {
+                // handle may toggleDragSelect-alt property
+                // .keybinding.main.'toggleDragSelect-alt'
+                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("toggleSelectHunk") == 0)
+            {
+                // handle may toggleSelectHunk property
+                // .keybinding.main.toggleSelectHunk
+                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("pickBothHunks") == 0)
+            {
+                // handle may pickBothHunks property
+                // .keybinding.main.pickBothHunks
+                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.pickBothHunks]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.pickBothHunks]", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.main]", (path != null ? lpath_26 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // object .keybinding.submodules
+    public boolean _jm_obj_18(Object val, Path path, Report rep)
+    {
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.submodules]", path);
@@ -2497,16 +2653,16 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_26 = new Path(prop, path);
+            Path lpath_27 = new Path(prop, path);
             if (prop.compareTo("init") == 0)
             {
                 // handle may init property
                 // .keybinding.submodules.init
-                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_27 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.init]", (path != null ? lpath_26 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.init]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.init]", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.init]", (path != null ? lpath_27 : null));
                     return false;
                 }
             }
@@ -2514,11 +2670,11 @@ public class lazygit extends ModelChecker
             {
                 // handle may update property
                 // .keybinding.submodules.update
-                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_27 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.update]", (path != null ? lpath_26 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.update]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.update]", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.update]", (path != null ? lpath_27 : null));
                     return false;
                 }
             }
@@ -2526,85 +2682,25 @@ public class lazygit extends ModelChecker
             {
                 // handle may bulkMenu property
                 // .keybinding.submodules.bulkMenu
-                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_27 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path != null ? lpath_26 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.bulkMenu]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.bulkMenu]", (path != null ? lpath_27 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.submodules]", (path != null ? lpath_26 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.submodules]", (path != null ? lpath_27 : null));
                 return false;
             }
         }
         return true;
     }
-
-    // check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
-    public boolean _jm_f_65(Object val, Path path, Report rep)
-    {
-        // .keybinding.universal.jumpToBlock
-        boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.keybinding.universal.jumpToBlock]", path);
-        }
-        return res;
-    }
-
-    // check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
-    public boolean _jm_f_66(Object val, Path path, Report rep)
-    {
-        // .keybinding.universal.optionMenu
-        boolean res = json.isNull(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not null [.keybinding.universal.optionMenu]", path);
-        }
-        return res;
-    }
-
-
-    // check _jm_f_55_map_universal (.keybinding.universal)
-    public boolean _jm_f_64(Object val, Path path, Report rep)
-    {
-        // .keybinding.universal
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.keybinding.universal]", path);
-            return false;
-        }
-        Checker pfun;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
-        {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_27 = new Path(prop, path);
-            if ((pfun = _jm_f_64_map_pmap.get(prop)) != null)
-            {
-                // handle 59 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_27 : null), rep)))
-                {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.universal]", (path != null ? lpath_27 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.universal]", (path != null ? lpath_27 : null));
-                return false;
-            }
-        }
-        return true;
-    }
-
 
     // check json_model_1_map_keybinding (.keybinding)
-    public boolean _jm_f_55(Object val, Path path, Report rep)
+    public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         // .keybinding
         if (! json.isObject(val))
@@ -2612,19 +2708,118 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.keybinding]", path);
             return false;
         }
-        Checker pfun;
+        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_18 = new Path(prop, path);
-            if ((pfun = _jm_f_55_map_pmap.get(prop)) != null)
+            if (prop.compareTo("universal") == 0)
             {
-                // handle 9 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_18 : null), rep)))
+                // handle may universal property
+                // .keybinding.universal
+                res = _jm_obj_10(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.universal]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.universal]", (path != null ? lpath_18 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("status") == 0)
+            {
+                // handle may status property
+                // .keybinding.status
+                res = _jm_obj_11(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.status]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status]", (path != null ? lpath_18 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("files") == 0)
+            {
+                // handle may files property
+                // .keybinding.files
+                res = _jm_obj_12(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.files]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.files]", (path != null ? lpath_18 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("branches") == 0)
+            {
+                // handle may branches property
+                // .keybinding.branches
+                res = _jm_obj_13(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.branches]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.branches]", (path != null ? lpath_18 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("commits") == 0)
+            {
+                // handle may commits property
+                // .keybinding.commits
+                res = _jm_obj_14(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.commits]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commits]", (path != null ? lpath_18 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("stash") == 0)
+            {
+                // handle may stash property
+                // .keybinding.stash
+                res = _jm_obj_15(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.stash]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash]", (path != null ? lpath_18 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("commitFiles") == 0)
+            {
+                // handle may commitFiles property
+                // .keybinding.commitFiles
+                res = _jm_obj_16(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.commitFiles]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commitFiles]", (path != null ? lpath_18 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("main") == 0)
+            {
+                // handle may main property
+                // .keybinding.main
+                res = _jm_obj_17(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.main]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main]", (path != null ? lpath_18 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("submodules") == 0)
+            {
+                // handle may submodules property
+                // .keybinding.submodules
+                res = _jm_obj_18(pval, (path != null ? lpath_18 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.keybinding.submodules]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules]", (path != null ? lpath_18 : null));
                     return false;
                 }
             }
@@ -2639,7 +2834,7 @@ public class lazygit extends ModelChecker
 
 
     // check json_model_1_map_notARepository (.notARepository)
-    public boolean _jm_f_67(Object val, Path path, Report rep)
+    public boolean _jm_f_51(Object val, Path path, Report rep)
     {
         // .notARepository
         boolean res = json.isScalar(val) && _jm_cst_13_set.contains(val);
@@ -2650,116 +2845,9 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
-    public boolean _jm_f_69(Object val, Path path, Report rep)
-    {
-        // .os.copyToClipboardCmd
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.os.copyToClipboardCmd]", path);
-        }
-        return res;
-    }
-
-    // check _jm_f_68_map_edit (.os.edit)
-    public boolean _jm_f_70(Object val, Path path, Report rep)
-    {
-        // .os.edit
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.os.edit]", path);
-        }
-        return res;
-    }
-
-    // check _jm_f_68_map_editAtLine (.os.editAtLine)
-    public boolean _jm_f_71(Object val, Path path, Report rep)
-    {
-        // .os.editAtLine
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.os.editAtLine]", path);
-        }
-        return res;
-    }
-
-    // check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
-    public boolean _jm_f_72(Object val, Path path, Report rep)
-    {
-        // .os.editAtLineAndWait
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.os.editAtLineAndWait]", path);
-        }
-        return res;
-    }
-
-
-    // check _jm_f_68_map_editPreset (.os.editPreset)
-    public boolean _jm_f_73(Object val, Path path, Report rep)
-    {
-        // .os.editPreset
-        boolean res = json.isScalar(val) && _jm_cst_14_set.contains(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("value not in enum [.os.editPreset.'|']", path);
-        }
-        if (! res)
-        {
-            res = json.isString(val);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected type [.os.editPreset.'|']", path);
-            }
-            if (res)
-            {
-                // .os.editPreset.'|'.0
-                res = true;
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.os.editPreset.'|'.0]", path);
-                    if (rep != null) rep.addEntry("no model matched [.os.editPreset.'|']", path);
-                }
-            }
-        }
-        return res;
-    }
-
-    // check _jm_f_68_map_open (.os.open)
-    public boolean _jm_f_74(Object val, Path path, Report rep)
-    {
-        // .os.open
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.os.open]", path);
-        }
-        return res;
-    }
-
-    // check _jm_f_68_map_openLink (.os.openLink)
-    public boolean _jm_f_75(Object val, Path path, Report rep)
-    {
-        // .os.openLink
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.os.openLink]", path);
-        }
-        return res;
-    }
-
 
     // check json_model_1_map_os (.os)
-    public boolean _jm_f_68(Object val, Path path, Report rep)
+    public boolean _jm_f_52(Object val, Path path, Report rep)
     {
         // .os
         if (! json.isObject(val))
@@ -2767,19 +2855,119 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.os]", path);
             return false;
         }
-        Checker pfun;
+        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_28 = new Path(prop, path);
-            if ((pfun = _jm_f_68_map_pmap.get(prop)) != null)
+            if (prop.compareTo("copyToClipboardCmd") == 0)
             {
-                // handle 7 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_28 : null), rep)))
+                // handle may copyToClipboardCmd property
+                // .os.copyToClipboardCmd
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.os]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.os.copyToClipboardCmd]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.os.copyToClipboardCmd]", (path != null ? lpath_28 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("editPreset") == 0)
+            {
+                // handle may editPreset property
+                // .os.editPreset
+                res = json.isScalar(pval) && _jm_cst_14_set.contains(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("value not in enum [.os.editPreset.'|']", (path != null ? lpath_28 : null));
+                }
+                if (! res)
+                {
+                    res = json.isString(pval);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected type [.os.editPreset.'|']", (path != null ? lpath_28 : null));
+                    }
+                    if (res)
+                    {
+                        // .os.editPreset.'|'.0
+                        res = true;
+                        if (res)
+                        {
+                            if (rep != null) rep.clearEntries();
+                        }
+                        else
+                        {
+                            if (rep != null) rep.addEntry("unexpected string [.os.editPreset.'|'.0]", (path != null ? lpath_28 : null));
+                            if (rep != null) rep.addEntry("no model matched [.os.editPreset.'|']", (path != null ? lpath_28 : null));
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.os.editPreset]", (path != null ? lpath_28 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("edit") == 0)
+            {
+                // handle may edit property
+                // .os.edit
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.os.edit]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.os.edit]", (path != null ? lpath_28 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("editAtLine") == 0)
+            {
+                // handle may editAtLine property
+                // .os.editAtLine
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.os.editAtLine]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.os.editAtLine]", (path != null ? lpath_28 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("editAtLineAndWait") == 0)
+            {
+                // handle may editAtLineAndWait property
+                // .os.editAtLineAndWait
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.os.editAtLineAndWait]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.os.editAtLineAndWait]", (path != null ? lpath_28 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("open") == 0)
+            {
+                // handle may open property
+                // .os.open
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.os.open]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.os.open]", (path != null ? lpath_28 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("openLink") == 0)
+            {
+                // handle may openLink property
+                // .os.openLink
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.os.openLink]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.os.openLink]", (path != null ? lpath_28 : null));
                     return false;
                 }
             }
@@ -2793,7 +2981,7 @@ public class lazygit extends ModelChecker
     }
 
     // check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
-    public boolean _jm_f_76(Object val, Path path, Report rep)
+    public boolean _jm_f_53(Object val, Path path, Report rep)
     {
         // .promptToReturnFromSubprocess
         boolean res = json.isBoolean(val);
@@ -2805,7 +2993,7 @@ public class lazygit extends ModelChecker
     }
 
     // check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
-    public boolean _jm_f_77(Object val, Path path, Report rep)
+    public boolean _jm_f_54(Object val, Path path, Report rep)
     {
         // .quitOnTopLevelReturn
         boolean res = json.isBoolean(val);
@@ -2817,7 +3005,7 @@ public class lazygit extends ModelChecker
     }
 
     // check json_model_1_map_refresher (.refresher)
-    public boolean _jm_f_78(Object val, Path path, Report rep)
+    public boolean _jm_f_55(Object val, Path path, Report rep)
     {
         // .refresher
         if (! json.isObject(val))
@@ -2871,7 +3059,7 @@ public class lazygit extends ModelChecker
     }
 
     // check json_model_1_map_services (.services)
-    public boolean _jm_f_79(Object val, Path path, Report rep)
+    public boolean _jm_f_56(Object val, Path path, Report rep)
     {
         // .services
         if (! json.isObject(val))
@@ -2909,7 +3097,7 @@ public class lazygit extends ModelChecker
 
 
     // check json_model_1_map_update (.update)
-    public boolean _jm_f_80(Object val, Path path, Report rep)
+    public boolean _jm_f_57(Object val, Path path, Report rep)
     {
         // .update
         if (! json.isObject(val))
@@ -3046,14 +3234,6 @@ public class lazygit extends ModelChecker
             _jm_cst_3_set.add(json.safeJSON("\"commitFiles\""));
             _jm_cst_3_set.add(json.safeJSON("\"stash\""));
             _jm_cst_3_set.add(json.safeJSON("\"global\""));
-            _jm_obj_7_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_7_map_pmap.put("after", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            _jm_obj_7_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            _jm_obj_7_map_pmap.put("loadingText", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            _jm_obj_7_map_pmap.put("prompts", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            _jm_obj_7_map_pmap.put("showOutput", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            _jm_obj_7_map_pmap.put("stream", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            _jm_obj_7_map_pmap.put("subprocess", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
             _jm_re_1_pat = Pattern.compile(".");
             _jm_cst_4_set = new HashSet<Object>();
             _jm_cst_4_set.add(json.safeJSON("\"date-order\""));
@@ -3067,23 +3247,23 @@ public class lazygit extends ModelChecker
             _jm_cst_6_set = new HashSet<Object>();
             _jm_cst_6_set.add(json.safeJSON("\"always\""));
             _jm_cst_6_set.add(json.safeJSON("\"never\""));
-            _jm_f_10_map_pmap = new HashMap<String, Checker>();
-            _jm_f_10_map_pmap.put("allBranchesLogCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            _jm_f_10_map_pmap.put("autoFetch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            _jm_f_10_map_pmap.put("autoRefresh", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            _jm_f_10_map_pmap.put("branchLogCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            _jm_f_10_map_pmap.put("commit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            _jm_f_10_map_pmap.put("commitPrefixes", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            _jm_f_10_map_pmap.put("diffContextSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            _jm_f_10_map_pmap.put("disableForcePushing", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            _jm_f_10_map_pmap.put("fetchAll", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            _jm_f_10_map_pmap.put("log", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
-            _jm_f_10_map_pmap.put("mainBranches", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
-            _jm_f_10_map_pmap.put("merging", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            _jm_f_10_map_pmap.put("overrideGpg", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            _jm_f_10_map_pmap.put("paging", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            _jm_f_10_map_pmap.put("parseEmoji", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            _jm_f_10_map_pmap.put("skipHookPrefix", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
+            _jm_f_3_map_pmap = new HashMap<String, Checker>();
+            _jm_f_3_map_pmap.put("allBranchesLogCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            _jm_f_3_map_pmap.put("autoFetch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            _jm_f_3_map_pmap.put("autoRefresh", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            _jm_f_3_map_pmap.put("branchLogCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            _jm_f_3_map_pmap.put("commit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            _jm_f_3_map_pmap.put("commitPrefixes", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            _jm_f_3_map_pmap.put("diffContextSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            _jm_f_3_map_pmap.put("disableForcePushing", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
+            _jm_f_3_map_pmap.put("fetchAll", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            _jm_f_3_map_pmap.put("log", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
+            _jm_f_3_map_pmap.put("mainBranches", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
+            _jm_f_3_map_pmap.put("merging", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            _jm_f_3_map_pmap.put("overrideGpg", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            _jm_f_3_map_pmap.put("paging", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            _jm_f_3_map_pmap.put("parseEmoji", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
+            _jm_f_3_map_pmap.put("skipHookPrefix", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
             _jm_cst_7_set = new HashSet<Object>();
             _jm_cst_7_set.add(json.safeJSON("\"single\""));
             _jm_cst_7_set.add(json.safeJSON("\"double\""));
@@ -3109,171 +3289,150 @@ public class lazygit extends ModelChecker
             _jm_cst_11_set = new HashSet<Object>();
             _jm_cst_11_set.add(json.safeJSON("\"auto\""));
             _jm_cst_11_set.add(json.safeJSON("\"always\""));
-            _jm_f_52_map_pmap = new HashMap<String, Checker>();
-            _jm_f_52_map_pmap.put("activeBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("cherryPickedCommitBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("cherryPickedCommitFgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("defaultFgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("inactiveBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("optionsTextColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("searchingActiveBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("selectedLineBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("selectedRangeBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_f_52_map_pmap.put("unstagedChangesColor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             _jm_cst_12_set = new HashSet<Object>();
             _jm_cst_12_set.add(json.safeJSON("\"normal\""));
             _jm_cst_12_set.add(json.safeJSON("\"half\""));
             _jm_cst_12_set.add(json.safeJSON("\"full\""));
-            _jm_f_26_map_pmap = new HashMap<String, Checker>();
-            _jm_f_26_map_pmap.put("animateExplosion", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
-            _jm_f_26_map_pmap.put("authorColors", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            _jm_f_26_map_pmap.put("border", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
-            _jm_f_26_map_pmap.put("branchColors", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
-            _jm_f_26_map_pmap.put("commandLogSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
-            _jm_f_26_map_pmap.put("commitLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
-            _jm_f_26_map_pmap.put("expandFocusedSidePanel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
-            _jm_f_26_map_pmap.put("language", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
-            _jm_f_26_map_pmap.put("mainPanelSplitMode", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
-            _jm_f_26_map_pmap.put("mouseEvents", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            _jm_f_26_map_pmap.put("nerdFontsVersion", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
-            _jm_f_26_map_pmap.put("scrollHeight", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
-            _jm_f_26_map_pmap.put("scrollPastBottom", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
-            _jm_f_26_map_pmap.put("shortTimeFormat", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
-            _jm_f_26_map_pmap.put("showBottomLine", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
-            _jm_f_26_map_pmap.put("showBranchCommitHash", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
-            _jm_f_26_map_pmap.put("showCommandLog", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            _jm_f_26_map_pmap.put("showFileTree", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
-            _jm_f_26_map_pmap.put("showListFooter", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
-            _jm_f_26_map_pmap.put("showRandomTip", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            _jm_f_26_map_pmap.put("sidePanelWidth", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            _jm_f_26_map_pmap.put("skipDiscardChangeWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
-            _jm_f_26_map_pmap.put("skipRewordInEditorWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
-            _jm_f_26_map_pmap.put("skipStashWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
-            _jm_f_26_map_pmap.put("splitDiff", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
-            _jm_f_26_map_pmap.put("theme", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
-            _jm_f_26_map_pmap.put("timeFormat", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
-            _jm_f_26_map_pmap.put("windowSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
-            _jm_f_56_map_pmap = new HashMap<String, Checker>();
-            _jm_f_56_map_pmap.put("checkoutBranchByName", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("createPullRequest", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("createTag", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("fastForward", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("fetchRemote", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("forceCheckoutBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("mergeIntoCurrentBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("pushTag", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("rebaseBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("renameBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("setUpstream", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("viewGitFlowOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_56_map_pmap.put("viewPullRequestOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap = new HashMap<String, Checker>();
-            _jm_f_58_map_pmap.put("amendToCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("checkoutCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("cherryPickCopy", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("cherryPickCopyRange", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("copyCommitMessageToClipboard", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("createFixupCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("markCommitAsFixup", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("moveDownCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("moveUpCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("openLogMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("pasteCommits", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("pickCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("renameCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("renameCommitWithEditor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("resetCherryPick", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("revertCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("squashAboveCommits", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("squashDown", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("tagCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("viewBisectOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_58_map_pmap.put("viewResetOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap = new HashMap<String, Checker>();
-            _jm_f_59_map_pmap.put("amendLastCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("commitChanges", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("commitChangesWithEditor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("commitChangesWithoutHook", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("fetch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("ignoreFile", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("openMergeTool", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("openStatusFilter", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("refreshFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("stashAllChanges", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("toggleStagedAll", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("toggleTreeView", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("viewResetOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_59_map_pmap.put("viewStashOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap = new HashMap<String, Checker>();
-            _jm_f_64_map_pmap.put("confirm", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("copyToClipboard", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("createPatchOptionsMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("createRebaseOptionsMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("decreaseContextInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("diffingMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("diffingMenu-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("edit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("executeCustomCommand", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("extrasMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("filteringMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("goInto", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("gotoBottom", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("gotoTop", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("increaseContextInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("jumpToBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_65(o, p, r);} });
-            _jm_f_64_map_pmap.put("new", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("nextBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("nextBlock-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("nextItem", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("nextItem-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("nextMatch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("nextPage", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("nextScreenMode", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("nextTab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("openFile", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("openRecentRepos", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("optionMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_66(o, p, r);} });
-            _jm_f_64_map_pmap.put("optionMenu-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("prevBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("prevBlock-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("prevItem", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("prevItem-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("prevMatch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("prevPage", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("prevScreenMode", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("prevTab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("pullFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("pushFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("quit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("quit-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("quitWithoutChangingDirectory", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("redo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("refresh", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("remove", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("return", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("scrollDownMain", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("scrollDownMain-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("scrollDownMain-alt2", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("scrollLeft", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("scrollRight", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("scrollUpMain", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("scrollUpMain-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("scrollUpMain-alt2", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("select", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("submitEditorText", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("togglePanel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("toggleWhitespaceInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_64_map_pmap.put("undo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_f_55_map_pmap = new HashMap<String, Checker>();
-            _jm_f_55_map_pmap.put("branches", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
-            _jm_f_55_map_pmap.put("commitFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
-            _jm_f_55_map_pmap.put("commits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
-            _jm_f_55_map_pmap.put("files", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_59(o, p, r);} });
-            _jm_f_55_map_pmap.put("main", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_60(o, p, r);} });
-            _jm_f_55_map_pmap.put("stash", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_61(o, p, r);} });
-            _jm_f_55_map_pmap.put("status", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_62(o, p, r);} });
-            _jm_f_55_map_pmap.put("submodules", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_63(o, p, r);} });
-            _jm_f_55_map_pmap.put("universal", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_64(o, p, r);} });
+            _jm_f_19_map_pmap = new HashMap<String, Checker>();
+            _jm_f_19_map_pmap.put("animateExplosion", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
+            _jm_f_19_map_pmap.put("authorColors", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
+            _jm_f_19_map_pmap.put("border", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            _jm_f_19_map_pmap.put("branchColors", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
+            _jm_f_19_map_pmap.put("commandLogSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
+            _jm_f_19_map_pmap.put("commitLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
+            _jm_f_19_map_pmap.put("expandFocusedSidePanel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
+            _jm_f_19_map_pmap.put("language", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
+            _jm_f_19_map_pmap.put("mainPanelSplitMode", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
+            _jm_f_19_map_pmap.put("mouseEvents", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
+            _jm_f_19_map_pmap.put("nerdFontsVersion", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
+            _jm_f_19_map_pmap.put("scrollHeight", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
+            _jm_f_19_map_pmap.put("scrollPastBottom", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
+            _jm_f_19_map_pmap.put("shortTimeFormat", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
+            _jm_f_19_map_pmap.put("showBottomLine", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
+            _jm_f_19_map_pmap.put("showBranchCommitHash", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
+            _jm_f_19_map_pmap.put("showCommandLog", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
+            _jm_f_19_map_pmap.put("showFileTree", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
+            _jm_f_19_map_pmap.put("showListFooter", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
+            _jm_f_19_map_pmap.put("showRandomTip", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
+            _jm_f_19_map_pmap.put("sidePanelWidth", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
+            _jm_f_19_map_pmap.put("skipDiscardChangeWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
+            _jm_f_19_map_pmap.put("skipRewordInEditorWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
+            _jm_f_19_map_pmap.put("skipStashWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
+            _jm_f_19_map_pmap.put("splitDiff", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
+            _jm_f_19_map_pmap.put("theme", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
+            _jm_f_19_map_pmap.put("timeFormat", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
+            _jm_f_19_map_pmap.put("windowSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
+            _jm_obj_10_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_10_map_pmap.put("confirm", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("copyToClipboard", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("createPatchOptionsMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("createRebaseOptionsMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("decreaseContextInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("diffingMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("diffingMenu-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("edit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("executeCustomCommand", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("extrasMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("filteringMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("goInto", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("gotoBottom", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("gotoTop", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("increaseContextInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("jumpToBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
+            _jm_obj_10_map_pmap.put("new", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("nextBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("nextBlock-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("nextItem", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("nextItem-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("nextMatch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("nextPage", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("nextScreenMode", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("nextTab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("openFile", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("openRecentRepos", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("optionMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
+            _jm_obj_10_map_pmap.put("optionMenu-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("prevBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("prevBlock-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("prevItem", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("prevItem-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("prevMatch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("prevPage", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("prevScreenMode", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("prevTab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("pullFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("pushFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("quit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("quit-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("quitWithoutChangingDirectory", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("redo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("refresh", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("remove", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("return", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("scrollDownMain", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("scrollDownMain-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("scrollDownMain-alt2", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("scrollLeft", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("scrollRight", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("scrollUpMain", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("scrollUpMain-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("scrollUpMain-alt2", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("select", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("submitEditorText", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("togglePanel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("toggleWhitespaceInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_10_map_pmap.put("undo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_12_map_pmap.put("amendLastCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("commitChanges", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("commitChangesWithEditor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("commitChangesWithoutHook", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("fetch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("ignoreFile", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("openMergeTool", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("openStatusFilter", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("refreshFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("stashAllChanges", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("toggleStagedAll", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("toggleTreeView", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("viewResetOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_12_map_pmap.put("viewStashOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_13_map_pmap.put("checkoutBranchByName", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("createPullRequest", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("createTag", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("fastForward", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("fetchRemote", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("forceCheckoutBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("mergeIntoCurrentBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("pushTag", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("rebaseBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("renameBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("setUpstream", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("viewGitFlowOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_13_map_pmap.put("viewPullRequestOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_14_map_pmap.put("amendToCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("checkoutCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("cherryPickCopy", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("cherryPickCopyRange", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("copyCommitMessageToClipboard", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("createFixupCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("markCommitAsFixup", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("moveDownCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("moveUpCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("openLogMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("pasteCommits", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("pickCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("renameCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("renameCommitWithEditor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("resetCherryPick", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("revertCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("squashAboveCommits", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("squashDown", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("tagCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("viewBisectOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_obj_14_map_pmap.put("viewResetOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             _jm_cst_13_set = new HashSet<Object>();
             _jm_cst_13_set.add(json.safeJSON("\"prompt\""));
             _jm_cst_13_set.add(json.safeJSON("\"create\""));
@@ -3290,14 +3449,6 @@ public class lazygit extends ModelChecker
             _jm_cst_14_set.add(json.safeJSON("\"kakoune\""));
             _jm_cst_14_set.add(json.safeJSON("\"helix\""));
             _jm_cst_14_set.add(json.safeJSON("\"xcode\""));
-            _jm_f_68_map_pmap = new HashMap<String, Checker>();
-            _jm_f_68_map_pmap.put("copyToClipboardCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_69(o, p, r);} });
-            _jm_f_68_map_pmap.put("edit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_70(o, p, r);} });
-            _jm_f_68_map_pmap.put("editAtLine", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_71(o, p, r);} });
-            _jm_f_68_map_pmap.put("editAtLineAndWait", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_72(o, p, r);} });
-            _jm_f_68_map_pmap.put("editPreset", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_73(o, p, r);} });
-            _jm_f_68_map_pmap.put("open", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_74(o, p, r);} });
-            _jm_f_68_map_pmap.put("openLink", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_75(o, p, r);} });
             _jm_re_2_pat = Pattern.compile("^[^:]+:[^:]+$");
             _jm_cst_15_set = new HashSet<Object>();
             _jm_cst_15_set.add(json.safeJSON("\"prompt\""));
@@ -3306,17 +3457,17 @@ public class lazygit extends ModelChecker
             json_model_1_map_pmap = new HashMap<String, Checker>();
             json_model_1_map_pmap.put("confirmOnQuit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
             json_model_1_map_pmap.put("customCommands", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            json_model_1_map_pmap.put("disableStartupPopups", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            json_model_1_map_pmap.put("git", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            json_model_1_map_pmap.put("gui", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
-            json_model_1_map_pmap.put("keybinding", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
-            json_model_1_map_pmap.put("notARepository", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_67(o, p, r);} });
-            json_model_1_map_pmap.put("os", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_68(o, p, r);} });
-            json_model_1_map_pmap.put("promptToReturnFromSubprocess", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_76(o, p, r);} });
-            json_model_1_map_pmap.put("quitOnTopLevelReturn", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_77(o, p, r);} });
-            json_model_1_map_pmap.put("refresher", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_78(o, p, r);} });
-            json_model_1_map_pmap.put("services", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_79(o, p, r);} });
-            json_model_1_map_pmap.put("update", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_80(o, p, r);} });
+            json_model_1_map_pmap.put("disableStartupPopups", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            json_model_1_map_pmap.put("git", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            json_model_1_map_pmap.put("gui", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            json_model_1_map_pmap.put("keybinding", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            json_model_1_map_pmap.put("notARepository", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
+            json_model_1_map_pmap.put("os", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            json_model_1_map_pmap.put("promptToReturnFromSubprocess", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
+            json_model_1_map_pmap.put("quitOnTopLevelReturn", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
+            json_model_1_map_pmap.put("refresher", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
+            json_model_1_map_pmap.put("services", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
+            json_model_1_map_pmap.put("update", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
             lazygit_map_pmap = new HashMap<String, Checker>();
             lazygit_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             lazygit_map_pmap.put("color", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -3347,28 +3498,24 @@ public class lazygit extends ModelChecker
             _jm_cst_2_set = null;
             _jm_map_0_cmap = null;
             _jm_cst_3_set = null;
-            _jm_obj_7_map_pmap = null;
             _jm_re_1_pat = null;
             _jm_cst_4_set = null;
             _jm_cst_5_set = null;
             _jm_cst_6_set = null;
-            _jm_f_10_map_pmap = null;
+            _jm_f_3_map_pmap = null;
             _jm_cst_7_set = null;
             _jm_cst_8_set = null;
             _jm_cst_9_set = null;
             _jm_cst_10_set = null;
             _jm_cst_11_set = null;
-            _jm_f_52_map_pmap = null;
             _jm_cst_12_set = null;
-            _jm_f_26_map_pmap = null;
-            _jm_f_56_map_pmap = null;
-            _jm_f_58_map_pmap = null;
-            _jm_f_59_map_pmap = null;
-            _jm_f_64_map_pmap = null;
-            _jm_f_55_map_pmap = null;
+            _jm_f_19_map_pmap = null;
+            _jm_obj_10_map_pmap = null;
+            _jm_obj_12_map_pmap = null;
+            _jm_obj_13_map_pmap = null;
+            _jm_obj_14_map_pmap = null;
             _jm_cst_13_set = null;
             _jm_cst_14_set = null;
-            _jm_f_68_map_pmap = null;
             _jm_re_2_pat = null;
             _jm_cst_15_set = null;
             json_model_1_map_pmap = null;

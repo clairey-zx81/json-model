@@ -26,8 +26,6 @@ public class pgxn extends ModelChecker
     public Pattern _jm_re_4_pat = null;
     Set<Object> _jm_cst_2_set;
     Set<Object> _jm_cst_3_set;
-    Map<String, Checker> json_model_1_mup_pmap;
-    Map<String, Checker> json_model_1_map_pmap;
     public Map<String, Checker> pgxn_map_pmap;
 
     public boolean _jm_re_0(String val, Path path, Report rep)
@@ -671,18 +669,6 @@ public class pgxn extends ModelChecker
         return true;
     }
 
-    // check json_model_1_mup_abstract (.abstract)
-    public boolean _jm_f_0(Object val, Path path, Report rep)
-    {
-        // .abstract
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.abstract]", path);
-        }
-        return res;
-    }
-
     // object .license.'|'.2
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -710,79 +696,36 @@ public class pgxn extends ModelChecker
         return true;
     }
 
-    // check json_model_1_mup_license (.license)
-    public boolean _jm_f_1(Object val, Path path, Report rep)
+    // object .provides
+    public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
-        // .license
-        // .license.'|'.0
-        boolean res = json_model_4(val, path, rep);
-        if (! res)
+        if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("unexpected $License [.license.'|'.0]", path);
+            if (rep != null) rep.addEntry("not an object [.provides]", path);
+            return false;
         }
-        if (! res)
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
         {
-            // .license.'|'.1
-            res = json_model_5(val, path, rep);
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_9 = new Path(prop, path);
+            // handle other props
+            // .provides.''
+            res = json_model_6(pval, (path != null ? lpath_9 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $LicenseList [.license.'|'.1]", path);
-            }
-            if (! res)
-            {
-                // .license.'|'.2
-                res = _jm_obj_3(val, path, rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.license.'|'.2]", path);
-                }
+                if (rep != null) rep.addEntry("unexpected $Provide [.provides.'']", (path != null ? lpath_9 : null));
+                return false;
             }
         }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.license.'|']", path);
-        }
-        return res;
+        return true;
     }
 
-    // check json_model_1_mup_maintainer (.maintainer)
-    public boolean _jm_f_2(Object val, Path path, Report rep)
+    // object .'meta-spec'
+    public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
-        // .maintainer
-        // .maintainer.'|'.0
-        boolean res = json_model_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $neStr [.maintainer.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // .maintainer.'|'.1
-            res = json_model_3(val, path, rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $neStrList [.maintainer.'|'.1]", path);
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.maintainer.'|']", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_mup_meta-spec (.'meta-spec')
-    public boolean _jm_f_3(Object val, Path path, Report rep)
-    {
-        // .'meta-spec'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'meta-spec']", path);
@@ -795,7 +738,7 @@ public class pgxn extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_9 = new Path(prop, path);
+            Path lpath_10 = new Path(prop, path);
             if (prop.compareTo("version") == 0)
             {
                 // handle must version property
@@ -804,8 +747,8 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("1.0.0") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _1.0.0 [.'meta-spec'.version]", (path != null ? lpath_9 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'meta-spec'.version]", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("unexpected _1.0.0 [.'meta-spec'.version]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'meta-spec'.version]", (path != null ? lpath_10 : null));
                     return false;
                 }
             }
@@ -816,8 +759,8 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'meta-spec'.url]", (path != null ? lpath_9 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'meta-spec'.url]", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("unexpected $URL [.'meta-spec'.url]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'meta-spec'.url]", (path != null ? lpath_10 : null));
                     return false;
                 }
             }
@@ -829,7 +772,7 @@ public class pgxn extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'meta-spec']", (path != null ? lpath_9 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'meta-spec']", (path != null ? lpath_10 : null));
                 return false;
             }
         }
@@ -847,75 +790,9 @@ public class pgxn extends ModelChecker
         return true;
     }
 
-    // check json_model_1_mup_provides (.provides)
-    public boolean _jm_f_4(Object val, Path path, Report rep)
+    // object .no_index
+    public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
-        // .provides
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.provides]", path);
-            return false;
-        }
-        boolean res;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
-        {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_10 = new Path(prop, path);
-            // handle other props
-            // .provides.''
-            res = json_model_6(pval, (path != null ? lpath_10 : null), rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $Provide [.provides.'']", (path != null ? lpath_10 : null));
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // check json_model_1_mup_version (.version)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
-    {
-        // .version
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.version]", path);
-        }
-        return res;
-    }
-
-
-    // check json_model_1_map_description (.description)
-    public boolean _jm_f_6(Object val, Path path, Report rep)
-    {
-        // .description
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.description]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_map_generated_by (.generated_by)
-    public boolean _jm_f_7(Object val, Path path, Report rep)
-    {
-        // .generated_by
-        boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.generated_by]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_map_no_index (.no_index)
-    public boolean _jm_f_8(Object val, Path path, Report rep)
-    {
-        // .no_index
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.no_index]", path);
@@ -961,19 +838,6 @@ public class pgxn extends ModelChecker
         return true;
     }
 
-    // check json_model_1_map_url (.url)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
-    {
-        // .url
-        boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $URL [.url]", path);
-        }
-        return res;
-    }
-
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -984,7 +848,6 @@ public class pgxn extends ModelChecker
             return false;
         }
         boolean res;
-        Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -992,25 +855,235 @@ public class pgxn extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_7 = new Path(prop, path);
-            if ((pfun = json_model_1_mup_pmap.get(prop)) != null)
+            if (prop.compareTo("name") == 0)
             {
-                // handle 7 mandatory props
-                if (pfun != null)
+                // handle must name property
+                must_count += 1;
+                // .name
+                res = json_model_2(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
                 {
-                    must_count += 1;
-                    if (! (pfun.call(pval, (path != null ? lpath_7 : null), rep)))
-                    {
-                        if (rep != null) rep.addEntry("invalid mandatory prop value [.]", (path != null ? lpath_7 : null));
-                        return false;
-                    }
+                    if (rep != null) rep.addEntry("unexpected $neStr [.name]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.name]", (path != null ? lpath_7 : null));
+                    return false;
                 }
             }
-            else if ((pfun = json_model_1_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("version") == 0)
             {
-                // handle 8 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_7 : null), rep)))
+                // handle must version property
+                must_count += 1;
+                // .version
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.version]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.version]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("abstract") == 0)
+            {
+                // handle must abstract property
+                must_count += 1;
+                // .abstract
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.abstract]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.abstract]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("maintainer") == 0)
+            {
+                // handle must maintainer property
+                must_count += 1;
+                // .maintainer
+                // .maintainer.'|'.0
+                res = json_model_2(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $neStr [.maintainer.'|'.0]", (path != null ? lpath_7 : null));
+                }
+                if (! res)
+                {
+                    // .maintainer.'|'.1
+                    res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected $neStrList [.maintainer.'|'.1]", (path != null ? lpath_7 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.maintainer.'|']", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.maintainer]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("license") == 0)
+            {
+                // handle must license property
+                must_count += 1;
+                // .license
+                // .license.'|'.0
+                res = json_model_4(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $License [.license.'|'.0]", (path != null ? lpath_7 : null));
+                }
+                if (! res)
+                {
+                    // .license.'|'.1
+                    res = json_model_5(pval, (path != null ? lpath_7 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected $LicenseList [.license.'|'.1]", (path != null ? lpath_7 : null));
+                    }
+                    if (! res)
+                    {
+                        // .license.'|'.2
+                        res = _jm_obj_3(pval, (path != null ? lpath_7 : null), rep);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected element [.license.'|'.2]", (path != null ? lpath_7 : null));
+                        }
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.license.'|']", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.license]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("provides") == 0)
+            {
+                // handle must provides property
+                must_count += 1;
+                // .provides
+                res = _jm_obj_4(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.provides]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.provides]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("meta-spec") == 0)
+            {
+                // handle must meta-spec property
+                must_count += 1;
+                // .'meta-spec'
+                res = _jm_obj_5(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'meta-spec']", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'meta-spec']", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("url") == 0)
+            {
+                // handle may url property
+                // .url
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $URL [.url]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.url]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.description]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.description]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("generated_by") == 0)
+            {
+                // handle may generated_by property
+                // .generated_by
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.generated_by]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.generated_by]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("tags") == 0)
+            {
+                // handle may tags property
+                // .tags
+                res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $neStrList [.tags]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.tags]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("no_index") == 0)
+            {
+                // handle may no_index property
+                // .no_index
+                res = _jm_obj_6(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.no_index]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.no_index]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("release_status") == 0)
+            {
+                // handle may release_status property
+                // .release_status
+                res = json_model_7(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $Status [.release_status]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.release_status]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("resources") == 0)
+            {
+                // handle may resources property
+                // .resources
+                res = json_model_8(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $Resources [.resources]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.resources]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("prereqs") == 0)
+            {
+                // handle may prereqs property
+                // .prereqs
+                res = json_model_16(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $Prereqs [.prereqs]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.prereqs]", (path != null ? lpath_7 : null));
                     return false;
                 }
             }
@@ -1119,23 +1192,6 @@ public class pgxn extends ModelChecker
             _jm_cst_3_set.add(json.safeJSON("\"recommends\""));
             _jm_cst_3_set.add(json.safeJSON("\"suggests\""));
             _jm_cst_3_set.add(json.safeJSON("\"conflicts\""));
-            json_model_1_mup_pmap = new HashMap<String, Checker>();
-            json_model_1_mup_pmap.put("abstract", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            json_model_1_mup_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            json_model_1_mup_pmap.put("maintainer", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            json_model_1_mup_pmap.put("meta-spec", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            json_model_1_mup_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_mup_pmap.put("provides", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            json_model_1_mup_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            json_model_1_map_pmap = new HashMap<String, Checker>();
-            json_model_1_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            json_model_1_map_pmap.put("generated_by", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            json_model_1_map_pmap.put("no_index", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            json_model_1_map_pmap.put("prereqs", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
-            json_model_1_map_pmap.put("release_status", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            json_model_1_map_pmap.put("resources", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
-            json_model_1_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            json_model_1_map_pmap.put("url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
             pgxn_map_pmap = new HashMap<String, Checker>();
             pgxn_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             pgxn_map_pmap.put("neStr", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -1175,8 +1231,6 @@ public class pgxn extends ModelChecker
             _jm_re_4_pat = null;
             _jm_cst_2_set = null;
             _jm_cst_3_set = null;
-            json_model_1_mup_pmap = null;
-            json_model_1_map_pmap = null;
             pgxn_map_pmap = null;
         }
     }

@@ -27,23 +27,36 @@ const size_t check_model_map_size = 4;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$d'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 2))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "u")) != NULL)))
-        return false;
-    // .'$d'.u
-    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
-    if (unlikely(! res))
-        return false;
-    if (unlikely(! ((pval = json_object_get(val, "d")) != NULL)))
-        return false;
-    // .'$d'.d
-    return json_is_string(pval);
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (jm_str_eq_2(prop, 0x00000075))
+        {
+            // handle must u property
+            must_count += 1;
+            // .'$d'.u
+            res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000064)))
+        {
+            // handle must d property
+            must_count += 1;
+            // .'$d'.d
+            res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 2;
 }
 
 
@@ -51,68 +64,107 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$efg'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 2))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
-        return false;
-    // .'$efg'.t
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 3);
-    if (unlikely(! res))
-        return false;
-    if (unlikely(! ((pval = json_object_get(val, "efg")) != NULL)))
-        return false;
-    // .'$efg'.efg
-    return json_is_string(pval);
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (jm_str_eq_2(prop, 0x00000074))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$efg'.t
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 3);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_4(prop, 0x00676665)))
+        {
+            // handle must efg property
+            must_count += 1;
+            // .'$efg'.efg
+            res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 2;
 }
 
 // object .'$alternative'.'|'.0
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 2))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
-        return false;
-    // .'$alternative'.'|'.0.t
-    res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
-    if (unlikely(! res))
-        return false;
-    if (unlikely(! ((pval = json_object_get(val, "a")) != NULL)))
-        return false;
-    // .'$alternative'.'|'.0.a
-    return json_is_string(pval);
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (jm_str_eq_2(prop, 0x00000074))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$alternative'.'|'.0.t
+            res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000061)))
+        {
+            // handle must a property
+            must_count += 1;
+            // .'$alternative'.'|'.0.a
+            res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 2;
 }
 
 
 // object .'$alternative'.'|'.1
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 2))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "u")) != NULL)))
-        return false;
-    // .'$alternative'.'|'.1.u
-    res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);
-    if (unlikely(! res))
-        return false;
-    if (unlikely(! ((pval = json_object_get(val, "bc")) != NULL)))
-        return false;
-    // .'$alternative'.'|'.1.bc
-    return json_is_string(pval);
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (jm_str_eq_2(prop, 0x00000075))
+        {
+            // handle must u property
+            must_count += 1;
+            // .'$alternative'.'|'.1.u
+            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_3(prop, 0x00006362)))
+        {
+            // handle must bc property
+            must_count += 1;
+            // .'$alternative'.'|'.1.bc
+            res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 2;
 }
 
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)

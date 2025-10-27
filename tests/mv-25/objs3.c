@@ -19,23 +19,36 @@ const size_t check_model_map_size = 2;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$book'
-    // check close must only props
     if (unlikely(! json_is_object(val)))
         return false;
-    if (unlikely(json_object_size(val) != 2))
-        return false;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "title")) != NULL)))
-        return false;
-    // .'$book'.title
-    res = json_is_string(pval);
-    if (unlikely(! res))
-        return false;
-    if (unlikely(! ((pval = json_object_get(val, "author")) != NULL)))
-        return false;
-    // .'$book'.author
-    return json_is_string(pval);
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (jm_str_eq_6(prop, 0x000000656c746974LL))
+        {
+            // handle must title property
+            must_count += 1;
+            // .'$book'.title
+            res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_7(prop, 0x0000726f68747561LL)))
+        {
+            // handle must author property
+            must_count += 1;
+            // .'$book'.author
+            res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else
+            return false;
+    }
+    return must_count == 2;
 }
 
 // check $ (.)

@@ -8,6 +8,8 @@
 - [x] static: for must-only scheme controlled by option
 - [x] static: further improve likely hints
 - [x] command: rename `--unroll-may-…` options for `--may-must-open-threshold`
+- [x] command: set optimization parameters depending on target language
+- [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: generate direct code for search constant on small sets
@@ -28,7 +30,6 @@
 - [ ] tests: add generated ir model check
 - [ ] tests: drop language outputs for IR only?!
 - [ ] tests: check generated IR with IR model
-- [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] static: close may/must? merge with open?
 - [ ] static: add a dynamic test for different strategies in object checking
 - [ ] backend: refactor ir optimizations

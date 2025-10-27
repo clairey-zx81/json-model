@@ -20,70 +20,114 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-json_model_1_map: PropMap
 check_model_map: PropMap
 
-# check json_model_1_map_f0 (.f0)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f0
+# object .f0
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f1 (.f1)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f1
+# object .f1
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f2 (.f2)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f2
+# object .f2
+def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f3 (.f3)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f3
+# object .f3
+def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f4 (.f4)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f4
+# object .f4
+def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f5 (.f5)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f5
+# object .f5
+def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f6 (.f6)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f6
+# object .f6
+def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f7 (.f7)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f7
+# object .f7
+def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f8 (.f8)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f8
+# object .f8
+def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
 
-# check json_model_1_map_f9 (.f9)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .f9
+# object .f9
+def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return isinstance(val, dict) and len(val) == 0
-
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     if not isinstance(val, dict):
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
-        if pfun := json_model_1_map.get(prop):
-            # handle 10 may props
-            if pfun != UNDEFINED and not pfun(pval, None, None):
+        if prop == "f0":
+            # handle may f0 property
+            # .f0
+            res = _jm_obj_0(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f1":
+            # handle may f1 property
+            # .f1
+            res = _jm_obj_1(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f2":
+            # handle may f2 property
+            # .f2
+            res = _jm_obj_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f3":
+            # handle may f3 property
+            # .f3
+            res = _jm_obj_3(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f4":
+            # handle may f4 property
+            # .f4
+            res = _jm_obj_4(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f5":
+            # handle may f5 property
+            # .f5
+            res = _jm_obj_5(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f6":
+            # handle may f6 property
+            # .f6
+            res = _jm_obj_6(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f7":
+            # handle may f7 property
+            # .f7
+            res = _jm_obj_7(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f8":
+            # handle may f8 property
+            # .f8
+            res = _jm_obj_8(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f9":
+            # handle may f9 property
+            # .f9
+            res = _jm_obj_9(pval, None, None)
+            if not res:
                 return False
         else:
             return False
@@ -98,19 +142,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global json_model_1_map
-        json_model_1_map = {
-            "f0": _jm_f_0,
-            "f1": _jm_f_1,
-            "f2": _jm_f_2,
-            "f3": _jm_f_3,
-            "f4": _jm_f_4,
-            "f5": _jm_f_5,
-            "f6": _jm_f_6,
-            "f7": _jm_f_7,
-            "f8": _jm_f_8,
-            "f9": _jm_f_9,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

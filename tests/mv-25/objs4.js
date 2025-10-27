@@ -9,79 +9,67 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-var json_model_1_map = new Map()
 var check_model_map = new Map()
 
-// check json_model_1_map_f0 (.f0)
-function _jm_f_0(val, path, rep)
+// object .f0
+function _jm_obj_0(val, path, rep)
 {
-    // .f0
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f1 (.f1)
-function _jm_f_1(val, path, rep)
+// object .f1
+function _jm_obj_1(val, path, rep)
 {
-    // .f1
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f2 (.f2)
-function _jm_f_2(val, path, rep)
+// object .f2
+function _jm_obj_2(val, path, rep)
 {
-    // .f2
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f3 (.f3)
-function _jm_f_3(val, path, rep)
+// object .f3
+function _jm_obj_3(val, path, rep)
 {
-    // .f3
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f4 (.f4)
-function _jm_f_4(val, path, rep)
+// object .f4
+function _jm_obj_4(val, path, rep)
 {
-    // .f4
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f5 (.f5)
-function _jm_f_5(val, path, rep)
+// object .f5
+function _jm_obj_5(val, path, rep)
 {
-    // .f5
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f6 (.f6)
-function _jm_f_6(val, path, rep)
+// object .f6
+function _jm_obj_6(val, path, rep)
 {
-    // .f6
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f7 (.f7)
-function _jm_f_7(val, path, rep)
+// object .f7
+function _jm_obj_7(val, path, rep)
 {
-    // .f7
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f8 (.f8)
-function _jm_f_8(val, path, rep)
+// object .f8
+function _jm_obj_8(val, path, rep)
 {
-    // .f8
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-// check json_model_1_map_f9 (.f9)
-function _jm_f_9(val, path, rep)
+// object .f9
+function _jm_obj_9(val, path, rep)
 {
-    // .f9
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
-
 
 // check $ (.)
 function json_model_1(val, path, rep)
@@ -91,13 +79,105 @@ function json_model_1(val, path, rep)
     {
         return false;
     }
-    let pfun;
+    let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        if ((pfun = json_model_1_map.get(prop)))
+        if (prop == "f0")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, null, null))
+            // handle may f0 property
+            // .f0
+            res = _jm_obj_0(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f1")
+        {
+            // handle may f1 property
+            // .f1
+            res = _jm_obj_1(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f2")
+        {
+            // handle may f2 property
+            // .f2
+            res = _jm_obj_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f3")
+        {
+            // handle may f3 property
+            // .f3
+            res = _jm_obj_3(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f4")
+        {
+            // handle may f4 property
+            // .f4
+            res = _jm_obj_4(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f5")
+        {
+            // handle may f5 property
+            // .f5
+            res = _jm_obj_5(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f6")
+        {
+            // handle may f6 property
+            // .f6
+            res = _jm_obj_6(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f7")
+        {
+            // handle may f7 property
+            // .f7
+            res = _jm_obj_7(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f8")
+        {
+            // handle may f8 property
+            // .f8
+            res = _jm_obj_8(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f9")
+        {
+            // handle may f9 property
+            // .f9
+            res = _jm_obj_9(pval, null, null);
+            if (! res)
             {
                 return false;
             }
@@ -120,16 +200,6 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        json_model_1_map.set("f0", _jm_f_0)
-        json_model_1_map.set("f1", _jm_f_1)
-        json_model_1_map.set("f2", _jm_f_2)
-        json_model_1_map.set("f3", _jm_f_3)
-        json_model_1_map.set("f4", _jm_f_4)
-        json_model_1_map.set("f5", _jm_f_5)
-        json_model_1_map.set("f6", _jm_f_6)
-        json_model_1_map.set("f7", _jm_f_7)
-        json_model_1_map.set("f8", _jm_f_8)
-        json_model_1_map.set("f9", _jm_f_9)
         check_model_map.set("", json_model_1)
     }
 }

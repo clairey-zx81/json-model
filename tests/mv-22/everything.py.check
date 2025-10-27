@@ -62,11 +62,11 @@ everything.values.json[60]: PASS
 everything.values.json[61]: PASS
 everything.values.json[62]: PASS
 everything.values.json[63]: PASS
-everything.values.json[64]: FAIL (.bool: invalid optional prop value [.]; .bool.b0: invalid optional prop value [.bool]; .bool.b0: not a bool [.bool.b0])
-everything.values.json[65]: FAIL (.bool: invalid optional prop value [.]; .bool.b1: invalid optional prop value [.bool]; .bool.b1: unexpected $BOOL [.bool.b1])
-everything.values.json[66]: FAIL (.bool: invalid optional prop value [.]; .bool.b2: invalid optional prop value [.bool]; .bool.b2: unexpected $BOOLEAN [.bool.b2])
-everything.values.json[67]: FAIL (.bool: invalid optional prop value [.]; .bool.b3: invalid optional prop value [.bool]; .bool.b3: unexpected =true [.bool.b3])
-everything.values.json[68]: FAIL (.bool: invalid optional prop value [.]; .bool.b4: invalid optional prop value [.bool]; .bool.b4: unexpected =false [.bool.b4])
+everything.values.json[64]: FAIL (.bool: invalid optional prop value [.]; .bool.b0: invalid optional prop value [.bool.b0]; .bool.b0: not a bool [.bool.b0])
+everything.values.json[65]: FAIL (.bool: invalid optional prop value [.]; .bool.b1: invalid optional prop value [.bool.b1]; .bool.b1: unexpected $BOOL [.bool.b1])
+everything.values.json[66]: FAIL (.bool: invalid optional prop value [.]; .bool.b2: invalid optional prop value [.bool.b2]; .bool.b2: unexpected $BOOLEAN [.bool.b2])
+everything.values.json[67]: FAIL (.bool: invalid optional prop value [.]; .bool.b3: invalid optional prop value [.bool.b3]; .bool.b3: unexpected =true [.bool.b3])
+everything.values.json[68]: FAIL (.bool: invalid optional prop value [.]; .bool.b4: invalid optional prop value [.bool.b4]; .bool.b4: unexpected =false [.bool.b4])
 everything.values.json[69]: PASS
 everything.values.json[70]: FAIL (.int: invalid optional prop value [.]; .int.i0: invalid optional prop value [.int]; .int.i0: not a 0 strict int [.int.i0])
 everything.values.json[71]: PASS
@@ -90,23 +90,23 @@ everything.values.json[88]: FAIL (.int: invalid optional prop value [.]; .int.i9
 everything.values.json[89]: PASS
 everything.values.json[90]: FAIL (.int: invalid optional prop value [.]; .int.ia: invalid optional prop value [.int]; .int.ia: unexpected =-42 [.int.ia])
 everything.values.json[91]: PASS
-everything.values.json[92]: FAIL (.float: invalid optional prop value [.]; .float.f0: invalid optional prop value [.float]; .float.f0: not a 0.0 strict float [.float.f0])
+everything.values.json[92]: FAIL (.float: invalid optional prop value [.]; .float.f0: invalid optional prop value [.float.f0]; .float.f0: not a 0.0 strict float [.float.f0])
 everything.values.json[93]: PASS
-everything.values.json[94]: FAIL (.float: invalid optional prop value [.]; .float.f1: invalid optional prop value [.float]; .float.f1: not a 1.0 strict float [.float.f1])
+everything.values.json[94]: FAIL (.float: invalid optional prop value [.]; .float.f1: invalid optional prop value [.float.f1]; .float.f1: not a 1.0 strict float [.float.f1])
 everything.values.json[95]: PASS
-everything.values.json[96]: FAIL (.float: invalid optional prop value [.]; .float.f2: invalid optional prop value [.float]; .float.f2: not a -1.0 strict float [.float.f2])
+everything.values.json[96]: FAIL (.float: invalid optional prop value [.]; .float.f2: invalid optional prop value [.float.f2]; .float.f2: not a -1.0 strict float [.float.f2])
 everything.values.json[97]: PASS
-everything.values.json[98]: FAIL (.float: invalid optional prop value [.]; .float.f3: invalid optional prop value [.float]; .float.f3: unexpected $FLOAT [.float.f3])
+everything.values.json[98]: FAIL (.float: invalid optional prop value [.]; .float.f3: invalid optional prop value [.float.f3]; .float.f3: unexpected $FLOAT [.float.f3])
 everything.values.json[99]: PASS
-everything.values.json[100]: FAIL (.float: invalid optional prop value [.]; .float.f4: invalid optional prop value [.float]; .float.f4: unexpected $F32 [.float.f4])
+everything.values.json[100]: FAIL (.float: invalid optional prop value [.]; .float.f4: invalid optional prop value [.float.f4]; .float.f4: unexpected $F32 [.float.f4])
 everything.values.json[101]: PASS
-everything.values.json[102]: FAIL (.float: invalid optional prop value [.]; .float.f5: invalid optional prop value [.float]; .float.f5: unexpected $F64 [.float.f5])
+everything.values.json[102]: FAIL (.float: invalid optional prop value [.]; .float.f5: invalid optional prop value [.float.f5]; .float.f5: unexpected $F64 [.float.f5])
 everything.values.json[103]: PASS
-everything.values.json[104]: FAIL (.float: invalid optional prop value [.]; .float.f6: invalid optional prop value [.float]; .float.f6: unexpected =3.1415927 [.float.f6])
+everything.values.json[104]: FAIL (.float: invalid optional prop value [.]; .float.f6: invalid optional prop value [.float.f6]; .float.f6: unexpected =3.1415927 [.float.f6])
 everything.values.json[105]: PASS
-everything.values.json[106]: FAIL (.float: invalid optional prop value [.]; .float.f7: invalid optional prop value [.float]; .float.f7: unexpected =1.0E100 [.float.f7])
+everything.values.json[106]: FAIL (.float: invalid optional prop value [.]; .float.f7: invalid optional prop value [.float.f7]; .float.f7: unexpected =1.0E100 [.float.f7])
 everything.values.json[107]: PASS
-everything.values.json[108]: FAIL (.float: invalid optional prop value [.]; .float.f8: invalid optional prop value [.float]; .float.f8: unexpected =-42.1 [.float.f8])
+everything.values.json[108]: FAIL (.float: invalid optional prop value [.]; .float.f8: invalid optional prop value [.float.f8]; .float.f8: unexpected =-42.1 [.float.f8])
 everything.values.json[109]: PASS
 everything.values.json[110]: FAIL (.string: invalid optional prop value [.]; .string.s0: invalid optional prop value [.string.s0]; .string.s0: unexpected string [.string.s0])
 everything.values.json[111]: PASS
@@ -178,67 +178,67 @@ everything.values.json[176]: FAIL (.tuple: invalid optional prop value [.]; .tup
 everything.values.json[177]: FAIL (.tuple: invalid optional prop value [.]; .tuple.t4: invalid optional prop value [.tuple.t4]; .tuple.t4: constraints failed [.tuple.t4])
 everything.values.json[178]: FAIL (.tuple: invalid optional prop value [.]; .tuple.t4: invalid optional prop value [.tuple.t4]; .tuple.t4: not array or unexpected array [.tuple.t4.'@'])
 everything.values.json[179]: PASS
-everything.values.json[180]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object]; .object.o0: expecting empty object [.object.o0])
-everything.values.json[181]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object]; .object.o0: not an object [.object.o0])
-everything.values.json[182]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object]; .object.o0: not an object [.object.o0])
-everything.values.json[183]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object]; .object.o0: not an object [.object.o0])
-everything.values.json[184]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object]; .object.o0: not an object [.object.o0])
-everything.values.json[185]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object]; .object.o0: not an object [.object.o0])
-everything.values.json[186]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object]; .object.o0: not an object [.object.o0])
+everything.values.json[180]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object.o0]; .object.o0: unexpected element [.object.o0]; .object.o0: expecting empty object [.object.o0])
+everything.values.json[181]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object.o0]; .object.o0: unexpected element [.object.o0]; .object.o0: not an object [.object.o0])
+everything.values.json[182]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object.o0]; .object.o0: unexpected element [.object.o0]; .object.o0: not an object [.object.o0])
+everything.values.json[183]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object.o0]; .object.o0: unexpected element [.object.o0]; .object.o0: not an object [.object.o0])
+everything.values.json[184]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object.o0]; .object.o0: unexpected element [.object.o0]; .object.o0: not an object [.object.o0])
+everything.values.json[185]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object.o0]; .object.o0: unexpected element [.object.o0]; .object.o0: not an object [.object.o0])
+everything.values.json[186]: FAIL (.object: invalid optional prop value [.]; .object.o0: invalid optional prop value [.object.o0]; .object.o0: unexpected element [.object.o0]; .object.o0: not an object [.object.o0])
 everything.values.json[187]: PASS
-everything.values.json[188]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1: bad property count [.object.o1])
-everything.values.json[189]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1: bad property count [.object.o1])
-everything.values.json[190]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1: bad property count [.object.o1])
-everything.values.json[191]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1: bad property count [.object.o1])
-everything.values.json[192]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1: bad property count [.object.o1])
-everything.values.json[193]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1.a: unexpected value for mandatory prop <a> [.object.o1]; .object.o1.a: not a 0 strict int [.object.o1.a])
-everything.values.json[194]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1.b: unexpected value for mandatory prop <b> [.object.o1]; .object.o1.b: not a 0 strict int [.object.o1.b])
-everything.values.json[195]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1.c: unexpected value for mandatory prop <c> [.object.o1]; .object.o1.c: not a 0 strict int [.object.o1.c])
-everything.values.json[196]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1: not an object [.object.o1])
-everything.values.json[197]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object]; .object.o1: not an object [.object.o1])
+everything.values.json[188]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1: bad property count [.object.o1])
+everything.values.json[189]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1: bad property count [.object.o1])
+everything.values.json[190]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1: bad property count [.object.o1])
+everything.values.json[191]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1: bad property count [.object.o1])
+everything.values.json[192]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1: bad property count [.object.o1])
+everything.values.json[193]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1.a: unexpected value for mandatory prop <a> [.object.o1]; .object.o1.a: not a 0 strict int [.object.o1.a])
+everything.values.json[194]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1.b: unexpected value for mandatory prop <b> [.object.o1]; .object.o1.b: not a 0 strict int [.object.o1.b])
+everything.values.json[195]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1.c: unexpected value for mandatory prop <c> [.object.o1]; .object.o1.c: not a 0 strict int [.object.o1.c])
+everything.values.json[196]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1: not an object [.object.o1])
+everything.values.json[197]: FAIL (.object: invalid optional prop value [.]; .object.o1: invalid optional prop value [.object.o1]; .object.o1: unexpected element [.object.o1]; .object.o1: not an object [.object.o1])
 everything.values.json[198]: PASS
 everything.values.json[199]: PASS
-everything.values.json[200]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object]; .object.o2.b: unexpected prop [.object.o2])
-everything.values.json[201]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object]; .object.o2.b: unexpected prop [.object.o2])
-everything.values.json[202]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object]; .object.o2: not an object [.object.o2])
-everything.values.json[203]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object]; .object.o2: not an object [.object.o2])
-everything.values.json[204]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object]; .object.o2: not an object [.object.o2])
-everything.values.json[205]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object]; .object.o2: not an object [.object.o2])
-everything.values.json[206]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object]; .object.o2: not an object [.object.o2])
-everything.values.json[207]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object]; .object.o2: not an object [.object.o2])
+everything.values.json[200]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object.o2]; .object.o2: unexpected element [.object.o2]; .object.o2.b: unexpected prop [.object.o2])
+everything.values.json[201]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object.o2]; .object.o2: unexpected element [.object.o2]; .object.o2.b: unexpected prop [.object.o2])
+everything.values.json[202]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object.o2]; .object.o2: unexpected element [.object.o2]; .object.o2: not an object [.object.o2])
+everything.values.json[203]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object.o2]; .object.o2: unexpected element [.object.o2]; .object.o2: not an object [.object.o2])
+everything.values.json[204]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object.o2]; .object.o2: unexpected element [.object.o2]; .object.o2: not an object [.object.o2])
+everything.values.json[205]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object.o2]; .object.o2: unexpected element [.object.o2]; .object.o2: not an object [.object.o2])
+everything.values.json[206]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object.o2]; .object.o2: unexpected element [.object.o2]; .object.o2: not an object [.object.o2])
+everything.values.json[207]: FAIL (.object: invalid optional prop value [.]; .object.o2: invalid optional prop value [.object.o2]; .object.o2: unexpected element [.object.o2]; .object.o2: not an object [.object.o2])
 everything.values.json[208]: PASS
 everything.values.json[209]: PASS
 everything.values.json[210]: PASS
 everything.values.json[211]: PASS
 everything.values.json[212]: PASS
-everything.values.json[213]: FAIL (.object: invalid optional prop value [.]; .object.o3: invalid optional prop value [.object]; .object.o3.b: unexpected prop [.object.o3])
-everything.values.json[214]: FAIL (.object: invalid optional prop value [.]; .object.o3: invalid optional prop value [.object]; .object.o3.b: unexpected prop [.object.o3])
-everything.values.json[215]: FAIL (.object: invalid optional prop value [.]; .object.o3: invalid optional prop value [.object]; .object.o3: not an object [.object.o3])
+everything.values.json[213]: FAIL (.object: invalid optional prop value [.]; .object.o3: invalid optional prop value [.object.o3]; .object.o3: unexpected element [.object.o3]; .object.o3.b: unexpected prop [.object.o3])
+everything.values.json[214]: FAIL (.object: invalid optional prop value [.]; .object.o3: invalid optional prop value [.object.o3]; .object.o3: unexpected element [.object.o3]; .object.o3.b: unexpected prop [.object.o3])
+everything.values.json[215]: FAIL (.object: invalid optional prop value [.]; .object.o3: invalid optional prop value [.object.o3]; .object.o3: unexpected element [.object.o3]; .object.o3: not an object [.object.o3])
 everything.values.json[216]: PASS
 everything.values.json[217]: PASS
 everything.values.json[218]: PASS
-everything.values.json[219]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object]; .object.o4.'2020-07-32': unexpected prop [.object.o4]; .object.o4.'2020-07-32': invalid date 2020-07-32 (day is out of range for month))
-everything.values.json[220]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object]; .object.o4.'not a date': unexpected prop [.object.o4]; .object.o4.'not a date': invalid date not a date (Invalid isoformat string: 'not a date'))
-everything.values.json[221]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object]; .object.o4.'2020-07-29': unexpected string [.object.o4.'$DATE'])
-everything.values.json[222]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object]; .object.o4: not an object [.object.o4])
-everything.values.json[223]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object]; .object.o4: not an object [.object.o4])
-everything.values.json[224]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object]; .object.o4: not an object [.object.o4])
+everything.values.json[219]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4.'2020-07-32': unexpected prop [.object.o4]; .object.o4.'2020-07-32': invalid date 2020-07-32 (day is out of range for month))
+everything.values.json[220]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4.'not a date': unexpected prop [.object.o4]; .object.o4.'not a date': invalid date not a date (Invalid isoformat string: 'not a date'))
+everything.values.json[221]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4.'2020-07-29': unexpected string [.object.o4.'$DATE'])
+everything.values.json[222]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4: not an object [.object.o4])
+everything.values.json[223]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4: not an object [.object.o4])
+everything.values.json[224]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4: not an object [.object.o4])
 everything.values.json[225]: PASS
 everything.values.json[226]: PASS
 everything.values.json[227]: PASS
-everything.values.json[228]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object]; .object.o5.Hobbes: not a 0 strict int [.object.o5.''])
-everything.values.json[229]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object]; .object.o5.Hobbes: not a 0 strict int [.object.o5.''])
-everything.values.json[230]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object]; .object.o5: not an object [.object.o5])
-everything.values.json[231]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object]; .object.o5: not an object [.object.o5])
-everything.values.json[232]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object]; .object.o5: not an object [.object.o5])
-everything.values.json[233]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object]; .object.o5: not an object [.object.o5])
+everything.values.json[228]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object.o5]; .object.o5: unexpected element [.object.o5]; .object.o5.Hobbes: not a 0 strict int [.object.o5.''])
+everything.values.json[229]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object.o5]; .object.o5: unexpected element [.object.o5]; .object.o5.Hobbes: not a 0 strict int [.object.o5.''])
+everything.values.json[230]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object.o5]; .object.o5: unexpected element [.object.o5]; .object.o5: not an object [.object.o5])
+everything.values.json[231]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object.o5]; .object.o5: unexpected element [.object.o5]; .object.o5: not an object [.object.o5])
+everything.values.json[232]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object.o5]; .object.o5: unexpected element [.object.o5]; .object.o5: not an object [.object.o5])
+everything.values.json[233]: FAIL (.object: invalid optional prop value [.]; .object.o5: invalid optional prop value [.object.o5]; .object.o5: unexpected element [.object.o5]; .object.o5: not an object [.object.o5])
 everything.values.json[234]: PASS
 everything.values.json[235]: PASS
 everything.values.json[236]: PASS
-everything.values.json[237]: FAIL (.object: invalid optional prop value [.]; .object.o6: invalid optional prop value [.object]; .object.o6: not an object [.object.o6])
-everything.values.json[238]: FAIL (.object: invalid optional prop value [.]; .object.o6: invalid optional prop value [.object]; .object.o6: not an object [.object.o6])
-everything.values.json[239]: FAIL (.object: invalid optional prop value [.]; .object.o6: invalid optional prop value [.object]; .object.o6: not an object [.object.o6])
-everything.values.json[240]: FAIL (.object: invalid optional prop value [.]; .object.o6: invalid optional prop value [.object]; .object.o6: not an object [.object.o6])
+everything.values.json[237]: FAIL (.object: invalid optional prop value [.]; .object.o6: invalid optional prop value [.object.o6]; .object.o6: unexpected element [.object.o6]; .object.o6: not an object [.object.o6])
+everything.values.json[238]: FAIL (.object: invalid optional prop value [.]; .object.o6: invalid optional prop value [.object.o6]; .object.o6: unexpected element [.object.o6]; .object.o6: not an object [.object.o6])
+everything.values.json[239]: FAIL (.object: invalid optional prop value [.]; .object.o6: invalid optional prop value [.object.o6]; .object.o6: unexpected element [.object.o6]; .object.o6: not an object [.object.o6])
+everything.values.json[240]: FAIL (.object: invalid optional prop value [.]; .object.o6: invalid optional prop value [.object.o6]; .object.o6: unexpected element [.object.o6]; .object.o6: not an object [.object.o6])
 everything.values.json[241]: PASS
 everything.values.json[242]: PASS
 everything.values.json[243]: FAIL (.enum: invalid optional prop value [.]; .enum.e0: invalid optional prop value [.enum.e0]; .enum.e0: unexpected type [.enum.e0.'|'])

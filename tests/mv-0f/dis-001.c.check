@@ -1,8 +1,8 @@
 dis-001.values.json[0]: PASS
 dis-001.values.json[1]: PASS
-dis-001.values.json[2]: FAIL (.: bad property count [.])
-dis-001.values.json[3]: FAIL (.: bad property count [.])
-dis-001.values.json[4]: FAIL (.: bad property count [.])
+dis-001.values.json[2]: FAIL (.: missing mandatory prop <b> [.])
+dis-001.values.json[3]: FAIL (.: missing mandatory prop <a> [.])
+dis-001.values.json[4]: FAIL (.c: unexpected prop [.])
 dis-001.values.json[5]: FAIL (.: not an object [.])
 dis-001.values.json[6]: FAIL (.: not an object [.])
 dis-001.values.json[7]: FAIL (.: not an object [.])

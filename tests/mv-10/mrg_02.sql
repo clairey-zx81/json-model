@@ -18,50 +18,54 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
 BEGIN
   -- .'$r'
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 4 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'a' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'a';
-  -- .'$r'.a
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'b' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'b';
-  -- .'$r'.b
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'c' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'c';
-  -- .'$r'.c
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'd' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'd';
-  -- .'$r'.d
-  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'a' THEN
+      -- handle must a property
+      must_count := must_count + 1;
+      -- .'$r'.a
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'b' THEN
+      -- handle must b property
+      must_count := must_count + 1;
+      -- .'$r'.b
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'c' THEN
+      -- handle must c property
+      must_count := must_count + 1;
+      -- .'$r'.c
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'd' THEN
+      -- handle must d property
+      must_count := must_count + 1;
+      -- .'$r'.d
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 4;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -69,103 +73,46 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
 BEGIN
   -- .'$z'
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'e' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'e';
-  -- .'$z'.e
-  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'f' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'f';
-  -- .'$z'.f
-  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'e' THEN
+      -- handle must e property
+      must_count := must_count + 1;
+      -- .'$z'.e
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'f' THEN
+      -- handle must f property
+      must_count := must_count + 1;
+      -- .'$z'.f
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
-
--- check json_model_1_mup_a (.a)
-CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .a
-  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_01';
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_mup_b (.b)
-CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .b
-  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_01';
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_mup_c (.c)
-CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .c
-  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_01';
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_mup_d (.d)
-CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .d
-  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_01';
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_mup_e (.e)
-CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .e
-  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_02';
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_mup_f (.f)
-CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .f
-  RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'cst_02';
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION json_model_1_mup(name TEXT)
-RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  map JSONB := JSONB '{"a":"_jm_f_0","b":"_jm_f_1","c":"_jm_f_2","d":"_jm_f_3","e":"_jm_f_4","f":"_jm_f_5"}';
-BEGIN
-  RETURN map->>name;
-END;
-$$ LANGUAGE plpgsql;
 
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pfun TEXT;
+  res bool;
   must_count int;
   prop TEXT;
   pval JSONB;
@@ -176,11 +123,52 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF json_model_1_mup(prop) IS NOT NULL THEN
-      -- handle 6 mandatory props
-      pfun := json_model_1_mup(prop);
+    IF prop = 'a' THEN
+      -- handle must a property
       must_count := must_count + 1;
-      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
+      -- .a
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'b' THEN
+      -- handle must b property
+      must_count := must_count + 1;
+      -- .b
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'e' THEN
+      -- handle must e property
+      must_count := must_count + 1;
+      -- .e
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'f' THEN
+      -- handle must f property
+      must_count := must_count + 1;
+      -- .f
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'c' THEN
+      -- handle must c property
+      must_count := must_count + 1;
+      -- .c
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'd' THEN
+      -- handle must d property
+      must_count := must_count + 1;
+      -- .d
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSE

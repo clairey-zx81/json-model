@@ -9,7 +9,6 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-var json_model_1_map = new Map()
 var check_model_map = new Map()
 
 // check $empty (.'$empty')
@@ -19,7 +18,6 @@ function json_model_2(val, path, rep)
     return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
@@ -28,13 +26,105 @@ function json_model_1(val, path, rep)
     {
         return false;
     }
-    let pfun;
+    let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        if ((pfun = json_model_1_map.get(prop)))
+        if (prop == "f0")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, null, null))
+            // handle may f0 property
+            // .f0
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f1")
+        {
+            // handle may f1 property
+            // .f1
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f2")
+        {
+            // handle may f2 property
+            // .f2
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f3")
+        {
+            // handle may f3 property
+            // .f3
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f4")
+        {
+            // handle may f4 property
+            // .f4
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f5")
+        {
+            // handle may f5 property
+            // .f5
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f6")
+        {
+            // handle may f6 property
+            // .f6
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f7")
+        {
+            // handle may f7 property
+            // .f7
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f8")
+        {
+            // handle may f8 property
+            // .f8
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "f9")
+        {
+            // handle may f9 property
+            // .f9
+            res = json_model_2(pval, null, null);
+            if (! res)
             {
                 return false;
             }
@@ -57,16 +147,6 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        json_model_1_map.set("f0", json_model_2)
-        json_model_1_map.set("f1", json_model_2)
-        json_model_1_map.set("f2", json_model_2)
-        json_model_1_map.set("f3", json_model_2)
-        json_model_1_map.set("f4", json_model_2)
-        json_model_1_map.set("f5", json_model_2)
-        json_model_1_map.set("f6", json_model_2)
-        json_model_1_map.set("f7", json_model_2)
-        json_model_1_map.set("f8", json_model_2)
-        json_model_1_map.set("f9", json_model_2)
         check_model_map.set("", json_model_1)
         check_model_map.set("empty", json_model_2)
     }

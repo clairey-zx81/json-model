@@ -17,7 +17,6 @@ public class objs5 extends ModelChecker
 {
     static public final String VERSION = "2";
 
-    Map<String, Checker> json_model_1_map_pmap;
     public Map<String, Checker> objs5_map_pmap;
 
     // check $empty (.'$empty')
@@ -27,7 +26,6 @@ public class objs5 extends ModelChecker
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -36,16 +34,108 @@ public class objs5 extends ModelChecker
         {
             return false;
         }
-        Checker pfun;
+        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            if ((pfun = json_model_1_map_pmap.get(prop)) != null)
+            if (prop.compareTo("f0") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! pfun.call(pval, null, null))
+                // handle may f0 property
+                // .f0
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f1") == 0)
+            {
+                // handle may f1 property
+                // .f1
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f2") == 0)
+            {
+                // handle may f2 property
+                // .f2
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f3") == 0)
+            {
+                // handle may f3 property
+                // .f3
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f4") == 0)
+            {
+                // handle may f4 property
+                // .f4
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f5") == 0)
+            {
+                // handle may f5 property
+                // .f5
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f6") == 0)
+            {
+                // handle may f6 property
+                // .f6
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f7") == 0)
+            {
+                // handle may f7 property
+                // .f7
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f8") == 0)
+            {
+                // handle may f8 property
+                // .f8
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f9") == 0)
+            {
+                // handle may f9 property
+                // .f9
+                res = json_model_2(pval, null, null);
+                if (! res)
                 {
                     return false;
                 }
@@ -64,17 +154,6 @@ public class objs5 extends ModelChecker
         if (!initialized)
         {
             try {
-            json_model_1_map_pmap = new HashMap<String, Checker>();
-            json_model_1_map_pmap.put("f0", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f2", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f3", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f4", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f5", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f6", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f7", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f8", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_model_1_map_pmap.put("f9", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             objs5_map_pmap = new HashMap<String, Checker>();
             objs5_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             objs5_map_pmap.put("empty", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -91,7 +170,6 @@ public class objs5 extends ModelChecker
         if (initialized)
         {
             super.free();
-            json_model_1_map_pmap = null;
             objs5_map_pmap = null;
         }
     }

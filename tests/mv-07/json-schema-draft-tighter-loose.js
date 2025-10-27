@@ -10,28 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 let _jm_map_0 = new Map()
-var json_model_11_map = new Map()
 let _jm_cst_0 = new Set()
-var json_model_12_map = new Map()
-var json_model_13_map = new Map()
-var json_model_14_map = new Map()
-var json_model_15_map = new Map()
-var json_model_16_map = new Map()
-var json_model_17_map = new Map()
-var json_model_18_map = new Map()
-var json_model_19_map = new Map()
-var json_model_20_map = new Map()
-var json_model_21_map = new Map()
-var json_model_22_map = new Map()
-var json_model_23_map = new Map()
-var json_model_24_map = new Map()
-var json_model_28_map = new Map()
-var json_model_29_map = new Map()
-var json_model_30_map = new Map()
-var json_model_31_map = new Map()
-var json_model_32_map = new Map()
-var json_model_33_map = new Map()
-var json_model_34_map = new Map()
 var check_model_map = new Map()
 
 // check $tight (.'$tight')
@@ -161,22 +140,9 @@ function json_model_25(val, path, rep)
     return res || json_model_11(val, path, rep) || json_model_23(val, path, rep) || json_model_22(val, path, rep) || json_model_19(val, path, rep) || json_model_20(val, path, rep) || json_model_21(val, path, rep) || json_model_24(val, path, rep) || json_model_28(val, path, rep) || json_model_29(val, path, rep) || json_model_30(val, path, rep) || json_model_31(val, path, rep) || json_model_32(val, path, rep) || json_model_33(val, path, rep) || json_model_34(val, path, rep);
 }
 
-// check json_model_11_map_$comment (.'$tight#metas'.'$comment')
-function _jm_f_0(val, path, rep)
+// object .'$tight#metas'.'$defs'
+function _jm_obj_1(val, path, rep)
 {
-    // .'$tight#metas'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_11_map_$defs (.'$tight#metas'.'$defs')
-function _jm_f_1(val, path, rep)
-{
-    // .'$tight#metas'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#metas'.'$defs']", path])
@@ -198,41 +164,9 @@ function _jm_f_1(val, path, rep)
     return true;
 }
 
-// check json_model_11_map_$id (.'$tight#metas'.'$id')
-function _jm_f_2(val, path, rep)
+// object .'$tight#metas'.definitions
+function _jm_obj_2(val, path, rep)
 {
-    // .'$tight#metas'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_11_map_$schema (.'$tight#metas'.'$schema')
-function _jm_f_3(val, path, rep)
-{
-    // .'$tight#metas'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_11_map_default (.'$tight#metas'.default)
-function _jm_f_4(val, path, rep)
-{
-    // .'$tight#metas'.default
-    return true;
-}
-
-// check json_model_11_map_definitions (.'$tight#metas'.definitions)
-function _jm_f_5(val, path, rep)
-{
-    // .'$tight#metas'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#metas'.definitions]", path])
@@ -254,55 +188,6 @@ function _jm_f_5(val, path, rep)
     return true;
 }
 
-// check json_model_11_map_description (.'$tight#metas'.description)
-function _jm_f_6(val, path, rep)
-{
-    // .'$tight#metas'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#metas'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_11_map_examples (.'$tight#metas'.examples)
-function _jm_f_7(val, path, rep)
-{
-    // .'$tight#metas'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#metas'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_11_map_id (.'$tight#metas'.id)
-function _jm_f_8(val, path, rep)
-{
-    // .'$tight#metas'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#metas'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_11_map_title (.'$tight#metas'.title)
-function _jm_f_9(val, path, rep)
-{
-    // .'$tight#metas'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#metas'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#metas (.'$tight#metas')
 function json_model_11(val, path, rep)
 {
@@ -313,16 +198,121 @@ function json_model_11(val, path, rep)
         rep !== null && rep.push(["not an object [.'$tight#metas']", path])
         return false;
     }
-    let pfun;
+    let res;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if ((pfun = json_model_11_map.get(prop)))
+        if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_0 : null), rep))
+            // handle may $schema property
+            // .'$tight#metas'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$schema']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.'$schema']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#metas'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$id']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.'$id']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#metas'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#metas'.id]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.id]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#metas'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#metas'.'$comment']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.'$comment']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#metas'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#metas'.title]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.title]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#metas'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#metas'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#metas'.examples]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.examples]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#metas'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#metas'.description]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.description]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#metas'.'$defs'
+            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#metas'.'$defs']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.'$defs']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#metas'.definitions
+            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#metas'.definitions]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.definitions]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -335,22 +325,9 @@ function json_model_11(val, path, rep)
     return true;
 }
 
-// check json_model_12_map_$comment (.'$tight#String'.'$comment')
-function _jm_f_10(val, path, rep)
+// object .'$tight#String'.'$defs'
+function _jm_obj_3(val, path, rep)
 {
-    // .'$tight#String'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#String'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_$defs (.'$tight#String'.'$defs')
-function _jm_f_11(val, path, rep)
-{
-    // .'$tight#String'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#String'.'$defs']", path])
@@ -372,41 +349,9 @@ function _jm_f_11(val, path, rep)
     return true;
 }
 
-// check json_model_12_map_$id (.'$tight#String'.'$id')
-function _jm_f_12(val, path, rep)
+// object .'$tight#String'.definitions
+function _jm_obj_4(val, path, rep)
 {
-    // .'$tight#String'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#String'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_$schema (.'$tight#String'.'$schema')
-function _jm_f_13(val, path, rep)
-{
-    // .'$tight#String'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#String'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_default (.'$tight#String'.default)
-function _jm_f_14(val, path, rep)
-{
-    // .'$tight#String'.default
-    return true;
-}
-
-// check json_model_12_map_definitions (.'$tight#String'.definitions)
-function _jm_f_15(val, path, rep)
-{
-    // .'$tight#String'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#String'.definitions]", path])
@@ -428,103 +373,6 @@ function _jm_f_15(val, path, rep)
     return true;
 }
 
-// check json_model_12_map_description (.'$tight#String'.description)
-function _jm_f_16(val, path, rep)
-{
-    // .'$tight#String'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#String'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_examples (.'$tight#String'.examples)
-function _jm_f_17(val, path, rep)
-{
-    // .'$tight#String'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#String'.examples]", path])
-    }
-    return res;
-}
-
-
-// check json_model_12_map_format (.'$tight#String'.format)
-function _jm_f_18(val, path, rep)
-{
-    // .'$tight#String'.format
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'$tight#String'.format.'|']", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_id (.'$tight#String'.id)
-function _jm_f_19(val, path, rep)
-{
-    // .'$tight#String'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#String'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_maxLength (.'$tight#String'.maxLength)
-function _jm_f_20(val, path, rep)
-{
-    // .'$tight#String'.maxLength
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$tight#String'.maxLength]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_minLength (.'$tight#String'.minLength)
-function _jm_f_21(val, path, rep)
-{
-    // .'$tight#String'.minLength
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$tight#String'.minLength]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_pattern (.'$tight#String'.pattern)
-function _jm_f_22(val, path, rep)
-{
-    // .'$tight#String'.pattern
-    let res = runtime.jm_is_valid_regex(val, false);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $REGEX [.'$tight#String'.pattern]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_title (.'$tight#String'.title)
-function _jm_f_23(val, path, rep)
-{
-    // .'$tight#String'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#String'.title]", path])
-    }
-    return res;
-}
-
 
 // check $tight#String (.'$tight#String')
 function json_model_12(val, path, rep)
@@ -536,7 +384,6 @@ function json_model_12(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -554,12 +401,165 @@ function json_model_12(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_12_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 14 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_3 : null), rep))
+            // handle may $schema property
+            // .'$tight#String'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#String']", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#String'.'$schema']", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.'$schema']", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#String'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#String'.'$id']", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.'$id']", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#String'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#String'.id]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.id]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#String'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#String'.'$comment']", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.'$comment']", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#String'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#String'.title]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.title]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#String'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#String'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#String'.examples]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.examples]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#String'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#String'.description]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.description]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#String'.'$defs'
+            res = _jm_obj_3(pval, (path ? lpath_3 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#String'.'$defs']", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.'$defs']", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#String'.definitions
+            res = _jm_obj_4(pval, (path ? lpath_3 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#String'.definitions]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.definitions]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "pattern")
+        {
+            // handle may pattern property
+            // .'$tight#String'.pattern
+            res = runtime.jm_is_valid_regex(pval, false);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $REGEX [.'$tight#String'.pattern]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.pattern]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minLength")
+        {
+            // handle may minLength property
+            // .'$tight#String'.minLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$tight#String'.minLength]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.minLength]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxLength")
+        {
+            // handle may maxLength property
+            // .'$tight#String'.maxLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$tight#String'.maxLength]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.maxLength]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "format")
+        {
+            // handle may format property
+            // .'$tight#String'.format
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.'$tight#String'.format.'|']", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.format]", (path ? lpath_3 : null)])
                 return false;
             }
         }
@@ -583,22 +583,9 @@ function json_model_12(val, path, rep)
     return true;
 }
 
-// check json_model_13_map_$comment (.'$tight#Array'.'$comment')
-function _jm_f_24(val, path, rep)
+// object .'$tight#Array'.'$defs'
+function _jm_obj_5(val, path, rep)
 {
-    // .'$tight#Array'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_$defs (.'$tight#Array'.'$defs')
-function _jm_f_25(val, path, rep)
-{
-    // .'$tight#Array'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Array'.'$defs']", path])
@@ -620,41 +607,9 @@ function _jm_f_25(val, path, rep)
     return true;
 }
 
-// check json_model_13_map_$id (.'$tight#Array'.'$id')
-function _jm_f_26(val, path, rep)
+// object .'$tight#Array'.definitions
+function _jm_obj_6(val, path, rep)
 {
-    // .'$tight#Array'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_$schema (.'$tight#Array'.'$schema')
-function _jm_f_27(val, path, rep)
-{
-    // .'$tight#Array'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_default (.'$tight#Array'.default)
-function _jm_f_28(val, path, rep)
-{
-    // .'$tight#Array'.default
-    return true;
-}
-
-// check json_model_13_map_definitions (.'$tight#Array'.definitions)
-function _jm_f_29(val, path, rep)
-{
-    // .'$tight#Array'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Array'.definitions]", path])
@@ -676,121 +631,6 @@ function _jm_f_29(val, path, rep)
     return true;
 }
 
-// check json_model_13_map_description (.'$tight#Array'.description)
-function _jm_f_30(val, path, rep)
-{
-    // .'$tight#Array'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Array'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_examples (.'$tight#Array'.examples)
-function _jm_f_31(val, path, rep)
-{
-    // .'$tight#Array'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Array'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_id (.'$tight#Array'.id)
-function _jm_f_32(val, path, rep)
-{
-    // .'$tight#Array'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Array'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_items (.'$tight#Array'.items)
-function _jm_f_33(val, path, rep)
-{
-    // .'$tight#Array'.items
-    // .'$tight#Array'.items.'|'.0
-    let res = json_model_26(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$tight#Array'.items.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$tight#Array'.items.'|'.1
-        res = json_model_6(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $schemaArray [.'$tight#Array'.items.'|'.1]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$tight#Array'.items.'|']", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_maxItems (.'$tight#Array'.maxItems)
-function _jm_f_34(val, path, rep)
-{
-    // .'$tight#Array'.maxItems
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$tight#Array'.maxItems]", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_minItems (.'$tight#Array'.minItems)
-function _jm_f_35(val, path, rep)
-{
-    // .'$tight#Array'.minItems
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$tight#Array'.minItems]", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_title (.'$tight#Array'.title)
-function _jm_f_36(val, path, rep)
-{
-    // .'$tight#Array'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Array'.title]", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_uniqueItems (.'$tight#Array'.uniqueItems)
-function _jm_f_37(val, path, rep)
-{
-    // .'$tight#Array'.uniqueItems
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$tight#Array'.uniqueItems]", path])
-    }
-    return res;
-}
-
-
 // check $tight#Array (.'$tight#Array')
 function json_model_13(val, path, rep)
 {
@@ -801,7 +641,6 @@ function json_model_13(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -819,12 +658,207 @@ function json_model_13(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_13_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 16 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_6 : null), rep))
+            // handle may $schema property
+            // .'$tight#Array'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array']", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$schema']", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.'$schema']", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Array'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$id']", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.'$id']", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Array'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Array'.id]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.id]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Array'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Array'.'$comment']", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.'$comment']", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Array'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Array'.title]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.title]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Array'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Array'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Array'.examples]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.examples]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Array'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Array'.description]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.description]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Array'.'$defs'
+            res = _jm_obj_5(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Array'.'$defs']", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.'$defs']", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Array'.definitions
+            res = _jm_obj_6(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Array'.definitions]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.definitions]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "prefixItems")
+        {
+            // handle may prefixItems property
+            // .'$tight#Array'.prefixItems
+            res = json_model_6(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $schemaArray [.'$tight#Array'.prefixItems]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.prefixItems]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "items")
+        {
+            // handle may items property
+            // .'$tight#Array'.items
+            // .'$tight#Array'.items.'|'.0
+            res = json_model_26(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$tight#Array'.items.'|'.0]", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                // .'$tight#Array'.items.'|'.1
+                res = json_model_6(pval, (path ? lpath_6 : null), rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $schemaArray [.'$tight#Array'.items.'|'.1]", (path ? lpath_6 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$tight#Array'.items.'|']", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.items]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "additionalItems")
+        {
+            // handle may additionalItems property
+            // .'$tight#Array'.additionalItems
+            res = json_model_26(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$tight#Array'.additionalItems]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.additionalItems]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minItems")
+        {
+            // handle may minItems property
+            // .'$tight#Array'.minItems
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$tight#Array'.minItems]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.minItems]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxItems")
+        {
+            // handle may maxItems property
+            // .'$tight#Array'.maxItems
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$tight#Array'.maxItems]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.maxItems]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "uniqueItems")
+        {
+            // handle may uniqueItems property
+            // .'$tight#Array'.uniqueItems
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$tight#Array'.uniqueItems]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.uniqueItems]", (path ? lpath_6 : null)])
                 return false;
             }
         }
@@ -875,22 +909,9 @@ function json_model_6(val, path, rep)
     return res;
 }
 
-// check json_model_14_map_$comment (.'$tight#Object'.'$comment')
-function _jm_f_38(val, path, rep)
+// object .'$tight#Object'.'$defs'
+function _jm_obj_7(val, path, rep)
 {
-    // .'$tight#Object'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_$defs (.'$tight#Object'.'$defs')
-function _jm_f_39(val, path, rep)
-{
-    // .'$tight#Object'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Object'.'$defs']", path])
@@ -912,41 +933,9 @@ function _jm_f_39(val, path, rep)
     return true;
 }
 
-// check json_model_14_map_$id (.'$tight#Object'.'$id')
-function _jm_f_40(val, path, rep)
+// object .'$tight#Object'.definitions
+function _jm_obj_8(val, path, rep)
 {
-    // .'$tight#Object'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_$schema (.'$tight#Object'.'$schema')
-function _jm_f_41(val, path, rep)
-{
-    // .'$tight#Object'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_default (.'$tight#Object'.default)
-function _jm_f_42(val, path, rep)
-{
-    // .'$tight#Object'.default
-    return true;
-}
-
-// check json_model_14_map_definitions (.'$tight#Object'.definitions)
-function _jm_f_43(val, path, rep)
-{
-    // .'$tight#Object'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Object'.definitions]", path])
@@ -968,79 +957,9 @@ function _jm_f_43(val, path, rep)
     return true;
 }
 
-// check json_model_14_map_description (.'$tight#Object'.description)
-function _jm_f_44(val, path, rep)
+// object .'$tight#Object'.properties
+function _jm_obj_9(val, path, rep)
 {
-    // .'$tight#Object'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Object'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_examples (.'$tight#Object'.examples)
-function _jm_f_45(val, path, rep)
-{
-    // .'$tight#Object'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Object'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_id (.'$tight#Object'.id)
-function _jm_f_46(val, path, rep)
-{
-    // .'$tight#Object'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Object'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_patternProperties (.'$tight#Object'.patternProperties)
-function _jm_f_47(val, path, rep)
-{
-    // .'$tight#Object'.patternProperties
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$tight#Object'.patternProperties]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_12 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_regex(prop, false))
-        {
-            // handle 1 key props
-            // .'$tight#Object'.patternProperties.'$REGEX'
-            res = json_model_26(pval, (path ? lpath_12 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.patternProperties.'$REGEX']", (path ? lpath_12 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Object'.patternProperties]", (path ? lpath_12 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check json_model_14_map_properties (.'$tight#Object'.properties)
-function _jm_f_48(val, path, rep)
-{
-    // .'$tight#Object'.properties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Object'.properties]", path])
@@ -1049,58 +968,50 @@ function _jm_f_48(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_13 = path ? path.concat([prop]) : null;
+        let lpath_12 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$tight#Object'.properties.''
-        res = json_model_26(pval, (path ? lpath_13 : null), rep);
+        res = json_model_26(pval, (path ? lpath_12 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.properties.'']", (path ? lpath_13 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.properties.'']", (path ? lpath_12 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check json_model_14_map_required (.'$tight#Object'.required)
-function _jm_f_49(val, path, rep)
+// object .'$tight#Object'.patternProperties
+function _jm_obj_10(val, path, rep)
 {
-    // .'$tight#Object'.required
-    let res = Array.isArray(val);
-    if (res)
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
+        rep !== null && rep.push(["not an object [.'$tight#Object'.patternProperties]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_13 = path ? path.concat([prop]) : null;
+        if (runtime.jm_is_valid_regex(prop, false))
         {
-            let arr_1_item = val[arr_1_idx]
-            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
-            // .'$tight#Object'.required.0
-            res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
+            // handle 1 key props
+            // .'$tight#Object'.patternProperties.'$REGEX'
+            res = json_model_26(pval, (path ? lpath_13 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$tight#Object'.required.0]", (path ? arr_1_lpath : null)])
-                break;
+                rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.patternProperties.'$REGEX']", (path ? lpath_13 : null)])
+                return false;
             }
         }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$tight#Object'.patternProperties]", (path ? lpath_13 : null)])
+            return false;
+        }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Object'.required]", path])
-    }
-    return res;
+    return true;
 }
-
-// check json_model_14_map_title (.'$tight#Object'.title)
-function _jm_f_50(val, path, rep)
-{
-    // .'$tight#Object'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Object'.title]", path])
-    }
-    return res;
-}
-
 
 // check $tight#Object (.'$tight#Object')
 function json_model_14(val, path, rep)
@@ -1112,7 +1023,6 @@ function json_model_14(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -1130,12 +1040,180 @@ function json_model_14(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_14_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 14 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_9 : null), rep))
+            // handle may $schema property
+            // .'$tight#Object'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$schema']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.'$schema']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Object'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$id']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.'$id']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Object'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Object'.id]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.id]", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Object'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Object'.'$comment']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.'$comment']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Object'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Object'.title]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.title]", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Object'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Object'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Object'.examples]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.examples]", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Object'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Object'.description]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.description]", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Object'.'$defs'
+            res = _jm_obj_7(pval, (path ? lpath_9 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Object'.'$defs']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.'$defs']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Object'.definitions
+            res = _jm_obj_8(pval, (path ? lpath_9 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Object'.definitions]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.definitions]", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "properties")
+        {
+            // handle may properties property
+            // .'$tight#Object'.properties
+            res = _jm_obj_9(pval, (path ? lpath_9 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Object'.properties]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.properties]", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "required")
+        {
+            // handle may required property
+            // .'$tight#Object'.required
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_1_idx = 0; arr_1_idx < pval.length; arr_1_idx++)
+                {
+                    let arr_1_item = pval[arr_1_idx]
+                    let arr_1_lpath = (path ? lpath_9 : null) ? (path ? lpath_9 : null).concat([arr_1_idx]) : null;
+                    // .'$tight#Object'.required.0
+                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected string [.'$tight#Object'.required.0]", ((path ? lpath_9 : null) ? arr_1_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Object'.required]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.required]", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "additionalProperties")
+        {
+            // handle may additionalProperties property
+            // .'$tight#Object'.additionalProperties
+            res = json_model_26(pval, (path ? lpath_9 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.additionalProperties]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.additionalProperties]", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "patternProperties")
+        {
+            // handle may patternProperties property
+            // .'$tight#Object'.patternProperties
+            res = _jm_obj_10(pval, (path ? lpath_9 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Object'.patternProperties]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.patternProperties]", (path ? lpath_9 : null)])
                 return false;
             }
         }
@@ -1159,22 +1237,9 @@ function json_model_14(val, path, rep)
     return true;
 }
 
-// check json_model_15_map_$comment (.'$tight#Integer'.'$comment')
-function _jm_f_51(val, path, rep)
+// object .'$tight#Integer'.'$defs'
+function _jm_obj_11(val, path, rep)
 {
-    // .'$tight#Integer'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_15_map_$defs (.'$tight#Integer'.'$defs')
-function _jm_f_52(val, path, rep)
-{
-    // .'$tight#Integer'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Integer'.'$defs']", path])
@@ -1196,41 +1261,9 @@ function _jm_f_52(val, path, rep)
     return true;
 }
 
-// check json_model_15_map_$id (.'$tight#Integer'.'$id')
-function _jm_f_53(val, path, rep)
+// object .'$tight#Integer'.definitions
+function _jm_obj_12(val, path, rep)
 {
-    // .'$tight#Integer'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_15_map_$schema (.'$tight#Integer'.'$schema')
-function _jm_f_54(val, path, rep)
-{
-    // .'$tight#Integer'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_15_map_default (.'$tight#Integer'.default)
-function _jm_f_55(val, path, rep)
-{
-    // .'$tight#Integer'.default
-    return true;
-}
-
-// check json_model_15_map_definitions (.'$tight#Integer'.definitions)
-function _jm_f_56(val, path, rep)
-{
-    // .'$tight#Integer'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Integer'.definitions]", path])
@@ -1252,79 +1285,6 @@ function _jm_f_56(val, path, rep)
     return true;
 }
 
-// check json_model_15_map_description (.'$tight#Integer'.description)
-function _jm_f_57(val, path, rep)
-{
-    // .'$tight#Integer'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Integer'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_15_map_examples (.'$tight#Integer'.examples)
-function _jm_f_58(val, path, rep)
-{
-    // .'$tight#Integer'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Integer'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_15_map_id (.'$tight#Integer'.id)
-function _jm_f_59(val, path, rep)
-{
-    // .'$tight#Integer'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Integer'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_15_map_maximum (.'$tight#Integer'.maximum)
-function _jm_f_60(val, path, rep)
-{
-    // .'$tight#Integer'.maximum
-    let res = (typeof val === 'number' || val instanceof Number);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Integer'.maximum]", path])
-    }
-    return res;
-}
-
-// check json_model_15_map_minimum (.'$tight#Integer'.minimum)
-function _jm_f_61(val, path, rep)
-{
-    // .'$tight#Integer'.minimum
-    let res = (typeof val === 'number' || val instanceof Number);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Integer'.minimum]", path])
-    }
-    return res;
-}
-
-// check json_model_15_map_title (.'$tight#Integer'.title)
-function _jm_f_62(val, path, rep)
-{
-    // .'$tight#Integer'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Integer'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#Integer (.'$tight#Integer')
 function json_model_15(val, path, rep)
 {
@@ -1335,7 +1295,6 @@ function json_model_15(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -1353,12 +1312,141 @@ function json_model_15(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_15_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 12 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_14 : null), rep))
+            // handle may $schema property
+            // .'$tight#Integer'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$schema']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.'$schema']", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Integer'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$id']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.'$id']", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Integer'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Integer'.id]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.id]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Integer'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Integer'.'$comment']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.'$comment']", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Integer'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Integer'.title]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.title]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Integer'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Integer'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Integer'.examples]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.examples]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Integer'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Integer'.description]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.description]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Integer'.'$defs'
+            res = _jm_obj_11(pval, (path ? lpath_14 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Integer'.'$defs']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.'$defs']", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Integer'.definitions
+            res = _jm_obj_12(pval, (path ? lpath_14 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Integer'.definitions]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.definitions]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minimum")
+        {
+            // handle may minimum property
+            // .'$tight#Integer'.minimum
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Integer'.minimum]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.minimum]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maximum")
+        {
+            // handle may maximum property
+            // .'$tight#Integer'.maximum
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Integer'.maximum]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.maximum]", (path ? lpath_14 : null)])
                 return false;
             }
         }
@@ -1382,22 +1470,9 @@ function json_model_15(val, path, rep)
     return true;
 }
 
-// check json_model_16_map_$comment (.'$tight#Number'.'$comment')
-function _jm_f_63(val, path, rep)
+// object .'$tight#Number'.'$defs'
+function _jm_obj_13(val, path, rep)
 {
-    // .'$tight#Number'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_16_map_$defs (.'$tight#Number'.'$defs')
-function _jm_f_64(val, path, rep)
-{
-    // .'$tight#Number'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Number'.'$defs']", path])
@@ -1419,41 +1494,9 @@ function _jm_f_64(val, path, rep)
     return true;
 }
 
-// check json_model_16_map_$id (.'$tight#Number'.'$id')
-function _jm_f_65(val, path, rep)
+// object .'$tight#Number'.definitions
+function _jm_obj_14(val, path, rep)
 {
-    // .'$tight#Number'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_16_map_$schema (.'$tight#Number'.'$schema')
-function _jm_f_66(val, path, rep)
-{
-    // .'$tight#Number'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_16_map_default (.'$tight#Number'.default)
-function _jm_f_67(val, path, rep)
-{
-    // .'$tight#Number'.default
-    return true;
-}
-
-// check json_model_16_map_definitions (.'$tight#Number'.definitions)
-function _jm_f_68(val, path, rep)
-{
-    // .'$tight#Number'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Number'.definitions]", path])
@@ -1475,79 +1518,6 @@ function _jm_f_68(val, path, rep)
     return true;
 }
 
-// check json_model_16_map_description (.'$tight#Number'.description)
-function _jm_f_69(val, path, rep)
-{
-    // .'$tight#Number'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Number'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_16_map_examples (.'$tight#Number'.examples)
-function _jm_f_70(val, path, rep)
-{
-    // .'$tight#Number'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Number'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_16_map_id (.'$tight#Number'.id)
-function _jm_f_71(val, path, rep)
-{
-    // .'$tight#Number'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Number'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_16_map_maximum (.'$tight#Number'.maximum)
-function _jm_f_72(val, path, rep)
-{
-    // .'$tight#Number'.maximum
-    let res = (typeof val === 'number' || val instanceof Number);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Number'.maximum]", path])
-    }
-    return res;
-}
-
-// check json_model_16_map_minimum (.'$tight#Number'.minimum)
-function _jm_f_73(val, path, rep)
-{
-    // .'$tight#Number'.minimum
-    let res = (typeof val === 'number' || val instanceof Number);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Number'.minimum]", path])
-    }
-    return res;
-}
-
-// check json_model_16_map_title (.'$tight#Number'.title)
-function _jm_f_74(val, path, rep)
-{
-    // .'$tight#Number'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Number'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#Number (.'$tight#Number')
 function json_model_16(val, path, rep)
 {
@@ -1558,7 +1528,6 @@ function json_model_16(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -1576,12 +1545,141 @@ function json_model_16(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_16_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 12 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_17 : null), rep))
+            // handle may $schema property
+            // .'$tight#Number'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$schema']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.'$schema']", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Number'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$id']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.'$id']", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Number'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Number'.id]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.id]", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Number'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Number'.'$comment']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.'$comment']", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Number'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Number'.title]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.title]", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Number'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Number'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Number'.examples]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.examples]", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Number'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Number'.description]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.description]", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Number'.'$defs'
+            res = _jm_obj_13(pval, (path ? lpath_17 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Number'.'$defs']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.'$defs']", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Number'.definitions
+            res = _jm_obj_14(pval, (path ? lpath_17 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Number'.definitions]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.definitions]", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minimum")
+        {
+            // handle may minimum property
+            // .'$tight#Number'.minimum
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Number'.minimum]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.minimum]", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maximum")
+        {
+            // handle may maximum property
+            // .'$tight#Number'.maximum
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1.0 strict float [.'$tight#Number'.maximum]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.maximum]", (path ? lpath_17 : null)])
                 return false;
             }
         }
@@ -1605,22 +1703,9 @@ function json_model_16(val, path, rep)
     return true;
 }
 
-// check json_model_17_map_$comment (.'$tight#Bool'.'$comment')
-function _jm_f_75(val, path, rep)
+// object .'$tight#Bool'.'$defs'
+function _jm_obj_15(val, path, rep)
 {
-    // .'$tight#Bool'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_17_map_$defs (.'$tight#Bool'.'$defs')
-function _jm_f_76(val, path, rep)
-{
-    // .'$tight#Bool'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Bool'.'$defs']", path])
@@ -1642,41 +1727,9 @@ function _jm_f_76(val, path, rep)
     return true;
 }
 
-// check json_model_17_map_$id (.'$tight#Bool'.'$id')
-function _jm_f_77(val, path, rep)
+// object .'$tight#Bool'.definitions
+function _jm_obj_16(val, path, rep)
 {
-    // .'$tight#Bool'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_17_map_$schema (.'$tight#Bool'.'$schema')
-function _jm_f_78(val, path, rep)
-{
-    // .'$tight#Bool'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_17_map_default (.'$tight#Bool'.default)
-function _jm_f_79(val, path, rep)
-{
-    // .'$tight#Bool'.default
-    return true;
-}
-
-// check json_model_17_map_definitions (.'$tight#Bool'.definitions)
-function _jm_f_80(val, path, rep)
-{
-    // .'$tight#Bool'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Bool'.definitions]", path])
@@ -1698,55 +1751,6 @@ function _jm_f_80(val, path, rep)
     return true;
 }
 
-// check json_model_17_map_description (.'$tight#Bool'.description)
-function _jm_f_81(val, path, rep)
-{
-    // .'$tight#Bool'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Bool'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_17_map_examples (.'$tight#Bool'.examples)
-function _jm_f_82(val, path, rep)
-{
-    // .'$tight#Bool'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Bool'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_17_map_id (.'$tight#Bool'.id)
-function _jm_f_83(val, path, rep)
-{
-    // .'$tight#Bool'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Bool'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_17_map_title (.'$tight#Bool'.title)
-function _jm_f_84(val, path, rep)
-{
-    // .'$tight#Bool'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Bool'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#Bool (.'$tight#Bool')
 function json_model_17(val, path, rep)
 {
@@ -1757,7 +1761,6 @@ function json_model_17(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -1775,12 +1778,117 @@ function json_model_17(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_17_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_20 : null), rep))
+            // handle may $schema property
+            // .'$tight#Bool'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$schema']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.'$schema']", (path ? lpath_20 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Bool'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$id']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.'$id']", (path ? lpath_20 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Bool'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Bool'.id]", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.id]", (path ? lpath_20 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Bool'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Bool'.'$comment']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.'$comment']", (path ? lpath_20 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Bool'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Bool'.title]", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.title]", (path ? lpath_20 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Bool'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Bool'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Bool'.examples]", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.examples]", (path ? lpath_20 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Bool'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Bool'.description]", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.description]", (path ? lpath_20 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Bool'.'$defs'
+            res = _jm_obj_15(pval, (path ? lpath_20 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Bool'.'$defs']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.'$defs']", (path ? lpath_20 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Bool'.definitions
+            res = _jm_obj_16(pval, (path ? lpath_20 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Bool'.definitions]", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.definitions]", (path ? lpath_20 : null)])
                 return false;
             }
         }
@@ -1804,22 +1912,9 @@ function json_model_17(val, path, rep)
     return true;
 }
 
-// check json_model_18_map_$comment (.'$tight#Null'.'$comment')
-function _jm_f_85(val, path, rep)
+// object .'$tight#Null'.'$defs'
+function _jm_obj_17(val, path, rep)
 {
-    // .'$tight#Null'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_18_map_$defs (.'$tight#Null'.'$defs')
-function _jm_f_86(val, path, rep)
-{
-    // .'$tight#Null'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Null'.'$defs']", path])
@@ -1841,41 +1936,9 @@ function _jm_f_86(val, path, rep)
     return true;
 }
 
-// check json_model_18_map_$id (.'$tight#Null'.'$id')
-function _jm_f_87(val, path, rep)
+// object .'$tight#Null'.definitions
+function _jm_obj_18(val, path, rep)
 {
-    // .'$tight#Null'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_18_map_$schema (.'$tight#Null'.'$schema')
-function _jm_f_88(val, path, rep)
-{
-    // .'$tight#Null'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_18_map_default (.'$tight#Null'.default)
-function _jm_f_89(val, path, rep)
-{
-    // .'$tight#Null'.default
-    return true;
-}
-
-// check json_model_18_map_definitions (.'$tight#Null'.definitions)
-function _jm_f_90(val, path, rep)
-{
-    // .'$tight#Null'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Null'.definitions]", path])
@@ -1897,55 +1960,6 @@ function _jm_f_90(val, path, rep)
     return true;
 }
 
-// check json_model_18_map_description (.'$tight#Null'.description)
-function _jm_f_91(val, path, rep)
-{
-    // .'$tight#Null'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Null'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_18_map_examples (.'$tight#Null'.examples)
-function _jm_f_92(val, path, rep)
-{
-    // .'$tight#Null'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Null'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_18_map_id (.'$tight#Null'.id)
-function _jm_f_93(val, path, rep)
-{
-    // .'$tight#Null'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Null'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_18_map_title (.'$tight#Null'.title)
-function _jm_f_94(val, path, rep)
-{
-    // .'$tight#Null'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Null'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#Null (.'$tight#Null')
 function json_model_18(val, path, rep)
 {
@@ -1956,7 +1970,6 @@ function json_model_18(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -1974,12 +1987,117 @@ function json_model_18(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_18_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_23 : null), rep))
+            // handle may $schema property
+            // .'$tight#Null'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$schema']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.'$schema']", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Null'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$id']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.'$id']", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Null'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Null'.id]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.id]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Null'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Null'.'$comment']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.'$comment']", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Null'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Null'.title]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.title]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Null'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Null'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Null'.examples]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.examples]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Null'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Null'.description]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.description]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Null'.'$defs'
+            res = _jm_obj_17(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Null'.'$defs']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.'$defs']", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Null'.definitions
+            res = _jm_obj_18(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Null'.definitions]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.definitions]", (path ? lpath_23 : null)])
                 return false;
             }
         }
@@ -2003,22 +2121,9 @@ function json_model_18(val, path, rep)
     return true;
 }
 
-// check json_model_19_map_$comment (.'$tight#AllOf'.'$comment')
-function _jm_f_95(val, path, rep)
+// object .'$tight#AllOf'.'$defs'
+function _jm_obj_19(val, path, rep)
 {
-    // .'$tight#AllOf'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_19_map_$defs (.'$tight#AllOf'.'$defs')
-function _jm_f_96(val, path, rep)
-{
-    // .'$tight#AllOf'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#AllOf'.'$defs']", path])
@@ -2040,41 +2145,9 @@ function _jm_f_96(val, path, rep)
     return true;
 }
 
-// check json_model_19_map_$id (.'$tight#AllOf'.'$id')
-function _jm_f_97(val, path, rep)
+// object .'$tight#AllOf'.definitions
+function _jm_obj_20(val, path, rep)
 {
-    // .'$tight#AllOf'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_19_map_$schema (.'$tight#AllOf'.'$schema')
-function _jm_f_98(val, path, rep)
-{
-    // .'$tight#AllOf'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_19_map_default (.'$tight#AllOf'.default)
-function _jm_f_99(val, path, rep)
-{
-    // .'$tight#AllOf'.default
-    return true;
-}
-
-// check json_model_19_map_definitions (.'$tight#AllOf'.definitions)
-function _jm_f_100(val, path, rep)
-{
-    // .'$tight#AllOf'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#AllOf'.definitions]", path])
@@ -2096,55 +2169,6 @@ function _jm_f_100(val, path, rep)
     return true;
 }
 
-// check json_model_19_map_description (.'$tight#AllOf'.description)
-function _jm_f_101(val, path, rep)
-{
-    // .'$tight#AllOf'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_19_map_examples (.'$tight#AllOf'.examples)
-function _jm_f_102(val, path, rep)
-{
-    // .'$tight#AllOf'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#AllOf'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_19_map_id (.'$tight#AllOf'.id)
-function _jm_f_103(val, path, rep)
-{
-    // .'$tight#AllOf'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_19_map_title (.'$tight#AllOf'.title)
-function _jm_f_104(val, path, rep)
-{
-    // .'$tight#AllOf'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#AllOf (.'$tight#AllOf')
 function json_model_19(val, path, rep)
 {
@@ -2155,7 +2179,6 @@ function json_model_19(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -2173,12 +2196,117 @@ function json_model_19(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_19_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_26 : null), rep))
+            // handle may $schema property
+            // .'$tight#AllOf'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$schema']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.'$schema']", (path ? lpath_26 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#AllOf'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$id']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.'$id']", (path ? lpath_26 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#AllOf'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.id]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.id]", (path ? lpath_26 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#AllOf'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.'$comment']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.'$comment']", (path ? lpath_26 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#AllOf'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.title]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.title]", (path ? lpath_26 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#AllOf'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#AllOf'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#AllOf'.examples]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.examples]", (path ? lpath_26 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#AllOf'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AllOf'.description]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.description]", (path ? lpath_26 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#AllOf'.'$defs'
+            res = _jm_obj_19(pval, (path ? lpath_26 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#AllOf'.'$defs']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.'$defs']", (path ? lpath_26 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#AllOf'.definitions
+            res = _jm_obj_20(pval, (path ? lpath_26 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#AllOf'.definitions]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.definitions]", (path ? lpath_26 : null)])
                 return false;
             }
         }
@@ -2202,22 +2330,9 @@ function json_model_19(val, path, rep)
     return true;
 }
 
-// check json_model_20_map_$comment (.'$tight#AnyOf'.'$comment')
-function _jm_f_105(val, path, rep)
+// object .'$tight#AnyOf'.'$defs'
+function _jm_obj_21(val, path, rep)
 {
-    // .'$tight#AnyOf'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_20_map_$defs (.'$tight#AnyOf'.'$defs')
-function _jm_f_106(val, path, rep)
-{
-    // .'$tight#AnyOf'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#AnyOf'.'$defs']", path])
@@ -2239,41 +2354,9 @@ function _jm_f_106(val, path, rep)
     return true;
 }
 
-// check json_model_20_map_$id (.'$tight#AnyOf'.'$id')
-function _jm_f_107(val, path, rep)
+// object .'$tight#AnyOf'.definitions
+function _jm_obj_22(val, path, rep)
 {
-    // .'$tight#AnyOf'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_20_map_$schema (.'$tight#AnyOf'.'$schema')
-function _jm_f_108(val, path, rep)
-{
-    // .'$tight#AnyOf'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_20_map_default (.'$tight#AnyOf'.default)
-function _jm_f_109(val, path, rep)
-{
-    // .'$tight#AnyOf'.default
-    return true;
-}
-
-// check json_model_20_map_definitions (.'$tight#AnyOf'.definitions)
-function _jm_f_110(val, path, rep)
-{
-    // .'$tight#AnyOf'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#AnyOf'.definitions]", path])
@@ -2295,55 +2378,6 @@ function _jm_f_110(val, path, rep)
     return true;
 }
 
-// check json_model_20_map_description (.'$tight#AnyOf'.description)
-function _jm_f_111(val, path, rep)
-{
-    // .'$tight#AnyOf'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_20_map_examples (.'$tight#AnyOf'.examples)
-function _jm_f_112(val, path, rep)
-{
-    // .'$tight#AnyOf'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#AnyOf'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_20_map_id (.'$tight#AnyOf'.id)
-function _jm_f_113(val, path, rep)
-{
-    // .'$tight#AnyOf'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_20_map_title (.'$tight#AnyOf'.title)
-function _jm_f_114(val, path, rep)
-{
-    // .'$tight#AnyOf'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#AnyOf (.'$tight#AnyOf')
 function json_model_20(val, path, rep)
 {
@@ -2354,7 +2388,6 @@ function json_model_20(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -2372,12 +2405,117 @@ function json_model_20(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_20_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_29 : null), rep))
+            // handle may $schema property
+            // .'$tight#AnyOf'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$schema']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.'$schema']", (path ? lpath_29 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#AnyOf'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$id']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.'$id']", (path ? lpath_29 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#AnyOf'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.id]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.id]", (path ? lpath_29 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#AnyOf'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.'$comment']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.'$comment']", (path ? lpath_29 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#AnyOf'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.title]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.title]", (path ? lpath_29 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#AnyOf'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#AnyOf'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#AnyOf'.examples]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.examples]", (path ? lpath_29 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#AnyOf'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#AnyOf'.description]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.description]", (path ? lpath_29 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#AnyOf'.'$defs'
+            res = _jm_obj_21(pval, (path ? lpath_29 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#AnyOf'.'$defs']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.'$defs']", (path ? lpath_29 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#AnyOf'.definitions
+            res = _jm_obj_22(pval, (path ? lpath_29 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#AnyOf'.definitions]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.definitions]", (path ? lpath_29 : null)])
                 return false;
             }
         }
@@ -2401,22 +2539,9 @@ function json_model_20(val, path, rep)
     return true;
 }
 
-// check json_model_21_map_$comment (.'$tight#OneOf'.'$comment')
-function _jm_f_115(val, path, rep)
+// object .'$tight#OneOf'.'$defs'
+function _jm_obj_23(val, path, rep)
 {
-    // .'$tight#OneOf'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_21_map_$defs (.'$tight#OneOf'.'$defs')
-function _jm_f_116(val, path, rep)
-{
-    // .'$tight#OneOf'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#OneOf'.'$defs']", path])
@@ -2438,41 +2563,9 @@ function _jm_f_116(val, path, rep)
     return true;
 }
 
-// check json_model_21_map_$id (.'$tight#OneOf'.'$id')
-function _jm_f_117(val, path, rep)
+// object .'$tight#OneOf'.definitions
+function _jm_obj_24(val, path, rep)
 {
-    // .'$tight#OneOf'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_21_map_$schema (.'$tight#OneOf'.'$schema')
-function _jm_f_118(val, path, rep)
-{
-    // .'$tight#OneOf'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_21_map_default (.'$tight#OneOf'.default)
-function _jm_f_119(val, path, rep)
-{
-    // .'$tight#OneOf'.default
-    return true;
-}
-
-// check json_model_21_map_definitions (.'$tight#OneOf'.definitions)
-function _jm_f_120(val, path, rep)
-{
-    // .'$tight#OneOf'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#OneOf'.definitions]", path])
@@ -2494,55 +2587,6 @@ function _jm_f_120(val, path, rep)
     return true;
 }
 
-// check json_model_21_map_description (.'$tight#OneOf'.description)
-function _jm_f_121(val, path, rep)
-{
-    // .'$tight#OneOf'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_21_map_examples (.'$tight#OneOf'.examples)
-function _jm_f_122(val, path, rep)
-{
-    // .'$tight#OneOf'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#OneOf'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_21_map_id (.'$tight#OneOf'.id)
-function _jm_f_123(val, path, rep)
-{
-    // .'$tight#OneOf'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_21_map_title (.'$tight#OneOf'.title)
-function _jm_f_124(val, path, rep)
-{
-    // .'$tight#OneOf'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#OneOf (.'$tight#OneOf')
 function json_model_21(val, path, rep)
 {
@@ -2553,7 +2597,6 @@ function json_model_21(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -2571,12 +2614,117 @@ function json_model_21(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_21_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_32 : null), rep))
+            // handle may $schema property
+            // .'$tight#OneOf'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$schema']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.'$schema']", (path ? lpath_32 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#OneOf'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$id']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.'$id']", (path ? lpath_32 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#OneOf'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.id]", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.id]", (path ? lpath_32 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#OneOf'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.'$comment']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.'$comment']", (path ? lpath_32 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#OneOf'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.title]", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.title]", (path ? lpath_32 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#OneOf'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#OneOf'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#OneOf'.examples]", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.examples]", (path ? lpath_32 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#OneOf'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#OneOf'.description]", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.description]", (path ? lpath_32 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#OneOf'.'$defs'
+            res = _jm_obj_23(pval, (path ? lpath_32 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#OneOf'.'$defs']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.'$defs']", (path ? lpath_32 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#OneOf'.definitions
+            res = _jm_obj_24(pval, (path ? lpath_32 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#OneOf'.definitions]", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.definitions]", (path ? lpath_32 : null)])
                 return false;
             }
         }
@@ -2600,22 +2748,9 @@ function json_model_21(val, path, rep)
     return true;
 }
 
-// check json_model_22_map_$comment (.'$tight#Enum'.'$comment')
-function _jm_f_125(val, path, rep)
+// object .'$tight#Enum'.'$defs'
+function _jm_obj_25(val, path, rep)
 {
-    // .'$tight#Enum'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_22_map_$defs (.'$tight#Enum'.'$defs')
-function _jm_f_126(val, path, rep)
-{
-    // .'$tight#Enum'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Enum'.'$defs']", path])
@@ -2637,41 +2772,9 @@ function _jm_f_126(val, path, rep)
     return true;
 }
 
-// check json_model_22_map_$id (.'$tight#Enum'.'$id')
-function _jm_f_127(val, path, rep)
+// object .'$tight#Enum'.definitions
+function _jm_obj_26(val, path, rep)
 {
-    // .'$tight#Enum'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_22_map_$schema (.'$tight#Enum'.'$schema')
-function _jm_f_128(val, path, rep)
-{
-    // .'$tight#Enum'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_22_map_default (.'$tight#Enum'.default)
-function _jm_f_129(val, path, rep)
-{
-    // .'$tight#Enum'.default
-    return true;
-}
-
-// check json_model_22_map_definitions (.'$tight#Enum'.definitions)
-function _jm_f_130(val, path, rep)
-{
-    // .'$tight#Enum'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Enum'.definitions]", path])
@@ -2693,55 +2796,6 @@ function _jm_f_130(val, path, rep)
     return true;
 }
 
-// check json_model_22_map_description (.'$tight#Enum'.description)
-function _jm_f_131(val, path, rep)
-{
-    // .'$tight#Enum'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Enum'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_22_map_examples (.'$tight#Enum'.examples)
-function _jm_f_132(val, path, rep)
-{
-    // .'$tight#Enum'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Enum'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_22_map_id (.'$tight#Enum'.id)
-function _jm_f_133(val, path, rep)
-{
-    // .'$tight#Enum'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Enum'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_22_map_title (.'$tight#Enum'.title)
-function _jm_f_134(val, path, rep)
-{
-    // .'$tight#Enum'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Enum'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#Enum (.'$tight#Enum')
 function json_model_22(val, path, rep)
 {
@@ -2752,7 +2806,6 @@ function json_model_22(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -2770,12 +2823,117 @@ function json_model_22(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_22_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_35 : null), rep))
+            // handle may $schema property
+            // .'$tight#Enum'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$schema']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.'$schema']", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Enum'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$id']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.'$id']", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Enum'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Enum'.id]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.id]", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Enum'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Enum'.'$comment']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.'$comment']", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Enum'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Enum'.title]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.title]", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Enum'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Enum'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Enum'.examples]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.examples]", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Enum'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Enum'.description]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.description]", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Enum'.'$defs'
+            res = _jm_obj_25(pval, (path ? lpath_35 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Enum'.'$defs']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.'$defs']", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Enum'.definitions
+            res = _jm_obj_26(pval, (path ? lpath_35 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Enum'.definitions]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.definitions]", (path ? lpath_35 : null)])
                 return false;
             }
         }
@@ -2879,22 +3037,9 @@ function json_model_5(val, path, rep)
     return res;
 }
 
-// check json_model_23_map_$comment (.'$tight#Const'.'$comment')
-function _jm_f_135(val, path, rep)
+// object .'$tight#Const'.'$defs'
+function _jm_obj_27(val, path, rep)
 {
-    // .'$tight#Const'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_23_map_$defs (.'$tight#Const'.'$defs')
-function _jm_f_136(val, path, rep)
-{
-    // .'$tight#Const'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Const'.'$defs']", path])
@@ -2916,41 +3061,9 @@ function _jm_f_136(val, path, rep)
     return true;
 }
 
-// check json_model_23_map_$id (.'$tight#Const'.'$id')
-function _jm_f_137(val, path, rep)
+// object .'$tight#Const'.definitions
+function _jm_obj_28(val, path, rep)
 {
-    // .'$tight#Const'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_23_map_$schema (.'$tight#Const'.'$schema')
-function _jm_f_138(val, path, rep)
-{
-    // .'$tight#Const'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_23_map_default (.'$tight#Const'.default)
-function _jm_f_139(val, path, rep)
-{
-    // .'$tight#Const'.default
-    return true;
-}
-
-// check json_model_23_map_definitions (.'$tight#Const'.definitions)
-function _jm_f_140(val, path, rep)
-{
-    // .'$tight#Const'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Const'.definitions]", path])
@@ -2972,55 +3085,6 @@ function _jm_f_140(val, path, rep)
     return true;
 }
 
-// check json_model_23_map_description (.'$tight#Const'.description)
-function _jm_f_141(val, path, rep)
-{
-    // .'$tight#Const'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Const'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_23_map_examples (.'$tight#Const'.examples)
-function _jm_f_142(val, path, rep)
-{
-    // .'$tight#Const'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Const'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_23_map_id (.'$tight#Const'.id)
-function _jm_f_143(val, path, rep)
-{
-    // .'$tight#Const'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Const'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_23_map_title (.'$tight#Const'.title)
-function _jm_f_144(val, path, rep)
-{
-    // .'$tight#Const'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Const'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#Const (.'$tight#Const')
 function json_model_23(val, path, rep)
 {
@@ -3031,7 +3095,6 @@ function json_model_23(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -3049,12 +3112,117 @@ function json_model_23(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_23_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_38 : null), rep))
+            // handle may $schema property
+            // .'$tight#Const'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const']", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$schema']", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.'$schema']", (path ? lpath_38 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Const'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$id']", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.'$id']", (path ? lpath_38 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Const'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Const'.id]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.id]", (path ? lpath_38 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Const'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Const'.'$comment']", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.'$comment']", (path ? lpath_38 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Const'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Const'.title]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.title]", (path ? lpath_38 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Const'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Const'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Const'.examples]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.examples]", (path ? lpath_38 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Const'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Const'.description]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.description]", (path ? lpath_38 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Const'.'$defs'
+            res = _jm_obj_27(pval, (path ? lpath_38 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Const'.'$defs']", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.'$defs']", (path ? lpath_38 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Const'.definitions
+            res = _jm_obj_28(pval, (path ? lpath_38 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Const'.definitions]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.definitions]", (path ? lpath_38 : null)])
                 return false;
             }
         }
@@ -3135,22 +3303,9 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-// check json_model_24_map_$comment (.'$tight#Ref'.'$comment')
-function _jm_f_145(val, path, rep)
+// object .'$tight#Ref'.'$defs'
+function _jm_obj_29(val, path, rep)
 {
-    // .'$tight#Ref'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_24_map_$defs (.'$tight#Ref'.'$defs')
-function _jm_f_146(val, path, rep)
-{
-    // .'$tight#Ref'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Ref'.'$defs']", path])
@@ -3172,41 +3327,9 @@ function _jm_f_146(val, path, rep)
     return true;
 }
 
-// check json_model_24_map_$id (.'$tight#Ref'.'$id')
-function _jm_f_147(val, path, rep)
+// object .'$tight#Ref'.definitions
+function _jm_obj_30(val, path, rep)
 {
-    // .'$tight#Ref'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_24_map_$schema (.'$tight#Ref'.'$schema')
-function _jm_f_148(val, path, rep)
-{
-    // .'$tight#Ref'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_24_map_default (.'$tight#Ref'.default)
-function _jm_f_149(val, path, rep)
-{
-    // .'$tight#Ref'.default
-    return true;
-}
-
-// check json_model_24_map_definitions (.'$tight#Ref'.definitions)
-function _jm_f_150(val, path, rep)
-{
-    // .'$tight#Ref'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#Ref'.definitions]", path])
@@ -3228,55 +3351,6 @@ function _jm_f_150(val, path, rep)
     return true;
 }
 
-// check json_model_24_map_description (.'$tight#Ref'.description)
-function _jm_f_151(val, path, rep)
-{
-    // .'$tight#Ref'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Ref'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_24_map_examples (.'$tight#Ref'.examples)
-function _jm_f_152(val, path, rep)
-{
-    // .'$tight#Ref'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#Ref'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_24_map_id (.'$tight#Ref'.id)
-function _jm_f_153(val, path, rep)
-{
-    // .'$tight#Ref'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Ref'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_24_map_title (.'$tight#Ref'.title)
-function _jm_f_154(val, path, rep)
-{
-    // .'$tight#Ref'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#Ref'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#Ref (.'$tight#Ref')
 function json_model_24(val, path, rep)
 {
@@ -3287,7 +3361,6 @@ function json_model_24(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -3305,12 +3378,117 @@ function json_model_24(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_24_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_41 : null), rep))
+            // handle may $schema property
+            // .'$tight#Ref'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref']", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$schema']", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.'$schema']", (path ? lpath_41 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#Ref'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$id']", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.'$id']", (path ? lpath_41 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#Ref'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Ref'.id]", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.id]", (path ? lpath_41 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#Ref'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Ref'.'$comment']", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.'$comment']", (path ? lpath_41 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#Ref'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Ref'.title]", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.title]", (path ? lpath_41 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#Ref'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#Ref'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#Ref'.examples]", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.examples]", (path ? lpath_41 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#Ref'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#Ref'.description]", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.description]", (path ? lpath_41 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#Ref'.'$defs'
+            res = _jm_obj_29(pval, (path ? lpath_41 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Ref'.'$defs']", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.'$defs']", (path ? lpath_41 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#Ref'.definitions
+            res = _jm_obj_30(pval, (path ? lpath_41 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#Ref'.definitions]", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.definitions]", (path ? lpath_41 : null)])
                 return false;
             }
         }
@@ -3364,22 +3542,9 @@ function json_model_26(val, path, rep)
     return res;
 }
 
-// check json_model_28_map_$comment (.'$tight#EnumString'.'$comment')
-function _jm_f_155(val, path, rep)
+// object .'$tight#EnumString'.'$defs'
+function _jm_obj_31(val, path, rep)
 {
-    // .'$tight#EnumString'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_28_map_$defs (.'$tight#EnumString'.'$defs')
-function _jm_f_156(val, path, rep)
-{
-    // .'$tight#EnumString'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#EnumString'.'$defs']", path])
@@ -3401,41 +3566,9 @@ function _jm_f_156(val, path, rep)
     return true;
 }
 
-// check json_model_28_map_$id (.'$tight#EnumString'.'$id')
-function _jm_f_157(val, path, rep)
+// object .'$tight#EnumString'.definitions
+function _jm_obj_32(val, path, rep)
 {
-    // .'$tight#EnumString'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_28_map_$schema (.'$tight#EnumString'.'$schema')
-function _jm_f_158(val, path, rep)
-{
-    // .'$tight#EnumString'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_28_map_default (.'$tight#EnumString'.default)
-function _jm_f_159(val, path, rep)
-{
-    // .'$tight#EnumString'.default
-    return true;
-}
-
-// check json_model_28_map_definitions (.'$tight#EnumString'.definitions)
-function _jm_f_160(val, path, rep)
-{
-    // .'$tight#EnumString'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#EnumString'.definitions]", path])
@@ -3457,55 +3590,6 @@ function _jm_f_160(val, path, rep)
     return true;
 }
 
-// check json_model_28_map_description (.'$tight#EnumString'.description)
-function _jm_f_161(val, path, rep)
-{
-    // .'$tight#EnumString'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_28_map_examples (.'$tight#EnumString'.examples)
-function _jm_f_162(val, path, rep)
-{
-    // .'$tight#EnumString'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumString'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_28_map_id (.'$tight#EnumString'.id)
-function _jm_f_163(val, path, rep)
-{
-    // .'$tight#EnumString'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_28_map_title (.'$tight#EnumString'.title)
-function _jm_f_164(val, path, rep)
-{
-    // .'$tight#EnumString'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#EnumString (.'$tight#EnumString')
 function json_model_28(val, path, rep)
 {
@@ -3516,7 +3600,6 @@ function json_model_28(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -3562,12 +3645,117 @@ function json_model_28(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_28_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_44 : null), rep))
+            // handle may $schema property
+            // .'$tight#EnumString'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString']", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$schema']", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.'$schema']", (path ? lpath_44 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#EnumString'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$id']", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.'$id']", (path ? lpath_44 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#EnumString'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.id]", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.id]", (path ? lpath_44 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#EnumString'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.'$comment']", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.'$comment']", (path ? lpath_44 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#EnumString'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.title]", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.title]", (path ? lpath_44 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#EnumString'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#EnumString'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumString'.examples]", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.examples]", (path ? lpath_44 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#EnumString'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.description]", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.description]", (path ? lpath_44 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#EnumString'.'$defs'
+            res = _jm_obj_31(pval, (path ? lpath_44 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#EnumString'.'$defs']", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.'$defs']", (path ? lpath_44 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#EnumString'.definitions
+            res = _jm_obj_32(pval, (path ? lpath_44 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#EnumString'.definitions]", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.definitions]", (path ? lpath_44 : null)])
                 return false;
             }
         }
@@ -3595,22 +3783,9 @@ function json_model_28(val, path, rep)
     return true;
 }
 
-// check json_model_29_map_$comment (.'$tight#EnumNum'.'$comment')
-function _jm_f_165(val, path, rep)
+// object .'$tight#EnumNum'.'$defs'
+function _jm_obj_33(val, path, rep)
 {
-    // .'$tight#EnumNum'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_29_map_$defs (.'$tight#EnumNum'.'$defs')
-function _jm_f_166(val, path, rep)
-{
-    // .'$tight#EnumNum'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#EnumNum'.'$defs']", path])
@@ -3632,41 +3807,9 @@ function _jm_f_166(val, path, rep)
     return true;
 }
 
-// check json_model_29_map_$id (.'$tight#EnumNum'.'$id')
-function _jm_f_167(val, path, rep)
+// object .'$tight#EnumNum'.definitions
+function _jm_obj_34(val, path, rep)
 {
-    // .'$tight#EnumNum'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_29_map_$schema (.'$tight#EnumNum'.'$schema')
-function _jm_f_168(val, path, rep)
-{
-    // .'$tight#EnumNum'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_29_map_default (.'$tight#EnumNum'.default)
-function _jm_f_169(val, path, rep)
-{
-    // .'$tight#EnumNum'.default
-    return true;
-}
-
-// check json_model_29_map_definitions (.'$tight#EnumNum'.definitions)
-function _jm_f_170(val, path, rep)
-{
-    // .'$tight#EnumNum'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#EnumNum'.definitions]", path])
@@ -3688,55 +3831,6 @@ function _jm_f_170(val, path, rep)
     return true;
 }
 
-// check json_model_29_map_description (.'$tight#EnumNum'.description)
-function _jm_f_171(val, path, rep)
-{
-    // .'$tight#EnumNum'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_29_map_examples (.'$tight#EnumNum'.examples)
-function _jm_f_172(val, path, rep)
-{
-    // .'$tight#EnumNum'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumNum'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_29_map_id (.'$tight#EnumNum'.id)
-function _jm_f_173(val, path, rep)
-{
-    // .'$tight#EnumNum'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_29_map_title (.'$tight#EnumNum'.title)
-function _jm_f_174(val, path, rep)
-{
-    // .'$tight#EnumNum'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#EnumNum (.'$tight#EnumNum')
 function json_model_29(val, path, rep)
 {
@@ -3747,7 +3841,6 @@ function json_model_29(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -3793,12 +3886,117 @@ function json_model_29(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_29_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_47 : null), rep))
+            // handle may $schema property
+            // .'$tight#EnumNum'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum']", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$schema']", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.'$schema']", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#EnumNum'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$id']", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.'$id']", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#EnumNum'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.id]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.id]", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#EnumNum'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.'$comment']", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.'$comment']", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#EnumNum'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.title]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.title]", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#EnumNum'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#EnumNum'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumNum'.examples]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.examples]", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#EnumNum'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumNum'.description]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.description]", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#EnumNum'.'$defs'
+            res = _jm_obj_33(pval, (path ? lpath_47 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#EnumNum'.'$defs']", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.'$defs']", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#EnumNum'.definitions
+            res = _jm_obj_34(pval, (path ? lpath_47 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#EnumNum'.definitions]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.definitions]", (path ? lpath_47 : null)])
                 return false;
             }
         }
@@ -3826,22 +4024,9 @@ function json_model_29(val, path, rep)
     return true;
 }
 
-// check json_model_30_map_$comment (.'$tight#EnumInt'.'$comment')
-function _jm_f_175(val, path, rep)
+// object .'$tight#EnumInt'.'$defs'
+function _jm_obj_35(val, path, rep)
 {
-    // .'$tight#EnumInt'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_30_map_$defs (.'$tight#EnumInt'.'$defs')
-function _jm_f_176(val, path, rep)
-{
-    // .'$tight#EnumInt'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#EnumInt'.'$defs']", path])
@@ -3863,41 +4048,9 @@ function _jm_f_176(val, path, rep)
     return true;
 }
 
-// check json_model_30_map_$id (.'$tight#EnumInt'.'$id')
-function _jm_f_177(val, path, rep)
+// object .'$tight#EnumInt'.definitions
+function _jm_obj_36(val, path, rep)
 {
-    // .'$tight#EnumInt'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_30_map_$schema (.'$tight#EnumInt'.'$schema')
-function _jm_f_178(val, path, rep)
-{
-    // .'$tight#EnumInt'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_30_map_default (.'$tight#EnumInt'.default)
-function _jm_f_179(val, path, rep)
-{
-    // .'$tight#EnumInt'.default
-    return true;
-}
-
-// check json_model_30_map_definitions (.'$tight#EnumInt'.definitions)
-function _jm_f_180(val, path, rep)
-{
-    // .'$tight#EnumInt'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#EnumInt'.definitions]", path])
@@ -3919,55 +4072,6 @@ function _jm_f_180(val, path, rep)
     return true;
 }
 
-// check json_model_30_map_description (.'$tight#EnumInt'.description)
-function _jm_f_181(val, path, rep)
-{
-    // .'$tight#EnumInt'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_30_map_examples (.'$tight#EnumInt'.examples)
-function _jm_f_182(val, path, rep)
-{
-    // .'$tight#EnumInt'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumInt'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_30_map_id (.'$tight#EnumInt'.id)
-function _jm_f_183(val, path, rep)
-{
-    // .'$tight#EnumInt'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_30_map_title (.'$tight#EnumInt'.title)
-function _jm_f_184(val, path, rep)
-{
-    // .'$tight#EnumInt'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#EnumInt (.'$tight#EnumInt')
 function json_model_30(val, path, rep)
 {
@@ -3978,7 +4082,6 @@ function json_model_30(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -4024,12 +4127,117 @@ function json_model_30(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_30_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_50 : null), rep))
+            // handle may $schema property
+            // .'$tight#EnumInt'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt']", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$schema']", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.'$schema']", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#EnumInt'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$id']", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.'$id']", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#EnumInt'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.id]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.id]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#EnumInt'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.'$comment']", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.'$comment']", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#EnumInt'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.title]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.title]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#EnumInt'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#EnumInt'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumInt'.examples]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.examples]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#EnumInt'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#EnumInt'.description]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.description]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#EnumInt'.'$defs'
+            res = _jm_obj_35(pval, (path ? lpath_50 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#EnumInt'.'$defs']", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.'$defs']", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#EnumInt'.definitions
+            res = _jm_obj_36(pval, (path ? lpath_50 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#EnumInt'.definitions]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.definitions]", (path ? lpath_50 : null)])
                 return false;
             }
         }
@@ -4057,22 +4265,9 @@ function json_model_30(val, path, rep)
     return true;
 }
 
-// check json_model_31_map_$comment (.'$tight#ConstString'.'$comment')
-function _jm_f_185(val, path, rep)
+// object .'$tight#ConstString'.'$defs'
+function _jm_obj_37(val, path, rep)
 {
-    // .'$tight#ConstString'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_31_map_$defs (.'$tight#ConstString'.'$defs')
-function _jm_f_186(val, path, rep)
-{
-    // .'$tight#ConstString'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#ConstString'.'$defs']", path])
@@ -4094,41 +4289,9 @@ function _jm_f_186(val, path, rep)
     return true;
 }
 
-// check json_model_31_map_$id (.'$tight#ConstString'.'$id')
-function _jm_f_187(val, path, rep)
+// object .'$tight#ConstString'.definitions
+function _jm_obj_38(val, path, rep)
 {
-    // .'$tight#ConstString'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_31_map_$schema (.'$tight#ConstString'.'$schema')
-function _jm_f_188(val, path, rep)
-{
-    // .'$tight#ConstString'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_31_map_default (.'$tight#ConstString'.default)
-function _jm_f_189(val, path, rep)
-{
-    // .'$tight#ConstString'.default
-    return true;
-}
-
-// check json_model_31_map_definitions (.'$tight#ConstString'.definitions)
-function _jm_f_190(val, path, rep)
-{
-    // .'$tight#ConstString'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#ConstString'.definitions]", path])
@@ -4150,55 +4313,6 @@ function _jm_f_190(val, path, rep)
     return true;
 }
 
-// check json_model_31_map_description (.'$tight#ConstString'.description)
-function _jm_f_191(val, path, rep)
-{
-    // .'$tight#ConstString'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_31_map_examples (.'$tight#ConstString'.examples)
-function _jm_f_192(val, path, rep)
-{
-    // .'$tight#ConstString'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstString'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_31_map_id (.'$tight#ConstString'.id)
-function _jm_f_193(val, path, rep)
-{
-    // .'$tight#ConstString'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_31_map_title (.'$tight#ConstString'.title)
-function _jm_f_194(val, path, rep)
-{
-    // .'$tight#ConstString'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#ConstString (.'$tight#ConstString')
 function json_model_31(val, path, rep)
 {
@@ -4209,7 +4323,6 @@ function json_model_31(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -4240,12 +4353,117 @@ function json_model_31(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_31_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_53 : null), rep))
+            // handle may $schema property
+            // .'$tight#ConstString'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString']", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$schema']", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.'$schema']", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#ConstString'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$id']", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.'$id']", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#ConstString'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.id]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.id]", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#ConstString'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.'$comment']", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.'$comment']", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#ConstString'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.title]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.title]", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#ConstString'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#ConstString'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstString'.examples]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.examples]", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#ConstString'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.description]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.description]", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#ConstString'.'$defs'
+            res = _jm_obj_37(pval, (path ? lpath_53 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#ConstString'.'$defs']", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.'$defs']", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#ConstString'.definitions
+            res = _jm_obj_38(pval, (path ? lpath_53 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#ConstString'.definitions]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.definitions]", (path ? lpath_53 : null)])
                 return false;
             }
         }
@@ -4273,22 +4491,9 @@ function json_model_31(val, path, rep)
     return true;
 }
 
-// check json_model_32_map_$comment (.'$tight#ConstNum'.'$comment')
-function _jm_f_195(val, path, rep)
+// object .'$tight#ConstNum'.'$defs'
+function _jm_obj_39(val, path, rep)
 {
-    // .'$tight#ConstNum'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_32_map_$defs (.'$tight#ConstNum'.'$defs')
-function _jm_f_196(val, path, rep)
-{
-    // .'$tight#ConstNum'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#ConstNum'.'$defs']", path])
@@ -4310,41 +4515,9 @@ function _jm_f_196(val, path, rep)
     return true;
 }
 
-// check json_model_32_map_$id (.'$tight#ConstNum'.'$id')
-function _jm_f_197(val, path, rep)
+// object .'$tight#ConstNum'.definitions
+function _jm_obj_40(val, path, rep)
 {
-    // .'$tight#ConstNum'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_32_map_$schema (.'$tight#ConstNum'.'$schema')
-function _jm_f_198(val, path, rep)
-{
-    // .'$tight#ConstNum'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_32_map_default (.'$tight#ConstNum'.default)
-function _jm_f_199(val, path, rep)
-{
-    // .'$tight#ConstNum'.default
-    return true;
-}
-
-// check json_model_32_map_definitions (.'$tight#ConstNum'.definitions)
-function _jm_f_200(val, path, rep)
-{
-    // .'$tight#ConstNum'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#ConstNum'.definitions]", path])
@@ -4366,55 +4539,6 @@ function _jm_f_200(val, path, rep)
     return true;
 }
 
-// check json_model_32_map_description (.'$tight#ConstNum'.description)
-function _jm_f_201(val, path, rep)
-{
-    // .'$tight#ConstNum'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_32_map_examples (.'$tight#ConstNum'.examples)
-function _jm_f_202(val, path, rep)
-{
-    // .'$tight#ConstNum'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstNum'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_32_map_id (.'$tight#ConstNum'.id)
-function _jm_f_203(val, path, rep)
-{
-    // .'$tight#ConstNum'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_32_map_title (.'$tight#ConstNum'.title)
-function _jm_f_204(val, path, rep)
-{
-    // .'$tight#ConstNum'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#ConstNum (.'$tight#ConstNum')
 function json_model_32(val, path, rep)
 {
@@ -4425,7 +4549,6 @@ function json_model_32(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -4456,12 +4579,117 @@ function json_model_32(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_32_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_56 : null), rep))
+            // handle may $schema property
+            // .'$tight#ConstNum'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum']", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$schema']", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.'$schema']", (path ? lpath_56 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#ConstNum'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$id']", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.'$id']", (path ? lpath_56 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#ConstNum'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.id]", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.id]", (path ? lpath_56 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#ConstNum'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.'$comment']", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.'$comment']", (path ? lpath_56 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#ConstNum'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.title]", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.title]", (path ? lpath_56 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#ConstNum'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#ConstNum'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstNum'.examples]", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.examples]", (path ? lpath_56 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#ConstNum'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstNum'.description]", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.description]", (path ? lpath_56 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#ConstNum'.'$defs'
+            res = _jm_obj_39(pval, (path ? lpath_56 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#ConstNum'.'$defs']", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.'$defs']", (path ? lpath_56 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#ConstNum'.definitions
+            res = _jm_obj_40(pval, (path ? lpath_56 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#ConstNum'.definitions]", (path ? lpath_56 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.definitions]", (path ? lpath_56 : null)])
                 return false;
             }
         }
@@ -4489,22 +4717,9 @@ function json_model_32(val, path, rep)
     return true;
 }
 
-// check json_model_33_map_$comment (.'$tight#ConstInt'.'$comment')
-function _jm_f_205(val, path, rep)
+// object .'$tight#ConstInt'.'$defs'
+function _jm_obj_41(val, path, rep)
 {
-    // .'$tight#ConstInt'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_33_map_$defs (.'$tight#ConstInt'.'$defs')
-function _jm_f_206(val, path, rep)
-{
-    // .'$tight#ConstInt'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#ConstInt'.'$defs']", path])
@@ -4526,41 +4741,9 @@ function _jm_f_206(val, path, rep)
     return true;
 }
 
-// check json_model_33_map_$id (.'$tight#ConstInt'.'$id')
-function _jm_f_207(val, path, rep)
+// object .'$tight#ConstInt'.definitions
+function _jm_obj_42(val, path, rep)
 {
-    // .'$tight#ConstInt'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_33_map_$schema (.'$tight#ConstInt'.'$schema')
-function _jm_f_208(val, path, rep)
-{
-    // .'$tight#ConstInt'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_33_map_default (.'$tight#ConstInt'.default)
-function _jm_f_209(val, path, rep)
-{
-    // .'$tight#ConstInt'.default
-    return true;
-}
-
-// check json_model_33_map_definitions (.'$tight#ConstInt'.definitions)
-function _jm_f_210(val, path, rep)
-{
-    // .'$tight#ConstInt'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#ConstInt'.definitions]", path])
@@ -4582,55 +4765,6 @@ function _jm_f_210(val, path, rep)
     return true;
 }
 
-// check json_model_33_map_description (.'$tight#ConstInt'.description)
-function _jm_f_211(val, path, rep)
-{
-    // .'$tight#ConstInt'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_33_map_examples (.'$tight#ConstInt'.examples)
-function _jm_f_212(val, path, rep)
-{
-    // .'$tight#ConstInt'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstInt'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_33_map_id (.'$tight#ConstInt'.id)
-function _jm_f_213(val, path, rep)
-{
-    // .'$tight#ConstInt'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_33_map_title (.'$tight#ConstInt'.title)
-function _jm_f_214(val, path, rep)
-{
-    // .'$tight#ConstInt'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#ConstInt (.'$tight#ConstInt')
 function json_model_33(val, path, rep)
 {
@@ -4641,7 +4775,6 @@ function json_model_33(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -4672,12 +4805,117 @@ function json_model_33(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_33_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_59 : null), rep))
+            // handle may $schema property
+            // .'$tight#ConstInt'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt']", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$schema']", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.'$schema']", (path ? lpath_59 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#ConstInt'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$id']", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.'$id']", (path ? lpath_59 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#ConstInt'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.id]", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.id]", (path ? lpath_59 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#ConstInt'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.'$comment']", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.'$comment']", (path ? lpath_59 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#ConstInt'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.title]", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.title]", (path ? lpath_59 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#ConstInt'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#ConstInt'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstInt'.examples]", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.examples]", (path ? lpath_59 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#ConstInt'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstInt'.description]", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.description]", (path ? lpath_59 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#ConstInt'.'$defs'
+            res = _jm_obj_41(pval, (path ? lpath_59 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#ConstInt'.'$defs']", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.'$defs']", (path ? lpath_59 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#ConstInt'.definitions
+            res = _jm_obj_42(pval, (path ? lpath_59 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#ConstInt'.definitions]", (path ? lpath_59 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.definitions]", (path ? lpath_59 : null)])
                 return false;
             }
         }
@@ -4705,22 +4943,9 @@ function json_model_33(val, path, rep)
     return true;
 }
 
-// check json_model_34_map_$comment (.'$tight#ConstBool'.'$comment')
-function _jm_f_215(val, path, rep)
+// object .'$tight#ConstBool'.'$defs'
+function _jm_obj_43(val, path, rep)
 {
-    // .'$tight#ConstBool'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$comment']", path])
-    }
-    return res;
-}
-
-// check json_model_34_map_$defs (.'$tight#ConstBool'.'$defs')
-function _jm_f_216(val, path, rep)
-{
-    // .'$tight#ConstBool'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#ConstBool'.'$defs']", path])
@@ -4742,41 +4967,9 @@ function _jm_f_216(val, path, rep)
     return true;
 }
 
-// check json_model_34_map_$id (.'$tight#ConstBool'.'$id')
-function _jm_f_217(val, path, rep)
+// object .'$tight#ConstBool'.definitions
+function _jm_obj_44(val, path, rep)
 {
-    // .'$tight#ConstBool'.'$id'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_34_map_$schema (.'$tight#ConstBool'.'$schema')
-function _jm_f_218(val, path, rep)
-{
-    // .'$tight#ConstBool'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$schema']", path])
-    }
-    return res;
-}
-
-// check json_model_34_map_default (.'$tight#ConstBool'.default)
-function _jm_f_219(val, path, rep)
-{
-    // .'$tight#ConstBool'.default
-    return true;
-}
-
-// check json_model_34_map_definitions (.'$tight#ConstBool'.definitions)
-function _jm_f_220(val, path, rep)
-{
-    // .'$tight#ConstBool'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#ConstBool'.definitions]", path])
@@ -4798,55 +4991,6 @@ function _jm_f_220(val, path, rep)
     return true;
 }
 
-// check json_model_34_map_description (.'$tight#ConstBool'.description)
-function _jm_f_221(val, path, rep)
-{
-    // .'$tight#ConstBool'.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.description]", path])
-    }
-    return res;
-}
-
-// check json_model_34_map_examples (.'$tight#ConstBool'.examples)
-function _jm_f_222(val, path, rep)
-{
-    // .'$tight#ConstBool'.examples
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstBool'.examples]", path])
-    }
-    return res;
-}
-
-// check json_model_34_map_id (.'$tight#ConstBool'.id)
-function _jm_f_223(val, path, rep)
-{
-    // .'$tight#ConstBool'.id
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.id]", path])
-    }
-    return res;
-}
-
-// check json_model_34_map_title (.'$tight#ConstBool'.title)
-function _jm_f_224(val, path, rep)
-{
-    // .'$tight#ConstBool'.title
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.title]", path])
-    }
-    return res;
-}
-
-
 // check $tight#ConstBool (.'$tight#ConstBool')
 function json_model_34(val, path, rep)
 {
@@ -4857,7 +5001,6 @@ function json_model_34(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -4888,12 +5031,117 @@ function json_model_34(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = json_model_34_map.get(prop)))
+        else if (prop == "$schema")
         {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_62 : null), rep))
+            // handle may $schema property
+            // .'$tight#ConstBool'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool']", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$schema']", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.'$schema']", (path ? lpath_62 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$id")
+        {
+            // handle may $id property
+            // .'$tight#ConstBool'.'$id'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$id']", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.'$id']", (path ? lpath_62 : null)])
+                return false;
+            }
+        }
+        else if (prop == "id")
+        {
+            // handle may id property
+            // .'$tight#ConstBool'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.id]", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.id]", (path ? lpath_62 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$comment")
+        {
+            // handle may $comment property
+            // .'$tight#ConstBool'.'$comment'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.'$comment']", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.'$comment']", (path ? lpath_62 : null)])
+                return false;
+            }
+        }
+        else if (prop == "title")
+        {
+            // handle may title property
+            // .'$tight#ConstBool'.title
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.title]", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.title]", (path ? lpath_62 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$tight#ConstBool'.default
+            res = true;
+        }
+        else if (prop == "examples")
+        {
+            // handle may examples property
+            // .'$tight#ConstBool'.examples
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstBool'.examples]", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.examples]", (path ? lpath_62 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$tight#ConstBool'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$tight#ConstBool'.description]", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.description]", (path ? lpath_62 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$defs")
+        {
+            // handle may $defs property
+            // .'$tight#ConstBool'.'$defs'
+            res = _jm_obj_43(pval, (path ? lpath_62 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#ConstBool'.'$defs']", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.'$defs']", (path ? lpath_62 : null)])
+                return false;
+            }
+        }
+        else if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$tight#ConstBool'.definitions
+            res = _jm_obj_44(pval, (path ? lpath_62 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$tight#ConstBool'.definitions]", (path ? lpath_62 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.definitions]", (path ? lpath_62 : null)])
                 return false;
             }
         }
@@ -4938,16 +5186,6 @@ export function check_model_init()
         _jm_map_0.set("string", json_model_12)
         _jm_map_0.set("array", json_model_13)
         _jm_map_0.set("object", json_model_14)
-        json_model_11_map.set("$comment", _jm_f_0)
-        json_model_11_map.set("$defs", _jm_f_1)
-        json_model_11_map.set("$id", _jm_f_2)
-        json_model_11_map.set("$schema", _jm_f_3)
-        json_model_11_map.set("default", _jm_f_4)
-        json_model_11_map.set("definitions", _jm_f_5)
-        json_model_11_map.set("description", _jm_f_6)
-        json_model_11_map.set("examples", _jm_f_7)
-        json_model_11_map.set("id", _jm_f_8)
-        json_model_11_map.set("title", _jm_f_9)
         _jm_cst_0.add("uri")
         _jm_cst_0.add("uri-reference")
         _jm_cst_0.add("iri")
@@ -4975,224 +5213,6 @@ export function check_model_init()
         _jm_cst_0.add("double")
         _jm_cst_0.add("int")
         _jm_cst_0.add("mime-type")
-        json_model_12_map.set("$comment", _jm_f_10)
-        json_model_12_map.set("$defs", _jm_f_11)
-        json_model_12_map.set("$id", _jm_f_12)
-        json_model_12_map.set("$schema", _jm_f_13)
-        json_model_12_map.set("default", _jm_f_14)
-        json_model_12_map.set("definitions", _jm_f_15)
-        json_model_12_map.set("description", _jm_f_16)
-        json_model_12_map.set("examples", _jm_f_17)
-        json_model_12_map.set("format", _jm_f_18)
-        json_model_12_map.set("id", _jm_f_19)
-        json_model_12_map.set("maxLength", _jm_f_20)
-        json_model_12_map.set("minLength", _jm_f_21)
-        json_model_12_map.set("pattern", _jm_f_22)
-        json_model_12_map.set("title", _jm_f_23)
-        json_model_13_map.set("$comment", _jm_f_24)
-        json_model_13_map.set("$defs", _jm_f_25)
-        json_model_13_map.set("$id", _jm_f_26)
-        json_model_13_map.set("$schema", _jm_f_27)
-        json_model_13_map.set("additionalItems", json_model_26)
-        json_model_13_map.set("default", _jm_f_28)
-        json_model_13_map.set("definitions", _jm_f_29)
-        json_model_13_map.set("description", _jm_f_30)
-        json_model_13_map.set("examples", _jm_f_31)
-        json_model_13_map.set("id", _jm_f_32)
-        json_model_13_map.set("items", _jm_f_33)
-        json_model_13_map.set("maxItems", _jm_f_34)
-        json_model_13_map.set("minItems", _jm_f_35)
-        json_model_13_map.set("prefixItems", json_model_6)
-        json_model_13_map.set("title", _jm_f_36)
-        json_model_13_map.set("uniqueItems", _jm_f_37)
-        json_model_14_map.set("$comment", _jm_f_38)
-        json_model_14_map.set("$defs", _jm_f_39)
-        json_model_14_map.set("$id", _jm_f_40)
-        json_model_14_map.set("$schema", _jm_f_41)
-        json_model_14_map.set("additionalProperties", json_model_26)
-        json_model_14_map.set("default", _jm_f_42)
-        json_model_14_map.set("definitions", _jm_f_43)
-        json_model_14_map.set("description", _jm_f_44)
-        json_model_14_map.set("examples", _jm_f_45)
-        json_model_14_map.set("id", _jm_f_46)
-        json_model_14_map.set("patternProperties", _jm_f_47)
-        json_model_14_map.set("properties", _jm_f_48)
-        json_model_14_map.set("required", _jm_f_49)
-        json_model_14_map.set("title", _jm_f_50)
-        json_model_15_map.set("$comment", _jm_f_51)
-        json_model_15_map.set("$defs", _jm_f_52)
-        json_model_15_map.set("$id", _jm_f_53)
-        json_model_15_map.set("$schema", _jm_f_54)
-        json_model_15_map.set("default", _jm_f_55)
-        json_model_15_map.set("definitions", _jm_f_56)
-        json_model_15_map.set("description", _jm_f_57)
-        json_model_15_map.set("examples", _jm_f_58)
-        json_model_15_map.set("id", _jm_f_59)
-        json_model_15_map.set("maximum", _jm_f_60)
-        json_model_15_map.set("minimum", _jm_f_61)
-        json_model_15_map.set("title", _jm_f_62)
-        json_model_16_map.set("$comment", _jm_f_63)
-        json_model_16_map.set("$defs", _jm_f_64)
-        json_model_16_map.set("$id", _jm_f_65)
-        json_model_16_map.set("$schema", _jm_f_66)
-        json_model_16_map.set("default", _jm_f_67)
-        json_model_16_map.set("definitions", _jm_f_68)
-        json_model_16_map.set("description", _jm_f_69)
-        json_model_16_map.set("examples", _jm_f_70)
-        json_model_16_map.set("id", _jm_f_71)
-        json_model_16_map.set("maximum", _jm_f_72)
-        json_model_16_map.set("minimum", _jm_f_73)
-        json_model_16_map.set("title", _jm_f_74)
-        json_model_17_map.set("$comment", _jm_f_75)
-        json_model_17_map.set("$defs", _jm_f_76)
-        json_model_17_map.set("$id", _jm_f_77)
-        json_model_17_map.set("$schema", _jm_f_78)
-        json_model_17_map.set("default", _jm_f_79)
-        json_model_17_map.set("definitions", _jm_f_80)
-        json_model_17_map.set("description", _jm_f_81)
-        json_model_17_map.set("examples", _jm_f_82)
-        json_model_17_map.set("id", _jm_f_83)
-        json_model_17_map.set("title", _jm_f_84)
-        json_model_18_map.set("$comment", _jm_f_85)
-        json_model_18_map.set("$defs", _jm_f_86)
-        json_model_18_map.set("$id", _jm_f_87)
-        json_model_18_map.set("$schema", _jm_f_88)
-        json_model_18_map.set("default", _jm_f_89)
-        json_model_18_map.set("definitions", _jm_f_90)
-        json_model_18_map.set("description", _jm_f_91)
-        json_model_18_map.set("examples", _jm_f_92)
-        json_model_18_map.set("id", _jm_f_93)
-        json_model_18_map.set("title", _jm_f_94)
-        json_model_19_map.set("$comment", _jm_f_95)
-        json_model_19_map.set("$defs", _jm_f_96)
-        json_model_19_map.set("$id", _jm_f_97)
-        json_model_19_map.set("$schema", _jm_f_98)
-        json_model_19_map.set("default", _jm_f_99)
-        json_model_19_map.set("definitions", _jm_f_100)
-        json_model_19_map.set("description", _jm_f_101)
-        json_model_19_map.set("examples", _jm_f_102)
-        json_model_19_map.set("id", _jm_f_103)
-        json_model_19_map.set("title", _jm_f_104)
-        json_model_20_map.set("$comment", _jm_f_105)
-        json_model_20_map.set("$defs", _jm_f_106)
-        json_model_20_map.set("$id", _jm_f_107)
-        json_model_20_map.set("$schema", _jm_f_108)
-        json_model_20_map.set("default", _jm_f_109)
-        json_model_20_map.set("definitions", _jm_f_110)
-        json_model_20_map.set("description", _jm_f_111)
-        json_model_20_map.set("examples", _jm_f_112)
-        json_model_20_map.set("id", _jm_f_113)
-        json_model_20_map.set("title", _jm_f_114)
-        json_model_21_map.set("$comment", _jm_f_115)
-        json_model_21_map.set("$defs", _jm_f_116)
-        json_model_21_map.set("$id", _jm_f_117)
-        json_model_21_map.set("$schema", _jm_f_118)
-        json_model_21_map.set("default", _jm_f_119)
-        json_model_21_map.set("definitions", _jm_f_120)
-        json_model_21_map.set("description", _jm_f_121)
-        json_model_21_map.set("examples", _jm_f_122)
-        json_model_21_map.set("id", _jm_f_123)
-        json_model_21_map.set("title", _jm_f_124)
-        json_model_22_map.set("$comment", _jm_f_125)
-        json_model_22_map.set("$defs", _jm_f_126)
-        json_model_22_map.set("$id", _jm_f_127)
-        json_model_22_map.set("$schema", _jm_f_128)
-        json_model_22_map.set("default", _jm_f_129)
-        json_model_22_map.set("definitions", _jm_f_130)
-        json_model_22_map.set("description", _jm_f_131)
-        json_model_22_map.set("examples", _jm_f_132)
-        json_model_22_map.set("id", _jm_f_133)
-        json_model_22_map.set("title", _jm_f_134)
-        json_model_23_map.set("$comment", _jm_f_135)
-        json_model_23_map.set("$defs", _jm_f_136)
-        json_model_23_map.set("$id", _jm_f_137)
-        json_model_23_map.set("$schema", _jm_f_138)
-        json_model_23_map.set("default", _jm_f_139)
-        json_model_23_map.set("definitions", _jm_f_140)
-        json_model_23_map.set("description", _jm_f_141)
-        json_model_23_map.set("examples", _jm_f_142)
-        json_model_23_map.set("id", _jm_f_143)
-        json_model_23_map.set("title", _jm_f_144)
-        json_model_24_map.set("$comment", _jm_f_145)
-        json_model_24_map.set("$defs", _jm_f_146)
-        json_model_24_map.set("$id", _jm_f_147)
-        json_model_24_map.set("$schema", _jm_f_148)
-        json_model_24_map.set("default", _jm_f_149)
-        json_model_24_map.set("definitions", _jm_f_150)
-        json_model_24_map.set("description", _jm_f_151)
-        json_model_24_map.set("examples", _jm_f_152)
-        json_model_24_map.set("id", _jm_f_153)
-        json_model_24_map.set("title", _jm_f_154)
-        json_model_28_map.set("$comment", _jm_f_155)
-        json_model_28_map.set("$defs", _jm_f_156)
-        json_model_28_map.set("$id", _jm_f_157)
-        json_model_28_map.set("$schema", _jm_f_158)
-        json_model_28_map.set("default", _jm_f_159)
-        json_model_28_map.set("definitions", _jm_f_160)
-        json_model_28_map.set("description", _jm_f_161)
-        json_model_28_map.set("examples", _jm_f_162)
-        json_model_28_map.set("id", _jm_f_163)
-        json_model_28_map.set("title", _jm_f_164)
-        json_model_29_map.set("$comment", _jm_f_165)
-        json_model_29_map.set("$defs", _jm_f_166)
-        json_model_29_map.set("$id", _jm_f_167)
-        json_model_29_map.set("$schema", _jm_f_168)
-        json_model_29_map.set("default", _jm_f_169)
-        json_model_29_map.set("definitions", _jm_f_170)
-        json_model_29_map.set("description", _jm_f_171)
-        json_model_29_map.set("examples", _jm_f_172)
-        json_model_29_map.set("id", _jm_f_173)
-        json_model_29_map.set("title", _jm_f_174)
-        json_model_30_map.set("$comment", _jm_f_175)
-        json_model_30_map.set("$defs", _jm_f_176)
-        json_model_30_map.set("$id", _jm_f_177)
-        json_model_30_map.set("$schema", _jm_f_178)
-        json_model_30_map.set("default", _jm_f_179)
-        json_model_30_map.set("definitions", _jm_f_180)
-        json_model_30_map.set("description", _jm_f_181)
-        json_model_30_map.set("examples", _jm_f_182)
-        json_model_30_map.set("id", _jm_f_183)
-        json_model_30_map.set("title", _jm_f_184)
-        json_model_31_map.set("$comment", _jm_f_185)
-        json_model_31_map.set("$defs", _jm_f_186)
-        json_model_31_map.set("$id", _jm_f_187)
-        json_model_31_map.set("$schema", _jm_f_188)
-        json_model_31_map.set("default", _jm_f_189)
-        json_model_31_map.set("definitions", _jm_f_190)
-        json_model_31_map.set("description", _jm_f_191)
-        json_model_31_map.set("examples", _jm_f_192)
-        json_model_31_map.set("id", _jm_f_193)
-        json_model_31_map.set("title", _jm_f_194)
-        json_model_32_map.set("$comment", _jm_f_195)
-        json_model_32_map.set("$defs", _jm_f_196)
-        json_model_32_map.set("$id", _jm_f_197)
-        json_model_32_map.set("$schema", _jm_f_198)
-        json_model_32_map.set("default", _jm_f_199)
-        json_model_32_map.set("definitions", _jm_f_200)
-        json_model_32_map.set("description", _jm_f_201)
-        json_model_32_map.set("examples", _jm_f_202)
-        json_model_32_map.set("id", _jm_f_203)
-        json_model_32_map.set("title", _jm_f_204)
-        json_model_33_map.set("$comment", _jm_f_205)
-        json_model_33_map.set("$defs", _jm_f_206)
-        json_model_33_map.set("$id", _jm_f_207)
-        json_model_33_map.set("$schema", _jm_f_208)
-        json_model_33_map.set("default", _jm_f_209)
-        json_model_33_map.set("definitions", _jm_f_210)
-        json_model_33_map.set("description", _jm_f_211)
-        json_model_33_map.set("examples", _jm_f_212)
-        json_model_33_map.set("id", _jm_f_213)
-        json_model_33_map.set("title", _jm_f_214)
-        json_model_34_map.set("$comment", _jm_f_215)
-        json_model_34_map.set("$defs", _jm_f_216)
-        json_model_34_map.set("$id", _jm_f_217)
-        json_model_34_map.set("$schema", _jm_f_218)
-        json_model_34_map.set("default", _jm_f_219)
-        json_model_34_map.set("definitions", _jm_f_220)
-        json_model_34_map.set("description", _jm_f_221)
-        json_model_34_map.set("examples", _jm_f_222)
-        json_model_34_map.set("id", _jm_f_223)
-        json_model_34_map.set("title", _jm_f_224)
         check_model_map.set("", json_model_27)
         check_model_map.set("tight", json_model_27)
     }

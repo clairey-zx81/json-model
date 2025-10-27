@@ -19,32 +19,46 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // JSON_MODEL_LOOSE_INT
     // .
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 1))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.]", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "li")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <li> [.]", path);
-        return false;
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_3(prop, 0x0000696c)))
+        {
+            // handle must li property
+            must_count += 1;
+            // .li
+            res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a 0 loose int [.li]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.li]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.]", (path ? &lpath_0 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "li", 0, path, NULL };
-    // .li
-    res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
-    if (unlikely(! res))
+    if (unlikely(must_count != 1))
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 loose int [.li]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <li> [.]", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "li") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <li> [.]", path);
+            }
+        }
         return false;
     }
     return true;

@@ -34,8 +34,6 @@ _jm_re_4_reco: object
 _jm_re_4: RegexFun
 _jm_cst_2: set[str]
 _jm_cst_3: set[str]
-json_model_1_mup: PropMap
-json_model_1_map: PropMap
 check_model_map: PropMap
 
 
@@ -422,14 +420,6 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check json_model_1_mup_abstract (.abstract)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .abstract
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.abstract]", path))
-    return res
-
 # object .license.'|'.2
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -446,80 +436,54 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check json_model_1_mup_license (.license)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .license
-    # .license.'|'.0
-    res: bool = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $License [.license.'|'.0]", path))
-    if not res:
-        # .license.'|'.1
-        res = json_model_5(val, path, rep)
+# object .provides
+def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.provides]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_9: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .provides.''
+        res = json_model_6(pval, lpath_9 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $LicenseList [.license.'|'.1]", path))
-        if not res:
-            # .license.'|'.2
-            res = _jm_obj_3(val, path, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.license.'|'.2]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.license.'|']", path))
-    return res
+            rep is None or rep.append(("unexpected $Provide [.provides.'']", lpath_9 if path is not None else None))
+            return False
+    return True
 
-# check json_model_1_mup_maintainer (.maintainer)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .maintainer
-    # .maintainer.'|'.0
-    res: bool = json_model_2(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $neStr [.maintainer.'|'.0]", path))
-    if not res:
-        # .maintainer.'|'.1
-        res = json_model_3(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $neStrList [.maintainer.'|'.1]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.maintainer.'|']", path))
-    return res
-
-# check json_model_1_mup_meta-spec (.'meta-spec')
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'meta-spec'
+# object .'meta-spec'
+def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'meta-spec']", path))
         return False
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        lpath_9: Path = (path + [ prop ]) if path is not None else None
+        lpath_10: Path = (path + [ prop ]) if path is not None else None
         if prop == "version":
             # handle must version property
             must_count += 1
             # .'meta-spec'.version
             res = isinstance(pval, str) and pval == "1.0.0"
             if not res:
-                rep is None or rep.append(("unexpected _1.0.0 [.'meta-spec'.version]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'meta-spec'.version]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("unexpected _1.0.0 [.'meta-spec'.version]", lpath_10 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'meta-spec'.version]", lpath_10 if path is not None else None))
                 return False
         elif prop == "url":
             # handle may url property
             # .'meta-spec'.url
-            res = is_valid_url(pval, lpath_9 if path is not None else None, rep)
+            res = is_valid_url(pval, lpath_10 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $URL [.'meta-spec'.url]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'meta-spec'.url]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("unexpected $URL [.'meta-spec'.url]", lpath_10 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'meta-spec'.url]", lpath_10 if path is not None else None))
                 return False
         elif _jm_re_1(prop, path, rep):
             # handle 1 re props
             # .'meta-spec'.'/^[Xx]_/'
             res = True
         else:
-            rep is None or rep.append(("unexpected prop [.'meta-spec']", lpath_9 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'meta-spec']", lpath_10 if path is not None else None))
             return False
     if must_count != 1:
         if rep is not None:
@@ -528,51 +492,8 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check json_model_1_mup_provides (.provides)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .provides
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.provides]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_10: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .provides.''
-        res = json_model_6(pval, lpath_10 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Provide [.provides.'']", lpath_10 if path is not None else None))
-            return False
-    return True
-
-# check json_model_1_mup_version (.version)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .version
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.version]", path))
-    return res
-
-
-# check json_model_1_map_description (.description)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .description
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.description]", path))
-    return res
-
-# check json_model_1_map_generated_by (.generated_by)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .generated_by
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.generated_by]", path))
-    return res
-
-# check json_model_1_map_no_index (.no_index)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .no_index
+# object .no_index
+def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.no_index]", path))
         return False
@@ -600,15 +521,6 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check json_model_1_map_url (.url)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .url
-    res: bool = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [.url]", path))
-    return res
-
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
@@ -616,21 +528,160 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an object [.]", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         lpath_7: Path = (path + [ prop ]) if path is not None else None
-        if pfun := json_model_1_mup.get(prop):
-            # handle 7 mandatory props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_7 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid mandatory prop value [.]", lpath_7 if path is not None else None))
-                    return False
-        elif pfun := json_model_1_map.get(prop):
-            # handle 8 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_7 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.]", lpath_7 if path is not None else None))
+        if prop == "name":
+            # handle must name property
+            must_count += 1
+            # .name
+            res = json_model_2(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $neStr [.name]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.name]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "version":
+            # handle must version property
+            must_count += 1
+            # .version
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.version]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.version]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "abstract":
+            # handle must abstract property
+            must_count += 1
+            # .abstract
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.abstract]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.abstract]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "maintainer":
+            # handle must maintainer property
+            must_count += 1
+            # .maintainer
+            # .maintainer.'|'.0
+            res = json_model_2(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $neStr [.maintainer.'|'.0]", lpath_7 if path is not None else None))
+            if not res:
+                # .maintainer.'|'.1
+                res = json_model_3(pval, lpath_7 if path is not None else None, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected $neStrList [.maintainer.'|'.1]", lpath_7 if path is not None else None))
+            if res:
+                rep is None or rep.clear()
+            else:
+                rep is None or rep.append(("no model matched [.maintainer.'|']", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.maintainer]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "license":
+            # handle must license property
+            must_count += 1
+            # .license
+            # .license.'|'.0
+            res = json_model_4(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $License [.license.'|'.0]", lpath_7 if path is not None else None))
+            if not res:
+                # .license.'|'.1
+                res = json_model_5(pval, lpath_7 if path is not None else None, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected $LicenseList [.license.'|'.1]", lpath_7 if path is not None else None))
+                if not res:
+                    # .license.'|'.2
+                    res = _jm_obj_3(pval, lpath_7 if path is not None else None, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected element [.license.'|'.2]", lpath_7 if path is not None else None))
+            if res:
+                rep is None or rep.clear()
+            else:
+                rep is None or rep.append(("no model matched [.license.'|']", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.license]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "provides":
+            # handle must provides property
+            must_count += 1
+            # .provides
+            res = _jm_obj_4(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.provides]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.provides]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "meta-spec":
+            # handle must meta-spec property
+            must_count += 1
+            # .'meta-spec'
+            res = _jm_obj_5(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'meta-spec']", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'meta-spec']", lpath_7 if path is not None else None))
+                return False
+        elif prop == "url":
+            # handle may url property
+            # .url
+            res = is_valid_url(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URL [.url]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.url]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.description]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.description]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "generated_by":
+            # handle may generated_by property
+            # .generated_by
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.generated_by]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.generated_by]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "tags":
+            # handle may tags property
+            # .tags
+            res = json_model_3(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $neStrList [.tags]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.tags]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "no_index":
+            # handle may no_index property
+            # .no_index
+            res = _jm_obj_6(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.no_index]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.no_index]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "release_status":
+            # handle may release_status property
+            # .release_status
+            res = json_model_7(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Status [.release_status]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.release_status]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "resources":
+            # handle may resources property
+            # .resources
+            res = json_model_8(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Resources [.resources]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.resources]", lpath_7 if path is not None else None))
+                return False
+        elif prop == "prereqs":
+            # handle may prereqs property
+            # .prereqs
+            res = json_model_16(pval, lpath_7 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Prereqs [.prereqs]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.prereqs]", lpath_7 if path is not None else None))
                 return False
         elif _jm_re_1(prop, path, rep):
             # handle 1 re props
@@ -690,27 +741,6 @@ def check_model_init():
         _jm_cst_2 = {'build', 'configure', 'develop', 'runtime', 'test'}
         global _jm_cst_3
         _jm_cst_3 = {'conflicts', 'recommends', 'requires', 'suggests'}
-        global json_model_1_mup
-        json_model_1_mup = {
-            "abstract": _jm_f_0,
-            "license": _jm_f_1,
-            "maintainer": _jm_f_2,
-            "meta-spec": _jm_f_3,
-            "name": json_model_2,
-            "provides": _jm_f_4,
-            "version": _jm_f_5,
-        }
-        global json_model_1_map
-        json_model_1_map = {
-            "description": _jm_f_6,
-            "generated_by": _jm_f_7,
-            "no_index": _jm_f_8,
-            "prereqs": json_model_16,
-            "release_status": json_model_7,
-            "resources": json_model_8,
-            "tags": json_model_3,
-            "url": _jm_f_9,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

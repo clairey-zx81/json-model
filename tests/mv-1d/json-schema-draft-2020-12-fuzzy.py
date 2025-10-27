@@ -20,8 +20,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-json_model_4_map: PropMap
-json_model_5_map: PropMap
 _jm_cst_0: set[str]
 json_model_13_map: PropMap
 json_model_15_map: PropMap
@@ -36,60 +34,41 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$URI-REFERENCE']", path))
     return res
 
-# check json_model_4_map_$comment (.'$core'.'$comment')
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$core'.'$comment'
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$core'.'$comment']", path))
-    return res
-
-# check json_model_4_map_$defs (.'$core'.'$defs')
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$core'.'$defs'
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$core'.'$defs']", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_1: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$core'.'$defs'.''
-        res = json_model_17(pval, lpath_1 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Schema [.'$core'.'$defs'.'']", lpath_1 if path is not None else None))
-            return False
-    return True
-
-# check json_model_4_map_$schema (.'$core'.'$schema')
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$core'.'$schema'
-    res: bool = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [.'$core'.'$schema']", path))
-    return res
-
-# check json_model_4_map_$vocabulary (.'$core'.'$vocabulary')
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$core'.'$vocabulary'
+# object .'$core'.'$vocabulary'
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$core'.'$vocabulary']", path))
         return False
     res: bool
     for prop, pval in val.items():
-        lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if is_valid_url(prop, lpath_2 if path is not None else None, rep):
+        lpath_1: Path = (path + [ prop ]) if path is not None else None
+        if is_valid_url(prop, lpath_1 if path is not None else None, rep):
             # handle 1 key props
             # .'$core'.'$vocabulary'.'$URI'
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [.'$core'.'$vocabulary'.'$URI']", lpath_2 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$core'.'$vocabulary'.'$URI']", lpath_1 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$core'.'$vocabulary']", lpath_2 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$core'.'$vocabulary']", lpath_1 if path is not None else None))
             return False
     return True
 
+# object .'$core'.'$defs'
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$core'.'$defs']", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_2: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$core'.'$defs'.''
+        res = json_model_17(pval, lpath_2 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Schema [.'$core'.'$defs'.'']", lpath_2 if path is not None else None))
+            return False
+    return True
 
 # check $core (.'$core')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -97,72 +76,85 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$core']", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := json_model_4_map.get(prop):
-            # handle 9 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$core']", lpath_0 if path is not None else None))
+        if prop == "$id":
+            # handle may $id property
+            # .'$core'.'$id'
+            res = json_model_3(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$id']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$id']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$core'.'$schema'
+            res = is_valid_url(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URL [.'$core'.'$schema']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$schema']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$ref":
+            # handle may $ref property
+            # .'$core'.'$ref'
+            res = json_model_3(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$ref']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$ref']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$anchor":
+            # handle may $anchor property
+            # .'$core'.'$anchor'
+            res = json_model_3(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$anchor']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$anchor']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$dynamicRef":
+            # handle may $dynamicRef property
+            # .'$core'.'$dynamicRef'
+            res = json_model_3(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$dynamicRef']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$dynamicRef']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$dynamicAnchor":
+            # handle may $dynamicAnchor property
+            # .'$core'.'$dynamicAnchor'
+            res = json_model_3(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$dynamicAnchor']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$dynamicAnchor']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$vocabulary":
+            # handle may $vocabulary property
+            # .'$core'.'$vocabulary'
+            res = _jm_obj_0(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$core'.'$vocabulary']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$vocabulary']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$core'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$core'.'$comment']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$comment']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$core'.'$defs'
+            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$core'.'$defs']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$defs']", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$core']", lpath_0 if path is not None else None))
             return False
     return True
-
-# check json_model_5_map_default (.'$meta'.default)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$meta'.default
-    return True
-
-# check json_model_5_map_deprecated (.'$meta'.deprecated)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$meta'.deprecated
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.'$meta'.deprecated]", path))
-    return res
-
-# check json_model_5_map_description (.'$meta'.description)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$meta'.description
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$meta'.description]", path))
-    return res
-
-# check json_model_5_map_examples (.'$meta'.examples)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$meta'.examples
-    res: bool = isinstance(val, list)
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$meta'.examples]", path))
-    return res
-
-# check json_model_5_map_readOnly (.'$meta'.readOnly)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$meta'.readOnly
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.'$meta'.readOnly]", path))
-    return res
-
-# check json_model_5_map_title (.'$meta'.title)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$meta'.title
-    res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$meta'.title]", path))
-    return res
-
-# check json_model_5_map_writeOnly (.'$meta'.writeOnly)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$meta'.writeOnly
-    res: bool = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.'$meta'.writeOnly]", path))
-    return res
-
 
 # check $meta (.'$meta')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -170,13 +162,60 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$meta']", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         lpath_3: Path = (path + [ prop ]) if path is not None else None
-        if pfun := json_model_5_map.get(prop):
-            # handle 7 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_3 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$meta']", lpath_3 if path is not None else None))
+        if prop == "title":
+            # handle may title property
+            # .'$meta'.title
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$meta'.title]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.title]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$meta'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$meta'.description]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.description]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "default":
+            # handle may default property
+            # .'$meta'.default
+            res = True
+        elif prop == "deprecated":
+            # handle may deprecated property
+            # .'$meta'.deprecated
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'$meta'.deprecated]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.deprecated]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "readOnly":
+            # handle may readOnly property
+            # .'$meta'.readOnly
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'$meta'.readOnly]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.readOnly]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "writeOnly":
+            # handle may writeOnly property
+            # .'$meta'.writeOnly
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'$meta'.writeOnly]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.writeOnly]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$meta'.examples
+            res = isinstance(pval, list)
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$meta'.examples]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.examples]", lpath_3 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$meta']", lpath_3 if path is not None else None))
@@ -334,12 +373,12 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_const (.'$validation'.const)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.const
     return True
 
 # check json_model_13_map_dependentRequired (.'$validation'.dependentRequired)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.dependentRequired
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$validation'.dependentRequired]", path))
@@ -356,7 +395,7 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_13_map_enum (.'$validation'.enum)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.enum
     res: bool = isinstance(val, list)
     if not res:
@@ -364,7 +403,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_exclusiveMaximum (.'$validation'.exclusiveMaximum)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.exclusiveMaximum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -372,7 +411,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_exclusiveMinimum (.'$validation'.exclusiveMinimum)
-def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.exclusiveMinimum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -380,7 +419,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_maximum (.'$validation'.maximum)
-def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.maximum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -388,7 +427,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_minimum (.'$validation'.minimum)
-def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.minimum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -396,7 +435,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_multipleOf (.'$validation'.multipleOf)
-def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.multipleOf
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool) and val > 0.0
     if not res:
@@ -404,7 +443,7 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_pattern (.'$validation'.pattern)
-def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.pattern
     res: bool = isinstance(val, str)
     if not res:
@@ -412,7 +451,7 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_type (.'$validation'.type)
-def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.type
     # .'$validation'.type.'|'.0
     res: bool = json_model_9(val, path, rep)
@@ -430,7 +469,7 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_uniqueItems (.'$validation'.uniqueItems)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$validation'.uniqueItems
     res: bool = isinstance(val, bool)
     if not res:
@@ -480,7 +519,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_dependentSchemas (.'$applicator'.dependentSchemas)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$applicator'.dependentSchemas
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$applicator'.dependentSchemas]", path))
@@ -497,7 +536,7 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_15_map_patternProperties (.'$applicator'.patternProperties)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$applicator'.patternProperties
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$applicator'.patternProperties]", path))
@@ -514,7 +553,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_15_map_properties (.'$applicator'.properties)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$applicator'.properties
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$applicator'.properties]", path))
@@ -551,7 +590,7 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_$comment (.'$ObjectSchema'.'$comment')
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.'$comment'
     res: bool = isinstance(val, str)
     if not res:
@@ -559,7 +598,7 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_$defs (.'$ObjectSchema'.'$defs')
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema'.'$defs']", path))
@@ -576,7 +615,7 @@ def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_$recursiveAnchor (.'$ObjectSchema'.'$recursiveAnchor')
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.'$recursiveAnchor'
     res: bool = isinstance(val, str)
     if not res:
@@ -584,7 +623,7 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_$recursiveRef (.'$ObjectSchema'.'$recursiveRef')
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.'$recursiveRef'
     res: bool = isinstance(val, str)
     if not res:
@@ -592,7 +631,7 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_$schema (.'$ObjectSchema'.'$schema')
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.'$schema'
     res: bool = is_valid_url(val, path, rep)
     if not res:
@@ -600,7 +639,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_$vocabulary (.'$ObjectSchema'.'$vocabulary')
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.'$vocabulary'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema'.'$vocabulary']", path))
@@ -621,12 +660,12 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_const (.'$ObjectSchema'.const)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.const
     return True
 
 # check json_model_16_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.contentEncoding
     res: bool = isinstance(val, str)
     if not res:
@@ -634,7 +673,7 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_contentMediaType (.'$ObjectSchema'.contentMediaType)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.contentMediaType
     res: bool = isinstance(val, str)
     if not res:
@@ -642,12 +681,12 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_default (.'$ObjectSchema'.default)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.default
     return True
 
 # check json_model_16_map_definitions (.'$ObjectSchema'.definitions)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema'.definitions]", path))
@@ -664,7 +703,7 @@ def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_dependencies (.'$ObjectSchema'.dependencies)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.dependencies
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema'.dependencies]", path))
@@ -691,7 +730,7 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_dependentRequired (.'$ObjectSchema'.dependentRequired)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.dependentRequired
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema'.dependentRequired]", path))
@@ -708,7 +747,7 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_dependentSchemas (.'$ObjectSchema'.dependentSchemas)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.dependentSchemas
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema'.dependentSchemas]", path))
@@ -725,7 +764,7 @@ def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_deprecated (.'$ObjectSchema'.deprecated)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.deprecated
     res: bool = isinstance(val, bool)
     if not res:
@@ -733,7 +772,7 @@ def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_description (.'$ObjectSchema'.description)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.description
     res: bool = isinstance(val, str)
     if not res:
@@ -741,7 +780,7 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_enum (.'$ObjectSchema'.enum)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.enum
     res: bool = isinstance(val, list)
     if not res:
@@ -749,7 +788,7 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_examples (.'$ObjectSchema'.examples)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.examples
     res: bool = isinstance(val, list)
     if not res:
@@ -757,7 +796,7 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_exclusiveMaximum (.'$ObjectSchema'.exclusiveMaximum)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.exclusiveMaximum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -765,7 +804,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_exclusiveMinimum (.'$ObjectSchema'.exclusiveMinimum)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.exclusiveMinimum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -773,7 +812,7 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_format (.'$ObjectSchema'.format)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.format
     res: bool = isinstance(val, str)
     if not res:
@@ -781,7 +820,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_maximum (.'$ObjectSchema'.maximum)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.maximum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -789,7 +828,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_minimum (.'$ObjectSchema'.minimum)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.minimum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -797,7 +836,7 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_multipleOf (.'$ObjectSchema'.multipleOf)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.multipleOf
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool) and val > 0.0
     if not res:
@@ -805,7 +844,7 @@ def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_pattern (.'$ObjectSchema'.pattern)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.pattern
     res: bool = isinstance(val, str)
     if not res:
@@ -813,7 +852,7 @@ def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_patternProperties (.'$ObjectSchema'.patternProperties)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.patternProperties
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema'.patternProperties]", path))
@@ -830,7 +869,7 @@ def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_properties (.'$ObjectSchema'.properties)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.properties
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema'.properties]", path))
@@ -847,7 +886,7 @@ def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_readOnly (.'$ObjectSchema'.readOnly)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.readOnly
     res: bool = isinstance(val, bool)
     if not res:
@@ -855,7 +894,7 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_title (.'$ObjectSchema'.title)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.title
     res: bool = isinstance(val, str)
     if not res:
@@ -863,7 +902,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_type (.'$ObjectSchema'.type)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
     res: bool = json_model_9(val, path, rep)
@@ -881,7 +920,7 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.uniqueItems
     res: bool = isinstance(val, bool)
     if not res:
@@ -889,7 +928,7 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_writeOnly (.'$ObjectSchema'.writeOnly)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.writeOnly
     res: bool = isinstance(val, bool)
     if not res:
@@ -935,7 +974,7 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # object .'$deprecated'.definitions
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$deprecated'.definitions]", path))
         return False
@@ -951,7 +990,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$deprecated'.dependencies
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$deprecated'.dependencies]", path))
         return False
@@ -988,7 +1027,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "definitions":
             # handle may definitions property
             # .'$deprecated'.definitions
-            res = _jm_obj_0(pval, lpath_22 if path is not None else None, rep)
+            res = _jm_obj_2(pval, lpath_22 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$deprecated'.definitions]", lpath_22 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$deprecated'.definitions]", lpath_22 if path is not None else None))
@@ -996,7 +1035,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "dependencies":
             # handle may dependencies property
             # .'$deprecated'.dependencies
-            res = _jm_obj_1(pval, lpath_22 if path is not None else None, rep)
+            res = _jm_obj_3(pval, lpath_22 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$deprecated'.dependencies]", lpath_22 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$deprecated'.dependencies]", lpath_22 if path is not None else None))
@@ -1048,52 +1087,30 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global json_model_4_map
-        json_model_4_map = {
-            "$anchor": json_model_3,
-            "$comment": _jm_f_0,
-            "$defs": _jm_f_1,
-            "$dynamicAnchor": json_model_3,
-            "$dynamicRef": json_model_3,
-            "$id": json_model_3,
-            "$ref": json_model_3,
-            "$schema": _jm_f_2,
-            "$vocabulary": _jm_f_3,
-        }
-        global json_model_5_map
-        json_model_5_map = {
-            "default": _jm_f_4,
-            "deprecated": _jm_f_5,
-            "description": _jm_f_6,
-            "examples": _jm_f_7,
-            "readOnly": _jm_f_8,
-            "title": _jm_f_9,
-            "writeOnly": _jm_f_10,
-        }
         global _jm_cst_0
         _jm_cst_0 = {'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
         global json_model_13_map
         json_model_13_map = {
-            "const": _jm_f_11,
-            "dependentRequired": _jm_f_12,
-            "enum": _jm_f_13,
-            "exclusiveMaximum": _jm_f_14,
-            "exclusiveMinimum": _jm_f_15,
+            "const": _jm_f_0,
+            "dependentRequired": _jm_f_1,
+            "enum": _jm_f_2,
+            "exclusiveMaximum": _jm_f_3,
+            "exclusiveMinimum": _jm_f_4,
             "maxContains": json_model_12,
             "maxItems": json_model_12,
             "maxLength": json_model_12,
             "maxProperties": json_model_12,
-            "maximum": _jm_f_16,
+            "maximum": _jm_f_5,
             "minContains": json_model_12,
             "minItems": json_model_12,
             "minLength": json_model_12,
             "minProperties": json_model_12,
-            "minimum": _jm_f_17,
-            "multipleOf": _jm_f_18,
-            "pattern": _jm_f_19,
+            "minimum": _jm_f_6,
+            "multipleOf": _jm_f_7,
+            "pattern": _jm_f_8,
             "required": json_model_11,
-            "type": _jm_f_20,
-            "uniqueItems": _jm_f_21,
+            "type": _jm_f_9,
+            "uniqueItems": _jm_f_10,
         }
         global json_model_15_map
         json_model_15_map = {
@@ -1101,81 +1118,81 @@ def check_model_init():
             "allOf": json_model_14,
             "anyOf": json_model_14,
             "contains": json_model_17,
-            "dependentSchemas": _jm_f_22,
+            "dependentSchemas": _jm_f_11,
             "else": json_model_17,
             "if": json_model_17,
             "items": json_model_17,
             "not": json_model_17,
             "oneOf": json_model_14,
-            "patternProperties": _jm_f_23,
+            "patternProperties": _jm_f_12,
             "prefixItems": json_model_14,
-            "properties": _jm_f_24,
+            "properties": _jm_f_13,
             "propertyNames": json_model_17,
             "then": json_model_17,
         }
         global json_model_16_map
         json_model_16_map = {
             "$anchor": json_model_3,
-            "$comment": _jm_f_25,
-            "$defs": _jm_f_26,
+            "$comment": _jm_f_14,
+            "$defs": _jm_f_15,
             "$dynamicAnchor": json_model_3,
             "$dynamicRef": json_model_3,
             "$id": json_model_3,
-            "$recursiveAnchor": _jm_f_27,
-            "$recursiveRef": _jm_f_28,
+            "$recursiveAnchor": _jm_f_16,
+            "$recursiveRef": _jm_f_17,
             "$ref": json_model_3,
-            "$schema": _jm_f_29,
-            "$vocabulary": _jm_f_30,
+            "$schema": _jm_f_18,
+            "$vocabulary": _jm_f_19,
             "additionalProperties": json_model_17,
             "allOf": json_model_14,
             "anyOf": json_model_14,
-            "const": _jm_f_31,
+            "const": _jm_f_20,
             "contains": json_model_17,
-            "contentEncoding": _jm_f_32,
-            "contentMediaType": _jm_f_33,
+            "contentEncoding": _jm_f_21,
+            "contentMediaType": _jm_f_22,
             "contentSchema": json_model_17,
-            "default": _jm_f_34,
-            "definitions": _jm_f_35,
-            "dependencies": _jm_f_36,
-            "dependentRequired": _jm_f_37,
-            "dependentSchemas": _jm_f_38,
-            "deprecated": _jm_f_39,
-            "description": _jm_f_40,
+            "default": _jm_f_23,
+            "definitions": _jm_f_24,
+            "dependencies": _jm_f_25,
+            "dependentRequired": _jm_f_26,
+            "dependentSchemas": _jm_f_27,
+            "deprecated": _jm_f_28,
+            "description": _jm_f_29,
             "else": json_model_17,
-            "enum": _jm_f_41,
-            "examples": _jm_f_42,
-            "exclusiveMaximum": _jm_f_43,
-            "exclusiveMinimum": _jm_f_44,
-            "format": _jm_f_45,
+            "enum": _jm_f_30,
+            "examples": _jm_f_31,
+            "exclusiveMaximum": _jm_f_32,
+            "exclusiveMinimum": _jm_f_33,
+            "format": _jm_f_34,
             "if": json_model_17,
             "items": json_model_17,
             "maxContains": json_model_12,
             "maxItems": json_model_12,
             "maxLength": json_model_12,
             "maxProperties": json_model_12,
-            "maximum": _jm_f_46,
+            "maximum": _jm_f_35,
             "minContains": json_model_12,
             "minItems": json_model_12,
             "minLength": json_model_12,
             "minProperties": json_model_12,
-            "minimum": _jm_f_47,
-            "multipleOf": _jm_f_48,
+            "minimum": _jm_f_36,
+            "multipleOf": _jm_f_37,
             "not": json_model_17,
             "oneOf": json_model_14,
-            "pattern": _jm_f_49,
-            "patternProperties": _jm_f_50,
+            "pattern": _jm_f_38,
+            "patternProperties": _jm_f_39,
             "prefixItems": json_model_14,
-            "properties": _jm_f_51,
+            "properties": _jm_f_40,
             "propertyNames": json_model_17,
-            "readOnly": _jm_f_52,
+            "readOnly": _jm_f_41,
             "required": json_model_11,
             "then": json_model_17,
-            "title": _jm_f_53,
-            "type": _jm_f_54,
+            "title": _jm_f_42,
+            "type": _jm_f_43,
             "unevaluatedItems": json_model_17,
             "unevaluatedProperties": json_model_17,
-            "uniqueItems": _jm_f_55,
-            "writeOnly": _jm_f_56,
+            "uniqueItems": _jm_f_44,
+            "writeOnly": _jm_f_45,
         }
         global check_model_map
         check_model_map = {

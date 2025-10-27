@@ -22,46 +22,63 @@ const size_t check_model_map_size = 1;
 // object .movie.'|'.0
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.movie.'|'.0]", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 2))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.movie.'|'.0]", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.0]", path);
-        return false;
+        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_2(prop, 0x00000074))
+        {
+            // handle must t property
+            must_count += 1;
+            // .movie.'|'.0.t
+            res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00007266);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected fr [.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_6(prop, 0x0000006572746974LL)))
+        {
+            // handle must titre property
+            must_count += 1;
+            // .movie.'|'.0.titre
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.movie.'|'.0]", (path ? &lpath_1 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "t", 0, path, NULL };
-    // .movie.'|'.0.t
-    res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00007266);
-    if (unlikely(! res))
+    if (unlikely(must_count != 2))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected fr [.movie.'|'.0.t]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.movie.'|'.0]", (path ? &lpath : NULL));
-        return false;
-    }
-    if (unlikely(! ((pval = json_object_get(val, "titre")) != NULL)))
-    {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <titre> [.movie.'|'.0]", path);
-        return false;
-    }
-    lpath = (jm_path_t) { "titre", 0, path, NULL };
-    // .movie.'|'.0.titre
-    res = json_is_string(pval);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.0.titre]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <titre> [.movie.'|'.0]", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.0]", path);
+            }
+            if (! (json_object_get(val, "titre") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <titre> [.movie.'|'.0]", path);
+            }
+        }
         return false;
     }
     return true;
@@ -70,46 +87,63 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .movie.'|'.1
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.movie.'|'.1]", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 2))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.movie.'|'.1]", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.1]", path);
-        return false;
+        jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_2(prop, 0x00000074))
+        {
+            // handle must t property
+            must_count += 1;
+            // .movie.'|'.1.t
+            res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00006e65);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected en [.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_6(prop, 0x000000656c746974LL)))
+        {
+            // handle must title property
+            must_count += 1;
+            // .movie.'|'.1.title
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.movie.'|'.1]", (path ? &lpath_2 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "t", 0, path, NULL };
-    // .movie.'|'.1.t
-    res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00006e65);
-    if (unlikely(! res))
+    if (unlikely(must_count != 2))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected en [.movie.'|'.1.t]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.movie.'|'.1]", (path ? &lpath : NULL));
-        return false;
-    }
-    if (unlikely(! ((pval = json_object_get(val, "title")) != NULL)))
-    {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <title> [.movie.'|'.1]", path);
-        return false;
-    }
-    lpath = (jm_path_t) { "title", 0, path, NULL };
-    // .movie.'|'.1.title
-    res = json_is_string(pval);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.1.title]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <title> [.movie.'|'.1]", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.1]", path);
+            }
+            if (! (json_object_get(val, "title") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <title> [.movie.'|'.1]", path);
+            }
+        }
         return false;
     }
     return true;
@@ -118,46 +152,63 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .movie.'|'.2
 static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.movie.'|'.2]", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 2))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.movie.'|'.2]", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.2]", path);
-        return false;
+        jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_2(prop, 0x00000074))
+        {
+            // handle must t property
+            must_count += 1;
+            // .movie.'|'.2.t
+            res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00006564);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected de [.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_6(prop, 0x000000656c746954LL)))
+        {
+            // handle must Title property
+            must_count += 1;
+            // .movie.'|'.2.Title
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.movie.'|'.2]", (path ? &lpath_3 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "t", 0, path, NULL };
-    // .movie.'|'.2.t
-    res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00006564);
-    if (unlikely(! res))
+    if (unlikely(must_count != 2))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected de [.movie.'|'.2.t]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.movie.'|'.2]", (path ? &lpath : NULL));
-        return false;
-    }
-    if (unlikely(! ((pval = json_object_get(val, "Title")) != NULL)))
-    {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <Title> [.movie.'|'.2]", path);
-        return false;
-    }
-    lpath = (jm_path_t) { "Title", 0, path, NULL };
-    // .movie.'|'.2.Title
-    res = json_is_string(pval);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.2.Title]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <Title> [.movie.'|'.2]", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "Title") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <Title> [.movie.'|'.2]", path);
+            }
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.2]", path);
+            }
+        }
         return false;
     }
     return true;
@@ -166,46 +217,63 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .movie.'|'.3
 static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.movie.'|'.3]", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 2))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.movie.'|'.3]", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "t")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.3]", path);
-        return false;
+        jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_2(prop, 0x00000074))
+        {
+            // handle must t property
+            must_count += 1;
+            // .movie.'|'.3.t
+            res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00007572);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected ru [.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_5(prop, 0x0000000069747573LL)))
+        {
+            // handle must suti property
+            must_count += 1;
+            // .movie.'|'.3.suti
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.movie.'|'.3]", (path ? &lpath_4 : NULL));
+            return false;
+        }
     }
-    lpath = (jm_path_t) { "t", 0, path, NULL };
-    // .movie.'|'.3.t
-    res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00007572);
-    if (unlikely(! res))
+    if (unlikely(must_count != 2))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected ru [.movie.'|'.3.t]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.movie.'|'.3]", (path ? &lpath : NULL));
-        return false;
-    }
-    if (unlikely(! ((pval = json_object_get(val, "suti")) != NULL)))
-    {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <suti> [.movie.'|'.3]", path);
-        return false;
-    }
-    lpath = (jm_path_t) { "suti", 0, path, NULL };
-    // .movie.'|'.3.suti
-    res = json_is_string(pval);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.3.suti]", (path ? &lpath : NULL));
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <suti> [.movie.'|'.3]", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "suti") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <suti> [.movie.'|'.3]", path);
+            }
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.3]", path);
+            }
+        }
         return false;
     }
     return true;
@@ -222,56 +290,70 @@ static INLINE jm_check_fun_t _jm_map_0(json_t *val)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    // check close must only props
     if (unlikely(! json_is_object(val)))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    if (unlikely(json_object_size(val) != 1))
-    {
-        if (rep) jm_report_add_entry(rep, "bad property count [.]", path);
-        return false;
-    }
-    jm_path_t lpath;
-    json_t * pval;
     bool res;
-    if (unlikely(! ((pval = json_object_get(val, "movie")) != NULL)))
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        if (rep) jm_report_add_entry(rep, "missing mandatory prop <movie> [.]", path);
-        return false;
-    }
-    lpath = (jm_path_t) { "movie", 0, path, NULL };
-    // .movie
-    bool iso_0 = json_is_object(pval);
-    res = iso_0;
-    if (likely(res))
-    {
-        if (likely(json_object_get(pval, "t") != NULL))
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_6(prop, 0x0000006569766f6dLL)))
         {
-            json_t * tag_0 = json_object_get(pval, "t");
-            jm_check_fun_t fun_0 = _jm_map_0(tag_0);
-            if (likely(fun_0 != NULL))
-                res = fun_0(pval, (path ? &lpath : NULL), rep);
+            // handle must movie property
+            must_count += 1;
+            // .movie
+            bool iso_0 = json_is_object(pval);
+            res = iso_0;
+            if (likely(res))
+            {
+                if (likely(json_object_get(pval, "t") != NULL))
+                {
+                    json_t * tag_0 = json_object_get(pval, "t");
+                    jm_check_fun_t fun_0 = _jm_map_0(tag_0);
+                    if (likely(fun_0 != NULL))
+                        res = fun_0(pval, (path ? &lpath_0 : NULL), rep);
+                    else
+                    {
+                        res = false;
+                        if (rep) jm_report_add_entry(rep, "tag <t> value not found [.movie.'|']", (path ? &lpath_0 : NULL));
+                    }
+                }
+                else
+                {
+                    res = false;
+                    if (rep) jm_report_add_entry(rep, "tag prop <t> is missing [.movie.'|']", (path ? &lpath_0 : NULL));
+                }
+            }
             else
             {
-                res = false;
-                if (rep) jm_report_add_entry(rep, "tag <t> value not found [.movie.'|']", (path ? &lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "value is not an object [.movie.'|']", (path ? &lpath_0 : NULL));
+            }
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.movie]", (path ? &lpath_0 : NULL));
+                return false;
             }
         }
         else
         {
-            res = false;
-            if (rep) jm_report_add_entry(rep, "tag prop <t> is missing [.movie.'|']", (path ? &lpath : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.]", (path ? &lpath_0 : NULL));
+            return false;
         }
     }
-    else
+    if (unlikely(must_count != 1))
     {
-        if (rep) jm_report_add_entry(rep, "value is not an object [.movie.'|']", (path ? &lpath : NULL));
-    }
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <movie> [.]", (path ? &lpath : NULL));
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "movie") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <movie> [.]", path);
+            }
+        }
         return false;
     }
     return true;

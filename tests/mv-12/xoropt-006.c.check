@@ -3,7 +3,7 @@ xoropt-006.values.json[1]: PASS
 xoropt-006.values.json[2]: PASS
 xoropt-006.values.json[3]: PASS
 xoropt-006.values.json[4]: PASS
-xoropt-006.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .a: unexpected $NONE [.'|'.2.'/^[ab]$/']; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xoropt-006.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .a: unexpected $NONE [.'|'.2.'/^[ab]$/']; .: unexpected element [.'|'.1]; .a: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .b: unexpected prop [.'|'.0])
 xoropt-006.values.json[6]: FAIL (.: unexpected type [.'|'])
 xoropt-006.values.json[7]: FAIL (.: unexpected type [.'|'])
 xoropt-006.values.json[8]: FAIL (.: unexpected type [.'|'])

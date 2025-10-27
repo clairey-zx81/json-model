@@ -1,11 +1,11 @@
 comments.values.json[0]: PASS
 comments.values.json[1]: PASS
-comments.values.json[2]: FAIL (.hello: unexpected value for mandatory prop <hello> [.]; .hello: unexpected string [.hello])
-comments.values.json[3]: FAIL (.world: unexpected value for mandatory prop <world> [.]; .world: unexpected /^!/ [.world])
-comments.values.json[4]: FAIL (.world: unexpected value for mandatory prop <world> [.]; .world: unexpected /^!/ [.world])
-comments.values.json[5]: FAIL (.: bad property count [.])
-comments.values.json[6]: FAIL (.: bad property count [.])
-comments.values.json[7]: FAIL (.: bad property count [.])
+comments.values.json[2]: FAIL (.hello: invalid mandatory prop value [.hello]; .hello: unexpected string [.hello])
+comments.values.json[3]: FAIL (.world: invalid mandatory prop value [.world]; .world: unexpected /^!/ [.world])
+comments.values.json[4]: FAIL (.world: invalid mandatory prop value [.world]; .world: unexpected /^!/ [.world])
+comments.values.json[5]: FAIL (.: missing mandatory prop <world> [.]; .: missing mandatory prop <hello> [.])
+comments.values.json[6]: FAIL (.: missing mandatory prop <world> [.])
+comments.values.json[7]: FAIL (.: missing mandatory prop <hello> [.])
 comments.values.json[8]: FAIL (.: not an object [.])
 comments.values.json[9]: FAIL (.: not an object [.])
 comments.values.json[10]: FAIL (.: not an object [.])

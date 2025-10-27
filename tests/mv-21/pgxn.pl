@@ -33,19 +33,10 @@ sub json_model_14($$$);
 sub json_model_15($$$);
 sub _jm_obj_2($$$);
 sub json_model_16($$$);
-sub _jm_f_0($$$);
 sub _jm_obj_3($$$);
-sub _jm_f_1($$$);
-sub _jm_f_2($$$);
-sub _jm_f_3($$$);
-sub _jm_f_4($$$);
-sub _jm_f_5($$$);
-my %json_model_1_mup;
-sub _jm_f_6($$$);
-sub _jm_f_7($$$);
-sub _jm_f_8($$$);
-sub _jm_f_9($$$);
-my %json_model_1_map;
+sub _jm_obj_4($$$);
+sub _jm_obj_5($$$);
+sub _jm_obj_6($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -539,14 +530,6 @@ sub json_model_16($$$)
     return 1;
 }
 
-# check json_model_1_mup_abstract (.abstract)
-sub _jm_f_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .abstract
-    return jm_is_string($val);
-}
-
 # object .license.'|'.2
 sub _jm_obj_3($$$)
 {
@@ -570,32 +553,33 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# check json_model_1_mup_license (.license)
-sub _jm_f_1($$$)
+# object .provides
+sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .license
-    # .license.'|'.0
-    # .license.'|'.1
-    # .license.'|'.2
-    return json_model_4($val, undef, undef) || json_model_5($val, undef, undef) || _jm_obj_3($val, undef, undef);
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .provides.''
+        $res = json_model_6($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
 }
 
-# check json_model_1_mup_maintainer (.maintainer)
-sub _jm_f_2($$$)
+# object .'meta-spec'
+sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .maintainer
-    # .maintainer.'|'.0
-    # .maintainer.'|'.1
-    return json_model_2($val, undef, undef) || json_model_3($val, undef, undef);
-}
-
-# check json_model_1_mup_meta-spec (.'meta-spec')
-sub _jm_f_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'meta-spec'
     if (! jm_is_object($val))
     {
         return 0;
@@ -640,60 +624,10 @@ sub _jm_f_3($$$)
     return $must_count == 1;
 }
 
-# check json_model_1_mup_provides (.provides)
-sub _jm_f_4($$$)
+# object .no_index
+sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .provides
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .provides.''
-        $res = json_model_6($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check json_model_1_mup_version (.version)
-sub _jm_f_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .version
-    return jm_is_string($val);
-}
-
-
-# check json_model_1_map_description (.description)
-sub _jm_f_6($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .description
-    return jm_is_string($val);
-}
-
-# check json_model_1_map_generated_by (.generated_by)
-sub _jm_f_7($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .generated_by
-    return jm_is_string($val);
-}
-
-# check json_model_1_map_no_index (.no_index)
-sub _jm_f_8($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .no_index
     if (! jm_is_object($val))
     {
         return 0;
@@ -730,15 +664,6 @@ sub _jm_f_8($$$)
     return 1;
 }
 
-# check json_model_1_map_url (.url)
-sub _jm_f_9($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .url
-    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
-}
-
-
 # check $ (.)
 sub json_model_1($$$)
 {
@@ -749,27 +674,168 @@ sub json_model_1($$$)
         return 0;
     }
     my $res;
-    my $pfun;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $json_model_1_mup{$prop}))
+        if ($prop eq 'name')
         {
-            # handle 7 mandatory props
-            if (defined($pfun))
+            # handle must name property
+            $must_count++;
+            # .name
+            $res = json_model_2($pval, undef, undef);
+            if (! $res)
             {
-                $must_count++;
-                if (! &$pfun($pval, undef, undef))
-                {
-                    return 0;
-                }
+                return 0;
             }
         }
-        elsif (($pfun = $json_model_1_map{$prop}))
+        elsif ($prop eq 'version')
         {
-            # handle 8 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
+            # handle must version property
+            $must_count++;
+            # .version
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'abstract')
+        {
+            # handle must abstract property
+            $must_count++;
+            # .abstract
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'maintainer')
+        {
+            # handle must maintainer property
+            $must_count++;
+            # .maintainer
+            # .maintainer.'|'.0
+            # .maintainer.'|'.1
+            $res = json_model_2($pval, undef, undef) || json_model_3($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'license')
+        {
+            # handle must license property
+            $must_count++;
+            # .license
+            # .license.'|'.0
+            # .license.'|'.1
+            # .license.'|'.2
+            $res = json_model_4($pval, undef, undef) || json_model_5($pval, undef, undef) || _jm_obj_3($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'provides')
+        {
+            # handle must provides property
+            $must_count++;
+            # .provides
+            $res = _jm_obj_4($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'meta-spec')
+        {
+            # handle must meta-spec property
+            $must_count++;
+            # .'meta-spec'
+            $res = _jm_obj_5($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'url')
+        {
+            # handle may url property
+            # .url
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle may description property
+            # .description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'generated_by')
+        {
+            # handle may generated_by property
+            # .generated_by
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'tags')
+        {
+            # handle may tags property
+            # .tags
+            $res = json_model_3($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'no_index')
+        {
+            # handle may no_index property
+            # .no_index
+            $res = _jm_obj_6($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'release_status')
+        {
+            # handle may release_status property
+            # .release_status
+            $res = json_model_7($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'resources')
+        {
+            # handle may resources property
+            # .resources
+            $res = json_model_8($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'prereqs')
+        {
+            # handle may prereqs property
+            # .prereqs
+            $res = json_model_16($pval, undef, undef);
+            if (! $res)
             {
                 return 0;
             }
@@ -846,25 +912,6 @@ sub check_model_init()
             'suggests' => 1,
             'conflicts' => 1,
         );
-        %json_model_1_mup = (
-            'abstract' => \&_jm_f_0,
-            'license' => \&_jm_f_1,
-            'maintainer' => \&_jm_f_2,
-            'meta-spec' => \&_jm_f_3,
-            'name' => \&json_model_2,
-            'provides' => \&_jm_f_4,
-            'version' => \&_jm_f_5,
-        );
-        %json_model_1_map = (
-            'description' => \&_jm_f_6,
-            'generated_by' => \&_jm_f_7,
-            'no_index' => \&_jm_f_8,
-            'prereqs' => \&json_model_16,
-            'release_status' => \&json_model_7,
-            'resources' => \&json_model_8,
-            'tags' => \&json_model_3,
-            'url' => \&_jm_f_9,
-        );
         %check_model_map = (
             '' => \&json_model_1,
             'neStr' => \&json_model_2,
@@ -895,8 +942,6 @@ sub check_model_free()
         %_jm_cst_1 = ();
         %_jm_cst_2 = ();
         %_jm_cst_3 = ();
-        %json_model_1_mup = ();
-        %json_model_1_map = ();
         %check_model_map = ();
     }
 }

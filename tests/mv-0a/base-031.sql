@@ -9,36 +9,42 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   arr_0_idx INT8;
   arr_0_item JSONB;
 BEGIN
   -- .'$bibi'
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'bibi' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'bibi';
-  -- .'$bibi'.bibi
-  res := JSONB_TYPEOF(pval) = 'array';
-  IF res THEN
-    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_0_item := pval -> arr_0_idx;
-      -- .'$bibi'.bibi.0
-      res := json_model_2(arr_0_item, NULL, NULL);
-      IF NOT res THEN
-        EXIT;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'bibi' THEN
+      -- handle must bibi property
+      must_count := must_count + 1;
+      -- .'$bibi'.bibi
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_0_item := pval -> arr_0_idx;
+          -- .'$bibi'.bibi.0
+          res := json_model_2(arr_0_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
       END IF;
-    END LOOP;
-  END IF;
-  RETURN res;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 

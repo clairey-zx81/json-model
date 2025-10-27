@@ -17,79 +17,67 @@ public class objs4 extends ModelChecker
 {
     static public final String VERSION = "2";
 
-    Map<String, Checker> json_model_1_map_pmap;
     public Map<String, Checker> objs4_map_pmap;
 
-    // check json_model_1_map_f0 (.f0)
-    public boolean _jm_f_0(Object val, Path path, Report rep)
+    // object .f0
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        // .f0
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f1 (.f1)
-    public boolean _jm_f_1(Object val, Path path, Report rep)
+    // object .f1
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
-        // .f1
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f2 (.f2)
-    public boolean _jm_f_2(Object val, Path path, Report rep)
+    // object .f2
+    public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        // .f2
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f3 (.f3)
-    public boolean _jm_f_3(Object val, Path path, Report rep)
+    // object .f3
+    public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
-        // .f3
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f4 (.f4)
-    public boolean _jm_f_4(Object val, Path path, Report rep)
+    // object .f4
+    public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
-        // .f4
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f5 (.f5)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
+    // object .f5
+    public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
-        // .f5
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f6 (.f6)
-    public boolean _jm_f_6(Object val, Path path, Report rep)
+    // object .f6
+    public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
-        // .f6
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f7 (.f7)
-    public boolean _jm_f_7(Object val, Path path, Report rep)
+    // object .f7
+    public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
-        // .f7
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f8 (.f8)
-    public boolean _jm_f_8(Object val, Path path, Report rep)
+    // object .f8
+    public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
-        // .f8
         return json.isObject(val) && json.objectSize(val) == 0;
     }
 
-    // check json_model_1_map_f9 (.f9)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
+    // object .f9
+    public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
-        // .f9
         return json.isObject(val) && json.objectSize(val) == 0;
     }
-
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
@@ -99,16 +87,108 @@ public class objs4 extends ModelChecker
         {
             return false;
         }
-        Checker pfun;
+        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            if ((pfun = json_model_1_map_pmap.get(prop)) != null)
+            if (prop.compareTo("f0") == 0)
             {
-                // handle 10 may props
-                if (pfun != null && ! pfun.call(pval, null, null))
+                // handle may f0 property
+                // .f0
+                res = _jm_obj_0(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f1") == 0)
+            {
+                // handle may f1 property
+                // .f1
+                res = _jm_obj_1(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f2") == 0)
+            {
+                // handle may f2 property
+                // .f2
+                res = _jm_obj_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f3") == 0)
+            {
+                // handle may f3 property
+                // .f3
+                res = _jm_obj_3(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f4") == 0)
+            {
+                // handle may f4 property
+                // .f4
+                res = _jm_obj_4(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f5") == 0)
+            {
+                // handle may f5 property
+                // .f5
+                res = _jm_obj_5(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f6") == 0)
+            {
+                // handle may f6 property
+                // .f6
+                res = _jm_obj_6(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f7") == 0)
+            {
+                // handle may f7 property
+                // .f7
+                res = _jm_obj_7(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f8") == 0)
+            {
+                // handle may f8 property
+                // .f8
+                res = _jm_obj_8(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("f9") == 0)
+            {
+                // handle may f9 property
+                // .f9
+                res = _jm_obj_9(pval, null, null);
+                if (! res)
                 {
                     return false;
                 }
@@ -127,17 +207,6 @@ public class objs4 extends ModelChecker
         if (!initialized)
         {
             try {
-            json_model_1_map_pmap = new HashMap<String, Checker>();
-            json_model_1_map_pmap.put("f0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            json_model_1_map_pmap.put("f1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            json_model_1_map_pmap.put("f2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            json_model_1_map_pmap.put("f3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            json_model_1_map_pmap.put("f4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            json_model_1_map_pmap.put("f5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            json_model_1_map_pmap.put("f6", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            json_model_1_map_pmap.put("f7", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            json_model_1_map_pmap.put("f8", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            json_model_1_map_pmap.put("f9", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
             objs4_map_pmap = new HashMap<String, Checker>();
             objs4_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
@@ -153,7 +222,6 @@ public class objs4 extends ModelChecker
         if (initialized)
         {
             super.free();
-            json_model_1_map_pmap = null;
             objs4_map_pmap = null;
         }
     }

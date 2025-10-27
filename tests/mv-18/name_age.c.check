@@ -1,8 +1,8 @@
 name_age.values.json[0]: PASS
 name_age.values.json[1]: PASS
-name_age.values.json[2]: FAIL (.: bad property count [.])
-name_age.values.json[3]: FAIL (.: missing mandatory prop <name> [.])
-name_age.values.json[4]: FAIL (.: bad property count [.])
+name_age.values.json[2]: FAIL (.: missing mandatory prop <age> [.])
+name_age.values.json[3]: FAIL (.nom: unexpected prop [.])
+name_age.values.json[4]: FAIL (.: missing mandatory prop <name> [.]; .: missing mandatory prop <age> [.])
 name_age.values.json[5]: FAIL (.: not an object [.])
 name_age.values.json[6]: FAIL (.: not an object [.])
 name_age.values.json[7]: FAIL (.: not an object [.])

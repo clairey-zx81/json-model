@@ -18,8 +18,6 @@ const _jm_re_3_re = new runtime.RX("^(<=|<|>=|>|!=|==)$", "")
 const _jm_re_4_re = new runtime.RX("^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$", "")
 let _jm_cst_2 = new Set()
 let _jm_cst_3 = new Set()
-var json_model_1_mup = new Map()
-var json_model_1_map = new Map()
 var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
@@ -621,18 +619,6 @@ function json_model_16(val, path, rep)
     return true;
 }
 
-// check json_model_1_mup_abstract (.abstract)
-function _jm_f_0(val, path, rep)
-{
-    // .abstract
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.abstract]", path])
-    }
-    return res;
-}
-
 // object .license.'|'.2
 function _jm_obj_3(val, path, rep)
 {
@@ -657,79 +643,33 @@ function _jm_obj_3(val, path, rep)
     return true;
 }
 
-// check json_model_1_mup_license (.license)
-function _jm_f_1(val, path, rep)
+// object .provides
+function _jm_obj_4(val, path, rep)
 {
-    // .license
-    // .license.'|'.0
-    let res = json_model_4(val, path, rep);
-    if (! res)
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["unexpected $License [.license.'|'.0]", path])
+        rep !== null && rep.push(["not an object [.provides]", path])
+        return false;
     }
-    if (! res)
+    let res;
+    for (const [prop, pval] of Object.entries(val))
     {
-        // .license.'|'.1
-        res = json_model_5(val, path, rep);
+        let lpath_9 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .provides.''
+        res = json_model_6(pval, (path ? lpath_9 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $LicenseList [.license.'|'.1]", path])
-        }
-        if (! res)
-        {
-            // .license.'|'.2
-            res = _jm_obj_3(val, path, rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.license.'|'.2]", path])
-            }
+            rep !== null && rep.push(["unexpected $Provide [.provides.'']", (path ? lpath_9 : null)])
+            return false;
         }
     }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.license.'|']", path])
-    }
-    return res;
+    return true;
 }
 
-// check json_model_1_mup_maintainer (.maintainer)
-function _jm_f_2(val, path, rep)
+// object .'meta-spec'
+function _jm_obj_5(val, path, rep)
 {
-    // .maintainer
-    // .maintainer.'|'.0
-    let res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $neStr [.maintainer.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .maintainer.'|'.1
-        res = json_model_3(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $neStrList [.maintainer.'|'.1]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.maintainer.'|']", path])
-    }
-    return res;
-}
-
-// check json_model_1_mup_meta-spec (.'meta-spec')
-function _jm_f_3(val, path, rep)
-{
-    // .'meta-spec'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'meta-spec']", path])
@@ -739,7 +679,7 @@ function _jm_f_3(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_9 = path ? path.concat([prop]) : null;
+        let lpath_10 = path ? path.concat([prop]) : null;
         if (prop == "version")
         {
             // handle must version property
@@ -748,8 +688,8 @@ function _jm_f_3(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "1.0.0";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _1.0.0 [.'meta-spec'.version]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'meta-spec'.version]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["unexpected _1.0.0 [.'meta-spec'.version]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'meta-spec'.version]", (path ? lpath_10 : null)])
                 return false;
             }
         }
@@ -760,8 +700,8 @@ function _jm_f_3(val, path, rep)
             res = runtime.jm_is_valid_url(pval);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $URL [.'meta-spec'.url]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'meta-spec'.url]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["unexpected $URL [.'meta-spec'.url]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'meta-spec'.url]", (path ? lpath_10 : null)])
                 return false;
             }
         }
@@ -773,7 +713,7 @@ function _jm_f_3(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'meta-spec']", (path ? lpath_9 : null)])
+            rep !== null && rep.push(["unexpected prop [.'meta-spec']", (path ? lpath_10 : null)])
             return false;
         }
     }
@@ -791,72 +731,9 @@ function _jm_f_3(val, path, rep)
     return true;
 }
 
-// check json_model_1_mup_provides (.provides)
-function _jm_f_4(val, path, rep)
+// object .no_index
+function _jm_obj_6(val, path, rep)
 {
-    // .provides
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.provides]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_10 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .provides.''
-        res = json_model_6(pval, (path ? lpath_10 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Provide [.provides.'']", (path ? lpath_10 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check json_model_1_mup_version (.version)
-function _jm_f_5(val, path, rep)
-{
-    // .version
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.version]", path])
-    }
-    return res;
-}
-
-
-// check json_model_1_map_description (.description)
-function _jm_f_6(val, path, rep)
-{
-    // .description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.description]", path])
-    }
-    return res;
-}
-
-// check json_model_1_map_generated_by (.generated_by)
-function _jm_f_7(val, path, rep)
-{
-    // .generated_by
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.generated_by]", path])
-    }
-    return res;
-}
-
-// check json_model_1_map_no_index (.no_index)
-function _jm_f_8(val, path, rep)
-{
-    // .no_index
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.no_index]", path])
@@ -899,19 +776,6 @@ function _jm_f_8(val, path, rep)
     return true;
 }
 
-// check json_model_1_map_url (.url)
-function _jm_f_9(val, path, rep)
-{
-    // .url
-    let res = runtime.jm_is_valid_url(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URL [.url]", path])
-    }
-    return res;
-}
-
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
@@ -922,30 +786,239 @@ function json_model_1(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_7 = path ? path.concat([prop]) : null;
-        if ((pfun = json_model_1_mup.get(prop)))
+        if (prop == "name")
         {
-            // handle 7 mandatory props
-            if (pfun !== undefined)
+            // handle must name property
+            must_count += 1;
+            // .name
+            res = json_model_2(pval, (path ? lpath_7 : null), rep);
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? lpath_7 : null), rep))
-                {
-                    rep !== null && rep.push(["invalid mandatory prop value [.]", (path ? lpath_7 : null)])
-                    return false;
-                }
+                rep !== null && rep.push(["unexpected $neStr [.name]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.name]", (path ? lpath_7 : null)])
+                return false;
             }
         }
-        else if ((pfun = json_model_1_map.get(prop)))
+        else if (prop == "version")
         {
-            // handle 8 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_7 : null), rep))
+            // handle must version property
+            must_count += 1;
+            // .version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["unexpected string [.version]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.version]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "abstract")
+        {
+            // handle must abstract property
+            must_count += 1;
+            // .abstract
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.abstract]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.abstract]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maintainer")
+        {
+            // handle must maintainer property
+            must_count += 1;
+            // .maintainer
+            // .maintainer.'|'.0
+            res = json_model_2(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $neStr [.maintainer.'|'.0]", (path ? lpath_7 : null)])
+            }
+            if (! res)
+            {
+                // .maintainer.'|'.1
+                res = json_model_3(pval, (path ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $neStrList [.maintainer.'|'.1]", (path ? lpath_7 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.maintainer.'|']", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.maintainer]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "license")
+        {
+            // handle must license property
+            must_count += 1;
+            // .license
+            // .license.'|'.0
+            res = json_model_4(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $License [.license.'|'.0]", (path ? lpath_7 : null)])
+            }
+            if (! res)
+            {
+                // .license.'|'.1
+                res = json_model_5(pval, (path ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $LicenseList [.license.'|'.1]", (path ? lpath_7 : null)])
+                }
+                if (! res)
+                {
+                    // .license.'|'.2
+                    res = _jm_obj_3(pval, (path ? lpath_7 : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected element [.license.'|'.2]", (path ? lpath_7 : null)])
+                    }
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.license.'|']", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.license]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "provides")
+        {
+            // handle must provides property
+            must_count += 1;
+            // .provides
+            res = _jm_obj_4(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.provides]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.provides]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "meta-spec")
+        {
+            // handle must meta-spec property
+            must_count += 1;
+            // .'meta-spec'
+            res = _jm_obj_5(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'meta-spec']", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'meta-spec']", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "url")
+        {
+            // handle may url property
+            // .url
+            res = runtime.jm_is_valid_url(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $URL [.url]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.url]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.description]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.description]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "generated_by")
+        {
+            // handle may generated_by property
+            // .generated_by
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.generated_by]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.generated_by]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "tags")
+        {
+            // handle may tags property
+            // .tags
+            res = json_model_3(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $neStrList [.tags]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.tags]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "no_index")
+        {
+            // handle may no_index property
+            // .no_index
+            res = _jm_obj_6(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.no_index]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.no_index]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "release_status")
+        {
+            // handle may release_status property
+            // .release_status
+            res = json_model_7(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Status [.release_status]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.release_status]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "resources")
+        {
+            // handle may resources property
+            // .resources
+            res = json_model_8(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Resources [.resources]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.resources]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "prereqs")
+        {
+            // handle may prereqs property
+            // .prereqs
+            res = json_model_16(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Prereqs [.prereqs]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.prereqs]", (path ? lpath_7 : null)])
                 return false;
             }
         }
@@ -1049,21 +1122,6 @@ export function check_model_init()
         _jm_cst_3.add("recommends")
         _jm_cst_3.add("suggests")
         _jm_cst_3.add("conflicts")
-        json_model_1_mup.set("abstract", _jm_f_0)
-        json_model_1_mup.set("license", _jm_f_1)
-        json_model_1_mup.set("maintainer", _jm_f_2)
-        json_model_1_mup.set("meta-spec", _jm_f_3)
-        json_model_1_mup.set("name", json_model_2)
-        json_model_1_mup.set("provides", _jm_f_4)
-        json_model_1_mup.set("version", _jm_f_5)
-        json_model_1_map.set("description", _jm_f_6)
-        json_model_1_map.set("generated_by", _jm_f_7)
-        json_model_1_map.set("no_index", _jm_f_8)
-        json_model_1_map.set("prereqs", json_model_16)
-        json_model_1_map.set("release_status", json_model_7)
-        json_model_1_map.set("resources", json_model_8)
-        json_model_1_map.set("tags", json_model_3)
-        json_model_1_map.set("url", _jm_f_9)
         check_model_map.set("", json_model_1)
         check_model_map.set("neStr", json_model_2)
         check_model_map.set("neStrList", json_model_3)

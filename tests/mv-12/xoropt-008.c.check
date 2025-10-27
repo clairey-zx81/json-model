@@ -3,9 +3,9 @@ xoropt-008.values.json[1]: PASS
 xoropt-008.values.json[2]: PASS
 xoropt-008.values.json[3]: PASS
 xoropt-008.values.json[4]: PASS
-xoropt-008.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .a: unexpected value for mandatory prop <a> [.'|'.2]; .a: not array or unexpected array [.'|'.2.a]; .: unexpected element [.'|'.1]; .a: unexpected value for mandatory prop <a> [.'|'.1]; .a: unexpected string [.'|'.1.a]; .: unexpected element [.'|'.0]; .a: unexpected value for mandatory prop <a> [.'|'.0]; .a: not a bool [.'|'.0.a])
-xoropt-008.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
-xoropt-008.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: missing mandatory prop <a> [.'|'.2]; .: unexpected element [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+xoropt-008.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .a: invalid mandatory prop value [.'|'.2.a]; .a: not array or unexpected array [.'|'.2.a]; .: unexpected element [.'|'.1]; .a: invalid mandatory prop value [.'|'.1.a]; .a: unexpected string [.'|'.1.a]; .: unexpected element [.'|'.0]; .a: invalid mandatory prop value [.'|'.0.a]; .a: not a bool [.'|'.0.a])
+xoropt-008.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: missing mandatory prop <a> [.'|'.2]; .: unexpected element [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+xoropt-008.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .un: unexpected prop [.'|'.2]; .: unexpected element [.'|'.1]; .un: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .un: unexpected prop [.'|'.0])
 xoropt-008.values.json[8]: FAIL (.: unexpected type [.'|'])
 xoropt-008.values.json[9]: FAIL (.: unexpected type [.'|'])
 xoropt-008.values.json[10]: FAIL (.: unexpected type [.'|'])

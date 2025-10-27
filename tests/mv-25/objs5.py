@@ -20,7 +20,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-json_model_1_map: PropMap
 check_model_map: PropMap
 
 # check $empty (.'$empty')
@@ -28,17 +27,72 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$empty'
     return isinstance(val, dict) and len(val) == 0
 
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     if not isinstance(val, dict):
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
-        if pfun := json_model_1_map.get(prop):
-            # handle 10 may props
-            if pfun != UNDEFINED and not pfun(pval, None, None):
+        if prop == "f0":
+            # handle may f0 property
+            # .f0
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f1":
+            # handle may f1 property
+            # .f1
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f2":
+            # handle may f2 property
+            # .f2
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f3":
+            # handle may f3 property
+            # .f3
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f4":
+            # handle may f4 property
+            # .f4
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f5":
+            # handle may f5 property
+            # .f5
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f6":
+            # handle may f6 property
+            # .f6
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f7":
+            # handle may f7 property
+            # .f7
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f8":
+            # handle may f8 property
+            # .f8
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+        elif prop == "f9":
+            # handle may f9 property
+            # .f9
+            res = json_model_2(pval, None, None)
+            if not res:
                 return False
         else:
             return False
@@ -53,19 +107,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global json_model_1_map
-        json_model_1_map = {
-            "f0": json_model_2,
-            "f1": json_model_2,
-            "f2": json_model_2,
-            "f3": json_model_2,
-            "f4": json_model_2,
-            "f5": json_model_2,
-            "f6": json_model_2,
-            "f7": json_model_2,
-            "f8": json_model_2,
-            "f9": json_model_2,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

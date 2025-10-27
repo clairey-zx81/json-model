@@ -9,33 +9,39 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
 BEGIN
   -- JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT
   -- .
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'i' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'i';
-  -- .i
-  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 'f' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 'f';
-  -- .f
-  RETURN JSONB_TYPEOF(pval) = 'number';
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'i' THEN
+      -- handle must i property
+      must_count := must_count + 1;
+      -- .i
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'f' THEN
+      -- handle must f property
+      must_count := must_count + 1;
+      -- .f
+      res := JSONB_TYPEOF(pval) = 'number';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 

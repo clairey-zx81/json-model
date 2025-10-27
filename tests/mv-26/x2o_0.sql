@@ -9,22 +9,29 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
 BEGIN
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 't' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 't';
-  -- .'|'.0.t
-  RETURN JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 't' THEN
+      -- handle must t property
+      must_count := must_count + 1;
+      -- .'|'.0.t
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -41,22 +48,29 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
 BEGIN
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 't' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 't';
-  -- .'|'.1.t
-  RETURN JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 't' THEN
+      -- handle must t property
+      must_count := must_count + 1;
+      -- .'|'.1.t
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -64,50 +78,57 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  pval JSONB;
   res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
   xc_0 int;
   xr_0 bool;
 BEGIN
-  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF jm_object_size(val) <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  IF NOT val ? 't' THEN
-    RETURN FALSE;
-  END IF;
-  pval := val -> 't';
-  -- .'|'.2.t
-  -- generic xor list
-  xc_0 := 0;
-  -- .'|'.2.t.'^'.0
-  xr_0 := JSONB_TYPEOF(pval) = 'string';
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  -- .'|'.2.t.'^'.1
-  xr_0 := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  IF xc_0 <= 1 THEN
-    -- .'|'.2.t.'^'.2
-    xr_0 := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'b';
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 't' THEN
+      -- handle must t property
+      must_count := must_count + 1;
+      -- .'|'.2.t
+      -- generic xor list
+      xc_0 := 0;
+      -- .'|'.2.t.'^'.0
+      xr_0 := JSONB_TYPEOF(pval) = 'string';
+      IF xr_0 THEN
+        xc_0 := xc_0 + 1;
+      END IF;
+      -- .'|'.2.t.'^'.1
+      xr_0 := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
+      IF xr_0 THEN
+        xc_0 := xc_0 + 1;
+      END IF;
+      IF xc_0 <= 1 THEN
+        -- .'|'.2.t.'^'.2
+        xr_0 := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'b';
+        IF xr_0 THEN
+          xc_0 := xc_0 + 1;
+        END IF;
+      END IF;
+      IF xc_0 <= 1 THEN
+        -- .'|'.2.t.'^'.3
+        xr_0 := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'c';
+        IF xr_0 THEN
+          xc_0 := xc_0 + 1;
+        END IF;
+      END IF;
+      res := xc_0 = 1;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
     END IF;
-  END IF;
-  IF xc_0 <= 1 THEN
-    -- .'|'.2.t.'^'.3
-    xr_0 := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'c';
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
-    END IF;
-  END IF;
-  RETURN xc_0 = 1;
+  END LOOP;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 

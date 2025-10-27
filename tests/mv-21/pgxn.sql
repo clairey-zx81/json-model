@@ -496,15 +496,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_mup_abstract (.abstract)
-CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .abstract
-  RETURN JSONB_TYPEOF(val) = 'string';
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .license.'|'.2
 CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -528,31 +519,31 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_mup_license (.license)
-CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- object .provides
+CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  prop TEXT;
+  pval JSONB;
 BEGIN
-  -- .license
-  -- .license.'|'.0
-  -- .license.'|'.1
-  -- .license.'|'.2
-  RETURN json_model_4(val, NULL, NULL) OR json_model_5(val, NULL, NULL) OR _jm_obj_3(val, NULL, NULL);
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    -- handle other props
+    -- .provides.''
+    res := json_model_6(pval, NULL, NULL);
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_mup_maintainer (.maintainer)
-CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .maintainer
-  -- .maintainer.'|'.0
-  -- .maintainer.'|'.1
-  RETURN json_model_2(val, NULL, NULL) OR json_model_3(val, NULL, NULL);
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_mup_meta-spec (.'meta-spec')
-CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
+-- object .'meta-spec'
+CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -560,7 +551,6 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  -- .'meta-spec'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -593,75 +583,14 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_mup_provides (.provides)
-CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
+-- object .no_index
+CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
-  -- .provides
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    -- handle other props
-    -- .provides.''
-    res := json_model_6(pval, NULL, NULL);
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_mup_version (.version)
-CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .version
-  RETURN JSONB_TYPEOF(val) = 'string';
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION json_model_1_mup(name TEXT)
-RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  map JSONB := JSONB '{"abstract":"_jm_f_0","license":"_jm_f_1","maintainer":"_jm_f_2","meta-spec":"_jm_f_3","name":"json_model_2","provides":"_jm_f_4","version":"_jm_f_5"}';
-BEGIN
-  RETURN map->>name;
-END;
-$$ LANGUAGE plpgsql;
-
--- check json_model_1_map_description (.description)
-CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .description
-  RETURN JSONB_TYPEOF(val) = 'string';
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_map_generated_by (.generated_by)
-CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .generated_by
-  RETURN JSONB_TYPEOF(val) = 'string';
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_1_map_no_index (.no_index)
-CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-BEGIN
-  -- .no_index
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -688,30 +617,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_url (.url)
-CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .url
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION json_model_1_map(name TEXT)
-RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  map JSONB := JSONB '{"description":"_jm_f_6","generated_by":"_jm_f_7","no_index":"_jm_f_8","prereqs":"json_model_16","release_status":"json_model_7","resources":"json_model_8","tags":"json_model_3","url":"_jm_f_9"}';
-BEGIN
-  RETURN map->>name;
-END;
-$$ LANGUAGE plpgsql;
-
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  pfun TEXT;
   must_count int;
   prop TEXT;
   pval JSONB;
@@ -722,17 +632,121 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF json_model_1_mup(prop) IS NOT NULL THEN
-      -- handle 7 mandatory props
-      pfun := json_model_1_mup(prop);
+    IF prop = 'name' THEN
+      -- handle must name property
       must_count := must_count + 1;
-      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
+      -- .name
+      res := json_model_2(pval, NULL, NULL);
+      IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_1_map(prop) IS NOT NULL THEN
-      -- handle 8 may props
-      pfun := json_model_1_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, NULL) THEN
+    ELSEIF prop = 'version' THEN
+      -- handle must version property
+      must_count := must_count + 1;
+      -- .version
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'abstract' THEN
+      -- handle must abstract property
+      must_count := must_count + 1;
+      -- .abstract
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'maintainer' THEN
+      -- handle must maintainer property
+      must_count := must_count + 1;
+      -- .maintainer
+      -- .maintainer.'|'.0
+      -- .maintainer.'|'.1
+      res := json_model_2(pval, NULL, NULL) OR json_model_3(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'license' THEN
+      -- handle must license property
+      must_count := must_count + 1;
+      -- .license
+      -- .license.'|'.0
+      -- .license.'|'.1
+      -- .license.'|'.2
+      res := json_model_4(pval, NULL, NULL) OR json_model_5(pval, NULL, NULL) OR _jm_obj_3(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'provides' THEN
+      -- handle must provides property
+      must_count := must_count + 1;
+      -- .provides
+      res := _jm_obj_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'meta-spec' THEN
+      -- handle must meta-spec property
+      must_count := must_count + 1;
+      -- .'meta-spec'
+      res := _jm_obj_5(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'url' THEN
+      -- handle may url property
+      -- .url
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'description' THEN
+      -- handle may description property
+      -- .description
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'generated_by' THEN
+      -- handle may generated_by property
+      -- .generated_by
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'tags' THEN
+      -- handle may tags property
+      -- .tags
+      res := json_model_3(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'no_index' THEN
+      -- handle may no_index property
+      -- .no_index
+      res := _jm_obj_6(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'release_status' THEN
+      -- handle may release_status property
+      -- .release_status
+      res := json_model_7(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'resources' THEN
+      -- handle may resources property
+      -- .resources
+      res := json_model_8(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'prereqs' THEN
+      -- handle may prereqs property
+      -- .prereqs
+      res := json_model_16(pval, NULL, NULL);
+      IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF _jm_re_1(prop, NULL, NULL) THEN

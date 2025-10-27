@@ -15,31 +15,21 @@ let _jm_cst_1 = new Set()
 let _jm_cst_2 = new Set()
 let _jm_map_0 = new Map()
 let _jm_cst_3 = new Set()
-var _jm_obj_7_map = new Map()
-const _jm_re_1_re = new runtime.RX(".", "")
 let _jm_cst_4 = new Set()
 let _jm_cst_5 = new Set()
 let _jm_cst_6 = new Set()
-var _jm_f_10_map = new Map()
 let _jm_cst_7 = new Set()
 let _jm_cst_8 = new Set()
+const _jm_re_1_re = new runtime.RX(".", "")
 let _jm_cst_9 = new Set()
 let _jm_cst_10 = new Set()
 let _jm_cst_11 = new Set()
-var _jm_f_52_map = new Map()
 let _jm_cst_12 = new Set()
-var _jm_f_26_map = new Map()
-var _jm_f_56_map = new Map()
-var _jm_f_58_map = new Map()
-var _jm_f_59_map = new Map()
-var _jm_f_64_map = new Map()
-var _jm_f_55_map = new Map()
 let _jm_cst_13 = new Set()
 let _jm_cst_14 = new Set()
-var _jm_f_68_map = new Map()
+var _jm_obj_23_map = new Map()
 const _jm_re_2_re = new runtime.RX("^[^:]+:[^:]+$", "")
 let _jm_cst_15 = new Set()
-var json_model_1_map = new Map()
 var check_model_map = new Map()
 
 
@@ -885,331 +875,721 @@ function json_model_10(val, path, rep)
     return res;
 }
 
-// check json_model_1_map_confirmOnQuit (.confirmOnQuit)
-function _jm_f_0(val, path, rep)
-{
-    // .confirmOnQuit
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.confirmOnQuit]", path])
-    }
-    return res;
-}
 
 
-// check _jm_obj_7_map_after (.customCommands.'@'.0.after)
-function _jm_f_2(val, path, rep)
+
+// object .gui.theme
+function _jm_obj_8(val, path, rep)
 {
-    // .customCommands.'@'.0.after
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.customCommands.'@'.0.after]", path])
+        rep !== null && rep.push(["not an object [.gui.theme]", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_6 = path ? path.concat([prop]) : null;
-        if (prop == "checkForConflicts")
+        if (prop == "activeBorderColor")
         {
-            // handle may checkForConflicts property
-            // .customCommands.'@'.0.after.checkForConflicts
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            // handle may activeBorderColor property
+            // .gui.theme.activeBorderColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.customCommands.'@'.0.after.checkForConflicts]", (path ? lpath_6 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.after.checkForConflicts]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.activeBorderColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.activeBorderColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "inactiveBorderColor")
+        {
+            // handle may inactiveBorderColor property
+            // .gui.theme.inactiveBorderColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.inactiveBorderColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "searchingActiveBorderColor")
+        {
+            // handle may searchingActiveBorderColor property
+            // .gui.theme.searchingActiveBorderColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "optionsTextColor")
+        {
+            // handle may optionsTextColor property
+            // .gui.theme.optionsTextColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.optionsTextColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.optionsTextColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "selectedLineBgColor")
+        {
+            // handle may selectedLineBgColor property
+            // .gui.theme.selectedLineBgColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.selectedLineBgColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "selectedRangeBgColor")
+        {
+            // handle may selectedRangeBgColor property
+            // .gui.theme.selectedRangeBgColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "cherryPickedCommitBgColor")
+        {
+            // handle may cherryPickedCommitBgColor property
+            // .gui.theme.cherryPickedCommitBgColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "cherryPickedCommitFgColor")
+        {
+            // handle may cherryPickedCommitFgColor property
+            // .gui.theme.cherryPickedCommitFgColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "unstagedChangesColor")
+        {
+            // handle may unstagedChangesColor property
+            // .gui.theme.unstagedChangesColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.unstagedChangesColor]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "defaultFgColor")
+        {
+            // handle may defaultFgColor property
+            // .gui.theme.defaultFgColor
+            res = json_model_3(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.defaultFgColor]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme.defaultFgColor]", (path ? lpath_6 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.customCommands.'@'.0.after]", (path ? lpath_6 : null)])
+            rep !== null && rep.push(["unexpected prop [.gui.theme]", (path ? lpath_6 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_obj_7_map_description (.customCommands.'@'.0.description)
-function _jm_f_3(val, path, rep)
+// object .gui.commitLength
+function _jm_obj_9(val, path, rep)
 {
-    // .customCommands.'@'.0.description
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.description]", path])
+        rep !== null && rep.push(["not an object [.gui.commitLength]", path])
+        return false;
     }
-    return res;
-}
-
-// check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
-function _jm_f_4(val, path, rep)
-{
-    // .customCommands.'@'.0.loadingText
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
+    let res;
+    for (const [prop, pval] of Object.entries(val))
     {
-        rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.loadingText]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
-function _jm_f_5(val, path, rep)
-{
-    // .customCommands.'@'.0.prompts
-    let res = Array.isArray(val);
-    if (res)
-    {
-        for (let arr_4_idx = 0; arr_4_idx < val.length; arr_4_idx++)
+        let lpath_7 = path ? path.concat([prop]) : null;
+        if (prop == "show")
         {
-            let arr_4_item = val[arr_4_idx]
-            let arr_4_lpath = path ? path.concat([arr_4_idx]) : null;
-            // .customCommands.'@'.0.prompts.0
-            res = json_model_10(arr_4_item, (path ? arr_4_lpath : null), rep);
+            // handle may show property
+            // .gui.commitLength.show
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Prompts [.customCommands.'@'.0.prompts.0]", (path ? arr_4_lpath : null)])
-                break;
+                rep !== null && rep.push(["not a bool [.gui.commitLength.show]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.commitLength.show]", (path ? lpath_7 : null)])
+                return false;
             }
         }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.gui.commitLength]", (path ? lpath_7 : null)])
+            return false;
+        }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.customCommands.'@'.0.prompts]", path])
-    }
-    return res;
+    return true;
 }
 
-// check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
-function _jm_f_6(val, path, rep)
+
+
+
+const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
+
+// object .gui.authorColors
+function _jm_obj_10(val, path, rep)
 {
-    // .customCommands.'@'.0.showOutput
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not a bool [.customCommands.'@'.0.showOutput]", path])
+        rep !== null && rep.push(["not an object [.gui.authorColors]", path])
+        return false;
     }
-    return res;
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_8 = path ? path.concat([prop]) : null;
+        if (_jm_re_1(prop, path, rep))
+        {
+            // handle 1 re props
+            // .gui.authorColors.'/./'
+            res = json_model_2(pval, (path ? lpath_8 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $color [.gui.authorColors.'/./']", (path ? lpath_8 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.gui.authorColors]", (path ? lpath_8 : null)])
+            return false;
+        }
+    }
+    return true;
 }
 
-// check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
-function _jm_f_7(val, path, rep)
+// object .gui.branchColors
+function _jm_obj_11(val, path, rep)
 {
-    // .customCommands.'@'.0.stream
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not a bool [.customCommands.'@'.0.stream]", path])
+        rep !== null && rep.push(["not an object [.gui.branchColors]", path])
+        return false;
     }
-    return res;
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_9 = path ? path.concat([prop]) : null;
+        if (_jm_re_1(prop, path, rep))
+        {
+            // handle 1 re props
+            // .gui.branchColors.'/./'
+            res = json_model_2(pval, (path ? lpath_9 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $color [.gui.branchColors.'/./']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.gui.branchColors]", (path ? lpath_9 : null)])
+            return false;
+        }
+    }
+    return true;
 }
 
-// check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
-function _jm_f_8(val, path, rep)
-{
-    // .customCommands.'@'.0.subprocess
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.customCommands.'@'.0.subprocess]", path])
-    }
-    return res;
-}
-
-
-// object .customCommands.'@'.0
+// object .gui
 function _jm_obj_7(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.customCommands.'@'.0]", path])
+        rep !== null && rep.push(["not an object [.gui]", path])
         return false;
     }
     let res;
-    let pfun;
-    let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_5 = path ? path.concat([prop]) : null;
-        if (prop == "key")
+        if (prop == "windowSize")
         {
-            // handle must key property
-            must_count += 1;
-            // .customCommands.'@'.0.key
-            res = json_model_4(pval, (path ? lpath_5 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $keybinding [.customCommands.'@'.0.key]", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.key]", (path ? lpath_5 : null)])
-                return false;
-            }
-        }
-        else if (prop == "command")
-        {
-            // handle must command property
-            must_count += 1;
-            // .customCommands.'@'.0.command
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.command]", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.command]", (path ? lpath_5 : null)])
-                return false;
-            }
-        }
-        else if (prop == "context")
-        {
-            // handle must context property
-            must_count += 1;
-            // .customCommands.'@'.0.context
+            // handle may windowSize property
+            // .gui.windowSize
             res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_3.has(pval);
             if (! res)
             {
-                rep !== null && rep.push(["value not in enum [.customCommands.'@'.0.context.'|']", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.context]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["value not in enum [.gui.windowSize.'|']", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.windowSize]", (path ? lpath_5 : null)])
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_7_map.get(prop)))
+        else if (prop == "scrollHeight")
         {
-            // handle 7 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_5 : null), rep))
+            // handle may scrollHeight property
+            // .gui.scrollHeight
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["not a 1 strict int [.gui.scrollHeight]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.scrollHeight]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "scrollPastBottom")
+        {
+            // handle may scrollPastBottom property
+            // .gui.scrollPastBottom
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.scrollPastBottom]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.scrollPastBottom]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "sidePanelWidth")
+        {
+            // handle may sidePanelWidth property
+            // .gui.sidePanelWidth
+            // .gui.sidePanelWidth.'@'
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0.0 strict float [.gui.sidePanelWidth.'@']", (path ? lpath_5 : null)])
+            }
+            if (res)
+            {
+                let fval_0 = pval;
+                res = fval_0 <= 1.0;
+                if (! res)
+                {
+                    rep !== null && rep.push(["constraints failed [.gui.sidePanelWidth]", (path ? lpath_5 : null)])
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.gui.sidePanelWidth]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "expandFocusedSidePanel")
+        {
+            // handle may expandFocusedSidePanel property
+            // .gui.expandFocusedSidePanel
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.expandFocusedSidePanel]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.expandFocusedSidePanel]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "mainPanelSplitMode")
+        {
+            // handle may mainPanelSplitMode property
+            // .gui.mainPanelSplitMode
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.gui.mainPanelSplitMode.'|']", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.mainPanelSplitMode]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "language")
+        {
+            // handle may language property
+            // .gui.language
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_5.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.gui.language.'|']", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.language]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "timeFormat")
+        {
+            // handle may timeFormat property
+            // .gui.timeFormat
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.gui.timeFormat]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.timeFormat]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "shortTimeFormat")
+        {
+            // handle may shortTimeFormat property
+            // .gui.shortTimeFormat
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.gui.shortTimeFormat]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.shortTimeFormat]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "theme")
+        {
+            // handle may theme property
+            // .gui.theme
+            res = _jm_obj_8(pval, (path ? lpath_5 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.gui.theme]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.theme]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "commitLength")
+        {
+            // handle may commitLength property
+            // .gui.commitLength
+            res = _jm_obj_9(pval, (path ? lpath_5 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.gui.commitLength]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.commitLength]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "mouseEvents")
+        {
+            // handle may mouseEvents property
+            // .gui.mouseEvents
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.mouseEvents]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.mouseEvents]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "skipDiscardChangeWarning")
+        {
+            // handle may skipDiscardChangeWarning property
+            // .gui.skipDiscardChangeWarning
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.skipDiscardChangeWarning]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.skipDiscardChangeWarning]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "skipStashWarning")
+        {
+            // handle may skipStashWarning property
+            // .gui.skipStashWarning
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.skipStashWarning]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.skipStashWarning]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showFileTree")
+        {
+            // handle may showFileTree property
+            // .gui.showFileTree
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.showFileTree]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.showFileTree]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showListFooter")
+        {
+            // handle may showListFooter property
+            // .gui.showListFooter
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.showListFooter]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.showListFooter]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showRandomTip")
+        {
+            // handle may showRandomTip property
+            // .gui.showRandomTip
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.showRandomTip]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.showRandomTip]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showBranchCommitHash")
+        {
+            // handle may showBranchCommitHash property
+            // .gui.showBranchCommitHash
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.showBranchCommitHash]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.showBranchCommitHash]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showBottomLine")
+        {
+            // handle may showBottomLine property
+            // .gui.showBottomLine
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.showBottomLine]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.showBottomLine]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showCommandLog")
+        {
+            // handle may showCommandLog property
+            // .gui.showCommandLog
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.showCommandLog]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.showCommandLog]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "nerdFontsVersion")
+        {
+            // handle may nerdFontsVersion property
+            // .gui.nerdFontsVersion
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_6.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.gui.nerdFontsVersion.'|']", (path ? lpath_5 : null)])
+            }
+            if (! res)
+            {
+                res = (typeof pval === 'string' || pval instanceof String);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected type [.gui.nerdFontsVersion.'|']", (path ? lpath_5 : null)])
+                }
+                if (res)
+                {
+                    // .gui.nerdFontsVersion.'|'.0
+                    res = true;
+                    if (res)
+                    {
+                        if (rep !== null) rep.length = 0
+                    }
+                    else
+                    {
+                        rep !== null && rep.push(["unexpected string [.gui.nerdFontsVersion.'|'.0]", (path ? lpath_5 : null)])
+                        rep !== null && rep.push(["no model matched [.gui.nerdFontsVersion.'|']", (path ? lpath_5 : null)])
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.gui.nerdFontsVersion]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "commandLogSize")
+        {
+            // handle may commandLogSize property
+            // .gui.commandLogSize
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.gui.commandLogSize]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.commandLogSize]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "splitDiff")
+        {
+            // handle may splitDiff property
+            // .gui.splitDiff
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_7.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.gui.splitDiff.'|']", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.splitDiff]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "skipRewordInEditorWarning")
+        {
+            // handle may skipRewordInEditorWarning property
+            // .gui.skipRewordInEditorWarning
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.skipRewordInEditorWarning]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.skipRewordInEditorWarning]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "border")
+        {
+            // handle may border property
+            // .gui.border
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_8.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.gui.border.'|']", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.border]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "animateExplosion")
+        {
+            // handle may animateExplosion property
+            // .gui.animateExplosion
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.gui.animateExplosion]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.animateExplosion]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "authorColors")
+        {
+            // handle may authorColors property
+            // .gui.authorColors
+            res = _jm_obj_10(pval, (path ? lpath_5 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.gui.authorColors]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.authorColors]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "branchColors")
+        {
+            // handle may branchColors property
+            // .gui.branchColors
+            res = _jm_obj_11(pval, (path ? lpath_5 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.gui.branchColors]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui.branchColors]", (path ? lpath_5 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.customCommands.'@'.0]", (path ? lpath_5 : null)])
+            rep !== null && rep.push(["unexpected prop [.gui]", (path ? lpath_5 : null)])
             return false;
         }
-    }
-    if (must_count != 3)
-    {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("command"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <command> [.customCommands.'@'.0]", path])
-            }
-            if (! val.hasOwnProperty("context"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <context> [.customCommands.'@'.0]", path])
-            }
-            if (! val.hasOwnProperty("key"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <key> [.customCommands.'@'.0]", path])
-            }
-        }
-        return false;
     }
     return true;
 }
 
-// check json_model_1_map_customCommands (.customCommands)
-function _jm_f_1(val, path, rep)
+
+// object .git.paging
+function _jm_obj_13(val, path, rep)
 {
-    // .customCommands
-    // .customCommands.'@'
-    let res = Array.isArray(val);
-    if (res)
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        for (let arr_3_idx = 0; arr_3_idx < val.length; arr_3_idx++)
+        rep !== null && rep.push(["not an object [.git.paging]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_11 = path ? path.concat([prop]) : null;
+        if (prop == "colorArg")
         {
-            let arr_3_item = val[arr_3_idx]
-            let arr_3_lpath = path ? path.concat([arr_3_idx]) : null;
-            // .customCommands.'@'.0
-            res = _jm_obj_7(arr_3_item, (path ? arr_3_lpath : null), rep);
+            // handle may colorArg property
+            // .git.paging.colorArg
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_9.has(pval);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.customCommands.'@'.0]", (path ? arr_3_lpath : null)])
-                break;
+                rep !== null && rep.push(["value not in enum [.git.paging.colorArg.'|']", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.paging.colorArg]", (path ? lpath_11 : null)])
+                return false;
             }
         }
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.customCommands.'@']", path])
-    }
-    if (res)
-    {
-        res = runtime.jm_array_is_unique(val, path, rep);
-        if (! res)
+        else if (prop == "useConfig")
         {
-            rep !== null && rep.push(["constraints failed [.customCommands]", path])
+            // handle may useConfig property
+            // .git.paging.useConfig
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.paging.useConfig]", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.paging.useConfig]", (path ? lpath_11 : null)])
+                return false;
+            }
+        }
+        else if (prop == "pager")
+        {
+            // handle may pager property
+            // .git.paging.pager
+            // .git.paging.pager.'@'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.git.paging.pager.'@']", (path ? lpath_11 : null)])
+            }
+            if (res)
+            {
+                let sval_1 = pval;
+                res = sval_1 != "";
+                if (! res)
+                {
+                    rep !== null && rep.push(["constraints failed [.git.paging.pager]", (path ? lpath_11 : null)])
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.git.paging.pager]", (path ? lpath_11 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.git.paging]", (path ? lpath_11 : null)])
+            return false;
         }
     }
-    return res;
+    return true;
 }
 
-// check json_model_1_map_disableStartupPopups (.disableStartupPopups)
-function _jm_f_9(val, path, rep)
+// object .git.commit
+function _jm_obj_14(val, path, rep)
 {
-    // .disableStartupPopups
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.disableStartupPopups]", path])
-    }
-    return res;
-}
-
-// check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
-function _jm_f_11(val, path, rep)
-{
-    // .git.allBranchesLogCmd
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.git.allBranchesLogCmd]", path])
-    }
-    return res;
-}
-
-// check _jm_f_10_map_autoFetch (.git.autoFetch)
-function _jm_f_12(val, path, rep)
-{
-    // .git.autoFetch
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.git.autoFetch]", path])
-    }
-    return res;
-}
-
-// check _jm_f_10_map_autoRefresh (.git.autoRefresh)
-function _jm_f_13(val, path, rep)
-{
-    // .git.autoRefresh
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.git.autoRefresh]", path])
-    }
-    return res;
-}
-
-// check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
-function _jm_f_14(val, path, rep)
-{
-    // .git.branchLogCmd
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.git.branchLogCmd]", path])
-    }
-    return res;
-}
-
-// check _jm_f_10_map_commit (.git.commit)
-function _jm_f_15(val, path, rep)
-{
-    // .git.commit
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.git.commit]", path])
@@ -1218,7 +1598,7 @@ function _jm_f_15(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_8 = path ? path.concat([prop]) : null;
+        let lpath_12 = path ? path.concat([prop]) : null;
         if (prop == "signOff")
         {
             // handle may signOff property
@@ -1226,24 +1606,126 @@ function _jm_f_15(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.git.commit.signOff]", (path ? lpath_8 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.git.commit.signOff]", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["not a bool [.git.commit.signOff]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.commit.signOff]", (path ? lpath_12 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.git.commit]", (path ? lpath_8 : null)])
+            rep !== null && rep.push(["unexpected prop [.git.commit]", (path ? lpath_12 : null)])
             return false;
         }
     }
     return true;
 }
 
-const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
+// object .git.merging
+function _jm_obj_15(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.git.merging]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_13 = path ? path.concat([prop]) : null;
+        if (prop == "manualCommit")
+        {
+            // handle may manualCommit property
+            // .git.merging.manualCommit
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.merging.manualCommit]", (path ? lpath_13 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.merging.manualCommit]", (path ? lpath_13 : null)])
+                return false;
+            }
+        }
+        else if (prop == "args")
+        {
+            // handle may args property
+            // .git.merging.args
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.git.merging.args]", (path ? lpath_13 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.merging.args]", (path ? lpath_13 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.git.merging]", (path ? lpath_13 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+// object .git.log
+function _jm_obj_16(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.git.log]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_14 = path ? path.concat([prop]) : null;
+        if (prop == "order")
+        {
+            // handle may order property
+            // .git.log.order
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_10.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.git.log.order.'|']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.log.order]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showGraph")
+        {
+            // handle may showGraph property
+            // .git.log.showGraph
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_11.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.git.log.showGraph.'|']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.log.showGraph]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showWholeGraph")
+        {
+            // handle may showWholeGraph property
+            // .git.log.showWholeGraph
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.log.showWholeGraph]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.log.showWholeGraph]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.git.log]", (path ? lpath_14 : null)])
+            return false;
+        }
+    }
+    return true;
+}
 
 // object .git.commitPrefixes.'/./'
-function _jm_obj_8(val, path, rep)
+function _jm_obj_18(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1292,386 +1774,12 @@ function _jm_obj_8(val, path, rep)
     return true;
 }
 
-// check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
-function _jm_f_16(val, path, rep)
+// object .git.commitPrefixes
+function _jm_obj_17(val, path, rep)
 {
-    // .git.commitPrefixes
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.git.commitPrefixes]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_9 = path ? path.concat([prop]) : null;
-        if (_jm_re_1(prop, path, rep))
-        {
-            // handle 1 re props
-            // .git.commitPrefixes.'/./'
-            res = _jm_obj_8(pval, (path ? lpath_9 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.git.commitPrefixes.'/./']", (path ? lpath_9 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git.commitPrefixes]", (path ? lpath_9 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_f_10_map_diffContextSize (.git.diffContextSize)
-function _jm_f_17(val, path, rep)
-{
-    // .git.diffContextSize
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.git.diffContextSize]", path])
-    }
-    return res;
-}
-
-// check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
-function _jm_f_18(val, path, rep)
-{
-    // .git.disableForcePushing
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.git.disableForcePushing]", path])
-    }
-    return res;
-}
-
-// check _jm_f_10_map_fetchAll (.git.fetchAll)
-function _jm_f_19(val, path, rep)
-{
-    // .git.fetchAll
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.git.fetchAll]", path])
-    }
-    return res;
-}
-
-
-
-// check _jm_f_10_map_log (.git.log)
-function _jm_f_20(val, path, rep)
-{
-    // .git.log
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.git.log]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_10 = path ? path.concat([prop]) : null;
-        if (prop == "order")
-        {
-            // handle may order property
-            // .git.log.order
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.git.log.order.'|']", (path ? lpath_10 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.git.log.order]", (path ? lpath_10 : null)])
-                return false;
-            }
-        }
-        else if (prop == "showGraph")
-        {
-            // handle may showGraph property
-            // .git.log.showGraph
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_5.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.git.log.showGraph.'|']", (path ? lpath_10 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.git.log.showGraph]", (path ? lpath_10 : null)])
-                return false;
-            }
-        }
-        else if (prop == "showWholeGraph")
-        {
-            // handle may showWholeGraph property
-            // .git.log.showWholeGraph
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.git.log.showWholeGraph]", (path ? lpath_10 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.git.log.showWholeGraph]", (path ? lpath_10 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git.log]", (path ? lpath_10 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_f_10_map_merging (.git.merging)
-function _jm_f_21(val, path, rep)
-{
-    // .git.merging
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.git.merging]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_11 = path ? path.concat([prop]) : null;
-        if (prop == "manualCommit")
-        {
-            // handle may manualCommit property
-            // .git.merging.manualCommit
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.git.merging.manualCommit]", (path ? lpath_11 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.git.merging.manualCommit]", (path ? lpath_11 : null)])
-                return false;
-            }
-        }
-        else if (prop == "args")
-        {
-            // handle may args property
-            // .git.merging.args
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.git.merging.args]", (path ? lpath_11 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.git.merging.args]", (path ? lpath_11 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git.merging]", (path ? lpath_11 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_f_10_map_overrideGpg (.git.overrideGpg)
-function _jm_f_22(val, path, rep)
-{
-    // .git.overrideGpg
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.git.overrideGpg]", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_10_map_paging (.git.paging)
-function _jm_f_23(val, path, rep)
-{
-    // .git.paging
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.git.paging]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_12 = path ? path.concat([prop]) : null;
-        if (prop == "colorArg")
-        {
-            // handle may colorArg property
-            // .git.paging.colorArg
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_6.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.git.paging.colorArg.'|']", (path ? lpath_12 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.git.paging.colorArg]", (path ? lpath_12 : null)])
-                return false;
-            }
-        }
-        else if (prop == "useConfig")
-        {
-            // handle may useConfig property
-            // .git.paging.useConfig
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.git.paging.useConfig]", (path ? lpath_12 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.git.paging.useConfig]", (path ? lpath_12 : null)])
-                return false;
-            }
-        }
-        else if (prop == "pager")
-        {
-            // handle may pager property
-            // .git.paging.pager
-            // .git.paging.pager.'@'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.git.paging.pager.'@']", (path ? lpath_12 : null)])
-            }
-            if (res)
-            {
-                let sval_1 = pval;
-                res = sval_1 != "";
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.git.paging.pager]", (path ? lpath_12 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.git.paging.pager]", (path ? lpath_12 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git.paging]", (path ? lpath_12 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_f_10_map_parseEmoji (.git.parseEmoji)
-function _jm_f_24(val, path, rep)
-{
-    // .git.parseEmoji
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.git.parseEmoji]", path])
-    }
-    return res;
-}
-
-// check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
-function _jm_f_25(val, path, rep)
-{
-    // .git.skipHookPrefix
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.git.skipHookPrefix]", path])
-    }
-    return res;
-}
-
-
-// check json_model_1_map_git (.git)
-function _jm_f_10(val, path, rep)
-{
-    // .git
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.git]", path])
-        return false;
-    }
-    let pfun;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_7 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_10_map.get(prop)))
-        {
-            // handle 16 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_7 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.git]", (path ? lpath_7 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git]", (path ? lpath_7 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
-function _jm_f_27(val, path, rep)
-{
-    // .gui.animateExplosion
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.animateExplosion]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_authorColors (.gui.authorColors)
-function _jm_f_28(val, path, rep)
-{
-    // .gui.authorColors
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.gui.authorColors]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_14 = path ? path.concat([prop]) : null;
-        if (_jm_re_1(prop, path, rep))
-        {
-            // handle 1 re props
-            // .gui.authorColors.'/./'
-            res = json_model_2(pval, (path ? lpath_14 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $color [.gui.authorColors.'/./']", (path ? lpath_14 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.gui.authorColors]", (path ? lpath_14 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-
-// check _jm_f_26_map_border (.gui.border)
-function _jm_f_29(val, path, rep)
-{
-    // .gui.border
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_7.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.gui.border.'|']", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_branchColors (.gui.branchColors)
-function _jm_f_30(val, path, rep)
-{
-    // .gui.branchColors
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.gui.branchColors]", path])
         return false;
     }
     let res;
@@ -1681,482 +1789,406 @@ function _jm_f_30(val, path, rep)
         if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
-            // .gui.branchColors.'/./'
-            res = json_model_2(pval, (path ? lpath_15 : null), rep);
+            // .git.commitPrefixes.'/./'
+            res = _jm_obj_18(pval, (path ? lpath_15 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $color [.gui.branchColors.'/./']", (path ? lpath_15 : null)])
+                rep !== null && rep.push(["unexpected element [.git.commitPrefixes.'/./']", (path ? lpath_15 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.gui.branchColors]", (path ? lpath_15 : null)])
+            rep !== null && rep.push(["unexpected prop [.git.commitPrefixes]", (path ? lpath_15 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
-function _jm_f_31(val, path, rep)
+// object .git
+function _jm_obj_12(val, path, rep)
 {
-    // .gui.commandLogSize
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.gui.commandLogSize]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_commitLength (.gui.commitLength)
-function _jm_f_32(val, path, rep)
-{
-    // .gui.commitLength
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.gui.commitLength]", path])
+        rep !== null && rep.push(["not an object [.git]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_10 = path ? path.concat([prop]) : null;
+        if (prop == "paging")
+        {
+            // handle may paging property
+            // .git.paging
+            res = _jm_obj_13(pval, (path ? lpath_10 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.git.paging]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.paging]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "commit")
+        {
+            // handle may commit property
+            // .git.commit
+            res = _jm_obj_14(pval, (path ? lpath_10 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.git.commit]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.commit]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "merging")
+        {
+            // handle may merging property
+            // .git.merging
+            res = _jm_obj_15(pval, (path ? lpath_10 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.git.merging]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.merging]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "log")
+        {
+            // handle may log property
+            // .git.log
+            res = _jm_obj_16(pval, (path ? lpath_10 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.git.log]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.log]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "skipHookPrefix")
+        {
+            // handle may skipHookPrefix property
+            // .git.skipHookPrefix
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.git.skipHookPrefix]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.skipHookPrefix]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "mainBranches")
+        {
+            // handle may mainBranches property
+            // .git.mainBranches
+            res = json_model_9(pval, (path ? lpath_10 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $stringArray [.git.mainBranches]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.mainBranches]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "autoFetch")
+        {
+            // handle may autoFetch property
+            // .git.autoFetch
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.autoFetch]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.autoFetch]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "autoRefresh")
+        {
+            // handle may autoRefresh property
+            // .git.autoRefresh
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.autoRefresh]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.autoRefresh]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "fetchAll")
+        {
+            // handle may fetchAll property
+            // .git.fetchAll
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.fetchAll]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.fetchAll]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "branchLogCmd")
+        {
+            // handle may branchLogCmd property
+            // .git.branchLogCmd
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.git.branchLogCmd]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.branchLogCmd]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "allBranchesLogCmd")
+        {
+            // handle may allBranchesLogCmd property
+            // .git.allBranchesLogCmd
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.git.allBranchesLogCmd]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.allBranchesLogCmd]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "overrideGpg")
+        {
+            // handle may overrideGpg property
+            // .git.overrideGpg
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.overrideGpg]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.overrideGpg]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "disableForcePushing")
+        {
+            // handle may disableForcePushing property
+            // .git.disableForcePushing
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.disableForcePushing]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.disableForcePushing]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "parseEmoji")
+        {
+            // handle may parseEmoji property
+            // .git.parseEmoji
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.git.parseEmoji]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.parseEmoji]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "diffContextSize")
+        {
+            // handle may diffContextSize property
+            // .git.diffContextSize
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.git.diffContextSize]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.diffContextSize]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else if (prop == "commitPrefixes")
+        {
+            // handle may commitPrefixes property
+            // .git.commitPrefixes
+            res = _jm_obj_17(pval, (path ? lpath_10 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.git.commitPrefixes]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git.commitPrefixes]", (path ? lpath_10 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.git]", (path ? lpath_10 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+
+// object .os
+function _jm_obj_19(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.os]", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_16 = path ? path.concat([prop]) : null;
-        if (prop == "show")
+        if (prop == "copyToClipboardCmd")
         {
-            // handle may show property
-            // .gui.commitLength.show
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            // handle may copyToClipboardCmd property
+            // .os.copyToClipboardCmd
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.gui.commitLength.show]", (path ? lpath_16 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.gui.commitLength.show]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected string [.os.copyToClipboardCmd]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.os.copyToClipboardCmd]", (path ? lpath_16 : null)])
+                return false;
+            }
+        }
+        else if (prop == "editPreset")
+        {
+            // handle may editPreset property
+            // .os.editPreset
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_12.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.os.editPreset.'|']", (path ? lpath_16 : null)])
+            }
+            if (! res)
+            {
+                res = (typeof pval === 'string' || pval instanceof String);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected type [.os.editPreset.'|']", (path ? lpath_16 : null)])
+                }
+                if (res)
+                {
+                    // .os.editPreset.'|'.0
+                    res = true;
+                    if (res)
+                    {
+                        if (rep !== null) rep.length = 0
+                    }
+                    else
+                    {
+                        rep !== null && rep.push(["unexpected string [.os.editPreset.'|'.0]", (path ? lpath_16 : null)])
+                        rep !== null && rep.push(["no model matched [.os.editPreset.'|']", (path ? lpath_16 : null)])
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.os.editPreset]", (path ? lpath_16 : null)])
+                return false;
+            }
+        }
+        else if (prop == "edit")
+        {
+            // handle may edit property
+            // .os.edit
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.os.edit]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.os.edit]", (path ? lpath_16 : null)])
+                return false;
+            }
+        }
+        else if (prop == "editAtLine")
+        {
+            // handle may editAtLine property
+            // .os.editAtLine
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.os.editAtLine]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.os.editAtLine]", (path ? lpath_16 : null)])
+                return false;
+            }
+        }
+        else if (prop == "editAtLineAndWait")
+        {
+            // handle may editAtLineAndWait property
+            // .os.editAtLineAndWait
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.os.editAtLineAndWait]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.os.editAtLineAndWait]", (path ? lpath_16 : null)])
+                return false;
+            }
+        }
+        else if (prop == "open")
+        {
+            // handle may open property
+            // .os.open
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.os.open]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.os.open]", (path ? lpath_16 : null)])
+                return false;
+            }
+        }
+        else if (prop == "openLink")
+        {
+            // handle may openLink property
+            // .os.openLink
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.os.openLink]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.os.openLink]", (path ? lpath_16 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.gui.commitLength]", (path ? lpath_16 : null)])
+            rep !== null && rep.push(["unexpected prop [.os]", (path ? lpath_16 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
-function _jm_f_33(val, path, rep)
+// object .refresher
+function _jm_obj_20(val, path, rep)
 {
-    // .gui.expandFocusedSidePanel
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.expandFocusedSidePanel]", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_26_map_language (.gui.language)
-function _jm_f_34(val, path, rep)
-{
-    // .gui.language
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_8.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.gui.language.'|']", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
-function _jm_f_35(val, path, rep)
-{
-    // .gui.mainPanelSplitMode
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_9.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.gui.mainPanelSplitMode.'|']", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
-function _jm_f_36(val, path, rep)
-{
-    // .gui.mouseEvents
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.mouseEvents]", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
-function _jm_f_37(val, path, rep)
-{
-    // .gui.nerdFontsVersion
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_10.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.gui.nerdFontsVersion.'|']", path])
-    }
-    if (! res)
-    {
-        res = (typeof val === 'string' || val instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected type [.gui.nerdFontsVersion.'|']", path])
-        }
-        if (res)
-        {
-            // .gui.nerdFontsVersion.'|'.0
-            res = true;
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["unexpected string [.gui.nerdFontsVersion.'|'.0]", path])
-                rep !== null && rep.push(["no model matched [.gui.nerdFontsVersion.'|']", path])
-            }
-        }
-    }
-    return res;
-}
-
-// check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
-function _jm_f_38(val, path, rep)
-{
-    // .gui.scrollHeight
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.gui.scrollHeight]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
-function _jm_f_39(val, path, rep)
-{
-    // .gui.scrollPastBottom
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.scrollPastBottom]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
-function _jm_f_40(val, path, rep)
-{
-    // .gui.shortTimeFormat
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.gui.shortTimeFormat]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
-function _jm_f_41(val, path, rep)
-{
-    // .gui.showBottomLine
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.showBottomLine]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
-function _jm_f_42(val, path, rep)
-{
-    // .gui.showBranchCommitHash
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.showBranchCommitHash]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
-function _jm_f_43(val, path, rep)
-{
-    // .gui.showCommandLog
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.showCommandLog]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_showFileTree (.gui.showFileTree)
-function _jm_f_44(val, path, rep)
-{
-    // .gui.showFileTree
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.showFileTree]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_showListFooter (.gui.showListFooter)
-function _jm_f_45(val, path, rep)
-{
-    // .gui.showListFooter
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.showListFooter]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
-function _jm_f_46(val, path, rep)
-{
-    // .gui.showRandomTip
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.showRandomTip]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
-function _jm_f_47(val, path, rep)
-{
-    // .gui.sidePanelWidth
-    // .gui.sidePanelWidth.'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0.0 strict float [.gui.sidePanelWidth.'@']", path])
-    }
-    if (res)
-    {
-        let fval_0 = val;
-        res = fval_0 <= 1.0;
-        if (! res)
-        {
-            rep !== null && rep.push(["constraints failed [.gui.sidePanelWidth]", path])
-        }
-    }
-    return res;
-}
-
-// check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
-function _jm_f_48(val, path, rep)
-{
-    // .gui.skipDiscardChangeWarning
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.skipDiscardChangeWarning]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
-function _jm_f_49(val, path, rep)
-{
-    // .gui.skipRewordInEditorWarning
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.skipRewordInEditorWarning]", path])
-    }
-    return res;
-}
-
-// check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
-function _jm_f_50(val, path, rep)
-{
-    // .gui.skipStashWarning
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.gui.skipStashWarning]", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_26_map_splitDiff (.gui.splitDiff)
-function _jm_f_51(val, path, rep)
-{
-    // .gui.splitDiff
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_11.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.gui.splitDiff.'|']", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_26_map_theme (.gui.theme)
-function _jm_f_52(val, path, rep)
-{
-    // .gui.theme
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.gui.theme]", path])
-        return false;
-    }
-    let pfun;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_17 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_52_map.get(prop)))
-        {
-            // handle 10 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_17 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.gui.theme]", (path ? lpath_17 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.gui.theme]", (path ? lpath_17 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_f_26_map_timeFormat (.gui.timeFormat)
-function _jm_f_53(val, path, rep)
-{
-    // .gui.timeFormat
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.gui.timeFormat]", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_26_map_windowSize (.gui.windowSize)
-function _jm_f_54(val, path, rep)
-{
-    // .gui.windowSize
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_12.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.gui.windowSize.'|']", path])
-    }
-    return res;
-}
-
-
-// check json_model_1_map_gui (.gui)
-function _jm_f_26(val, path, rep)
-{
-    // .gui
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.gui]", path])
-        return false;
-    }
-    let pfun;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_13 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_26_map.get(prop)))
-        {
-            // handle 28 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_13 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.gui]", (path ? lpath_13 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.gui]", (path ? lpath_13 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-
-// check _jm_f_55_map_branches (.keybinding.branches)
-function _jm_f_56(val, path, rep)
-{
-    // .keybinding.branches
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.keybinding.branches]", path])
-        return false;
-    }
-    let pfun;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_19 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_56_map.get(prop)))
-        {
-            // handle 13 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_19 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches]", (path ? lpath_19 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.branches]", (path ? lpath_19 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_f_55_map_commitFiles (.keybinding.commitFiles)
-function _jm_f_57(val, path, rep)
-{
-    // .keybinding.commitFiles
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.keybinding.commitFiles]", path])
+        rep !== null && rep.push(["not an object [.refresher]", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_20 = path ? path.concat([prop]) : null;
-        if (prop == "checkoutCommitFile")
+        let lpath_17 = path ? path.concat([prop]) : null;
+        if (prop == "refreshInterval")
         {
-            // handle may checkoutCommitFile property
-            // .keybinding.commitFiles.checkoutCommitFile
-            res = json_model_4(pval, (path ? lpath_20 : null), rep);
+            // handle may refreshInterval property
+            // .refresher.refreshInterval
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path ? lpath_20 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.refresher.refreshInterval]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.refresher.refreshInterval]", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "fetchInterval")
+        {
+            // handle may fetchInterval property
+            // .refresher.fetchInterval
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.refresher.fetchInterval]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.refresher.fetchInterval]", (path ? lpath_17 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.keybinding.commitFiles]", (path ? lpath_20 : null)])
+            rep !== null && rep.push(["unexpected prop [.refresher]", (path ? lpath_17 : null)])
             return false;
         }
     }
@@ -2164,57 +2196,329 @@ function _jm_f_57(val, path, rep)
 }
 
 
-// check _jm_f_55_map_commits (.keybinding.commits)
-function _jm_f_58(val, path, rep)
+// object .update
+function _jm_obj_21(val, path, rep)
 {
-    // .keybinding.commits
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.keybinding.commits]", path])
+        rep !== null && rep.push(["not an object [.update]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_18 = path ? path.concat([prop]) : null;
+        if (prop == "method")
+        {
+            // handle may method property
+            // .update.method
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_13.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.update.method.'|']", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.update.method]", (path ? lpath_18 : null)])
+                return false;
+            }
+        }
+        else if (prop == "days")
+        {
+            // handle may days property
+            // .update.days
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.update.days]", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.update.days]", (path ? lpath_18 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.update]", (path ? lpath_18 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+
+// check _jm_obj_23_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+function _jm_f_0(val, path, rep)
+{
+    // .keybinding.universal.jumpToBlock
+    let res = Array.isArray(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.keybinding.universal.jumpToBlock]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_23_map_optionMenu (.keybinding.universal.optionMenu)
+function _jm_f_1(val, path, rep)
+{
+    // .keybinding.universal.optionMenu
+    let res = val === null;
+    if (! res)
+    {
+        rep !== null && rep.push(["not null [.keybinding.universal.optionMenu]", path])
+    }
+    return res;
+}
+
+
+// object .keybinding.universal
+function _jm_obj_23(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.keybinding.universal]", path])
         return false;
     }
     let pfun;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_21 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_58_map.get(prop)))
+        let lpath_20 = path ? path.concat([prop]) : null;
+        if ((pfun = _jm_obj_23_map.get(prop)))
         {
-            // handle 21 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_21 : null), rep))
+            // handle 59 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_20 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.universal]", (path ? lpath_20 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.keybinding.commits]", (path ? lpath_21 : null)])
+            rep !== null && rep.push(["unexpected prop [.keybinding.universal]", (path ? lpath_20 : null)])
             return false;
         }
     }
     return true;
 }
 
-
-// check _jm_f_55_map_files (.keybinding.files)
-function _jm_f_59(val, path, rep)
+// object .keybinding.status
+function _jm_obj_24(val, path, rep)
 {
-    // .keybinding.files
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.keybinding.status]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_21 = path ? path.concat([prop]) : null;
+        if (prop == "checkForUpdate")
+        {
+            // handle may checkForUpdate property
+            // .keybinding.status.checkForUpdate
+            res = json_model_4(pval, (path ? lpath_21 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.status.checkForUpdate]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.status.checkForUpdate]", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "recentRepos")
+        {
+            // handle may recentRepos property
+            // .keybinding.status.recentRepos
+            res = json_model_4(pval, (path ? lpath_21 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.status.recentRepos]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.status.recentRepos]", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.keybinding.status]", (path ? lpath_21 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .keybinding.files
+function _jm_obj_25(val, path, rep)
+{
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.files]", path])
         return false;
     }
-    let pfun;
+    let res;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_22 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_59_map.get(prop)))
+        if (prop == "commitChanges")
         {
-            // handle 14 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_22 : null), rep))
+            // handle may commitChanges property
+            // .keybinding.files.commitChanges
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.files]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.commitChanges]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChanges]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "commitChangesWithoutHook")
+        {
+            // handle may commitChangesWithoutHook property
+            // .keybinding.files.commitChangesWithoutHook
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.commitChangesWithoutHook]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChangesWithoutHook]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "amendLastCommit")
+        {
+            // handle may amendLastCommit property
+            // .keybinding.files.amendLastCommit
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.amendLastCommit]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.amendLastCommit]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "commitChangesWithEditor")
+        {
+            // handle may commitChangesWithEditor property
+            // .keybinding.files.commitChangesWithEditor
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.commitChangesWithEditor]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChangesWithEditor]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "ignoreFile")
+        {
+            // handle may ignoreFile property
+            // .keybinding.files.ignoreFile
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.ignoreFile]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.ignoreFile]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "refreshFiles")
+        {
+            // handle may refreshFiles property
+            // .keybinding.files.refreshFiles
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.refreshFiles]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.refreshFiles]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "stashAllChanges")
+        {
+            // handle may stashAllChanges property
+            // .keybinding.files.stashAllChanges
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.stashAllChanges]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.stashAllChanges]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "viewStashOptions")
+        {
+            // handle may viewStashOptions property
+            // .keybinding.files.viewStashOptions
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.viewStashOptions]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.viewStashOptions]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "toggleStagedAll")
+        {
+            // handle may toggleStagedAll property
+            // .keybinding.files.toggleStagedAll
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.toggleStagedAll]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.toggleStagedAll]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "viewResetOptions")
+        {
+            // handle may viewResetOptions property
+            // .keybinding.files.viewResetOptions
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.viewResetOptions]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.viewResetOptions]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "fetch")
+        {
+            // handle may fetch property
+            // .keybinding.files.fetch
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.fetch]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.fetch]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "toggleTreeView")
+        {
+            // handle may toggleTreeView property
+            // .keybinding.files.toggleTreeView
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.toggleTreeView]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.toggleTreeView]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "openMergeTool")
+        {
+            // handle may openMergeTool property
+            // .keybinding.files.openMergeTool
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.openMergeTool]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.openMergeTool]", (path ? lpath_22 : null)])
+                return false;
+            }
+        }
+        else if (prop == "openStatusFilter")
+        {
+            // handle may openStatusFilter property
+            // .keybinding.files.openStatusFilter
+            res = json_model_4(pval, (path ? lpath_22 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.openStatusFilter]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files.openStatusFilter]", (path ? lpath_22 : null)])
                 return false;
             }
         }
@@ -2227,80 +2531,459 @@ function _jm_f_59(val, path, rep)
     return true;
 }
 
-// check _jm_f_55_map_main (.keybinding.main)
-function _jm_f_60(val, path, rep)
+// object .keybinding.branches
+function _jm_obj_26(val, path, rep)
 {
-    // .keybinding.main
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.keybinding.main]", path])
+        rep !== null && rep.push(["not an object [.keybinding.branches]", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_23 = path ? path.concat([prop]) : null;
-        if (prop == "toggleDragSelect")
+        if (prop == "createPullRequest")
         {
-            // handle may toggleDragSelect property
-            // .keybinding.main.toggleDragSelect
+            // handle may createPullRequest property
+            // .keybinding.branches.createPullRequest
             res = json_model_4(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.main.toggleDragSelect]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.createPullRequest]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.createPullRequest]", (path ? lpath_23 : null)])
                 return false;
             }
         }
-        else if (prop == "toggleDragSelect-alt")
+        else if (prop == "viewPullRequestOptions")
         {
-            // handle may toggleDragSelect-alt property
-            // .keybinding.main.'toggleDragSelect-alt'
+            // handle may viewPullRequestOptions property
+            // .keybinding.branches.viewPullRequestOptions
             res = json_model_4(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.viewPullRequestOptions]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.viewPullRequestOptions]", (path ? lpath_23 : null)])
                 return false;
             }
         }
-        else if (prop == "toggleSelectHunk")
+        else if (prop == "checkoutBranchByName")
         {
-            // handle may toggleSelectHunk property
-            // .keybinding.main.toggleSelectHunk
+            // handle may checkoutBranchByName property
+            // .keybinding.branches.checkoutBranchByName
             res = json_model_4(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.checkoutBranchByName]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.checkoutBranchByName]", (path ? lpath_23 : null)])
                 return false;
             }
         }
-        else if (prop == "pickBothHunks")
+        else if (prop == "forceCheckoutBranch")
         {
-            // handle may pickBothHunks property
-            // .keybinding.main.pickBothHunks
+            // handle may forceCheckoutBranch property
+            // .keybinding.branches.forceCheckoutBranch
             res = json_model_4(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.pickBothHunks]", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.main.pickBothHunks]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.forceCheckoutBranch]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.forceCheckoutBranch]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "rebaseBranch")
+        {
+            // handle may rebaseBranch property
+            // .keybinding.branches.rebaseBranch
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.rebaseBranch]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.rebaseBranch]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "renameBranch")
+        {
+            // handle may renameBranch property
+            // .keybinding.branches.renameBranch
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.renameBranch]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.renameBranch]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "mergeIntoCurrentBranch")
+        {
+            // handle may mergeIntoCurrentBranch property
+            // .keybinding.branches.mergeIntoCurrentBranch
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.mergeIntoCurrentBranch]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.mergeIntoCurrentBranch]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "viewGitFlowOptions")
+        {
+            // handle may viewGitFlowOptions property
+            // .keybinding.branches.viewGitFlowOptions
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.viewGitFlowOptions]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.viewGitFlowOptions]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "fastForward")
+        {
+            // handle may fastForward property
+            // .keybinding.branches.fastForward
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.fastForward]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.fastForward]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "createTag")
+        {
+            // handle may createTag property
+            // .keybinding.branches.createTag
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.createTag]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.createTag]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "pushTag")
+        {
+            // handle may pushTag property
+            // .keybinding.branches.pushTag
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.pushTag]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.pushTag]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "setUpstream")
+        {
+            // handle may setUpstream property
+            // .keybinding.branches.setUpstream
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.setUpstream]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.setUpstream]", (path ? lpath_23 : null)])
+                return false;
+            }
+        }
+        else if (prop == "fetchRemote")
+        {
+            // handle may fetchRemote property
+            // .keybinding.branches.fetchRemote
+            res = json_model_4(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.fetchRemote]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.fetchRemote]", (path ? lpath_23 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.keybinding.main]", (path ? lpath_23 : null)])
+            rep !== null && rep.push(["unexpected prop [.keybinding.branches]", (path ? lpath_23 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_f_55_map_stash (.keybinding.stash)
-function _jm_f_61(val, path, rep)
+// object .keybinding.commits
+function _jm_obj_27(val, path, rep)
 {
-    // .keybinding.stash
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.keybinding.commits]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_24 = path ? path.concat([prop]) : null;
+        if (prop == "squashDown")
+        {
+            // handle may squashDown property
+            // .keybinding.commits.squashDown
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.squashDown]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.squashDown]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "renameCommit")
+        {
+            // handle may renameCommit property
+            // .keybinding.commits.renameCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.renameCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.renameCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "renameCommitWithEditor")
+        {
+            // handle may renameCommitWithEditor property
+            // .keybinding.commits.renameCommitWithEditor
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.renameCommitWithEditor]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.renameCommitWithEditor]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "viewResetOptions")
+        {
+            // handle may viewResetOptions property
+            // .keybinding.commits.viewResetOptions
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.viewResetOptions]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.viewResetOptions]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "markCommitAsFixup")
+        {
+            // handle may markCommitAsFixup property
+            // .keybinding.commits.markCommitAsFixup
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.markCommitAsFixup]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.markCommitAsFixup]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "createFixupCommit")
+        {
+            // handle may createFixupCommit property
+            // .keybinding.commits.createFixupCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.createFixupCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.createFixupCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "squashAboveCommits")
+        {
+            // handle may squashAboveCommits property
+            // .keybinding.commits.squashAboveCommits
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.squashAboveCommits]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.squashAboveCommits]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "moveDownCommit")
+        {
+            // handle may moveDownCommit property
+            // .keybinding.commits.moveDownCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.moveDownCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.moveDownCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "moveUpCommit")
+        {
+            // handle may moveUpCommit property
+            // .keybinding.commits.moveUpCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.moveUpCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.moveUpCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "amendToCommit")
+        {
+            // handle may amendToCommit property
+            // .keybinding.commits.amendToCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.amendToCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.amendToCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "pickCommit")
+        {
+            // handle may pickCommit property
+            // .keybinding.commits.pickCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.pickCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.pickCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "revertCommit")
+        {
+            // handle may revertCommit property
+            // .keybinding.commits.revertCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.revertCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.revertCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "cherryPickCopy")
+        {
+            // handle may cherryPickCopy property
+            // .keybinding.commits.cherryPickCopy
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.cherryPickCopy]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.cherryPickCopy]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "cherryPickCopyRange")
+        {
+            // handle may cherryPickCopyRange property
+            // .keybinding.commits.cherryPickCopyRange
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.cherryPickCopyRange]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.cherryPickCopyRange]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "pasteCommits")
+        {
+            // handle may pasteCommits property
+            // .keybinding.commits.pasteCommits
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.pasteCommits]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.pasteCommits]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "tagCommit")
+        {
+            // handle may tagCommit property
+            // .keybinding.commits.tagCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.tagCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.tagCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "checkoutCommit")
+        {
+            // handle may checkoutCommit property
+            // .keybinding.commits.checkoutCommit
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.checkoutCommit]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.checkoutCommit]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "resetCherryPick")
+        {
+            // handle may resetCherryPick property
+            // .keybinding.commits.resetCherryPick
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.resetCherryPick]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.resetCherryPick]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "copyCommitMessageToClipboard")
+        {
+            // handle may copyCommitMessageToClipboard property
+            // .keybinding.commits.copyCommitMessageToClipboard
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.copyCommitMessageToClipboard]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.copyCommitMessageToClipboard]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "openLogMenu")
+        {
+            // handle may openLogMenu property
+            // .keybinding.commits.openLogMenu
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.openLogMenu]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.openLogMenu]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "viewBisectOptions")
+        {
+            // handle may viewBisectOptions property
+            // .keybinding.commits.viewBisectOptions
+            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commits.viewBisectOptions]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.viewBisectOptions]", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.keybinding.commits]", (path ? lpath_24 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .keybinding.stash
+function _jm_obj_28(val, path, rep)
+{
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.stash]", path])
@@ -2309,16 +2992,16 @@ function _jm_f_61(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_24 = path ? path.concat([prop]) : null;
+        let lpath_25 = path ? path.concat([prop]) : null;
         if (prop == "popStash")
         {
             // handle may popStash property
             // .keybinding.stash.popStash
-            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            res = json_model_4(pval, (path ? lpath_25 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.stash.popStash]", (path ? lpath_24 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.stash.popStash]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.stash.popStash]", (path ? lpath_25 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.stash.popStash]", (path ? lpath_25 : null)])
                 return false;
             }
         }
@@ -2326,73 +3009,128 @@ function _jm_f_61(val, path, rep)
         {
             // handle may renameStash property
             // .keybinding.stash.renameStash
-            res = json_model_4(pval, (path ? lpath_24 : null), rep);
+            res = json_model_4(pval, (path ? lpath_25 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.stash.renameStash]", (path ? lpath_24 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.stash.renameStash]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.stash.renameStash]", (path ? lpath_25 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.stash.renameStash]", (path ? lpath_25 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.keybinding.stash]", (path ? lpath_24 : null)])
+            rep !== null && rep.push(["unexpected prop [.keybinding.stash]", (path ? lpath_25 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_f_55_map_status (.keybinding.status)
-function _jm_f_62(val, path, rep)
+// object .keybinding.commitFiles
+function _jm_obj_29(val, path, rep)
 {
-    // .keybinding.status
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.keybinding.status]", path])
+        rep !== null && rep.push(["not an object [.keybinding.commitFiles]", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_25 = path ? path.concat([prop]) : null;
-        if (prop == "checkForUpdate")
+        let lpath_26 = path ? path.concat([prop]) : null;
+        if (prop == "checkoutCommitFile")
         {
-            // handle may checkForUpdate property
-            // .keybinding.status.checkForUpdate
-            res = json_model_4(pval, (path ? lpath_25 : null), rep);
+            // handle may checkoutCommitFile property
+            // .keybinding.commitFiles.checkoutCommitFile
+            res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.status.checkForUpdate]", (path ? lpath_25 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.status.checkForUpdate]", (path ? lpath_25 : null)])
-                return false;
-            }
-        }
-        else if (prop == "recentRepos")
-        {
-            // handle may recentRepos property
-            // .keybinding.status.recentRepos
-            res = json_model_4(pval, (path ? lpath_25 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.status.recentRepos]", (path ? lpath_25 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.status.recentRepos]", (path ? lpath_25 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path ? lpath_26 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.keybinding.status]", (path ? lpath_25 : null)])
+            rep !== null && rep.push(["unexpected prop [.keybinding.commitFiles]", (path ? lpath_26 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_f_55_map_submodules (.keybinding.submodules)
-function _jm_f_63(val, path, rep)
+// object .keybinding.main
+function _jm_obj_30(val, path, rep)
 {
-    // .keybinding.submodules
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.keybinding.main]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_27 = path ? path.concat([prop]) : null;
+        if (prop == "toggleDragSelect")
+        {
+            // handle may toggleDragSelect property
+            // .keybinding.main.toggleDragSelect
+            res = json_model_4(pval, (path ? lpath_27 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path ? lpath_27 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.main.toggleDragSelect]", (path ? lpath_27 : null)])
+                return false;
+            }
+        }
+        else if (prop == "toggleDragSelect-alt")
+        {
+            // handle may toggleDragSelect-alt property
+            // .keybinding.main.'toggleDragSelect-alt'
+            res = json_model_4(pval, (path ? lpath_27 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path ? lpath_27 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path ? lpath_27 : null)])
+                return false;
+            }
+        }
+        else if (prop == "toggleSelectHunk")
+        {
+            // handle may toggleSelectHunk property
+            // .keybinding.main.toggleSelectHunk
+            res = json_model_4(pval, (path ? lpath_27 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path ? lpath_27 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path ? lpath_27 : null)])
+                return false;
+            }
+        }
+        else if (prop == "pickBothHunks")
+        {
+            // handle may pickBothHunks property
+            // .keybinding.main.pickBothHunks
+            res = json_model_4(pval, (path ? lpath_27 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.pickBothHunks]", (path ? lpath_27 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.main.pickBothHunks]", (path ? lpath_27 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.keybinding.main]", (path ? lpath_27 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .keybinding.submodules
+function _jm_obj_31(val, path, rep)
+{
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.submodules]", path])
@@ -2401,16 +3139,16 @@ function _jm_f_63(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_26 = path ? path.concat([prop]) : null;
+        let lpath_28 = path ? path.concat([prop]) : null;
         if (prop == "init")
         {
             // handle may init property
             // .keybinding.submodules.init
-            res = json_model_4(pval, (path ? lpath_26 : null), rep);
+            res = json_model_4(pval, (path ? lpath_28 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.init]", (path ? lpath_26 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.init]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.init]", (path ? lpath_28 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.init]", (path ? lpath_28 : null)])
                 return false;
             }
         }
@@ -2418,11 +3156,11 @@ function _jm_f_63(val, path, rep)
         {
             // handle may update property
             // .keybinding.submodules.update
-            res = json_model_4(pval, (path ? lpath_26 : null), rep);
+            res = json_model_4(pval, (path ? lpath_28 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.update]", (path ? lpath_26 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.update]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.update]", (path ? lpath_28 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.update]", (path ? lpath_28 : null)])
                 return false;
             }
         }
@@ -2430,327 +3168,146 @@ function _jm_f_63(val, path, rep)
         {
             // handle may bulkMenu property
             // .keybinding.submodules.bulkMenu
-            res = json_model_4(pval, (path ? lpath_26 : null), rep);
+            res = json_model_4(pval, (path ? lpath_28 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path ? lpath_26 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.bulkMenu]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path ? lpath_28 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.bulkMenu]", (path ? lpath_28 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.keybinding.submodules]", (path ? lpath_26 : null)])
+            rep !== null && rep.push(["unexpected prop [.keybinding.submodules]", (path ? lpath_28 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
-function _jm_f_65(val, path, rep)
+// object .keybinding
+function _jm_obj_22(val, path, rep)
 {
-    // .keybinding.universal.jumpToBlock
-    let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.keybinding.universal.jumpToBlock]", path])
-    }
-    return res;
-}
-
-// check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
-function _jm_f_66(val, path, rep)
-{
-    // .keybinding.universal.optionMenu
-    let res = val === null;
-    if (! res)
-    {
-        rep !== null && rep.push(["not null [.keybinding.universal.optionMenu]", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_55_map_universal (.keybinding.universal)
-function _jm_f_64(val, path, rep)
-{
-    // .keybinding.universal
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.keybinding.universal]", path])
-        return false;
-    }
-    let pfun;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_27 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_64_map.get(prop)))
-        {
-            // handle 59 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_27 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.keybinding.universal]", (path ? lpath_27 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.universal]", (path ? lpath_27 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-
-// check json_model_1_map_keybinding (.keybinding)
-function _jm_f_55(val, path, rep)
-{
-    // .keybinding
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding]", path])
         return false;
     }
-    let pfun;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_18 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_55_map.get(prop)))
-        {
-            // handle 9 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_18 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.keybinding]", (path ? lpath_18 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding]", (path ? lpath_18 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-
-// check json_model_1_map_notARepository (.notARepository)
-function _jm_f_67(val, path, rep)
-{
-    // .notARepository
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_13.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.notARepository.'|']", path])
-    }
-    return res;
-}
-
-// check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
-function _jm_f_69(val, path, rep)
-{
-    // .os.copyToClipboardCmd
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.os.copyToClipboardCmd]", path])
-    }
-    return res;
-}
-
-// check _jm_f_68_map_edit (.os.edit)
-function _jm_f_70(val, path, rep)
-{
-    // .os.edit
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.os.edit]", path])
-    }
-    return res;
-}
-
-// check _jm_f_68_map_editAtLine (.os.editAtLine)
-function _jm_f_71(val, path, rep)
-{
-    // .os.editAtLine
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.os.editAtLine]", path])
-    }
-    return res;
-}
-
-// check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
-function _jm_f_72(val, path, rep)
-{
-    // .os.editAtLineAndWait
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.os.editAtLineAndWait]", path])
-    }
-    return res;
-}
-
-
-// check _jm_f_68_map_editPreset (.os.editPreset)
-function _jm_f_73(val, path, rep)
-{
-    // .os.editPreset
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_14.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.os.editPreset.'|']", path])
-    }
-    if (! res)
-    {
-        res = (typeof val === 'string' || val instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected type [.os.editPreset.'|']", path])
-        }
-        if (res)
-        {
-            // .os.editPreset.'|'.0
-            res = true;
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["unexpected string [.os.editPreset.'|'.0]", path])
-                rep !== null && rep.push(["no model matched [.os.editPreset.'|']", path])
-            }
-        }
-    }
-    return res;
-}
-
-// check _jm_f_68_map_open (.os.open)
-function _jm_f_74(val, path, rep)
-{
-    // .os.open
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.os.open]", path])
-    }
-    return res;
-}
-
-// check _jm_f_68_map_openLink (.os.openLink)
-function _jm_f_75(val, path, rep)
-{
-    // .os.openLink
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.os.openLink]", path])
-    }
-    return res;
-}
-
-
-// check json_model_1_map_os (.os)
-function _jm_f_68(val, path, rep)
-{
-    // .os
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.os]", path])
-        return false;
-    }
-    let pfun;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_28 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_f_68_map.get(prop)))
-        {
-            // handle 7 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_28 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.os]", (path ? lpath_28 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.os]", (path ? lpath_28 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
-function _jm_f_76(val, path, rep)
-{
-    // .promptToReturnFromSubprocess
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.promptToReturnFromSubprocess]", path])
-    }
-    return res;
-}
-
-// check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
-function _jm_f_77(val, path, rep)
-{
-    // .quitOnTopLevelReturn
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.quitOnTopLevelReturn]", path])
-    }
-    return res;
-}
-
-// check json_model_1_map_refresher (.refresher)
-function _jm_f_78(val, path, rep)
-{
-    // .refresher
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.refresher]", path])
-        return false;
-    }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_29 = path ? path.concat([prop]) : null;
-        if (prop == "refreshInterval")
+        let lpath_19 = path ? path.concat([prop]) : null;
+        if (prop == "universal")
         {
-            // handle may refreshInterval property
-            // .refresher.refreshInterval
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            // handle may universal property
+            // .keybinding.universal
+            res = _jm_obj_23(pval, (path ? lpath_19 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.refresher.refreshInterval]", (path ? lpath_29 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.refresher.refreshInterval]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["unexpected element [.keybinding.universal]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.universal]", (path ? lpath_19 : null)])
                 return false;
             }
         }
-        else if (prop == "fetchInterval")
+        else if (prop == "status")
         {
-            // handle may fetchInterval property
-            // .refresher.fetchInterval
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            // handle may status property
+            // .keybinding.status
+            res = _jm_obj_24(pval, (path ? lpath_19 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.refresher.fetchInterval]", (path ? lpath_29 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.refresher.fetchInterval]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["unexpected element [.keybinding.status]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.status]", (path ? lpath_19 : null)])
+                return false;
+            }
+        }
+        else if (prop == "files")
+        {
+            // handle may files property
+            // .keybinding.files
+            res = _jm_obj_25(pval, (path ? lpath_19 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.keybinding.files]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.files]", (path ? lpath_19 : null)])
+                return false;
+            }
+        }
+        else if (prop == "branches")
+        {
+            // handle may branches property
+            // .keybinding.branches
+            res = _jm_obj_26(pval, (path ? lpath_19 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.keybinding.branches]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.branches]", (path ? lpath_19 : null)])
+                return false;
+            }
+        }
+        else if (prop == "commits")
+        {
+            // handle may commits property
+            // .keybinding.commits
+            res = _jm_obj_27(pval, (path ? lpath_19 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.keybinding.commits]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commits]", (path ? lpath_19 : null)])
+                return false;
+            }
+        }
+        else if (prop == "stash")
+        {
+            // handle may stash property
+            // .keybinding.stash
+            res = _jm_obj_28(pval, (path ? lpath_19 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.keybinding.stash]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.stash]", (path ? lpath_19 : null)])
+                return false;
+            }
+        }
+        else if (prop == "commitFiles")
+        {
+            // handle may commitFiles property
+            // .keybinding.commitFiles
+            res = _jm_obj_29(pval, (path ? lpath_19 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.keybinding.commitFiles]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.commitFiles]", (path ? lpath_19 : null)])
+                return false;
+            }
+        }
+        else if (prop == "main")
+        {
+            // handle may main property
+            // .keybinding.main
+            res = _jm_obj_30(pval, (path ? lpath_19 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.keybinding.main]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.main]", (path ? lpath_19 : null)])
+                return false;
+            }
+        }
+        else if (prop == "submodules")
+        {
+            // handle may submodules property
+            // .keybinding.submodules
+            res = _jm_obj_31(pval, (path ? lpath_19 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.keybinding.submodules]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules]", (path ? lpath_19 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.refresher]", (path ? lpath_29 : null)])
+            rep !== null && rep.push(["unexpected prop [.keybinding]", (path ? lpath_19 : null)])
             return false;
         }
     }
@@ -2759,10 +3316,9 @@ function _jm_f_78(val, path, rep)
 
 const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 
-// check json_model_1_map_services (.services)
-function _jm_f_79(val, path, rep)
+// object .services
+function _jm_obj_32(val, path, rep)
 {
-    // .services
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.services]", path])
@@ -2771,22 +3327,22 @@ function _jm_f_79(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_30 = path ? path.concat([prop]) : null;
+        let lpath_29 = path ? path.concat([prop]) : null;
         if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .services.'/./'
             // "/^[^:]+:[^:]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_2(pval, (path ? lpath_30 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_2(pval, (path ? lpath_29 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path ? lpath_29 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.services]", (path ? lpath_30 : null)])
+            rep !== null && rep.push(["unexpected prop [.services]", (path ? lpath_29 : null)])
             return false;
         }
     }
@@ -2794,52 +3350,217 @@ function _jm_f_79(val, path, rep)
 }
 
 
-// check json_model_1_map_update (.update)
-function _jm_f_80(val, path, rep)
+// object .customCommands.'@'.0.after
+function _jm_obj_34(val, path, rep)
 {
-    // .update
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.update]", path])
+        rep !== null && rep.push(["not an object [.customCommands.'@'.0.after]", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_31 = path ? path.concat([prop]) : null;
-        if (prop == "method")
+        if (prop == "checkForConflicts")
         {
-            // handle may method property
-            // .update.method
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_15.has(pval);
+            // handle may checkForConflicts property
+            // .customCommands.'@'.0.after.checkForConflicts
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["value not in enum [.update.method.'|']", (path ? lpath_31 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.update.method]", (path ? lpath_31 : null)])
-                return false;
-            }
-        }
-        else if (prop == "days")
-        {
-            // handle may days property
-            // .update.days
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.update.days]", (path ? lpath_31 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.update.days]", (path ? lpath_31 : null)])
+                rep !== null && rep.push(["not a bool [.customCommands.'@'.0.after.checkForConflicts]", (path ? lpath_31 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.after.checkForConflicts]", (path ? lpath_31 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.update]", (path ? lpath_31 : null)])
+            rep !== null && rep.push(["unexpected prop [.customCommands.'@'.0.after]", (path ? lpath_31 : null)])
             return false;
         }
     }
     return true;
 }
 
+// object .customCommands.'@'.0
+function _jm_obj_33(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.customCommands.'@'.0]", path])
+        return false;
+    }
+    let res;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_30 = path ? path.concat([prop]) : null;
+        if (prop == "key")
+        {
+            // handle must key property
+            must_count += 1;
+            // .customCommands.'@'.0.key
+            res = json_model_4(pval, (path ? lpath_30 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $keybinding [.customCommands.'@'.0.key]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.key]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "command")
+        {
+            // handle must command property
+            must_count += 1;
+            // .customCommands.'@'.0.command
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.command]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.command]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "context")
+        {
+            // handle must context property
+            must_count += 1;
+            // .customCommands.'@'.0.context
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_15.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.customCommands.'@'.0.context.'|']", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.context]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "subprocess")
+        {
+            // handle may subprocess property
+            // .customCommands.'@'.0.subprocess
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.customCommands.'@'.0.subprocess]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.subprocess]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "prompts")
+        {
+            // handle may prompts property
+            // .customCommands.'@'.0.prompts
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)
+                {
+                    let arr_4_item = pval[arr_4_idx]
+                    let arr_4_lpath = (path ? lpath_30 : null) ? (path ? lpath_30 : null).concat([arr_4_idx]) : null;
+                    // .customCommands.'@'.0.prompts.0
+                    res = json_model_10(arr_4_item, ((path ? lpath_30 : null) ? arr_4_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $Prompts [.customCommands.'@'.0.prompts.0]", ((path ? lpath_30 : null) ? arr_4_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.customCommands.'@'.0.prompts]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.prompts]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "loadingText")
+        {
+            // handle may loadingText property
+            // .customCommands.'@'.0.loadingText
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.loadingText]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.loadingText]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .customCommands.'@'.0.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.description]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.description]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "stream")
+        {
+            // handle may stream property
+            // .customCommands.'@'.0.stream
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.customCommands.'@'.0.stream]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.stream]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "showOutput")
+        {
+            // handle may showOutput property
+            // .customCommands.'@'.0.showOutput
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.customCommands.'@'.0.showOutput]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.showOutput]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "after")
+        {
+            // handle may after property
+            // .customCommands.'@'.0.after
+            res = _jm_obj_34(pval, (path ? lpath_30 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.customCommands.'@'.0.after]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.after]", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.customCommands.'@'.0]", (path ? lpath_30 : null)])
+            return false;
+        }
+    }
+    if (must_count != 3)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("command"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <command> [.customCommands.'@'.0]", path])
+            }
+            if (! val.hasOwnProperty("context"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <context> [.customCommands.'@'.0]", path])
+            }
+            if (! val.hasOwnProperty("key"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <key> [.customCommands.'@'.0]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
 
 // check $ (.)
 function json_model_1(val, path, rep)
@@ -2851,16 +3572,190 @@ function json_model_1(val, path, rep)
         rep !== null && rep.push(["not an object [.]", path])
         return false;
     }
-    let pfun;
+    let res;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_4 = path ? path.concat([prop]) : null;
-        if ((pfun = json_model_1_map.get(prop)))
+        if (prop == "gui")
         {
-            // handle 13 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_4 : null), rep))
+            // handle may gui property
+            // .gui
+            res = _jm_obj_7(pval, (path ? lpath_4 : null), rep);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected element [.gui]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.gui]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "git")
+        {
+            // handle may git property
+            // .git
+            res = _jm_obj_12(pval, (path ? lpath_4 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.git]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.git]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "os")
+        {
+            // handle may os property
+            // .os
+            res = _jm_obj_19(pval, (path ? lpath_4 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.os]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.os]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "refresher")
+        {
+            // handle may refresher property
+            // .refresher
+            res = _jm_obj_20(pval, (path ? lpath_4 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.refresher]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.refresher]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "update")
+        {
+            // handle may update property
+            // .update
+            res = _jm_obj_21(pval, (path ? lpath_4 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.update]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.update]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "confirmOnQuit")
+        {
+            // handle may confirmOnQuit property
+            // .confirmOnQuit
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.confirmOnQuit]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.confirmOnQuit]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "quitOnTopLevelReturn")
+        {
+            // handle may quitOnTopLevelReturn property
+            // .quitOnTopLevelReturn
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.quitOnTopLevelReturn]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.quitOnTopLevelReturn]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "disableStartupPopups")
+        {
+            // handle may disableStartupPopups property
+            // .disableStartupPopups
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.disableStartupPopups]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.disableStartupPopups]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "notARepository")
+        {
+            // handle may notARepository property
+            // .notARepository
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_14.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.notARepository.'|']", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.notARepository]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "promptToReturnFromSubprocess")
+        {
+            // handle may promptToReturnFromSubprocess property
+            // .promptToReturnFromSubprocess
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.promptToReturnFromSubprocess]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.promptToReturnFromSubprocess]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "keybinding")
+        {
+            // handle may keybinding property
+            // .keybinding
+            res = _jm_obj_22(pval, (path ? lpath_4 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.keybinding]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.keybinding]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "services")
+        {
+            // handle may services property
+            // .services
+            res = _jm_obj_32(pval, (path ? lpath_4 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.services]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.services]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "customCommands")
+        {
+            // handle may customCommands property
+            // .customCommands
+            // .customCommands.'@'
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
+                {
+                    let arr_3_item = pval[arr_3_idx]
+                    let arr_3_lpath = (path ? lpath_4 : null) ? (path ? lpath_4 : null).concat([arr_3_idx]) : null;
+                    // .customCommands.'@'.0
+                    res = _jm_obj_33(arr_3_item, ((path ? lpath_4 : null) ? arr_3_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected element [.customCommands.'@'.0]", ((path ? lpath_4 : null) ? arr_3_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.customCommands.'@']", (path ? lpath_4 : null)])
+            }
+            if (res)
+            {
+                res = runtime.jm_array_is_unique(pval, (path ? lpath_4 : null), rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["constraints failed [.customCommands]", (path ? lpath_4 : null)])
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.customCommands]", (path ? lpath_4 : null)])
                 return false;
             }
         }
@@ -2911,265 +3806,127 @@ export function check_model_init()
         _jm_map_0.set("confirm", _jm_obj_3)
         _jm_map_0.set("menu", _jm_obj_4)
         _jm_map_0.set("menuFromCommand", _jm_obj_6)
-        _jm_cst_3.add("status")
-        _jm_cst_3.add("files")
-        _jm_cst_3.add("worktrees")
-        _jm_cst_3.add("localBranches")
-        _jm_cst_3.add("remotes")
-        _jm_cst_3.add("remoteBranches")
-        _jm_cst_3.add("tags")
-        _jm_cst_3.add("commits")
-        _jm_cst_3.add("reflogCommits")
-        _jm_cst_3.add("subCommits")
-        _jm_cst_3.add("commitFiles")
-        _jm_cst_3.add("stash")
-        _jm_cst_3.add("global")
-        _jm_obj_7_map.set("after", _jm_f_2)
-        _jm_obj_7_map.set("description", _jm_f_3)
-        _jm_obj_7_map.set("loadingText", _jm_f_4)
-        _jm_obj_7_map.set("prompts", _jm_f_5)
-        _jm_obj_7_map.set("showOutput", _jm_f_6)
-        _jm_obj_7_map.set("stream", _jm_f_7)
-        _jm_obj_7_map.set("subprocess", _jm_f_8)
-        _jm_cst_4.add("date-order")
-        _jm_cst_4.add("author-date-order")
-        _jm_cst_4.add("topo-order")
-        _jm_cst_4.add("default")
-        _jm_cst_5.add("always")
-        _jm_cst_5.add("never")
-        _jm_cst_5.add("when-maximised")
-        _jm_cst_6.add("always")
-        _jm_cst_6.add("never")
-        _jm_f_10_map.set("allBranchesLogCmd", _jm_f_11)
-        _jm_f_10_map.set("autoFetch", _jm_f_12)
-        _jm_f_10_map.set("autoRefresh", _jm_f_13)
-        _jm_f_10_map.set("branchLogCmd", _jm_f_14)
-        _jm_f_10_map.set("commit", _jm_f_15)
-        _jm_f_10_map.set("commitPrefixes", _jm_f_16)
-        _jm_f_10_map.set("diffContextSize", _jm_f_17)
-        _jm_f_10_map.set("disableForcePushing", _jm_f_18)
-        _jm_f_10_map.set("fetchAll", _jm_f_19)
-        _jm_f_10_map.set("log", _jm_f_20)
-        _jm_f_10_map.set("mainBranches", json_model_9)
-        _jm_f_10_map.set("merging", _jm_f_21)
-        _jm_f_10_map.set("overrideGpg", _jm_f_22)
-        _jm_f_10_map.set("paging", _jm_f_23)
-        _jm_f_10_map.set("parseEmoji", _jm_f_24)
-        _jm_f_10_map.set("skipHookPrefix", _jm_f_25)
-        _jm_cst_7.add("single")
-        _jm_cst_7.add("double")
-        _jm_cst_7.add("rounded")
-        _jm_cst_7.add("hidden")
-        _jm_cst_8.add("auto")
-        _jm_cst_8.add("en")
-        _jm_cst_8.add("zh-CN")
-        _jm_cst_8.add("zh-TW")
-        _jm_cst_8.add("pl")
-        _jm_cst_8.add("nl")
-        _jm_cst_8.add("ja")
-        _jm_cst_8.add("ko")
-        _jm_cst_8.add("ru")
-        _jm_cst_9.add("horizontal")
-        _jm_cst_9.add("flexible")
-        _jm_cst_9.add("vertical")
-        _jm_cst_10.add("2")
-        _jm_cst_10.add("3")
-        _jm_cst_11.add("auto")
+        _jm_cst_3.add("normal")
+        _jm_cst_3.add("half")
+        _jm_cst_3.add("full")
+        _jm_cst_4.add("horizontal")
+        _jm_cst_4.add("flexible")
+        _jm_cst_4.add("vertical")
+        _jm_cst_5.add("auto")
+        _jm_cst_5.add("en")
+        _jm_cst_5.add("zh-CN")
+        _jm_cst_5.add("zh-TW")
+        _jm_cst_5.add("pl")
+        _jm_cst_5.add("nl")
+        _jm_cst_5.add("ja")
+        _jm_cst_5.add("ko")
+        _jm_cst_5.add("ru")
+        _jm_cst_6.add("2")
+        _jm_cst_6.add("3")
+        _jm_cst_7.add("auto")
+        _jm_cst_7.add("always")
+        _jm_cst_8.add("single")
+        _jm_cst_8.add("double")
+        _jm_cst_8.add("rounded")
+        _jm_cst_8.add("hidden")
+        _jm_cst_9.add("always")
+        _jm_cst_9.add("never")
+        _jm_cst_10.add("date-order")
+        _jm_cst_10.add("author-date-order")
+        _jm_cst_10.add("topo-order")
+        _jm_cst_10.add("default")
         _jm_cst_11.add("always")
-        _jm_f_52_map.set("activeBorderColor", json_model_3)
-        _jm_f_52_map.set("cherryPickedCommitBgColor", json_model_3)
-        _jm_f_52_map.set("cherryPickedCommitFgColor", json_model_3)
-        _jm_f_52_map.set("defaultFgColor", json_model_3)
-        _jm_f_52_map.set("inactiveBorderColor", json_model_3)
-        _jm_f_52_map.set("optionsTextColor", json_model_3)
-        _jm_f_52_map.set("searchingActiveBorderColor", json_model_3)
-        _jm_f_52_map.set("selectedLineBgColor", json_model_3)
-        _jm_f_52_map.set("selectedRangeBgColor", json_model_3)
-        _jm_f_52_map.set("unstagedChangesColor", json_model_3)
-        _jm_cst_12.add("normal")
-        _jm_cst_12.add("half")
-        _jm_cst_12.add("full")
-        _jm_f_26_map.set("animateExplosion", _jm_f_27)
-        _jm_f_26_map.set("authorColors", _jm_f_28)
-        _jm_f_26_map.set("border", _jm_f_29)
-        _jm_f_26_map.set("branchColors", _jm_f_30)
-        _jm_f_26_map.set("commandLogSize", _jm_f_31)
-        _jm_f_26_map.set("commitLength", _jm_f_32)
-        _jm_f_26_map.set("expandFocusedSidePanel", _jm_f_33)
-        _jm_f_26_map.set("language", _jm_f_34)
-        _jm_f_26_map.set("mainPanelSplitMode", _jm_f_35)
-        _jm_f_26_map.set("mouseEvents", _jm_f_36)
-        _jm_f_26_map.set("nerdFontsVersion", _jm_f_37)
-        _jm_f_26_map.set("scrollHeight", _jm_f_38)
-        _jm_f_26_map.set("scrollPastBottom", _jm_f_39)
-        _jm_f_26_map.set("shortTimeFormat", _jm_f_40)
-        _jm_f_26_map.set("showBottomLine", _jm_f_41)
-        _jm_f_26_map.set("showBranchCommitHash", _jm_f_42)
-        _jm_f_26_map.set("showCommandLog", _jm_f_43)
-        _jm_f_26_map.set("showFileTree", _jm_f_44)
-        _jm_f_26_map.set("showListFooter", _jm_f_45)
-        _jm_f_26_map.set("showRandomTip", _jm_f_46)
-        _jm_f_26_map.set("sidePanelWidth", _jm_f_47)
-        _jm_f_26_map.set("skipDiscardChangeWarning", _jm_f_48)
-        _jm_f_26_map.set("skipRewordInEditorWarning", _jm_f_49)
-        _jm_f_26_map.set("skipStashWarning", _jm_f_50)
-        _jm_f_26_map.set("splitDiff", _jm_f_51)
-        _jm_f_26_map.set("theme", _jm_f_52)
-        _jm_f_26_map.set("timeFormat", _jm_f_53)
-        _jm_f_26_map.set("windowSize", _jm_f_54)
-        _jm_f_56_map.set("checkoutBranchByName", json_model_4)
-        _jm_f_56_map.set("createPullRequest", json_model_4)
-        _jm_f_56_map.set("createTag", json_model_4)
-        _jm_f_56_map.set("fastForward", json_model_4)
-        _jm_f_56_map.set("fetchRemote", json_model_4)
-        _jm_f_56_map.set("forceCheckoutBranch", json_model_4)
-        _jm_f_56_map.set("mergeIntoCurrentBranch", json_model_4)
-        _jm_f_56_map.set("pushTag", json_model_4)
-        _jm_f_56_map.set("rebaseBranch", json_model_4)
-        _jm_f_56_map.set("renameBranch", json_model_4)
-        _jm_f_56_map.set("setUpstream", json_model_4)
-        _jm_f_56_map.set("viewGitFlowOptions", json_model_4)
-        _jm_f_56_map.set("viewPullRequestOptions", json_model_4)
-        _jm_f_58_map.set("amendToCommit", json_model_4)
-        _jm_f_58_map.set("checkoutCommit", json_model_4)
-        _jm_f_58_map.set("cherryPickCopy", json_model_4)
-        _jm_f_58_map.set("cherryPickCopyRange", json_model_4)
-        _jm_f_58_map.set("copyCommitMessageToClipboard", json_model_4)
-        _jm_f_58_map.set("createFixupCommit", json_model_4)
-        _jm_f_58_map.set("markCommitAsFixup", json_model_4)
-        _jm_f_58_map.set("moveDownCommit", json_model_4)
-        _jm_f_58_map.set("moveUpCommit", json_model_4)
-        _jm_f_58_map.set("openLogMenu", json_model_4)
-        _jm_f_58_map.set("pasteCommits", json_model_4)
-        _jm_f_58_map.set("pickCommit", json_model_4)
-        _jm_f_58_map.set("renameCommit", json_model_4)
-        _jm_f_58_map.set("renameCommitWithEditor", json_model_4)
-        _jm_f_58_map.set("resetCherryPick", json_model_4)
-        _jm_f_58_map.set("revertCommit", json_model_4)
-        _jm_f_58_map.set("squashAboveCommits", json_model_4)
-        _jm_f_58_map.set("squashDown", json_model_4)
-        _jm_f_58_map.set("tagCommit", json_model_4)
-        _jm_f_58_map.set("viewBisectOptions", json_model_4)
-        _jm_f_58_map.set("viewResetOptions", json_model_4)
-        _jm_f_59_map.set("amendLastCommit", json_model_4)
-        _jm_f_59_map.set("commitChanges", json_model_4)
-        _jm_f_59_map.set("commitChangesWithEditor", json_model_4)
-        _jm_f_59_map.set("commitChangesWithoutHook", json_model_4)
-        _jm_f_59_map.set("fetch", json_model_4)
-        _jm_f_59_map.set("ignoreFile", json_model_4)
-        _jm_f_59_map.set("openMergeTool", json_model_4)
-        _jm_f_59_map.set("openStatusFilter", json_model_4)
-        _jm_f_59_map.set("refreshFiles", json_model_4)
-        _jm_f_59_map.set("stashAllChanges", json_model_4)
-        _jm_f_59_map.set("toggleStagedAll", json_model_4)
-        _jm_f_59_map.set("toggleTreeView", json_model_4)
-        _jm_f_59_map.set("viewResetOptions", json_model_4)
-        _jm_f_59_map.set("viewStashOptions", json_model_4)
-        _jm_f_64_map.set("confirm", json_model_4)
-        _jm_f_64_map.set("copyToClipboard", json_model_4)
-        _jm_f_64_map.set("createPatchOptionsMenu", json_model_4)
-        _jm_f_64_map.set("createRebaseOptionsMenu", json_model_4)
-        _jm_f_64_map.set("decreaseContextInDiffView", json_model_4)
-        _jm_f_64_map.set("diffingMenu", json_model_4)
-        _jm_f_64_map.set("diffingMenu-alt", json_model_4)
-        _jm_f_64_map.set("edit", json_model_4)
-        _jm_f_64_map.set("executeCustomCommand", json_model_4)
-        _jm_f_64_map.set("extrasMenu", json_model_4)
-        _jm_f_64_map.set("filteringMenu", json_model_4)
-        _jm_f_64_map.set("goInto", json_model_4)
-        _jm_f_64_map.set("gotoBottom", json_model_4)
-        _jm_f_64_map.set("gotoTop", json_model_4)
-        _jm_f_64_map.set("increaseContextInDiffView", json_model_4)
-        _jm_f_64_map.set("jumpToBlock", _jm_f_65)
-        _jm_f_64_map.set("new", json_model_4)
-        _jm_f_64_map.set("nextBlock", json_model_4)
-        _jm_f_64_map.set("nextBlock-alt", json_model_4)
-        _jm_f_64_map.set("nextItem", json_model_4)
-        _jm_f_64_map.set("nextItem-alt", json_model_4)
-        _jm_f_64_map.set("nextMatch", json_model_4)
-        _jm_f_64_map.set("nextPage", json_model_4)
-        _jm_f_64_map.set("nextScreenMode", json_model_4)
-        _jm_f_64_map.set("nextTab", json_model_4)
-        _jm_f_64_map.set("openFile", json_model_4)
-        _jm_f_64_map.set("openRecentRepos", json_model_4)
-        _jm_f_64_map.set("optionMenu", _jm_f_66)
-        _jm_f_64_map.set("optionMenu-alt1", json_model_4)
-        _jm_f_64_map.set("prevBlock", json_model_4)
-        _jm_f_64_map.set("prevBlock-alt", json_model_4)
-        _jm_f_64_map.set("prevItem", json_model_4)
-        _jm_f_64_map.set("prevItem-alt", json_model_4)
-        _jm_f_64_map.set("prevMatch", json_model_4)
-        _jm_f_64_map.set("prevPage", json_model_4)
-        _jm_f_64_map.set("prevScreenMode", json_model_4)
-        _jm_f_64_map.set("prevTab", json_model_4)
-        _jm_f_64_map.set("pullFiles", json_model_4)
-        _jm_f_64_map.set("pushFiles", json_model_4)
-        _jm_f_64_map.set("quit", json_model_4)
-        _jm_f_64_map.set("quit-alt1", json_model_4)
-        _jm_f_64_map.set("quitWithoutChangingDirectory", json_model_4)
-        _jm_f_64_map.set("redo", json_model_4)
-        _jm_f_64_map.set("refresh", json_model_4)
-        _jm_f_64_map.set("remove", json_model_4)
-        _jm_f_64_map.set("return", json_model_4)
-        _jm_f_64_map.set("scrollDownMain", json_model_4)
-        _jm_f_64_map.set("scrollDownMain-alt1", json_model_4)
-        _jm_f_64_map.set("scrollDownMain-alt2", json_model_4)
-        _jm_f_64_map.set("scrollLeft", json_model_4)
-        _jm_f_64_map.set("scrollRight", json_model_4)
-        _jm_f_64_map.set("scrollUpMain", json_model_4)
-        _jm_f_64_map.set("scrollUpMain-alt1", json_model_4)
-        _jm_f_64_map.set("scrollUpMain-alt2", json_model_4)
-        _jm_f_64_map.set("select", json_model_4)
-        _jm_f_64_map.set("submitEditorText", json_model_4)
-        _jm_f_64_map.set("togglePanel", json_model_4)
-        _jm_f_64_map.set("toggleWhitespaceInDiffView", json_model_4)
-        _jm_f_64_map.set("undo", json_model_4)
-        _jm_f_55_map.set("branches", _jm_f_56)
-        _jm_f_55_map.set("commitFiles", _jm_f_57)
-        _jm_f_55_map.set("commits", _jm_f_58)
-        _jm_f_55_map.set("files", _jm_f_59)
-        _jm_f_55_map.set("main", _jm_f_60)
-        _jm_f_55_map.set("stash", _jm_f_61)
-        _jm_f_55_map.set("status", _jm_f_62)
-        _jm_f_55_map.set("submodules", _jm_f_63)
-        _jm_f_55_map.set("universal", _jm_f_64)
+        _jm_cst_11.add("never")
+        _jm_cst_11.add("when-maximised")
+        _jm_cst_12.add("vim")
+        _jm_cst_12.add("nvim")
+        _jm_cst_12.add("emacs")
+        _jm_cst_12.add("nano")
+        _jm_cst_12.add("vscode")
+        _jm_cst_12.add("sublime")
+        _jm_cst_12.add("bbedit")
+        _jm_cst_12.add("kakoune")
+        _jm_cst_12.add("helix")
+        _jm_cst_12.add("xcode")
         _jm_cst_13.add("prompt")
-        _jm_cst_13.add("create")
-        _jm_cst_13.add("skip")
-        _jm_cst_13.add("quit")
-        _jm_cst_14.add("vim")
-        _jm_cst_14.add("nvim")
-        _jm_cst_14.add("emacs")
-        _jm_cst_14.add("nano")
-        _jm_cst_14.add("vscode")
-        _jm_cst_14.add("sublime")
-        _jm_cst_14.add("bbedit")
-        _jm_cst_14.add("kakoune")
-        _jm_cst_14.add("helix")
-        _jm_cst_14.add("xcode")
-        _jm_f_68_map.set("copyToClipboardCmd", _jm_f_69)
-        _jm_f_68_map.set("edit", _jm_f_70)
-        _jm_f_68_map.set("editAtLine", _jm_f_71)
-        _jm_f_68_map.set("editAtLineAndWait", _jm_f_72)
-        _jm_f_68_map.set("editPreset", _jm_f_73)
-        _jm_f_68_map.set("open", _jm_f_74)
-        _jm_f_68_map.set("openLink", _jm_f_75)
-        _jm_cst_15.add("prompt")
-        _jm_cst_15.add("background")
-        _jm_cst_15.add("never")
-        json_model_1_map.set("confirmOnQuit", _jm_f_0)
-        json_model_1_map.set("customCommands", _jm_f_1)
-        json_model_1_map.set("disableStartupPopups", _jm_f_9)
-        json_model_1_map.set("git", _jm_f_10)
-        json_model_1_map.set("gui", _jm_f_26)
-        json_model_1_map.set("keybinding", _jm_f_55)
-        json_model_1_map.set("notARepository", _jm_f_67)
-        json_model_1_map.set("os", _jm_f_68)
-        json_model_1_map.set("promptToReturnFromSubprocess", _jm_f_76)
-        json_model_1_map.set("quitOnTopLevelReturn", _jm_f_77)
-        json_model_1_map.set("refresher", _jm_f_78)
-        json_model_1_map.set("services", _jm_f_79)
-        json_model_1_map.set("update", _jm_f_80)
+        _jm_cst_13.add("background")
+        _jm_cst_13.add("never")
+        _jm_cst_14.add("prompt")
+        _jm_cst_14.add("create")
+        _jm_cst_14.add("skip")
+        _jm_cst_14.add("quit")
+        _jm_obj_23_map.set("confirm", json_model_4)
+        _jm_obj_23_map.set("copyToClipboard", json_model_4)
+        _jm_obj_23_map.set("createPatchOptionsMenu", json_model_4)
+        _jm_obj_23_map.set("createRebaseOptionsMenu", json_model_4)
+        _jm_obj_23_map.set("decreaseContextInDiffView", json_model_4)
+        _jm_obj_23_map.set("diffingMenu", json_model_4)
+        _jm_obj_23_map.set("diffingMenu-alt", json_model_4)
+        _jm_obj_23_map.set("edit", json_model_4)
+        _jm_obj_23_map.set("executeCustomCommand", json_model_4)
+        _jm_obj_23_map.set("extrasMenu", json_model_4)
+        _jm_obj_23_map.set("filteringMenu", json_model_4)
+        _jm_obj_23_map.set("goInto", json_model_4)
+        _jm_obj_23_map.set("gotoBottom", json_model_4)
+        _jm_obj_23_map.set("gotoTop", json_model_4)
+        _jm_obj_23_map.set("increaseContextInDiffView", json_model_4)
+        _jm_obj_23_map.set("jumpToBlock", _jm_f_0)
+        _jm_obj_23_map.set("new", json_model_4)
+        _jm_obj_23_map.set("nextBlock", json_model_4)
+        _jm_obj_23_map.set("nextBlock-alt", json_model_4)
+        _jm_obj_23_map.set("nextItem", json_model_4)
+        _jm_obj_23_map.set("nextItem-alt", json_model_4)
+        _jm_obj_23_map.set("nextMatch", json_model_4)
+        _jm_obj_23_map.set("nextPage", json_model_4)
+        _jm_obj_23_map.set("nextScreenMode", json_model_4)
+        _jm_obj_23_map.set("nextTab", json_model_4)
+        _jm_obj_23_map.set("openFile", json_model_4)
+        _jm_obj_23_map.set("openRecentRepos", json_model_4)
+        _jm_obj_23_map.set("optionMenu", _jm_f_1)
+        _jm_obj_23_map.set("optionMenu-alt1", json_model_4)
+        _jm_obj_23_map.set("prevBlock", json_model_4)
+        _jm_obj_23_map.set("prevBlock-alt", json_model_4)
+        _jm_obj_23_map.set("prevItem", json_model_4)
+        _jm_obj_23_map.set("prevItem-alt", json_model_4)
+        _jm_obj_23_map.set("prevMatch", json_model_4)
+        _jm_obj_23_map.set("prevPage", json_model_4)
+        _jm_obj_23_map.set("prevScreenMode", json_model_4)
+        _jm_obj_23_map.set("prevTab", json_model_4)
+        _jm_obj_23_map.set("pullFiles", json_model_4)
+        _jm_obj_23_map.set("pushFiles", json_model_4)
+        _jm_obj_23_map.set("quit", json_model_4)
+        _jm_obj_23_map.set("quit-alt1", json_model_4)
+        _jm_obj_23_map.set("quitWithoutChangingDirectory", json_model_4)
+        _jm_obj_23_map.set("redo", json_model_4)
+        _jm_obj_23_map.set("refresh", json_model_4)
+        _jm_obj_23_map.set("remove", json_model_4)
+        _jm_obj_23_map.set("return", json_model_4)
+        _jm_obj_23_map.set("scrollDownMain", json_model_4)
+        _jm_obj_23_map.set("scrollDownMain-alt1", json_model_4)
+        _jm_obj_23_map.set("scrollDownMain-alt2", json_model_4)
+        _jm_obj_23_map.set("scrollLeft", json_model_4)
+        _jm_obj_23_map.set("scrollRight", json_model_4)
+        _jm_obj_23_map.set("scrollUpMain", json_model_4)
+        _jm_obj_23_map.set("scrollUpMain-alt1", json_model_4)
+        _jm_obj_23_map.set("scrollUpMain-alt2", json_model_4)
+        _jm_obj_23_map.set("select", json_model_4)
+        _jm_obj_23_map.set("submitEditorText", json_model_4)
+        _jm_obj_23_map.set("togglePanel", json_model_4)
+        _jm_obj_23_map.set("toggleWhitespaceInDiffView", json_model_4)
+        _jm_obj_23_map.set("undo", json_model_4)
+        _jm_cst_15.add("status")
+        _jm_cst_15.add("files")
+        _jm_cst_15.add("worktrees")
+        _jm_cst_15.add("localBranches")
+        _jm_cst_15.add("remotes")
+        _jm_cst_15.add("remoteBranches")
+        _jm_cst_15.add("tags")
+        _jm_cst_15.add("commits")
+        _jm_cst_15.add("reflogCommits")
+        _jm_cst_15.add("subCommits")
+        _jm_cst_15.add("commitFiles")
+        _jm_cst_15.add("stash")
+        _jm_cst_15.add("global")
         check_model_map.set("", json_model_1)
         check_model_map.set("color", json_model_2)
         check_model_map.set("colorArray", json_model_3)

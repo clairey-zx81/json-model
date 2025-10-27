@@ -1,3 +1,3 @@
 hello3.values.json[0]: PASS
 hello3.values.json[1]: PASS
-hello3.values.json[2]: FAIL (.world: unexpected value for mandatory prop <world> [.]; .world: not a bool [.world])
+hello3.values.json[2]: FAIL (.world: invalid mandatory prop value [.world]; .world: not a bool [.world])

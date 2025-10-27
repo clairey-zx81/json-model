@@ -10,94 +10,78 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t json_model_1_map_tab[10];
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check json_model_1_map_f0 (.f0)
-static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f0
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f0
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f1 (.f1)
-static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f1
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f1
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f2 (.f2)
-static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f2
+static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f2
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f3 (.f3)
-static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f3
+static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f3
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f4 (.f4)
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f4
+static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f4
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f5 (.f5)
-static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f5
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f5
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f6 (.f6)
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f6
+static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f6
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f7 (.f7)
-static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f7
+static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f7
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f8 (.f8)
-static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f8
+static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f8
     return json_is_object(val) && json_object_size(val) == 0;
 }
 
-// check json_model_1_map_f9 (.f9)
-static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// object .f9
+static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .f9
     return json_is_object(val) && json_object_size(val) == 0;
-}
-
-static INLINE jm_check_fun_t json_model_1_map(const char *pname)
-{
-    return jm_search_propmap(pname, json_model_1_map_tab, 10);
 }
 
 // check $ (.)
@@ -106,15 +90,89 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     if (unlikely(! json_is_object(val)))
         return false;
-    jm_check_fun_t pfun;
+    bool res;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (likely((pfun = json_model_1_map(prop))))
+        if (unlikely(jm_str_eq_3(prop, 0x00003066)))
         {
-            // handle 10 may props
-            if (unlikely(pfun != NULL && ! pfun(pval, NULL, NULL)))
+            // handle may f0 property
+            // .f0
+            res = _jm_obj_0(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_3(prop, 0x00003166)))
+        {
+            // handle may f1 property
+            // .f1
+            res = _jm_obj_1(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_3(prop, 0x00003266)))
+        {
+            // handle may f2 property
+            // .f2
+            res = _jm_obj_2(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_3(prop, 0x00003366)))
+        {
+            // handle may f3 property
+            // .f3
+            res = _jm_obj_3(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_3(prop, 0x00003466)))
+        {
+            // handle may f4 property
+            // .f4
+            res = _jm_obj_4(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_3(prop, 0x00003566)))
+        {
+            // handle may f5 property
+            // .f5
+            res = _jm_obj_5(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_3(prop, 0x00003666)))
+        {
+            // handle may f6 property
+            // .f6
+            res = _jm_obj_6(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_3(prop, 0x00003766)))
+        {
+            // handle may f7 property
+            // .f7
+            res = _jm_obj_7(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (jm_str_eq_3(prop, 0x00003866))
+        {
+            // handle may f8 property
+            // .f8
+            res = _jm_obj_8(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_3(prop, 0x00003966)))
+        {
+            // handle may f9 property
+            // .f9
+            res = _jm_obj_9(pval, NULL, NULL);
+            if (unlikely(! res))
                 return false;
         }
         else
@@ -136,17 +194,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        json_model_1_map_tab[0] = (jm_propmap_t) { "f0", _jm_f_0 };
-        json_model_1_map_tab[1] = (jm_propmap_t) { "f1", _jm_f_1 };
-        json_model_1_map_tab[2] = (jm_propmap_t) { "f2", _jm_f_2 };
-        json_model_1_map_tab[3] = (jm_propmap_t) { "f3", _jm_f_3 };
-        json_model_1_map_tab[4] = (jm_propmap_t) { "f4", _jm_f_4 };
-        json_model_1_map_tab[5] = (jm_propmap_t) { "f5", _jm_f_5 };
-        json_model_1_map_tab[6] = (jm_propmap_t) { "f6", _jm_f_6 };
-        json_model_1_map_tab[7] = (jm_propmap_t) { "f7", _jm_f_7 };
-        json_model_1_map_tab[8] = (jm_propmap_t) { "f8", _jm_f_8 };
-        json_model_1_map_tab[9] = (jm_propmap_t) { "f9", _jm_f_9 };
-        jm_sort_propmap(json_model_1_map_tab, 10);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
