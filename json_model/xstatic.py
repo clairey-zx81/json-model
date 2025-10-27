@@ -506,7 +506,7 @@ class CodeGenerator:
     def _gen_short_expr(self, expr: BoolExpr) -> Block:
         """Return immediately if expression is false."""
         gen = self._lang
-        return gen.if_stmt(gen.not_op(expr), gen.ret(gen.false()))
+        return gen.if_stmt(gen.not_op(expr), gen.ret(gen.false()), likely=False)
 
     def _propmap_name(self, model: ModelObject, default: str) -> str:
         """Memoize property map names for reuse.
