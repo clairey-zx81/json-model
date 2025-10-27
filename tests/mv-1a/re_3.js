@@ -27,20 +27,7 @@ function json_model_1(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "all")
-        {
-            // handle may all property
-            // .all
-            // "/.*/"
-            res = ((typeof pval === 'string' || pval instanceof String));
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected /.*/ [.all]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.all]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "nz")
+        if (prop == "nz")
         {
             // handle may nz property
             // .nz
@@ -50,6 +37,19 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected /./s [.nz]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.nz]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "all")
+        {
+            // handle may all property
+            // .all
+            // "/.*/"
+            res = ((typeof pval === 'string' || pval instanceof String));
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected /.*/ [.all]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.all]", (path ? lpath_0 : null)])
                 return false;
             }
         }

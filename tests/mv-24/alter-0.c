@@ -34,21 +34,21 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (jm_str_eq_2(prop, 0x00000074))
-        {
-            // handle must t property
-            must_count += 1;
-            // .'$d'.t
-            res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000064)))
+        if (jm_str_eq_2(prop, 0x00000064))
         {
             // handle must d property
             must_count += 1;
             // .'$d'.d
             res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000074)))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$d'.t
+            res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
             if (unlikely(! res))
                 return false;
         }
@@ -106,21 +106,21 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (jm_str_eq_2(prop, 0x00000074))
-        {
-            // handle must t property
-            must_count += 1;
-            // .'$alternative'.'|'.0.t
-            res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000061)))
+        if (jm_str_eq_2(prop, 0x00000061))
         {
             // handle must a property
             must_count += 1;
             // .'$alternative'.'|'.0.a
             res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000074)))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'$alternative'.'|'.0.t
+            res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
             if (unlikely(! res))
                 return false;
         }

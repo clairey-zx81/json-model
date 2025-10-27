@@ -30,20 +30,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_5(prop, 0x00000000656d616eLL))
-        {
-            // handle must name property
-            must_count += 1;
-            // .name
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.name]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.name]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_4(prop, 0x00656761)))
+        if (jm_str_eq_4(prop, 0x00656761))
         {
             // handle must age property
             must_count += 1;
@@ -53,6 +40,19 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.age]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.age]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        {
+            // handle must name property
+            must_count += 1;
+            // .name
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.name]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.name]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }

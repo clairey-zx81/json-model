@@ -4970,35 +4970,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'cloud_platforms' THEN
-      -- handle may cloud_platforms property
-      -- .'$GalaxyInfoModelCollection'.cloud_platforms
-      res := TRUE;
-    ELSEIF prop = 'galaxy_tags' THEN
-      -- handle may galaxy_tags property
-      -- .'$GalaxyInfoModelCollection'.galaxy_tags
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_95_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_95_item := pval -> arr_95_idx;
-          -- .'$GalaxyInfoModelCollection'.galaxy_tags.0
-          res := JSONB_TYPEOF(arr_95_item) = 'string';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'min_ansible_version' THEN
-      -- handle may min_ansible_version property
-      -- .'$GalaxyInfoModelCollection'.min_ansible_version
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'namespace' THEN
+    IF prop = 'namespace' THEN
       -- handle may namespace property
       -- .'$GalaxyInfoModelCollection'.namespace
       -- "/^[a-z][-a-z0-9_]+$/"
@@ -5021,10 +4993,38 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+    ELSEIF prop = 'galaxy_tags' THEN
+      -- handle may galaxy_tags property
+      -- .'$GalaxyInfoModelCollection'.galaxy_tags
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_95_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_95_item := pval -> arr_95_idx;
+          -- .'$GalaxyInfoModelCollection'.galaxy_tags.0
+          res := JSONB_TYPEOF(arr_95_item) = 'string';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
     ELSEIF prop = 'video_links' THEN
       -- handle may video_links property
       -- .'$GalaxyInfoModelCollection'.video_links
       res := JSONB_TYPEOF(pval) = 'array';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'cloud_platforms' THEN
+      -- handle may cloud_platforms property
+      -- .'$GalaxyInfoModelCollection'.cloud_platforms
+      res := TRUE;
+    ELSEIF prop = 'min_ansible_version' THEN
+      -- handle may min_ansible_version property
+      -- .'$GalaxyInfoModelCollection'.min_ansible_version
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5074,6 +5074,13 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+    ELSEIF prop = 'license' THEN
+      -- handle may license property
+      -- .'$GalaxyInfoModelLoose'.license
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
     ELSEIF prop = 'github_branch' THEN
       -- handle may github_branch property
       -- .'$GalaxyInfoModelLoose'.github_branch
@@ -5084,13 +5091,6 @@ BEGIN
     ELSEIF prop = 'issue_tracker_url' THEN
       -- handle may issue_tracker_url property
       -- .'$GalaxyInfoModelLoose'.issue_tracker_url
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'license' THEN
-      -- handle may license property
-      -- .'$GalaxyInfoModelLoose'.license
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -5233,23 +5233,7 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'standalone' THEN
-      -- handle must standalone property
-      must_count := must_count + 1;
-      -- .'$GalaxyInfoModelStandalone'.standalone
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'description' THEN
-      -- handle must description property
-      must_count := must_count + 1;
-      -- .'$GalaxyInfoModelStandalone'.description
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'author' THEN
+    IF prop = 'author' THEN
       -- handle must author property
       must_count := must_count + 1;
       -- .'$GalaxyInfoModelStandalone'.author
@@ -5261,6 +5245,22 @@ BEGIN
       -- handle must license property
       must_count := must_count + 1;
       -- .'$GalaxyInfoModelStandalone'.license
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'standalone' THEN
+      -- handle must standalone property
+      must_count := must_count + 1;
+      -- .'$GalaxyInfoModelStandalone'.standalone
+      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'description' THEN
+      -- handle must description property
+      must_count := must_count + 1;
+      -- .'$GalaxyInfoModelStandalone'.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -5965,17 +5965,17 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'allow_duplicates' THEN
-      -- handle may allow_duplicates property
-      -- .'$AnsibleMetaObj'.allow_duplicates
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'collections' THEN
+    IF prop = 'collections' THEN
       -- handle may collections property
       -- .'$AnsibleMetaObj'.collections
       res := json_model_55(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'galaxy_info' THEN
+      -- handle may galaxy_info property
+      -- .'$AnsibleMetaObj'.galaxy_info
+      res := json_model_54(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5998,10 +5998,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'galaxy_info' THEN
-      -- handle may galaxy_info property
-      -- .'$AnsibleMetaObj'.galaxy_info
-      res := json_model_54(pval, NULL, NULL);
+    ELSEIF prop = 'allow_duplicates' THEN
+      -- handle may allow_duplicates property
+      -- .'$AnsibleMetaObj'.allow_duplicates
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

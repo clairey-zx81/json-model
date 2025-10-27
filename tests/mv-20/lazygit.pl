@@ -311,7 +311,18 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq 'key')
+        {
+            # handle must key property
+            $must_count++;
+            # .'$Prompts'.'|'.0.key
+            $res = json_model_7($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'type')
         {
             # handle must type property
             $must_count++;
@@ -333,12 +344,13 @@ sub _jm_obj_0($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'key')
+        elsif ($prop eq 'suggestions')
         {
-            # handle must key property
-            $must_count++;
-            # .'$Prompts'.'|'.0.key
-            $res = json_model_7($pval, undef, undef);
+            # handle may suggestions property
+            # .'$Prompts'.'|'.0.suggestions
+            # .'$Prompts'.'|'.0.suggestions.'|'.0
+            # .'$Prompts'.'|'.0.suggestions.'|'.1
+            $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, undef) || _jm_obj_1($pval, undef, undef));
             if (! $res)
             {
                 return 0;
@@ -349,18 +361,6 @@ sub _jm_obj_0($$$)
             # handle may initialValue property
             # .'$Prompts'.'|'.0.initialValue
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'suggestions')
-        {
-            # handle may suggestions property
-            # .'$Prompts'.'|'.0.suggestions
-            # .'$Prompts'.'|'.0.suggestions.'|'.0
-            # .'$Prompts'.'|'.0.suggestions.'|'.1
-            $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, undef) || _jm_obj_1($pval, undef, undef));
             if (! $res)
             {
                 return 0;
@@ -387,7 +387,18 @@ sub _jm_obj_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq 'key')
+        {
+            # handle must key property
+            $must_count++;
+            # .'$Prompts'.'|'.1.key
+            $res = json_model_7($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'type')
         {
             # handle must type property
             $must_count++;
@@ -404,17 +415,6 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .'$Prompts'.'|'.1.title
             $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'key')
-        {
-            # handle must key property
-            $must_count++;
-            # .'$Prompts'.'|'.1.key
-            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -462,20 +462,20 @@ sub _jm_obj_5($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq 'name')
         {
-            # handle may description property
-            # .'$Prompts'.'|'.2.options.'@'.0.description
+            # handle may name property
+            # .'$Prompts'.'|'.2.options.'@'.0.name
             $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'name')
+        elsif ($prop eq 'description')
         {
-            # handle may name property
-            # .'$Prompts'.'|'.2.options.'@'.0.name
+            # handle may description property
+            # .'$Prompts'.'|'.2.options.'@'.0.description
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -579,7 +579,18 @@ sub _jm_obj_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq 'key')
+        {
+            # handle must key property
+            $must_count++;
+            # .'$Prompts'.'|'.3.key
+            $res = json_model_7($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'type')
         {
             # handle must type property
             $must_count++;
@@ -596,17 +607,6 @@ sub _jm_obj_6($$$)
             $must_count++;
             # .'$Prompts'.'|'.3.title
             $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'key')
-        {
-            # handle must key property
-            $must_count++;
-            # .'$Prompts'.'|'.3.key
-            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -633,20 +633,20 @@ sub _jm_obj_6($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'valueFormat')
+        elsif ($prop eq 'labelFormat')
         {
-            # handle may valueFormat property
-            # .'$Prompts'.'|'.3.valueFormat
+            # handle may labelFormat property
+            # .'$Prompts'.'|'.3.labelFormat
             $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'labelFormat')
+        elsif ($prop eq 'valueFormat')
         {
-            # handle may labelFormat property
-            # .'$Prompts'.'|'.3.labelFormat
+            # handle may valueFormat property
+            # .'$Prompts'.'|'.3.valueFormat
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -775,10 +775,20 @@ sub _jm_obj_7($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'subprocess')
+        elsif ($prop eq 'after')
         {
-            # handle may subprocess property
-            # .customCommands.'@'.0.subprocess
+            # handle may after property
+            # .customCommands.'@'.0.after
+            $res = _jm_obj_8($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'stream')
+        {
+            # handle may stream property
+            # .customCommands.'@'.0.stream
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -808,11 +818,21 @@ sub _jm_obj_7($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'loadingText')
+        elsif ($prop eq 'showOutput')
         {
-            # handle may loadingText property
-            # .customCommands.'@'.0.loadingText
-            $res = jm_is_string($pval);
+            # handle may showOutput property
+            # .customCommands.'@'.0.showOutput
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'subprocess')
+        {
+            # handle may subprocess property
+            # .customCommands.'@'.0.subprocess
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
@@ -828,31 +848,11 @@ sub _jm_obj_7($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'stream')
+        elsif ($prop eq 'loadingText')
         {
-            # handle may stream property
-            # .customCommands.'@'.0.stream
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'showOutput')
-        {
-            # handle may showOutput property
-            # .customCommands.'@'.0.showOutput
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'after')
-        {
-            # handle may after property
-            # .customCommands.'@'.0.after
-            $res = _jm_obj_8($pval, undef, undef);
+            # handle may loadingText property
+            # .customCommands.'@'.0.loadingText
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1127,21 +1127,21 @@ sub _jm_f_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'manualCommit')
+        if ($prop eq 'args')
         {
-            # handle may manualCommit property
-            # .git.merging.manualCommit
-            $res = jm_is_boolean($pval);
+            # handle may args property
+            # .git.merging.args
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'args')
+        elsif ($prop eq 'manualCommit')
         {
-            # handle may args property
-            # .git.merging.args
-            $res = jm_is_string($pval);
+            # handle may manualCommit property
+            # .git.merging.manualCommit
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
@@ -1177,7 +1177,23 @@ sub _jm_f_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'colorArg')
+        if ($prop eq 'pager')
+        {
+            # handle may pager property
+            # .git.paging.pager
+            # .git.paging.pager.'@'
+            $res = jm_is_string($pval);
+            if ($res)
+            {
+                my $sval_1 = $pval;
+                $res = $sval_1 ne '';
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'colorArg')
         {
             # handle may colorArg property
             # .git.paging.colorArg
@@ -1192,22 +1208,6 @@ sub _jm_f_16($$$)
             # handle may useConfig property
             # .git.paging.useConfig
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'pager')
-        {
-            # handle may pager property
-            # .git.paging.pager
-            # .git.paging.pager.'@'
-            $res = jm_is_string($pval);
-            if ($res)
-            {
-                my $sval_1 = $pval;
-                $res = $sval_1 ne '';
-            }
             if (! $res)
             {
                 return 0;
@@ -1760,20 +1760,20 @@ sub _jm_f_53($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'toggleDragSelect')
+        if ($prop eq 'pickBothHunks')
         {
-            # handle may toggleDragSelect property
-            # .keybinding.main.toggleDragSelect
+            # handle may pickBothHunks property
+            # .keybinding.main.pickBothHunks
             $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'toggleDragSelect-alt')
+        elsif ($prop eq 'toggleDragSelect')
         {
-            # handle may toggleDragSelect-alt property
-            # .keybinding.main.'toggleDragSelect-alt'
+            # handle may toggleDragSelect property
+            # .keybinding.main.toggleDragSelect
             $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
@@ -1790,10 +1790,10 @@ sub _jm_f_53($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'pickBothHunks')
+        elsif ($prop eq 'toggleDragSelect-alt')
         {
-            # handle may pickBothHunks property
-            # .keybinding.main.pickBothHunks
+            # handle may toggleDragSelect-alt property
+            # .keybinding.main.'toggleDragSelect-alt'
             $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
@@ -1862,20 +1862,20 @@ sub _jm_f_55($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'checkForUpdate')
+        if ($prop eq 'recentRepos')
         {
-            # handle may checkForUpdate property
-            # .keybinding.status.checkForUpdate
+            # handle may recentRepos property
+            # .keybinding.status.recentRepos
             $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'recentRepos')
+        elsif ($prop eq 'checkForUpdate')
         {
-            # handle may recentRepos property
-            # .keybinding.status.recentRepos
+            # handle may checkForUpdate property
+            # .keybinding.status.checkForUpdate
             $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
@@ -2040,51 +2040,10 @@ sub _jm_f_61($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'copyToClipboardCmd')
-        {
-            # handle may copyToClipboardCmd property
-            # .os.copyToClipboardCmd
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'editPreset')
-        {
-            # handle may editPreset property
-            # .os.editPreset
-            # .os.editPreset.'|'.0
-            $res = jm_is_string($pval) && exists $_jm_cst_14{$pval} || jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'edit')
+        if ($prop eq 'edit')
         {
             # handle may edit property
             # .os.edit
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'editAtLine')
-        {
-            # handle may editAtLine property
-            # .os.editAtLine
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'editAtLineAndWait')
-        {
-            # handle may editAtLineAndWait property
-            # .os.editAtLineAndWait
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -2105,6 +2064,47 @@ sub _jm_f_61($$$)
         {
             # handle may openLink property
             # .os.openLink
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'editAtLine')
+        {
+            # handle may editAtLine property
+            # .os.editAtLine
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'editPreset')
+        {
+            # handle may editPreset property
+            # .os.editPreset
+            # .os.editPreset.'|'.0
+            $res = jm_is_string($pval) && exists $_jm_cst_14{$pval} || jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'editAtLineAndWait')
+        {
+            # handle may editAtLineAndWait property
+            # .os.editAtLineAndWait
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'copyToClipboardCmd')
+        {
+            # handle may copyToClipboardCmd property
+            # .os.copyToClipboardCmd
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -2148,20 +2148,20 @@ sub _jm_f_64($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'refreshInterval')
+        if ($prop eq 'fetchInterval')
         {
-            # handle may refreshInterval property
-            # .refresher.refreshInterval
+            # handle may fetchInterval property
+            # .refresher.fetchInterval
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'fetchInterval')
+        elsif ($prop eq 'refreshInterval')
         {
-            # handle may fetchInterval property
-            # .refresher.fetchInterval
+            # handle may refreshInterval property
+            # .refresher.refreshInterval
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -2229,21 +2229,21 @@ sub _jm_f_66($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'method')
+        if ($prop eq 'days')
         {
-            # handle may method property
-            # .update.method
-            $res = jm_is_string($pval) && exists $_jm_cst_15{$pval};
+            # handle may days property
+            # .update.days
+            $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'days')
+        elsif ($prop eq 'method')
         {
-            # handle may days property
-            # .update.days
-            $res = jm_is_integer($pval) && $pval >= 0;
+            # handle may method property
+            # .update.method
+            $res = jm_is_string($pval) && exists $_jm_cst_15{$pval};
             if (! $res)
             {
                 return 0;

@@ -199,18 +199,18 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'b' THEN
-      -- handle must b property
+    IF prop = 'a' THEN
+      -- handle must a property
       must_count := must_count + 1;
-      -- .'|'.2.b
+      -- .'|'.2.a
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'a' THEN
-      -- handle must a property
+    ELSEIF prop = 'b' THEN
+      -- handle must b property
       must_count := must_count + 1;
-      -- .'|'.2.a
+      -- .'|'.2.b
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;

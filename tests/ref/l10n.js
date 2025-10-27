@@ -147,19 +147,6 @@ function json_model_1(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "~")
-        {
-            // handle must ~ property
-            must_count += 1;
-            // .'~'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "https://json-model.org/models/l10n";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _https://json-model.org/models/l10n [.'~']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'~']", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
         else if (prop == "%")
         {
             // handle must % property
@@ -184,6 +171,19 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected _$Model [.'@']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'@']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "~")
+        {
+            // handle must ~ property
+            must_count += 1;
+            // .'~'
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "https://json-model.org/models/l10n";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _https://json-model.org/models/l10n [.'~']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'~']", (path ? lpath_0 : null)])
                 return false;
             }
         }

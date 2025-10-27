@@ -20,19 +20,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 't' THEN
-      -- handle must t property
-      must_count := must_count + 1;
-      -- .'$Aa'.t
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'a' THEN
+    IF prop = 'a' THEN
       -- handle must a property
       must_count := must_count + 1;
       -- .'$Aa'.a
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 't' THEN
+      -- handle must t property
+      must_count := must_count + 1;
+      -- .'$Aa'.t
+      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -59,19 +59,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 't' THEN
-      -- handle must t property
-      must_count := must_count + 1;
-      -- .'$Bb'.t
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'b' THEN
+    IF prop = 'b' THEN
       -- handle must b property
       must_count := must_count + 1;
       -- .'$Bb'.b
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 't' THEN
+      -- handle must t property
+      must_count := must_count + 1;
+      -- .'$Bb'.t
+      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

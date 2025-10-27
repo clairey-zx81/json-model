@@ -32,20 +32,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_8(prop, 0x696d697263736964LL) && jm_str_eq_6(prop + 8, 0x000000726f74616eLL))
-        {
-            // handle must discriminator property
-            must_count += 1;
-            // .'|'.0.discriminator
-            res = json_is_boolean(pval) && json_boolean_value(pval) == true;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected =true [.'|'.0.discriminator]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.0.discriminator]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000078)))
+        if (jm_str_eq_2(prop, 0x00000078))
         {
             // handle must x property
             must_count += 1;
@@ -55,6 +42,19 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'|'.0.x]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.0.x]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_8(prop, 0x696d697263736964LL) && jm_str_eq_6(prop + 8, 0x000000726f74616eLL)))
+        {
+            // handle must discriminator property
+            must_count += 1;
+            // .'|'.0.discriminator
+            res = json_is_boolean(pval) && json_boolean_value(pval) == true;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected =true [.'|'.0.discriminator]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.0.discriminator]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -97,20 +97,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_8(prop, 0x696d697263736964LL) && jm_str_eq_6(prop + 8, 0x000000726f74616eLL))
-        {
-            // handle must discriminator property
-            must_count += 1;
-            // .'|'.1.discriminator
-            res = json_is_boolean(pval) && json_boolean_value(pval) == false;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected =false [.'|'.1.discriminator]", (path ? &lpath_1 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.discriminator]", (path ? &lpath_1 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000079)))
+        if (jm_str_eq_2(prop, 0x00000079))
         {
             // handle must y property
             must_count += 1;
@@ -120,6 +107,19 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'|'.1.y]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.y]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_8(prop, 0x696d697263736964LL) && jm_str_eq_6(prop + 8, 0x000000726f74616eLL)))
+        {
+            // handle must discriminator property
+            must_count += 1;
+            // .'|'.1.discriminator
+            res = json_is_boolean(pval) && json_boolean_value(pval) == false;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected =false [.'|'.1.discriminator]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.discriminator]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }

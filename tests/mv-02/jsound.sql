@@ -19,23 +19,16 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$Schema'.metadata.name
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'previous' THEN
-      -- handle may previous property
-      -- .'$Schema'.metadata.previous
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'date' THEN
+    IF prop = 'date' THEN
       -- handle may date property
       -- .'$Schema'.metadata.date
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'name' THEN
+      -- handle may name property
+      -- .'$Schema'.metadata.name
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -54,6 +47,13 @@ BEGIN
           END IF;
         END LOOP;
       END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'previous' THEN
+      -- handle may previous property
+      -- .'$Schema'.metadata.previous
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -368,10 +368,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'baseType' THEN
-      -- handle may baseType property
-      -- .'$Object'.baseType
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'closed' THEN
+      -- handle may closed property
+      -- .'$Object'.closed
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -392,10 +392,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'closed' THEN
-      -- handle may closed property
-      -- .'$Object'.closed
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    ELSEIF prop = 'baseType' THEN
+      -- handle may baseType property
+      -- .'$Object'.baseType
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -438,9 +438,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'required' THEN
-      -- handle may required property
-      -- .'$Fields'.required
+    ELSEIF prop = 'unique' THEN
+      -- handle may unique property
+      -- .'$Fields'.unique
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
@@ -449,9 +449,9 @@ BEGIN
       -- handle may default property
       -- .'$Fields'.default
       res := TRUE;
-    ELSEIF prop = 'unique' THEN
-      -- handle may unique property
-      -- .'$Fields'.unique
+    ELSEIF prop = 'required' THEN
+      -- handle may required property
+      -- .'$Fields'.required
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
@@ -495,13 +495,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'baseType' THEN
-      -- handle may baseType property
-      -- .'$Array'.baseType
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$Array'.content
@@ -509,16 +502,23 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'minLength' THEN
-      -- handle may minLength property
-      -- .'$Array'.minLength
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+    ELSEIF prop = 'baseType' THEN
+      -- handle may baseType property
+      -- .'$Array'.baseType
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'maxLength' THEN
       -- handle may maxLength property
       -- .'$Array'.maxLength
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'minLength' THEN
+      -- handle may minLength property
+      -- .'$Array'.minLength
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
@@ -549,19 +549,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle must name property
-      must_count := must_count + 1;
-      -- .'$Union'.name
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'kind' THEN
+    IF prop = 'kind' THEN
       -- handle must kind property
       must_count := must_count + 1;
       -- .'$Union'.kind
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'union';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'name' THEN
+      -- handle must name property
+      must_count := must_count + 1;
+      -- .'$Union'.name
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

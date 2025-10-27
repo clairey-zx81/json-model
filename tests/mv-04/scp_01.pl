@@ -90,21 +90,21 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'b')
-        {
-            # handle may b property
-            # .b
-            $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
         elsif ($prop eq 'a')
         {
             # handle may a property
             # .a
             $res = json_model_7($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'b')
+        {
+            # handle may b property
+            # .b
+            $res = json_model_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;

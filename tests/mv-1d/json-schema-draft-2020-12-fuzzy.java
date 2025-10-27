@@ -35,43 +35,8 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
         return res;
     }
 
-    // object .'$core'.'$vocabulary'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$core'.'$vocabulary']", path);
-            return false;
-        }
-        boolean res;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
-        {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
-            if (rt.is_valid_url(prop))
-            {
-                // handle 1 key props
-                // .'$core'.'$vocabulary'.'$URI'
-                res = json.isBoolean(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a bool [.'$core'.'$vocabulary'.'$URI']", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$core'.'$vocabulary']", (path != null ? lpath_1 : null));
-                return false;
-            }
-        }
-        return true;
-    }
-
     // object .'$core'.'$defs'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -84,13 +49,48 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_2 = new Path(prop, path);
+            Path lpath_1 = new Path(prop, path);
             // handle other props
             // .'$core'.'$defs'.''
-            res = json_model_17(pval, (path != null ? lpath_2 : null), rep);
+            res = json_model_17(pval, (path != null ? lpath_1 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$core'.'$defs'.'']", (path != null ? lpath_2 : null));
+                if (rep != null) rep.addEntry("unexpected $Schema [.'$core'.'$defs'.'']", (path != null ? lpath_1 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // object .'$core'.'$vocabulary'
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$core'.'$vocabulary']", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_2 = new Path(prop, path);
+            if (rt.is_valid_url(prop))
+            {
+                // handle 1 key props
+                // .'$core'.'$vocabulary'.'$URI'
+                res = json.isBoolean(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a bool [.'$core'.'$vocabulary'.'$URI']", (path != null ? lpath_2 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$core'.'$vocabulary']", (path != null ? lpath_2 : null));
                 return false;
             }
         }
@@ -125,18 +125,6 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
-            {
-                // handle may $schema property
-                // .'$core'.'$schema'
-                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'$core'.'$schema']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$schema']", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("$ref") == 0)
             {
                 // handle may $ref property
@@ -146,6 +134,18 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$ref']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$ref']", (path != null ? lpath_0 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$defs") == 0)
+            {
+                // handle may $defs property
+                // .'$core'.'$defs'
+                res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$core'.'$defs']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$defs']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -161,39 +161,15 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$dynamicRef") == 0)
+            else if (prop.compareTo("$schema") == 0)
             {
-                // handle may $dynamicRef property
-                // .'$core'.'$dynamicRef'
-                res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
+                // handle may $schema property
+                // .'$core'.'$schema'
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$dynamicRef']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$dynamicRef']", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$dynamicAnchor") == 0)
-            {
-                // handle may $dynamicAnchor property
-                // .'$core'.'$dynamicAnchor'
-                res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$dynamicAnchor']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$dynamicAnchor']", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$vocabulary") == 0)
-            {
-                // handle may $vocabulary property
-                // .'$core'.'$vocabulary'
-                res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$core'.'$vocabulary']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$vocabulary']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $URL [.'$core'.'$schema']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$schema']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -209,15 +185,39 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$defs") == 0)
+            else if (prop.compareTo("$dynamicRef") == 0)
             {
-                // handle may $defs property
-                // .'$core'.'$defs'
+                // handle may $dynamicRef property
+                // .'$core'.'$dynamicRef'
+                res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$dynamicRef']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$dynamicRef']", (path != null ? lpath_0 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$vocabulary") == 0)
+            {
+                // handle may $vocabulary property
+                // .'$core'.'$vocabulary'
                 res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$core'.'$defs']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$defs']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$core'.'$vocabulary']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$vocabulary']", (path != null ? lpath_0 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$dynamicAnchor") == 0)
+            {
+                // handle may $dynamicAnchor property
+                // .'$core'.'$dynamicAnchor'
+                res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$dynamicAnchor']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$dynamicAnchor']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -258,33 +258,21 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$meta'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$meta'.description]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.description]", (path != null ? lpath_3 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$meta'.default
                 res = true;
             }
-            else if (prop.compareTo("deprecated") == 0)
+            else if (prop.compareTo("examples") == 0)
             {
-                // handle may deprecated property
-                // .'$meta'.deprecated
-                res = json.isBoolean(pval);
+                // handle may examples property
+                // .'$meta'.examples
+                res = json.isArray(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$meta'.deprecated]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.deprecated]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$meta'.examples]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.examples]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
@@ -312,15 +300,27 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("examples") == 0)
+            else if (prop.compareTo("deprecated") == 0)
             {
-                // handle may examples property
-                // .'$meta'.examples
-                res = json.isArray(pval);
+                // handle may deprecated property
+                // .'$meta'.deprecated
+                res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$meta'.examples]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.examples]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$meta'.deprecated]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.deprecated]", (path != null ? lpath_3 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$meta'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$meta'.description]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.description]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
@@ -349,7 +349,19 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_4 = new Path(prop, path);
-            if (prop.compareTo("contentEncoding") == 0)
+            if (prop.compareTo("contentSchema") == 0)
+            {
+                // handle may contentSchema property
+                // .'$content'.contentSchema
+                res = json_model_17(pval, (path != null ? lpath_4 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $Schema [.'$content'.contentSchema]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$content'.contentSchema]", (path != null ? lpath_4 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("contentEncoding") == 0)
             {
                 // handle may contentEncoding property
                 // .'$content'.contentEncoding
@@ -370,18 +382,6 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$content'.contentMediaType]", (path != null ? lpath_4 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$content'.contentMediaType]", (path != null ? lpath_4 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("contentSchema") == 0)
-            {
-                // handle may contentSchema property
-                // .'$content'.contentSchema
-                res = json_model_17(pval, (path != null ? lpath_4 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$content'.contentSchema]", (path != null ? lpath_4 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$content'.contentSchema]", (path != null ? lpath_4 : null));
                     return false;
                 }
             }
@@ -1661,18 +1661,6 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$recursiveAnchor") == 0)
-            {
-                // handle may $recursiveAnchor property
-                // .'$deprecated'.'$recursiveAnchor'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$deprecated'.'$recursiveAnchor']", (path != null ? lpath_22 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$deprecated'.'$recursiveAnchor']", (path != null ? lpath_22 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("$recursiveRef") == 0)
             {
                 // handle may $recursiveRef property
@@ -1682,6 +1670,18 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$deprecated'.'$recursiveRef']", (path != null ? lpath_22 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$deprecated'.'$recursiveRef']", (path != null ? lpath_22 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$recursiveAnchor") == 0)
+            {
+                // handle may $recursiveAnchor property
+                // .'$deprecated'.'$recursiveAnchor'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$deprecated'.'$recursiveAnchor']", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$deprecated'.'$recursiveAnchor']", (path != null ? lpath_22 : null));
                     return false;
                 }
             }

@@ -170,19 +170,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
-        {
-            // handle must ~ property
-            must_count += 1;
-            // .'~'
-            res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "https://json-model.org/models/l10n");
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected _https://json-model.org/models/l10n [.'~']", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'~']", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
         else if (unlikely(jm_str_eq_2(prop, 0x00000025)))
         {
             // handle must % property
@@ -197,7 +184,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (likely(jm_str_eq_2(prop, 0x00000040)))
+        else if (unlikely(jm_str_eq_2(prop, 0x00000040)))
         {
             // handle must @ property
             must_count += 1;
@@ -207,6 +194,19 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _$Model [.'@']", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'@']", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_2(prop, 0x0000007e)))
+        {
+            // handle must ~ property
+            must_count += 1;
+            // .'~'
+            res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "https://json-model.org/models/l10n");
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected _https://json-model.org/models/l10n [.'~']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'~']", (path ? &lpath_0 : NULL));
                 return false;
             }
         }

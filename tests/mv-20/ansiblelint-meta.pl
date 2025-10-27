@@ -5199,46 +5199,7 @@ sub json_model_51($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'cloud_platforms')
-        {
-            # handle may cloud_platforms property
-            # .'$GalaxyInfoModelCollection'.cloud_platforms
-            $res = 1;
-        }
-        elsif ($prop eq 'galaxy_tags')
-        {
-            # handle may galaxy_tags property
-            # .'$GalaxyInfoModelCollection'.galaxy_tags
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_95_idx (0 .. $#$pval)
-                {
-                    my $arr_95_item = $$pval[$arr_95_idx];
-                    # .'$GalaxyInfoModelCollection'.galaxy_tags.0
-                    $res = jm_is_string($arr_95_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'min_ansible_version')
-        {
-            # handle may min_ansible_version property
-            # .'$GalaxyInfoModelCollection'.min_ansible_version
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'namespace')
+        if ($prop eq 'namespace')
         {
             # handle may namespace property
             # .'$GalaxyInfoModelCollection'.namespace
@@ -5270,11 +5231,50 @@ sub json_model_51($$$)
                 return 0;
             }
         }
+        elsif ($prop eq 'galaxy_tags')
+        {
+            # handle may galaxy_tags property
+            # .'$GalaxyInfoModelCollection'.galaxy_tags
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_95_idx (0 .. $#$pval)
+                {
+                    my $arr_95_item = $$pval[$arr_95_idx];
+                    # .'$GalaxyInfoModelCollection'.galaxy_tags.0
+                    $res = jm_is_string($arr_95_item);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
         elsif ($prop eq 'video_links')
         {
             # handle may video_links property
             # .'$GalaxyInfoModelCollection'.video_links
             $res = jm_is_array($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'cloud_platforms')
+        {
+            # handle may cloud_platforms property
+            # .'$GalaxyInfoModelCollection'.cloud_platforms
+            $res = 1;
+        }
+        elsif ($prop eq 'min_ansible_version')
+        {
+            # handle may min_ansible_version property
+            # .'$GalaxyInfoModelCollection'.min_ansible_version
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -5334,6 +5334,16 @@ sub json_model_52($$$)
                 return 0;
             }
         }
+        elsif ($prop eq 'license')
+        {
+            # handle may license property
+            # .'$GalaxyInfoModelLoose'.license
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
         elsif ($prop eq 'github_branch')
         {
             # handle may github_branch property
@@ -5348,16 +5358,6 @@ sub json_model_52($$$)
         {
             # handle may issue_tracker_url property
             # .'$GalaxyInfoModelLoose'.issue_tracker_url
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'license')
-        {
-            # handle may license property
-            # .'$GalaxyInfoModelLoose'.license
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -5486,29 +5486,7 @@ sub json_model_53($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'standalone')
-        {
-            # handle must standalone property
-            $must_count++;
-            # .'$GalaxyInfoModelStandalone'.standalone
-            $res = jm_is_boolean($pval) && $pval == 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle must description property
-            $must_count++;
-            # .'$GalaxyInfoModelStandalone'.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'author')
+        if ($prop eq 'author')
         {
             # handle must author property
             $must_count++;
@@ -5524,6 +5502,28 @@ sub json_model_53($$$)
             # handle must license property
             $must_count++;
             # .'$GalaxyInfoModelStandalone'.license
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'standalone')
+        {
+            # handle must standalone property
+            $must_count++;
+            # .'$GalaxyInfoModelStandalone'.standalone
+            $res = jm_is_boolean($pval) && $pval == 1;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle must description property
+            $must_count++;
+            # .'$GalaxyInfoModelStandalone'.description
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -6177,21 +6177,21 @@ sub json_model_59($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'allow_duplicates')
+        if ($prop eq 'collections')
         {
-            # handle may allow_duplicates property
-            # .'$AnsibleMetaObj'.allow_duplicates
-            $res = jm_is_boolean($pval);
+            # handle may collections property
+            # .'$AnsibleMetaObj'.collections
+            $res = json_model_55($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'collections')
+        elsif ($prop eq 'galaxy_info')
         {
-            # handle may collections property
-            # .'$AnsibleMetaObj'.collections
-            $res = json_model_55($pval, undef, undef);
+            # handle may galaxy_info property
+            # .'$AnsibleMetaObj'.galaxy_info
+            $res = json_model_54($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -6222,11 +6222,11 @@ sub json_model_59($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'galaxy_info')
+        elsif ($prop eq 'allow_duplicates')
         {
-            # handle may galaxy_info property
-            # .'$AnsibleMetaObj'.galaxy_info
-            $res = json_model_54($pval, undef, undef);
+            # handle may allow_duplicates property
+            # .'$AnsibleMetaObj'.allow_duplicates
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;

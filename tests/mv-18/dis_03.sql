@@ -19,19 +19,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'discriminator' THEN
-      -- handle must discriminator property
-      must_count := must_count + 1;
-      -- .'|'.0.discriminator
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'x' THEN
+    IF prop = 'x' THEN
       -- handle must x property
       must_count := must_count + 1;
       -- .'|'.0.x
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'discriminator' THEN
+      -- handle must discriminator property
+      must_count := must_count + 1;
+      -- .'|'.0.discriminator
+      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -57,19 +57,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'discriminator' THEN
-      -- handle must discriminator property
-      must_count := must_count + 1;
-      -- .'|'.1.discriminator
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'y' THEN
+    IF prop = 'y' THEN
       -- handle must y property
       must_count := must_count + 1;
       -- .'|'.1.y
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'discriminator' THEN
+      -- handle must discriminator property
+      must_count := must_count + 1;
+      -- .'|'.1.discriminator
+      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

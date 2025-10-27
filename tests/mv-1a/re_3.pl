@@ -34,23 +34,23 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'all')
-        {
-            # handle may all property
-            # .all
-            # "/.*/"
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'nz')
+        if ($prop eq 'nz')
         {
             # handle may nz property
             # .nz
             # "/./s"
             $res = jm_is_string($pval) && length $pval > 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'all')
+        {
+            # handle may all property
+            # .all
+            # "/.*/"
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;

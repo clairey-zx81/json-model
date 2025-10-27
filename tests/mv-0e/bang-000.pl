@@ -39,6 +39,28 @@ sub json_model_1($$$)
                 return 0;
             }
         }
+        elsif ($prop eq '/')
+        {
+            # handle must / property
+            $must_count++;
+            # .'/'
+            $res = jm_is_integer($pval) && $pval == 17;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq '?')
+        {
+            # handle must ? property
+            $must_count++;
+            # .'?'
+            $res = jm_is_numeric($pval) && $pval >= 0.0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
         elsif ($prop eq '_')
         {
             # handle must _ property
@@ -56,28 +78,6 @@ sub json_model_1($$$)
             $must_count++;
             # .a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq '?')
-        {
-            # handle must ? property
-            $must_count++;
-            # .'?'
-            $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq '/')
-        {
-            # handle must / property
-            $must_count++;
-            # .'/'
-            $res = jm_is_integer($pval) && $pval == 17;
             if (! $res)
             {
                 return 0;

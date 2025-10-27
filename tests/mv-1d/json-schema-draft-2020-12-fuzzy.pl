@@ -220,27 +220,17 @@ sub json_model_5($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$meta'.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
         elsif ($prop eq 'default')
         {
             # handle may default property
             # .'$meta'.default
             $res = 1;
         }
-        elsif ($prop eq 'deprecated')
+        elsif ($prop eq 'examples')
         {
-            # handle may deprecated property
-            # .'$meta'.deprecated
-            $res = jm_is_boolean($pval);
+            # handle may examples property
+            # .'$meta'.examples
+            $res = jm_is_array($pval);
             if (! $res)
             {
                 return 0;
@@ -266,11 +256,21 @@ sub json_model_5($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'examples')
+        elsif ($prop eq 'deprecated')
         {
-            # handle may examples property
-            # .'$meta'.examples
-            $res = jm_is_array($pval);
+            # handle may deprecated property
+            # .'$meta'.deprecated
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$meta'.description
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -297,7 +297,17 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'contentEncoding')
+        if ($prop eq 'contentSchema')
+        {
+            # handle may contentSchema property
+            # .'$content'.contentSchema
+            $res = json_model_17($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'contentEncoding')
         {
             # handle may contentEncoding property
             # .'$content'.contentEncoding
@@ -312,16 +322,6 @@ sub json_model_6($$$)
             # handle may contentMediaType property
             # .'$content'.contentMediaType
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'contentSchema')
-        {
-            # handle may contentSchema property
-            # .'$content'.contentSchema
-            $res = json_model_17($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1262,20 +1262,20 @@ sub json_model_18($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '$recursiveAnchor')
+        elsif ($prop eq '$recursiveRef')
         {
-            # handle may $recursiveAnchor property
-            # .'$deprecated'.'$recursiveAnchor'
+            # handle may $recursiveRef property
+            # .'$deprecated'.'$recursiveRef'
             $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq '$recursiveRef')
+        elsif ($prop eq '$recursiveAnchor')
         {
-            # handle may $recursiveRef property
-            # .'$deprecated'.'$recursiveRef'
+            # handle may $recursiveAnchor property
+            # .'$deprecated'.'$recursiveAnchor'
             $res = jm_is_string($pval);
             if (! $res)
             {

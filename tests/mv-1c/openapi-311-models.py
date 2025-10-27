@@ -101,7 +101,16 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop == "openapi":
+        if prop == "info":
+            # handle must info property
+            must_count += 1
+            # .'$openapi#OpenAPI'.info
+            res = json_model_5(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Info [.'$openapi#OpenAPI'.info]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OpenAPI'.info]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "openapi":
             # handle must openapi property
             must_count += 1
             # .'$openapi#OpenAPI'.openapi
@@ -111,30 +120,21 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$openapi#OpenAPI'.openapi]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OpenAPI'.openapi]", lpath_0 if path is not None else None))
                 return False
-        elif prop == "info":
-            # handle must info property
-            must_count += 1
-            # .'$openapi#OpenAPI'.info
-            res = json_model_5(pval, lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Info [.'$openapi#OpenAPI'.info]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OpenAPI'.info]", lpath_0 if path is not None else None))
-                return False
-        elif prop == "servers":
-            # handle may servers property
-            # .'$openapi#OpenAPI'.servers
+        elif prop == "tags":
+            # handle may tags property
+            # .'$openapi#OpenAPI'.tags
             res = isinstance(pval, list)
             if res:
                 for arr_0_idx, arr_0_item in enumerate(pval):
                     arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
-                    # .'$openapi#OpenAPI'.servers.0
-                    res = json_model_8(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
+                    # .'$openapi#OpenAPI'.tags.0
+                    res = json_model_31(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected $Server [.'$openapi#OpenAPI'.servers.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected $Tag [.'$openapi#OpenAPI'.tags.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
                         break
             if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$openapi#OpenAPI'.servers]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#OpenAPI'.servers]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not array or unexpected array [.'$openapi#OpenAPI'.tags]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#OpenAPI'.tags]", lpath_0 if path is not None else None))
                 return False
         elif prop == "paths":
             # handle may paths property
@@ -143,6 +143,38 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Paths [.'$openapi#OpenAPI'.paths]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#OpenAPI'.paths]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "servers":
+            # handle may servers property
+            # .'$openapi#OpenAPI'.servers
+            res = isinstance(pval, list)
+            if res:
+                for arr_1_idx, arr_1_item in enumerate(pval):
+                    arr_1_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_1_idx ]) if (lpath_0 if path is not None else None) is not None else None
+                    # .'$openapi#OpenAPI'.servers.0
+                    res = json_model_8(arr_1_item, arr_1_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $Server [.'$openapi#OpenAPI'.servers.0]", arr_1_lpath if (lpath_0 if path is not None else None) is not None else None))
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$openapi#OpenAPI'.servers]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#OpenAPI'.servers]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "security":
+            # handle may security property
+            # .'$openapi#OpenAPI'.security
+            res = isinstance(pval, list)
+            if res:
+                for arr_2_idx, arr_2_item in enumerate(pval):
+                    arr_2_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_2_idx ]) if (lpath_0 if path is not None else None) is not None else None
+                    # .'$openapi#OpenAPI'.security.0
+                    res = json_model_45(arr_2_item, arr_2_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $SecurityRequirement [.'$openapi#OpenAPI'.security.0]", arr_2_lpath if (lpath_0 if path is not None else None) is not None else None))
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$openapi#OpenAPI'.security]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#OpenAPI'.security]", lpath_0 if path is not None else None))
                 return False
         elif prop == "webhooks":
             # handle may webhooks property
@@ -159,38 +191,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Components [.'$openapi#OpenAPI'.components]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#OpenAPI'.components]", lpath_0 if path is not None else None))
-                return False
-        elif prop == "security":
-            # handle may security property
-            # .'$openapi#OpenAPI'.security
-            res = isinstance(pval, list)
-            if res:
-                for arr_1_idx, arr_1_item in enumerate(pval):
-                    arr_1_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_1_idx ]) if (lpath_0 if path is not None else None) is not None else None
-                    # .'$openapi#OpenAPI'.security.0
-                    res = json_model_45(arr_1_item, arr_1_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
-                    if not res:
-                        rep is None or rep.append(("unexpected $SecurityRequirement [.'$openapi#OpenAPI'.security.0]", arr_1_lpath if (lpath_0 if path is not None else None) is not None else None))
-                        break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$openapi#OpenAPI'.security]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#OpenAPI'.security]", lpath_0 if path is not None else None))
-                return False
-        elif prop == "tags":
-            # handle may tags property
-            # .'$openapi#OpenAPI'.tags
-            res = isinstance(pval, list)
-            if res:
-                for arr_2_idx, arr_2_item in enumerate(pval):
-                    arr_2_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_2_idx ]) if (lpath_0 if path is not None else None) is not None else None
-                    # .'$openapi#OpenAPI'.tags.0
-                    res = json_model_31(arr_2_item, arr_2_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
-                    if not res:
-                        rep is None or rep.append(("unexpected $Tag [.'$openapi#OpenAPI'.tags.0]", arr_2_lpath if (lpath_0 if path is not None else None) is not None else None))
-                        break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$openapi#OpenAPI'.tags]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#OpenAPI'.tags]", lpath_0 if path is not None else None))
                 return False
         elif prop == "externalDocs":
             # handle may externalDocs property
@@ -252,6 +252,22 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$openapi#Info'.version]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Info'.version]", lpath_2 if path is not None else None))
                 return False
+        elif prop == "contact":
+            # handle may contact property
+            # .'$openapi#Info'.contact
+            res = json_model_6(pval, lpath_2 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Contact [.'$openapi#Info'.contact]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Info'.contact]", lpath_2 if path is not None else None))
+                return False
+        elif prop == "license":
+            # handle may license property
+            # .'$openapi#Info'.license
+            res = json_model_7(pval, lpath_2 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $License [.'$openapi#Info'.license]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Info'.license]", lpath_2 if path is not None else None))
+                return False
         elif prop == "summary":
             # handle may summary property
             # .'$openapi#Info'.summary
@@ -275,22 +291,6 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$openapi#Info'.termsOfService]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Info'.termsOfService]", lpath_2 if path is not None else None))
-                return False
-        elif prop == "contact":
-            # handle may contact property
-            # .'$openapi#Info'.contact
-            res = json_model_6(pval, lpath_2 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Contact [.'$openapi#Info'.contact]", lpath_2 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Info'.contact]", lpath_2 if path is not None else None))
-                return False
-        elif prop == "license":
-            # handle may license property
-            # .'$openapi#Info'.license
-            res = json_model_7(pval, lpath_2 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $License [.'$openapi#Info'.license]", lpath_2 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Info'.license]", lpath_2 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -317,21 +317,21 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_3: Path = (path + [ prop ]) if path is not None else None
-        if prop == "name":
-            # handle may name property
-            # .'$openapi#Contact'.name
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Contact'.name]", lpath_3 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Contact'.name]", lpath_3 if path is not None else None))
-                return False
-        elif prop == "url":
+        if prop == "url":
             # handle may url property
             # .'$openapi#Contact'.url
             res = is_valid_url(pval, lpath_3 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $URL [.'$openapi#Contact'.url]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Contact'.url]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "name":
+            # handle may name property
+            # .'$openapi#Contact'.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#Contact'.name]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Contact'.name]", lpath_3 if path is not None else None))
                 return False
         elif prop == "email":
             # handle may email property
@@ -360,16 +360,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_4: Path = (path + [ prop ]) if path is not None else None
-        if prop == "name":
-            # handle must name property
-            must_count += 1
-            # .'$openapi#License'.'|'.1.name
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#License'.'|'.1.name]", lpath_4 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#License'.'|'.1.name]", lpath_4 if path is not None else None))
-                return False
-        elif prop == "url":
+        if prop == "url":
             # handle must url property
             must_count += 1
             # .'$openapi#License'.'|'.1.url
@@ -377,6 +368,15 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $URL [.'$openapi#License'.'|'.1.url]", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#License'.'|'.1.url]", lpath_4 if path is not None else None))
+                return False
+        elif prop == "name":
+            # handle must name property
+            must_count += 1
+            # .'$openapi#License'.'|'.1.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#License'.'|'.1.name]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#License'.'|'.1.name]", lpath_4 if path is not None else None))
                 return False
         elif _jm_re_1(prop, path, rep):
             # handle 1 re props
@@ -494,14 +494,6 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'$openapi#Server'.url]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Server'.url]", lpath_6 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$openapi#Server'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Server'.description]", lpath_6 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Server'.description]", lpath_6 if path is not None else None))
-                return False
         elif prop == "variables":
             # handle may variables property
             # .'$openapi#Server'.variables
@@ -509,6 +501,14 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$openapi#Server'.variables]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Server'.variables]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#Server'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#Server'.description]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Server'.description]", lpath_6 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -581,253 +581,253 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# object .'$openapi#Components'.responses
-def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Components'.responses]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_10: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#Components'.responses.''
-        # .'$openapi#Components'.responses.''.'|'.0
-        res = json_model_25(pval, lpath_10 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Response [.'$openapi#Components'.responses.''.'|'.0]", lpath_10 if path is not None else None))
-        if not res:
-            # .'$openapi#Components'.responses.''.'|'.1
-            res = json_model_32(pval, lpath_10 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.responses.''.'|'.1]", lpath_10 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.responses.''.'|']", lpath_10 if path is not None else None))
-            return False
-    return True
-
-# object .'$openapi#Components'.parameters
-def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Components'.parameters]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_11: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#Components'.parameters.''
-        # .'$openapi#Components'.parameters.''.'|'.0
-        res = json_model_20(pval, lpath_11 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Parameter [.'$openapi#Components'.parameters.''.'|'.0]", lpath_11 if path is not None else None))
-        if not res:
-            # .'$openapi#Components'.parameters.''.'|'.1
-            res = json_model_32(pval, lpath_11 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.parameters.''.'|'.1]", lpath_11 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.parameters.''.'|']", lpath_11 if path is not None else None))
-            return False
-    return True
-
-# object .'$openapi#Components'.examples
-def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Components'.examples]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_12: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#Components'.examples.''
-        # .'$openapi#Components'.examples.''.'|'.0
-        res = json_model_27(pval, lpath_12 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Example [.'$openapi#Components'.examples.''.'|'.0]", lpath_12 if path is not None else None))
-        if not res:
-            # .'$openapi#Components'.examples.''.'|'.1
-            res = json_model_32(pval, lpath_12 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.examples.''.'|'.1]", lpath_12 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.examples.''.'|']", lpath_12 if path is not None else None))
-            return False
-    return True
-
-# object .'$openapi#Components'.requestBodies
-def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Components'.requestBodies]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_13: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#Components'.requestBodies.''
-        # .'$openapi#Components'.requestBodies.''.'|'.0
-        res = json_model_21(pval, lpath_13 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $RequestBody [.'$openapi#Components'.requestBodies.''.'|'.0]", lpath_13 if path is not None else None))
-        if not res:
-            # .'$openapi#Components'.requestBodies.''.'|'.1
-            res = json_model_32(pval, lpath_13 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.requestBodies.''.'|'.1]", lpath_13 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.requestBodies.''.'|']", lpath_13 if path is not None else None))
-            return False
-    return True
-
-# object .'$openapi#Components'.headers
-def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Components'.headers]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_14: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#Components'.headers.''
-        # .'$openapi#Components'.headers.''.'|'.0
-        res = json_model_30(pval, lpath_14 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Header [.'$openapi#Components'.headers.''.'|'.0]", lpath_14 if path is not None else None))
-        if not res:
-            # .'$openapi#Components'.headers.''.'|'.1
-            res = json_model_32(pval, lpath_14 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.headers.''.'|'.1]", lpath_14 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.headers.''.'|']", lpath_14 if path is not None else None))
-            return False
-    return True
-
-# object .'$openapi#Components'.securitySchemes
-def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Components'.securitySchemes]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_15: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#Components'.securitySchemes.''
-        # .'$openapi#Components'.securitySchemes.''.'|'.0
-        res = json_model_42(pval, lpath_15 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $SecurityScheme [.'$openapi#Components'.securitySchemes.''.'|'.0]", lpath_15 if path is not None else None))
-        if not res:
-            # .'$openapi#Components'.securitySchemes.''.'|'.1
-            res = json_model_32(pval, lpath_15 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.securitySchemes.''.'|'.1]", lpath_15 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.securitySchemes.''.'|']", lpath_15 if path is not None else None))
-            return False
-    return True
-
 # object .'$openapi#Components'.links
-def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.links]", path))
         return False
     res: bool
     for prop, pval in val.items():
-        lpath_16: Path = (path + [ prop ]) if path is not None else None
+        lpath_10: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$openapi#Components'.links.''
         # .'$openapi#Components'.links.''.'|'.0
-        res = json_model_29(pval, lpath_16 if path is not None else None, rep)
+        res = json_model_29(pval, lpath_10 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Link [.'$openapi#Components'.links.''.'|'.0]", lpath_16 if path is not None else None))
+            rep is None or rep.append(("unexpected $Link [.'$openapi#Components'.links.''.'|'.0]", lpath_10 if path is not None else None))
         if not res:
             # .'$openapi#Components'.links.''.'|'.1
-            res = json_model_32(pval, lpath_16 if path is not None else None, rep)
+            res = json_model_32(pval, lpath_10 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.links.''.'|'.1]", lpath_16 if path is not None else None))
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.links.''.'|'.1]", lpath_10 if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.links.''.'|']", lpath_16 if path is not None else None))
-            return False
-    return True
-
-# object .'$openapi#Components'.callbacks
-def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Components'.callbacks]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_17: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#Components'.callbacks.''
-        # .'$openapi#Components'.callbacks.''.'|'.0
-        res = json_model_26(pval, lpath_17 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Callback [.'$openapi#Components'.callbacks.''.'|'.0]", lpath_17 if path is not None else None))
-        if not res:
-            # .'$openapi#Components'.callbacks.''.'|'.1
-            res = json_model_32(pval, lpath_17 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.callbacks.''.'|'.1]", lpath_17 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.callbacks.''.'|']", lpath_17 if path is not None else None))
-            return False
-    return True
-
-# object .'$openapi#Components'.pathItems
-def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Components'.pathItems]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_18: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#Components'.pathItems.''
-        # .'$openapi#Components'.pathItems.''.'|'.0
-        res = json_model_12(pval, lpath_18 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $PathItem [.'$openapi#Components'.pathItems.''.'|'.0]", lpath_18 if path is not None else None))
-        if not res:
-            # .'$openapi#Components'.pathItems.''.'|'.1
-            res = json_model_32(pval, lpath_18 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.pathItems.''.'|'.1]", lpath_18 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#Components'.pathItems.''.'|']", lpath_18 if path is not None else None))
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.links.''.'|']", lpath_10 if path is not None else None))
             return False
     return True
 
 # object .'$openapi#Components'.models
-def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.models]", path))
         return False
     res: bool
     for prop, pval in val.items():
-        lpath_19: Path = (path + [ prop ]) if path is not None else None
+        lpath_11: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$openapi#Components'.models.''
-        res = json_model_97(pval, lpath_19 if path is not None else None, rep)
+        res = json_model_97(pval, lpath_11 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Model [.'$openapi#Components'.models.'']", lpath_19 if path is not None else None))
+            rep is None or rep.append(("unexpected $Model [.'$openapi#Components'.models.'']", lpath_11 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#Components'.headers
+def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#Components'.headers]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_12: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#Components'.headers.''
+        # .'$openapi#Components'.headers.''.'|'.0
+        res = json_model_30(pval, lpath_12 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Header [.'$openapi#Components'.headers.''.'|'.0]", lpath_12 if path is not None else None))
+        if not res:
+            # .'$openapi#Components'.headers.''.'|'.1
+            res = json_model_32(pval, lpath_12 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.headers.''.'|'.1]", lpath_12 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.headers.''.'|']", lpath_12 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#Components'.examples
+def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#Components'.examples]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_13: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#Components'.examples.''
+        # .'$openapi#Components'.examples.''.'|'.0
+        res = json_model_27(pval, lpath_13 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Example [.'$openapi#Components'.examples.''.'|'.0]", lpath_13 if path is not None else None))
+        if not res:
+            # .'$openapi#Components'.examples.''.'|'.1
+            res = json_model_32(pval, lpath_13 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.examples.''.'|'.1]", lpath_13 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.examples.''.'|']", lpath_13 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#Components'.callbacks
+def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#Components'.callbacks]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_14: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#Components'.callbacks.''
+        # .'$openapi#Components'.callbacks.''.'|'.0
+        res = json_model_26(pval, lpath_14 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Callback [.'$openapi#Components'.callbacks.''.'|'.0]", lpath_14 if path is not None else None))
+        if not res:
+            # .'$openapi#Components'.callbacks.''.'|'.1
+            res = json_model_32(pval, lpath_14 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.callbacks.''.'|'.1]", lpath_14 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.callbacks.''.'|']", lpath_14 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#Components'.pathItems
+def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#Components'.pathItems]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_15: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#Components'.pathItems.''
+        # .'$openapi#Components'.pathItems.''.'|'.0
+        res = json_model_12(pval, lpath_15 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $PathItem [.'$openapi#Components'.pathItems.''.'|'.0]", lpath_15 if path is not None else None))
+        if not res:
+            # .'$openapi#Components'.pathItems.''.'|'.1
+            res = json_model_32(pval, lpath_15 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.pathItems.''.'|'.1]", lpath_15 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.pathItems.''.'|']", lpath_15 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#Components'.responses
+def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#Components'.responses]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_16: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#Components'.responses.''
+        # .'$openapi#Components'.responses.''.'|'.0
+        res = json_model_25(pval, lpath_16 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Response [.'$openapi#Components'.responses.''.'|'.0]", lpath_16 if path is not None else None))
+        if not res:
+            # .'$openapi#Components'.responses.''.'|'.1
+            res = json_model_32(pval, lpath_16 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.responses.''.'|'.1]", lpath_16 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.responses.''.'|']", lpath_16 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#Components'.parameters
+def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#Components'.parameters]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_17: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#Components'.parameters.''
+        # .'$openapi#Components'.parameters.''.'|'.0
+        res = json_model_20(pval, lpath_17 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Parameter [.'$openapi#Components'.parameters.''.'|'.0]", lpath_17 if path is not None else None))
+        if not res:
+            # .'$openapi#Components'.parameters.''.'|'.1
+            res = json_model_32(pval, lpath_17 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.parameters.''.'|'.1]", lpath_17 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.parameters.''.'|']", lpath_17 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#Components'.requestBodies
+def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#Components'.requestBodies]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_18: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#Components'.requestBodies.''
+        # .'$openapi#Components'.requestBodies.''.'|'.0
+        res = json_model_21(pval, lpath_18 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $RequestBody [.'$openapi#Components'.requestBodies.''.'|'.0]", lpath_18 if path is not None else None))
+        if not res:
+            # .'$openapi#Components'.requestBodies.''.'|'.1
+            res = json_model_32(pval, lpath_18 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.requestBodies.''.'|'.1]", lpath_18 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.requestBodies.''.'|']", lpath_18 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#Components'.securitySchemes
+def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#Components'.securitySchemes]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_19: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#Components'.securitySchemes.''
+        # .'$openapi#Components'.securitySchemes.''.'|'.0
+        res = json_model_42(pval, lpath_19 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $SecurityScheme [.'$openapi#Components'.securitySchemes.''.'|'.0]", lpath_19 if path is not None else None))
+        if not res:
+            # .'$openapi#Components'.securitySchemes.''.'|'.1
+            res = json_model_32(pval, lpath_19 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Components'.securitySchemes.''.'|'.1]", lpath_19 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#Components'.securitySchemes.''.'|']", lpath_19 if path is not None else None))
             return False
     return True
 
@@ -840,66 +840,42 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_9: Path = (path + [ prop ]) if path is not None else None
-        if prop == "responses":
-            # handle may responses property
-            # .'$openapi#Components'.responses
-            res = _jm_obj_4(pval, lpath_9 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Components'.responses]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.responses]", lpath_9 if path is not None else None))
-                return False
-        elif prop == "parameters":
-            # handle may parameters property
-            # .'$openapi#Components'.parameters
-            res = _jm_obj_5(pval, lpath_9 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Components'.parameters]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.parameters]", lpath_9 if path is not None else None))
-                return False
-        elif prop == "examples":
-            # handle may examples property
-            # .'$openapi#Components'.examples
-            res = _jm_obj_6(pval, lpath_9 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Components'.examples]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.examples]", lpath_9 if path is not None else None))
-                return False
-        elif prop == "requestBodies":
-            # handle may requestBodies property
-            # .'$openapi#Components'.requestBodies
-            res = _jm_obj_7(pval, lpath_9 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Components'.requestBodies]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.requestBodies]", lpath_9 if path is not None else None))
-                return False
-        elif prop == "headers":
-            # handle may headers property
-            # .'$openapi#Components'.headers
-            res = _jm_obj_8(pval, lpath_9 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Components'.headers]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.headers]", lpath_9 if path is not None else None))
-                return False
-        elif prop == "securitySchemes":
-            # handle may securitySchemes property
-            # .'$openapi#Components'.securitySchemes
-            res = _jm_obj_9(pval, lpath_9 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Components'.securitySchemes]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.securitySchemes]", lpath_9 if path is not None else None))
-                return False
-        elif prop == "links":
+        if prop == "links":
             # handle may links property
             # .'$openapi#Components'.links
-            res = _jm_obj_10(pval, lpath_9 if path is not None else None, rep)
+            res = _jm_obj_4(pval, lpath_9 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$openapi#Components'.links]", lpath_9 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.links]", lpath_9 if path is not None else None))
                 return False
+        elif prop == "models":
+            # handle may models property
+            # .'$openapi#Components'.models
+            res = _jm_obj_5(pval, lpath_9 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Components'.models]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.models]", lpath_9 if path is not None else None))
+                return False
+        elif prop == "headers":
+            # handle may headers property
+            # .'$openapi#Components'.headers
+            res = _jm_obj_6(pval, lpath_9 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Components'.headers]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.headers]", lpath_9 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$openapi#Components'.examples
+            res = _jm_obj_7(pval, lpath_9 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Components'.examples]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.examples]", lpath_9 if path is not None else None))
+                return False
         elif prop == "callbacks":
             # handle may callbacks property
             # .'$openapi#Components'.callbacks
-            res = _jm_obj_11(pval, lpath_9 if path is not None else None, rep)
+            res = _jm_obj_8(pval, lpath_9 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$openapi#Components'.callbacks]", lpath_9 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.callbacks]", lpath_9 if path is not None else None))
@@ -907,18 +883,42 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "pathItems":
             # handle may pathItems property
             # .'$openapi#Components'.pathItems
-            res = _jm_obj_12(pval, lpath_9 if path is not None else None, rep)
+            res = _jm_obj_9(pval, lpath_9 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$openapi#Components'.pathItems]", lpath_9 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.pathItems]", lpath_9 if path is not None else None))
                 return False
-        elif prop == "models":
-            # handle may models property
-            # .'$openapi#Components'.models
+        elif prop == "responses":
+            # handle may responses property
+            # .'$openapi#Components'.responses
+            res = _jm_obj_10(pval, lpath_9 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Components'.responses]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.responses]", lpath_9 if path is not None else None))
+                return False
+        elif prop == "parameters":
+            # handle may parameters property
+            # .'$openapi#Components'.parameters
+            res = _jm_obj_11(pval, lpath_9 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Components'.parameters]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.parameters]", lpath_9 if path is not None else None))
+                return False
+        elif prop == "requestBodies":
+            # handle may requestBodies property
+            # .'$openapi#Components'.requestBodies
+            res = _jm_obj_12(pval, lpath_9 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Components'.requestBodies]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.requestBodies]", lpath_9 if path is not None else None))
+                return False
+        elif prop == "securitySchemes":
+            # handle may securitySchemes property
+            # .'$openapi#Components'.securitySchemes
             res = _jm_obj_13(pval, lpath_9 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Components'.models]", lpath_9 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.models]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$openapi#Components'.securitySchemes]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Components'.securitySchemes]", lpath_9 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -1288,16 +1288,7 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_25: Path = (path + [ prop ]) if path is not None else None
-        if prop == "name":
-            # handle must name property
-            must_count += 1
-            # .'$openapi#Parameter'.'|'.1.name
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Parameter'.'|'.1.name]", lpath_25 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Parameter'.'|'.1.name]", lpath_25 if path is not None else None))
-                return False
-        elif prop == "in":
+        if prop == "in":
             # handle must in property
             must_count += 1
             # .'$openapi#Parameter'.'|'.1.in
@@ -1306,13 +1297,22 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("value not in enum [.'$openapi#Parameter'.'|'.1.in.'|']", lpath_25 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Parameter'.'|'.1.in]", lpath_25 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$openapi#Parameter'.'|'.1.description
+        elif prop == "name":
+            # handle must name property
+            must_count += 1
+            # .'$openapi#Parameter'.'|'.1.name
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Parameter'.'|'.1.description]", lpath_25 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.1.description]", lpath_25 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$openapi#Parameter'.'|'.1.name]", lpath_25 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Parameter'.'|'.1.name]", lpath_25 if path is not None else None))
+                return False
+        elif prop == "content":
+            # handle may content property
+            # .'$openapi#Parameter'.'|'.1.content
+            res = _jm_obj_15(pval, lpath_25 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Parameter'.'|'.1.content]", lpath_25 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.1.content]", lpath_25 if path is not None else None))
                 return False
         elif prop == "required":
             # handle may required property
@@ -1330,6 +1330,14 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.1.deprecated]", lpath_25 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.1.deprecated]", lpath_25 if path is not None else None))
                 return False
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#Parameter'.'|'.1.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#Parameter'.'|'.1.description]", lpath_25 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.1.description]", lpath_25 if path is not None else None))
+                return False
         elif prop == "allowEmptyValue":
             # handle may allowEmptyValue property
             # .'$openapi#Parameter'.'|'.1.allowEmptyValue
@@ -1337,14 +1345,6 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.1.allowEmptyValue]", lpath_25 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.1.allowEmptyValue]", lpath_25 if path is not None else None))
-                return False
-        elif prop == "content":
-            # handle may content property
-            # .'$openapi#Parameter'.'|'.1.content
-            res = _jm_obj_15(pval, lpath_25 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Parameter'.'|'.1.content]", lpath_25 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.1.content]", lpath_25 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -1398,16 +1398,7 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_27: Path = (path + [ prop ]) if path is not None else None
-        if prop == "name":
-            # handle must name property
-            must_count += 1
-            # .'$openapi#Parameter'.'|'.0.name
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Parameter'.'|'.0.name]", lpath_27 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.name]", lpath_27 if path is not None else None))
-                return False
-        elif prop == "in":
+        if prop == "in":
             # handle must in property
             must_count += 1
             # .'$openapi#Parameter'.'|'.0.in
@@ -1416,13 +1407,50 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("value not in enum [.'$openapi#Parameter'.'|'.0.in.'|']", lpath_27 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.in]", lpath_27 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$openapi#Parameter'.'|'.0.description
+        elif prop == "name":
+            # handle must name property
+            must_count += 1
+            # .'$openapi#Parameter'.'|'.0.name
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Parameter'.'|'.0.description]", lpath_27 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.description]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$openapi#Parameter'.'|'.0.name]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.name]", lpath_27 if path is not None else None))
+                return False
+        elif prop == "model":
+            # handle may model property
+            # .'$openapi#Parameter'.'|'.0.model
+            res = json_model_97(pval, lpath_27 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Model [.'$openapi#Parameter'.'|'.0.model]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.model]", lpath_27 if path is not None else None))
+                return False
+        elif prop == "style":
+            # handle may style property
+            # .'$openapi#Parameter'.'|'.0.style
+            res = json_model_17(pval, lpath_27 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Style [.'$openapi#Parameter'.'|'.0.style]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.style]", lpath_27 if path is not None else None))
+                return False
+        elif prop == "example":
+            # handle may example property
+            # .'$openapi#Parameter'.'|'.0.example
+            res = True
+        elif prop == "explode":
+            # handle may explode property
+            # .'$openapi#Parameter'.'|'.0.explode
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.0.explode]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.explode]", lpath_27 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$openapi#Parameter'.'|'.0.examples
+            res = _jm_obj_17(pval, lpath_27 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Parameter'.'|'.0.examples]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.examples]", lpath_27 if path is not None else None))
                 return False
         elif prop == "required":
             # handle may required property
@@ -1440,29 +1468,13 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.0.deprecated]", lpath_27 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.deprecated]", lpath_27 if path is not None else None))
                 return False
-        elif prop == "allowEmptyValue":
-            # handle may allowEmptyValue property
-            # .'$openapi#Parameter'.'|'.0.allowEmptyValue
-            res = isinstance(pval, bool)
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#Parameter'.'|'.0.description
+            res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.0.allowEmptyValue]", lpath_27 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.allowEmptyValue]", lpath_27 if path is not None else None))
-                return False
-        elif prop == "style":
-            # handle may style property
-            # .'$openapi#Parameter'.'|'.0.style
-            res = json_model_17(pval, lpath_27 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Style [.'$openapi#Parameter'.'|'.0.style]", lpath_27 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.style]", lpath_27 if path is not None else None))
-                return False
-        elif prop == "explode":
-            # handle may explode property
-            # .'$openapi#Parameter'.'|'.0.explode
-            res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.0.explode]", lpath_27 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.explode]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$openapi#Parameter'.'|'.0.description]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.description]", lpath_27 if path is not None else None))
                 return False
         elif prop == "allowReserved":
             # handle may allowReserved property
@@ -1472,25 +1484,13 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.0.allowReserved]", lpath_27 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.allowReserved]", lpath_27 if path is not None else None))
                 return False
-        elif prop == "example":
-            # handle may example property
-            # .'$openapi#Parameter'.'|'.0.example
-            res = True
-        elif prop == "examples":
-            # handle may examples property
-            # .'$openapi#Parameter'.'|'.0.examples
-            res = _jm_obj_17(pval, lpath_27 if path is not None else None, rep)
+        elif prop == "allowEmptyValue":
+            # handle may allowEmptyValue property
+            # .'$openapi#Parameter'.'|'.0.allowEmptyValue
+            res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Parameter'.'|'.0.examples]", lpath_27 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.examples]", lpath_27 if path is not None else None))
-                return False
-        elif prop == "model":
-            # handle may model property
-            # .'$openapi#Parameter'.'|'.0.model
-            res = json_model_97(pval, lpath_27 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Model [.'$openapi#Parameter'.'|'.0.model]", lpath_27 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.model]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.0.allowEmptyValue]", lpath_27 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Parameter'.'|'.0.allowEmptyValue]", lpath_27 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -1565,15 +1565,7 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_29: Path = (path + [ prop ]) if path is not None else None
-        if prop == "description":
-            # handle may description property
-            # .'$openapi#RequestBody'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#RequestBody'.description]", lpath_29 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#RequestBody'.description]", lpath_29 if path is not None else None))
-                return False
-        elif prop == "content":
+        if prop == "content":
             # handle may content property
             # .'$openapi#RequestBody'.content
             res = _jm_obj_18(pval, lpath_29 if path is not None else None, rep)
@@ -1589,6 +1581,14 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$openapi#RequestBody'.required]", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#RequestBody'.required]", lpath_29 if path is not None else None))
                 return False
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#RequestBody'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#RequestBody'.description]", lpath_29 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#RequestBody'.description]", lpath_29 if path is not None else None))
+                return False
         elif prop.startswith("x-"):
             # handle 1 re props
             # .'$openapi#RequestBody'.'/^x-/'
@@ -1598,45 +1598,45 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# object .'$openapi#MediaType'.examples
-def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#MediaType'.examples]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_32: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$openapi#MediaType'.examples.''
-        # .'$openapi#MediaType'.examples.''.'|'.0
-        res = json_model_27(pval, lpath_32 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Example [.'$openapi#MediaType'.examples.''.'|'.0]", lpath_32 if path is not None else None))
-        if not res:
-            # .'$openapi#MediaType'.examples.''.'|'.1
-            res = json_model_32(pval, lpath_32 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#MediaType'.examples.''.'|'.1]", lpath_32 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$openapi#MediaType'.examples.''.'|']", lpath_32 if path is not None else None))
-            return False
-    return True
-
 # object .'$openapi#MediaType'.encoding
-def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#MediaType'.encoding]", path))
         return False
     res: bool
     for prop, pval in val.items():
-        lpath_33: Path = (path + [ prop ]) if path is not None else None
+        lpath_32: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$openapi#MediaType'.encoding.''
-        res = json_model_23(pval, lpath_33 if path is not None else None, rep)
+        res = json_model_23(pval, lpath_32 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Encoding [.'$openapi#MediaType'.encoding.'']", lpath_33 if path is not None else None))
+            rep is None or rep.append(("unexpected $Encoding [.'$openapi#MediaType'.encoding.'']", lpath_32 if path is not None else None))
+            return False
+    return True
+
+# object .'$openapi#MediaType'.examples
+def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$openapi#MediaType'.examples]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_33: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$openapi#MediaType'.examples.''
+        # .'$openapi#MediaType'.examples.''.'|'.0
+        res = json_model_27(pval, lpath_33 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Example [.'$openapi#MediaType'.examples.''.'|'.0]", lpath_33 if path is not None else None))
+        if not res:
+            # .'$openapi#MediaType'.examples.''.'|'.1
+            res = json_model_32(pval, lpath_33 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#MediaType'.examples.''.'|'.1]", lpath_33 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$openapi#MediaType'.examples.''.'|']", lpath_33 if path is not None else None))
             return False
     return True
 
@@ -1649,33 +1649,33 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_31: Path = (path + [ prop ]) if path is not None else None
-        if prop == "example":
-            # handle may example property
-            # .'$openapi#MediaType'.example
-            res = True
-        elif prop == "examples":
-            # handle may examples property
-            # .'$openapi#MediaType'.examples
-            res = _jm_obj_19(pval, lpath_31 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#MediaType'.examples]", lpath_31 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#MediaType'.examples]", lpath_31 if path is not None else None))
-                return False
-        elif prop == "encoding":
-            # handle may encoding property
-            # .'$openapi#MediaType'.encoding
-            res = _jm_obj_20(pval, lpath_31 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#MediaType'.encoding]", lpath_31 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#MediaType'.encoding]", lpath_31 if path is not None else None))
-                return False
-        elif prop == "model":
+        if prop == "model":
             # handle may model property
             # .'$openapi#MediaType'.model
             res = json_model_97(pval, lpath_31 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Model [.'$openapi#MediaType'.model]", lpath_31 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#MediaType'.model]", lpath_31 if path is not None else None))
+                return False
+        elif prop == "example":
+            # handle may example property
+            # .'$openapi#MediaType'.example
+            res = True
+        elif prop == "encoding":
+            # handle may encoding property
+            # .'$openapi#MediaType'.encoding
+            res = _jm_obj_19(pval, lpath_31 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#MediaType'.encoding]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#MediaType'.encoding]", lpath_31 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$openapi#MediaType'.examples
+            res = _jm_obj_20(pval, lpath_31 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#MediaType'.examples]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#MediaType'.examples]", lpath_31 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -1721,23 +1721,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_34: Path = (path + [ prop ]) if path is not None else None
-        if prop == "contentType":
-            # handle may contentType property
-            # .'$openapi#Encoding'.contentType
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Encoding'.contentType]", lpath_34 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Encoding'.contentType]", lpath_34 if path is not None else None))
-                return False
-        elif prop == "headers":
-            # handle may headers property
-            # .'$openapi#Encoding'.headers
-            res = _jm_obj_21(pval, lpath_34 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Encoding'.headers]", lpath_34 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Encoding'.headers]", lpath_34 if path is not None else None))
-                return False
-        elif prop == "style":
+        if prop == "style":
             # handle may style property
             # .'$openapi#Encoding'.style
             res = json_model_17(pval, lpath_34 if path is not None else None, rep)
@@ -1752,6 +1736,22 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$openapi#Encoding'.explode]", lpath_34 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Encoding'.explode]", lpath_34 if path is not None else None))
+                return False
+        elif prop == "headers":
+            # handle may headers property
+            # .'$openapi#Encoding'.headers
+            res = _jm_obj_21(pval, lpath_34 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Encoding'.headers]", lpath_34 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Encoding'.headers]", lpath_34 if path is not None else None))
+                return False
+        elif prop == "contentType":
+            # handle may contentType property
+            # .'$openapi#Encoding'.contentType
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#Encoding'.contentType]", lpath_34 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Encoding'.contentType]", lpath_34 if path is not None else None))
                 return False
         elif prop == "allowReserved":
             # handle may allowReserved property
@@ -1824,29 +1824,29 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# object .'$openapi#Response'.headers
+# object .'$openapi#Response'.links
 def _jm_obj_22(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Response'.headers]", path))
+        rep is None or rep.append(("not an object [.'$openapi#Response'.links]", path))
         return False
     res: bool
     for prop, pval in val.items():
         lpath_38: Path = (path + [ prop ]) if path is not None else None
         # handle other props
-        # .'$openapi#Response'.headers.''
-        # .'$openapi#Response'.headers.''.'|'.0
-        res = json_model_30(pval, lpath_38 if path is not None else None, rep)
+        # .'$openapi#Response'.links.''
+        # .'$openapi#Response'.links.''.'|'.0
+        res = json_model_29(pval, lpath_38 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Header [.'$openapi#Response'.headers.''.'|'.0]", lpath_38 if path is not None else None))
+            rep is None or rep.append(("unexpected $Link [.'$openapi#Response'.links.''.'|'.0]", lpath_38 if path is not None else None))
         if not res:
-            # .'$openapi#Response'.headers.''.'|'.1
+            # .'$openapi#Response'.links.''.'|'.1
             res = json_model_32(pval, lpath_38 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Response'.headers.''.'|'.1]", lpath_38 if path is not None else None))
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Response'.links.''.'|'.1]", lpath_38 if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [.'$openapi#Response'.headers.''.'|']", lpath_38 if path is not None else None))
+            rep is None or rep.append(("no model matched [.'$openapi#Response'.links.''.'|']", lpath_38 if path is not None else None))
             return False
     return True
 
@@ -1866,29 +1866,29 @@ def _jm_obj_23(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# object .'$openapi#Response'.links
+# object .'$openapi#Response'.headers
 def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Response'.links]", path))
+        rep is None or rep.append(("not an object [.'$openapi#Response'.headers]", path))
         return False
     res: bool
     for prop, pval in val.items():
         lpath_40: Path = (path + [ prop ]) if path is not None else None
         # handle other props
-        # .'$openapi#Response'.links.''
-        # .'$openapi#Response'.links.''.'|'.0
-        res = json_model_29(pval, lpath_40 if path is not None else None, rep)
+        # .'$openapi#Response'.headers.''
+        # .'$openapi#Response'.headers.''.'|'.0
+        res = json_model_30(pval, lpath_40 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Link [.'$openapi#Response'.links.''.'|'.0]", lpath_40 if path is not None else None))
+            rep is None or rep.append(("unexpected $Header [.'$openapi#Response'.headers.''.'|'.0]", lpath_40 if path is not None else None))
         if not res:
-            # .'$openapi#Response'.links.''.'|'.1
+            # .'$openapi#Response'.headers.''.'|'.1
             res = json_model_32(pval, lpath_40 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$openapi#Response'.links.''.'|'.1]", lpath_40 if path is not None else None))
+                rep is None or rep.append(("unexpected $Reference [.'$openapi#Response'.headers.''.'|'.1]", lpath_40 if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [.'$openapi#Response'.links.''.'|']", lpath_40 if path is not None else None))
+            rep is None or rep.append(("no model matched [.'$openapi#Response'.headers.''.'|']", lpath_40 if path is not None else None))
             return False
     return True
 
@@ -1901,21 +1901,13 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_37: Path = (path + [ prop ]) if path is not None else None
-        if prop == "description":
-            # handle may description property
-            # .'$openapi#Response'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Response'.description]", lpath_37 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Response'.description]", lpath_37 if path is not None else None))
-                return False
-        elif prop == "headers":
-            # handle may headers property
-            # .'$openapi#Response'.headers
+        if prop == "links":
+            # handle may links property
+            # .'$openapi#Response'.links
             res = _jm_obj_22(pval, lpath_37 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Response'.headers]", lpath_37 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Response'.headers]", lpath_37 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$openapi#Response'.links]", lpath_37 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Response'.links]", lpath_37 if path is not None else None))
                 return False
         elif prop == "content":
             # handle may content property
@@ -1925,13 +1917,21 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$openapi#Response'.content]", lpath_37 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Response'.content]", lpath_37 if path is not None else None))
                 return False
-        elif prop == "links":
-            # handle may links property
-            # .'$openapi#Response'.links
+        elif prop == "headers":
+            # handle may headers property
+            # .'$openapi#Response'.headers
             res = _jm_obj_24(pval, lpath_37 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Response'.links]", lpath_37 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Response'.links]", lpath_37 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$openapi#Response'.headers]", lpath_37 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Response'.headers]", lpath_37 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#Response'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#Response'.description]", lpath_37 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Response'.description]", lpath_37 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -1986,7 +1986,11 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_42: Path = (path + [ prop ]) if path is not None else None
-        if prop == "summary":
+        if prop == "value":
+            # handle may value property
+            # .'$openapi#Example'.value
+            res = True
+        elif prop == "summary":
             # handle may summary property
             # .'$openapi#Example'.summary
             res = isinstance(pval, str)
@@ -2002,10 +2006,6 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$openapi#Example'.description]", lpath_42 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Example'.description]", lpath_42 if path is not None else None))
                 return False
-        elif prop == "value":
-            # handle may value property
-            # .'$openapi#Example'.value
-            res = True
         elif prop == "externalValue":
             # handle may externalValue property
             # .'$openapi#Example'.externalValue
@@ -2057,26 +2057,6 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$openapi#Link'.'|'.1.operationId]", lpath_43 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Link'.'|'.1.operationId]", lpath_43 if path is not None else None))
                 return False
-        elif prop == "parameters":
-            # handle may parameters property
-            # .'$openapi#Link'.'|'.1.parameters
-            res = _jm_obj_26(pval, lpath_43 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Link'.'|'.1.parameters]", lpath_43 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.1.parameters]", lpath_43 if path is not None else None))
-                return False
-        elif prop == "requestBody":
-            # handle may requestBody property
-            # .'$openapi#Link'.'|'.1.requestBody
-            res = True
-        elif prop == "description":
-            # handle may description property
-            # .'$openapi#Link'.'|'.1.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Link'.'|'.1.description]", lpath_43 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.1.description]", lpath_43 if path is not None else None))
-                return False
         elif prop == "server":
             # handle may server property
             # .'$openapi#Link'.'|'.1.server
@@ -2085,6 +2065,26 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Server [.'$openapi#Link'.'|'.1.server]", lpath_43 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.1.server]", lpath_43 if path is not None else None))
                 return False
+        elif prop == "parameters":
+            # handle may parameters property
+            # .'$openapi#Link'.'|'.1.parameters
+            res = _jm_obj_26(pval, lpath_43 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Link'.'|'.1.parameters]", lpath_43 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.1.parameters]", lpath_43 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#Link'.'|'.1.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#Link'.'|'.1.description]", lpath_43 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.1.description]", lpath_43 if path is not None else None))
+                return False
+        elif prop == "requestBody":
+            # handle may requestBody property
+            # .'$openapi#Link'.'|'.1.requestBody
+            res = True
         elif prop.startswith("x-"):
             # handle 1 re props
             # .'$openapi#Link'.'|'.1.'/^x-/'
@@ -2125,26 +2125,6 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$openapi#Link'.'|'.0.operationRef]", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#Link'.'|'.0.operationRef]", lpath_44 if path is not None else None))
                 return False
-        elif prop == "parameters":
-            # handle may parameters property
-            # .'$openapi#Link'.'|'.0.parameters
-            res = _jm_obj_28(pval, lpath_44 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Link'.'|'.0.parameters]", lpath_44 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.0.parameters]", lpath_44 if path is not None else None))
-                return False
-        elif prop == "requestBody":
-            # handle may requestBody property
-            # .'$openapi#Link'.'|'.0.requestBody
-            res = True
-        elif prop == "description":
-            # handle may description property
-            # .'$openapi#Link'.'|'.0.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Link'.'|'.0.description]", lpath_44 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.0.description]", lpath_44 if path is not None else None))
-                return False
         elif prop == "server":
             # handle may server property
             # .'$openapi#Link'.'|'.0.server
@@ -2153,6 +2133,26 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Server [.'$openapi#Link'.'|'.0.server]", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.0.server]", lpath_44 if path is not None else None))
                 return False
+        elif prop == "parameters":
+            # handle may parameters property
+            # .'$openapi#Link'.'|'.0.parameters
+            res = _jm_obj_28(pval, lpath_44 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Link'.'|'.0.parameters]", lpath_44 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.0.parameters]", lpath_44 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#Link'.'|'.0.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#Link'.'|'.0.description]", lpath_44 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Link'.'|'.0.description]", lpath_44 if path is not None else None))
+                return False
+        elif prop == "requestBody":
+            # handle may requestBody property
+            # .'$openapi#Link'.'|'.0.requestBody
+            res = True
         elif prop.startswith("x-"):
             # handle 1 re props
             # .'$openapi#Link'.'|'.0.'/^x-/'
@@ -2213,13 +2213,13 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_45: Path = (path + [ prop ]) if path is not None else None
-        if prop == "description":
-            # handle may description property
-            # .'$openapi#Header'.'|'.1.description
-            res = isinstance(pval, str)
+        if prop == "content":
+            # handle may content property
+            # .'$openapi#Header'.'|'.1.content
+            res = _jm_obj_30(pval, lpath_45 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Header'.'|'.1.description]", lpath_45 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.1.description]", lpath_45 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$openapi#Header'.'|'.1.content]", lpath_45 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.1.content]", lpath_45 if path is not None else None))
                 return False
         elif prop == "required":
             # handle may required property
@@ -2237,6 +2237,14 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.1.deprecated]", lpath_45 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.1.deprecated]", lpath_45 if path is not None else None))
                 return False
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#Header'.'|'.1.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#Header'.'|'.1.description]", lpath_45 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.1.description]", lpath_45 if path is not None else None))
+                return False
         elif prop == "allowEmptyValue":
             # handle may allowEmptyValue property
             # .'$openapi#Header'.'|'.1.allowEmptyValue
@@ -2244,14 +2252,6 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.1.allowEmptyValue]", lpath_45 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.1.allowEmptyValue]", lpath_45 if path is not None else None))
-                return False
-        elif prop == "content":
-            # handle may content property
-            # .'$openapi#Header'.'|'.1.content
-            res = _jm_obj_30(pval, lpath_45 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Header'.'|'.1.content]", lpath_45 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.1.content]", lpath_45 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -2296,13 +2296,41 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_47: Path = (path + [ prop ]) if path is not None else None
-        if prop == "description":
-            # handle may description property
-            # .'$openapi#Header'.'|'.0.description
-            res = isinstance(pval, str)
+        if prop == "model":
+            # handle may model property
+            # .'$openapi#Header'.'|'.0.model
+            res = json_model_97(pval, lpath_47 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#Header'.'|'.0.description]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.description]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("unexpected $Model [.'$openapi#Header'.'|'.0.model]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.model]", lpath_47 if path is not None else None))
+                return False
+        elif prop == "style":
+            # handle may style property
+            # .'$openapi#Header'.'|'.0.style
+            res = json_model_17(pval, lpath_47 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Style [.'$openapi#Header'.'|'.0.style]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.style]", lpath_47 if path is not None else None))
+                return False
+        elif prop == "example":
+            # handle may example property
+            # .'$openapi#Header'.'|'.0.example
+            res = True
+        elif prop == "explode":
+            # handle may explode property
+            # .'$openapi#Header'.'|'.0.explode
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.0.explode]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.explode]", lpath_47 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$openapi#Header'.'|'.0.examples
+            res = _jm_obj_32(pval, lpath_47 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$openapi#Header'.'|'.0.examples]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.examples]", lpath_47 if path is not None else None))
                 return False
         elif prop == "required":
             # handle may required property
@@ -2320,29 +2348,13 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.0.deprecated]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.deprecated]", lpath_47 if path is not None else None))
                 return False
-        elif prop == "allowEmptyValue":
-            # handle may allowEmptyValue property
-            # .'$openapi#Header'.'|'.0.allowEmptyValue
-            res = isinstance(pval, bool)
+        elif prop == "description":
+            # handle may description property
+            # .'$openapi#Header'.'|'.0.description
+            res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.0.allowEmptyValue]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.allowEmptyValue]", lpath_47 if path is not None else None))
-                return False
-        elif prop == "style":
-            # handle may style property
-            # .'$openapi#Header'.'|'.0.style
-            res = json_model_17(pval, lpath_47 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Style [.'$openapi#Header'.'|'.0.style]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.style]", lpath_47 if path is not None else None))
-                return False
-        elif prop == "explode":
-            # handle may explode property
-            # .'$openapi#Header'.'|'.0.explode
-            res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.0.explode]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.explode]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$openapi#Header'.'|'.0.description]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.description]", lpath_47 if path is not None else None))
                 return False
         elif prop == "allowReserved":
             # handle may allowReserved property
@@ -2352,25 +2364,13 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.0.allowReserved]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.allowReserved]", lpath_47 if path is not None else None))
                 return False
-        elif prop == "example":
-            # handle may example property
-            # .'$openapi#Header'.'|'.0.example
-            res = True
-        elif prop == "examples":
-            # handle may examples property
-            # .'$openapi#Header'.'|'.0.examples
-            res = _jm_obj_32(pval, lpath_47 if path is not None else None, rep)
+        elif prop == "allowEmptyValue":
+            # handle may allowEmptyValue property
+            # .'$openapi#Header'.'|'.0.allowEmptyValue
+            res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#Header'.'|'.0.examples]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.examples]", lpath_47 if path is not None else None))
-                return False
-        elif prop == "model":
-            # handle may model property
-            # .'$openapi#Header'.'|'.0.model
-            res = json_model_97(pval, lpath_47 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Model [.'$openapi#Header'.'|'.0.model]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.model]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.0.allowEmptyValue]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#Header'.'|'.0.allowEmptyValue]", lpath_47 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -2508,14 +2508,14 @@ def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_51: Path = (path + [ prop ]) if path is not None else None
-        if prop == "type":
-            # handle must type property
+        if prop == "in":
+            # handle must in property
             must_count += 1
-            # .'$openapi#SecurityScheme'.'|'.0.type
-            res = isinstance(pval, str) and pval == "apiKey"
+            # .'$openapi#SecurityScheme'.'|'.0.in
+            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_3
             if not res:
-                rep is None or rep.append(("unexpected _apiKey [.'$openapi#SecurityScheme'.'|'.0.type]", lpath_51 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.type]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("value not in enum [.'$openapi#SecurityScheme'.'|'.0.in.'|']", lpath_51 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.in]", lpath_51 if path is not None else None))
                 return False
         elif prop == "name":
             # handle must name property
@@ -2526,14 +2526,14 @@ def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$openapi#SecurityScheme'.'|'.0.name]", lpath_51 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.name]", lpath_51 if path is not None else None))
                 return False
-        elif prop == "in":
-            # handle must in property
+        elif prop == "type":
+            # handle must type property
             must_count += 1
-            # .'$openapi#SecurityScheme'.'|'.0.in
-            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_3
+            # .'$openapi#SecurityScheme'.'|'.0.type
+            res = isinstance(pval, str) and pval == "apiKey"
             if not res:
-                rep is None or rep.append(("value not in enum [.'$openapi#SecurityScheme'.'|'.0.in.'|']", lpath_51 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.in]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("unexpected _apiKey [.'$openapi#SecurityScheme'.'|'.0.type]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.type]", lpath_51 if path is not None else None))
                 return False
         elif prop == "description":
             # handle may description property
@@ -2586,14 +2586,6 @@ def _jm_obj_34(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /bearer/i [.'$openapi#SecurityScheme'.'|'.1.scheme]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.1.scheme]", lpath_52 if path is not None else None))
                 return False
-        elif prop == "bearerFormat":
-            # handle may bearerFormat property
-            # .'$openapi#SecurityScheme'.'|'.1.bearerFormat
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#SecurityScheme'.'|'.1.bearerFormat]", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#SecurityScheme'.'|'.1.bearerFormat]", lpath_52 if path is not None else None))
-                return False
         elif prop == "description":
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.1.description
@@ -2601,6 +2593,14 @@ def _jm_obj_34(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$openapi#SecurityScheme'.'|'.1.description]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#SecurityScheme'.'|'.1.description]", lpath_52 if path is not None else None))
+                return False
+        elif prop == "bearerFormat":
+            # handle may bearerFormat property
+            # .'$openapi#SecurityScheme'.'|'.1.bearerFormat
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#SecurityScheme'.'|'.1.bearerFormat]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#SecurityScheme'.'|'.1.bearerFormat]", lpath_52 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$openapi#SecurityScheme'.'|'.1]", lpath_52 if path is not None else None))
@@ -2838,14 +2838,6 @@ def json_model_43(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $OAuthFlow [.'$openapi#OAuthFlows'.password]", lpath_57 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#OAuthFlows'.password]", lpath_57 if path is not None else None))
                 return False
-        elif prop == "clientCredentials":
-            # handle may clientCredentials property
-            # .'$openapi#OAuthFlows'.clientCredentials
-            res = json_model_44(pval, lpath_57 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $OAuthFlow [.'$openapi#OAuthFlows'.clientCredentials]", lpath_57 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#OAuthFlows'.clientCredentials]", lpath_57 if path is not None else None))
-                return False
         elif prop == "authorizationCode":
             # handle may authorizationCode property
             # .'$openapi#OAuthFlows'.authorizationCode
@@ -2853,6 +2845,14 @@ def json_model_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $OAuthFlow [.'$openapi#OAuthFlows'.authorizationCode]", lpath_57 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#OAuthFlows'.authorizationCode]", lpath_57 if path is not None else None))
+                return False
+        elif prop == "clientCredentials":
+            # handle may clientCredentials property
+            # .'$openapi#OAuthFlows'.clientCredentials
+            res = json_model_44(pval, lpath_57 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $OAuthFlow [.'$openapi#OAuthFlows'.clientCredentials]", lpath_57 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#OAuthFlows'.clientCredentials]", lpath_57 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
@@ -2889,14 +2889,14 @@ def json_model_44(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_58: Path = (path + [ prop ]) if path is not None else None
-        if prop == "authorizationUrl":
-            # handle must authorizationUrl property
+        if prop == "scopes":
+            # handle must scopes property
             must_count += 1
-            # .'$openapi#OAuthFlow'.authorizationUrl
-            res = is_valid_url(pval, lpath_58 if path is not None else None, rep)
+            # .'$openapi#OAuthFlow'.scopes
+            res = _jm_obj_39(pval, lpath_58 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $URL [.'$openapi#OAuthFlow'.authorizationUrl]", lpath_58 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OAuthFlow'.authorizationUrl]", lpath_58 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$openapi#OAuthFlow'.scopes]", lpath_58 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OAuthFlow'.scopes]", lpath_58 if path is not None else None))
                 return False
         elif prop == "tokenUrl":
             # handle must tokenUrl property
@@ -2907,14 +2907,14 @@ def json_model_44(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'$openapi#OAuthFlow'.tokenUrl]", lpath_58 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OAuthFlow'.tokenUrl]", lpath_58 if path is not None else None))
                 return False
-        elif prop == "scopes":
-            # handle must scopes property
+        elif prop == "authorizationUrl":
+            # handle must authorizationUrl property
             must_count += 1
-            # .'$openapi#OAuthFlow'.scopes
-            res = _jm_obj_39(pval, lpath_58 if path is not None else None, rep)
+            # .'$openapi#OAuthFlow'.authorizationUrl
+            res = is_valid_url(pval, lpath_58 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$openapi#OAuthFlow'.scopes]", lpath_58 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OAuthFlow'.scopes]", lpath_58 if path is not None else None))
+                rep is None or rep.append(("unexpected $URL [.'$openapi#OAuthFlow'.authorizationUrl]", lpath_58 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OAuthFlow'.authorizationUrl]", lpath_58 if path is not None else None))
                 return False
         elif prop == "refreshUrl":
             # handle may refreshUrl property
@@ -3285,14 +3285,6 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Model [.'$openapi#model#Element'.'|'.0.'@']", lpath_66 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#model#Element'.'|'.0.'@']", lpath_66 if path is not None else None))
                 return False
-        elif prop == "#":
-            # handle may # property
-            # .'$openapi#model#Element'.'|'.0.'#'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$openapi#model#Element'.'|'.0.'#']", lpath_66 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$openapi#model#Element'.'|'.0.'#']", lpath_66 if path is not None else None))
-                return False
         elif prop == "!":
             # handle may ! property
             # .'$openapi#model#Element'.'|'.0.'!'
@@ -3300,6 +3292,14 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$openapi#model#Element'.'|'.0.'!']", lpath_66 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#model#Element'.'|'.0.'!']", lpath_66 if path is not None else None))
+                return False
+        elif prop == "#":
+            # handle may # property
+            # .'$openapi#model#Element'.'|'.0.'#'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$openapi#model#Element'.'|'.0.'#']", lpath_66 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#model#Element'.'|'.0.'#']", lpath_66 if path is not None else None))
                 return False
         elif prop.startswith("#"):
             # handle 3 re props

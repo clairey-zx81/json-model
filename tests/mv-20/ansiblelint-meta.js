@@ -6557,52 +6557,7 @@ function json_model_51(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_47 = path ? path.concat([prop]) : null;
-        if (prop == "cloud_platforms")
-        {
-            // handle may cloud_platforms property
-            // .'$GalaxyInfoModelCollection'.cloud_platforms
-            res = true;
-        }
-        else if (prop == "galaxy_tags")
-        {
-            // handle may galaxy_tags property
-            // .'$GalaxyInfoModelCollection'.galaxy_tags
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_95_idx = 0; arr_95_idx < pval.length; arr_95_idx++)
-                {
-                    let arr_95_item = pval[arr_95_idx]
-                    let arr_95_lpath = (path ? lpath_47 : null) ? (path ? lpath_47 : null).concat([arr_95_idx]) : null;
-                    // .'$GalaxyInfoModelCollection'.galaxy_tags.0
-                    res = (typeof arr_95_item === 'string' || arr_95_item instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? lpath_47 : null) ? arr_95_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? lpath_47 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? lpath_47 : null)])
-                return false;
-            }
-        }
-        else if (prop == "min_ansible_version")
-        {
-            // handle may min_ansible_version property
-            // .'$GalaxyInfoModelCollection'.min_ansible_version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
-                return false;
-            }
-        }
-        else if (prop == "namespace")
+        if (prop == "namespace")
         {
             // handle may namespace property
             // .'$GalaxyInfoModelCollection'.namespace
@@ -6640,6 +6595,33 @@ function json_model_51(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "galaxy_tags")
+        {
+            // handle may galaxy_tags property
+            // .'$GalaxyInfoModelCollection'.galaxy_tags
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_95_idx = 0; arr_95_idx < pval.length; arr_95_idx++)
+                {
+                    let arr_95_item = pval[arr_95_idx]
+                    let arr_95_lpath = (path ? lpath_47 : null) ? (path ? lpath_47 : null).concat([arr_95_idx]) : null;
+                    // .'$GalaxyInfoModelCollection'.galaxy_tags.0
+                    res = (typeof arr_95_item === 'string' || arr_95_item instanceof String);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? lpath_47 : null) ? arr_95_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
         else if (prop == "video_links")
         {
             // handle may video_links property
@@ -6649,6 +6631,24 @@ function json_model_51(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", (path ? lpath_47 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", (path ? lpath_47 : null)])
+                return false;
+            }
+        }
+        else if (prop == "cloud_platforms")
+        {
+            // handle may cloud_platforms property
+            // .'$GalaxyInfoModelCollection'.cloud_platforms
+            res = true;
+        }
+        else if (prop == "min_ansible_version")
+        {
+            // handle may min_ansible_version property
+            // .'$GalaxyInfoModelCollection'.min_ansible_version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
                 return false;
             }
         }
@@ -6713,6 +6713,18 @@ function json_model_52(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "license")
+        {
+            // handle may license property
+            // .'$GalaxyInfoModelLoose'.license
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
+                return false;
+            }
+        }
         else if (prop == "github_branch")
         {
             // handle may github_branch property
@@ -6734,18 +6746,6 @@ function json_model_52(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? lpath_48 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? lpath_48 : null)])
-                return false;
-            }
-        }
-        else if (prop == "license")
-        {
-            // handle may license property
-            // .'$GalaxyInfoModelLoose'.license
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
                 return false;
             }
         }
@@ -6795,33 +6795,7 @@ function json_model_53(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_49 = path ? path.concat([prop]) : null;
-        if (prop == "standalone")
-        {
-            // handle must standalone property
-            must_count += 1;
-            // .'$GalaxyInfoModelStandalone'.standalone
-            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
-                return false;
-            }
-        }
-        else if (prop == "description")
-        {
-            // handle must description property
-            must_count += 1;
-            // .'$GalaxyInfoModelStandalone'.description
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
-                return false;
-            }
-        }
-        else if (prop == "author")
+        if (prop == "author")
         {
             // handle must author property
             must_count += 1;
@@ -6847,6 +6821,32 @@ function json_model_53(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "standalone")
+        {
+            // handle must standalone property
+            must_count += 1;
+            // .'$GalaxyInfoModelStandalone'.standalone
+            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle must description property
+            must_count += 1;
+            // .'$GalaxyInfoModelStandalone'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
+                return false;
+            }
+        }
         else if (prop == "min_ansible_version")
         {
             // handle must min_ansible_version property
@@ -6869,75 +6869,6 @@ function json_model_53(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.company]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", (path ? lpath_49 : null)])
-                return false;
-            }
-        }
-        else if (prop == "github_branch")
-        {
-            // handle may github_branch property
-            // .'$GalaxyInfoModelStandalone'.github_branch
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
-                return false;
-            }
-        }
-        else if (prop == "issue_tracker_url")
-        {
-            // handle may issue_tracker_url property
-            // .'$GalaxyInfoModelStandalone'.issue_tracker_url
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
-                return false;
-            }
-        }
-        else if (prop == "min_ansible_container_version")
-        {
-            // handle may min_ansible_container_version property
-            // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
-                return false;
-            }
-        }
-        else if (prop == "cloud_platforms")
-        {
-            // handle may cloud_platforms property
-            // .'$GalaxyInfoModelStandalone'.cloud_platforms
-            res = true;
-        }
-        else if (prop == "galaxy_tags")
-        {
-            // handle may galaxy_tags property
-            // .'$GalaxyInfoModelStandalone'.galaxy_tags
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_96_idx = 0; arr_96_idx < pval.length; arr_96_idx++)
-                {
-                    let arr_96_item = pval[arr_96_idx]
-                    let arr_96_lpath = (path ? lpath_49 : null) ? (path ? lpath_49 : null).concat([arr_96_idx]) : null;
-                    // .'$GalaxyInfoModelStandalone'.galaxy_tags.0
-                    res = (typeof arr_96_item === 'string' || arr_96_item instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path ? lpath_49 : null) ? arr_96_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path ? lpath_49 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path ? lpath_49 : null)])
                 return false;
             }
         }
@@ -6979,6 +6910,33 @@ function json_model_53(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "galaxy_tags")
+        {
+            // handle may galaxy_tags property
+            // .'$GalaxyInfoModelStandalone'.galaxy_tags
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_96_idx = 0; arr_96_idx < pval.length; arr_96_idx++)
+                {
+                    let arr_96_item = pval[arr_96_idx]
+                    let arr_96_lpath = (path ? lpath_49 : null) ? (path ? lpath_49 : null).concat([arr_96_idx]) : null;
+                    // .'$GalaxyInfoModelStandalone'.galaxy_tags.0
+                    res = (typeof arr_96_item === 'string' || arr_96_item instanceof String);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path ? lpath_49 : null) ? arr_96_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path ? lpath_49 : null)])
+                return false;
+            }
+        }
         else if (prop == "video_links")
         {
             // handle may video_links property
@@ -6988,6 +6946,48 @@ function json_model_53(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.video_links]", (path ? lpath_49 : null)])
+                return false;
+            }
+        }
+        else if (prop == "github_branch")
+        {
+            // handle may github_branch property
+            // .'$GalaxyInfoModelStandalone'.github_branch
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
+                return false;
+            }
+        }
+        else if (prop == "cloud_platforms")
+        {
+            // handle may cloud_platforms property
+            // .'$GalaxyInfoModelStandalone'.cloud_platforms
+            res = true;
+        }
+        else if (prop == "issue_tracker_url")
+        {
+            // handle may issue_tracker_url property
+            // .'$GalaxyInfoModelStandalone'.issue_tracker_url
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
+                return false;
+            }
+        }
+        else if (prop == "min_ansible_container_version")
+        {
+            // handle may min_ansible_container_version property
+            // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
                 return false;
             }
         }
@@ -7090,30 +7090,6 @@ function _jm_obj_47(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "github_branch")
-        {
-            // handle may github_branch property
-            // .'$GalaxyInfoModel'.'|'.1.github_branch
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
-                return false;
-            }
-        }
-        else if (prop == "issue_tracker_url")
-        {
-            // handle may issue_tracker_url property
-            // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
-                return false;
-            }
-        }
         else if (prop == "license")
         {
             // handle may license property
@@ -7123,63 +7099,6 @@ function _jm_obj_47(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.license]", (path ? lpath_50 : null)])
-                return false;
-            }
-        }
-        else if (prop == "min_ansible_container_version")
-        {
-            // handle may min_ansible_container_version property
-            // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
-                return false;
-            }
-        }
-        else if (prop == "cloud_platforms")
-        {
-            // handle may cloud_platforms property
-            // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-            res = true;
-        }
-        else if (prop == "galaxy_tags")
-        {
-            // handle may galaxy_tags property
-            // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_97_idx = 0; arr_97_idx < pval.length; arr_97_idx++)
-                {
-                    let arr_97_item = pval[arr_97_idx]
-                    let arr_97_lpath = (path ? lpath_50 : null) ? (path ? lpath_50 : null).concat([arr_97_idx]) : null;
-                    // .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
-                    res = (typeof arr_97_item === 'string' || arr_97_item instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", ((path ? lpath_50 : null) ? arr_97_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.galaxy_tags]", (path ? lpath_50 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.galaxy_tags]", (path ? lpath_50 : null)])
-                return false;
-            }
-        }
-        else if (prop == "min_ansible_version")
-        {
-            // handle may min_ansible_version property
-            // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
                 return false;
             }
         }
@@ -7221,6 +7140,33 @@ function _jm_obj_47(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "galaxy_tags")
+        {
+            // handle may galaxy_tags property
+            // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_97_idx = 0; arr_97_idx < pval.length; arr_97_idx++)
+                {
+                    let arr_97_item = pval[arr_97_idx]
+                    let arr_97_lpath = (path ? lpath_50 : null) ? (path ? lpath_50 : null).concat([arr_97_idx]) : null;
+                    // .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
+                    res = (typeof arr_97_item === 'string' || arr_97_item instanceof String);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", ((path ? lpath_50 : null) ? arr_97_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.galaxy_tags]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.galaxy_tags]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
         else if (prop == "video_links")
         {
             // handle may video_links property
@@ -7230,6 +7176,60 @@ function _jm_obj_47(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.video_links]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.video_links]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "github_branch")
+        {
+            // handle may github_branch property
+            // .'$GalaxyInfoModel'.'|'.1.github_branch
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "cloud_platforms")
+        {
+            // handle may cloud_platforms property
+            // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
+            res = true;
+        }
+        else if (prop == "issue_tracker_url")
+        {
+            // handle may issue_tracker_url property
+            // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "min_ansible_version")
+        {
+            // handle may min_ansible_version property
+            // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if (prop == "min_ansible_container_version")
+        {
+            // handle may min_ansible_container_version property
+            // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
                 return false;
             }
         }
@@ -7307,30 +7307,6 @@ function _jm_obj_48(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "github_branch")
-        {
-            // handle may github_branch property
-            // .'$GalaxyInfoModel'.'|'.2.github_branch
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
-                return false;
-            }
-        }
-        else if (prop == "issue_tracker_url")
-        {
-            // handle may issue_tracker_url property
-            // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
-                return false;
-            }
-        }
         else if (prop == "license")
         {
             // handle may license property
@@ -7340,63 +7316,6 @@ function _jm_obj_48(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.license]", (path ? lpath_51 : null)])
-                return false;
-            }
-        }
-        else if (prop == "min_ansible_container_version")
-        {
-            // handle may min_ansible_container_version property
-            // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
-                return false;
-            }
-        }
-        else if (prop == "cloud_platforms")
-        {
-            // handle may cloud_platforms property
-            // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-            res = true;
-        }
-        else if (prop == "galaxy_tags")
-        {
-            // handle may galaxy_tags property
-            // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_98_idx = 0; arr_98_idx < pval.length; arr_98_idx++)
-                {
-                    let arr_98_item = pval[arr_98_idx]
-                    let arr_98_lpath = (path ? lpath_51 : null) ? (path ? lpath_51 : null).concat([arr_98_idx]) : null;
-                    // .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
-                    res = (typeof arr_98_item === 'string' || arr_98_item instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", ((path ? lpath_51 : null) ? arr_98_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", (path ? lpath_51 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", (path ? lpath_51 : null)])
-                return false;
-            }
-        }
-        else if (prop == "min_ansible_version")
-        {
-            // handle may min_ansible_version property
-            // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
                 return false;
             }
         }
@@ -7438,6 +7357,33 @@ function _jm_obj_48(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "galaxy_tags")
+        {
+            // handle may galaxy_tags property
+            // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_98_idx = 0; arr_98_idx < pval.length; arr_98_idx++)
+                {
+                    let arr_98_item = pval[arr_98_idx]
+                    let arr_98_lpath = (path ? lpath_51 : null) ? (path ? lpath_51 : null).concat([arr_98_idx]) : null;
+                    // .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
+                    res = (typeof arr_98_item === 'string' || arr_98_item instanceof String);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", ((path ? lpath_51 : null) ? arr_98_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", (path ? lpath_51 : null)])
+                return false;
+            }
+        }
         else if (prop == "video_links")
         {
             // handle may video_links property
@@ -7447,6 +7393,60 @@ function _jm_obj_48(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.video_links]", (path ? lpath_51 : null)])
+                return false;
+            }
+        }
+        else if (prop == "github_branch")
+        {
+            // handle may github_branch property
+            // .'$GalaxyInfoModel'.'|'.2.github_branch
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
+                return false;
+            }
+        }
+        else if (prop == "cloud_platforms")
+        {
+            // handle may cloud_platforms property
+            // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
+            res = true;
+        }
+        else if (prop == "issue_tracker_url")
+        {
+            // handle may issue_tracker_url property
+            // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
+                return false;
+            }
+        }
+        else if (prop == "min_ansible_version")
+        {
+            // handle may min_ansible_version property
+            // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
+                return false;
+            }
+        }
+        else if (prop == "min_ansible_container_version")
+        {
+            // handle may min_ansible_container_version property
+            // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
                 return false;
             }
         }
@@ -7630,15 +7630,27 @@ function json_model_57(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_52 = path ? path.concat([prop]) : null;
-        if (prop == "become")
+        if (prop == "scm")
         {
-            // handle may become property
-            // .'$DependencyModelLoose'.become
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            // handle may scm property
+            // .'$DependencyModelLoose'.scm
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_64.has(pval);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$DependencyModelLoose'.become]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.become]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["value not in enum [.'$DependencyModelLoose'.scm.'|']", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.scm]", (path ? lpath_52 : null)])
+                return false;
+            }
+        }
+        else if (prop == "src")
+        {
+            // handle may src property
+            // .'$DependencyModelLoose'.src
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.src]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.src]", (path ? lpath_52 : null)])
                 return false;
             }
         }
@@ -7663,30 +7675,6 @@ function json_model_57(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.role]", (path ? lpath_52 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.role]", (path ? lpath_52 : null)])
-                return false;
-            }
-        }
-        else if (prop == "src")
-        {
-            // handle may src property
-            // .'$DependencyModelLoose'.src
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.src]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.src]", (path ? lpath_52 : null)])
-                return false;
-            }
-        }
-        else if (prop == "scm")
-        {
-            // handle may scm property
-            // .'$DependencyModelLoose'.scm
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_64.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.'$DependencyModelLoose'.scm.'|']", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.scm]", (path ? lpath_52 : null)])
                 return false;
             }
         }
@@ -7747,18 +7735,6 @@ function json_model_57(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "version")
-        {
-            // handle may version property
-            // .'$DependencyModelLoose'.version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", (path ? lpath_52 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.version]", (path ? lpath_52 : null)])
-                return false;
-            }
-        }
         else if (prop == "when")
         {
             // handle may when property
@@ -7768,6 +7744,30 @@ function json_model_57(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path ? lpath_52 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.when]", (path ? lpath_52 : null)])
+                return false;
+            }
+        }
+        else if (prop == "become")
+        {
+            // handle may become property
+            // .'$DependencyModelLoose'.become
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$DependencyModelLoose'.become]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.become]", (path ? lpath_52 : null)])
+                return false;
+            }
+        }
+        else if (prop == "version")
+        {
+            // handle may version property
+            // .'$DependencyModelLoose'.version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$DependencyModelLoose'.version]", (path ? lpath_52 : null)])
                 return false;
             }
         }
@@ -7952,19 +7952,7 @@ function json_model_59(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_53 = path ? path.concat([prop]) : null;
-        if (prop == "allow_duplicates")
-        {
-            // handle may allow_duplicates property
-            // .'$AnsibleMetaObj'.allow_duplicates
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_53 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_53 : null)])
-                return false;
-            }
-        }
-        else if (prop == "collections")
+        if (prop == "collections")
         {
             // handle may collections property
             // .'$AnsibleMetaObj'.collections
@@ -7973,6 +7961,18 @@ function json_model_59(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $collections [.'$AnsibleMetaObj'.collections]", (path ? lpath_53 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path ? lpath_53 : null)])
+                return false;
+            }
+        }
+        else if (prop == "galaxy_info")
+        {
+            // handle may galaxy_info property
+            // .'$AnsibleMetaObj'.galaxy_info
+            res = json_model_54(pval, (path ? lpath_53 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_53 : null)])
                 return false;
             }
         }
@@ -8021,15 +8021,15 @@ function json_model_59(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "galaxy_info")
+        else if (prop == "allow_duplicates")
         {
-            // handle may galaxy_info property
-            // .'$AnsibleMetaObj'.galaxy_info
-            res = json_model_54(pval, (path ? lpath_53 : null), rep);
+            // handle may allow_duplicates property
+            // .'$AnsibleMetaObj'.allow_duplicates
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_53 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_53 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_53 : null)])
                 return false;
             }
         }

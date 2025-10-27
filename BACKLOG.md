@@ -2,6 +2,8 @@
 
 ## Current Tasks
 
+- [x] static: order must/may props by increasing size
+- [ ] static: maybe skip must checks if all must props already seen
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] backend: fix `unused but set variable` warning and remove `-Wno-…` (dead code)
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`

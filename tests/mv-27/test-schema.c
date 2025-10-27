@@ -55,28 +55,28 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
-        {
-            // handle must description property
-            must_count += 1;
-            // .'$Test'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000061746164LL)))
+        if (unlikely(jm_str_eq_5(prop, 0x0000000061746164LL)))
         {
             // handle must data property
             must_count += 1;
             // .'$Test'.data
             res = true;
         }
-        else if (likely(jm_str_eq_6(prop, 0x00000064696c6176LL)))
+        else if (unlikely(jm_str_eq_6(prop, 0x00000064696c6176LL)))
         {
             // handle must valid property
             must_count += 1;
             // .'$Test'.valid
             res = json_is_boolean(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
+        {
+            // handle must description property
+            must_count += 1;
+            // .'$Test'.description
+            res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
         }
@@ -124,22 +124,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (unlikely(! res))
                 return false;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x69746164696c6176LL) && jm_str_eq_3(prop + 8, 0x00006e6f)))
-        {
-            // handle may validation property
-            // .'$Specification'.'@'.validation
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00323632616d6365LL)))
-        {
-            // handle may ecma262 property
-            // .'$Specification'.'@'.ecma262
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
         else if (unlikely(jm_str_eq_6(prop, 0x000000356c726570LL)))
         {
             // handle may perl5 property
@@ -153,6 +137,22 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may quote property
             // .'$Specification'.'@'.quote
             res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_8(prop, 0x00323632616d6365LL)))
+        {
+            // handle may ecma262 property
+            // .'$Specification'.'@'.ecma262
+            res = json_model_2(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_8(prop, 0x69746164696c6176LL) && jm_str_eq_3(prop + 8, 0x00006e6f)))
+        {
+            // handle may validation property
+            // .'$Specification'.'@'.validation
+            res = json_model_2(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
         }
@@ -204,23 +204,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
-        {
-            // handle must description property
-            must_count += 1;
-            // .'$TestCase'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x0000616d65686373LL)))
-        {
-            // handle must schema property
-            must_count += 1;
-            // .'$TestCase'.schema
-            res = true;
-        }
-        else if (jm_str_eq_6(prop, 0x0000007374736574LL))
+        if (unlikely(jm_str_eq_6(prop, 0x0000007374736574LL)))
         {
             // handle must tests property
             must_count += 1;
@@ -244,6 +228,22 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 int64_t ival_1 = json_array_size(pval);
                 res = ival_1 >= 1;
             }
+            if (unlikely(! res))
+                return false;
+        }
+        else if (unlikely(jm_str_eq_7(prop, 0x0000616d65686373LL)))
+        {
+            // handle must schema property
+            must_count += 1;
+            // .'$TestCase'.schema
+            res = true;
+        }
+        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+        {
+            // handle must description property
+            must_count += 1;
+            // .'$TestCase'.description
+            res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
         }

@@ -153,13 +153,13 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop == "$schema":
-            # handle may $schema property
-            # .'$tight#metas'.'$schema'
+        if prop == "id":
+            # handle may id property
+            # .'$tight#metas'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#metas'.'$schema']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.'$schema']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#metas'.id]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.id]", lpath_0 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -169,21 +169,13 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#metas'.'$id']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.'$id']", lpath_0 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#metas'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#metas'.'$defs'
+            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#metas'.id]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.id]", lpath_0 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#metas'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#metas'.'$comment']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.'$comment']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#metas'.'$defs']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.'$defs']", lpath_0 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -193,10 +185,26 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#metas'.title]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.title]", lpath_0 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#metas'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#metas'.'$schema']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.'$schema']", lpath_0 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#metas'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#metas'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#metas'.'$comment']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.'$comment']", lpath_0 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#metas'.examples
@@ -205,22 +213,6 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#metas'.examples]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.examples]", lpath_0 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#metas'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#metas'.description]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.description]", lpath_0 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#metas'.'$defs'
-            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#metas'.'$defs']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.'$defs']", lpath_0 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#metas'.definitions
@@ -228,6 +220,14 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#metas'.definitions]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.definitions]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#metas'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#metas'.description]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#metas'.description]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#metas']", lpath_0 if path is not None else None))
@@ -1117,13 +1117,13 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected boolean [.'$tight#Bool'.type]", lpath_20 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#Bool'.type]", lpath_20 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#Bool'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#Bool'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Bool'.'$schema']", lpath_20 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.'$schema']", lpath_20 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#Bool'.id]", lpath_20 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.id]", lpath_20 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -1133,21 +1133,13 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Bool'.'$id']", lpath_20 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.'$id']", lpath_20 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#Bool'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#Bool'.'$defs'
+            res = _jm_obj_3(pval, lpath_20 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Bool'.id]", lpath_20 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.id]", lpath_20 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#Bool'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Bool'.'$comment']", lpath_20 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.'$comment']", lpath_20 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#Bool'.'$defs']", lpath_20 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.'$defs']", lpath_20 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -1157,10 +1149,26 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Bool'.title]", lpath_20 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.title]", lpath_20 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#Bool'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Bool'.'$schema']", lpath_20 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.'$schema']", lpath_20 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#Bool'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#Bool'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Bool'.'$comment']", lpath_20 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.'$comment']", lpath_20 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#Bool'.examples
@@ -1169,22 +1177,6 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#Bool'.examples]", lpath_20 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.examples]", lpath_20 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#Bool'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Bool'.description]", lpath_20 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.description]", lpath_20 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#Bool'.'$defs'
-            res = _jm_obj_3(pval, lpath_20 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#Bool'.'$defs']", lpath_20 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.'$defs']", lpath_20 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#Bool'.definitions
@@ -1192,6 +1184,14 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#Bool'.definitions]", lpath_20 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.definitions]", lpath_20 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#Bool'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Bool'.description]", lpath_20 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Bool'.description]", lpath_20 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#Bool']", lpath_20 if path is not None else None))
@@ -1254,13 +1254,13 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected null [.'$tight#Null'.type]", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#Null'.type]", lpath_23 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#Null'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#Null'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Null'.'$schema']", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.'$schema']", lpath_23 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#Null'.id]", lpath_23 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.id]", lpath_23 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -1270,21 +1270,13 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Null'.'$id']", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.'$id']", lpath_23 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#Null'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#Null'.'$defs'
+            res = _jm_obj_5(pval, lpath_23 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Null'.id]", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.id]", lpath_23 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#Null'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Null'.'$comment']", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.'$comment']", lpath_23 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#Null'.'$defs']", lpath_23 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.'$defs']", lpath_23 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -1294,10 +1286,26 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Null'.title]", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.title]", lpath_23 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#Null'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Null'.'$schema']", lpath_23 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.'$schema']", lpath_23 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#Null'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#Null'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Null'.'$comment']", lpath_23 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.'$comment']", lpath_23 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#Null'.examples
@@ -1306,22 +1314,6 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#Null'.examples]", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.examples]", lpath_23 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#Null'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Null'.description]", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.description]", lpath_23 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#Null'.'$defs'
-            res = _jm_obj_5(pval, lpath_23 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#Null'.'$defs']", lpath_23 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.'$defs']", lpath_23 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#Null'.definitions
@@ -1329,6 +1321,14 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#Null'.definitions]", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.definitions]", lpath_23 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#Null'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Null'.description]", lpath_23 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Null'.description]", lpath_23 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#Null']", lpath_23 if path is not None else None))
@@ -1391,13 +1391,13 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $schemaArray [.'$tight#AllOf'.allOf]", lpath_26 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#AllOf'.allOf]", lpath_26 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#AllOf'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#AllOf'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#AllOf'.'$schema']", lpath_26 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.'$schema']", lpath_26 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#AllOf'.id]", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.id]", lpath_26 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -1407,21 +1407,13 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#AllOf'.'$id']", lpath_26 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.'$id']", lpath_26 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#AllOf'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#AllOf'.'$defs'
+            res = _jm_obj_7(pval, lpath_26 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#AllOf'.id]", lpath_26 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.id]", lpath_26 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#AllOf'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#AllOf'.'$comment']", lpath_26 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.'$comment']", lpath_26 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#AllOf'.'$defs']", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.'$defs']", lpath_26 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -1431,10 +1423,26 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#AllOf'.title]", lpath_26 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.title]", lpath_26 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#AllOf'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#AllOf'.'$schema']", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.'$schema']", lpath_26 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#AllOf'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#AllOf'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#AllOf'.'$comment']", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.'$comment']", lpath_26 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#AllOf'.examples
@@ -1443,22 +1451,6 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#AllOf'.examples]", lpath_26 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.examples]", lpath_26 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#AllOf'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#AllOf'.description]", lpath_26 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.description]", lpath_26 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#AllOf'.'$defs'
-            res = _jm_obj_7(pval, lpath_26 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#AllOf'.'$defs']", lpath_26 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.'$defs']", lpath_26 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#AllOf'.definitions
@@ -1466,6 +1458,14 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#AllOf'.definitions]", lpath_26 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.definitions]", lpath_26 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#AllOf'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#AllOf'.description]", lpath_26 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AllOf'.description]", lpath_26 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#AllOf']", lpath_26 if path is not None else None))
@@ -1528,13 +1528,13 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $schemaArray [.'$tight#AnyOf'.anyOf]", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#AnyOf'.anyOf]", lpath_29 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#AnyOf'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#AnyOf'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.'$schema']", lpath_29 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.'$schema']", lpath_29 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.id]", lpath_29 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.id]", lpath_29 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -1544,21 +1544,13 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.'$id']", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.'$id']", lpath_29 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#AnyOf'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#AnyOf'.'$defs'
+            res = _jm_obj_9(pval, lpath_29 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.id]", lpath_29 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.id]", lpath_29 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#AnyOf'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.'$comment']", lpath_29 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.'$comment']", lpath_29 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#AnyOf'.'$defs']", lpath_29 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.'$defs']", lpath_29 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -1568,10 +1560,26 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.title]", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.title]", lpath_29 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#AnyOf'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.'$schema']", lpath_29 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.'$schema']", lpath_29 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#AnyOf'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#AnyOf'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.'$comment']", lpath_29 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.'$comment']", lpath_29 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#AnyOf'.examples
@@ -1580,22 +1588,6 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#AnyOf'.examples]", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.examples]", lpath_29 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#AnyOf'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.description]", lpath_29 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.description]", lpath_29 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#AnyOf'.'$defs'
-            res = _jm_obj_9(pval, lpath_29 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#AnyOf'.'$defs']", lpath_29 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.'$defs']", lpath_29 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#AnyOf'.definitions
@@ -1603,6 +1595,14 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#AnyOf'.definitions]", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.definitions]", lpath_29 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#AnyOf'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#AnyOf'.description]", lpath_29 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#AnyOf'.description]", lpath_29 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#AnyOf']", lpath_29 if path is not None else None))
@@ -1665,13 +1665,13 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $schemaArray [.'$tight#OneOf'.oneOf]", lpath_32 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#OneOf'.oneOf]", lpath_32 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#OneOf'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#OneOf'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#OneOf'.'$schema']", lpath_32 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.'$schema']", lpath_32 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#OneOf'.id]", lpath_32 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.id]", lpath_32 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -1681,21 +1681,13 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#OneOf'.'$id']", lpath_32 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.'$id']", lpath_32 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#OneOf'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#OneOf'.'$defs'
+            res = _jm_obj_11(pval, lpath_32 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#OneOf'.id]", lpath_32 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.id]", lpath_32 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#OneOf'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#OneOf'.'$comment']", lpath_32 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.'$comment']", lpath_32 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#OneOf'.'$defs']", lpath_32 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.'$defs']", lpath_32 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -1705,10 +1697,26 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#OneOf'.title]", lpath_32 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.title]", lpath_32 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#OneOf'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#OneOf'.'$schema']", lpath_32 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.'$schema']", lpath_32 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#OneOf'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#OneOf'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#OneOf'.'$comment']", lpath_32 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.'$comment']", lpath_32 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#OneOf'.examples
@@ -1717,22 +1725,6 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#OneOf'.examples]", lpath_32 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.examples]", lpath_32 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#OneOf'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#OneOf'.description]", lpath_32 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.description]", lpath_32 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#OneOf'.'$defs'
-            res = _jm_obj_11(pval, lpath_32 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#OneOf'.'$defs']", lpath_32 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.'$defs']", lpath_32 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#OneOf'.definitions
@@ -1740,6 +1732,14 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#OneOf'.definitions]", lpath_32 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.definitions]", lpath_32 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#OneOf'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#OneOf'.description]", lpath_32 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#OneOf'.description]", lpath_32 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#OneOf']", lpath_32 if path is not None else None))
@@ -1802,13 +1802,13 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $enum [.'$tight#Enum'.enum]", lpath_35 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#Enum'.enum]", lpath_35 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#Enum'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#Enum'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Enum'.'$schema']", lpath_35 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.'$schema']", lpath_35 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#Enum'.id]", lpath_35 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.id]", lpath_35 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -1818,21 +1818,13 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Enum'.'$id']", lpath_35 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.'$id']", lpath_35 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#Enum'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#Enum'.'$defs'
+            res = _jm_obj_13(pval, lpath_35 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Enum'.id]", lpath_35 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.id]", lpath_35 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#Enum'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Enum'.'$comment']", lpath_35 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.'$comment']", lpath_35 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#Enum'.'$defs']", lpath_35 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.'$defs']", lpath_35 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -1842,10 +1834,26 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Enum'.title]", lpath_35 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.title]", lpath_35 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#Enum'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Enum'.'$schema']", lpath_35 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.'$schema']", lpath_35 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#Enum'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#Enum'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Enum'.'$comment']", lpath_35 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.'$comment']", lpath_35 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#Enum'.examples
@@ -1854,22 +1862,6 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#Enum'.examples]", lpath_35 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.examples]", lpath_35 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#Enum'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Enum'.description]", lpath_35 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.description]", lpath_35 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#Enum'.'$defs'
-            res = _jm_obj_13(pval, lpath_35 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#Enum'.'$defs']", lpath_35 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.'$defs']", lpath_35 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#Enum'.definitions
@@ -1877,6 +1869,14 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#Enum'.definitions]", lpath_35 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.definitions]", lpath_35 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#Enum'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Enum'.description]", lpath_35 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Enum'.description]", lpath_35 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#Enum']", lpath_35 if path is not None else None))
@@ -1984,13 +1984,13 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $const [.'$tight#Const'.const]", lpath_38 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#Const'.const]", lpath_38 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#Const'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#Const'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Const'.'$schema']", lpath_38 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.'$schema']", lpath_38 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#Const'.id]", lpath_38 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.id]", lpath_38 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -2000,21 +2000,13 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Const'.'$id']", lpath_38 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.'$id']", lpath_38 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#Const'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#Const'.'$defs'
+            res = _jm_obj_15(pval, lpath_38 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Const'.id]", lpath_38 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.id]", lpath_38 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#Const'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Const'.'$comment']", lpath_38 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.'$comment']", lpath_38 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#Const'.'$defs']", lpath_38 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.'$defs']", lpath_38 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -2024,10 +2016,26 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Const'.title]", lpath_38 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.title]", lpath_38 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#Const'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Const'.'$schema']", lpath_38 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.'$schema']", lpath_38 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#Const'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#Const'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Const'.'$comment']", lpath_38 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.'$comment']", lpath_38 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#Const'.examples
@@ -2036,22 +2044,6 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#Const'.examples]", lpath_38 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.examples]", lpath_38 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#Const'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Const'.description]", lpath_38 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.description]", lpath_38 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#Const'.'$defs'
-            res = _jm_obj_15(pval, lpath_38 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#Const'.'$defs']", lpath_38 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.'$defs']", lpath_38 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#Const'.definitions
@@ -2059,6 +2051,14 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#Const'.definitions]", lpath_38 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.definitions]", lpath_38 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#Const'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Const'.description]", lpath_38 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Const'.description]", lpath_38 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#Const']", lpath_38 if path is not None else None))
@@ -2154,13 +2154,13 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'$tight#Ref'.'$ref']", lpath_41 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#Ref'.'$ref']", lpath_41 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#Ref'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#Ref'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Ref'.'$schema']", lpath_41 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.'$schema']", lpath_41 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#Ref'.id]", lpath_41 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.id]", lpath_41 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -2170,21 +2170,13 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Ref'.'$id']", lpath_41 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.'$id']", lpath_41 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#Ref'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#Ref'.'$defs'
+            res = _jm_obj_17(pval, lpath_41 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Ref'.id]", lpath_41 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.id]", lpath_41 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#Ref'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Ref'.'$comment']", lpath_41 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.'$comment']", lpath_41 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#Ref'.'$defs']", lpath_41 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.'$defs']", lpath_41 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -2194,10 +2186,26 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#Ref'.title]", lpath_41 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.title]", lpath_41 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#Ref'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Ref'.'$schema']", lpath_41 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.'$schema']", lpath_41 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#Ref'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#Ref'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Ref'.'$comment']", lpath_41 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.'$comment']", lpath_41 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#Ref'.examples
@@ -2206,22 +2214,6 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#Ref'.examples]", lpath_41 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.examples]", lpath_41 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#Ref'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#Ref'.description]", lpath_41 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.description]", lpath_41 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#Ref'.'$defs'
-            res = _jm_obj_17(pval, lpath_41 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#Ref'.'$defs']", lpath_41 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.'$defs']", lpath_41 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#Ref'.definitions
@@ -2229,6 +2221,14 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#Ref'.definitions]", lpath_41 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.definitions]", lpath_41 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#Ref'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#Ref'.description]", lpath_41 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#Ref'.description]", lpath_41 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#Ref']", lpath_41 if path is not None else None))
@@ -2326,13 +2326,13 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#EnumString'.type]", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#EnumString'.type]", lpath_44 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#EnumString'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#EnumString'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumString'.'$schema']", lpath_44 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.'$schema']", lpath_44 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#EnumString'.id]", lpath_44 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.id]", lpath_44 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -2342,21 +2342,13 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#EnumString'.'$id']", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.'$id']", lpath_44 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#EnumString'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#EnumString'.'$defs'
+            res = _jm_obj_19(pval, lpath_44 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumString'.id]", lpath_44 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.id]", lpath_44 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#EnumString'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumString'.'$comment']", lpath_44 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.'$comment']", lpath_44 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#EnumString'.'$defs']", lpath_44 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.'$defs']", lpath_44 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -2366,10 +2358,26 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#EnumString'.title]", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.title]", lpath_44 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#EnumString'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumString'.'$schema']", lpath_44 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.'$schema']", lpath_44 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#EnumString'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#EnumString'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumString'.'$comment']", lpath_44 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.'$comment']", lpath_44 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#EnumString'.examples
@@ -2378,22 +2386,6 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#EnumString'.examples]", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.examples]", lpath_44 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#EnumString'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumString'.description]", lpath_44 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.description]", lpath_44 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#EnumString'.'$defs'
-            res = _jm_obj_19(pval, lpath_44 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#EnumString'.'$defs']", lpath_44 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.'$defs']", lpath_44 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#EnumString'.definitions
@@ -2401,6 +2393,14 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#EnumString'.definitions]", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.definitions]", lpath_44 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#EnumString'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumString'.description]", lpath_44 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumString'.description]", lpath_44 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#EnumString']", lpath_44 if path is not None else None))
@@ -2482,13 +2482,13 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected number [.'$tight#EnumNum'.type]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#EnumNum'.type]", lpath_47 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#EnumNum'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#EnumNum'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.'$schema']", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.'$schema']", lpath_47 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.id]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.id]", lpath_47 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -2498,21 +2498,13 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.'$id']", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.'$id']", lpath_47 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#EnumNum'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#EnumNum'.'$defs'
+            res = _jm_obj_21(pval, lpath_47 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.id]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.id]", lpath_47 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#EnumNum'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.'$comment']", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.'$comment']", lpath_47 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#EnumNum'.'$defs']", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.'$defs']", lpath_47 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -2522,10 +2514,26 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.title]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.title]", lpath_47 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#EnumNum'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.'$schema']", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.'$schema']", lpath_47 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#EnumNum'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#EnumNum'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.'$comment']", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.'$comment']", lpath_47 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#EnumNum'.examples
@@ -2534,22 +2542,6 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#EnumNum'.examples]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.examples]", lpath_47 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#EnumNum'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.description]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.description]", lpath_47 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#EnumNum'.'$defs'
-            res = _jm_obj_21(pval, lpath_47 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#EnumNum'.'$defs']", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.'$defs']", lpath_47 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#EnumNum'.definitions
@@ -2557,6 +2549,14 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#EnumNum'.definitions]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.definitions]", lpath_47 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#EnumNum'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumNum'.description]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumNum'.description]", lpath_47 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#EnumNum']", lpath_47 if path is not None else None))
@@ -2638,13 +2638,13 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected integer [.'$tight#EnumInt'.type]", lpath_50 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#EnumInt'.type]", lpath_50 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#EnumInt'.'$schema'
+        elif prop == "id":
+            # handle may id property
+            # .'$tight#EnumInt'.id
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.'$schema']", lpath_50 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.'$schema']", lpath_50 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.id]", lpath_50 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.id]", lpath_50 if path is not None else None))
                 return False
         elif prop == "$id":
             # handle may $id property
@@ -2654,21 +2654,13 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.'$id']", lpath_50 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.'$id']", lpath_50 if path is not None else None))
                 return False
-        elif prop == "id":
-            # handle may id property
-            # .'$tight#EnumInt'.id
-            res = isinstance(pval, str)
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$tight#EnumInt'.'$defs'
+            res = _jm_obj_23(pval, lpath_50 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.id]", lpath_50 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.id]", lpath_50 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#EnumInt'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.'$comment']", lpath_50 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.'$comment']", lpath_50 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$tight#EnumInt'.'$defs']", lpath_50 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.'$defs']", lpath_50 if path is not None else None))
                 return False
         elif prop == "title":
             # handle may title property
@@ -2678,10 +2670,26 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.title]", lpath_50 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.title]", lpath_50 if path is not None else None))
                 return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#EnumInt'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.'$schema']", lpath_50 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.'$schema']", lpath_50 if path is not None else None))
+                return False
         elif prop == "default":
             # handle may default property
             # .'$tight#EnumInt'.default
             res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#EnumInt'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.'$comment']", lpath_50 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.'$comment']", lpath_50 if path is not None else None))
+                return False
         elif prop == "examples":
             # handle may examples property
             # .'$tight#EnumInt'.examples
@@ -2690,22 +2698,6 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#EnumInt'.examples]", lpath_50 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.examples]", lpath_50 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#EnumInt'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.description]", lpath_50 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.description]", lpath_50 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$tight#EnumInt'.'$defs'
-            res = _jm_obj_23(pval, lpath_50 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$tight#EnumInt'.'$defs']", lpath_50 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.'$defs']", lpath_50 if path is not None else None))
-                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#EnumInt'.definitions
@@ -2713,6 +2705,14 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#EnumInt'.definitions]", lpath_50 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.definitions]", lpath_50 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#EnumInt'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#EnumInt'.description]", lpath_50 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#EnumInt'.description]", lpath_50 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#EnumInt']", lpath_50 if path is not None else None))
@@ -2768,16 +2768,7 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_53: Path = (path + [ prop ]) if path is not None else None
-        if prop == "const":
-            # handle must const property
-            must_count += 1
-            # .'$tight#ConstString'.const
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.const]", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstString'.const]", lpath_53 if path is not None else None))
-                return False
-        elif prop == "type":
+        if prop == "type":
             # handle must type property
             must_count += 1
             # .'$tight#ConstString'.type
@@ -2786,21 +2777,14 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#ConstString'.type]", lpath_53 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstString'.type]", lpath_53 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#ConstString'.'$schema'
+        elif prop == "const":
+            # handle must const property
+            must_count += 1
+            # .'$tight#ConstString'.const
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.'$schema']", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.'$schema']", lpath_53 if path is not None else None))
-                return False
-        elif prop == "$id":
-            # handle may $id property
-            # .'$tight#ConstString'.'$id'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.'$id']", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.'$id']", lpath_53 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.const]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstString'.const]", lpath_53 if path is not None else None))
                 return False
         elif prop == "id":
             # handle may id property
@@ -2810,41 +2794,13 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#ConstString'.id]", lpath_53 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.id]", lpath_53 if path is not None else None))
                 return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#ConstString'.'$comment'
+        elif prop == "$id":
+            # handle may $id property
+            # .'$tight#ConstString'.'$id'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.'$comment']", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.'$comment']", lpath_53 if path is not None else None))
-                return False
-        elif prop == "title":
-            # handle may title property
-            # .'$tight#ConstString'.title
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.title]", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.title]", lpath_53 if path is not None else None))
-                return False
-        elif prop == "default":
-            # handle may default property
-            # .'$tight#ConstString'.default
-            res = True
-        elif prop == "examples":
-            # handle may examples property
-            # .'$tight#ConstString'.examples
-            res = isinstance(pval, list)
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$tight#ConstString'.examples]", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.examples]", lpath_53 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#ConstString'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.description]", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.description]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.'$id']", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.'$id']", lpath_53 if path is not None else None))
                 return False
         elif prop == "$defs":
             # handle may $defs property
@@ -2854,6 +2810,42 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$tight#ConstString'.'$defs']", lpath_53 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.'$defs']", lpath_53 if path is not None else None))
                 return False
+        elif prop == "title":
+            # handle may title property
+            # .'$tight#ConstString'.title
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.title]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.title]", lpath_53 if path is not None else None))
+                return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#ConstString'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.'$schema']", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.'$schema']", lpath_53 if path is not None else None))
+                return False
+        elif prop == "default":
+            # handle may default property
+            # .'$tight#ConstString'.default
+            res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#ConstString'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.'$comment']", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.'$comment']", lpath_53 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$tight#ConstString'.examples
+            res = isinstance(pval, list)
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$tight#ConstString'.examples]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.examples]", lpath_53 if path is not None else None))
+                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#ConstString'.definitions
@@ -2861,6 +2853,14 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#ConstString'.definitions]", lpath_53 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.definitions]", lpath_53 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#ConstString'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstString'.description]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstString'.description]", lpath_53 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#ConstString']", lpath_53 if path is not None else None))
@@ -2916,16 +2916,7 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_56: Path = (path + [ prop ]) if path is not None else None
-        if prop == "const":
-            # handle must const property
-            must_count += 1
-            # .'$tight#ConstNum'.const
-            res = isinstance(pval, float)
-            if not res:
-                rep is None or rep.append(("not a -1.0 strict float [.'$tight#ConstNum'.const]", lpath_56 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstNum'.const]", lpath_56 if path is not None else None))
-                return False
-        elif prop == "type":
+        if prop == "type":
             # handle must type property
             must_count += 1
             # .'$tight#ConstNum'.type
@@ -2934,21 +2925,14 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected number [.'$tight#ConstNum'.type]", lpath_56 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstNum'.type]", lpath_56 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#ConstNum'.'$schema'
-            res = isinstance(pval, str)
+        elif prop == "const":
+            # handle must const property
+            must_count += 1
+            # .'$tight#ConstNum'.const
+            res = isinstance(pval, float)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.'$schema']", lpath_56 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.'$schema']", lpath_56 if path is not None else None))
-                return False
-        elif prop == "$id":
-            # handle may $id property
-            # .'$tight#ConstNum'.'$id'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.'$id']", lpath_56 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.'$id']", lpath_56 if path is not None else None))
+                rep is None or rep.append(("not a -1.0 strict float [.'$tight#ConstNum'.const]", lpath_56 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstNum'.const]", lpath_56 if path is not None else None))
                 return False
         elif prop == "id":
             # handle may id property
@@ -2958,41 +2942,13 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.id]", lpath_56 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.id]", lpath_56 if path is not None else None))
                 return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#ConstNum'.'$comment'
+        elif prop == "$id":
+            # handle may $id property
+            # .'$tight#ConstNum'.'$id'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.'$comment']", lpath_56 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.'$comment']", lpath_56 if path is not None else None))
-                return False
-        elif prop == "title":
-            # handle may title property
-            # .'$tight#ConstNum'.title
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.title]", lpath_56 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.title]", lpath_56 if path is not None else None))
-                return False
-        elif prop == "default":
-            # handle may default property
-            # .'$tight#ConstNum'.default
-            res = True
-        elif prop == "examples":
-            # handle may examples property
-            # .'$tight#ConstNum'.examples
-            res = isinstance(pval, list)
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$tight#ConstNum'.examples]", lpath_56 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.examples]", lpath_56 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#ConstNum'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.description]", lpath_56 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.description]", lpath_56 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.'$id']", lpath_56 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.'$id']", lpath_56 if path is not None else None))
                 return False
         elif prop == "$defs":
             # handle may $defs property
@@ -3002,6 +2958,42 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$tight#ConstNum'.'$defs']", lpath_56 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.'$defs']", lpath_56 if path is not None else None))
                 return False
+        elif prop == "title":
+            # handle may title property
+            # .'$tight#ConstNum'.title
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.title]", lpath_56 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.title]", lpath_56 if path is not None else None))
+                return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#ConstNum'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.'$schema']", lpath_56 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.'$schema']", lpath_56 if path is not None else None))
+                return False
+        elif prop == "default":
+            # handle may default property
+            # .'$tight#ConstNum'.default
+            res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#ConstNum'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.'$comment']", lpath_56 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.'$comment']", lpath_56 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$tight#ConstNum'.examples
+            res = isinstance(pval, list)
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$tight#ConstNum'.examples]", lpath_56 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.examples]", lpath_56 if path is not None else None))
+                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#ConstNum'.definitions
@@ -3009,6 +3001,14 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#ConstNum'.definitions]", lpath_56 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.definitions]", lpath_56 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#ConstNum'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstNum'.description]", lpath_56 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstNum'.description]", lpath_56 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#ConstNum']", lpath_56 if path is not None else None))
@@ -3064,16 +3064,7 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_59: Path = (path + [ prop ]) if path is not None else None
-        if prop == "const":
-            # handle must const property
-            must_count += 1
-            # .'$tight#ConstInt'.const
-            res = isinstance(pval, int) and not isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("not a -1 strict int [.'$tight#ConstInt'.const]", lpath_59 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstInt'.const]", lpath_59 if path is not None else None))
-                return False
-        elif prop == "type":
+        if prop == "type":
             # handle must type property
             must_count += 1
             # .'$tight#ConstInt'.type
@@ -3082,21 +3073,14 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected integer [.'$tight#ConstInt'.type]", lpath_59 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstInt'.type]", lpath_59 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#ConstInt'.'$schema'
-            res = isinstance(pval, str)
+        elif prop == "const":
+            # handle must const property
+            must_count += 1
+            # .'$tight#ConstInt'.const
+            res = isinstance(pval, int) and not isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.'$schema']", lpath_59 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.'$schema']", lpath_59 if path is not None else None))
-                return False
-        elif prop == "$id":
-            # handle may $id property
-            # .'$tight#ConstInt'.'$id'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.'$id']", lpath_59 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.'$id']", lpath_59 if path is not None else None))
+                rep is None or rep.append(("not a -1 strict int [.'$tight#ConstInt'.const]", lpath_59 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstInt'.const]", lpath_59 if path is not None else None))
                 return False
         elif prop == "id":
             # handle may id property
@@ -3106,41 +3090,13 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.id]", lpath_59 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.id]", lpath_59 if path is not None else None))
                 return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#ConstInt'.'$comment'
+        elif prop == "$id":
+            # handle may $id property
+            # .'$tight#ConstInt'.'$id'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.'$comment']", lpath_59 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.'$comment']", lpath_59 if path is not None else None))
-                return False
-        elif prop == "title":
-            # handle may title property
-            # .'$tight#ConstInt'.title
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.title]", lpath_59 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.title]", lpath_59 if path is not None else None))
-                return False
-        elif prop == "default":
-            # handle may default property
-            # .'$tight#ConstInt'.default
-            res = True
-        elif prop == "examples":
-            # handle may examples property
-            # .'$tight#ConstInt'.examples
-            res = isinstance(pval, list)
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$tight#ConstInt'.examples]", lpath_59 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.examples]", lpath_59 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#ConstInt'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.description]", lpath_59 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.description]", lpath_59 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.'$id']", lpath_59 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.'$id']", lpath_59 if path is not None else None))
                 return False
         elif prop == "$defs":
             # handle may $defs property
@@ -3150,6 +3106,42 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$tight#ConstInt'.'$defs']", lpath_59 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.'$defs']", lpath_59 if path is not None else None))
                 return False
+        elif prop == "title":
+            # handle may title property
+            # .'$tight#ConstInt'.title
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.title]", lpath_59 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.title]", lpath_59 if path is not None else None))
+                return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#ConstInt'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.'$schema']", lpath_59 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.'$schema']", lpath_59 if path is not None else None))
+                return False
+        elif prop == "default":
+            # handle may default property
+            # .'$tight#ConstInt'.default
+            res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#ConstInt'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.'$comment']", lpath_59 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.'$comment']", lpath_59 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$tight#ConstInt'.examples
+            res = isinstance(pval, list)
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$tight#ConstInt'.examples]", lpath_59 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.examples]", lpath_59 if path is not None else None))
+                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#ConstInt'.definitions
@@ -3157,6 +3149,14 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#ConstInt'.definitions]", lpath_59 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.definitions]", lpath_59 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#ConstInt'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstInt'.description]", lpath_59 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstInt'.description]", lpath_59 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#ConstInt']", lpath_59 if path is not None else None))
@@ -3212,16 +3212,7 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_62: Path = (path + [ prop ]) if path is not None else None
-        if prop == "const":
-            # handle must const property
-            must_count += 1
-            # .'$tight#ConstBool'.const
-            res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("not a bool [.'$tight#ConstBool'.const]", lpath_62 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstBool'.const]", lpath_62 if path is not None else None))
-                return False
-        elif prop == "type":
+        if prop == "type":
             # handle must type property
             must_count += 1
             # .'$tight#ConstBool'.type
@@ -3230,21 +3221,14 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected boolean [.'$tight#ConstBool'.type]", lpath_62 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstBool'.type]", lpath_62 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$tight#ConstBool'.'$schema'
-            res = isinstance(pval, str)
+        elif prop == "const":
+            # handle must const property
+            must_count += 1
+            # .'$tight#ConstBool'.const
+            res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.'$schema']", lpath_62 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.'$schema']", lpath_62 if path is not None else None))
-                return False
-        elif prop == "$id":
-            # handle may $id property
-            # .'$tight#ConstBool'.'$id'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.'$id']", lpath_62 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.'$id']", lpath_62 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$tight#ConstBool'.const]", lpath_62 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$tight#ConstBool'.const]", lpath_62 if path is not None else None))
                 return False
         elif prop == "id":
             # handle may id property
@@ -3254,41 +3238,13 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.id]", lpath_62 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.id]", lpath_62 if path is not None else None))
                 return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$tight#ConstBool'.'$comment'
+        elif prop == "$id":
+            # handle may $id property
+            # .'$tight#ConstBool'.'$id'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.'$comment']", lpath_62 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.'$comment']", lpath_62 if path is not None else None))
-                return False
-        elif prop == "title":
-            # handle may title property
-            # .'$tight#ConstBool'.title
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.title]", lpath_62 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.title]", lpath_62 if path is not None else None))
-                return False
-        elif prop == "default":
-            # handle may default property
-            # .'$tight#ConstBool'.default
-            res = True
-        elif prop == "examples":
-            # handle may examples property
-            # .'$tight#ConstBool'.examples
-            res = isinstance(pval, list)
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$tight#ConstBool'.examples]", lpath_62 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.examples]", lpath_62 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle may description property
-            # .'$tight#ConstBool'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.description]", lpath_62 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.description]", lpath_62 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.'$id']", lpath_62 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.'$id']", lpath_62 if path is not None else None))
                 return False
         elif prop == "$defs":
             # handle may $defs property
@@ -3298,6 +3254,42 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$tight#ConstBool'.'$defs']", lpath_62 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.'$defs']", lpath_62 if path is not None else None))
                 return False
+        elif prop == "title":
+            # handle may title property
+            # .'$tight#ConstBool'.title
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.title]", lpath_62 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.title]", lpath_62 if path is not None else None))
+                return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$tight#ConstBool'.'$schema'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.'$schema']", lpath_62 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.'$schema']", lpath_62 if path is not None else None))
+                return False
+        elif prop == "default":
+            # handle may default property
+            # .'$tight#ConstBool'.default
+            res = True
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$tight#ConstBool'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.'$comment']", lpath_62 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.'$comment']", lpath_62 if path is not None else None))
+                return False
+        elif prop == "examples":
+            # handle may examples property
+            # .'$tight#ConstBool'.examples
+            res = isinstance(pval, list)
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$tight#ConstBool'.examples]", lpath_62 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.examples]", lpath_62 if path is not None else None))
+                return False
         elif prop == "definitions":
             # handle may definitions property
             # .'$tight#ConstBool'.definitions
@@ -3305,6 +3297,14 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$tight#ConstBool'.definitions]", lpath_62 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.definitions]", lpath_62 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$tight#ConstBool'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$tight#ConstBool'.description]", lpath_62 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$tight#ConstBool'.description]", lpath_62 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$tight#ConstBool']", lpath_62 if path is not None else None))

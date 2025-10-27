@@ -19,19 +19,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 't' THEN
-      -- handle must t property
-      must_count := must_count + 1;
-      -- .'$alternative'.'|'.0.t
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'a' THEN
+    IF prop = 'a' THEN
       -- handle must a property
       must_count := must_count + 1;
       -- .'$alternative'.'|'.0.a
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 't' THEN
+      -- handle must t property
+      must_count := must_count + 1;
+      -- .'$alternative'.'|'.0.t
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'a';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

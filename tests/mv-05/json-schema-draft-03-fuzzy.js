@@ -36,32 +36,8 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// object .'$schema'.patternProperties
-function _jm_obj_1(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema'.patternProperties]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_2 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$schema'.patternProperties.''
-        res = json_model_3(pval, (path ? lpath_2 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema'.patternProperties.'']", (path ? lpath_2 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$schema'.dependencies
-function _jm_obj_2(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -71,14 +47,14 @@ function _jm_obj_2(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_3 = path ? path.concat([prop]) : null;
+        let lpath_2 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema'.dependencies.''
         // .'$schema'.dependencies.''.'|'.0
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$schema'.dependencies.''.'|'.0]", (path ? lpath_3 : null)])
+            rep !== null && rep.push(["unexpected string [.'$schema'.dependencies.''.'|'.0]", (path ? lpath_2 : null)])
         }
         if (! res)
         {
@@ -86,30 +62,30 @@ function _jm_obj_2(val, path, rep)
             res = Array.isArray(pval);
             if (res)
             {
-                for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
+                for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
                 {
-                    let arr_2_item = pval[arr_2_idx]
-                    let arr_2_lpath = (path ? lpath_3 : null) ? (path ? lpath_3 : null).concat([arr_2_idx]) : null;
+                    let arr_3_item = pval[arr_3_idx]
+                    let arr_3_lpath = (path ? lpath_2 : null) ? (path ? lpath_2 : null).concat([arr_3_idx]) : null;
                     // .'$schema'.dependencies.''.'|'.1.0
-                    res = (typeof arr_2_item === 'string' || arr_2_item instanceof String);
+                    res = (typeof arr_3_item === 'string' || arr_3_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$schema'.dependencies.''.'|'.1.0]", ((path ? lpath_3 : null) ? arr_2_lpath : null)])
+                        rep !== null && rep.push(["unexpected string [.'$schema'.dependencies.''.'|'.1.0]", ((path ? lpath_2 : null) ? arr_3_lpath : null)])
                         break;
                     }
                 }
             }
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'$schema'.dependencies.''.'|'.1]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["not array or unexpected array [.'$schema'.dependencies.''.'|'.1]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
                 // .'$schema'.dependencies.''.'|'.2
-                res = json_model_3(pval, (path ? lpath_3 : null), rep);
+                res = json_model_3(pval, (path ? lpath_2 : null), rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected $Schema [.'$schema'.dependencies.''.'|'.2]", (path ? lpath_3 : null)])
+                    rep !== null && rep.push(["unexpected $Schema [.'$schema'.dependencies.''.'|'.2]", (path ? lpath_2 : null)])
                 }
             }
         }
@@ -119,7 +95,31 @@ function _jm_obj_2(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["no model matched [.'$schema'.dependencies.''.'|']", (path ? lpath_3 : null)])
+            rep !== null && rep.push(["no model matched [.'$schema'.dependencies.''.'|']", (path ? lpath_2 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$schema'.patternProperties
+function _jm_obj_2(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$schema'.patternProperties]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_3 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$schema'.patternProperties.''
+        res = json_model_3(pval, (path ? lpath_3 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$schema'.patternProperties.'']", (path ? lpath_3 : null)])
             return false;
         }
     }
@@ -140,7 +140,56 @@ function json_model_3(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "type")
+        if (prop == "id")
+        {
+            // handle may id property
+            // .'$schema'.id
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$schema'.id]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.id]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$ref")
+        {
+            // handle may $ref property
+            // .'$schema'.'$ref'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$schema'.'$ref']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.'$ref']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "enum")
+        {
+            // handle may enum property
+            // .'$schema'.enum
+            // .'$schema'.enum.'@'
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$schema'.enum.'@']", (path ? lpath_0 : null)])
+            }
+            if (res)
+            {
+                let ival_0 = pval.length;
+                res = runtime.jm_array_is_unique(pval, (path ? lpath_0 : null), rep) && ival_0 >= 1;
+                if (! res)
+                {
+                    rep !== null && rep.push(["constraints failed [.'$schema'.enum]", (path ? lpath_0 : null)])
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.enum]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "type")
         {
             // handle may type property
             // .'$schema'.type
@@ -203,60 +252,6 @@ function json_model_3(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "properties")
-        {
-            // handle may properties property
-            // .'$schema'.properties
-            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.'$schema'.properties]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.properties]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "patternProperties")
-        {
-            // handle may patternProperties property
-            // .'$schema'.patternProperties
-            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.'$schema'.patternProperties]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.patternProperties]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "additionalProperties")
-        {
-            // handle may additionalProperties property
-            // .'$schema'.additionalProperties
-            // .'$schema'.additionalProperties.'|'.0
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$schema'.additionalProperties.'|'.0]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
-                // .'$schema'.additionalProperties.'|'.1
-                res = json_model_3(pval, (path ? lpath_0 : null), rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", (path ? lpath_0 : null)])
-                }
-            }
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["no model matched [.'$schema'.additionalProperties.'|']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.additionalProperties]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
         else if (prop == "items")
         {
             // handle may items property
@@ -302,23 +297,80 @@ function json_model_3(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "additionalItems")
+        else if (prop == "title")
         {
-            // handle may additionalItems property
-            // .'$schema'.additionalItems
-            // .'$schema'.additionalItems.'|'.0
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            // handle may title property
+            // .'$schema'.title
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$schema'.additionalItems.'|'.0]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected string [.'$schema'.title]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.title]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "format")
+        {
+            // handle may format property
+            // .'$schema'.format
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$schema'.format]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.format]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$schema")
+        {
+            // handle may $schema property
+            // .'$schema'.'$schema'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$schema'.'$schema']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.'$schema']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "default")
+        {
+            // handle may default property
+            // .'$schema'.default
+            res = true;
+        }
+        else if (prop == "extends")
+        {
+            // handle may extends property
+            // .'$schema'.extends
+            // .'$schema'.extends.'|'.0
+            res = json_model_3(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.0]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                // .'$schema'.additionalItems.'|'.1
-                res = json_model_3(pval, (path ? lpath_0 : null), rep);
+                // .'$schema'.extends.'|'.1
+                res = Array.isArray(pval);
+                if (res)
+                {
+                    for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
+                    {
+                        let arr_2_item = pval[arr_2_idx]
+                        let arr_2_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_2_idx]) : null;
+                        // .'$schema'.extends.'|'.1.0
+                        res = json_model_3(arr_2_item, ((path ? lpath_0 : null) ? arr_2_lpath : null), rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.1.0]", ((path ? lpath_0 : null) ? arr_2_lpath : null)])
+                            break;
+                        }
+                    }
+                }
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalItems.'|'.1]", (path ? lpath_0 : null)])
+                    rep !== null && rep.push(["not array or unexpected array [.'$schema'.extends.'|'.1]", (path ? lpath_0 : null)])
                 }
             }
             if (res)
@@ -327,44 +379,8 @@ function json_model_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["no model matched [.'$schema'.additionalItems.'|']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.additionalItems]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "dependencies")
-        {
-            // handle may dependencies property
-            // .'$schema'.dependencies
-            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.'$schema'.dependencies]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.dependencies]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "required")
-        {
-            // handle may required property
-            // .'$schema'.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$schema'.required]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.required]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "minimum")
-        {
-            // handle may minimum property
-            // .'$schema'.minimum
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a -1.0 loose float [.'$schema'.minimum]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.minimum]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["no model matched [.'$schema'.extends.'|']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.extends]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -380,154 +396,27 @@ function json_model_3(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "exclusiveMaximum")
+        else if (prop == "minimum")
         {
-            // handle may exclusiveMaximum property
-            // .'$schema'.exclusiveMaximum
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            // handle may minimum property
+            // .'$schema'.minimum
+            res = (typeof pval === 'number' || pval instanceof Number);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$schema'.exclusiveMaximum]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.exclusiveMaximum]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a -1.0 loose float [.'$schema'.minimum]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.minimum]", (path ? lpath_0 : null)])
                 return false;
             }
         }
-        else if (prop == "exclusiveMinimum")
+        else if (prop == "pattern")
         {
-            // handle may exclusiveMinimum property
-            // .'$schema'.exclusiveMinimum
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$schema'.exclusiveMinimum]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.exclusiveMinimum]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "minItems")
-        {
-            // handle may minItems property
-            // .'$schema'.minItems
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$schema'.minItems]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.minItems]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "maxItems")
-        {
-            // handle may maxItems property
-            // .'$schema'.maxItems
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxItems]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.maxItems]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "minLength")
-        {
-            // handle may minLength property
-            // .'$schema'.minLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$schema'.minLength]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.minLength]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "maxLength")
-        {
-            // handle may maxLength property
-            // .'$schema'.maxLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxLength]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.maxLength]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "enum")
-        {
-            // handle may enum property
-            // .'$schema'.enum
-            // .'$schema'.enum.'@'
-            res = Array.isArray(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.'$schema'.enum.'@']", (path ? lpath_0 : null)])
-            }
-            if (res)
-            {
-                let ival_0 = pval.length;
-                res = runtime.jm_array_is_unique(pval, (path ? lpath_0 : null), rep) && ival_0 >= 1;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.'$schema'.enum]", (path ? lpath_0 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.enum]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "uniqueItems")
-        {
-            // handle may uniqueItems property
-            // .'$schema'.uniqueItems
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$schema'.uniqueItems]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.uniqueItems]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "title")
-        {
-            // handle may title property
-            // .'$schema'.title
+            // handle may pattern property
+            // .'$schema'.pattern
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$schema'.title]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.title]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "description")
-        {
-            // handle may description property
-            // .'$schema'.description
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$schema'.description]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.description]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "default")
-        {
-            // handle may default property
-            // .'$schema'.default
-            res = true;
-        }
-        else if (prop == "divisibleBy")
-        {
-            // handle may divisibleBy property
-            // .'$schema'.divisibleBy
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1.0 loose float [.'$schema'.divisibleBy]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.divisibleBy]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected string [.'$schema'.pattern]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.pattern]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -561,38 +450,143 @@ function json_model_3(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "extends")
+        else if (prop == "maxItems")
         {
-            // handle may extends property
-            // .'$schema'.extends
-            // .'$schema'.extends.'|'.0
-            res = json_model_3(pval, (path ? lpath_0 : null), rep);
+            // handle may maxItems property
+            // .'$schema'.maxItems
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.0]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxItems]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.maxItems]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minItems")
+        {
+            // handle may minItems property
+            // .'$schema'.minItems
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$schema'.minItems]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.minItems]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "required")
+        {
+            // handle may required property
+            // .'$schema'.required
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$schema'.required]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.required]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxLength")
+        {
+            // handle may maxLength property
+            // .'$schema'.maxLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxLength]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.maxLength]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minLength")
+        {
+            // handle may minLength property
+            // .'$schema'.minLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$schema'.minLength]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.minLength]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "properties")
+        {
+            // handle may properties property
+            // .'$schema'.properties
+            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$schema'.properties]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.properties]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle may description property
+            // .'$schema'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$schema'.description]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.description]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "divisibleBy")
+        {
+            // handle may divisibleBy property
+            // .'$schema'.divisibleBy
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1.0 loose float [.'$schema'.divisibleBy]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.divisibleBy]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "uniqueItems")
+        {
+            // handle may uniqueItems property
+            // .'$schema'.uniqueItems
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$schema'.uniqueItems]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.uniqueItems]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "dependencies")
+        {
+            // handle may dependencies property
+            // .'$schema'.dependencies
+            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$schema'.dependencies]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.dependencies]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "additionalItems")
+        {
+            // handle may additionalItems property
+            // .'$schema'.additionalItems
+            // .'$schema'.additionalItems.'|'.0
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$schema'.additionalItems.'|'.0]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                // .'$schema'.extends.'|'.1
-                res = Array.isArray(pval);
-                if (res)
-                {
-                    for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
-                    {
-                        let arr_3_item = pval[arr_3_idx]
-                        let arr_3_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_3_idx]) : null;
-                        // .'$schema'.extends.'|'.1.0
-                        res = json_model_3(arr_3_item, ((path ? lpath_0 : null) ? arr_3_lpath : null), rep);
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.1.0]", ((path ? lpath_0 : null) ? arr_3_lpath : null)])
-                            break;
-                        }
-                    }
-                }
+                // .'$schema'.additionalItems.'|'.1
+                res = json_model_3(pval, (path ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not array or unexpected array [.'$schema'.extends.'|'.1]", (path ? lpath_0 : null)])
+                    rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalItems.'|'.1]", (path ? lpath_0 : null)])
                 }
             }
             if (res)
@@ -601,68 +595,74 @@ function json_model_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["no model matched [.'$schema'.extends.'|']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.extends]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["no model matched [.'$schema'.additionalItems.'|']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.additionalItems]", (path ? lpath_0 : null)])
                 return false;
             }
         }
-        else if (prop == "id")
+        else if (prop == "exclusiveMaximum")
         {
-            // handle may id property
-            // .'$schema'.id
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may exclusiveMaximum property
+            // .'$schema'.exclusiveMaximum
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$schema'.id]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.id]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a bool [.'$schema'.exclusiveMaximum]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.exclusiveMaximum]", (path ? lpath_0 : null)])
                 return false;
             }
         }
-        else if (prop == "$schema")
+        else if (prop == "exclusiveMinimum")
         {
-            // handle may $schema property
-            // .'$schema'.'$schema'
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may exclusiveMinimum property
+            // .'$schema'.exclusiveMinimum
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$schema'.'$schema']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.'$schema']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a bool [.'$schema'.exclusiveMinimum]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.exclusiveMinimum]", (path ? lpath_0 : null)])
                 return false;
             }
         }
-        else if (prop == "$ref")
+        else if (prop == "patternProperties")
         {
-            // handle may $ref property
-            // .'$schema'.'$ref'
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may patternProperties property
+            // .'$schema'.patternProperties
+            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$schema'.'$ref']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.'$ref']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected element [.'$schema'.patternProperties]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.patternProperties]", (path ? lpath_0 : null)])
                 return false;
             }
         }
-        else if (prop == "pattern")
+        else if (prop == "additionalProperties")
         {
-            // handle may pattern property
-            // .'$schema'.pattern
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may additionalProperties property
+            // .'$schema'.additionalProperties
+            // .'$schema'.additionalProperties.'|'.0
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$schema'.pattern]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.pattern]", (path ? lpath_0 : null)])
-                return false;
+                rep !== null && rep.push(["not a bool [.'$schema'.additionalProperties.'|'.0]", (path ? lpath_0 : null)])
             }
-        }
-        else if (prop == "format")
-        {
-            // handle may format property
-            // .'$schema'.format
-            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$schema'.format]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$schema'.format]", (path ? lpath_0 : null)])
+                // .'$schema'.additionalProperties.'|'.1
+                res = json_model_3(pval, (path ? lpath_0 : null), rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", (path ? lpath_0 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$schema'.additionalProperties.'|']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema'.additionalProperties]", (path ? lpath_0 : null)])
                 return false;
             }
         }

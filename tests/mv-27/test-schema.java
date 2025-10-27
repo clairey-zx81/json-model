@@ -51,18 +51,7 @@ public class test_schema extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("description") == 0)
-            {
-                // handle must description property
-                must_count += 1;
-                // .'$Test'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("data") == 0)
+            if (prop.compareTo("data") == 0)
             {
                 // handle must data property
                 must_count += 1;
@@ -75,6 +64,17 @@ public class test_schema extends ModelChecker
                 must_count += 1;
                 // .'$Test'.valid
                 res = json.isBoolean(pval);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle must description property
+                must_count += 1;
+                // .'$Test'.description
+                res = json.isString(pval);
                 if (! res)
                 {
                     return false;
@@ -131,26 +131,6 @@ public class test_schema extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("validation") == 0)
-            {
-                // handle may validation property
-                // .'$Specification'.'@'.validation
-                res = json_model_2(pval, null, null);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("ecma262") == 0)
-            {
-                // handle may ecma262 property
-                // .'$Specification'.'@'.ecma262
-                res = json_model_2(pval, null, null);
-                if (! res)
-                {
-                    return false;
-                }
-            }
             else if (prop.compareTo("perl5") == 0)
             {
                 // handle may perl5 property
@@ -166,6 +146,26 @@ public class test_schema extends ModelChecker
                 // handle may quote property
                 // .'$Specification'.'@'.quote
                 res = json.isString(pval);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("ecma262") == 0)
+            {
+                // handle may ecma262 property
+                // .'$Specification'.'@'.ecma262
+                res = json_model_2(pval, null, null);
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("validation") == 0)
+            {
+                // handle may validation property
+                // .'$Specification'.'@'.validation
+                res = json_model_2(pval, null, null);
                 if (! res)
                 {
                     return false;
@@ -228,25 +228,7 @@ public class test_schema extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("description") == 0)
-            {
-                // handle must description property
-                must_count += 1;
-                // .'$TestCase'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("schema") == 0)
-            {
-                // handle must schema property
-                must_count += 1;
-                // .'$TestCase'.schema
-                res = true;
-            }
-            else if (prop.compareTo("tests") == 0)
+            if (prop.compareTo("tests") == 0)
             {
                 // handle must tests property
                 must_count += 1;
@@ -274,6 +256,24 @@ public class test_schema extends ModelChecker
                     long ival_1 = json.arrayLength(pval);
                     res = ival_1 >= 1;
                 }
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else if (prop.compareTo("schema") == 0)
+            {
+                // handle must schema property
+                must_count += 1;
+                // .'$TestCase'.schema
+                res = true;
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle must description property
+                must_count += 1;
+                // .'$TestCase'.description
+                res = json.isString(pval);
                 if (! res)
                 {
                     return false;

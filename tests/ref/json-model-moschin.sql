@@ -650,6 +650,13 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+    ELSEIF prop = '!' THEN
+      -- handle may ! property
+      -- .'$Model#Element'.'|'.0.'!'
+      res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Model#Element'.'|'.0.'#'
@@ -657,17 +664,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Element'.'|'.0.'.schema'
-      res := _jm_obj_11(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '!' THEN
-      -- handle may ! property
-      -- .'$Model#Element'.'|'.0.'!'
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    ELSEIF prop = '.in' THEN
+      -- handle may .in property
+      -- .'$Model#Element'.'|'.0.'.in'
+      res := json_model_35(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -678,10 +678,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.in' THEN
-      -- handle may .in property
-      -- .'$Model#Element'.'|'.0.'.in'
-      res := json_model_35(pval, NULL, NULL);
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Element'.'|'.0.'.schema'
+      res := _jm_obj_11(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -813,7 +813,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '#' THEN
+    IF prop = '' THEN
+      -- handle may  property
+      -- .'$Model#Root'.'|'.5.'$'.''
+      res := json_model_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Model#Root'.'|'.5.'$'.'#'
       res := JSONB_TYPEOF(pval) = 'string';
@@ -824,13 +831,6 @@ BEGIN
       -- handle may .schema property
       -- .'$Model#Root'.'|'.5.'$'.'.schema'
       res := _jm_obj_14(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '' THEN
-      -- handle may  property
-      -- .'$Model#Root'.'|'.5.'$'.''
-      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -899,13 +899,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Root'.'|'.5.'%'.'.schema'
-      res := _jm_obj_16(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.5.'%'.'<'
@@ -925,6 +918,13 @@ BEGIN
           END LOOP;
         END IF;
       END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Root'.'|'.5.'%'.'.schema'
+      res := _jm_obj_16(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -976,10 +976,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Model#Root'.'|'.5.'~'
-      res := json_model_4(pval, NULL, NULL);
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Model#Root'.'|'.5.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -997,10 +997,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Model#Root'.'|'.5.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Model#Root'.'|'.5.'~'
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1051,7 +1051,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '#' THEN
+    IF prop = '' THEN
+      -- handle may  property
+      -- .'$Model#Root'.'|'.4.'$'.''
+      res := json_model_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Model#Root'.'|'.4.'$'.'#'
       res := JSONB_TYPEOF(pval) = 'string';
@@ -1062,13 +1069,6 @@ BEGIN
       -- handle may .schema property
       -- .'$Model#Root'.'|'.4.'$'.'.schema'
       res := _jm_obj_20(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '' THEN
-      -- handle may  property
-      -- .'$Model#Root'.'|'.4.'$'.''
-      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1121,13 +1121,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Root'.'|'.4.'%'.'.schema'
-      res := _jm_obj_22(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.4.'%'.'<'
@@ -1147,6 +1140,13 @@ BEGIN
           END LOOP;
         END IF;
       END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Root'.'|'.4.'%'.'.schema'
+      res := _jm_obj_22(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1220,10 +1220,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Model#Root'.'|'.4.'~'
-      res := json_model_4(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Model#Root'.'|'.4.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1241,10 +1241,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Model#Root'.'|'.4.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Model#Root'.'|'.4.'~'
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1288,7 +1288,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '#' THEN
+    IF prop = '' THEN
+      -- handle may  property
+      -- .'$Model#Root'.'|'.3.'$'.''
+      res := json_model_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Model#Root'.'|'.3.'$'.'#'
       res := JSONB_TYPEOF(pval) = 'string';
@@ -1299,13 +1306,6 @@ BEGIN
       -- handle may .schema property
       -- .'$Model#Root'.'|'.3.'$'.'.schema'
       res := _jm_obj_26(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '' THEN
-      -- handle may  property
-      -- .'$Model#Root'.'|'.3.'$'.''
-      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1358,13 +1358,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Root'.'|'.3.'%'.'.schema'
-      res := _jm_obj_28(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.3.'%'.'<'
@@ -1384,6 +1377,13 @@ BEGIN
           END LOOP;
         END IF;
       END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Root'.'|'.3.'%'.'.schema'
+      res := _jm_obj_28(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1457,10 +1457,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Model#Root'.'|'.3.'~'
-      res := json_model_4(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Model#Root'.'|'.3.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1478,10 +1478,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Model#Root'.'|'.3.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Model#Root'.'|'.3.'~'
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1525,7 +1525,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '#' THEN
+    IF prop = '' THEN
+      -- handle may  property
+      -- .'$Model#Root'.'|'.2.'$'.''
+      res := json_model_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Model#Root'.'|'.2.'$'.'#'
       res := JSONB_TYPEOF(pval) = 'string';
@@ -1536,13 +1543,6 @@ BEGIN
       -- handle may .schema property
       -- .'$Model#Root'.'|'.2.'$'.'.schema'
       res := _jm_obj_32(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '' THEN
-      -- handle may  property
-      -- .'$Model#Root'.'|'.2.'$'.''
-      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1595,13 +1595,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Root'.'|'.2.'%'.'.schema'
-      res := _jm_obj_34(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.2.'%'.'<'
@@ -1621,6 +1614,13 @@ BEGIN
           END LOOP;
         END IF;
       END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Root'.'|'.2.'%'.'.schema'
+      res := _jm_obj_34(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1694,10 +1694,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Model#Root'.'|'.2.'~'
-      res := json_model_4(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Model#Root'.'|'.2.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1715,10 +1715,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Model#Root'.'|'.2.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Model#Root'.'|'.2.'~'
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1762,7 +1762,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '#' THEN
+    IF prop = '' THEN
+      -- handle may  property
+      -- .'$Model#Root'.'|'.1.'$'.''
+      res := json_model_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Model#Root'.'|'.1.'$'.'#'
       res := JSONB_TYPEOF(pval) = 'string';
@@ -1773,13 +1780,6 @@ BEGIN
       -- handle may .schema property
       -- .'$Model#Root'.'|'.1.'$'.'.schema'
       res := _jm_obj_38(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '' THEN
-      -- handle may  property
-      -- .'$Model#Root'.'|'.1.'$'.''
-      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1832,13 +1832,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Root'.'|'.1.'%'.'.schema'
-      res := _jm_obj_40(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.1.'%'.'<'
@@ -1858,6 +1851,13 @@ BEGIN
           END LOOP;
         END IF;
       END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Root'.'|'.1.'%'.'.schema'
+      res := _jm_obj_40(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1931,10 +1931,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Model#Root'.'|'.1.'~'
-      res := json_model_4(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Model#Root'.'|'.1.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1952,10 +1952,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Model#Root'.'|'.1.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Model#Root'.'|'.1.'~'
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1999,7 +1999,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '#' THEN
+    IF prop = '' THEN
+      -- handle may  property
+      -- .'$Model#Root'.'|'.0.'$'.''
+      res := json_model_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Model#Root'.'|'.0.'$'.'#'
       res := JSONB_TYPEOF(pval) = 'string';
@@ -2010,13 +2017,6 @@ BEGIN
       -- handle may .schema property
       -- .'$Model#Root'.'|'.0.'$'.'.schema'
       res := _jm_obj_44(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '' THEN
-      -- handle may  property
-      -- .'$Model#Root'.'|'.0.'$'.''
-      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2069,13 +2069,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Root'.'|'.0.'%'.'.schema'
-      res := _jm_obj_46(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.0.'%'.'<'
@@ -2095,6 +2088,13 @@ BEGIN
           END LOOP;
         END IF;
       END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Root'.'|'.0.'%'.'.schema'
+      res := _jm_obj_46(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2156,10 +2156,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Model#Root'.'|'.0.'~'
-      res := json_model_4(pval, NULL, NULL);
+    ELSEIF prop = '!' THEN
+      -- handle may ! property
+      -- .'$Model#Root'.'|'.0.'!'
+      res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Model#Root'.'|'.0.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2177,24 +2184,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Model#Root'.'|'.0.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Model#Root'.'|'.0.'~'
+      res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Root'.'|'.0.'.schema'
-      res := _jm_obj_47(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '!' THEN
-      -- handle may ! property
-      -- .'$Model#Root'.'|'.0.'!'
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    ELSEIF prop = '.in' THEN
+      -- handle may .in property
+      -- .'$Model#Root'.'|'.0.'.in'
+      res := json_model_35(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2205,10 +2205,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.in' THEN
-      -- handle may .in property
-      -- .'$Model#Root'.'|'.0.'.in'
-      res := json_model_35(pval, NULL, NULL);
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Root'.'|'.0.'.schema'
+      res := _jm_obj_47(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2300,17 +2300,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Transformation'.'|'.1.'.schema'
-CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- accept any object
-  RETURN JSONB_TYPEOF(val) = 'object';
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$Model#Transformation'.'|'.1.'~'
-CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2329,6 +2320,15 @@ BEGIN
     END IF;
   END LOOP;
   RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$Model#Transformation'.'|'.1.'.schema'
+CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- accept any object
+  RETURN JSONB_TYPEOF(val) = 'object';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2351,13 +2351,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Transformation'.'|'.1.'.schema'
-      res := _jm_obj_49(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+    ELSEIF prop = '*' THEN
+      -- handle may * property
+      -- .'$Model#Transformation'.'|'.1.'*'
+      res := TRUE;
     ELSEIF prop = '/' THEN
       -- handle may / property
       -- .'$Model#Transformation'.'|'.1.'/'
@@ -2370,14 +2367,17 @@ BEGIN
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Model#Transformation'.'|'.1.'~'
+      res := _jm_obj_49(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = '.schema' THEN
+      -- handle may .schema property
+      -- .'$Model#Transformation'.'|'.1.'.schema'
       res := _jm_obj_50(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '*' THEN
-      -- handle may * property
-      -- .'$Model#Transformation'.'|'.1.'*'
-      res := TRUE;
     ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Model#Transformation'.'|'.1.'/^#/'

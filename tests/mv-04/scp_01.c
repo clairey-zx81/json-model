@@ -107,19 +107,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (jm_str_eq_2(prop, 0x00000062))
-        {
-            // handle may b property
-            // .b
-            res = json_model_3(pval, (path ? &lpath_1 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Bb [.b]", (path ? &lpath_1 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.b]", (path ? &lpath_1 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000061)))
+        else if (jm_str_eq_2(prop, 0x00000061))
         {
             // handle may a property
             // .a
@@ -128,6 +116,18 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Rr#Aa [.a]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.a]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000062)))
+        {
+            // handle may b property
+            // .b
+            res = json_model_3(pval, (path ? &lpath_1 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Bb [.b]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.b]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }

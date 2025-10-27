@@ -42,39 +42,39 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $URI-REFERENCE [.'$id']", path))
     return res
 
-# object .'$core'.'$vocabulary'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$core'.'$vocabulary']", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if is_valid_url(prop, lpath_1 if path is not None else None, rep):
-            # handle 1 key props
-            # .'$core'.'$vocabulary'.'$URI'
-            res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("not a bool [.'$core'.'$vocabulary'.'$URI']", lpath_1 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$core'.'$vocabulary']", lpath_1 if path is not None else None))
-            return False
-    return True
-
 # object .'$core'.'$defs'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$core'.'$defs']", path))
         return False
     res: bool
     for prop, pval in val.items():
-        lpath_2: Path = (path + [ prop ]) if path is not None else None
+        lpath_1: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$core'.'$defs'.''
-        res = json_model_16(pval, lpath_2 if path is not None else None, rep)
+        res = json_model_16(pval, lpath_1 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Schema [.'$core'.'$defs'.'']", lpath_2 if path is not None else None))
+            rep is None or rep.append(("unexpected $Schema [.'$core'.'$defs'.'']", lpath_1 if path is not None else None))
+            return False
+    return True
+
+# object .'$core'.'$vocabulary'
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$core'.'$vocabulary']", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_2: Path = (path + [ prop ]) if path is not None else None
+        if is_valid_url(prop, lpath_2 if path is not None else None, rep):
+            # handle 1 key props
+            # .'$core'.'$vocabulary'.'$URI'
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'$core'.'$vocabulary'.'$URI']", lpath_2 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$core'.'$vocabulary']", lpath_2 if path is not None else None))
             return False
     return True
 
@@ -95,14 +95,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $id [.'$core'.'$id']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$id']", lpath_0 if path is not None else None))
                 return False
-        elif prop == "$schema":
-            # handle may $schema property
-            # .'$core'.'$schema'
-            res = isinstance(pval, str) and (pval == "https://json-schema.org/draft/2019-09/schema")
-            if not res:
-                rep is None or rep.append(("unexpected _https://json-schema.org/draft/2019-09/schema [.'$core'.'$schema']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$core'.'$schema']", lpath_0 if path is not None else None))
-                return False
         elif prop == "$ref":
             # handle may $ref property
             # .'$core'.'$ref'
@@ -111,6 +103,14 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$ref']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$ref']", lpath_0 if path is not None else None))
                 return False
+        elif prop == "$defs":
+            # handle may $defs property
+            # .'$core'.'$defs'
+            res = _jm_obj_0(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$core'.'$defs']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$defs']", lpath_0 if path is not None else None))
+                return False
         elif prop == "$anchor":
             # handle may $anchor property
             # .'$core'.'$anchor'
@@ -118,6 +118,30 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$anchor']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$anchor']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$schema":
+            # handle may $schema property
+            # .'$core'.'$schema'
+            res = isinstance(pval, str) and (pval == "https://json-schema.org/draft/2019-09/schema")
+            if not res:
+                rep is None or rep.append(("unexpected _https://json-schema.org/draft/2019-09/schema [.'$core'.'$schema']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$schema']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$comment":
+            # handle may $comment property
+            # .'$core'.'$comment'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$core'.'$comment']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$comment']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "$vocabulary":
+            # handle may $vocabulary property
+            # .'$core'.'$vocabulary'
+            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$core'.'$vocabulary']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core'.'$vocabulary']", lpath_0 if path is not None else None))
                 return False
         elif prop == "$recursiveRef":
             # handle may $recursiveRef property
@@ -134,30 +158,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$core'.'$recursiveAnchor']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$recursiveAnchor']", lpath_0 if path is not None else None))
-                return False
-        elif prop == "$vocabulary":
-            # handle may $vocabulary property
-            # .'$core'.'$vocabulary'
-            res = _jm_obj_0(pval, lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$core'.'$vocabulary']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$core'.'$vocabulary']", lpath_0 if path is not None else None))
-                return False
-        elif prop == "$comment":
-            # handle may $comment property
-            # .'$core'.'$comment'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$core'.'$comment']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$core'.'$comment']", lpath_0 if path is not None else None))
-                return False
-        elif prop == "$defs":
-            # handle may $defs property
-            # .'$core'.'$defs'
-            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$core'.'$defs']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$core'.'$defs']", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$core']", lpath_0 if path is not None else None))
@@ -181,25 +181,17 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$meta'.title]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$meta'.title]", lpath_3 if path is not None else None))
                 return False
-        elif prop == "description":
-            # handle may description property
-            # .'$meta'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$meta'.description]", lpath_3 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$meta'.description]", lpath_3 if path is not None else None))
-                return False
         elif prop == "default":
             # handle may default property
             # .'$meta'.default
             res = True
-        elif prop == "deprecated":
-            # handle may deprecated property
-            # .'$meta'.deprecated
-            res = isinstance(pval, bool)
+        elif prop == "examples":
+            # handle may examples property
+            # .'$meta'.examples
+            res = isinstance(pval, list)
             if not res:
-                rep is None or rep.append(("not a bool [.'$meta'.deprecated]", lpath_3 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$meta'.deprecated]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("not array or unexpected array [.'$meta'.examples]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.examples]", lpath_3 if path is not None else None))
                 return False
         elif prop == "readOnly":
             # handle may readOnly property
@@ -217,13 +209,21 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$meta'.writeOnly]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$meta'.writeOnly]", lpath_3 if path is not None else None))
                 return False
-        elif prop == "examples":
-            # handle may examples property
-            # .'$meta'.examples
-            res = isinstance(pval, list)
+        elif prop == "deprecated":
+            # handle may deprecated property
+            # .'$meta'.deprecated
+            res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$meta'.examples]", lpath_3 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$meta'.examples]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$meta'.deprecated]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.deprecated]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$meta'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$meta'.description]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta'.description]", lpath_3 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$meta']", lpath_3 if path is not None else None))
@@ -239,7 +239,15 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_4: Path = (path + [ prop ]) if path is not None else None
-        if prop == "contentEncoding":
+        if prop == "contentSchema":
+            # handle may contentSchema property
+            # .'$content'.contentSchema
+            res = json_model_16(pval, lpath_4 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Schema [.'$content'.contentSchema]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$content'.contentSchema]", lpath_4 if path is not None else None))
+                return False
+        elif prop == "contentEncoding":
             # handle may contentEncoding property
             # .'$content'.contentEncoding
             res = isinstance(pval, str)
@@ -254,14 +262,6 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$content'.contentMediaType]", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$content'.contentMediaType]", lpath_4 if path is not None else None))
-                return False
-        elif prop == "contentSchema":
-            # handle may contentSchema property
-            # .'$content'.contentSchema
-            res = json_model_16(pval, lpath_4 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Schema [.'$content'.contentSchema]", lpath_4 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$content'.contentSchema]", lpath_4 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$content']", lpath_4 if path is not None else None))

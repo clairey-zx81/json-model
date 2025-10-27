@@ -140,21 +140,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$meta'.description
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'default' THEN
       -- handle may default property
       -- .'$meta'.default
       res := TRUE;
-    ELSEIF prop = 'deprecated' THEN
-      -- handle may deprecated property
-      -- .'$meta'.deprecated
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    ELSEIF prop = 'examples' THEN
+      -- handle may examples property
+      -- .'$meta'.examples
+      res := JSONB_TYPEOF(pval) = 'array';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -172,10 +165,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'examples' THEN
-      -- handle may examples property
-      -- .'$meta'.examples
-      res := JSONB_TYPEOF(pval) = 'array';
+    ELSEIF prop = 'deprecated' THEN
+      -- handle may deprecated property
+      -- .'$meta'.deprecated
+      res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'description' THEN
+      -- handle may description property
+      -- .'$meta'.description
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -272,15 +272,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'multipleOf' THEN
-      -- handle may multipleOf property
-      -- .'$Number'.multipleOf
-      -- .'$Number'.multipleOf.'|'.0
-      -- .'$Number'.multipleOf.'|'.1
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'maximum' THEN
       -- handle may maximum property
       -- .'$Number'.maximum
@@ -290,20 +281,29 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'exclusiveMaximum' THEN
-      -- handle may exclusiveMaximum property
-      -- .'$Number'.exclusiveMaximum
-      -- .'$Number'.exclusiveMaximum.'|'.0
-      -- .'$Number'.exclusiveMaximum.'|'.1
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 OR JSONB_TYPEOF(pval) = 'number';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'minimum' THEN
       -- handle may minimum property
       -- .'$Number'.minimum
       -- .'$Number'.minimum.'|'.0
       -- .'$Number'.minimum.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 OR JSONB_TYPEOF(pval) = 'number';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'multipleOf' THEN
+      -- handle may multipleOf property
+      -- .'$Number'.multipleOf
+      -- .'$Number'.multipleOf.'|'.0
+      -- .'$Number'.multipleOf.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'exclusiveMaximum' THEN
+      -- handle may exclusiveMaximum property
+      -- .'$Number'.exclusiveMaximum
+      -- .'$Number'.exclusiveMaximum.'|'.0
+      -- .'$Number'.exclusiveMaximum.'|'.1
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 OR JSONB_TYPEOF(pval) = 'number';
       IF NOT res THEN
         RETURN FALSE;
@@ -348,13 +348,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'multipleOf' THEN
-      -- handle may multipleOf property
-      -- .'$Integer'.multipleOf
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'maximum' THEN
       -- handle may maximum property
       -- .'$Integer'.maximum
@@ -362,16 +355,23 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'exclusiveMaximum' THEN
-      -- handle may exclusiveMaximum property
-      -- .'$Integer'.exclusiveMaximum
+    ELSEIF prop = 'minimum' THEN
+      -- handle may minimum property
+      -- .'$Integer'.minimum
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'minimum' THEN
-      -- handle may minimum property
-      -- .'$Integer'.minimum
+    ELSEIF prop = 'multipleOf' THEN
+      -- handle may multipleOf property
+      -- .'$Integer'.multipleOf
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'exclusiveMaximum' THEN
+      -- handle may exclusiveMaximum property
+      -- .'$Integer'.exclusiveMaximum
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
         RETURN FALSE;
@@ -414,31 +414,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'contentEncoding' THEN
-      -- handle may contentEncoding property
-      -- .'$String'.contentEncoding
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'contentMediaType' THEN
-      -- handle may contentMediaType property
-      -- .'$String'.contentMediaType
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'contentSchema' THEN
-      -- handle may contentSchema property
-      -- .'$String'.contentSchema
-      res := json_model_16(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'format' THEN
       -- handle may format property
       -- .'$String'.format
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'pattern' THEN
+      -- handle may pattern property
+      -- .'$String'.pattern
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -456,10 +442,24 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'pattern' THEN
-      -- handle may pattern property
-      -- .'$String'.pattern
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    ELSEIF prop = 'contentSchema' THEN
+      -- handle may contentSchema property
+      -- .'$String'.contentSchema
+      res := json_model_16(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'contentEncoding' THEN
+      -- handle may contentEncoding property
+      -- .'$String'.contentEncoding
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'contentMediaType' THEN
+      -- handle may contentMediaType property
+      -- .'$String'.contentMediaType
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

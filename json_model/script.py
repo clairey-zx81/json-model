@@ -20,6 +20,7 @@ from .runtime.types import EntryCheckFun, Report
 from .runtime.support import _path as json_path
 from .export import model2python
 
+# language short name to display name
 LANG = {
   "py": "Python",
   "c": "C",
@@ -385,13 +386,19 @@ def jmc_script():
         help="property map sharing")
     arg("--no-map-share", "-nms", dest="map_share", action="store_false",
         help="no property map sharing")
-    arg("--may-must-open-ratio", "-mmor", default=0.5, type=float,
-        help="mmo scheme if optional props under this ratio, default 0.5")
     arg("--may-must-open-threshold", "-mmot", default=5, type=int,
         help="mmo scheme if number of optional props below threshold, target-dependent default")
     arg("--must-only-threshold", "-mot", default=None, type=int,
         help="must-only scheme if number of mandatory props below threshold,"
               " target-dependent default, 0 to disable")
+    arg("--sort-must", "-smu", default=True, action="store_true",
+        help="sort must props (default)")
+    arg("--no-sort-must", "-nsmu", action="store_false",
+        help="do not sort must props")
+    arg("--sort-may", "-sma", default=True, action="store_true",
+        help="sort may props (default)")
+    arg("--no-sort-may", "-nsma", action="store_false",
+        help="do not sort may props")
     arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
         help="optimize some string comparisons")
     arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
@@ -704,9 +711,9 @@ def jmc_script():
             short_version=args.short_version, package=args.package,
             predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize,
             strcmp=args.strcmp_opt, byte_order=args.byte_order,
-            may_must_open_ratio=args.may_must_open_ratio,
             may_must_open_threshold=args.may_must_open_threshold,
-            must_only_threshold=args.must_only_threshold
+            must_only_threshold=args.must_only_threshold,
+            sort_must=args.sort_must, sort_may=args.sort_may,
         )
         source = str(code)
 
@@ -718,6 +725,7 @@ def jmc_script():
         elif args.gen != "none":
             print(source, file=output, end="", flush=True)
             if args.output != "-" and args.gen == "exec":
+                # executable script file: rwxr-xr-w
                 os.chmod(args.output, 0o755)
 
         # import for checks

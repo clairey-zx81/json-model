@@ -140,21 +140,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$meta'.description
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'default' THEN
       -- handle may default property
       -- .'$meta'.default
       res := TRUE;
-    ELSEIF prop = 'deprecated' THEN
-      -- handle may deprecated property
-      -- .'$meta'.deprecated
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    ELSEIF prop = 'examples' THEN
+      -- handle may examples property
+      -- .'$meta'.examples
+      res := JSONB_TYPEOF(pval) = 'array';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -172,10 +165,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'examples' THEN
-      -- handle may examples property
-      -- .'$meta'.examples
-      res := JSONB_TYPEOF(pval) = 'array';
+    ELSEIF prop = 'deprecated' THEN
+      -- handle may deprecated property
+      -- .'$meta'.deprecated
+      res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'description' THEN
+      -- handle may description property
+      -- .'$meta'.description
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -200,7 +200,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'contentEncoding' THEN
+    IF prop = 'contentSchema' THEN
+      -- handle may contentSchema property
+      -- .'$content'.contentSchema
+      res := json_model_16(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'contentEncoding' THEN
       -- handle may contentEncoding property
       -- .'$content'.contentEncoding
       res := JSONB_TYPEOF(pval) = 'string';
@@ -211,13 +218,6 @@ BEGIN
       -- handle may contentMediaType property
       -- .'$content'.contentMediaType
       res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'contentSchema' THEN
-      -- handle may contentSchema property
-      -- .'$content'.contentSchema
-      res := json_model_16(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

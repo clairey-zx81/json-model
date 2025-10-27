@@ -102,20 +102,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_2(prop, 0x00000074))
-        {
-            // handle must t property
-            must_count += 1;
-            // .'|'.1.t
-            res = jm_json_is_scalar(pval) && json_is_integer(pval) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(pval) } }, _jm_cst_0, 4);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.'|'.1.t.'|']", (path ? &lpath_1 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.t]", (path ? &lpath_1 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000070)))
+        if (jm_str_eq_2(prop, 0x00000070))
         {
             // handle must p property
             must_count += 1;
@@ -125,6 +112,19 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'|'.1.p]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.p]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000074)))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'|'.1.t
+            res = jm_json_is_scalar(pval) && json_is_integer(pval) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(pval) } }, _jm_cst_0, 4);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "value not in enum [.'|'.1.t.'|']", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.t]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -168,20 +168,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_2(prop, 0x00000074))
-        {
-            // handle must t property
-            must_count += 1;
-            // .'|'.2.t
-            res = jm_json_is_scalar(pval) && json_is_integer(pval) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(pval) } }, _jm_cst_1, 5);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.'|'.2.t.'|']", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.t]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000069)))
+        if (jm_str_eq_2(prop, 0x00000069))
         {
             // handle must i property
             must_count += 1;
@@ -191,6 +178,19 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'|'.2.i]", (path ? &lpath_2 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.i]", (path ? &lpath_2 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000074)))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'|'.2.t
+            res = jm_json_is_scalar(pval) && json_is_integer(pval) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(pval) } }, _jm_cst_1, 5);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "value not in enum [.'|'.2.t.'|']", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.t]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -233,20 +233,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_2(prop, 0x00000074))
-        {
-            // handle must t property
-            must_count += 1;
-            // .'|'.3.t
-            res = json_is_integer(pval) && json_integer_value(pval) == 10;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected =10 [.'|'.3.t]", (path ? &lpath_3 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.3.t]", (path ? &lpath_3 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000064)))
+        if (jm_str_eq_2(prop, 0x00000064))
         {
             // handle must d property
             must_count += 1;
@@ -256,6 +243,19 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'|'.3.d]", (path ? &lpath_3 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.3.d]", (path ? &lpath_3 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000074)))
+        {
+            // handle must t property
+            must_count += 1;
+            // .'|'.3.t
+            res = json_is_integer(pval) && json_integer_value(pval) == 10;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected =10 [.'|'.3.t]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.3.t]", (path ? &lpath_3 : NULL));
                 return false;
             }
         }

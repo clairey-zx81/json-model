@@ -164,20 +164,20 @@ sub json_model_6($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'abstract')
+        elsif ($prop eq 'docfile')
         {
-            # handle may abstract property
-            # .'$Provide'.abstract
+            # handle may docfile property
+            # .'$Provide'.docfile
             $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq 'docfile')
+        elsif ($prop eq 'abstract')
         {
-            # handle may docfile property
-            # .'$Provide'.docfile
+            # handle may abstract property
+            # .'$Provide'.abstract
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -689,6 +689,20 @@ sub json_model_1($$$)
                 return 0;
             }
         }
+        elsif ($prop eq 'license')
+        {
+            # handle must license property
+            $must_count++;
+            # .license
+            # .license.'|'.0
+            # .license.'|'.1
+            # .license.'|'.2
+            $res = json_model_4($pval, undef, undef) || json_model_5($pval, undef, undef) || _jm_obj_3($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
         elsif ($prop eq 'version')
         {
             # handle must version property
@@ -706,33 +720,6 @@ sub json_model_1($$$)
             $must_count++;
             # .abstract
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'maintainer')
-        {
-            # handle must maintainer property
-            $must_count++;
-            # .maintainer
-            # .maintainer.'|'.0
-            # .maintainer.'|'.1
-            $res = json_model_2($pval, undef, undef) || json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'license')
-        {
-            # handle must license property
-            $must_count++;
-            # .license
-            # .license.'|'.0
-            # .license.'|'.1
-            # .license.'|'.2
-            $res = json_model_4($pval, undef, undef) || json_model_5($pval, undef, undef) || _jm_obj_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -760,11 +747,64 @@ sub json_model_1($$$)
                 return 0;
             }
         }
+        elsif ($prop eq 'maintainer')
+        {
+            # handle must maintainer property
+            $must_count++;
+            # .maintainer
+            # .maintainer.'|'.0
+            # .maintainer.'|'.1
+            $res = json_model_2($pval, undef, undef) || json_model_3($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
         elsif ($prop eq 'url')
         {
             # handle may url property
             # .url
             $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'tags')
+        {
+            # handle may tags property
+            # .tags
+            $res = json_model_3($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'prereqs')
+        {
+            # handle may prereqs property
+            # .prereqs
+            $res = json_model_16($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'no_index')
+        {
+            # handle may no_index property
+            # .no_index
+            $res = _jm_obj_6($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'resources')
+        {
+            # handle may resources property
+            # .resources
+            $res = json_model_8($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -790,51 +830,11 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'tags')
-        {
-            # handle may tags property
-            # .tags
-            $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'no_index')
-        {
-            # handle may no_index property
-            # .no_index
-            $res = _jm_obj_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
         elsif ($prop eq 'release_status')
         {
             # handle may release_status property
             # .release_status
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'resources')
-        {
-            # handle may resources property
-            # .resources
-            $res = json_model_8($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'prereqs')
-        {
-            # handle may prereqs property
-            # .prereqs
-            $res = json_model_16($pval, undef, undef);
             if (! $res)
             {
                 return 0;

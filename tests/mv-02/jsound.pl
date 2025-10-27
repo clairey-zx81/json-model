@@ -50,30 +50,20 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
-        {
-            # handle may name property
-            # .'$Schema'.metadata.name
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'previous')
-        {
-            # handle may previous property
-            # .'$Schema'.metadata.previous
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'date')
+        if ($prop eq 'date')
         {
             # handle may date property
             # .'$Schema'.metadata.date
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'name')
+        {
+            # handle may name property
+            # .'$Schema'.metadata.name
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -98,6 +88,16 @@ sub _jm_obj_0($$$)
                     }
                 }
             }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'previous')
+        {
+            # handle may previous property
+            # .'$Schema'.metadata.previous
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -395,11 +395,11 @@ sub json_model_7($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'baseType')
+        elsif ($prop eq 'closed')
         {
-            # handle may baseType property
-            # .'$Object'.baseType
-            $res = jm_is_string($pval);
+            # handle may closed property
+            # .'$Object'.closed
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
@@ -428,11 +428,11 @@ sub json_model_7($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'closed')
+        elsif ($prop eq 'baseType')
         {
-            # handle may closed property
-            # .'$Object'.closed
-            $res = jm_is_boolean($pval);
+            # handle may baseType property
+            # .'$Object'.baseType
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -482,10 +482,10 @@ sub json_model_8($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq 'unique')
         {
-            # handle may required property
-            # .'$Fields'.required
+            # handle may unique property
+            # .'$Fields'.unique
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -498,10 +498,10 @@ sub json_model_8($$$)
             # .'$Fields'.default
             $res = 1;
         }
-        elsif ($prop eq 'unique')
+        elsif ($prop eq 'required')
         {
-            # handle may unique property
-            # .'$Fields'.unique
+            # handle may required property
+            # .'$Fields'.required
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -552,16 +552,6 @@ sub json_model_9($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'baseType')
-        {
-            # handle may baseType property
-            # .'$Array'.baseType
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
         elsif ($prop eq 'content')
         {
             # handle may content property
@@ -572,11 +562,11 @@ sub json_model_9($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'minLength')
+        elsif ($prop eq 'baseType')
         {
-            # handle may minLength property
-            # .'$Array'.minLength
-            $res = jm_is_integer($pval) && $pval >= 0;
+            # handle may baseType property
+            # .'$Array'.baseType
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -586,6 +576,16 @@ sub json_model_9($$$)
         {
             # handle may maxLength property
             # .'$Array'.maxLength
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'minLength')
+        {
+            # handle may minLength property
+            # .'$Array'.minLength
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -615,23 +615,23 @@ sub json_model_10($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
-        {
-            # handle must name property
-            $must_count++;
-            # .'$Union'.name
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'kind')
+        if ($prop eq 'kind')
         {
             # handle must kind property
             $must_count++;
             # .'$Union'.kind
             $res = jm_is_string($pval) && $pval eq 'union';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'name')
+        {
+            # handle must name property
+            $must_count++;
+            # .'$Union'.name
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;

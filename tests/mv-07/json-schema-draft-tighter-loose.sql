@@ -3413,19 +3413,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'const' THEN
-      -- handle must const property
-      must_count := must_count + 1;
-      -- .'$tight#ConstString'.const
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'type' THEN
+    IF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$tight#ConstString'.type
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'const' THEN
+      -- handle must const property
+      must_count := must_count + 1;
+      -- .'$tight#ConstString'.const
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3588,19 +3588,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'const' THEN
-      -- handle must const property
-      must_count := must_count + 1;
-      -- .'$tight#ConstNum'.const
-      res := JSONB_TYPEOF(pval) = 'number';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'type' THEN
+    IF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$tight#ConstNum'.type
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'number';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'const' THEN
+      -- handle must const property
+      must_count := must_count + 1;
+      -- .'$tight#ConstNum'.const
+      res := JSONB_TYPEOF(pval) = 'number';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3763,19 +3763,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'const' THEN
-      -- handle must const property
-      must_count := must_count + 1;
-      -- .'$tight#ConstInt'.const
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'type' THEN
+    IF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$tight#ConstInt'.type
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'integer';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'const' THEN
+      -- handle must const property
+      must_count := must_count + 1;
+      -- .'$tight#ConstInt'.const
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3938,19 +3938,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'const' THEN
-      -- handle must const property
-      must_count := must_count + 1;
-      -- .'$tight#ConstBool'.const
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'type' THEN
+    IF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$tight#ConstBool'.type
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'const' THEN
+      -- handle must const property
+      must_count := must_count + 1;
+      -- .'$tight#ConstBool'.const
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

@@ -41,20 +41,7 @@ public class re_3 extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("all") == 0)
-            {
-                // handle may all property
-                // .all
-                // "/.*/"
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected /.*/ [.all]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.all]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("nz") == 0)
+            if (prop.compareTo("nz") == 0)
             {
                 // handle may nz property
                 // .nz
@@ -64,6 +51,19 @@ public class re_3 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected /./s [.nz]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.nz]", (path != null ? lpath_0 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("all") == 0)
+            {
+                // handle may all property
+                // .all
+                // "/.*/"
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected /.*/ [.all]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.all]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }

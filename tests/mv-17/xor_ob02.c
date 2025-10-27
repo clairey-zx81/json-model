@@ -522,20 +522,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (jm_str_eq_2(prop, 0x00000063))
-        {
-            // handle must c property
-            must_count += 1;
-            // .'|'.2.c
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'|'.2.c]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.c]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000062)))
+        else if (jm_str_eq_2(prop, 0x00000062))
         {
             // handle must b property
             must_count += 1;
@@ -545,6 +532,19 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'|'.2.b]", (path ? &lpath_7 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.b]", (path ? &lpath_7 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000063)))
+        {
+            // handle must c property
+            must_count += 1;
+            // .'|'.2.c
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'|'.2.c]", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.c]", (path ? &lpath_7 : NULL));
                 return false;
             }
         }

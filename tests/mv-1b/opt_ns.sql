@@ -21,19 +21,19 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'i' THEN
-      -- handle must i property
-      must_count := must_count + 1;
-      -- .i
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'f' THEN
+    IF prop = 'f' THEN
       -- handle must f property
       must_count := must_count + 1;
       -- .f
       res := JSONB_TYPEOF(pval) = 'number';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'i' THEN
+      -- handle must i property
+      must_count := must_count + 1;
+      -- .i
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

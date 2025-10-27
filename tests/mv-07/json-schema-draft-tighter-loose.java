@@ -221,15 +221,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("$schema") == 0)
+            if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#metas'.'$schema'
+                // handle may id property
+                // .'$tight#metas'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.'$schema']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.'$schema']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.id]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.id]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -245,27 +245,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#metas'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#metas'.'$defs'
+                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.id]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.id]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#metas'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.'$comment']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.'$comment']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#metas'.'$defs']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.'$defs']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -281,11 +269,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#metas'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.'$schema']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.'$schema']", (path != null ? lpath_0 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#metas'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#metas'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.'$comment']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.'$comment']", (path != null ? lpath_0 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -299,30 +311,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#metas'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.description]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.description]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#metas'.'$defs'
-                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#metas'.'$defs']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.'$defs']", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -332,6 +320,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#metas'.definitions]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.definitions]", (path != null ? lpath_0 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#metas'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#metas'.description]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#metas'.description]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -1291,15 +1291,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#Integer'.'$schema'
+                // handle may id property
+                // .'$tight#Integer'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.'$schema']", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.'$schema']", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.id]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.id]", (path != null ? lpath_14 : null));
                     return false;
                 }
             }
@@ -1315,27 +1315,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#Integer'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#Integer'.'$defs'
+                res = _jm_obj_3(pval, (path != null ? lpath_14 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.id]", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.id]", (path != null ? lpath_14 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#Integer'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.'$comment']", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.'$comment']", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Integer'.'$defs']", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.'$defs']", (path != null ? lpath_14 : null));
                     return false;
                 }
             }
@@ -1351,57 +1339,33 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#Integer'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.'$schema']", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.'$schema']", (path != null ? lpath_14 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#Integer'.default
                 res = true;
             }
-            else if (prop.compareTo("examples") == 0)
+            else if (prop.compareTo("maximum") == 0)
             {
-                // handle may examples property
-                // .'$tight#Integer'.examples
-                res = json.isArray(pval);
+                // handle may maximum property
+                // .'$tight#Integer'.maximum
+                res = json.isDouble(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Integer'.examples]", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.examples]", (path != null ? lpath_14 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#Integer'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.description]", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.description]", (path != null ? lpath_14 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#Integer'.'$defs'
-                res = _jm_obj_3(pval, (path != null ? lpath_14 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Integer'.'$defs']", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.'$defs']", (path != null ? lpath_14 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("definitions") == 0)
-            {
-                // handle may definitions property
-                // .'$tight#Integer'.definitions
-                res = _jm_obj_4(pval, (path != null ? lpath_14 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Integer'.definitions]", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.definitions]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#Integer'.maximum]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.maximum]", (path != null ? lpath_14 : null));
                     return false;
                 }
             }
@@ -1417,15 +1381,51 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("maximum") == 0)
+            else if (prop.compareTo("$comment") == 0)
             {
-                // handle may maximum property
-                // .'$tight#Integer'.maximum
-                res = json.isDouble(pval);
+                // handle may $comment property
+                // .'$tight#Integer'.'$comment'
+                res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#Integer'.maximum]", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.maximum]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.'$comment']", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.'$comment']", (path != null ? lpath_14 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$tight#Integer'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Integer'.examples]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.examples]", (path != null ? lpath_14 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$tight#Integer'.definitions
+                res = _jm_obj_4(pval, (path != null ? lpath_14 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Integer'.definitions]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.definitions]", (path != null ? lpath_14 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#Integer'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Integer'.description]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Integer'.description]", (path != null ? lpath_14 : null));
                     return false;
                 }
             }
@@ -1533,15 +1533,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#Number'.'$schema'
+                // handle may id property
+                // .'$tight#Number'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.'$schema']", (path != null ? lpath_17 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.'$schema']", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.id]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.id]", (path != null ? lpath_17 : null));
                     return false;
                 }
             }
@@ -1557,27 +1557,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#Number'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#Number'.'$defs'
+                res = _jm_obj_5(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.id]", (path != null ? lpath_17 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.id]", (path != null ? lpath_17 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#Number'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.'$comment']", (path != null ? lpath_17 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.'$comment']", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Number'.'$defs']", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.'$defs']", (path != null ? lpath_17 : null));
                     return false;
                 }
             }
@@ -1593,57 +1581,33 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#Number'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.'$schema']", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.'$schema']", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#Number'.default
                 res = true;
             }
-            else if (prop.compareTo("examples") == 0)
+            else if (prop.compareTo("maximum") == 0)
             {
-                // handle may examples property
-                // .'$tight#Number'.examples
-                res = json.isArray(pval);
+                // handle may maximum property
+                // .'$tight#Number'.maximum
+                res = json.isDouble(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Number'.examples]", (path != null ? lpath_17 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.examples]", (path != null ? lpath_17 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#Number'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.description]", (path != null ? lpath_17 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.description]", (path != null ? lpath_17 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#Number'.'$defs'
-                res = _jm_obj_5(pval, (path != null ? lpath_17 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Number'.'$defs']", (path != null ? lpath_17 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.'$defs']", (path != null ? lpath_17 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("definitions") == 0)
-            {
-                // handle may definitions property
-                // .'$tight#Number'.definitions
-                res = _jm_obj_6(pval, (path != null ? lpath_17 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Number'.definitions]", (path != null ? lpath_17 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.definitions]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#Number'.maximum]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.maximum]", (path != null ? lpath_17 : null));
                     return false;
                 }
             }
@@ -1659,15 +1623,51 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("maximum") == 0)
+            else if (prop.compareTo("$comment") == 0)
             {
-                // handle may maximum property
-                // .'$tight#Number'.maximum
-                res = json.isDouble(pval);
+                // handle may $comment property
+                // .'$tight#Number'.'$comment'
+                res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#Number'.maximum]", (path != null ? lpath_17 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.maximum]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.'$comment']", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.'$comment']", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$tight#Number'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Number'.examples]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.examples]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("definitions") == 0)
+            {
+                // handle may definitions property
+                // .'$tight#Number'.definitions
+                res = _jm_obj_6(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Number'.definitions]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.definitions]", (path != null ? lpath_17 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#Number'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Number'.description]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Number'.description]", (path != null ? lpath_17 : null));
                     return false;
                 }
             }
@@ -1775,15 +1775,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#Bool'.'$schema'
+                // handle may id property
+                // .'$tight#Bool'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.'$schema']", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.'$schema']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.id]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.id]", (path != null ? lpath_20 : null));
                     return false;
                 }
             }
@@ -1799,27 +1799,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#Bool'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#Bool'.'$defs'
+                res = _jm_obj_7(pval, (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.id]", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.id]", (path != null ? lpath_20 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#Bool'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.'$comment']", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.'$comment']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Bool'.'$defs']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.'$defs']", (path != null ? lpath_20 : null));
                     return false;
                 }
             }
@@ -1835,11 +1823,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#Bool'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.'$schema']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.'$schema']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#Bool'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#Bool'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.'$comment']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.'$comment']", (path != null ? lpath_20 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -1853,30 +1865,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#Bool'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.description]", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.description]", (path != null ? lpath_20 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#Bool'.'$defs'
-                res = _jm_obj_7(pval, (path != null ? lpath_20 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Bool'.'$defs']", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.'$defs']", (path != null ? lpath_20 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -1886,6 +1874,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#Bool'.definitions]", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.definitions]", (path != null ? lpath_20 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#Bool'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Bool'.description]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Bool'.description]", (path != null ? lpath_20 : null));
                     return false;
                 }
             }
@@ -1993,15 +1993,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#Null'.'$schema'
+                // handle may id property
+                // .'$tight#Null'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.'$schema']", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.'$schema']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.id]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.id]", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
@@ -2017,27 +2017,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#Null'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#Null'.'$defs'
+                res = _jm_obj_9(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.id]", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.id]", (path != null ? lpath_23 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#Null'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.'$comment']", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.'$comment']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Null'.'$defs']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.'$defs']", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
@@ -2053,11 +2041,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#Null'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.'$schema']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.'$schema']", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#Null'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#Null'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.'$comment']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.'$comment']", (path != null ? lpath_23 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2071,30 +2083,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#Null'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.description]", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.description]", (path != null ? lpath_23 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#Null'.'$defs'
-                res = _jm_obj_9(pval, (path != null ? lpath_23 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Null'.'$defs']", (path != null ? lpath_23 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.'$defs']", (path != null ? lpath_23 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -2104,6 +2092,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#Null'.definitions]", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.definitions]", (path != null ? lpath_23 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#Null'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Null'.description]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Null'.description]", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
@@ -2211,15 +2211,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#AllOf'.'$schema'
+                // handle may id property
+                // .'$tight#AllOf'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.'$schema']", (path != null ? lpath_26 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.'$schema']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.id]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.id]", (path != null ? lpath_26 : null));
                     return false;
                 }
             }
@@ -2235,27 +2235,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#AllOf'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#AllOf'.'$defs'
+                res = _jm_obj_11(pval, (path != null ? lpath_26 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.id]", (path != null ? lpath_26 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.id]", (path != null ? lpath_26 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#AllOf'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.'$comment']", (path != null ? lpath_26 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.'$comment']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#AllOf'.'$defs']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.'$defs']", (path != null ? lpath_26 : null));
                     return false;
                 }
             }
@@ -2271,11 +2259,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#AllOf'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.'$schema']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.'$schema']", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#AllOf'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#AllOf'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.'$comment']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.'$comment']", (path != null ? lpath_26 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2289,30 +2301,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#AllOf'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.description]", (path != null ? lpath_26 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.description]", (path != null ? lpath_26 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#AllOf'.'$defs'
-                res = _jm_obj_11(pval, (path != null ? lpath_26 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#AllOf'.'$defs']", (path != null ? lpath_26 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.'$defs']", (path != null ? lpath_26 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -2322,6 +2310,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#AllOf'.definitions]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.definitions]", (path != null ? lpath_26 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#AllOf'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AllOf'.description]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AllOf'.description]", (path != null ? lpath_26 : null));
                     return false;
                 }
             }
@@ -2429,15 +2429,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#AnyOf'.'$schema'
+                // handle may id property
+                // .'$tight#AnyOf'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.'$schema']", (path != null ? lpath_29 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.'$schema']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.id]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.id]", (path != null ? lpath_29 : null));
                     return false;
                 }
             }
@@ -2453,27 +2453,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#AnyOf'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#AnyOf'.'$defs'
+                res = _jm_obj_13(pval, (path != null ? lpath_29 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.id]", (path != null ? lpath_29 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.id]", (path != null ? lpath_29 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#AnyOf'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.'$comment']", (path != null ? lpath_29 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.'$comment']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#AnyOf'.'$defs']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.'$defs']", (path != null ? lpath_29 : null));
                     return false;
                 }
             }
@@ -2489,11 +2477,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#AnyOf'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.'$schema']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.'$schema']", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#AnyOf'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#AnyOf'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.'$comment']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.'$comment']", (path != null ? lpath_29 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2507,30 +2519,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#AnyOf'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.description]", (path != null ? lpath_29 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.description]", (path != null ? lpath_29 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#AnyOf'.'$defs'
-                res = _jm_obj_13(pval, (path != null ? lpath_29 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#AnyOf'.'$defs']", (path != null ? lpath_29 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.'$defs']", (path != null ? lpath_29 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -2540,6 +2528,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#AnyOf'.definitions]", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.definitions]", (path != null ? lpath_29 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#AnyOf'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#AnyOf'.description]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#AnyOf'.description]", (path != null ? lpath_29 : null));
                     return false;
                 }
             }
@@ -2647,15 +2647,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#OneOf'.'$schema'
+                // handle may id property
+                // .'$tight#OneOf'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.'$schema']", (path != null ? lpath_32 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.'$schema']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.id]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.id]", (path != null ? lpath_32 : null));
                     return false;
                 }
             }
@@ -2671,27 +2671,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#OneOf'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#OneOf'.'$defs'
+                res = _jm_obj_15(pval, (path != null ? lpath_32 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.id]", (path != null ? lpath_32 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.id]", (path != null ? lpath_32 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#OneOf'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.'$comment']", (path != null ? lpath_32 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.'$comment']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#OneOf'.'$defs']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.'$defs']", (path != null ? lpath_32 : null));
                     return false;
                 }
             }
@@ -2707,11 +2695,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#OneOf'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.'$schema']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.'$schema']", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#OneOf'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#OneOf'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.'$comment']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.'$comment']", (path != null ? lpath_32 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2725,30 +2737,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#OneOf'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.description]", (path != null ? lpath_32 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.description]", (path != null ? lpath_32 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#OneOf'.'$defs'
-                res = _jm_obj_15(pval, (path != null ? lpath_32 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#OneOf'.'$defs']", (path != null ? lpath_32 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.'$defs']", (path != null ? lpath_32 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -2758,6 +2746,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#OneOf'.definitions]", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.definitions]", (path != null ? lpath_32 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#OneOf'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#OneOf'.description]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#OneOf'.description]", (path != null ? lpath_32 : null));
                     return false;
                 }
             }
@@ -2865,15 +2865,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#Enum'.'$schema'
+                // handle may id property
+                // .'$tight#Enum'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.'$schema']", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.'$schema']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.id]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.id]", (path != null ? lpath_35 : null));
                     return false;
                 }
             }
@@ -2889,27 +2889,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#Enum'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#Enum'.'$defs'
+                res = _jm_obj_17(pval, (path != null ? lpath_35 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.id]", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.id]", (path != null ? lpath_35 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#Enum'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.'$comment']", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.'$comment']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Enum'.'$defs']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.'$defs']", (path != null ? lpath_35 : null));
                     return false;
                 }
             }
@@ -2925,11 +2913,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#Enum'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.'$schema']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.'$schema']", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#Enum'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#Enum'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.'$comment']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.'$comment']", (path != null ? lpath_35 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2943,30 +2955,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#Enum'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.description]", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.description]", (path != null ? lpath_35 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#Enum'.'$defs'
-                res = _jm_obj_17(pval, (path != null ? lpath_35 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Enum'.'$defs']", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.'$defs']", (path != null ? lpath_35 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -2976,6 +2964,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#Enum'.definitions]", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.definitions]", (path != null ? lpath_35 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#Enum'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Enum'.description]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Enum'.description]", (path != null ? lpath_35 : null));
                     return false;
                 }
             }
@@ -3172,15 +3172,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#Const'.'$schema'
+                // handle may id property
+                // .'$tight#Const'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.'$schema']", (path != null ? lpath_38 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.'$schema']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.id]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.id]", (path != null ? lpath_38 : null));
                     return false;
                 }
             }
@@ -3196,27 +3196,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#Const'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#Const'.'$defs'
+                res = _jm_obj_19(pval, (path != null ? lpath_38 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.id]", (path != null ? lpath_38 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.id]", (path != null ? lpath_38 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#Const'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.'$comment']", (path != null ? lpath_38 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.'$comment']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Const'.'$defs']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.'$defs']", (path != null ? lpath_38 : null));
                     return false;
                 }
             }
@@ -3232,11 +3220,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#Const'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.'$schema']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.'$schema']", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#Const'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#Const'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.'$comment']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.'$comment']", (path != null ? lpath_38 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -3250,30 +3262,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#Const'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.description]", (path != null ? lpath_38 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.description]", (path != null ? lpath_38 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#Const'.'$defs'
-                res = _jm_obj_19(pval, (path != null ? lpath_38 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Const'.'$defs']", (path != null ? lpath_38 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.'$defs']", (path != null ? lpath_38 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -3283,6 +3271,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#Const'.definitions]", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.definitions]", (path != null ? lpath_38 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#Const'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Const'.description]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Const'.description]", (path != null ? lpath_38 : null));
                     return false;
                 }
             }
@@ -3447,15 +3447,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#Ref'.'$schema'
+                // handle may id property
+                // .'$tight#Ref'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.'$schema']", (path != null ? lpath_41 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.'$schema']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.id]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.id]", (path != null ? lpath_41 : null));
                     return false;
                 }
             }
@@ -3471,27 +3471,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#Ref'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#Ref'.'$defs'
+                res = _jm_obj_21(pval, (path != null ? lpath_41 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.id]", (path != null ? lpath_41 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.id]", (path != null ? lpath_41 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#Ref'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.'$comment']", (path != null ? lpath_41 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.'$comment']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Ref'.'$defs']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.'$defs']", (path != null ? lpath_41 : null));
                     return false;
                 }
             }
@@ -3507,11 +3495,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#Ref'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.'$schema']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.'$schema']", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#Ref'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#Ref'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.'$comment']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.'$comment']", (path != null ? lpath_41 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -3525,30 +3537,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#Ref'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.description]", (path != null ? lpath_41 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.description]", (path != null ? lpath_41 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#Ref'.'$defs'
-                res = _jm_obj_21(pval, (path != null ? lpath_41 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#Ref'.'$defs']", (path != null ? lpath_41 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.'$defs']", (path != null ? lpath_41 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -3558,6 +3546,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#Ref'.definitions]", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.definitions]", (path != null ? lpath_41 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#Ref'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#Ref'.description]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#Ref'.description]", (path != null ? lpath_41 : null));
                     return false;
                 }
             }
@@ -3726,15 +3726,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#EnumString'.'$schema'
+                // handle may id property
+                // .'$tight#EnumString'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.'$schema']", (path != null ? lpath_44 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.'$schema']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.id]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.id]", (path != null ? lpath_44 : null));
                     return false;
                 }
             }
@@ -3750,27 +3750,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#EnumString'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#EnumString'.'$defs'
+                res = _jm_obj_23(pval, (path != null ? lpath_44 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.id]", (path != null ? lpath_44 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.id]", (path != null ? lpath_44 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#EnumString'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.'$comment']", (path != null ? lpath_44 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.'$comment']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumString'.'$defs']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.'$defs']", (path != null ? lpath_44 : null));
                     return false;
                 }
             }
@@ -3786,11 +3774,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#EnumString'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.'$schema']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.'$schema']", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#EnumString'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#EnumString'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.'$comment']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.'$comment']", (path != null ? lpath_44 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -3804,30 +3816,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#EnumString'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.description]", (path != null ? lpath_44 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.description]", (path != null ? lpath_44 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#EnumString'.'$defs'
-                res = _jm_obj_23(pval, (path != null ? lpath_44 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumString'.'$defs']", (path != null ? lpath_44 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.'$defs']", (path != null ? lpath_44 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -3837,6 +3825,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumString'.definitions]", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.definitions]", (path != null ? lpath_44 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#EnumString'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.description]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumString'.description]", (path != null ? lpath_44 : null));
                     return false;
                 }
             }
@@ -3979,15 +3979,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#EnumNum'.'$schema'
+                // handle may id property
+                // .'$tight#EnumNum'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.'$schema']", (path != null ? lpath_47 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.'$schema']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.id]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.id]", (path != null ? lpath_47 : null));
                     return false;
                 }
             }
@@ -4003,27 +4003,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#EnumNum'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#EnumNum'.'$defs'
+                res = _jm_obj_25(pval, (path != null ? lpath_47 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.id]", (path != null ? lpath_47 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.id]", (path != null ? lpath_47 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#EnumNum'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.'$comment']", (path != null ? lpath_47 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.'$comment']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumNum'.'$defs']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.'$defs']", (path != null ? lpath_47 : null));
                     return false;
                 }
             }
@@ -4039,11 +4027,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#EnumNum'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.'$schema']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.'$schema']", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#EnumNum'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#EnumNum'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.'$comment']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.'$comment']", (path != null ? lpath_47 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -4057,30 +4069,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#EnumNum'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.description]", (path != null ? lpath_47 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.description]", (path != null ? lpath_47 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#EnumNum'.'$defs'
-                res = _jm_obj_25(pval, (path != null ? lpath_47 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumNum'.'$defs']", (path != null ? lpath_47 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.'$defs']", (path != null ? lpath_47 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -4090,6 +4078,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumNum'.definitions]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.definitions]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#EnumNum'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumNum'.description]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumNum'.description]", (path != null ? lpath_47 : null));
                     return false;
                 }
             }
@@ -4232,15 +4232,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("id") == 0)
             {
-                // handle may $schema property
-                // .'$tight#EnumInt'.'$schema'
+                // handle may id property
+                // .'$tight#EnumInt'.id
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.'$schema']", (path != null ? lpath_50 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.'$schema']", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.id]", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.id]", (path != null ? lpath_50 : null));
                     return false;
                 }
             }
@@ -4256,27 +4256,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("id") == 0)
+            else if (prop.compareTo("$defs") == 0)
             {
-                // handle may id property
-                // .'$tight#EnumInt'.id
-                res = json.isString(pval);
+                // handle may $defs property
+                // .'$tight#EnumInt'.'$defs'
+                res = _jm_obj_27(pval, (path != null ? lpath_50 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.id]", (path != null ? lpath_50 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.id]", (path != null ? lpath_50 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$comment") == 0)
-            {
-                // handle may $comment property
-                // .'$tight#EnumInt'.'$comment'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.'$comment']", (path != null ? lpath_50 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.'$comment']", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumInt'.'$defs']", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.'$defs']", (path != null ? lpath_50 : null));
                     return false;
                 }
             }
@@ -4292,11 +4280,35 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#EnumInt'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.'$schema']", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.'$schema']", (path != null ? lpath_50 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$tight#EnumInt'.default
                 res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#EnumInt'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.'$comment']", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.'$comment']", (path != null ? lpath_50 : null));
+                    return false;
+                }
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -4310,30 +4322,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#EnumInt'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.description]", (path != null ? lpath_50 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.description]", (path != null ? lpath_50 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$defs") == 0)
-            {
-                // handle may $defs property
-                // .'$tight#EnumInt'.'$defs'
-                res = _jm_obj_27(pval, (path != null ? lpath_50 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumInt'.'$defs']", (path != null ? lpath_50 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.'$defs']", (path != null ? lpath_50 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -4343,6 +4331,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#EnumInt'.definitions]", (path != null ? lpath_50 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.definitions]", (path != null ? lpath_50 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#EnumInt'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumInt'.description]", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#EnumInt'.description]", (path != null ? lpath_50 : null));
                     return false;
                 }
             }
@@ -4441,20 +4441,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_53 = new Path(prop, path);
-            if (prop.compareTo("const") == 0)
-            {
-                // handle must const property
-                must_count += 1;
-                // .'$tight#ConstString'.const
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.const]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstString'.const]", (path != null ? lpath_53 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("type") == 0)
+            if (prop.compareTo("type") == 0)
             {
                 // handle must type property
                 must_count += 1;
@@ -4467,27 +4454,16 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("const") == 0)
             {
-                // handle may $schema property
-                // .'$tight#ConstString'.'$schema'
+                // handle must const property
+                must_count += 1;
+                // .'$tight#ConstString'.const
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$schema']", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.'$schema']", (path != null ? lpath_53 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$id") == 0)
-            {
-                // handle may $id property
-                // .'$tight#ConstString'.'$id'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$id']", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.'$id']", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.const]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstString'.const]", (path != null ? lpath_53 : null));
                     return false;
                 }
             }
@@ -4503,57 +4479,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$comment") == 0)
+            else if (prop.compareTo("$id") == 0)
             {
-                // handle may $comment property
-                // .'$tight#ConstString'.'$comment'
+                // handle may $id property
+                // .'$tight#ConstString'.'$id'
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$comment']", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.'$comment']", (path != null ? lpath_53 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("title") == 0)
-            {
-                // handle may title property
-                // .'$tight#ConstString'.title
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.title]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.title]", (path != null ? lpath_53 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("default") == 0)
-            {
-                // handle may default property
-                // .'$tight#ConstString'.default
-                res = true;
-            }
-            else if (prop.compareTo("examples") == 0)
-            {
-                // handle may examples property
-                // .'$tight#ConstString'.examples
-                res = json.isArray(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstString'.examples]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.examples]", (path != null ? lpath_53 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#ConstString'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.description]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.description]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$id']", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.'$id']", (path != null ? lpath_53 : null));
                     return false;
                 }
             }
@@ -4569,6 +4503,60 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$tight#ConstString'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.title]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.title]", (path != null ? lpath_53 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#ConstString'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$schema']", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.'$schema']", (path != null ? lpath_53 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$tight#ConstString'.default
+                res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#ConstString'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.'$comment']", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.'$comment']", (path != null ? lpath_53 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$tight#ConstString'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstString'.examples]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.examples]", (path != null ? lpath_53 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -4578,6 +4566,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#ConstString'.definitions]", (path != null ? lpath_53 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.definitions]", (path != null ? lpath_53 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#ConstString'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.description]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstString'.description]", (path != null ? lpath_53 : null));
                     return false;
                 }
             }
@@ -4676,20 +4676,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_56 = new Path(prop, path);
-            if (prop.compareTo("const") == 0)
-            {
-                // handle must const property
-                must_count += 1;
-                // .'$tight#ConstNum'.const
-                res = json.isDouble(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#ConstNum'.const]", (path != null ? lpath_56 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstNum'.const]", (path != null ? lpath_56 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("type") == 0)
+            if (prop.compareTo("type") == 0)
             {
                 // handle must type property
                 must_count += 1;
@@ -4702,27 +4689,16 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("const") == 0)
             {
-                // handle may $schema property
-                // .'$tight#ConstNum'.'$schema'
-                res = json.isString(pval);
+                // handle must const property
+                must_count += 1;
+                // .'$tight#ConstNum'.const
+                res = json.isDouble(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$schema']", (path != null ? lpath_56 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.'$schema']", (path != null ? lpath_56 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$id") == 0)
-            {
-                // handle may $id property
-                // .'$tight#ConstNum'.'$id'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$id']", (path != null ? lpath_56 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.'$id']", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#ConstNum'.const]", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstNum'.const]", (path != null ? lpath_56 : null));
                     return false;
                 }
             }
@@ -4738,57 +4714,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$comment") == 0)
+            else if (prop.compareTo("$id") == 0)
             {
-                // handle may $comment property
-                // .'$tight#ConstNum'.'$comment'
+                // handle may $id property
+                // .'$tight#ConstNum'.'$id'
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$comment']", (path != null ? lpath_56 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.'$comment']", (path != null ? lpath_56 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("title") == 0)
-            {
-                // handle may title property
-                // .'$tight#ConstNum'.title
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.title]", (path != null ? lpath_56 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.title]", (path != null ? lpath_56 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("default") == 0)
-            {
-                // handle may default property
-                // .'$tight#ConstNum'.default
-                res = true;
-            }
-            else if (prop.compareTo("examples") == 0)
-            {
-                // handle may examples property
-                // .'$tight#ConstNum'.examples
-                res = json.isArray(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstNum'.examples]", (path != null ? lpath_56 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.examples]", (path != null ? lpath_56 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#ConstNum'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.description]", (path != null ? lpath_56 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.description]", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$id']", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.'$id']", (path != null ? lpath_56 : null));
                     return false;
                 }
             }
@@ -4804,6 +4738,60 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$tight#ConstNum'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.title]", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.title]", (path != null ? lpath_56 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#ConstNum'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$schema']", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.'$schema']", (path != null ? lpath_56 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$tight#ConstNum'.default
+                res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#ConstNum'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.'$comment']", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.'$comment']", (path != null ? lpath_56 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$tight#ConstNum'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstNum'.examples]", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.examples]", (path != null ? lpath_56 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -4813,6 +4801,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#ConstNum'.definitions]", (path != null ? lpath_56 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.definitions]", (path != null ? lpath_56 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#ConstNum'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstNum'.description]", (path != null ? lpath_56 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstNum'.description]", (path != null ? lpath_56 : null));
                     return false;
                 }
             }
@@ -4911,20 +4911,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_59 = new Path(prop, path);
-            if (prop.compareTo("const") == 0)
-            {
-                // handle must const property
-                must_count += 1;
-                // .'$tight#ConstInt'.const
-                res = json.isInteger(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a -1 strict int [.'$tight#ConstInt'.const]", (path != null ? lpath_59 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstInt'.const]", (path != null ? lpath_59 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("type") == 0)
+            if (prop.compareTo("type") == 0)
             {
                 // handle must type property
                 must_count += 1;
@@ -4937,27 +4924,16 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("const") == 0)
             {
-                // handle may $schema property
-                // .'$tight#ConstInt'.'$schema'
-                res = json.isString(pval);
+                // handle must const property
+                must_count += 1;
+                // .'$tight#ConstInt'.const
+                res = json.isInteger(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$schema']", (path != null ? lpath_59 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.'$schema']", (path != null ? lpath_59 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$id") == 0)
-            {
-                // handle may $id property
-                // .'$tight#ConstInt'.'$id'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$id']", (path != null ? lpath_59 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.'$id']", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("not a -1 strict int [.'$tight#ConstInt'.const]", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstInt'.const]", (path != null ? lpath_59 : null));
                     return false;
                 }
             }
@@ -4973,57 +4949,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$comment") == 0)
+            else if (prop.compareTo("$id") == 0)
             {
-                // handle may $comment property
-                // .'$tight#ConstInt'.'$comment'
+                // handle may $id property
+                // .'$tight#ConstInt'.'$id'
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$comment']", (path != null ? lpath_59 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.'$comment']", (path != null ? lpath_59 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("title") == 0)
-            {
-                // handle may title property
-                // .'$tight#ConstInt'.title
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.title]", (path != null ? lpath_59 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.title]", (path != null ? lpath_59 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("default") == 0)
-            {
-                // handle may default property
-                // .'$tight#ConstInt'.default
-                res = true;
-            }
-            else if (prop.compareTo("examples") == 0)
-            {
-                // handle may examples property
-                // .'$tight#ConstInt'.examples
-                res = json.isArray(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstInt'.examples]", (path != null ? lpath_59 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.examples]", (path != null ? lpath_59 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#ConstInt'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.description]", (path != null ? lpath_59 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.description]", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$id']", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.'$id']", (path != null ? lpath_59 : null));
                     return false;
                 }
             }
@@ -5039,6 +4973,60 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$tight#ConstInt'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.title]", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.title]", (path != null ? lpath_59 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#ConstInt'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$schema']", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.'$schema']", (path != null ? lpath_59 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$tight#ConstInt'.default
+                res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#ConstInt'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.'$comment']", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.'$comment']", (path != null ? lpath_59 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$tight#ConstInt'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstInt'.examples]", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.examples]", (path != null ? lpath_59 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -5048,6 +5036,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#ConstInt'.definitions]", (path != null ? lpath_59 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.definitions]", (path != null ? lpath_59 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#ConstInt'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstInt'.description]", (path != null ? lpath_59 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstInt'.description]", (path != null ? lpath_59 : null));
                     return false;
                 }
             }
@@ -5146,20 +5146,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_62 = new Path(prop, path);
-            if (prop.compareTo("const") == 0)
-            {
-                // handle must const property
-                must_count += 1;
-                // .'$tight#ConstBool'.const
-                res = json.isBoolean(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a bool [.'$tight#ConstBool'.const]", (path != null ? lpath_62 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstBool'.const]", (path != null ? lpath_62 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("type") == 0)
+            if (prop.compareTo("type") == 0)
             {
                 // handle must type property
                 must_count += 1;
@@ -5172,27 +5159,16 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$schema") == 0)
+            else if (prop.compareTo("const") == 0)
             {
-                // handle may $schema property
-                // .'$tight#ConstBool'.'$schema'
-                res = json.isString(pval);
+                // handle must const property
+                must_count += 1;
+                // .'$tight#ConstBool'.const
+                res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$schema']", (path != null ? lpath_62 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.'$schema']", (path != null ? lpath_62 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("$id") == 0)
-            {
-                // handle may $id property
-                // .'$tight#ConstBool'.'$id'
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$id']", (path != null ? lpath_62 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.'$id']", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$tight#ConstBool'.const]", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstBool'.const]", (path != null ? lpath_62 : null));
                     return false;
                 }
             }
@@ -5208,57 +5184,15 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("$comment") == 0)
+            else if (prop.compareTo("$id") == 0)
             {
-                // handle may $comment property
-                // .'$tight#ConstBool'.'$comment'
+                // handle may $id property
+                // .'$tight#ConstBool'.'$id'
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$comment']", (path != null ? lpath_62 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.'$comment']", (path != null ? lpath_62 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("title") == 0)
-            {
-                // handle may title property
-                // .'$tight#ConstBool'.title
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.title]", (path != null ? lpath_62 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.title]", (path != null ? lpath_62 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("default") == 0)
-            {
-                // handle may default property
-                // .'$tight#ConstBool'.default
-                res = true;
-            }
-            else if (prop.compareTo("examples") == 0)
-            {
-                // handle may examples property
-                // .'$tight#ConstBool'.examples
-                res = json.isArray(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstBool'.examples]", (path != null ? lpath_62 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.examples]", (path != null ? lpath_62 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle may description property
-                // .'$tight#ConstBool'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.description]", (path != null ? lpath_62 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.description]", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$id']", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.'$id']", (path != null ? lpath_62 : null));
                     return false;
                 }
             }
@@ -5274,6 +5208,60 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("title") == 0)
+            {
+                // handle may title property
+                // .'$tight#ConstBool'.title
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.title]", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.title]", (path != null ? lpath_62 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("$schema") == 0)
+            {
+                // handle may $schema property
+                // .'$tight#ConstBool'.'$schema'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$schema']", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.'$schema']", (path != null ? lpath_62 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("default") == 0)
+            {
+                // handle may default property
+                // .'$tight#ConstBool'.default
+                res = true;
+            }
+            else if (prop.compareTo("$comment") == 0)
+            {
+                // handle may $comment property
+                // .'$tight#ConstBool'.'$comment'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.'$comment']", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.'$comment']", (path != null ? lpath_62 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("examples") == 0)
+            {
+                // handle may examples property
+                // .'$tight#ConstBool'.examples
+                res = json.isArray(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstBool'.examples]", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.examples]", (path != null ? lpath_62 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("definitions") == 0)
             {
                 // handle may definitions property
@@ -5283,6 +5271,18 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$tight#ConstBool'.definitions]", (path != null ? lpath_62 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.definitions]", (path != null ? lpath_62 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle may description property
+                // .'$tight#ConstBool'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstBool'.description]", (path != null ? lpath_62 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$tight#ConstBool'.description]", (path != null ? lpath_62 : null));
                     return false;
                 }
             }

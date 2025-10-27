@@ -6908,55 +6908,7 @@ public class ansiblelint_meta extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_47 = new Path(prop, path);
-            if (prop.compareTo("cloud_platforms") == 0)
-            {
-                // handle may cloud_platforms property
-                // .'$GalaxyInfoModelCollection'.cloud_platforms
-                res = true;
-            }
-            else if (prop.compareTo("galaxy_tags") == 0)
-            {
-                // handle may galaxy_tags property
-                // .'$GalaxyInfoModelCollection'.galaxy_tags
-                res = json.isArray(pval);
-                if (res)
-                {
-                    int arr_95_idx = -1;
-                    Iterator<Object> arr_95_item_loop = json.arrayIterator(pval);
-                    while (arr_95_item_loop.hasNext())
-                    {
-                        arr_95_idx++;
-                        Object arr_95_item = arr_95_item_loop.next();
-                        Path arr_95_lpath = new Path(arr_95_idx, (path != null ? lpath_47 : null));
-                        // .'$GalaxyInfoModelCollection'.galaxy_tags.0
-                        res = json.isString(arr_95_item);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path != null ? lpath_47 : null) != null ? arr_95_lpath : null));
-                            break;
-                        }
-                    }
-                }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path != null ? lpath_47 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path != null ? lpath_47 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("min_ansible_version") == 0)
-            {
-                // handle may min_ansible_version property
-                // .'$GalaxyInfoModelCollection'.min_ansible_version
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("namespace") == 0)
+            if (prop.compareTo("namespace") == 0)
             {
                 // handle may namespace property
                 // .'$GalaxyInfoModelCollection'.namespace
@@ -6994,6 +6946,36 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("galaxy_tags") == 0)
+            {
+                // handle may galaxy_tags property
+                // .'$GalaxyInfoModelCollection'.galaxy_tags
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_95_idx = -1;
+                    Iterator<Object> arr_95_item_loop = json.arrayIterator(pval);
+                    while (arr_95_item_loop.hasNext())
+                    {
+                        arr_95_idx++;
+                        Object arr_95_item = arr_95_item_loop.next();
+                        Path arr_95_lpath = new Path(arr_95_idx, (path != null ? lpath_47 : null));
+                        // .'$GalaxyInfoModelCollection'.galaxy_tags.0
+                        res = json.isString(arr_95_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path != null ? lpath_47 : null) != null ? arr_95_lpath : null));
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("video_links") == 0)
             {
                 // handle may video_links property
@@ -7003,6 +6985,24 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("cloud_platforms") == 0)
+            {
+                // handle may cloud_platforms property
+                // .'$GalaxyInfoModelCollection'.cloud_platforms
+                res = true;
+            }
+            else if (prop.compareTo("min_ansible_version") == 0)
+            {
+                // handle may min_ansible_version property
+                // .'$GalaxyInfoModelCollection'.min_ansible_version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
                     return false;
                 }
             }
@@ -7070,6 +7070,18 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("license") == 0)
+            {
+                // handle may license property
+                // .'$GalaxyInfoModelLoose'.license
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("github_branch") == 0)
             {
                 // handle may github_branch property
@@ -7091,18 +7103,6 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path != null ? lpath_48 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path != null ? lpath_48 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("license") == 0)
-            {
-                // handle may license property
-                // .'$GalaxyInfoModelLoose'.license
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
                     return false;
                 }
             }
@@ -7155,33 +7155,7 @@ public class ansiblelint_meta extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_49 = new Path(prop, path);
-            if (prop.compareTo("standalone") == 0)
-            {
-                // handle must standalone property
-                must_count += 1;
-                // .'$GalaxyInfoModelStandalone'.standalone
-                res = json.isBoolean(pval) && json.asBoolean(pval) == true;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("description") == 0)
-            {
-                // handle must description property
-                must_count += 1;
-                // .'$GalaxyInfoModelStandalone'.description
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("author") == 0)
+            if (prop.compareTo("author") == 0)
             {
                 // handle must author property
                 must_count += 1;
@@ -7207,6 +7181,32 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("standalone") == 0)
+            {
+                // handle must standalone property
+                must_count += 1;
+                // .'$GalaxyInfoModelStandalone'.standalone
+                res = json.isBoolean(pval) && json.asBoolean(pval) == true;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle must description property
+                must_count += 1;
+                // .'$GalaxyInfoModelStandalone'.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("min_ansible_version") == 0)
             {
                 // handle must min_ansible_version property
@@ -7229,78 +7229,6 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.company]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", (path != null ? lpath_49 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("github_branch") == 0)
-            {
-                // handle may github_branch property
-                // .'$GalaxyInfoModelStandalone'.github_branch
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("issue_tracker_url") == 0)
-            {
-                // handle may issue_tracker_url property
-                // .'$GalaxyInfoModelStandalone'.issue_tracker_url
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("min_ansible_container_version") == 0)
-            {
-                // handle may min_ansible_container_version property
-                // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("cloud_platforms") == 0)
-            {
-                // handle may cloud_platforms property
-                // .'$GalaxyInfoModelStandalone'.cloud_platforms
-                res = true;
-            }
-            else if (prop.compareTo("galaxy_tags") == 0)
-            {
-                // handle may galaxy_tags property
-                // .'$GalaxyInfoModelStandalone'.galaxy_tags
-                res = json.isArray(pval);
-                if (res)
-                {
-                    int arr_96_idx = -1;
-                    Iterator<Object> arr_96_item_loop = json.arrayIterator(pval);
-                    while (arr_96_item_loop.hasNext())
-                    {
-                        arr_96_idx++;
-                        Object arr_96_item = arr_96_item_loop.next();
-                        Path arr_96_lpath = new Path(arr_96_idx, (path != null ? lpath_49 : null));
-                        // .'$GalaxyInfoModelStandalone'.galaxy_tags.0
-                        res = json.isString(arr_96_item);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path != null ? lpath_49 : null) != null ? arr_96_lpath : null));
-                            break;
-                        }
-                    }
-                }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path != null ? lpath_49 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path != null ? lpath_49 : null));
                     return false;
                 }
             }
@@ -7342,6 +7270,36 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("galaxy_tags") == 0)
+            {
+                // handle may galaxy_tags property
+                // .'$GalaxyInfoModelStandalone'.galaxy_tags
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_96_idx = -1;
+                    Iterator<Object> arr_96_item_loop = json.arrayIterator(pval);
+                    while (arr_96_item_loop.hasNext())
+                    {
+                        arr_96_idx++;
+                        Object arr_96_item = arr_96_item_loop.next();
+                        Path arr_96_lpath = new Path(arr_96_idx, (path != null ? lpath_49 : null));
+                        // .'$GalaxyInfoModelStandalone'.galaxy_tags.0
+                        res = json.isString(arr_96_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path != null ? lpath_49 : null) != null ? arr_96_lpath : null));
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("video_links") == 0)
             {
                 // handle may video_links property
@@ -7351,6 +7309,48 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.video_links]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("github_branch") == 0)
+            {
+                // handle may github_branch property
+                // .'$GalaxyInfoModelStandalone'.github_branch
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("cloud_platforms") == 0)
+            {
+                // handle may cloud_platforms property
+                // .'$GalaxyInfoModelStandalone'.cloud_platforms
+                res = true;
+            }
+            else if (prop.compareTo("issue_tracker_url") == 0)
+            {
+                // handle may issue_tracker_url property
+                // .'$GalaxyInfoModelStandalone'.issue_tracker_url
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("min_ansible_container_version") == 0)
+            {
+                // handle may min_ansible_container_version property
+                // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
                     return false;
                 }
             }
@@ -8017,15 +8017,27 @@ public class ansiblelint_meta extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_52 = new Path(prop, path);
-            if (prop.compareTo("become") == 0)
+            if (prop.compareTo("scm") == 0)
             {
-                // handle may become property
-                // .'$DependencyModelLoose'.become
-                res = json.isBoolean(pval);
+                // handle may scm property
+                // .'$DependencyModelLoose'.scm
+                res = json.isScalar(pval) && _jm_cst_64_set.contains(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.become]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.scm]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("src") == 0)
+            {
+                // handle may src property
+                // .'$DependencyModelLoose'.src
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
                     return false;
                 }
             }
@@ -8050,30 +8062,6 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("src") == 0)
-            {
-                // handle may src property
-                // .'$DependencyModelLoose'.src
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("scm") == 0)
-            {
-                // handle may scm property
-                // .'$DependencyModelLoose'.scm
-                res = json.isScalar(pval) && _jm_cst_64_set.contains(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.scm]", (path != null ? lpath_52 : null));
                     return false;
                 }
             }
@@ -8137,18 +8125,6 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("version") == 0)
-            {
-                // handle may version property
-                // .'$DependencyModelLoose'.version
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("when") == 0)
             {
                 // handle may when property
@@ -8158,6 +8134,30 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("become") == 0)
+            {
+                // handle may become property
+                // .'$DependencyModelLoose'.become
+                res = json.isBoolean(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.become]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("version") == 0)
+            {
+                // handle may version property
+                // .'$DependencyModelLoose'.version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
                     return false;
                 }
             }
@@ -8342,19 +8342,7 @@ public class ansiblelint_meta extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_53 = new Path(prop, path);
-            if (prop.compareTo("allow_duplicates") == 0)
-            {
-                // handle may allow_duplicates property
-                // .'$AnsibleMetaObj'.allow_duplicates
-                res = json.isBoolean(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_53 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("collections") == 0)
+            if (prop.compareTo("collections") == 0)
             {
                 // handle may collections property
                 // .'$AnsibleMetaObj'.collections
@@ -8363,6 +8351,18 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("galaxy_info") == 0)
+            {
+                // handle may galaxy_info property
+                // .'$AnsibleMetaObj'.galaxy_info
+                res = json_model_54(pval, (path != null ? lpath_53 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
                     return false;
                 }
             }
@@ -8414,15 +8414,15 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("galaxy_info") == 0)
+            else if (prop.compareTo("allow_duplicates") == 0)
             {
-                // handle may galaxy_info property
-                // .'$AnsibleMetaObj'.galaxy_info
-                res = json_model_54(pval, (path != null ? lpath_53 : null), rep);
+                // handle may allow_duplicates property
+                // .'$AnsibleMetaObj'.allow_duplicates
+                res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_53 : null));
                     return false;
                 }
             }

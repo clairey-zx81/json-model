@@ -50,18 +50,7 @@ sub json_model_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
-        {
-            # handle must description property
-            $must_count++;
-            # .'$Test'.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'data')
+        if ($prop eq 'data')
         {
             # handle must data property
             $must_count++;
@@ -74,6 +63,17 @@ sub json_model_3($$$)
             $must_count++;
             # .'$Test'.valid
             $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle must description property
+            $must_count++;
+            # .'$Test'.description
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -133,26 +133,6 @@ sub _jm_obj_0($$$)
                 return 0;
             }
         }
-        elsif ($prop eq 'validation')
-        {
-            # handle may validation property
-            # .'$Specification'.'@'.validation
-            $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'ecma262')
-        {
-            # handle may ecma262 property
-            # .'$Specification'.'@'.ecma262
-            $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
         elsif ($prop eq 'perl5')
         {
             # handle may perl5 property
@@ -168,6 +148,26 @@ sub _jm_obj_0($$$)
             # handle may quote property
             # .'$Specification'.'@'.quote
             $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'ecma262')
+        {
+            # handle may ecma262 property
+            # .'$Specification'.'@'.ecma262
+            $res = json_model_2($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'validation')
+        {
+            # handle may validation property
+            # .'$Specification'.'@'.validation
+            $res = json_model_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -230,25 +230,7 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
-        {
-            # handle must description property
-            $must_count++;
-            # .'$TestCase'.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'schema')
-        {
-            # handle must schema property
-            $must_count++;
-            # .'$TestCase'.schema
-            $res = 1;
-        }
-        elsif ($prop eq 'tests')
+        if ($prop eq 'tests')
         {
             # handle must tests property
             $must_count++;
@@ -273,6 +255,24 @@ sub json_model_5($$$)
                 my $ival_1 = scalar @$pval;
                 $res = $ival_1 >= 1;
             }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'schema')
+        {
+            # handle must schema property
+            $must_count++;
+            # .'$TestCase'.schema
+            $res = 1;
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle must description property
+            $must_count++;
+            # .'$TestCase'.description
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;

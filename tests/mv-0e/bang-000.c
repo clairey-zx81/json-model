@@ -43,29 +43,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x0000005f)))
+        else if (unlikely(jm_str_eq_2(prop, 0x0000002f)))
         {
-            // handle must _ property
+            // handle must / property
             must_count += 1;
-            // ._
-            res = json_is_boolean(pval);
+            // .'/'
+            res = json_is_integer(pval) && json_integer_value(pval) == 17;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [._]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [._]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000061)))
-        {
-            // handle must a property
-            must_count += 1;
-            // .a
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.a]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.a]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected =17 [.'/']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'/']", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -82,16 +69,29 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (likely(jm_str_eq_2(prop, 0x0000002f)))
+        else if (unlikely(jm_str_eq_2(prop, 0x0000005f)))
         {
-            // handle must / property
+            // handle must _ property
             must_count += 1;
-            // .'/'
-            res = json_is_integer(pval) && json_integer_value(pval) == 17;
+            // ._
+            res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =17 [.'/']", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'/']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [._]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [._]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000061)))
+        {
+            // handle must a property
+            must_count += 1;
+            // .a
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.a]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }

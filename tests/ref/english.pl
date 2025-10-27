@@ -630,21 +630,21 @@ sub _jm_obj_5($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '#')
-        {
-            # handle may # property
-            # .'$Model#Element'.'|'.0.'#'
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
         elsif ($prop eq '!')
         {
             # handle may ! property
             # .'$Model#Element'.'|'.0.'!'
             $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq '#')
+        {
+            # handle may # property
+            # .'$Model#Element'.'|'.0.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -770,21 +770,21 @@ sub _jm_obj_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '#')
+        if ($prop eq '')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.5.'$'.'#'
-            $res = jm_is_string($pval);
+            # handle may  property
+            # .'$Model#Root'.'|'.5.'$'.''
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq '')
+        elsif ($prop eq '#')
         {
-            # handle may  property
-            # .'$Model#Root'.'|'.5.'$'.''
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.5.'$'.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -926,11 +926,11 @@ sub _jm_obj_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '~')
+        if ($prop eq '#')
         {
-            # handle may ~ property
-            # .'$Model#Root'.'|'.5.'~'
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.5.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -956,11 +956,11 @@ sub _jm_obj_6($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '#')
+        elsif ($prop eq '~')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.5.'#'
-            $res = jm_is_string($pval);
+            # handle may ~ property
+            # .'$Model#Root'.'|'.5.'~'
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1002,21 +1002,21 @@ sub _jm_obj_10($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '#')
+        if ($prop eq '')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.4.'$'.'#'
-            $res = jm_is_string($pval);
+            # handle may  property
+            # .'$Model#Root'.'|'.4.'$'.''
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq '')
+        elsif ($prop eq '#')
         {
-            # handle may  property
-            # .'$Model#Root'.'|'.4.'$'.''
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.4.'$'.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1169,11 +1169,11 @@ sub _jm_obj_9($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '~')
+        elsif ($prop eq '#')
         {
-            # handle may ~ property
-            # .'$Model#Root'.'|'.4.'~'
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.4.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1199,11 +1199,11 @@ sub _jm_obj_9($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '#')
+        elsif ($prop eq '~')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.4.'#'
-            $res = jm_is_string($pval);
+            # handle may ~ property
+            # .'$Model#Root'.'|'.4.'~'
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1235,21 +1235,21 @@ sub _jm_obj_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '#')
+        if ($prop eq '')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.3.'$'.'#'
-            $res = jm_is_string($pval);
+            # handle may  property
+            # .'$Model#Root'.'|'.3.'$'.''
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq '')
+        elsif ($prop eq '#')
         {
-            # handle may  property
-            # .'$Model#Root'.'|'.3.'$'.''
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.3.'$'.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1402,11 +1402,11 @@ sub _jm_obj_12($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '~')
+        elsif ($prop eq '#')
         {
-            # handle may ~ property
-            # .'$Model#Root'.'|'.3.'~'
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.3.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1432,11 +1432,11 @@ sub _jm_obj_12($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '#')
+        elsif ($prop eq '~')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.3.'#'
-            $res = jm_is_string($pval);
+            # handle may ~ property
+            # .'$Model#Root'.'|'.3.'~'
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1468,21 +1468,21 @@ sub _jm_obj_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '#')
+        if ($prop eq '')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.2.'$'.'#'
-            $res = jm_is_string($pval);
+            # handle may  property
+            # .'$Model#Root'.'|'.2.'$'.''
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq '')
+        elsif ($prop eq '#')
         {
-            # handle may  property
-            # .'$Model#Root'.'|'.2.'$'.''
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.2.'$'.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1635,11 +1635,11 @@ sub _jm_obj_15($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '~')
+        elsif ($prop eq '#')
         {
-            # handle may ~ property
-            # .'$Model#Root'.'|'.2.'~'
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.2.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1665,11 +1665,11 @@ sub _jm_obj_15($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '#')
+        elsif ($prop eq '~')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.2.'#'
-            $res = jm_is_string($pval);
+            # handle may ~ property
+            # .'$Model#Root'.'|'.2.'~'
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1701,21 +1701,21 @@ sub _jm_obj_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '#')
+        if ($prop eq '')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.1.'$'.'#'
-            $res = jm_is_string($pval);
+            # handle may  property
+            # .'$Model#Root'.'|'.1.'$'.''
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq '')
+        elsif ($prop eq '#')
         {
-            # handle may  property
-            # .'$Model#Root'.'|'.1.'$'.''
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.1.'$'.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1868,11 +1868,11 @@ sub _jm_obj_18($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '~')
+        elsif ($prop eq '#')
         {
-            # handle may ~ property
-            # .'$Model#Root'.'|'.1.'~'
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.1.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1898,11 +1898,11 @@ sub _jm_obj_18($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '#')
+        elsif ($prop eq '~')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.1.'#'
-            $res = jm_is_string($pval);
+            # handle may ~ property
+            # .'$Model#Root'.'|'.1.'~'
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1934,21 +1934,21 @@ sub _jm_obj_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '#')
+        if ($prop eq '')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.0.'$'.'#'
-            $res = jm_is_string($pval);
+            # handle may  property
+            # .'$Model#Root'.'|'.0.'$'.''
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif ($prop eq '')
+        elsif ($prop eq '#')
         {
-            # handle may  property
-            # .'$Model#Root'.'|'.0.'$'.''
-            $res = json_model_4($pval, undef, undef);
+            # handle may # property
+            # .'$Model#Root'.'|'.0.'$'.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -2088,11 +2088,21 @@ sub _jm_obj_21($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '~')
+        elsif ($prop eq '!')
         {
-            # handle may ~ property
-            # .'$Model#Root'.'|'.0.'~'
-            $res = json_model_4($pval, undef, undef);
+            # handle may ! property
+            # .'$Model#Root'.'|'.0.'!'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq '#')
+        {
+            # handle may # property
+            # .'$Model#Root'.'|'.0.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -2118,21 +2128,11 @@ sub _jm_obj_21($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '#')
+        elsif ($prop eq '~')
         {
-            # handle may # property
-            # .'$Model#Root'.'|'.0.'#'
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq '!')
-        {
-            # handle may ! property
-            # .'$Model#Root'.'|'.0.'!'
-            $res = jm_is_boolean($pval);
+            # handle may ~ property
+            # .'$Model#Root'.'|'.0.'~'
+            $res = json_model_4($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2273,6 +2273,12 @@ sub _jm_obj_24($$$)
                 return 0;
             }
         }
+        elsif ($prop eq '*')
+        {
+            # handle may * property
+            # .'$Model#Transformation'.'|'.1.'*'
+            $res = 1;
+        }
         elsif ($prop eq '/')
         {
             # handle may / property
@@ -2294,12 +2300,6 @@ sub _jm_obj_24($$$)
             {
                 return 0;
             }
-        }
-        elsif ($prop eq '*')
-        {
-            # handle may * property
-            # .'$Model#Transformation'.'|'.1.'*'
-            $res = 1;
         }
         elsif (jm_starts_with($prop, '#'))
         {

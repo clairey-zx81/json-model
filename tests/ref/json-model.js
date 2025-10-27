@@ -1375,18 +1375,6 @@ function _jm_obj_5(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "#")
-        {
-            // handle may # property
-            // .'$Element'.'|'.0.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$Element'.'|'.0.'#']", (path ? lpath_8 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Element'.'|'.0.'#']", (path ? lpath_8 : null)])
-                return false;
-            }
-        }
         else if (prop == "!")
         {
             // handle may ! property
@@ -1396,6 +1384,18 @@ function _jm_obj_5(val, path, rep)
             {
                 rep !== null && rep.push(["not a bool [.'$Element'.'|'.0.'!']", (path ? lpath_8 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Element'.'|'.0.'!']", (path ? lpath_8 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Element'.'|'.0.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Element'.'|'.0.'#']", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Element'.'|'.0.'#']", (path ? lpath_8 : null)])
                 return false;
             }
         }
@@ -1559,7 +1559,13 @@ function json_model_30(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_9 = path ? path.concat([prop]) : null;
-        if (prop == "/")
+        if (prop == "*")
+        {
+            // handle may * property
+            // .'$Trafo'.'*'
+            res = true;
+        }
+        else if (prop == "/")
         {
             // handle may / property
             // .'$Trafo'.'/'
@@ -1600,12 +1606,6 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Trafo'.'~']", (path ? lpath_9 : null)])
                 return false;
             }
-        }
-        else if (prop == "*")
-        {
-            // handle may * property
-            // .'$Trafo'.'*'
-            res = true;
         }
         else
         {
@@ -1664,6 +1664,12 @@ function _jm_obj_7(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "*")
+        {
+            // handle may * property
+            // .'$Transformation'.'|'.1.'*'
+            res = true;
+        }
         else if (prop == "/")
         {
             // handle may / property
@@ -1705,12 +1711,6 @@ function _jm_obj_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Transformation'.'|'.1.'~']", (path ? lpath_11 : null)])
                 return false;
             }
-        }
-        else if (prop == "*")
-        {
-            // handle may * property
-            // .'$Transformation'.'|'.1.'*'
-            res = true;
         }
         else if (prop.startsWith("#"))
         {
@@ -2021,19 +2021,7 @@ function _jm_obj_9(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_18 = path ? path.concat([prop]) : null;
-        if (prop == "#")
-        {
-            // handle may # property
-            // .'$RootOnly'.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$RootOnly'.'$'.'#']", (path ? lpath_18 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$RootOnly'.'$'.'#']", (path ? lpath_18 : null)])
-                return false;
-            }
-        }
-        else if (prop == "")
+        if (prop == "")
         {
             // handle may  property
             // .'$RootOnly'.'$'.''
@@ -2042,6 +2030,18 @@ function _jm_obj_9(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $Url [.'$RootOnly'.'$'.'']", (path ? lpath_18 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$RootOnly'.'$'.'']", (path ? lpath_18 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$RootOnly'.'$'.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$RootOnly'.'$'.'#']", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$RootOnly'.'$'.'#']", (path ? lpath_18 : null)])
                 return false;
             }
         }
@@ -2192,19 +2192,7 @@ function json_model_38(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_17 = path ? path.concat([prop]) : null;
-        if (prop == "~")
-        {
-            // handle may ~ property
-            // .'$RootOnly'.'~'
-            res = json_model_2(pval, (path ? lpath_17 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $Url [.'$RootOnly'.'~']", (path ? lpath_17 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$RootOnly'.'~']", (path ? lpath_17 : null)])
-                return false;
-            }
-        }
-        else if (prop == "$")
+        if (prop == "$")
         {
             // handle may $ property
             // .'$RootOnly'.'$'
@@ -2225,6 +2213,18 @@ function json_model_38(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected element [.'$RootOnly'.'%']", (path ? lpath_17 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$RootOnly'.'%']", (path ? lpath_17 : null)])
+                return false;
+            }
+        }
+        else if (prop == "~")
+        {
+            // handle may ~ property
+            // .'$RootOnly'.'~'
+            res = json_model_2(pval, (path ? lpath_17 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Url [.'$RootOnly'.'~']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$RootOnly'.'~']", (path ? lpath_17 : null)])
                 return false;
             }
         }
@@ -2249,19 +2249,7 @@ function _jm_obj_12(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_21 = path ? path.concat([prop]) : null;
-        if (prop == "#")
-        {
-            // handle may # property
-            // .'$Root'.'|'.5.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.5.'$'.'#']", (path ? lpath_21 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.5.'$'.'#']", (path ? lpath_21 : null)])
-                return false;
-            }
-        }
-        else if (prop == "")
+        if (prop == "")
         {
             // handle may  property
             // .'$Root'.'|'.5.'$'.''
@@ -2270,6 +2258,18 @@ function _jm_obj_12(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.5.'$'.'']", (path ? lpath_21 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.5.'$'.'']", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Root'.'|'.5.'$'.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.5.'$'.'#']", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.5.'$'.'#']", (path ? lpath_21 : null)])
                 return false;
             }
         }
@@ -2418,15 +2418,15 @@ function _jm_obj_11(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_20 = path ? path.concat([prop]) : null;
-        if (prop == "~")
+        if (prop == "#")
         {
-            // handle may ~ property
-            // .'$Root'.'|'.5.'~'
-            res = json_model_2(pval, (path ? lpath_20 : null), rep);
+            // handle may # property
+            // .'$Root'.'|'.5.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.5.'~']", (path ? lpath_20 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.5.'~']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.5.'#']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.5.'#']", (path ? lpath_20 : null)])
                 return false;
             }
         }
@@ -2454,15 +2454,15 @@ function _jm_obj_11(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "#")
+        else if (prop == "~")
         {
-            // handle may # property
-            // .'$Root'.'|'.5.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may ~ property
+            // .'$Root'.'|'.5.'~'
+            res = json_model_2(pval, (path ? lpath_20 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.5.'#']", (path ? lpath_20 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.5.'#']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.5.'~']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.5.'~']", (path ? lpath_20 : null)])
                 return false;
             }
         }
@@ -2504,19 +2504,7 @@ function _jm_obj_15(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_24 = path ? path.concat([prop]) : null;
-        if (prop == "#")
-        {
-            // handle may # property
-            // .'$Root'.'|'.4.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.4.'$'.'#']", (path ? lpath_24 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.4.'$'.'#']", (path ? lpath_24 : null)])
-                return false;
-            }
-        }
-        else if (prop == "")
+        if (prop == "")
         {
             // handle may  property
             // .'$Root'.'|'.4.'$'.''
@@ -2525,6 +2513,18 @@ function _jm_obj_15(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.4.'$'.'']", (path ? lpath_24 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.4.'$'.'']", (path ? lpath_24 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Root'.'|'.4.'$'.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.4.'$'.'#']", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.4.'$'.'#']", (path ? lpath_24 : null)])
                 return false;
             }
         }
@@ -2702,15 +2702,15 @@ function _jm_obj_14(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "~")
+        else if (prop == "#")
         {
-            // handle may ~ property
-            // .'$Root'.'|'.4.'~'
-            res = json_model_2(pval, (path ? lpath_23 : null), rep);
+            // handle may # property
+            // .'$Root'.'|'.4.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.4.'~']", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.4.'~']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.4.'#']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.4.'#']", (path ? lpath_23 : null)])
                 return false;
             }
         }
@@ -2738,15 +2738,15 @@ function _jm_obj_14(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "#")
+        else if (prop == "~")
         {
-            // handle may # property
-            // .'$Root'.'|'.4.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may ~ property
+            // .'$Root'.'|'.4.'~'
+            res = json_model_2(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.4.'#']", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.4.'#']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.4.'~']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.4.'~']", (path ? lpath_23 : null)])
                 return false;
             }
         }
@@ -2788,19 +2788,7 @@ function _jm_obj_18(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_27 = path ? path.concat([prop]) : null;
-        if (prop == "#")
-        {
-            // handle may # property
-            // .'$Root'.'|'.3.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.3.'$'.'#']", (path ? lpath_27 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.3.'$'.'#']", (path ? lpath_27 : null)])
-                return false;
-            }
-        }
-        else if (prop == "")
+        if (prop == "")
         {
             // handle may  property
             // .'$Root'.'|'.3.'$'.''
@@ -2809,6 +2797,18 @@ function _jm_obj_18(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.3.'$'.'']", (path ? lpath_27 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.3.'$'.'']", (path ? lpath_27 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Root'.'|'.3.'$'.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.3.'$'.'#']", (path ? lpath_27 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.3.'$'.'#']", (path ? lpath_27 : null)])
                 return false;
             }
         }
@@ -2986,15 +2986,15 @@ function _jm_obj_17(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "~")
+        else if (prop == "#")
         {
-            // handle may ~ property
-            // .'$Root'.'|'.3.'~'
-            res = json_model_2(pval, (path ? lpath_26 : null), rep);
+            // handle may # property
+            // .'$Root'.'|'.3.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.3.'~']", (path ? lpath_26 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.3.'~']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.3.'#']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.3.'#']", (path ? lpath_26 : null)])
                 return false;
             }
         }
@@ -3022,15 +3022,15 @@ function _jm_obj_17(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "#")
+        else if (prop == "~")
         {
-            // handle may # property
-            // .'$Root'.'|'.3.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may ~ property
+            // .'$Root'.'|'.3.'~'
+            res = json_model_2(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.3.'#']", (path ? lpath_26 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.3.'#']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.3.'~']", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.3.'~']", (path ? lpath_26 : null)])
                 return false;
             }
         }
@@ -3072,19 +3072,7 @@ function _jm_obj_21(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_30 = path ? path.concat([prop]) : null;
-        if (prop == "#")
-        {
-            // handle may # property
-            // .'$Root'.'|'.2.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.2.'$'.'#']", (path ? lpath_30 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.2.'$'.'#']", (path ? lpath_30 : null)])
-                return false;
-            }
-        }
-        else if (prop == "")
+        if (prop == "")
         {
             // handle may  property
             // .'$Root'.'|'.2.'$'.''
@@ -3093,6 +3081,18 @@ function _jm_obj_21(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.2.'$'.'']", (path ? lpath_30 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.2.'$'.'']", (path ? lpath_30 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Root'.'|'.2.'$'.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.2.'$'.'#']", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.2.'$'.'#']", (path ? lpath_30 : null)])
                 return false;
             }
         }
@@ -3270,15 +3270,15 @@ function _jm_obj_20(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "~")
+        else if (prop == "#")
         {
-            // handle may ~ property
-            // .'$Root'.'|'.2.'~'
-            res = json_model_2(pval, (path ? lpath_29 : null), rep);
+            // handle may # property
+            // .'$Root'.'|'.2.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.2.'~']", (path ? lpath_29 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.2.'~']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.2.'#']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.2.'#']", (path ? lpath_29 : null)])
                 return false;
             }
         }
@@ -3306,15 +3306,15 @@ function _jm_obj_20(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "#")
+        else if (prop == "~")
         {
-            // handle may # property
-            // .'$Root'.'|'.2.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may ~ property
+            // .'$Root'.'|'.2.'~'
+            res = json_model_2(pval, (path ? lpath_29 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.2.'#']", (path ? lpath_29 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.2.'#']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.2.'~']", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.2.'~']", (path ? lpath_29 : null)])
                 return false;
             }
         }
@@ -3356,19 +3356,7 @@ function _jm_obj_24(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_33 = path ? path.concat([prop]) : null;
-        if (prop == "#")
-        {
-            // handle may # property
-            // .'$Root'.'|'.1.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.1.'$'.'#']", (path ? lpath_33 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.1.'$'.'#']", (path ? lpath_33 : null)])
-                return false;
-            }
-        }
-        else if (prop == "")
+        if (prop == "")
         {
             // handle may  property
             // .'$Root'.'|'.1.'$'.''
@@ -3377,6 +3365,18 @@ function _jm_obj_24(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.1.'$'.'']", (path ? lpath_33 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.1.'$'.'']", (path ? lpath_33 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Root'.'|'.1.'$'.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.1.'$'.'#']", (path ? lpath_33 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.1.'$'.'#']", (path ? lpath_33 : null)])
                 return false;
             }
         }
@@ -3554,15 +3554,15 @@ function _jm_obj_23(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "~")
+        else if (prop == "#")
         {
-            // handle may ~ property
-            // .'$Root'.'|'.1.'~'
-            res = json_model_2(pval, (path ? lpath_32 : null), rep);
+            // handle may # property
+            // .'$Root'.'|'.1.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.1.'~']", (path ? lpath_32 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.1.'~']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.1.'#']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.1.'#']", (path ? lpath_32 : null)])
                 return false;
             }
         }
@@ -3590,15 +3590,15 @@ function _jm_obj_23(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "#")
+        else if (prop == "~")
         {
-            // handle may # property
-            // .'$Root'.'|'.1.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may ~ property
+            // .'$Root'.'|'.1.'~'
+            res = json_model_2(pval, (path ? lpath_32 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.1.'#']", (path ? lpath_32 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.1.'#']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.1.'~']", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.1.'~']", (path ? lpath_32 : null)])
                 return false;
             }
         }
@@ -3640,19 +3640,7 @@ function _jm_obj_27(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_36 = path ? path.concat([prop]) : null;
-        if (prop == "#")
-        {
-            // handle may # property
-            // .'$Root'.'|'.0.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.0.'$'.'#']", (path ? lpath_36 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'$'.'#']", (path ? lpath_36 : null)])
-                return false;
-            }
-        }
-        else if (prop == "")
+        if (prop == "")
         {
             // handle may  property
             // .'$Root'.'|'.0.'$'.''
@@ -3661,6 +3649,18 @@ function _jm_obj_27(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.0.'$'.'']", (path ? lpath_36 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'$'.'']", (path ? lpath_36 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Root'.'|'.0.'$'.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.0.'$'.'#']", (path ? lpath_36 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'$'.'#']", (path ? lpath_36 : null)])
                 return false;
             }
         }
@@ -3823,15 +3823,27 @@ function _jm_obj_26(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "~")
+        else if (prop == "!")
         {
-            // handle may ~ property
-            // .'$Root'.'|'.0.'~'
-            res = json_model_2(pval, (path ? lpath_35 : null), rep);
+            // handle may ! property
+            // .'$Root'.'|'.0.'!'
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.0.'~']", (path ? lpath_35 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'~']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["not a bool [.'$Root'.'|'.0.'!']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'!']", (path ? lpath_35 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Root'.'|'.0.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.0.'#']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'#']", (path ? lpath_35 : null)])
                 return false;
             }
         }
@@ -3859,27 +3871,15 @@ function _jm_obj_26(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "#")
+        else if (prop == "~")
         {
-            // handle may # property
-            // .'$Root'.'|'.0.'#'
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may ~ property
+            // .'$Root'.'|'.0.'~'
+            res = json_model_2(pval, (path ? lpath_35 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Root'.'|'.0.'#']", (path ? lpath_35 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'#']", (path ? lpath_35 : null)])
-                return false;
-            }
-        }
-        else if (prop == "!")
-        {
-            // handle may ! property
-            // .'$Root'.'|'.0.'!'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$Root'.'|'.0.'!']", (path ? lpath_35 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'!']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Root'.'|'.0.'~']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'~']", (path ? lpath_35 : null)])
                 return false;
             }
         }

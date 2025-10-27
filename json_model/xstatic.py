@@ -35,9 +35,10 @@ class CodeGenerator:
     - prefix: use this prefix for file-level identifiers.
     - map_threshold: whether to inline property name checks (up to threshold) or use a map.
     - map_share: whether to share property maps
-    - may_must_open_ratio: max ratio of optional props for mmop scheme, default 0.5
     - may_must_open_threshold: max number of optional props to mmop scheme, default 5
     - must_only_threshold: max number of mandatory props for must-only scheme, default 5
+    - sort_must: whether to sort must properties, default True
+    - sort_may: whether to sort may properties, default True
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
@@ -45,8 +46,8 @@ class CodeGenerator:
 
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
-                 may_must_open_ratio: float = 0.5, may_must_open_threshold: int = 5,
-                 must_only_threshold: int = 5,
+                 may_must_open_threshold: int = 5, must_only_threshold: int = 5,
+                 sort_must: bool = True, sort_may: bool = True,
                  execute: bool = True, report: bool = True, path: bool = True,
                  package: str|None = None, debug: bool = False):
 
@@ -56,9 +57,10 @@ class CodeGenerator:
         self._lang = language
         self._prefix = prefix
         self._map_threshold = map_threshold
-        self._may_must_open_ratio = may_must_open_ratio
         self._may_must_open_threshold = may_must_open_threshold
-        self.must_only_threshold = must_only_threshold
+        self._must_only_threshold = must_only_threshold
+        self._sort_must = sort_must
+        self._sort_may = sort_may
         self._map_share = map_share
         self._report = report
         self._path = path
@@ -742,7 +744,7 @@ class CodeGenerator:
         # shortcut for must-only close object
         # NOTE we assume that this strategy is always beneficial, but it may depend on the target
         if must and not may and not defs and not regs and not oth and \
-                len(must) <= self.must_only_threshold:
+                len(must) <= self._must_only_threshold:
             return self._closeMuObject(jm, must, mpath, oname, res, val, vpath)
 
         # used for evaluating likely-ness
@@ -774,7 +776,11 @@ class CodeGenerator:
 
             if len(must) <= self._map_threshold:  # unroll property checks
 
-                for p, m in must.items():
+                must_pm = must.items()
+                if self._sort_must:
+                    must_pm = sorted(must_pm, key=lambda pm: (len(pm[0]), pm[0]))
+
+                for p, m in must_pm:
 
                     likely = is_likely(1, 0.5 * expected_nprops)
                     expected_nprops -= 1
@@ -834,7 +840,11 @@ class CodeGenerator:
 
             if len(may) <= self._map_threshold:  # simple few-property code
 
-                for p, m in may.items():
+                may_pm = may.items()
+                if self._sort_may:
+                    may_pm = sorted(may_pm, key=lambda pm: (len(pm[0]), pm[0]))
+
+                for p, m in may_pm:
 
                     likely = is_likely(MAY_P, 0.5 * expected_nprops)
                     expected_nprops -= MAY_P
@@ -1679,9 +1689,10 @@ def xstatic_compile(
         relib: str|None = None,
         map_threshold: int = 3,
         map_share: bool = False,
-        may_must_open_ratio: float = 0.5,
         may_must_open_threshold: int = 5,
         must_only_threshold: int = 5,
+        sort_must: bool = True,
+        sort_may: bool = True,
         execute: bool = True,
         debug: bool = False,
         report: bool = True,
@@ -1701,9 +1712,10 @@ def xstatic_compile(
     - prefix: prefix for generated functions.
     - map_threshold: inline property checks under this threshold.
     - map_share: share generated property maps.
-    - may_must_open_ratio: mmop scheme if less that ratio opt props/all props
     - may_must_open_threshold: mmop scheme if below threshold opt props
     - must_only_threshold: must-only scheme if below threshold mandatory props
+    - sort_must: whether to sort must properties
+    - sort_may: whether to sort may properties
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
@@ -1763,9 +1775,9 @@ def xstatic_compile(
     gen = CodeGenerator(
         model._globs, target, fname, prefix=prefix,  # type: ignore
         execute=execute, map_threshold=map_threshold, map_share=map_share,
-        may_must_open_ratio=may_must_open_ratio,
         may_must_open_threshold=may_must_open_threshold,
         must_only_threshold=must_only_threshold,
+        sort_must=sort_must, sort_may=sort_may,
         debug=debug, report=report, package=package
     )
 

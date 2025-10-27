@@ -74,17 +74,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'b' THEN
-      -- handle may b property
-      -- .b
-      res := json_model_3(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
     ELSEIF prop = 'a' THEN
       -- handle may a property
       -- .a
       res := json_model_7(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'b' THEN
+      -- handle may b property
+      -- .b
+      res := json_model_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

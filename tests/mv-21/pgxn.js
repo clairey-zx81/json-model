@@ -164,18 +164,6 @@ function json_model_6(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "abstract")
-        {
-            // handle may abstract property
-            // .'$Provide'.abstract
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$Provide'.abstract]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Provide'.abstract]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
         else if (prop == "docfile")
         {
             // handle may docfile property
@@ -185,6 +173,18 @@ function json_model_6(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected string [.'$Provide'.docfile]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Provide'.docfile]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "abstract")
+        {
+            // handle may abstract property
+            // .'$Provide'.abstract
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Provide'.abstract]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Provide'.abstract]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -803,63 +803,6 @@ function json_model_1(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "version")
-        {
-            // handle must version property
-            must_count += 1;
-            // .version
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.version]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.version]", (path ? lpath_7 : null)])
-                return false;
-            }
-        }
-        else if (prop == "abstract")
-        {
-            // handle must abstract property
-            must_count += 1;
-            // .abstract
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.abstract]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.abstract]", (path ? lpath_7 : null)])
-                return false;
-            }
-        }
-        else if (prop == "maintainer")
-        {
-            // handle must maintainer property
-            must_count += 1;
-            // .maintainer
-            // .maintainer.'|'.0
-            res = json_model_2(pval, (path ? lpath_7 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $neStr [.maintainer.'|'.0]", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
-                // .maintainer.'|'.1
-                res = json_model_3(pval, (path ? lpath_7 : null), rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected $neStrList [.maintainer.'|'.1]", (path ? lpath_7 : null)])
-                }
-            }
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["no model matched [.maintainer.'|']", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.maintainer]", (path ? lpath_7 : null)])
-                return false;
-            }
-        }
         else if (prop == "license")
         {
             // handle must license property
@@ -900,6 +843,32 @@ function json_model_1(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "version")
+        {
+            // handle must version property
+            must_count += 1;
+            // .version
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.version]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.version]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "abstract")
+        {
+            // handle must abstract property
+            must_count += 1;
+            // .abstract
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.abstract]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.abstract]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
         else if (prop == "provides")
         {
             // handle must provides property
@@ -926,6 +895,37 @@ function json_model_1(val, path, rep)
                 return false;
             }
         }
+        else if (prop == "maintainer")
+        {
+            // handle must maintainer property
+            must_count += 1;
+            // .maintainer
+            // .maintainer.'|'.0
+            res = json_model_2(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $neStr [.maintainer.'|'.0]", (path ? lpath_7 : null)])
+            }
+            if (! res)
+            {
+                // .maintainer.'|'.1
+                res = json_model_3(pval, (path ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $neStrList [.maintainer.'|'.1]", (path ? lpath_7 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.maintainer.'|']", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.maintainer]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
         else if (prop == "url")
         {
             // handle may url property
@@ -935,6 +935,54 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $URL [.url]", (path ? lpath_7 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.url]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "tags")
+        {
+            // handle may tags property
+            // .tags
+            res = json_model_3(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $neStrList [.tags]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.tags]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "prereqs")
+        {
+            // handle may prereqs property
+            // .prereqs
+            res = json_model_16(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Prereqs [.prereqs]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.prereqs]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "no_index")
+        {
+            // handle may no_index property
+            // .no_index
+            res = _jm_obj_6(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.no_index]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.no_index]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "resources")
+        {
+            // handle may resources property
+            // .resources
+            res = json_model_8(pval, (path ? lpath_7 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Resources [.resources]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.resources]", (path ? lpath_7 : null)])
                 return false;
             }
         }
@@ -962,30 +1010,6 @@ function json_model_1(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "tags")
-        {
-            // handle may tags property
-            // .tags
-            res = json_model_3(pval, (path ? lpath_7 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $neStrList [.tags]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.tags]", (path ? lpath_7 : null)])
-                return false;
-            }
-        }
-        else if (prop == "no_index")
-        {
-            // handle may no_index property
-            // .no_index
-            res = _jm_obj_6(pval, (path ? lpath_7 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.no_index]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.no_index]", (path ? lpath_7 : null)])
-                return false;
-            }
-        }
         else if (prop == "release_status")
         {
             // handle may release_status property
@@ -995,30 +1019,6 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $Status [.release_status]", (path ? lpath_7 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.release_status]", (path ? lpath_7 : null)])
-                return false;
-            }
-        }
-        else if (prop == "resources")
-        {
-            // handle may resources property
-            // .resources
-            res = json_model_8(pval, (path ? lpath_7 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $Resources [.resources]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.resources]", (path ? lpath_7 : null)])
-                return false;
-            }
-        }
-        else if (prop == "prereqs")
-        {
-            // handle may prereqs property
-            // .prereqs
-            res = json_model_16(pval, (path ? lpath_7 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $Prereqs [.prereqs]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.prereqs]", (path ? lpath_7 : null)])
                 return false;
             }
         }

@@ -49,6 +49,32 @@ public class bang_000 extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("/") == 0)
+            {
+                // handle must / property
+                must_count += 1;
+                // .'/'
+                res = json.isInteger(pval) && json.asLong(pval) == 17;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected =17 [.'/']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'/']", (path != null ? lpath_0 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("?") == 0)
+            {
+                // handle must ? property
+                must_count += 1;
+                // .'?'
+                res = json.isDouble(pval) && json.asDouble(pval) >= 0.0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0.0 strict float [.'?']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'?']", (path != null ? lpath_0 : null));
+                    return false;
+                }
+            }
             else if (prop.compareTo("_") == 0)
             {
                 // handle must _ property
@@ -72,32 +98,6 @@ public class bang_000 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.a]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.a]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("?") == 0)
-            {
-                // handle must ? property
-                must_count += 1;
-                // .'?'
-                res = json.isDouble(pval) && json.asDouble(pval) >= 0.0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0.0 strict float [.'?']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'?']", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("/") == 0)
-            {
-                // handle must / property
-                must_count += 1;
-                // .'/'
-                res = json.isInteger(pval) && json.asLong(pval) == 17;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected =17 [.'/']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'/']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }

@@ -239,7 +239,15 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
+    IF prop = 'key' THEN
+      -- handle must key property
+      must_count := must_count + 1;
+      -- .'$Prompts'.'|'.0.key
+      res := json_model_7(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.0.type
@@ -255,11 +263,12 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'key' THEN
-      -- handle must key property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.0.key
-      res := json_model_7(pval, NULL, NULL);
+    ELSEIF prop = 'suggestions' THEN
+      -- handle may suggestions property
+      -- .'$Prompts'.'|'.0.suggestions
+      -- .'$Prompts'.'|'.0.suggestions.'|'.0
+      -- .'$Prompts'.'|'.0.suggestions.'|'.1
+      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_2(pval, NULL, NULL) OR _jm_obj_1(pval, NULL, NULL));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -267,15 +276,6 @@ BEGIN
       -- handle may initialValue property
       -- .'$Prompts'.'|'.0.initialValue
       res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'suggestions' THEN
-      -- handle may suggestions property
-      -- .'$Prompts'.'|'.0.suggestions
-      -- .'$Prompts'.'|'.0.suggestions.'|'.0
-      -- .'$Prompts'.'|'.0.suggestions.'|'.1
-      res := JSONB_TYPEOF(pval) = 'object' AND (_jm_obj_2(pval, NULL, NULL) OR _jm_obj_1(pval, NULL, NULL));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -301,7 +301,15 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
+    IF prop = 'key' THEN
+      -- handle must key property
+      must_count := must_count + 1;
+      -- .'$Prompts'.'|'.1.key
+      res := json_model_7(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.1.type
@@ -314,14 +322,6 @@ BEGIN
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.1.title
       res := json_model_6(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'key' THEN
-      -- handle must key property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.1.key
-      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -362,16 +362,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$Prompts'.'|'.2.options.'@'.0.description
+    ELSEIF prop = 'name' THEN
+      -- handle may name property
+      -- .'$Prompts'.'|'.2.options.'@'.0.name
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'name' THEN
-      -- handle may name property
-      -- .'$Prompts'.'|'.2.options.'@'.0.name
+    ELSEIF prop = 'description' THEN
+      -- handle may description property
+      -- .'$Prompts'.'|'.2.options.'@'.0.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -400,7 +400,15 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
+    IF prop = 'key' THEN
+      -- handle must key property
+      must_count := must_count + 1;
+      -- .'$Prompts'.'|'.2.key
+      res := json_model_7(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.2.type
@@ -413,14 +421,6 @@ BEGIN
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.2.title
       res := json_model_6(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'key' THEN
-      -- handle must key property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.2.key
-      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -468,7 +468,15 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
+    IF prop = 'key' THEN
+      -- handle must key property
+      must_count := must_count + 1;
+      -- .'$Prompts'.'|'.3.key
+      res := json_model_7(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.3.type
@@ -481,14 +489,6 @@ BEGIN
       must_count := must_count + 1;
       -- .'$Prompts'.'|'.3.title
       res := json_model_6(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'key' THEN
-      -- handle must key property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.3.key
-      res := json_model_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -507,16 +507,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'valueFormat' THEN
-      -- handle may valueFormat property
-      -- .'$Prompts'.'|'.3.valueFormat
+    ELSEIF prop = 'labelFormat' THEN
+      -- handle may labelFormat property
+      -- .'$Prompts'.'|'.3.labelFormat
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'labelFormat' THEN
-      -- handle may labelFormat property
-      -- .'$Prompts'.'|'.3.labelFormat
+    ELSEIF prop = 'valueFormat' THEN
+      -- handle may valueFormat property
+      -- .'$Prompts'.'|'.3.valueFormat
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -642,9 +642,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'subprocess' THEN
-      -- handle may subprocess property
-      -- .customCommands.'@'.0.subprocess
+    ELSEIF prop = 'after' THEN
+      -- handle may after property
+      -- .customCommands.'@'.0.after
+      res := _jm_obj_8(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'stream' THEN
+      -- handle may stream property
+      -- .customCommands.'@'.0.stream
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
@@ -666,10 +673,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'loadingText' THEN
-      -- handle may loadingText property
-      -- .customCommands.'@'.0.loadingText
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'showOutput' THEN
+      -- handle may showOutput property
+      -- .customCommands.'@'.0.showOutput
+      res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'subprocess' THEN
+      -- handle may subprocess property
+      -- .customCommands.'@'.0.subprocess
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -680,24 +694,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'stream' THEN
-      -- handle may stream property
-      -- .customCommands.'@'.0.stream
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'showOutput' THEN
-      -- handle may showOutput property
-      -- .customCommands.'@'.0.showOutput
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'after' THEN
-      -- handle may after property
-      -- .customCommands.'@'.0.after
-      res := _jm_obj_8(pval, NULL, NULL);
+    ELSEIF prop = 'loadingText' THEN
+      -- handle may loadingText property
+      -- .customCommands.'@'.0.loadingText
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -984,17 +984,17 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'manualCommit' THEN
-      -- handle may manualCommit property
-      -- .git.merging.manualCommit
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'args' THEN
+    IF prop = 'args' THEN
       -- handle may args property
       -- .git.merging.args
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'manualCommit' THEN
+      -- handle may manualCommit property
+      -- .git.merging.manualCommit
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1038,7 +1038,19 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'colorArg' THEN
+    IF prop = 'pager' THEN
+      -- handle may pager property
+      -- .git.paging.pager
+      -- .git.paging.pager.'@'
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF res THEN
+        sval_1 := JSON_VALUE(pval, '$' RETURNING TEXT);
+        res := sval_1 <> '';
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'colorArg' THEN
       -- handle may colorArg property
       -- .git.paging.colorArg
       res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_6(pval);
@@ -1049,18 +1061,6 @@ BEGIN
       -- handle may useConfig property
       -- .git.paging.useConfig
       res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'pager' THEN
-      -- handle may pager property
-      -- .git.paging.pager
-      -- .git.paging.pager.'@'
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF res THEN
-        sval_1 := JSON_VALUE(pval, '$' RETURNING TEXT);
-        res := sval_1 <> '';
-      END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1711,16 +1711,16 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'toggleDragSelect' THEN
-      -- handle may toggleDragSelect property
-      -- .keybinding.main.toggleDragSelect
+    IF prop = 'pickBothHunks' THEN
+      -- handle may pickBothHunks property
+      -- .keybinding.main.pickBothHunks
       res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'toggleDragSelect-alt' THEN
-      -- handle may toggleDragSelect-alt property
-      -- .keybinding.main.'toggleDragSelect-alt'
+    ELSEIF prop = 'toggleDragSelect' THEN
+      -- handle may toggleDragSelect property
+      -- .keybinding.main.toggleDragSelect
       res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
@@ -1732,9 +1732,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'pickBothHunks' THEN
-      -- handle may pickBothHunks property
-      -- .keybinding.main.pickBothHunks
+    ELSEIF prop = 'toggleDragSelect-alt' THEN
+      -- handle may toggleDragSelect-alt property
+      -- .keybinding.main.'toggleDragSelect-alt'
       res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
@@ -1795,16 +1795,16 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'checkForUpdate' THEN
-      -- handle may checkForUpdate property
-      -- .keybinding.status.checkForUpdate
+    IF prop = 'recentRepos' THEN
+      -- handle may recentRepos property
+      -- .keybinding.status.recentRepos
       res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'recentRepos' THEN
-      -- handle may recentRepos property
-      -- .keybinding.status.recentRepos
+    ELSEIF prop = 'checkForUpdate' THEN
+      -- handle may checkForUpdate property
+      -- .keybinding.status.checkForUpdate
       res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
@@ -1989,38 +1989,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'copyToClipboardCmd' THEN
-      -- handle may copyToClipboardCmd property
-      -- .os.copyToClipboardCmd
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'editPreset' THEN
-      -- handle may editPreset property
-      -- .os.editPreset
-      -- .os.editPreset.'|'.0
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_14(pval) OR JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'edit' THEN
+    IF prop = 'edit' THEN
       -- handle may edit property
       -- .os.edit
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'editAtLine' THEN
-      -- handle may editAtLine property
-      -- .os.editAtLine
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'editAtLineAndWait' THEN
-      -- handle may editAtLineAndWait property
-      -- .os.editAtLineAndWait
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -2035,6 +2006,35 @@ BEGIN
     ELSEIF prop = 'openLink' THEN
       -- handle may openLink property
       -- .os.openLink
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'editAtLine' THEN
+      -- handle may editAtLine property
+      -- .os.editAtLine
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'editPreset' THEN
+      -- handle may editPreset property
+      -- .os.editPreset
+      -- .os.editPreset.'|'.0
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_14(pval) OR JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'editAtLineAndWait' THEN
+      -- handle may editAtLineAndWait property
+      -- .os.editAtLineAndWait
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'copyToClipboardCmd' THEN
+      -- handle may copyToClipboardCmd property
+      -- .os.copyToClipboardCmd
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -2078,16 +2078,16 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'refreshInterval' THEN
-      -- handle may refreshInterval property
-      -- .refresher.refreshInterval
+    IF prop = 'fetchInterval' THEN
+      -- handle may fetchInterval property
+      -- .refresher.fetchInterval
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'fetchInterval' THEN
-      -- handle may fetchInterval property
-      -- .refresher.fetchInterval
+    ELSEIF prop = 'refreshInterval' THEN
+      -- handle may refreshInterval property
+      -- .refresher.refreshInterval
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
@@ -2159,17 +2159,17 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'method' THEN
-      -- handle may method property
-      -- .update.method
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_15(pval);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'days' THEN
+    IF prop = 'days' THEN
       -- handle may days property
       -- .update.days
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'method' THEN
+      -- handle may method property
+      -- .update.method
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_15(pval);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

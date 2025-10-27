@@ -41,6 +41,24 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'!']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'!']", lpath_0 if path is not None else None))
                 return False
+        elif prop == "/":
+            # handle must / property
+            must_count += 1
+            # .'/'
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 17
+            if not res:
+                rep is None or rep.append(("unexpected =17 [.'/']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'/']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "?":
+            # handle must ? property
+            must_count += 1
+            # .'?'
+            res = isinstance(pval, float) and pval >= 0.0
+            if not res:
+                rep is None or rep.append(("not a 0.0 strict float [.'?']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'?']", lpath_0 if path is not None else None))
+                return False
         elif prop == "_":
             # handle must _ property
             must_count += 1
@@ -58,24 +76,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.a]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.a]", lpath_0 if path is not None else None))
-                return False
-        elif prop == "?":
-            # handle must ? property
-            must_count += 1
-            # .'?'
-            res = isinstance(pval, float) and pval >= 0.0
-            if not res:
-                rep is None or rep.append(("not a 0.0 strict float [.'?']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'?']", lpath_0 if path is not None else None))
-                return False
-        elif prop == "/":
-            # handle must / property
-            must_count += 1
-            # .'/'
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 17
-            if not res:
-                rep is None or rep.append(("unexpected =17 [.'/']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'/']", lpath_0 if path is not None else None))
                 return False
         elif prop == "b":
             # handle may b property

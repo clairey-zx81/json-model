@@ -37,18 +37,7 @@ function json_model_3(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "description")
-        {
-            // handle must description property
-            must_count += 1;
-            // .'$Test'.description
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "data")
+        if (prop == "data")
         {
             // handle must data property
             must_count += 1;
@@ -61,6 +50,17 @@ function json_model_3(val, path, rep)
             must_count += 1;
             // .'$Test'.valid
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "description")
+        {
+            // handle must description property
+            must_count += 1;
+            // .'$Test'.description
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
                 return false;
@@ -108,26 +108,6 @@ function _jm_obj_0(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "validation")
-        {
-            // handle may validation property
-            // .'$Specification'.'@'.validation
-            res = json_model_2(pval, null, null);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "ecma262")
-        {
-            // handle may ecma262 property
-            // .'$Specification'.'@'.ecma262
-            res = json_model_2(pval, null, null);
-            if (! res)
-            {
-                return false;
-            }
-        }
         else if (prop == "perl5")
         {
             // handle may perl5 property
@@ -143,6 +123,26 @@ function _jm_obj_0(val, path, rep)
             // handle may quote property
             // .'$Specification'.'@'.quote
             res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "ecma262")
+        {
+            // handle may ecma262 property
+            // .'$Specification'.'@'.ecma262
+            res = json_model_2(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "validation")
+        {
+            // handle may validation property
+            // .'$Specification'.'@'.validation
+            res = json_model_2(pval, null, null);
             if (! res)
             {
                 return false;
@@ -202,25 +202,7 @@ function json_model_5(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "description")
-        {
-            // handle must description property
-            must_count += 1;
-            // .'$TestCase'.description
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "schema")
-        {
-            // handle must schema property
-            must_count += 1;
-            // .'$TestCase'.schema
-            res = true;
-        }
-        else if (prop == "tests")
+        if (prop == "tests")
         {
             // handle must tests property
             must_count += 1;
@@ -245,6 +227,24 @@ function json_model_5(val, path, rep)
                 let ival_1 = pval.length;
                 res = ival_1 >= 1;
             }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else if (prop == "schema")
+        {
+            // handle must schema property
+            must_count += 1;
+            // .'$TestCase'.schema
+            res = true;
+        }
+        else if (prop == "description")
+        {
+            // handle must description property
+            must_count += 1;
+            // .'$TestCase'.description
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
                 return false;

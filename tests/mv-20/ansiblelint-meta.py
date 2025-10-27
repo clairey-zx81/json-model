@@ -4102,35 +4102,7 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_47: Path = (path + [ prop ]) if path is not None else None
-        if prop == "cloud_platforms":
-            # handle may cloud_platforms property
-            # .'$GalaxyInfoModelCollection'.cloud_platforms
-            res = True
-        elif prop == "galaxy_tags":
-            # handle may galaxy_tags property
-            # .'$GalaxyInfoModelCollection'.galaxy_tags
-            res = isinstance(pval, list)
-            if res:
-                for arr_95_idx, arr_95_item in enumerate(pval):
-                    arr_95_lpath: Path = ((lpath_47 if path is not None else None) + [ arr_95_idx ]) if (lpath_47 if path is not None else None) is not None else None
-                    # .'$GalaxyInfoModelCollection'.galaxy_tags.0
-                    res = isinstance(arr_95_item, str)
-                    if not res:
-                        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", arr_95_lpath if (lpath_47 if path is not None else None) is not None else None))
-                        break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", lpath_47 if path is not None else None))
-                return False
-        elif prop == "min_ansible_version":
-            # handle may min_ansible_version property
-            # .'$GalaxyInfoModelCollection'.min_ansible_version
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", lpath_47 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", lpath_47 if path is not None else None))
-                return False
-        elif prop == "namespace":
+        if prop == "namespace":
             # handle may namespace property
             # .'$GalaxyInfoModelCollection'.namespace
             # "/^[a-z][-a-z0-9_]+$/"
@@ -4156,6 +4128,22 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", lpath_47 if path is not None else None))
                 return False
+        elif prop == "galaxy_tags":
+            # handle may galaxy_tags property
+            # .'$GalaxyInfoModelCollection'.galaxy_tags
+            res = isinstance(pval, list)
+            if res:
+                for arr_95_idx, arr_95_item in enumerate(pval):
+                    arr_95_lpath: Path = ((lpath_47 if path is not None else None) + [ arr_95_idx ]) if (lpath_47 if path is not None else None) is not None else None
+                    # .'$GalaxyInfoModelCollection'.galaxy_tags.0
+                    res = isinstance(arr_95_item, str)
+                    if not res:
+                        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", arr_95_lpath if (lpath_47 if path is not None else None) is not None else None))
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", lpath_47 if path is not None else None))
+                return False
         elif prop == "video_links":
             # handle may video_links property
             # .'$GalaxyInfoModelCollection'.video_links
@@ -4163,6 +4151,18 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", lpath_47 if path is not None else None))
+                return False
+        elif prop == "cloud_platforms":
+            # handle may cloud_platforms property
+            # .'$GalaxyInfoModelCollection'.cloud_platforms
+            res = True
+        elif prop == "min_ansible_version":
+            # handle may min_ansible_version property
+            # .'$GalaxyInfoModelCollection'.min_ansible_version
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", lpath_47 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", lpath_47 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelCollection']", lpath_47 if path is not None else None))
@@ -4205,6 +4205,14 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.company]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", lpath_48 if path is not None else None))
                 return False
+        elif prop == "license":
+            # handle may license property
+            # .'$GalaxyInfoModelLoose'.license
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.license]", lpath_48 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", lpath_48 if path is not None else None))
+                return False
         elif prop == "github_branch":
             # handle may github_branch property
             # .'$GalaxyInfoModelLoose'.github_branch
@@ -4220,14 +4228,6 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", lpath_48 if path is not None else None))
-                return False
-        elif prop == "license":
-            # handle may license property
-            # .'$GalaxyInfoModelLoose'.license
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.license]", lpath_48 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", lpath_48 if path is not None else None))
                 return False
         elif prop == "min_ansible_container_version":
             # handle may min_ansible_container_version property
@@ -4257,25 +4257,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_49: Path = (path + [ prop ]) if path is not None else None
-        if prop == "standalone":
-            # handle must standalone property
-            must_count += 1
-            # .'$GalaxyInfoModelStandalone'.standalone
-            res = isinstance(pval, bool) and pval == True
-            if not res:
-                rep is None or rep.append(("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", lpath_49 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", lpath_49 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle must description property
-            must_count += 1
-            # .'$GalaxyInfoModelStandalone'.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.description]", lpath_49 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", lpath_49 if path is not None else None))
-                return False
-        elif prop == "author":
+        if prop == "author":
             # handle must author property
             must_count += 1
             # .'$GalaxyInfoModelStandalone'.author
@@ -4293,6 +4275,24 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.license]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", lpath_49 if path is not None else None))
                 return False
+        elif prop == "standalone":
+            # handle must standalone property
+            must_count += 1
+            # .'$GalaxyInfoModelStandalone'.standalone
+            res = isinstance(pval, bool) and pval == True
+            if not res:
+                rep is None or rep.append(("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", lpath_49 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle must description property
+            must_count += 1
+            # .'$GalaxyInfoModelStandalone'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.description]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", lpath_49 if path is not None else None))
+                return False
         elif prop == "min_ansible_version":
             # handle must min_ansible_version property
             must_count += 1
@@ -4309,50 +4309,6 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.company]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", lpath_49 if path is not None else None))
-                return False
-        elif prop == "github_branch":
-            # handle may github_branch property
-            # .'$GalaxyInfoModelStandalone'.github_branch
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", lpath_49 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", lpath_49 if path is not None else None))
-                return False
-        elif prop == "issue_tracker_url":
-            # handle may issue_tracker_url property
-            # .'$GalaxyInfoModelStandalone'.issue_tracker_url
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", lpath_49 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", lpath_49 if path is not None else None))
-                return False
-        elif prop == "min_ansible_container_version":
-            # handle may min_ansible_container_version property
-            # .'$GalaxyInfoModelStandalone'.min_ansible_container_version
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", lpath_49 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", lpath_49 if path is not None else None))
-                return False
-        elif prop == "cloud_platforms":
-            # handle may cloud_platforms property
-            # .'$GalaxyInfoModelStandalone'.cloud_platforms
-            res = True
-        elif prop == "galaxy_tags":
-            # handle may galaxy_tags property
-            # .'$GalaxyInfoModelStandalone'.galaxy_tags
-            res = isinstance(pval, list)
-            if res:
-                for arr_96_idx, arr_96_item in enumerate(pval):
-                    arr_96_lpath: Path = ((lpath_49 if path is not None else None) + [ arr_96_idx ]) if (lpath_49 if path is not None else None) is not None else None
-                    # .'$GalaxyInfoModelStandalone'.galaxy_tags.0
-                    res = isinstance(arr_96_item, str)
-                    if not res:
-                        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", arr_96_lpath if (lpath_49 if path is not None else None) is not None else None))
-                        break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", lpath_49 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", lpath_49 if path is not None else None))
                 return False
         elif prop == "namespace":
             # handle may namespace property
@@ -4380,6 +4336,22 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.role_name]", lpath_49 if path is not None else None))
                 return False
+        elif prop == "galaxy_tags":
+            # handle may galaxy_tags property
+            # .'$GalaxyInfoModelStandalone'.galaxy_tags
+            res = isinstance(pval, list)
+            if res:
+                for arr_96_idx, arr_96_item in enumerate(pval):
+                    arr_96_lpath: Path = ((lpath_49 if path is not None else None) + [ arr_96_idx ]) if (lpath_49 if path is not None else None) is not None else None
+                    # .'$GalaxyInfoModelStandalone'.galaxy_tags.0
+                    res = isinstance(arr_96_item, str)
+                    if not res:
+                        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", arr_96_lpath if (lpath_49 if path is not None else None) is not None else None))
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", lpath_49 if path is not None else None))
+                return False
         elif prop == "video_links":
             # handle may video_links property
             # .'$GalaxyInfoModelStandalone'.video_links
@@ -4387,6 +4359,34 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.video_links]", lpath_49 if path is not None else None))
+                return False
+        elif prop == "github_branch":
+            # handle may github_branch property
+            # .'$GalaxyInfoModelStandalone'.github_branch
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", lpath_49 if path is not None else None))
+                return False
+        elif prop == "cloud_platforms":
+            # handle may cloud_platforms property
+            # .'$GalaxyInfoModelStandalone'.cloud_platforms
+            res = True
+        elif prop == "issue_tracker_url":
+            # handle may issue_tracker_url property
+            # .'$GalaxyInfoModelStandalone'.issue_tracker_url
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", lpath_49 if path is not None else None))
+                return False
+        elif prop == "min_ansible_container_version":
+            # handle may min_ansible_container_version property
+            # .'$GalaxyInfoModelStandalone'.min_ansible_container_version
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", lpath_49 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelStandalone']", lpath_49 if path is not None else None))
@@ -4792,13 +4792,21 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_52: Path = (path + [ prop ]) if path is not None else None
-        if prop == "become":
-            # handle may become property
-            # .'$DependencyModelLoose'.become
-            res = isinstance(pval, bool)
+        if prop == "scm":
+            # handle may scm property
+            # .'$DependencyModelLoose'.scm
+            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_64
             if not res:
-                rep is None or rep.append(("not a bool [.'$DependencyModelLoose'.become]", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.become]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("value not in enum [.'$DependencyModelLoose'.scm.'|']", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.scm]", lpath_52 if path is not None else None))
+                return False
+        elif prop == "src":
+            # handle may src property
+            # .'$DependencyModelLoose'.src
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.src]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.src]", lpath_52 if path is not None else None))
                 return False
         elif prop == "name":
             # handle may name property
@@ -4815,22 +4823,6 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.role]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.role]", lpath_52 if path is not None else None))
-                return False
-        elif prop == "src":
-            # handle may src property
-            # .'$DependencyModelLoose'.src
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.src]", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.src]", lpath_52 if path is not None else None))
-                return False
-        elif prop == "scm":
-            # handle may scm property
-            # .'$DependencyModelLoose'.scm
-            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_64
-            if not res:
-                rep is None or rep.append(("value not in enum [.'$DependencyModelLoose'.scm.'|']", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.scm]", lpath_52 if path is not None else None))
                 return False
         elif prop == "tags":
             # handle may tags property
@@ -4866,14 +4858,6 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$DependencyModelLoose'.vars]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.vars]", lpath_52 if path is not None else None))
                 return False
-        elif prop == "version":
-            # handle may version property
-            # .'$DependencyModelLoose'.version
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.version]", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.version]", lpath_52 if path is not None else None))
-                return False
         elif prop == "when":
             # handle may when property
             # .'$DependencyModelLoose'.when
@@ -4881,6 +4865,22 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.when]", lpath_52 if path is not None else None))
+                return False
+        elif prop == "become":
+            # handle may become property
+            # .'$DependencyModelLoose'.become
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'$DependencyModelLoose'.become]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.become]", lpath_52 if path is not None else None))
+                return False
+        elif prop == "version":
+            # handle may version property
+            # .'$DependencyModelLoose'.version
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.version]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose'.version]", lpath_52 if path is not None else None))
                 return False
         else:
             # accept any other props
@@ -4999,21 +4999,21 @@ def json_model_59(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_53: Path = (path + [ prop ]) if path is not None else None
-        if prop == "allow_duplicates":
-            # handle may allow_duplicates property
-            # .'$AnsibleMetaObj'.allow_duplicates
-            res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", lpath_53 if path is not None else None))
-                return False
-        elif prop == "collections":
+        if prop == "collections":
             # handle may collections property
             # .'$AnsibleMetaObj'.collections
             res = json_model_55(pval, lpath_53 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $collections [.'$AnsibleMetaObj'.collections]", lpath_53 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.collections]", lpath_53 if path is not None else None))
+                return False
+        elif prop == "galaxy_info":
+            # handle may galaxy_info property
+            # .'$AnsibleMetaObj'.galaxy_info
+            res = json_model_54(pval, lpath_53 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", lpath_53 if path is not None else None))
                 return False
         elif prop == "dependencies":
             # handle may dependencies property
@@ -5041,13 +5041,13 @@ def json_model_59(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", lpath_53 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", lpath_53 if path is not None else None))
                 return False
-        elif prop == "galaxy_info":
-            # handle may galaxy_info property
-            # .'$AnsibleMetaObj'.galaxy_info
-            res = json_model_54(pval, lpath_53 if path is not None else None, rep)
+        elif prop == "allow_duplicates":
+            # handle may allow_duplicates property
+            # .'$AnsibleMetaObj'.allow_duplicates
+            res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", lpath_53 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", lpath_53 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$AnsibleMetaObj']", lpath_53 if path is not None else None))

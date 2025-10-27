@@ -110,18 +110,6 @@ public class scp_01 extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("b") == 0)
-            {
-                // handle may b property
-                // .b
-                res = json_model_3(pval, (path != null ? lpath_1 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $Bb [.b]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
             else if (prop.compareTo("a") == 0)
             {
                 // handle may a property
@@ -131,6 +119,18 @@ public class scp_01 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected $Rr#Aa [.a]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.a]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("b") == 0)
+            {
+                // handle may b property
+                // .b
+                res = json_model_3(pval, (path != null ? lpath_1 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $Bb [.b]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }

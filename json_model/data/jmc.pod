@@ -20,8 +20,8 @@ B<jmc> - JSON Model Compiler
      [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
-     [--may-must-open-ratio RATIO] [--may-must-open-threshold THRESHOLD]
-     [--must-only-threshold THRESHOLD] [-[-no]-predef] [--short-version]
+     [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD]
+     [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef] [--short-version]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] model [values ...]
 
@@ -168,11 +168,6 @@ maximum number of props to inline property checks in objects.
 
 whether to share common maps, may result in smaller generated code.
 
-=item B<--may-must-open-ratio RATIO>
-
-consider mmo object property scheme if the ratio of optional properties
-is below the provided ratio, default is 0.5.
-
 =item B<--may-must-open-threshold THRESHOLD>
 
 consider mmo object property scheme if the number of optional properties
@@ -182,6 +177,11 @@ is below the provided threshold, default is 5.
 
 consider must-only object property scheme if the number of mandatory
 properties is below the provided threshold, default is 5.
+
+=item B<--sort-must> B<--no-sort-must> B<--sort-may> B<--no-sort-may>
+
+whether to sort must or may properties when checks are unrolled,
+default is to preserve the initial order within each category.
 
 =item B<--predef> vs B<--no-predef>
 
