@@ -24,9 +24,8 @@ public class xoropt_006 extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .'$None'
-        boolean res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.'$None']", path);
-        return res;
+        return false;
     }
 
     public boolean _jm_re_0(String val, Path path, Report rep)

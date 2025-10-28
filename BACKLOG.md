@@ -5,6 +5,10 @@
 - [x] static: order must/may props by increasing size
 - [x] command: fix bad mmo threshold initializations
 - [x] static: shorten return on open one may no must/regs/defs
+- [x] backend: optimize pattern "if (!? V) V = cst;"
+- [x] backend: optimize pattern "V = C; if (!? V) ..."
+- [x] backend: optimize pattern "V = E1; V = E2;"
+- [ ] model: avoid dead code in `mv-0f/dedup-002`.
 - [ ] static: maybe skip must checks if all must props already seen
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] backend: fix `unused but set variable` warning and remove `-Wno-…` (dead code)

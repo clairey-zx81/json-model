@@ -28,11 +28,7 @@ BEGIN
     is_0 := JSONB_TYPEOF(val) = 'string';
     res := NOT is_0;
   END IF;
-  IF res THEN
-    -- empty xor list
-    res := FALSE;
-  END IF;
-  RETURN res;
+  RETURN FALSE;
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -23,36 +23,32 @@ public class empty_cons_0 extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .'$n0'
-        boolean res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.'$n0']", path);
-        return res;
+        return false;
     }
 
     // check $n1 (.'$n1')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         // .'$n1'
-        boolean res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.'$n1']", path);
-        return res;
+        return false;
     }
 
     // check $n2 (.'$n2')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
         // .'$n2'
-        boolean res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.'$n2']", path);
-        return res;
+        return false;
     }
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        boolean res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.]", path);
-        return res;
+        return false;
     }
 
 

@@ -54,20 +54,8 @@ public class dedup_002 extends ModelChecker
             }
             res = ! is_0;
         }
-        if (res)
-        {
-            // empty xor list
-            res = false;
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("not one model match [.'^']", path);
-        }
-        return res;
+        if (rep != null) rep.addEntry("not one model match [.'^']", path);
+        return false;
     }
 
 

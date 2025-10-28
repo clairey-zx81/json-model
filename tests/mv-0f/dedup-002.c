@@ -49,18 +49,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         res = ! is_0;
     }
-    if (res)
-        // empty xor list
-        res = false;
-    if (likely(res))
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
-    }
-    return res;
+    if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
+    return false;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

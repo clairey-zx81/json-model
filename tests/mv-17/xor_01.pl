@@ -46,7 +46,6 @@ sub json_model_1($$$)
     # .
     # remove duplicate xor list
     # .'^'.1
-    # empty xor list
     return 0;
 }
 

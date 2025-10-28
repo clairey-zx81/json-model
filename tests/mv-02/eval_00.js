@@ -15,9 +15,8 @@ var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$false'
-    let res = false;
     rep !== null && rep.push(["unexpected $NONE [.'$false']", path])
-    return res;
+    return false;
 }
 
 // check $true (.'$true')

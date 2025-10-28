@@ -1314,7 +1314,6 @@ CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .gui.nerdFontsVersion
-  -- .gui.nerdFontsVersion.'|'.0
   RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_10(val) OR JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2020,7 +2019,6 @@ BEGIN
     ELSEIF prop = 'editPreset' THEN
       -- handle may editPreset property
       -- .os.editPreset
-      -- .os.editPreset.'|'.0
       res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_14(pval) OR JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;

@@ -42,7 +42,6 @@ BEGIN
   -- .
   -- remove duplicate xor list
   -- .'^'.1
-  -- empty xor list
   RETURN FALSE;
 END;
 $$ LANGUAGE PLpgSQL;

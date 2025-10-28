@@ -452,9 +452,8 @@ function json_model_16(val, path, rep)
 function json_model_17(val, path, rep)
 {
     // .'$None'
-    let res = false;
     rep !== null && rep.push(["unexpected $NONE [.'$None']", path])
-    return res;
+    return false;
 }
 
 // check $CModel (.'$CModel')

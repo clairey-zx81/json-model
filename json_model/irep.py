@@ -214,7 +214,7 @@ def _isBoolAssign(seq: list[Jsonable], reporting: bool = True) -> Jsonable|None:
     for op in seq:
         if _noOp(op, reporting):
             pass
-        elif not assign and _isOp(op, "bv") and op["val"]:
+        elif not assign and _isOp(op, "bv") and op["val"] is not None:
             assign = op
         else:
             return None
@@ -306,6 +306,7 @@ def invertBool(op: Jsonable) -> Jsonable:
     else:
         return {"o": "not", "e": op}
 
+# FIXME full simplification should require several passes
 def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     """Optimize instruction sequence if/then patterns on boolean variables in place."""
 
@@ -314,7 +315,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
     cum_read, cum_write, cum_value = set(), set(), {}
 
-    # merge if in sequence using effects with pattern:
+    # MERGE IF in sequence using effects with pattern:
     #
     # if [not] b:
     #     then_1  # no W on b
@@ -395,9 +396,34 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
         else:  # whatever else is bad news for merging
             prev_var = None
 
+    #
+    # SIMPLER IF
+    #
+
+    assign: Jsonable|None = None
     for op in seq:
 
-        # if constant
+        if _noOp(op, reporting):
+            continue
+
+        # constant bool assignment
+        if _isBoolAssign(op, reporting) and _isBool(op["val"]) is not None:
+            assign = op
+            continue
+
+        # V = C ; if (!? V) ...
+        if assign and _isOp(op, "if"):
+            inverted = _isOp(op["cond"], "not")
+            same_var = assign["var"] == (op["cond"]["e"] if inverted else op["cond"])
+            vv = _isBool(assign["val"])  # ???
+            if same_var and vv is not None:
+                if vv and inverted or not vv and not inverted:
+                    op["cond"] = {"o": "cst", "c": False}
+                else:
+                    op["cond"] = {"o": "cst", "c": True}
+        assign = None
+
+        # simplify "if (C) .../..."
         if _isOp(op, "if") and _isOp(op["cond"], "cst"):
             nouv = {"o": "seq", "seq": op["true"] if op["cond"]["c"] else op["false"]}
             op.clear()
@@ -405,6 +431,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
         # TODO flatten seq in seq?
 
+        # simplify "if (!E) .../..."
         # remove "not" when "false" branch is not empty by exchanging true/false
         if _isOp(op, "if"):
             if _isOp(op["cond"], "not") and not _noOps(op["false"], reporting):
@@ -418,10 +445,10 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 op["cond"]["op"] = CMP_INV[op["cond"]["op"]]
 
         if _isOp(op, "if"):
-            _simpleRet(op, reporting)  # simplify if/return/return
-            _simpleBoolAssign(op)      # simplify if/assign/assign
+            _simpleRet(op, reporting)         # simplify if/return/return
+            _simpleBoolAssign(op, reporting)  # simplify if/assign/assign
 
-        # simplify if/<empty>
+        # simplify if / <empty> / ...
         if _isOp(op, "if") and _noOps(op["true"], reporting):
             if _noOps(op["false"], reporting):
                 op.clear()
@@ -429,6 +456,24 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             else:
                 op["cond"] = {"o": "not", "e": op["cond"], "#": "IRO empty true branch removed"}
                 op["true"], op["false"] = op["false"], []
+
+        # simplify "if (!? V) V = C
+        if _isOp(op, "if") and (assign := _isBoolAssign(op["true"], reporting)) and \
+                _noOps(op["false"], reporting):
+            val = _isBool(assign["val"])
+            inverted = _isOp(op["cond"], "not")
+            same_var = assign["var"] == (op["cond"]["e"] if inverted else op["cond"])
+            if same_var and val is not None:
+                op.clear()
+                if val and not inverted or not val and inverted:
+                    # if (!V) V = F -> nope
+                    # if (V) V = T -> nope
+                    op.update({"o":"no", "#": "IRO removed useless conditional assignment"})
+                else:
+                    # if (!V) V = T -> V = T
+                    # if (V) V = F -> V = F
+                    op.update(assign)
+                    op["#"] = "IRO simpler conditional assignment"
 
     # if (C) ret X ; ret Y
     ifop: Jsonable|None = None
@@ -469,6 +514,20 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
         else:
             # reset previous if return
             ifop = None
+
+    # simplify X = E1; X = E2;
+    assign: Jsonbale|None = None
+    for op in seq:
+        if _noOp(op, False):
+            pass
+        elif _isOp(op, "bv"):
+            if assign and assign["var"] == op["var"]:
+                op["declare"] = assign["declare"]
+                assign.clear()
+                assign.update(o="ign")
+            assign = op
+        else:
+            assign = None
 
     # remove unused boolean declaration in a trivial case: bool v; ret X; -> ret X
     decl: Jsonable|None = None
@@ -568,7 +627,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     # simplify "V = E; ret V;" to "ret E;"
     prev: Jsonable|None = None
     for op in seq:
-        if _noOp(op, reporting):
+        if _noOp(op, False):
             pass
         elif _isOp(op, "bv") and op["val"] is not None:
             prev = op

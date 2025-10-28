@@ -1425,7 +1425,6 @@ sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.nerdFontsVersion
-    # .gui.nerdFontsVersion.'|'.0
     return jm_is_string($val) && exists $_jm_cst_10{$val} || jm_is_string($val);
 }
 
@@ -2084,7 +2083,6 @@ sub _jm_f_61($$$)
         {
             # handle may editPreset property
             # .os.editPreset
-            # .os.editPreset.'|'.0
             $res = jm_is_string($pval) && exists $_jm_cst_14{$pval} || jm_is_string($pval);
             if (! $res)
             {

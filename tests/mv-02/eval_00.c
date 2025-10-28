@@ -20,9 +20,8 @@ const size_t check_model_map_size = 3;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$false'
-    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$false']", path);
-    return res;
+    return false;
 }
 
 // check $true (.'$true')

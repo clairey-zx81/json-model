@@ -38,12 +38,7 @@ sub json_model_1($$$)
         $is_0 = jm_is_string($val);
         $res = ! $is_0;
     }
-    if ($res)
-    {
-        # empty xor list
-        $res = 0;
-    }
-    return $res;
+    return 0;
 }
 
 

@@ -60,17 +60,8 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected element [.'^'.1]", path])
     }
-    // empty xor list
-    res = false;
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["not one model match [.'^']", path])
-    }
-    return res;
+    rep !== null && rep.push(["not one model match [.'^']", path])
+    return false;
 }
 
 

@@ -67,17 +67,8 @@ public class xor_01 extends ModelChecker
         {
             if (rep != null) rep.addEntry("unexpected element [.'^'.1]", path);
         }
-        // empty xor list
-        res = false;
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("not one model match [.'^']", path);
-        }
-        return res;
+        if (rep != null) rep.addEntry("not one model match [.'^']", path);
+        return false;
     }
 
 

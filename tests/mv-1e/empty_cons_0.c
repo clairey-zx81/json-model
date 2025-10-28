@@ -21,36 +21,32 @@ const size_t check_model_map_size = 4;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$n0'
-    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$n0']", path);
-    return res;
+    return false;
 }
 
 // check $n1 (.'$n1')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$n1'
-    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$n1']", path);
-    return res;
+    return false;
 }
 
 // check $n2 (.'$n2')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$n2'
-    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$n2']", path);
-    return res;
+    return false;
 }
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    bool res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.]", path);
-    return res;
+    return false;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

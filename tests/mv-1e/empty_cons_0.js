@@ -15,36 +15,32 @@ var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$n0'
-    let res = false;
     rep !== null && rep.push(["unexpected $NONE [.'$n0']", path])
-    return res;
+    return false;
 }
 
 // check $n1 (.'$n1')
 function json_model_3(val, path, rep)
 {
     // .'$n1'
-    let res = false;
     rep !== null && rep.push(["unexpected $NONE [.'$n1']", path])
-    return res;
+    return false;
 }
 
 // check $n2 (.'$n2')
 function json_model_4(val, path, rep)
 {
     // .'$n2'
-    let res = false;
     rep !== null && rep.push(["unexpected $NONE [.'$n2']", path])
-    return res;
+    return false;
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = false;
     rep !== null && rep.push(["unexpected $NONE [.]", path])
-    return res;
+    return false;
 }
 
 

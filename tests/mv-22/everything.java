@@ -2918,9 +2918,8 @@ public class everything extends ModelChecker
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
         // .predefs.NONE
-        boolean res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.predefs.NONE]", path);
-        return res;
+        return false;
     }
 
     // check _jm_f_36_map_NULL (.predefs.NULL)

@@ -357,9 +357,8 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $None (.'$None')
 def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$None'
-    res: bool = False
     rep is None or rep.append(("unexpected $NONE [.'$None']", path))
-    return res
+    return False
 
 # check $CModel (.'$CModel')
 def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
