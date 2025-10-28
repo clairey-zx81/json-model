@@ -10,164 +10,164 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static jm_constant_t _jm_cst_0[4];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[4];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_2[14];
+static INLINE bool _jm_cst_2_str_test(const char *);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_3[5];
+static INLINE bool _jm_cst_3_str_test(const char *);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_4[8];
+static INLINE bool _jm_cst_4_str_test(const char *);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_5[12];
+static INLINE bool _jm_cst_5_str_test(const char *);
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_6[4];
+static INLINE bool _jm_cst_6_str_test(const char *);
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_7[6];
+static INLINE bool _jm_cst_7_str_test(const char *);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_8[8];
+static INLINE bool _jm_cst_8_str_test(const char *);
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_9[7];
+static INLINE bool _jm_cst_9_str_test(const char *);
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_10[28];
+static INLINE bool _jm_cst_10_str_test(const char *);
 static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_11[27];
+static INLINE bool _jm_cst_11_str_test(const char *);
 static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_12[3];
+static INLINE bool _jm_cst_12_str_test(const char *);
 static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_13[10];
+static INLINE bool _jm_cst_13_str_test(const char *);
 static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_14[10];
+static INLINE bool _jm_cst_14_str_test(const char *);
 static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_15[3];
+static INLINE bool _jm_cst_15_str_test(const char *);
 static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_16[9];
+static INLINE bool _jm_cst_16_str_test(const char *);
 static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_17[19];
+static INLINE bool _jm_cst_17_str_test(const char *);
 static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_18[8];
+static INLINE bool _jm_cst_18_str_test(const char *);
 static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_19[27];
+static INLINE bool _jm_cst_19_str_test(const char *);
 static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_20[5];
+static INLINE bool _jm_cst_20_str_test(const char *);
 static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_21[13];
+static INLINE bool _jm_cst_21_str_test(const char *);
 static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_22[21];
+static INLINE bool _jm_cst_22_str_test(const char *);
 static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_23[7];
+static INLINE bool _jm_cst_23_str_test(const char *);
 static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_24[5];
+static INLINE bool _jm_cst_24_str_test(const char *);
 static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_25[5];
+static INLINE bool _jm_cst_25_str_test(const char *);
 static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_26[32];
+static INLINE bool _jm_cst_26_str_test(const char *);
 static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_27[10];
+static INLINE bool _jm_cst_27_str_test(const char *);
 static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_28[9];
+static INLINE bool _jm_cst_28_str_test(const char *);
 static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_29[15];
+static INLINE bool _jm_cst_29_str_test(const char *);
 static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_30[7];
+static INLINE bool _jm_cst_30_str_test(const char *);
 static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_31[7];
+static INLINE bool _jm_cst_31_str_test(const char *);
 static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_32[10];
+static INLINE bool _jm_cst_32_str_test(const char *);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_33[7];
+static INLINE bool _jm_cst_33_str_test(const char *);
 static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_34[7];
+static INLINE bool _jm_cst_34_str_test(const char *);
 static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_35[32];
+static INLINE bool _jm_cst_35_str_test(const char *);
 static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_36[5];
+static INLINE bool _jm_cst_36_str_test(const char *);
 static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_37[5];
+static INLINE bool _jm_cst_37_str_test(const char *);
 static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_38[7];
+static INLINE bool _jm_cst_38_str_test(const char *);
 static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_39[21];
+static INLINE bool _jm_cst_39_str_test(const char *);
 static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_40[13];
+static INLINE bool _jm_cst_40_str_test(const char *);
 static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_41[5];
+static INLINE bool _jm_cst_41_str_test(const char *);
 static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_42[27];
+static INLINE bool _jm_cst_42_str_test(const char *);
 static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_43[8];
+static INLINE bool _jm_cst_43_str_test(const char *);
 static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_44[15];
+static INLINE bool _jm_cst_44_str_test(const char *);
 static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_45[19];
+static INLINE bool _jm_cst_45_str_test(const char *);
 static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_46[3];
+static INLINE bool _jm_cst_46_str_test(const char *);
 static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_47[10];
+static INLINE bool _jm_cst_47_str_test(const char *);
 static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_48[9];
+static INLINE bool _jm_cst_48_str_test(const char *);
 static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_49[10];
+static INLINE bool _jm_cst_49_str_test(const char *);
 static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_50[3];
+static INLINE bool _jm_cst_50_str_test(const char *);
 static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_51[27];
+static INLINE bool _jm_cst_51_str_test(const char *);
 static bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_52[28];
+static INLINE bool _jm_cst_52_str_test(const char *);
 static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_53[7];
+static INLINE bool _jm_cst_53_str_test(const char *);
 static bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_54[8];
+static INLINE bool _jm_cst_54_str_test(const char *);
 static bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_55[6];
+static INLINE bool _jm_cst_55_str_test(const char *);
 static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_56[4];
+static INLINE bool _jm_cst_56_str_test(const char *);
 static bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_57[12];
+static INLINE bool _jm_cst_57_str_test(const char *);
 static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_58[9];
+static INLINE bool _jm_cst_58_str_test(const char *);
 static bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_59[8];
+static INLINE bool _jm_cst_59_str_test(const char *);
 static bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_60[5];
+static INLINE bool _jm_cst_60_str_test(const char *);
 static bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_61[4];
+static INLINE bool _jm_cst_61_str_test(const char *);
 static bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_62[14];
+static INLINE bool _jm_cst_62_str_test(const char *);
 static bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_63[4];
+static INLINE bool _jm_cst_63_str_test(const char *);
 static bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_0_re2 = NULL;
@@ -188,7 +188,7 @@ static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_64[2];
+static INLINE bool _jm_cst_64_str_test(const char *);
 static bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -201,6 +201,14 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[60];
 const size_t check_model_map_size = 60;
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00312e36)  // "6.1"
+        || jm_str_eq_4(s, 0x00312e37)  // "7.1"
+        || jm_str_eq_4(s, 0x00322e37)  // "7.2"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $AIXPlatformModel (.'$AIXPlatformModel')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -242,7 +250,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
                     // .'$AIXPlatformModel'.versions.0
-                    res = json_is_string(arr_0_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_0_item) } }, _jm_cst_0, 4);
+                    res = json_is_string(arr_0_item) && _jm_cst_0_str_test(json_string_value(arr_0_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$AIXPlatformModel'.versions.0.'|']", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
@@ -330,6 +338,14 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000031)  // "1"
+        || jm_str_eq_2(s, 0x00000032)  // "2"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
+    ;
+}
 
 // check $AmazonLinuxPlatformModel (.'$AmazonLinuxPlatformModel')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -371,7 +387,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, (path ? &lpath_2 : NULL), NULL };
                     // .'$AmazonLinuxPlatformModel'.versions.0
-                    res = json_is_string(arr_2_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_2_item) } }, _jm_cst_1, 4);
+                    res = json_is_string(arr_2_item) && _jm_cst_1_str_test(json_string_value(arr_2_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$AmazonLinuxPlatformModel'.versions.0.'|']", ((path ? &lpath_2 : NULL) ? &arr_2_lpath : NULL));
@@ -395,6 +411,24 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_2_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_8(s, 0x0033302e33313032LL)  // "2013.03"
+        || jm_str_eq_8(s, 0x0039302e33313032LL)  // "2013.09"
+        || jm_str_eq_8(s, 0x0033302e34313032LL)  // "2014.03"
+        || jm_str_eq_8(s, 0x0039302e34313032LL)  // "2014.09"
+        || jm_str_eq_8(s, 0x0033302e35313032LL)  // "2015.03"
+        || jm_str_eq_8(s, 0x0039302e35313032LL)  // "2015.09"
+        || jm_str_eq_8(s, 0x0033302e36313032LL)  // "2016.03"
+        || jm_str_eq_8(s, 0x0039302e36313032LL)  // "2016.09"
+        || jm_str_eq_8(s, 0x0033302e37313032LL)  // "2017.03"
+        || jm_str_eq_8(s, 0x0039302e37313032LL)  // "2017.09"
+        || jm_str_eq_8(s, 0x0032312e37313032LL)  // "2017.12"
+        || jm_str_eq_8(s, 0x0033302e38313032LL)  // "2018.03"
+        || jm_str_eq_8(s, 0x74616469646e6143LL) && jm_str_eq_2(s + 8, 0x00000065)  // "Candidate"
+    ;
+}
 
 // check $AmazonPlatformModel (.'$AmazonPlatformModel')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -436,7 +470,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_3 : NULL), NULL };
                     // .'$AmazonPlatformModel'.versions.0
-                    res = json_is_string(arr_3_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_3_item) } }, _jm_cst_2, 14);
+                    res = json_is_string(arr_3_item) && _jm_cst_2_str_test(json_string_value(arr_3_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$AmazonPlatformModel'.versions.0.'|']", ((path ? &lpath_3 : NULL) ? &arr_3_lpath : NULL));
@@ -524,6 +558,15 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_3_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00362e31)  // "1.6"
+        || jm_str_eq_4(s, 0x00372e31)  // "1.7"
+        || jm_str_eq_4(s, 0x00382e31)  // "1.8"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000032312e32LL)  // "2.12"
+    ;
+}
 
 // check $AstraLinuxPlatformModel (.'$AstraLinuxPlatformModel')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -565,7 +608,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_5 : NULL), NULL };
                     // .'$AstraLinuxPlatformModel'.versions.0
-                    res = json_is_string(arr_5_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_5_item) } }, _jm_cst_3, 5);
+                    res = json_is_string(arr_5_item) && _jm_cst_3_str_test(json_string_value(arr_5_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$AstraLinuxPlatformModel'.versions.0.'|']", ((path ? &lpath_5 : NULL) ? &arr_5_lpath : NULL));
@@ -653,6 +696,18 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_4_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00352e32)  // "2.5"
+        || jm_str_eq_4(s, 0x00302e33)  // "3.0"
+        || jm_str_eq_4(s, 0x00312e33)  // "3.1"
+        || jm_str_eq_4(s, 0x00322e33)  // "3.2"
+        || jm_str_eq_4(s, 0x00332e33)  // "3.3"
+        || jm_str_eq_4(s, 0x00342e33)  // "3.4"
+        || jm_str_eq_4(s, 0x00352e33)  // "3.5"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $CumulusPlatformModel (.'$CumulusPlatformModel')
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -694,7 +749,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_7_lpath = (jm_path_t) { NULL, arr_7_idx, (path ? &lpath_7 : NULL), NULL };
                     // .'$CumulusPlatformModel'.versions.0
-                    res = json_is_string(arr_7_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_7_item) } }, _jm_cst_4, 8);
+                    res = json_is_string(arr_7_item) && _jm_cst_4_str_test(json_string_value(arr_7_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$CumulusPlatformModel'.versions.0.'|']", ((path ? &lpath_7 : NULL) ? &arr_7_lpath : NULL));
@@ -718,6 +773,22 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_5_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_4(s, 0x00646973)  // "sid"
+        || jm_str_eq_5(s, 0x0000000068637465LL)  // "etch"
+        || jm_str_eq_6(s, 0x000000796e6e656cLL)  // "lenny"
+        || jm_str_eq_7(s, 0x0000726574737562LL)  // "buster"
+        || jm_str_eq_7(s, 0x000065697373656aLL)  // "jessie"
+        || jm_str_eq_7(s, 0x0000656978697274LL)  // "trixie"
+        || jm_str_eq_7(s, 0x0000797a65656877LL)  // "wheezy"
+        || jm_str_eq_8(s, 0x00657a6565757173LL)  // "squeeze"
+        || jm_str_eq_8(s, 0x0068637465727473LL)  // "stretch"
+        || jm_str_eq_8(s, 0x6d726f776b6f6f62LL) && jm_str_eq_0(s + 8)  // "bookworm"
+        || jm_str_eq_8(s, 0x657965736c6c7562LL) && jm_str_eq_0(s + 8)  // "bullseye"
+    ;
+}
 
 // check $DebianPlatformModel (.'$DebianPlatformModel')
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -759,7 +830,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_8_lpath = (jm_path_t) { NULL, arr_8_idx, (path ? &lpath_8 : NULL), NULL };
                     // .'$DebianPlatformModel'.versions.0
-                    res = json_is_string(arr_8_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_8_item) } }, _jm_cst_5, 12);
+                    res = json_is_string(arr_8_item) && _jm_cst_5_str_test(json_string_value(arr_8_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DebianPlatformModel'.versions.0.'|']", ((path ? &lpath_8 : NULL) ? &arr_8_lpath : NULL));
@@ -783,6 +854,14 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_6_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000036)  // "6"
+        || jm_str_eq_2(s, 0x00000039)  // "9"
+        || jm_str_eq_3(s, 0x00003031)  // "10"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $DellOSPlatformModel (.'$DellOSPlatformModel')
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -824,7 +903,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_9_lpath = (jm_path_t) { NULL, arr_9_idx, (path ? &lpath_9 : NULL), NULL };
                     // .'$DellOSPlatformModel'.versions.0
-                    res = json_is_string(arr_9_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_9_item) } }, _jm_cst_6, 4);
+                    res = json_is_string(arr_9_item) && _jm_cst_6_str_test(json_string_value(arr_9_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DellOSPlatformModel'.versions.0.'|']", ((path ? &lpath_9 : NULL) ? &arr_9_lpath : NULL));
@@ -848,6 +927,16 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_7_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_6(s, 0x0000006969637361LL)  // "ascii"
+        || jm_str_eq_7(s, 0x000065697373656aLL)  // "jessie"
+        || jm_str_eq_8(s, 0x00666c75776f6562LL)  // "beowulf"
+        || jm_str_eq_8(s, 0x617265616d696863LL) && jm_str_eq_0(s + 8)  // "chimaera"
+        || jm_str_eq_8(s, 0x73756c6164656164LL) && jm_str_eq_0(s + 8)  // "daedalus"
+    ;
+}
 
 // check $DevuanPlatformModel (.'$DevuanPlatformModel')
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -889,7 +978,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_10_lpath = (jm_path_t) { NULL, arr_10_idx, (path ? &lpath_10 : NULL), NULL };
                     // .'$DevuanPlatformModel'.versions.0
-                    res = json_is_string(arr_10_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_10_item) } }, _jm_cst_7, 6);
+                    res = json_is_string(arr_10_item) && _jm_cst_7_str_test(json_string_value(arr_10_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DevuanPlatformModel'.versions.0.'|']", ((path ? &lpath_10 : NULL) ? &arr_10_lpath : NULL));
@@ -913,6 +1002,18 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_8_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00322e35)  // "5.2"
+        || jm_str_eq_4(s, 0x00342e35)  // "5.4"
+        || jm_str_eq_4(s, 0x00362e35)  // "5.6"
+        || jm_str_eq_4(s, 0x00382e35)  // "5.8"
+        || jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00322e36)  // "6.2"
+        || jm_str_eq_4(s, 0x00342e36)  // "6.4"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $DragonFlyBSDPlatformModel (.'$DragonFlyBSDPlatformModel')
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -954,7 +1055,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_11_lpath = (jm_path_t) { NULL, arr_11_idx, (path ? &lpath_11 : NULL), NULL };
                     // .'$DragonFlyBSDPlatformModel'.versions.0
-                    res = json_is_string(arr_11_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_11_item) } }, _jm_cst_8, 8);
+                    res = json_is_string(arr_11_item) && _jm_cst_8_str_test(json_string_value(arr_11_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$DragonFlyBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_11 : NULL) ? &arr_11_lpath : NULL));
@@ -978,6 +1079,17 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_9_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000035)  // "5"
+        || jm_str_eq_2(s, 0x00000036)  // "6"
+        || jm_str_eq_2(s, 0x00000037)  // "7"
+        || jm_str_eq_2(s, 0x00000038)  // "8"
+        || jm_str_eq_2(s, 0x00000039)  // "9"
+        || jm_str_eq_3(s, 0x00003031)  // "10"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $ELPlatformModel (.'$ELPlatformModel')
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1019,7 +1131,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_12_lpath = (jm_path_t) { NULL, arr_12_idx, (path ? &lpath_12 : NULL), NULL };
                     // .'$ELPlatformModel'.versions.0
-                    res = json_is_string(arr_12_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_12_item) } }, _jm_cst_9, 7);
+                    res = json_is_string(arr_12_item) && _jm_cst_9_str_test(json_string_value(arr_12_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$ELPlatformModel'.versions.0.'|']", ((path ? &lpath_12 : NULL) ? &arr_12_lpath : NULL));
@@ -1043,6 +1155,38 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_10_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00003631)  // "16"
+        || jm_str_eq_3(s, 0x00003731)  // "17"
+        || jm_str_eq_3(s, 0x00003831)  // "18"
+        || jm_str_eq_3(s, 0x00003931)  // "19"
+        || jm_str_eq_3(s, 0x00003032)  // "20"
+        || jm_str_eq_3(s, 0x00003132)  // "21"
+        || jm_str_eq_3(s, 0x00003232)  // "22"
+        || jm_str_eq_3(s, 0x00003332)  // "23"
+        || jm_str_eq_3(s, 0x00003432)  // "24"
+        || jm_str_eq_3(s, 0x00003532)  // "25"
+        || jm_str_eq_3(s, 0x00003632)  // "26"
+        || jm_str_eq_3(s, 0x00003732)  // "27"
+        || jm_str_eq_3(s, 0x00003832)  // "28"
+        || jm_str_eq_3(s, 0x00003932)  // "29"
+        || jm_str_eq_3(s, 0x00003033)  // "30"
+        || jm_str_eq_3(s, 0x00003133)  // "31"
+        || jm_str_eq_3(s, 0x00003233)  // "32"
+        || jm_str_eq_3(s, 0x00003333)  // "33"
+        || jm_str_eq_3(s, 0x00003433)  // "34"
+        || jm_str_eq_3(s, 0x00003533)  // "35"
+        || jm_str_eq_3(s, 0x00003633)  // "36"
+        || jm_str_eq_3(s, 0x00003733)  // "37"
+        || jm_str_eq_3(s, 0x00003833)  // "38"
+        || jm_str_eq_3(s, 0x00003933)  // "39"
+        || jm_str_eq_3(s, 0x00003034)  // "40"
+        || jm_str_eq_3(s, 0x00003134)  // "41"
+        || jm_str_eq_3(s, 0x00003234)  // "42"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $FedoraPlatformModel (.'$FedoraPlatformModel')
 static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1084,7 +1228,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_13_lpath = (jm_path_t) { NULL, arr_13_idx, (path ? &lpath_13 : NULL), NULL };
                     // .'$FedoraPlatformModel'.versions.0
-                    res = json_is_string(arr_13_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_13_item) } }, _jm_cst_10, 28);
+                    res = json_is_string(arr_13_item) && _jm_cst_10_str_test(json_string_value(arr_13_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$FedoraPlatformModel'.versions.0.'|']", ((path ? &lpath_13 : NULL) ? &arr_13_lpath : NULL));
@@ -1108,6 +1252,37 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_11_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00322e38)  // "8.2"
+        || jm_str_eq_4(s, 0x00332e38)  // "8.3"
+        || jm_str_eq_4(s, 0x00342e38)  // "8.4"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x00312e39)  // "9.1"
+        || jm_str_eq_4(s, 0x00322e39)  // "9.2"
+        || jm_str_eq_4(s, 0x00332e39)  // "9.3"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000302e3031LL)  // "10.0"
+        || jm_str_eq_5(s, 0x00000000312e3031LL)  // "10.1"
+        || jm_str_eq_5(s, 0x00000000322e3031LL)  // "10.2"
+        || jm_str_eq_5(s, 0x00000000332e3031LL)  // "10.3"
+        || jm_str_eq_5(s, 0x00000000342e3031LL)  // "10.4"
+        || jm_str_eq_5(s, 0x00000000302e3131LL)  // "11.0"
+        || jm_str_eq_5(s, 0x00000000312e3131LL)  // "11.1"
+        || jm_str_eq_5(s, 0x00000000322e3131LL)  // "11.2"
+        || jm_str_eq_5(s, 0x00000000332e3131LL)  // "11.3"
+        || jm_str_eq_5(s, 0x00000000342e3131LL)  // "11.4"
+        || jm_str_eq_5(s, 0x00000000302e3231LL)  // "12.0"
+        || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
+        || jm_str_eq_5(s, 0x00000000322e3231LL)  // "12.2"
+        || jm_str_eq_5(s, 0x00000000302e3331LL)  // "13.0"
+        || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
+        || jm_str_eq_5(s, 0x00000000322e3331LL)  // "13.2"
+        || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
+    ;
+}
 
 // check $FreeBSDPlatformModel (.'$FreeBSDPlatformModel')
 static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1149,7 +1324,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_14_lpath = (jm_path_t) { NULL, arr_14_idx, (path ? &lpath_14 : NULL), NULL };
                     // .'$FreeBSDPlatformModel'.versions.0
-                    res = json_is_string(arr_14_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_14_item) } }, _jm_cst_11, 27);
+                    res = json_is_string(arr_14_item) && _jm_cst_11_str_test(json_string_value(arr_14_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$FreeBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_14 : NULL) ? &arr_14_lpath : NULL));
@@ -1429,6 +1604,13 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_12_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00003031)  // "10"
+        || jm_str_eq_3(s, 0x00003131)  // "11"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $HardenedBSDPlatformModel (.'$HardenedBSDPlatformModel')
 static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1470,7 +1652,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_19_lpath = (jm_path_t) { NULL, arr_19_idx, (path ? &lpath_19 : NULL), NULL };
                     // .'$HardenedBSDPlatformModel'.versions.0
-                    res = json_is_string(arr_19_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_19_item) } }, _jm_cst_12, 3);
+                    res = json_is_string(arr_19_item) && _jm_cst_12_str_test(json_string_value(arr_19_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$HardenedBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_19 : NULL) ? &arr_19_lpath : NULL));
@@ -1622,6 +1804,20 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_13_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e32)  // "2.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000036313032LL)  // "2016"
+        || jm_str_eq_5(s, 0x0000000037313032LL)  // "2017"
+        || jm_str_eq_5(s, 0x0000000038313032LL)  // "2018"
+        || jm_str_eq_5(s, 0x0000000039313032LL)  // "2019"
+        || jm_str_eq_5(s, 0x0000000030323032LL)  // "2020"
+        || jm_str_eq_5(s, 0x0000000031323032LL)  // "2021"
+        || jm_str_eq_5(s, 0x0000000032323032LL)  // "2022"
+        || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
+    ;
+}
 
 // check $KaliPlatformModel (.'$KaliPlatformModel')
 static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1663,7 +1859,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_22_lpath = (jm_path_t) { NULL, arr_22_idx, (path ? &lpath_22 : NULL), NULL };
                     // .'$KaliPlatformModel'.versions.0
-                    res = json_is_string(arr_22_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_22_item) } }, _jm_cst_13, 10);
+                    res = json_is_string(arr_22_item) && _jm_cst_13_str_test(json_string_value(arr_22_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$KaliPlatformModel'.versions.0.'|']", ((path ? &lpath_22 : NULL) ? &arr_22_lpath : NULL));
@@ -1687,6 +1883,20 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_14_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000372e3031LL)  // "10.7"
+        || jm_str_eq_5(s, 0x00000000382e3031LL)  // "10.8"
+        || jm_str_eq_5(s, 0x00000000392e3031LL)  // "10.9"
+        || jm_str_eq_6(s, 0x00000030312e3031LL)  // "10.10"
+        || jm_str_eq_6(s, 0x00000031312e3031LL)  // "10.11"
+        || jm_str_eq_6(s, 0x00000032312e3031LL)  // "10.12"
+        || jm_str_eq_6(s, 0x00000033312e3031LL)  // "10.13"
+        || jm_str_eq_6(s, 0x00000034312e3031LL)  // "10.14"
+        || jm_str_eq_6(s, 0x00000035312e3031LL)  // "10.15"
+    ;
+}
 
 // check $MacOSXPlatformModel (.'$MacOSXPlatformModel')
 static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1728,7 +1938,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_23_lpath = (jm_path_t) { NULL, arr_23_idx, (path ? &lpath_23 : NULL), NULL };
                     // .'$MacOSXPlatformModel'.versions.0
-                    res = json_is_string(arr_23_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_23_item) } }, _jm_cst_14, 10);
+                    res = json_is_string(arr_23_item) && _jm_cst_14_str_test(json_string_value(arr_23_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$MacOSXPlatformModel'.versions.0.'|']", ((path ? &lpath_23 : NULL) ? &arr_23_lpath : NULL));
@@ -1752,6 +1962,13 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_15_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000037)  // "7"
+        || jm_str_eq_2(s, 0x00000038)  // "8"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $MageiaPlatformModel (.'$MageiaPlatformModel')
 static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1793,7 +2010,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_24_lpath = (jm_path_t) { NULL, arr_24_idx, (path ? &lpath_24 : NULL), NULL };
                     // .'$MageiaPlatformModel'.versions.0
-                    res = json_is_string(arr_24_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_24_item) } }, _jm_cst_15, 3);
+                    res = json_is_string(arr_24_item) && _jm_cst_15_str_test(json_string_value(arr_24_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$MageiaPlatformModel'.versions.0.'|']", ((path ? &lpath_24 : NULL) ? &arr_24_lpath : NULL));
@@ -1881,6 +2098,19 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_16_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00322e38)  // "8.2"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x00312e39)  // "9.1"
+        || jm_str_eq_4(s, 0x00322e39)  // "9.2"
+        || jm_str_eq_4(s, 0x00332e39)  // "9.3"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000302e3031LL)  // "10.0"
+    ;
+}
 
 // check $NetBSDPlatformModel (.'$NetBSDPlatformModel')
 static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1922,7 +2152,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_26_lpath = (jm_path_t) { NULL, arr_26_idx, (path ? &lpath_26 : NULL), NULL };
                     // .'$NetBSDPlatformModel'.versions.0
-                    res = json_is_string(arr_26_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_26_item) } }, _jm_cst_16, 9);
+                    res = json_is_string(arr_26_item) && _jm_cst_16_str_test(json_string_value(arr_26_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$NetBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_26 : NULL) ? &arr_26_lpath : NULL));
@@ -1946,6 +2176,29 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_17_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00362e35)  // "5.6"
+        || jm_str_eq_4(s, 0x00372e35)  // "5.7"
+        || jm_str_eq_4(s, 0x00382e35)  // "5.8"
+        || jm_str_eq_4(s, 0x00392e35)  // "5.9"
+        || jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00312e36)  // "6.1"
+        || jm_str_eq_4(s, 0x00322e36)  // "6.2"
+        || jm_str_eq_4(s, 0x00332e36)  // "6.3"
+        || jm_str_eq_4(s, 0x00342e36)  // "6.4"
+        || jm_str_eq_4(s, 0x00352e36)  // "6.5"
+        || jm_str_eq_4(s, 0x00362e36)  // "6.6"
+        || jm_str_eq_4(s, 0x00372e36)  // "6.7"
+        || jm_str_eq_4(s, 0x00382e36)  // "6.8"
+        || jm_str_eq_4(s, 0x00392e36)  // "6.9"
+        || jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x00312e37)  // "7.1"
+        || jm_str_eq_4(s, 0x00322e37)  // "7.2"
+        || jm_str_eq_4(s, 0x00332e37)  // "7.3"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $OpenBSDPlatformModel (.'$OpenBSDPlatformModel')
 static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1987,7 +2240,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_27_lpath = (jm_path_t) { NULL, arr_27_idx, (path ? &lpath_27 : NULL), NULL };
                     // .'$OpenBSDPlatformModel'.versions.0
-                    res = json_is_string(arr_27_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_27_item) } }, _jm_cst_17, 19);
+                    res = json_is_string(arr_27_item) && _jm_cst_17_str_test(json_string_value(arr_27_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$OpenBSDPlatformModel'.versions.0.'|']", ((path ? &lpath_27 : NULL) ? &arr_27_lpath : NULL));
@@ -2011,6 +2264,18 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_18_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_6(s, 0x00000031302e3731LL)  // "17.01"
+        || jm_str_eq_6(s, 0x00000036302e3831LL)  // "18.06"
+        || jm_str_eq_6(s, 0x00000037302e3931LL)  // "19.07"
+        || jm_str_eq_6(s, 0x00000032302e3132LL)  // "21.02"
+        || jm_str_eq_6(s, 0x00000033302e3232LL)  // "22.03"
+        || jm_str_eq_6(s, 0x00000035302e3332LL)  // "23.05"
+        || jm_str_eq_6(s, 0x00000030312e3432LL)  // "24.10"
+    ;
+}
 
 // check $OpenWrtPlatformModel (.'$OpenWrtPlatformModel')
 static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2052,7 +2317,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_28_lpath = (jm_path_t) { NULL, arr_28_idx, (path ? &lpath_28 : NULL), NULL };
                     // .'$OpenWrtPlatformModel'.versions.0
-                    res = json_is_string(arr_28_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_28_item) } }, _jm_cst_18, 8);
+                    res = json_is_string(arr_28_item) && _jm_cst_18_str_test(json_string_value(arr_28_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$OpenWrtPlatformModel'.versions.0.'|']", ((path ? &lpath_28 : NULL) ? &arr_28_lpath : NULL));
@@ -2076,6 +2341,37 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_19_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x00312e37)  // "7.1"
+        || jm_str_eq_4(s, 0x00322e37)  // "7.2"
+        || jm_str_eq_4(s, 0x00332e37)  // "7.3"
+        || jm_str_eq_4(s, 0x00342e37)  // "7.4"
+        || jm_str_eq_4(s, 0x00352e37)  // "7.5"
+        || jm_str_eq_4(s, 0x00362e37)  // "7.6"
+        || jm_str_eq_4(s, 0x00372e37)  // "7.7"
+        || jm_str_eq_4(s, 0x00382e37)  // "7.8"
+        || jm_str_eq_4(s, 0x00392e37)  // "7.9"
+        || jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00322e38)  // "8.2"
+        || jm_str_eq_4(s, 0x00332e38)  // "8.3"
+        || jm_str_eq_4(s, 0x00342e38)  // "8.4"
+        || jm_str_eq_4(s, 0x00352e38)  // "8.5"
+        || jm_str_eq_4(s, 0x00362e38)  // "8.6"
+        || jm_str_eq_4(s, 0x00372e38)  // "8.7"
+        || jm_str_eq_4(s, 0x00382e38)  // "8.8"
+        || jm_str_eq_4(s, 0x00392e38)  // "8.9"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x00312e39)  // "9.1"
+        || jm_str_eq_4(s, 0x00322e39)  // "9.2"
+        || jm_str_eq_4(s, 0x00332e39)  // "9.3"
+        || jm_str_eq_4(s, 0x00342e39)  // "9.4"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000030312e38LL)  // "8.10"
+    ;
+}
 
 // check $OracleLinuxPlatformModel (.'$OracleLinuxPlatformModel')
 static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2117,7 +2413,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_29_lpath = (jm_path_t) { NULL, arr_29_idx, (path ? &lpath_29 : NULL), NULL };
                     // .'$OracleLinuxPlatformModel'.versions.0
-                    res = json_is_string(arr_29_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_29_item) } }, _jm_cst_19, 27);
+                    res = json_is_string(arr_29_item) && _jm_cst_19_str_test(json_string_value(arr_29_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$OracleLinuxPlatformModel'.versions.0.'|']", ((path ? &lpath_29 : NULL) ? &arr_29_lpath : NULL));
@@ -2141,6 +2437,15 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_20_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00312e37)  // "7.1"
+        || jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $PAN-OSPlatformModel (.'$PAN-OSPlatformModel')
 static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2182,7 +2487,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_30_lpath = (jm_path_t) { NULL, arr_30_idx, (path ? &lpath_30 : NULL), NULL };
                     // .'$PAN-OSPlatformModel'.versions.0
-                    res = json_is_string(arr_30_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_30_item) } }, _jm_cst_20, 5);
+                    res = json_is_string(arr_30_item) && _jm_cst_20_str_test(json_string_value(arr_30_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$PAN-OSPlatformModel'.versions.0.'|']", ((path ? &lpath_30 : NULL) ? &arr_30_lpath : NULL));
@@ -2206,6 +2511,23 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_21_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00322e38)  // "8.2"
+        || jm_str_eq_4(s, 0x00332e38)  // "8.3"
+        || jm_str_eq_4(s, 0x00342e38)  // "8.4"
+        || jm_str_eq_4(s, 0x00352e38)  // "8.5"
+        || jm_str_eq_4(s, 0x00362e38)  // "8.6"
+        || jm_str_eq_4(s, 0x00372e38)  // "8.7"
+        || jm_str_eq_4(s, 0x00382e38)  // "8.8"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x00312e39)  // "9.1"
+        || jm_str_eq_4(s, 0x00322e39)  // "9.2"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $RockyLinuxPlatformModel (.'$RockyLinuxPlatformModel')
 static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2247,7 +2569,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_31_lpath = (jm_path_t) { NULL, arr_31_idx, (path ? &lpath_31 : NULL), NULL };
                     // .'$RockyLinuxPlatformModel'.versions.0
-                    res = json_is_string(arr_31_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_31_item) } }, _jm_cst_21, 13);
+                    res = json_is_string(arr_31_item) && _jm_cst_21_str_test(json_string_value(arr_31_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$RockyLinuxPlatformModel'.versions.0.'|']", ((path ? &lpath_31 : NULL) ? &arr_31_lpath : NULL));
@@ -2271,6 +2593,31 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_22_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00003131)  // "11"
+        || jm_str_eq_3(s, 0x00003231)  // "12"
+        || jm_str_eq_3(s, 0x00003531)  // "15"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_6(s, 0x0000003350533031LL)  // "10SP3"
+        || jm_str_eq_6(s, 0x0000003450533031LL)  // "10SP4"
+        || jm_str_eq_6(s, 0x0000003150533131LL)  // "11SP1"
+        || jm_str_eq_6(s, 0x0000003250533131LL)  // "11SP2"
+        || jm_str_eq_6(s, 0x0000003350533131LL)  // "11SP3"
+        || jm_str_eq_6(s, 0x0000003450533131LL)  // "11SP4"
+        || jm_str_eq_6(s, 0x0000003150533231LL)  // "12SP1"
+        || jm_str_eq_6(s, 0x0000003250533231LL)  // "12SP2"
+        || jm_str_eq_6(s, 0x0000003350533231LL)  // "12SP3"
+        || jm_str_eq_6(s, 0x0000003450533231LL)  // "12SP4"
+        || jm_str_eq_6(s, 0x0000003550533231LL)  // "12SP5"
+        || jm_str_eq_6(s, 0x0000003150533531LL)  // "15SP1"
+        || jm_str_eq_6(s, 0x0000003250533531LL)  // "15SP2"
+        || jm_str_eq_6(s, 0x0000003350533531LL)  // "15SP3"
+        || jm_str_eq_6(s, 0x0000003450533531LL)  // "15SP4"
+        || jm_str_eq_6(s, 0x0000003550533531LL)  // "15SP5"
+        || jm_str_eq_6(s, 0x0000003650533531LL)  // "15SP6"
+    ;
+}
 
 // check $SLESPlatformModel (.'$SLESPlatformModel')
 static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2312,7 +2659,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_32_lpath = (jm_path_t) { NULL, arr_32_idx, (path ? &lpath_32 : NULL), NULL };
                     // .'$SLESPlatformModel'.versions.0
-                    res = json_is_string(arr_32_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_32_item) } }, _jm_cst_22, 21);
+                    res = json_is_string(arr_32_item) && _jm_cst_22_str_test(json_string_value(arr_32_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$SLESPlatformModel'.versions.0.'|']", ((path ? &lpath_32 : NULL) ? &arr_32_lpath : NULL));
@@ -2400,6 +2747,17 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_23_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00003031)  // "10"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000302e3131LL)  // "11.0"
+        || jm_str_eq_5(s, 0x00000000312e3131LL)  // "11.1"
+        || jm_str_eq_5(s, 0x00000000322e3131LL)  // "11.2"
+        || jm_str_eq_5(s, 0x00000000332e3131LL)  // "11.3"
+        || jm_str_eq_5(s, 0x00000000342e3131LL)  // "11.4"
+    ;
+}
 
 // check $SolarisPlatformModel (.'$SolarisPlatformModel')
 static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2441,7 +2799,7 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_34_lpath = (jm_path_t) { NULL, arr_34_idx, (path ? &lpath_34 : NULL), NULL };
                     // .'$SolarisPlatformModel'.versions.0
-                    res = json_is_string(arr_34_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_34_item) } }, _jm_cst_23, 7);
+                    res = json_is_string(arr_34_item) && _jm_cst_23_str_test(json_string_value(arr_34_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$SolarisPlatformModel'.versions.0.'|']", ((path ? &lpath_34 : NULL) ? &arr_34_lpath : NULL));
@@ -2465,6 +2823,15 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_24_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00312e36)  // "6.1"
+        || jm_str_eq_4(s, 0x00322e36)  // "6.2"
+        || jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $SynologyPlatformModel (.'$SynologyPlatformModel')
 static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2506,7 +2873,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_35_lpath = (jm_path_t) { NULL, arr_35_idx, (path ? &lpath_35 : NULL), NULL };
                     // .'$SynologyPlatformModel'.versions.0
-                    res = json_is_string(arr_35_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_35_item) } }, _jm_cst_24, 5);
+                    res = json_is_string(arr_35_item) && _jm_cst_24_str_test(json_string_value(arr_35_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$SynologyPlatformModel'.versions.0.'|']", ((path ? &lpath_35 : NULL) ? &arr_35_lpath : NULL));
@@ -2530,6 +2897,15 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_25_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
+        || jm_str_eq_5(s, 0x00000000302e3331LL)  // "13.0"
+        || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
+        || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
+    ;
+}
 
 // check $TMOSPlatformModel (.'$TMOSPlatformModel')
 static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2571,7 +2947,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_36_lpath = (jm_path_t) { NULL, arr_36_idx, (path ? &lpath_36 : NULL), NULL };
                     // .'$TMOSPlatformModel'.versions.0
-                    res = json_is_string(arr_36_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_36_item) } }, _jm_cst_25, 5);
+                    res = json_is_string(arr_36_item) && _jm_cst_25_str_test(json_string_value(arr_36_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$TMOSPlatformModel'.versions.0.'|']", ((path ? &lpath_36 : NULL) ? &arr_36_lpath : NULL));
@@ -2595,6 +2971,42 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_26_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x000000006e616f65LL)  // "eoan"
+        || jm_str_eq_5(s, 0x00000000796c6977LL)  // "wily"
+        || jm_str_eq_6(s, 0x0000006f63736964LL)  // "disco"
+        || jm_str_eq_6(s, 0x0000006c61636f66LL)  // "focal"
+        || jm_str_eq_6(s, 0x000000796d6d616aLL)  // "jammy"
+        || jm_str_eq_6(s, 0x000000646963756cLL)  // "lucid"
+        || jm_str_eq_6(s, 0x00000072616e756cLL)  // "lunar"
+        || jm_str_eq_6(s, 0x000000797474616eLL)  // "natty"
+        || jm_str_eq_6(s, 0x000000656c626f6eLL)  // "noble"
+        || jm_str_eq_6(s, 0x0000007963756173LL)  // "saucy"
+        || jm_str_eq_6(s, 0x0000006469766976LL)  // "vivid"
+        || jm_str_eq_6(s, 0x000000797473657aLL)  // "zesty"
+        || jm_str_eq_7(s, 0x00006c7566747261LL)  // "artful"
+        || jm_str_eq_7(s, 0x000063696e6f6962LL)  // "bionic"
+        || jm_str_eq_7(s, 0x000063696d736f63LL)  // "cosmic"
+        || jm_str_eq_7(s, 0x000079766f6f7267LL)  // "groovy"
+        || jm_str_eq_7(s, 0x0000687369706d69LL)  // "impish"
+        || jm_str_eq_7(s, 0x00006369746e616dLL)  // "mantic"
+        || jm_str_eq_7(s, 0x0000796b63756c70LL)  // "plucky"
+        || jm_str_eq_7(s, 0x0000676e69726172LL)  // "raring"
+        || jm_str_eq_7(s, 0x0000797473757274LL)  // "trusty"
+        || jm_str_eq_7(s, 0x00006369706f7475LL)  // "utopic"
+        || jm_str_eq_7(s, 0x00006c61696e6578LL)  // "xenial"
+        || jm_str_eq_8(s, 0x0065747573726968LL)  // "hirsute"
+        || jm_str_eq_8(s, 0x00636974656e696bLL)  // "kinetic"
+        || jm_str_eq_8(s, 0x0063697269656e6fLL)  // "oneiric"
+        || jm_str_eq_8(s, 0x0065736963657270LL)  // "precise"
+        || jm_str_eq_8(s, 0x006c61746e617571LL)  // "quantal"
+        || jm_str_eq_8(s, 0x007974656b6b6179LL)  // "yakkety"
+        || jm_str_eq_8(s, 0x6b6369726576616dLL) && jm_str_eq_0(s + 8)  // "maverick"
+        || jm_str_eq_8(s, 0x72616c756361726fLL) && jm_str_eq_0(s + 8)  // "oracular"
+    ;
+}
 
 // check $UbuntuPlatformModel (.'$UbuntuPlatformModel')
 static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2636,7 +3048,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_37_lpath = (jm_path_t) { NULL, arr_37_idx, (path ? &lpath_37 : NULL), NULL };
                     // .'$UbuntuPlatformModel'.versions.0
-                    res = json_is_string(arr_37_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_37_item) } }, _jm_cst_26, 32);
+                    res = json_is_string(arr_37_item) && _jm_cst_26_str_test(json_string_value(arr_37_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$UbuntuPlatformModel'.versions.0.'|']", ((path ? &lpath_37 : NULL) ? &arr_37_lpath : NULL));
@@ -2724,6 +3136,20 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_27_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000032313032LL)  // "2012"
+        || jm_str_eq_5(s, 0x0000000036313032LL)  // "2016"
+        || jm_str_eq_5(s, 0x0000000039313032LL)  // "2019"
+        || jm_str_eq_5(s, 0x0000000032323032LL)  // "2022"
+        || jm_str_eq_5(s, 0x0000000035323032LL)  // "2025"
+        || jm_str_eq_7(s, 0x0000325238303032LL)  // "2008R2"
+        || jm_str_eq_7(s, 0x0000325232313032LL)  // "2012R2"
+        || jm_str_eq_8(s, 0x0034367838303032LL)  // "2008x64"
+        || jm_str_eq_8(s, 0x0036387838303032LL)  // "2008x86"
+    ;
+}
 
 // check $WindowsPlatformModel (.'$WindowsPlatformModel')
 static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2765,7 +3191,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_39_lpath = (jm_path_t) { NULL, arr_39_idx, (path ? &lpath_39 : NULL), NULL };
                     // .'$WindowsPlatformModel'.versions.0
-                    res = json_is_string(arr_39_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_39_item) } }, _jm_cst_27, 10);
+                    res = json_is_string(arr_39_item) && _jm_cst_27_str_test(json_string_value(arr_39_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$WindowsPlatformModel'.versions.0.'|']", ((path ? &lpath_39 : NULL) ? &arr_39_lpath : NULL));
@@ -2917,6 +3343,19 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_28_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_7(s, 0x00006576616a6f4dLL)  // "Mojave"
+        || jm_str_eq_7(s, 0x0000617272656953LL)  // "Sierra"
+        || jm_str_eq_7(s, 0x0000616d6f6e6f53LL)  // "Sonoma"
+        || jm_str_eq_8(s, 0x007275532d676942LL)  // "Big-Sur"
+        || jm_str_eq_8(s, 0x00617275746e6556LL)  // "Ventura"
+        || jm_str_eq_8(s, 0x616e696c61746143LL) && jm_str_eq_0(s + 8)  // "Catalina"
+        || jm_str_eq_8(s, 0x79657265746e6f4dLL) && jm_str_eq_0(s + 8)  // "Monterey"
+        || jm_str_eq_8(s, 0x6569532d68676948LL) && jm_str_eq_4(s + 8, 0x00617272)  // "High-Sierra"
+    ;
+}
 
 // check $macOSPlatformModel (.'$macOSPlatformModel')
 static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2958,7 +3397,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_42_lpath = (jm_path_t) { NULL, arr_42_idx, (path ? &lpath_42 : NULL), NULL };
                     // .'$macOSPlatformModel'.versions.0
-                    res = json_is_string(arr_42_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_42_item) } }, _jm_cst_28, 9);
+                    res = json_is_string(arr_42_item) && _jm_cst_28_str_test(json_string_value(arr_42_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$macOSPlatformModel'.versions.0.'|']", ((path ? &lpath_42 : NULL) ? &arr_42_lpath : NULL));
@@ -2982,6 +3421,25 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_29_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
+        || jm_str_eq_5(s, 0x00000000322e3231LL)  // "12.2"
+        || jm_str_eq_5(s, 0x00000000332e3231LL)  // "12.3"
+        || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
+        || jm_str_eq_5(s, 0x00000000322e3331LL)  // "13.2"
+        || jm_str_eq_5(s, 0x00000000302e3531LL)  // "15.0"
+        || jm_str_eq_5(s, 0x00000000312e3531LL)  // "15.1"
+        || jm_str_eq_5(s, 0x00000000322e3531LL)  // "15.2"
+        || jm_str_eq_5(s, 0x00000000332e3531LL)  // "15.3"
+        || jm_str_eq_5(s, 0x00000000342e3531LL)  // "15.4"
+        || jm_str_eq_5(s, 0x00000000352e3531LL)  // "15.5"
+        || jm_str_eq_5(s, 0x00000000312e3234LL)  // "42.1"
+        || jm_str_eq_5(s, 0x00000000322e3234LL)  // "42.2"
+        || jm_str_eq_5(s, 0x00000000332e3234LL)  // "42.3"
+    ;
+}
 
 // check $opensusePlatformModel (.'$opensusePlatformModel')
 static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -3023,7 +3481,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_43_lpath = (jm_path_t) { NULL, arr_43_idx, (path ? &lpath_43 : NULL), NULL };
                     // .'$opensusePlatformModel'.versions.0
-                    res = json_is_string(arr_43_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_43_item) } }, _jm_cst_29, 15);
+                    res = json_is_string(arr_43_item) && _jm_cst_29_str_test(json_string_value(arr_43_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$opensusePlatformModel'.versions.0.'|']", ((path ? &lpath_43 : NULL) ? &arr_43_lpath : NULL));
@@ -3111,6 +3569,17 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_30_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00352e35)  // "5.5"
+        || jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00352e36)  // "6.5"
+        || jm_str_eq_4(s, 0x00372e36)  // "6.7"
+        || jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $vCenterPlatformModel (.'$vCenterPlatformModel')
 static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -3152,7 +3621,7 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_45_lpath = (jm_path_t) { NULL, arr_45_idx, (path ? &lpath_45 : NULL), NULL };
                     // .'$vCenterPlatformModel'.versions.0
-                    res = json_is_string(arr_45_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_45_item) } }, _jm_cst_30, 7);
+                    res = json_is_string(arr_45_item) && _jm_cst_30_str_test(json_string_value(arr_45_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$vCenterPlatformModel'.versions.0.'|']", ((path ? &lpath_45 : NULL) ? &arr_45_lpath : NULL));
@@ -3176,6 +3645,17 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_31_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00352e35)  // "5.5"
+        || jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00352e36)  // "6.5"
+        || jm_str_eq_4(s, 0x00372e36)  // "6.7"
+        || jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // check $vSpherePlatformModel (.'$vSpherePlatformModel')
 static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -3217,7 +3697,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_46_lpath = (jm_path_t) { NULL, arr_46_idx, (path ? &lpath_46 : NULL), NULL };
                     // .'$vSpherePlatformModel'.versions.0
-                    res = json_is_string(arr_46_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_46_item) } }, _jm_cst_31, 7);
+                    res = json_is_string(arr_46_item) && _jm_cst_31_str_test(json_string_value(arr_46_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$vSpherePlatformModel'.versions.0.'|']", ((path ? &lpath_46 : NULL) ? &arr_46_lpath : NULL));
@@ -3677,6 +4157,20 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_32_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000032313032LL)  // "2012"
+        || jm_str_eq_5(s, 0x0000000036313032LL)  // "2016"
+        || jm_str_eq_5(s, 0x0000000039313032LL)  // "2019"
+        || jm_str_eq_5(s, 0x0000000032323032LL)  // "2022"
+        || jm_str_eq_5(s, 0x0000000035323032LL)  // "2025"
+        || jm_str_eq_7(s, 0x0000325238303032LL)  // "2008R2"
+        || jm_str_eq_7(s, 0x0000325232313032LL)  // "2012R2"
+        || jm_str_eq_8(s, 0x0034367838303032LL)  // "2008x64"
+        || jm_str_eq_8(s, 0x0036387838303032LL)  // "2008x86"
+    ;
+}
 
 // object .'$platforms'.0.'|'.46
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -3717,7 +4211,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     jm_path_t arr_48_lpath = (jm_path_t) { NULL, arr_48_idx, (path ? &lpath_47 : NULL), NULL };
                     // .'$platforms'.0.'|'.46.versions.0
-                    res = json_is_string(arr_48_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_48_item) } }, _jm_cst_32, 10);
+                    res = json_is_string(arr_48_item) && _jm_cst_32_str_test(json_string_value(arr_48_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", ((path ? &lpath_47 : NULL) ? &arr_48_lpath : NULL));
@@ -3740,6 +4234,17 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_33_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00352e35)  // "5.5"
+        || jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00352e36)  // "6.5"
+        || jm_str_eq_4(s, 0x00372e36)  // "6.7"
+        || jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.45
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -3780,7 +4285,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     jm_path_t arr_49_lpath = (jm_path_t) { NULL, arr_49_idx, (path ? &lpath_48 : NULL), NULL };
                     // .'$platforms'.0.'|'.45.versions.0
-                    res = json_is_string(arr_49_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_49_item) } }, _jm_cst_33, 7);
+                    res = json_is_string(arr_49_item) && _jm_cst_33_str_test(json_string_value(arr_49_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", ((path ? &lpath_48 : NULL) ? &arr_49_lpath : NULL));
@@ -3865,6 +4370,17 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_34_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00352e35)  // "5.5"
+        || jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00352e36)  // "6.5"
+        || jm_str_eq_4(s, 0x00372e36)  // "6.7"
+        || jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.43
 static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -3905,7 +4421,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     jm_path_t arr_51_lpath = (jm_path_t) { NULL, arr_51_idx, (path ? &lpath_50 : NULL), NULL };
                     // .'$platforms'.0.'|'.43.versions.0
-                    res = json_is_string(arr_51_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_51_item) } }, _jm_cst_34, 7);
+                    res = json_is_string(arr_51_item) && _jm_cst_34_str_test(json_string_value(arr_51_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", ((path ? &lpath_50 : NULL) ? &arr_51_lpath : NULL));
@@ -3928,6 +4444,42 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_35_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x000000006e616f65LL)  // "eoan"
+        || jm_str_eq_5(s, 0x00000000796c6977LL)  // "wily"
+        || jm_str_eq_6(s, 0x0000006f63736964LL)  // "disco"
+        || jm_str_eq_6(s, 0x0000006c61636f66LL)  // "focal"
+        || jm_str_eq_6(s, 0x000000796d6d616aLL)  // "jammy"
+        || jm_str_eq_6(s, 0x000000646963756cLL)  // "lucid"
+        || jm_str_eq_6(s, 0x00000072616e756cLL)  // "lunar"
+        || jm_str_eq_6(s, 0x000000797474616eLL)  // "natty"
+        || jm_str_eq_6(s, 0x000000656c626f6eLL)  // "noble"
+        || jm_str_eq_6(s, 0x0000007963756173LL)  // "saucy"
+        || jm_str_eq_6(s, 0x0000006469766976LL)  // "vivid"
+        || jm_str_eq_6(s, 0x000000797473657aLL)  // "zesty"
+        || jm_str_eq_7(s, 0x00006c7566747261LL)  // "artful"
+        || jm_str_eq_7(s, 0x000063696e6f6962LL)  // "bionic"
+        || jm_str_eq_7(s, 0x000063696d736f63LL)  // "cosmic"
+        || jm_str_eq_7(s, 0x000079766f6f7267LL)  // "groovy"
+        || jm_str_eq_7(s, 0x0000687369706d69LL)  // "impish"
+        || jm_str_eq_7(s, 0x00006369746e616dLL)  // "mantic"
+        || jm_str_eq_7(s, 0x0000796b63756c70LL)  // "plucky"
+        || jm_str_eq_7(s, 0x0000676e69726172LL)  // "raring"
+        || jm_str_eq_7(s, 0x0000797473757274LL)  // "trusty"
+        || jm_str_eq_7(s, 0x00006369706f7475LL)  // "utopic"
+        || jm_str_eq_7(s, 0x00006c61696e6578LL)  // "xenial"
+        || jm_str_eq_8(s, 0x0065747573726968LL)  // "hirsute"
+        || jm_str_eq_8(s, 0x00636974656e696bLL)  // "kinetic"
+        || jm_str_eq_8(s, 0x0063697269656e6fLL)  // "oneiric"
+        || jm_str_eq_8(s, 0x0065736963657270LL)  // "precise"
+        || jm_str_eq_8(s, 0x006c61746e617571LL)  // "quantal"
+        || jm_str_eq_8(s, 0x007974656b6b6179LL)  // "yakkety"
+        || jm_str_eq_8(s, 0x6b6369726576616dLL) && jm_str_eq_0(s + 8)  // "maverick"
+        || jm_str_eq_8(s, 0x72616c756361726fLL) && jm_str_eq_0(s + 8)  // "oracular"
+    ;
+}
 
 // object .'$platforms'.0.'|'.42
 static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -3968,7 +4520,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     jm_path_t arr_52_lpath = (jm_path_t) { NULL, arr_52_idx, (path ? &lpath_51 : NULL), NULL };
                     // .'$platforms'.0.'|'.42.versions.0
-                    res = json_is_string(arr_52_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_52_item) } }, _jm_cst_35, 32);
+                    res = json_is_string(arr_52_item) && _jm_cst_35_str_test(json_string_value(arr_52_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", ((path ? &lpath_51 : NULL) ? &arr_52_lpath : NULL));
@@ -3991,6 +4543,15 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_36_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
+        || jm_str_eq_5(s, 0x00000000302e3331LL)  // "13.0"
+        || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
+        || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
+    ;
+}
 
 // object .'$platforms'.0.'|'.41
 static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4031,7 +4592,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     jm_path_t arr_53_lpath = (jm_path_t) { NULL, arr_53_idx, (path ? &lpath_52 : NULL), NULL };
                     // .'$platforms'.0.'|'.41.versions.0
-                    res = json_is_string(arr_53_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_53_item) } }, _jm_cst_36, 5);
+                    res = json_is_string(arr_53_item) && _jm_cst_36_str_test(json_string_value(arr_53_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", ((path ? &lpath_52 : NULL) ? &arr_53_lpath : NULL));
@@ -4054,6 +4615,15 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_37_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00312e36)  // "6.1"
+        || jm_str_eq_4(s, 0x00322e36)  // "6.2"
+        || jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.40
 static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4094,7 +4664,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     jm_path_t arr_54_lpath = (jm_path_t) { NULL, arr_54_idx, (path ? &lpath_53 : NULL), NULL };
                     // .'$platforms'.0.'|'.40.versions.0
-                    res = json_is_string(arr_54_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_54_item) } }, _jm_cst_37, 5);
+                    res = json_is_string(arr_54_item) && _jm_cst_37_str_test(json_string_value(arr_54_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", ((path ? &lpath_53 : NULL) ? &arr_54_lpath : NULL));
@@ -4117,6 +4687,17 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_38_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00003031)  // "10"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000302e3131LL)  // "11.0"
+        || jm_str_eq_5(s, 0x00000000312e3131LL)  // "11.1"
+        || jm_str_eq_5(s, 0x00000000322e3131LL)  // "11.2"
+        || jm_str_eq_5(s, 0x00000000332e3131LL)  // "11.3"
+        || jm_str_eq_5(s, 0x00000000342e3131LL)  // "11.4"
+    ;
+}
 
 // object .'$platforms'.0.'|'.39
 static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4157,7 +4738,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     jm_path_t arr_55_lpath = (jm_path_t) { NULL, arr_55_idx, (path ? &lpath_54 : NULL), NULL };
                     // .'$platforms'.0.'|'.39.versions.0
-                    res = json_is_string(arr_55_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_55_item) } }, _jm_cst_38, 7);
+                    res = json_is_string(arr_55_item) && _jm_cst_38_str_test(json_string_value(arr_55_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", ((path ? &lpath_54 : NULL) ? &arr_55_lpath : NULL));
@@ -4242,6 +4823,31 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_39_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00003131)  // "11"
+        || jm_str_eq_3(s, 0x00003231)  // "12"
+        || jm_str_eq_3(s, 0x00003531)  // "15"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_6(s, 0x0000003350533031LL)  // "10SP3"
+        || jm_str_eq_6(s, 0x0000003450533031LL)  // "10SP4"
+        || jm_str_eq_6(s, 0x0000003150533131LL)  // "11SP1"
+        || jm_str_eq_6(s, 0x0000003250533131LL)  // "11SP2"
+        || jm_str_eq_6(s, 0x0000003350533131LL)  // "11SP3"
+        || jm_str_eq_6(s, 0x0000003450533131LL)  // "11SP4"
+        || jm_str_eq_6(s, 0x0000003150533231LL)  // "12SP1"
+        || jm_str_eq_6(s, 0x0000003250533231LL)  // "12SP2"
+        || jm_str_eq_6(s, 0x0000003350533231LL)  // "12SP3"
+        || jm_str_eq_6(s, 0x0000003450533231LL)  // "12SP4"
+        || jm_str_eq_6(s, 0x0000003550533231LL)  // "12SP5"
+        || jm_str_eq_6(s, 0x0000003150533531LL)  // "15SP1"
+        || jm_str_eq_6(s, 0x0000003250533531LL)  // "15SP2"
+        || jm_str_eq_6(s, 0x0000003350533531LL)  // "15SP3"
+        || jm_str_eq_6(s, 0x0000003450533531LL)  // "15SP4"
+        || jm_str_eq_6(s, 0x0000003550533531LL)  // "15SP5"
+        || jm_str_eq_6(s, 0x0000003650533531LL)  // "15SP6"
+    ;
+}
 
 // object .'$platforms'.0.'|'.37
 static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4282,7 +4888,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     jm_path_t arr_57_lpath = (jm_path_t) { NULL, arr_57_idx, (path ? &lpath_56 : NULL), NULL };
                     // .'$platforms'.0.'|'.37.versions.0
-                    res = json_is_string(arr_57_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_57_item) } }, _jm_cst_39, 21);
+                    res = json_is_string(arr_57_item) && _jm_cst_39_str_test(json_string_value(arr_57_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", ((path ? &lpath_56 : NULL) ? &arr_57_lpath : NULL));
@@ -4305,6 +4911,23 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_40_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00322e38)  // "8.2"
+        || jm_str_eq_4(s, 0x00332e38)  // "8.3"
+        || jm_str_eq_4(s, 0x00342e38)  // "8.4"
+        || jm_str_eq_4(s, 0x00352e38)  // "8.5"
+        || jm_str_eq_4(s, 0x00362e38)  // "8.6"
+        || jm_str_eq_4(s, 0x00372e38)  // "8.7"
+        || jm_str_eq_4(s, 0x00382e38)  // "8.8"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x00312e39)  // "9.1"
+        || jm_str_eq_4(s, 0x00322e39)  // "9.2"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.36
 static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4345,7 +4968,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_58_lpath = (jm_path_t) { NULL, arr_58_idx, (path ? &lpath_57 : NULL), NULL };
                     // .'$platforms'.0.'|'.36.versions.0
-                    res = json_is_string(arr_58_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_58_item) } }, _jm_cst_40, 13);
+                    res = json_is_string(arr_58_item) && _jm_cst_40_str_test(json_string_value(arr_58_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", ((path ? &lpath_57 : NULL) ? &arr_58_lpath : NULL));
@@ -4368,6 +4991,15 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_41_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00312e37)  // "7.1"
+        || jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.35
 static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4408,7 +5040,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_59_lpath = (jm_path_t) { NULL, arr_59_idx, (path ? &lpath_58 : NULL), NULL };
                     // .'$platforms'.0.'|'.35.versions.0
-                    res = json_is_string(arr_59_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_59_item) } }, _jm_cst_41, 5);
+                    res = json_is_string(arr_59_item) && _jm_cst_41_str_test(json_string_value(arr_59_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", ((path ? &lpath_58 : NULL) ? &arr_59_lpath : NULL));
@@ -4493,6 +5125,37 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_42_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x00312e37)  // "7.1"
+        || jm_str_eq_4(s, 0x00322e37)  // "7.2"
+        || jm_str_eq_4(s, 0x00332e37)  // "7.3"
+        || jm_str_eq_4(s, 0x00342e37)  // "7.4"
+        || jm_str_eq_4(s, 0x00352e37)  // "7.5"
+        || jm_str_eq_4(s, 0x00362e37)  // "7.6"
+        || jm_str_eq_4(s, 0x00372e37)  // "7.7"
+        || jm_str_eq_4(s, 0x00382e37)  // "7.8"
+        || jm_str_eq_4(s, 0x00392e37)  // "7.9"
+        || jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00322e38)  // "8.2"
+        || jm_str_eq_4(s, 0x00332e38)  // "8.3"
+        || jm_str_eq_4(s, 0x00342e38)  // "8.4"
+        || jm_str_eq_4(s, 0x00352e38)  // "8.5"
+        || jm_str_eq_4(s, 0x00362e38)  // "8.6"
+        || jm_str_eq_4(s, 0x00372e38)  // "8.7"
+        || jm_str_eq_4(s, 0x00382e38)  // "8.8"
+        || jm_str_eq_4(s, 0x00392e38)  // "8.9"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x00312e39)  // "9.1"
+        || jm_str_eq_4(s, 0x00322e39)  // "9.2"
+        || jm_str_eq_4(s, 0x00332e39)  // "9.3"
+        || jm_str_eq_4(s, 0x00342e39)  // "9.4"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000030312e38LL)  // "8.10"
+    ;
+}
 
 // object .'$platforms'.0.'|'.33
 static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4533,7 +5196,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_61_lpath = (jm_path_t) { NULL, arr_61_idx, (path ? &lpath_60 : NULL), NULL };
                     // .'$platforms'.0.'|'.33.versions.0
-                    res = json_is_string(arr_61_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_61_item) } }, _jm_cst_42, 27);
+                    res = json_is_string(arr_61_item) && _jm_cst_42_str_test(json_string_value(arr_61_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", ((path ? &lpath_60 : NULL) ? &arr_61_lpath : NULL));
@@ -4556,6 +5219,18 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_43_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_6(s, 0x00000031302e3731LL)  // "17.01"
+        || jm_str_eq_6(s, 0x00000036302e3831LL)  // "18.06"
+        || jm_str_eq_6(s, 0x00000037302e3931LL)  // "19.07"
+        || jm_str_eq_6(s, 0x00000032302e3132LL)  // "21.02"
+        || jm_str_eq_6(s, 0x00000033302e3232LL)  // "22.03"
+        || jm_str_eq_6(s, 0x00000035302e3332LL)  // "23.05"
+        || jm_str_eq_6(s, 0x00000030312e3432LL)  // "24.10"
+    ;
+}
 
 // object .'$platforms'.0.'|'.32
 static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4596,7 +5271,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_62_lpath = (jm_path_t) { NULL, arr_62_idx, (path ? &lpath_61 : NULL), NULL };
                     // .'$platforms'.0.'|'.32.versions.0
-                    res = json_is_string(arr_62_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_62_item) } }, _jm_cst_43, 8);
+                    res = json_is_string(arr_62_item) && _jm_cst_43_str_test(json_string_value(arr_62_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", ((path ? &lpath_61 : NULL) ? &arr_62_lpath : NULL));
@@ -4619,6 +5294,25 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_44_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
+        || jm_str_eq_5(s, 0x00000000322e3231LL)  // "12.2"
+        || jm_str_eq_5(s, 0x00000000332e3231LL)  // "12.3"
+        || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
+        || jm_str_eq_5(s, 0x00000000322e3331LL)  // "13.2"
+        || jm_str_eq_5(s, 0x00000000302e3531LL)  // "15.0"
+        || jm_str_eq_5(s, 0x00000000312e3531LL)  // "15.1"
+        || jm_str_eq_5(s, 0x00000000322e3531LL)  // "15.2"
+        || jm_str_eq_5(s, 0x00000000332e3531LL)  // "15.3"
+        || jm_str_eq_5(s, 0x00000000342e3531LL)  // "15.4"
+        || jm_str_eq_5(s, 0x00000000352e3531LL)  // "15.5"
+        || jm_str_eq_5(s, 0x00000000312e3234LL)  // "42.1"
+        || jm_str_eq_5(s, 0x00000000322e3234LL)  // "42.2"
+        || jm_str_eq_5(s, 0x00000000332e3234LL)  // "42.3"
+    ;
+}
 
 // object .'$platforms'.0.'|'.31
 static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4659,7 +5353,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_63_lpath = (jm_path_t) { NULL, arr_63_idx, (path ? &lpath_62 : NULL), NULL };
                     // .'$platforms'.0.'|'.31.versions.0
-                    res = json_is_string(arr_63_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_63_item) } }, _jm_cst_44, 15);
+                    res = json_is_string(arr_63_item) && _jm_cst_44_str_test(json_string_value(arr_63_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", ((path ? &lpath_62 : NULL) ? &arr_63_lpath : NULL));
@@ -4682,6 +5376,29 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_45_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00362e35)  // "5.6"
+        || jm_str_eq_4(s, 0x00372e35)  // "5.7"
+        || jm_str_eq_4(s, 0x00382e35)  // "5.8"
+        || jm_str_eq_4(s, 0x00392e35)  // "5.9"
+        || jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00312e36)  // "6.1"
+        || jm_str_eq_4(s, 0x00322e36)  // "6.2"
+        || jm_str_eq_4(s, 0x00332e36)  // "6.3"
+        || jm_str_eq_4(s, 0x00342e36)  // "6.4"
+        || jm_str_eq_4(s, 0x00352e36)  // "6.5"
+        || jm_str_eq_4(s, 0x00362e36)  // "6.6"
+        || jm_str_eq_4(s, 0x00372e36)  // "6.7"
+        || jm_str_eq_4(s, 0x00382e36)  // "6.8"
+        || jm_str_eq_4(s, 0x00392e36)  // "6.9"
+        || jm_str_eq_4(s, 0x00302e37)  // "7.0"
+        || jm_str_eq_4(s, 0x00312e37)  // "7.1"
+        || jm_str_eq_4(s, 0x00322e37)  // "7.2"
+        || jm_str_eq_4(s, 0x00332e37)  // "7.3"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.30
 static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4722,7 +5439,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_64_lpath = (jm_path_t) { NULL, arr_64_idx, (path ? &lpath_63 : NULL), NULL };
                     // .'$platforms'.0.'|'.30.versions.0
-                    res = json_is_string(arr_64_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_64_item) } }, _jm_cst_45, 19);
+                    res = json_is_string(arr_64_item) && _jm_cst_45_str_test(json_string_value(arr_64_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", ((path ? &lpath_63 : NULL) ? &arr_64_lpath : NULL));
@@ -4807,6 +5524,13 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_46_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000037)  // "7"
+        || jm_str_eq_2(s, 0x00000038)  // "8"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.28
 static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4847,7 +5571,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_66_lpath = (jm_path_t) { NULL, arr_66_idx, (path ? &lpath_65 : NULL), NULL };
                     // .'$platforms'.0.'|'.28.versions.0
-                    res = json_is_string(arr_66_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_66_item) } }, _jm_cst_46, 3);
+                    res = json_is_string(arr_66_item) && _jm_cst_46_str_test(json_string_value(arr_66_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", ((path ? &lpath_65 : NULL) ? &arr_66_lpath : NULL));
@@ -4870,6 +5594,20 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_47_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000372e3031LL)  // "10.7"
+        || jm_str_eq_5(s, 0x00000000382e3031LL)  // "10.8"
+        || jm_str_eq_5(s, 0x00000000392e3031LL)  // "10.9"
+        || jm_str_eq_6(s, 0x00000030312e3031LL)  // "10.10"
+        || jm_str_eq_6(s, 0x00000031312e3031LL)  // "10.11"
+        || jm_str_eq_6(s, 0x00000032312e3031LL)  // "10.12"
+        || jm_str_eq_6(s, 0x00000033312e3031LL)  // "10.13"
+        || jm_str_eq_6(s, 0x00000034312e3031LL)  // "10.14"
+        || jm_str_eq_6(s, 0x00000035312e3031LL)  // "10.15"
+    ;
+}
 
 // object .'$platforms'.0.'|'.27
 static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4910,7 +5648,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_67_lpath = (jm_path_t) { NULL, arr_67_idx, (path ? &lpath_66 : NULL), NULL };
                     // .'$platforms'.0.'|'.27.versions.0
-                    res = json_is_string(arr_67_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_67_item) } }, _jm_cst_47, 10);
+                    res = json_is_string(arr_67_item) && _jm_cst_47_str_test(json_string_value(arr_67_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", ((path ? &lpath_66 : NULL) ? &arr_67_lpath : NULL));
@@ -4933,6 +5671,19 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_48_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_7(s, 0x00006576616a6f4dLL)  // "Mojave"
+        || jm_str_eq_7(s, 0x0000617272656953LL)  // "Sierra"
+        || jm_str_eq_7(s, 0x0000616d6f6e6f53LL)  // "Sonoma"
+        || jm_str_eq_8(s, 0x007275532d676942LL)  // "Big-Sur"
+        || jm_str_eq_8(s, 0x00617275746e6556LL)  // "Ventura"
+        || jm_str_eq_8(s, 0x616e696c61746143LL) && jm_str_eq_0(s + 8)  // "Catalina"
+        || jm_str_eq_8(s, 0x79657265746e6f4dLL) && jm_str_eq_0(s + 8)  // "Monterey"
+        || jm_str_eq_8(s, 0x6569532d68676948LL) && jm_str_eq_4(s + 8, 0x00617272)  // "High-Sierra"
+    ;
+}
 
 // object .'$platforms'.0.'|'.26
 static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4973,7 +5724,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_68_lpath = (jm_path_t) { NULL, arr_68_idx, (path ? &lpath_67 : NULL), NULL };
                     // .'$platforms'.0.'|'.26.versions.0
-                    res = json_is_string(arr_68_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_68_item) } }, _jm_cst_48, 9);
+                    res = json_is_string(arr_68_item) && _jm_cst_48_str_test(json_string_value(arr_68_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", ((path ? &lpath_67 : NULL) ? &arr_68_lpath : NULL));
@@ -4996,6 +5747,20 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_49_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e32)  // "2.0"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000036313032LL)  // "2016"
+        || jm_str_eq_5(s, 0x0000000037313032LL)  // "2017"
+        || jm_str_eq_5(s, 0x0000000038313032LL)  // "2018"
+        || jm_str_eq_5(s, 0x0000000039313032LL)  // "2019"
+        || jm_str_eq_5(s, 0x0000000030323032LL)  // "2020"
+        || jm_str_eq_5(s, 0x0000000031323032LL)  // "2021"
+        || jm_str_eq_5(s, 0x0000000032323032LL)  // "2022"
+        || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
+    ;
+}
 
 // object .'$platforms'.0.'|'.25
 static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5036,7 +5801,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_69_lpath = (jm_path_t) { NULL, arr_69_idx, (path ? &lpath_68 : NULL), NULL };
                     // .'$platforms'.0.'|'.25.versions.0
-                    res = json_is_string(arr_69_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_69_item) } }, _jm_cst_49, 10);
+                    res = json_is_string(arr_69_item) && _jm_cst_49_str_test(json_string_value(arr_69_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", ((path ? &lpath_68 : NULL) ? &arr_69_lpath : NULL));
@@ -5183,6 +5948,13 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_50_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00003031)  // "10"
+        || jm_str_eq_3(s, 0x00003131)  // "11"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.22
 static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5223,7 +5995,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_72_lpath = (jm_path_t) { NULL, arr_72_idx, (path ? &lpath_71 : NULL), NULL };
                     // .'$platforms'.0.'|'.22.versions.0
-                    res = json_is_string(arr_72_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_72_item) } }, _jm_cst_50, 3);
+                    res = json_is_string(arr_72_item) && _jm_cst_50_str_test(json_string_value(arr_72_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", ((path ? &lpath_71 : NULL) ? &arr_72_lpath : NULL));
@@ -5494,6 +6266,37 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_51_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00322e38)  // "8.2"
+        || jm_str_eq_4(s, 0x00332e38)  // "8.3"
+        || jm_str_eq_4(s, 0x00342e38)  // "8.4"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x00312e39)  // "9.1"
+        || jm_str_eq_4(s, 0x00322e39)  // "9.2"
+        || jm_str_eq_4(s, 0x00332e39)  // "9.3"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000302e3031LL)  // "10.0"
+        || jm_str_eq_5(s, 0x00000000312e3031LL)  // "10.1"
+        || jm_str_eq_5(s, 0x00000000322e3031LL)  // "10.2"
+        || jm_str_eq_5(s, 0x00000000332e3031LL)  // "10.3"
+        || jm_str_eq_5(s, 0x00000000342e3031LL)  // "10.4"
+        || jm_str_eq_5(s, 0x00000000302e3131LL)  // "11.0"
+        || jm_str_eq_5(s, 0x00000000312e3131LL)  // "11.1"
+        || jm_str_eq_5(s, 0x00000000322e3131LL)  // "11.2"
+        || jm_str_eq_5(s, 0x00000000332e3131LL)  // "11.3"
+        || jm_str_eq_5(s, 0x00000000342e3131LL)  // "11.4"
+        || jm_str_eq_5(s, 0x00000000302e3231LL)  // "12.0"
+        || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
+        || jm_str_eq_5(s, 0x00000000322e3231LL)  // "12.2"
+        || jm_str_eq_5(s, 0x00000000302e3331LL)  // "13.0"
+        || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
+        || jm_str_eq_5(s, 0x00000000322e3331LL)  // "13.2"
+        || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
+    ;
+}
 
 // object .'$platforms'.0.'|'.17
 static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5534,7 +6337,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_77_lpath = (jm_path_t) { NULL, arr_77_idx, (path ? &lpath_76 : NULL), NULL };
                     // .'$platforms'.0.'|'.17.versions.0
-                    res = json_is_string(arr_77_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_77_item) } }, _jm_cst_51, 27);
+                    res = json_is_string(arr_77_item) && _jm_cst_51_str_test(json_string_value(arr_77_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", ((path ? &lpath_76 : NULL) ? &arr_77_lpath : NULL));
@@ -5557,6 +6360,38 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_52_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00003631)  // "16"
+        || jm_str_eq_3(s, 0x00003731)  // "17"
+        || jm_str_eq_3(s, 0x00003831)  // "18"
+        || jm_str_eq_3(s, 0x00003931)  // "19"
+        || jm_str_eq_3(s, 0x00003032)  // "20"
+        || jm_str_eq_3(s, 0x00003132)  // "21"
+        || jm_str_eq_3(s, 0x00003232)  // "22"
+        || jm_str_eq_3(s, 0x00003332)  // "23"
+        || jm_str_eq_3(s, 0x00003432)  // "24"
+        || jm_str_eq_3(s, 0x00003532)  // "25"
+        || jm_str_eq_3(s, 0x00003632)  // "26"
+        || jm_str_eq_3(s, 0x00003732)  // "27"
+        || jm_str_eq_3(s, 0x00003832)  // "28"
+        || jm_str_eq_3(s, 0x00003932)  // "29"
+        || jm_str_eq_3(s, 0x00003033)  // "30"
+        || jm_str_eq_3(s, 0x00003133)  // "31"
+        || jm_str_eq_3(s, 0x00003233)  // "32"
+        || jm_str_eq_3(s, 0x00003333)  // "33"
+        || jm_str_eq_3(s, 0x00003433)  // "34"
+        || jm_str_eq_3(s, 0x00003533)  // "35"
+        || jm_str_eq_3(s, 0x00003633)  // "36"
+        || jm_str_eq_3(s, 0x00003733)  // "37"
+        || jm_str_eq_3(s, 0x00003833)  // "38"
+        || jm_str_eq_3(s, 0x00003933)  // "39"
+        || jm_str_eq_3(s, 0x00003034)  // "40"
+        || jm_str_eq_3(s, 0x00003134)  // "41"
+        || jm_str_eq_3(s, 0x00003234)  // "42"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.16
 static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5597,7 +6432,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_78_lpath = (jm_path_t) { NULL, arr_78_idx, (path ? &lpath_77 : NULL), NULL };
                     // .'$platforms'.0.'|'.16.versions.0
-                    res = json_is_string(arr_78_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_78_item) } }, _jm_cst_52, 28);
+                    res = json_is_string(arr_78_item) && _jm_cst_52_str_test(json_string_value(arr_78_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", ((path ? &lpath_77 : NULL) ? &arr_78_lpath : NULL));
@@ -5682,6 +6517,17 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_53_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000035)  // "5"
+        || jm_str_eq_2(s, 0x00000036)  // "6"
+        || jm_str_eq_2(s, 0x00000037)  // "7"
+        || jm_str_eq_2(s, 0x00000038)  // "8"
+        || jm_str_eq_2(s, 0x00000039)  // "9"
+        || jm_str_eq_3(s, 0x00003031)  // "10"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.14
 static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5722,7 +6568,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_80_lpath = (jm_path_t) { NULL, arr_80_idx, (path ? &lpath_79 : NULL), NULL };
                     // .'$platforms'.0.'|'.14.versions.0
-                    res = json_is_string(arr_80_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_80_item) } }, _jm_cst_53, 7);
+                    res = json_is_string(arr_80_item) && _jm_cst_53_str_test(json_string_value(arr_80_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", ((path ? &lpath_79 : NULL) ? &arr_80_lpath : NULL));
@@ -5745,6 +6591,18 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_54_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00322e35)  // "5.2"
+        || jm_str_eq_4(s, 0x00342e35)  // "5.4"
+        || jm_str_eq_4(s, 0x00362e35)  // "5.6"
+        || jm_str_eq_4(s, 0x00382e35)  // "5.8"
+        || jm_str_eq_4(s, 0x00302e36)  // "6.0"
+        || jm_str_eq_4(s, 0x00322e36)  // "6.2"
+        || jm_str_eq_4(s, 0x00342e36)  // "6.4"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.13
 static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5785,7 +6643,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_81_lpath = (jm_path_t) { NULL, arr_81_idx, (path ? &lpath_80 : NULL), NULL };
                     // .'$platforms'.0.'|'.13.versions.0
-                    res = json_is_string(arr_81_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_81_item) } }, _jm_cst_54, 8);
+                    res = json_is_string(arr_81_item) && _jm_cst_54_str_test(json_string_value(arr_81_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", ((path ? &lpath_80 : NULL) ? &arr_81_lpath : NULL));
@@ -5808,6 +6666,16 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_55_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_6(s, 0x0000006969637361LL)  // "ascii"
+        || jm_str_eq_7(s, 0x000065697373656aLL)  // "jessie"
+        || jm_str_eq_8(s, 0x00666c75776f6562LL)  // "beowulf"
+        || jm_str_eq_8(s, 0x617265616d696863LL) && jm_str_eq_0(s + 8)  // "chimaera"
+        || jm_str_eq_8(s, 0x73756c6164656164LL) && jm_str_eq_0(s + 8)  // "daedalus"
+    ;
+}
 
 // object .'$platforms'.0.'|'.12
 static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5848,7 +6716,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_82_lpath = (jm_path_t) { NULL, arr_82_idx, (path ? &lpath_81 : NULL), NULL };
                     // .'$platforms'.0.'|'.12.versions.0
-                    res = json_is_string(arr_82_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_82_item) } }, _jm_cst_55, 6);
+                    res = json_is_string(arr_82_item) && _jm_cst_55_str_test(json_string_value(arr_82_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", ((path ? &lpath_81 : NULL) ? &arr_82_lpath : NULL));
@@ -5871,6 +6739,14 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_56_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000036)  // "6"
+        || jm_str_eq_2(s, 0x00000039)  // "9"
+        || jm_str_eq_3(s, 0x00003031)  // "10"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.11
 static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5911,7 +6787,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_83_lpath = (jm_path_t) { NULL, arr_83_idx, (path ? &lpath_82 : NULL), NULL };
                     // .'$platforms'.0.'|'.11.versions.0
-                    res = json_is_string(arr_83_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_83_item) } }, _jm_cst_56, 4);
+                    res = json_is_string(arr_83_item) && _jm_cst_56_str_test(json_string_value(arr_83_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", ((path ? &lpath_82 : NULL) ? &arr_83_lpath : NULL));
@@ -5934,6 +6810,22 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_57_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_4(s, 0x00646973)  // "sid"
+        || jm_str_eq_5(s, 0x0000000068637465LL)  // "etch"
+        || jm_str_eq_6(s, 0x000000796e6e656cLL)  // "lenny"
+        || jm_str_eq_7(s, 0x0000726574737562LL)  // "buster"
+        || jm_str_eq_7(s, 0x000065697373656aLL)  // "jessie"
+        || jm_str_eq_7(s, 0x0000656978697274LL)  // "trixie"
+        || jm_str_eq_7(s, 0x0000797a65656877LL)  // "wheezy"
+        || jm_str_eq_8(s, 0x00657a6565757173LL)  // "squeeze"
+        || jm_str_eq_8(s, 0x0068637465727473LL)  // "stretch"
+        || jm_str_eq_8(s, 0x6d726f776b6f6f62LL) && jm_str_eq_0(s + 8)  // "bookworm"
+        || jm_str_eq_8(s, 0x657965736c6c7562LL) && jm_str_eq_0(s + 8)  // "bullseye"
+    ;
+}
 
 // object .'$platforms'.0.'|'.10
 static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -5974,7 +6866,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_84_lpath = (jm_path_t) { NULL, arr_84_idx, (path ? &lpath_83 : NULL), NULL };
                     // .'$platforms'.0.'|'.10.versions.0
-                    res = json_is_string(arr_84_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_84_item) } }, _jm_cst_57, 12);
+                    res = json_is_string(arr_84_item) && _jm_cst_57_str_test(json_string_value(arr_84_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", ((path ? &lpath_83 : NULL) ? &arr_84_lpath : NULL));
@@ -5997,6 +6889,19 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_58_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+        || jm_str_eq_4(s, 0x00312e38)  // "8.1"
+        || jm_str_eq_4(s, 0x00322e38)  // "8.2"
+        || jm_str_eq_4(s, 0x00302e39)  // "9.0"
+        || jm_str_eq_4(s, 0x00312e39)  // "9.1"
+        || jm_str_eq_4(s, 0x00322e39)  // "9.2"
+        || jm_str_eq_4(s, 0x00332e39)  // "9.3"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x00000000302e3031LL)  // "10.0"
+    ;
+}
 
 // object .'$platforms'.0.'|'.9
 static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -6037,7 +6942,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_85_lpath = (jm_path_t) { NULL, arr_85_idx, (path ? &lpath_84 : NULL), NULL };
                     // .'$platforms'.0.'|'.9.versions.0
-                    res = json_is_string(arr_85_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_85_item) } }, _jm_cst_58, 9);
+                    res = json_is_string(arr_85_item) && _jm_cst_58_str_test(json_string_value(arr_85_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", ((path ? &lpath_84 : NULL) ? &arr_85_lpath : NULL));
@@ -6060,6 +6965,18 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_59_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00352e32)  // "2.5"
+        || jm_str_eq_4(s, 0x00302e33)  // "3.0"
+        || jm_str_eq_4(s, 0x00312e33)  // "3.1"
+        || jm_str_eq_4(s, 0x00322e33)  // "3.2"
+        || jm_str_eq_4(s, 0x00332e33)  // "3.3"
+        || jm_str_eq_4(s, 0x00342e33)  // "3.4"
+        || jm_str_eq_4(s, 0x00352e33)  // "3.5"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.8
 static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -6100,7 +7017,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_86_lpath = (jm_path_t) { NULL, arr_86_idx, (path ? &lpath_85 : NULL), NULL };
                     // .'$platforms'.0.'|'.8.versions.0
-                    res = json_is_string(arr_86_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_86_item) } }, _jm_cst_59, 8);
+                    res = json_is_string(arr_86_item) && _jm_cst_59_str_test(json_string_value(arr_86_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", ((path ? &lpath_85 : NULL) ? &arr_86_lpath : NULL));
@@ -6185,6 +7102,15 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_60_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00362e31)  // "1.6"
+        || jm_str_eq_4(s, 0x00372e31)  // "1.7"
+        || jm_str_eq_4(s, 0x00382e31)  // "1.8"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000032312e32LL)  // "2.12"
+    ;
+}
 
 // object .'$platforms'.0.'|'.6
 static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -6225,7 +7151,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_88_lpath = (jm_path_t) { NULL, arr_88_idx, (path ? &lpath_87 : NULL), NULL };
                     // .'$platforms'.0.'|'.6.versions.0
-                    res = json_is_string(arr_88_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_88_item) } }, _jm_cst_60, 5);
+                    res = json_is_string(arr_88_item) && _jm_cst_60_str_test(json_string_value(arr_88_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", ((path ? &lpath_87 : NULL) ? &arr_88_lpath : NULL));
@@ -6372,6 +7298,14 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_61_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000031)  // "1"
+        || jm_str_eq_2(s, 0x00000032)  // "2"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
+    ;
+}
 
 // object .'$platforms'.0.'|'.3
 static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -6412,7 +7346,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_91_lpath = (jm_path_t) { NULL, arr_91_idx, (path ? &lpath_90 : NULL), NULL };
                     // .'$platforms'.0.'|'.3.versions.0
-                    res = json_is_string(arr_91_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_91_item) } }, _jm_cst_61, 4);
+                    res = json_is_string(arr_91_item) && _jm_cst_61_str_test(json_string_value(arr_91_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", ((path ? &lpath_90 : NULL) ? &arr_91_lpath : NULL));
@@ -6435,6 +7369,24 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_62_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+        || jm_str_eq_8(s, 0x0033302e33313032LL)  // "2013.03"
+        || jm_str_eq_8(s, 0x0039302e33313032LL)  // "2013.09"
+        || jm_str_eq_8(s, 0x0033302e34313032LL)  // "2014.03"
+        || jm_str_eq_8(s, 0x0039302e34313032LL)  // "2014.09"
+        || jm_str_eq_8(s, 0x0033302e35313032LL)  // "2015.03"
+        || jm_str_eq_8(s, 0x0039302e35313032LL)  // "2015.09"
+        || jm_str_eq_8(s, 0x0033302e36313032LL)  // "2016.03"
+        || jm_str_eq_8(s, 0x0039302e36313032LL)  // "2016.09"
+        || jm_str_eq_8(s, 0x0033302e37313032LL)  // "2017.03"
+        || jm_str_eq_8(s, 0x0039302e37313032LL)  // "2017.09"
+        || jm_str_eq_8(s, 0x0032312e37313032LL)  // "2017.12"
+        || jm_str_eq_8(s, 0x0033302e38313032LL)  // "2018.03"
+        || jm_str_eq_8(s, 0x74616469646e6143LL) && jm_str_eq_2(s + 8, 0x00000065)  // "Candidate"
+    ;
+}
 
 // object .'$platforms'.0.'|'.2
 static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -6475,7 +7427,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_92_lpath = (jm_path_t) { NULL, arr_92_idx, (path ? &lpath_91 : NULL), NULL };
                     // .'$platforms'.0.'|'.2.versions.0
-                    res = json_is_string(arr_92_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_92_item) } }, _jm_cst_62, 14);
+                    res = json_is_string(arr_92_item) && _jm_cst_62_str_test(json_string_value(arr_92_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", ((path ? &lpath_91 : NULL) ? &arr_92_lpath : NULL));
@@ -6560,6 +7512,14 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_63_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00312e36)  // "6.1"
+        || jm_str_eq_4(s, 0x00312e37)  // "7.1"
+        || jm_str_eq_4(s, 0x00322e37)  // "7.2"
+        || jm_str_eq_4(s, 0x006c6c61)  // "all"
+    ;
+}
 
 // object .'$platforms'.0.'|'.0
 static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -6600,7 +7560,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     jm_path_t arr_94_lpath = (jm_path_t) { NULL, arr_94_idx, (path ? &lpath_93 : NULL), NULL };
                     // .'$platforms'.0.'|'.0.versions.0
-                    res = json_is_string(arr_94_item) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(arr_94_item) } }, _jm_cst_63, 4);
+                    res = json_is_string(arr_94_item) && _jm_cst_63_str_test(json_string_value(arr_94_item));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", ((path ? &lpath_93 : NULL) ? &arr_94_lpath : NULL));
@@ -8168,6 +9128,12 @@ static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_64_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00006768)  // "hg"
+        || jm_str_eq_4(s, 0x00746967)  // "git"
+    ;
+}
 
 // object .'$DependencyModelLoose'.vars
 static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -8203,7 +9169,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may scm property
             // .'$DependencyModelLoose'.scm
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_64, 2);
+            res = json_is_string(pval) && _jm_cst_64_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$DependencyModelLoose'.scm.'|']", (path ? &lpath_99 : NULL));
@@ -8722,838 +9688,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "6.1" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "7.1" } };
-        _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "7.2" } };
-        _jm_cst_0[3] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_0, 4);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "1" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "2" } };
-        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "2023" } };
-        jm_sort_cst(_jm_cst_1, 4);
-        // initialize sorted set _jm_cst_2
-        _jm_cst_2[0] = (jm_constant_t) { cst_is_string, { .s = "2013.03" } };
-        _jm_cst_2[1] = (jm_constant_t) { cst_is_string, { .s = "2013.09" } };
-        _jm_cst_2[2] = (jm_constant_t) { cst_is_string, { .s = "2014.03" } };
-        _jm_cst_2[3] = (jm_constant_t) { cst_is_string, { .s = "2014.09" } };
-        _jm_cst_2[4] = (jm_constant_t) { cst_is_string, { .s = "2015.03" } };
-        _jm_cst_2[5] = (jm_constant_t) { cst_is_string, { .s = "2015.09" } };
-        _jm_cst_2[6] = (jm_constant_t) { cst_is_string, { .s = "2016.03" } };
-        _jm_cst_2[7] = (jm_constant_t) { cst_is_string, { .s = "2016.09" } };
-        _jm_cst_2[8] = (jm_constant_t) { cst_is_string, { .s = "2017.03" } };
-        _jm_cst_2[9] = (jm_constant_t) { cst_is_string, { .s = "2017.09" } };
-        _jm_cst_2[10] = (jm_constant_t) { cst_is_string, { .s = "2017.12" } };
-        _jm_cst_2[11] = (jm_constant_t) { cst_is_string, { .s = "2018.03" } };
-        _jm_cst_2[12] = (jm_constant_t) { cst_is_string, { .s = "Candidate" } };
-        _jm_cst_2[13] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_2, 14);
-        // initialize sorted set _jm_cst_3
-        _jm_cst_3[0] = (jm_constant_t) { cst_is_string, { .s = "1.8" } };
-        _jm_cst_3[1] = (jm_constant_t) { cst_is_string, { .s = "1.7" } };
-        _jm_cst_3[2] = (jm_constant_t) { cst_is_string, { .s = "1.6" } };
-        _jm_cst_3[3] = (jm_constant_t) { cst_is_string, { .s = "2.12" } };
-        _jm_cst_3[4] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_3, 5);
-        // initialize sorted set _jm_cst_4
-        _jm_cst_4[0] = (jm_constant_t) { cst_is_string, { .s = "2.5" } };
-        _jm_cst_4[1] = (jm_constant_t) { cst_is_string, { .s = "3.0" } };
-        _jm_cst_4[2] = (jm_constant_t) { cst_is_string, { .s = "3.1" } };
-        _jm_cst_4[3] = (jm_constant_t) { cst_is_string, { .s = "3.2" } };
-        _jm_cst_4[4] = (jm_constant_t) { cst_is_string, { .s = "3.3" } };
-        _jm_cst_4[5] = (jm_constant_t) { cst_is_string, { .s = "3.4" } };
-        _jm_cst_4[6] = (jm_constant_t) { cst_is_string, { .s = "3.5" } };
-        _jm_cst_4[7] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_4, 8);
-        // initialize sorted set _jm_cst_5
-        _jm_cst_5[0] = (jm_constant_t) { cst_is_string, { .s = "bookworm" } };
-        _jm_cst_5[1] = (jm_constant_t) { cst_is_string, { .s = "bullseye" } };
-        _jm_cst_5[2] = (jm_constant_t) { cst_is_string, { .s = "buster" } };
-        _jm_cst_5[3] = (jm_constant_t) { cst_is_string, { .s = "etch" } };
-        _jm_cst_5[4] = (jm_constant_t) { cst_is_string, { .s = "jessie" } };
-        _jm_cst_5[5] = (jm_constant_t) { cst_is_string, { .s = "lenny" } };
-        _jm_cst_5[6] = (jm_constant_t) { cst_is_string, { .s = "sid" } };
-        _jm_cst_5[7] = (jm_constant_t) { cst_is_string, { .s = "squeeze" } };
-        _jm_cst_5[8] = (jm_constant_t) { cst_is_string, { .s = "stretch" } };
-        _jm_cst_5[9] = (jm_constant_t) { cst_is_string, { .s = "trixie" } };
-        _jm_cst_5[10] = (jm_constant_t) { cst_is_string, { .s = "wheezy" } };
-        _jm_cst_5[11] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_5, 12);
-        // initialize sorted set _jm_cst_6
-        _jm_cst_6[0] = (jm_constant_t) { cst_is_string, { .s = "10" } };
-        _jm_cst_6[1] = (jm_constant_t) { cst_is_string, { .s = "6" } };
-        _jm_cst_6[2] = (jm_constant_t) { cst_is_string, { .s = "9" } };
-        _jm_cst_6[3] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_6, 4);
-        // initialize sorted set _jm_cst_7
-        _jm_cst_7[0] = (jm_constant_t) { cst_is_string, { .s = "ascii" } };
-        _jm_cst_7[1] = (jm_constant_t) { cst_is_string, { .s = "beowulf" } };
-        _jm_cst_7[2] = (jm_constant_t) { cst_is_string, { .s = "chimaera" } };
-        _jm_cst_7[3] = (jm_constant_t) { cst_is_string, { .s = "daedalus" } };
-        _jm_cst_7[4] = (jm_constant_t) { cst_is_string, { .s = "jessie" } };
-        _jm_cst_7[5] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_7, 6);
-        // initialize sorted set _jm_cst_8
-        _jm_cst_8[0] = (jm_constant_t) { cst_is_string, { .s = "5.2" } };
-        _jm_cst_8[1] = (jm_constant_t) { cst_is_string, { .s = "5.4" } };
-        _jm_cst_8[2] = (jm_constant_t) { cst_is_string, { .s = "5.6" } };
-        _jm_cst_8[3] = (jm_constant_t) { cst_is_string, { .s = "5.8" } };
-        _jm_cst_8[4] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_8[5] = (jm_constant_t) { cst_is_string, { .s = "6.2" } };
-        _jm_cst_8[6] = (jm_constant_t) { cst_is_string, { .s = "6.4" } };
-        _jm_cst_8[7] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_8, 8);
-        // initialize sorted set _jm_cst_9
-        _jm_cst_9[0] = (jm_constant_t) { cst_is_string, { .s = "5" } };
-        _jm_cst_9[1] = (jm_constant_t) { cst_is_string, { .s = "6" } };
-        _jm_cst_9[2] = (jm_constant_t) { cst_is_string, { .s = "7" } };
-        _jm_cst_9[3] = (jm_constant_t) { cst_is_string, { .s = "8" } };
-        _jm_cst_9[4] = (jm_constant_t) { cst_is_string, { .s = "9" } };
-        _jm_cst_9[5] = (jm_constant_t) { cst_is_string, { .s = "10" } };
-        _jm_cst_9[6] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_9, 7);
-        // initialize sorted set _jm_cst_10
-        _jm_cst_10[0] = (jm_constant_t) { cst_is_string, { .s = "16" } };
-        _jm_cst_10[1] = (jm_constant_t) { cst_is_string, { .s = "17" } };
-        _jm_cst_10[2] = (jm_constant_t) { cst_is_string, { .s = "18" } };
-        _jm_cst_10[3] = (jm_constant_t) { cst_is_string, { .s = "19" } };
-        _jm_cst_10[4] = (jm_constant_t) { cst_is_string, { .s = "20" } };
-        _jm_cst_10[5] = (jm_constant_t) { cst_is_string, { .s = "21" } };
-        _jm_cst_10[6] = (jm_constant_t) { cst_is_string, { .s = "22" } };
-        _jm_cst_10[7] = (jm_constant_t) { cst_is_string, { .s = "23" } };
-        _jm_cst_10[8] = (jm_constant_t) { cst_is_string, { .s = "24" } };
-        _jm_cst_10[9] = (jm_constant_t) { cst_is_string, { .s = "25" } };
-        _jm_cst_10[10] = (jm_constant_t) { cst_is_string, { .s = "26" } };
-        _jm_cst_10[11] = (jm_constant_t) { cst_is_string, { .s = "27" } };
-        _jm_cst_10[12] = (jm_constant_t) { cst_is_string, { .s = "28" } };
-        _jm_cst_10[13] = (jm_constant_t) { cst_is_string, { .s = "29" } };
-        _jm_cst_10[14] = (jm_constant_t) { cst_is_string, { .s = "30" } };
-        _jm_cst_10[15] = (jm_constant_t) { cst_is_string, { .s = "31" } };
-        _jm_cst_10[16] = (jm_constant_t) { cst_is_string, { .s = "32" } };
-        _jm_cst_10[17] = (jm_constant_t) { cst_is_string, { .s = "33" } };
-        _jm_cst_10[18] = (jm_constant_t) { cst_is_string, { .s = "34" } };
-        _jm_cst_10[19] = (jm_constant_t) { cst_is_string, { .s = "35" } };
-        _jm_cst_10[20] = (jm_constant_t) { cst_is_string, { .s = "36" } };
-        _jm_cst_10[21] = (jm_constant_t) { cst_is_string, { .s = "37" } };
-        _jm_cst_10[22] = (jm_constant_t) { cst_is_string, { .s = "38" } };
-        _jm_cst_10[23] = (jm_constant_t) { cst_is_string, { .s = "39" } };
-        _jm_cst_10[24] = (jm_constant_t) { cst_is_string, { .s = "40" } };
-        _jm_cst_10[25] = (jm_constant_t) { cst_is_string, { .s = "41" } };
-        _jm_cst_10[26] = (jm_constant_t) { cst_is_string, { .s = "42" } };
-        _jm_cst_10[27] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_10, 28);
-        // initialize sorted set _jm_cst_11
-        _jm_cst_11[0] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_11[1] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_11[2] = (jm_constant_t) { cst_is_string, { .s = "8.2" } };
-        _jm_cst_11[3] = (jm_constant_t) { cst_is_string, { .s = "8.3" } };
-        _jm_cst_11[4] = (jm_constant_t) { cst_is_string, { .s = "8.4" } };
-        _jm_cst_11[5] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_11[6] = (jm_constant_t) { cst_is_string, { .s = "9.1" } };
-        _jm_cst_11[7] = (jm_constant_t) { cst_is_string, { .s = "9.2" } };
-        _jm_cst_11[8] = (jm_constant_t) { cst_is_string, { .s = "9.3" } };
-        _jm_cst_11[9] = (jm_constant_t) { cst_is_string, { .s = "10.0" } };
-        _jm_cst_11[10] = (jm_constant_t) { cst_is_string, { .s = "10.1" } };
-        _jm_cst_11[11] = (jm_constant_t) { cst_is_string, { .s = "10.2" } };
-        _jm_cst_11[12] = (jm_constant_t) { cst_is_string, { .s = "10.3" } };
-        _jm_cst_11[13] = (jm_constant_t) { cst_is_string, { .s = "10.4" } };
-        _jm_cst_11[14] = (jm_constant_t) { cst_is_string, { .s = "11.0" } };
-        _jm_cst_11[15] = (jm_constant_t) { cst_is_string, { .s = "11.1" } };
-        _jm_cst_11[16] = (jm_constant_t) { cst_is_string, { .s = "11.2" } };
-        _jm_cst_11[17] = (jm_constant_t) { cst_is_string, { .s = "11.3" } };
-        _jm_cst_11[18] = (jm_constant_t) { cst_is_string, { .s = "11.4" } };
-        _jm_cst_11[19] = (jm_constant_t) { cst_is_string, { .s = "12.0" } };
-        _jm_cst_11[20] = (jm_constant_t) { cst_is_string, { .s = "12.1" } };
-        _jm_cst_11[21] = (jm_constant_t) { cst_is_string, { .s = "12.2" } };
-        _jm_cst_11[22] = (jm_constant_t) { cst_is_string, { .s = "13.0" } };
-        _jm_cst_11[23] = (jm_constant_t) { cst_is_string, { .s = "13.1" } };
-        _jm_cst_11[24] = (jm_constant_t) { cst_is_string, { .s = "13.2" } };
-        _jm_cst_11[25] = (jm_constant_t) { cst_is_string, { .s = "14.0" } };
-        _jm_cst_11[26] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_11, 27);
-        // initialize sorted set _jm_cst_12
-        _jm_cst_12[0] = (jm_constant_t) { cst_is_string, { .s = "10" } };
-        _jm_cst_12[1] = (jm_constant_t) { cst_is_string, { .s = "11" } };
-        _jm_cst_12[2] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_12, 3);
-        // initialize sorted set _jm_cst_13
-        _jm_cst_13[0] = (jm_constant_t) { cst_is_string, { .s = "2.0" } };
-        _jm_cst_13[1] = (jm_constant_t) { cst_is_string, { .s = "2016" } };
-        _jm_cst_13[2] = (jm_constant_t) { cst_is_string, { .s = "2017" } };
-        _jm_cst_13[3] = (jm_constant_t) { cst_is_string, { .s = "2018" } };
-        _jm_cst_13[4] = (jm_constant_t) { cst_is_string, { .s = "2019" } };
-        _jm_cst_13[5] = (jm_constant_t) { cst_is_string, { .s = "2020" } };
-        _jm_cst_13[6] = (jm_constant_t) { cst_is_string, { .s = "2021" } };
-        _jm_cst_13[7] = (jm_constant_t) { cst_is_string, { .s = "2022" } };
-        _jm_cst_13[8] = (jm_constant_t) { cst_is_string, { .s = "2023" } };
-        _jm_cst_13[9] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_13, 10);
-        // initialize sorted set _jm_cst_14
-        _jm_cst_14[0] = (jm_constant_t) { cst_is_string, { .s = "10.7" } };
-        _jm_cst_14[1] = (jm_constant_t) { cst_is_string, { .s = "10.8" } };
-        _jm_cst_14[2] = (jm_constant_t) { cst_is_string, { .s = "10.9" } };
-        _jm_cst_14[3] = (jm_constant_t) { cst_is_string, { .s = "10.10" } };
-        _jm_cst_14[4] = (jm_constant_t) { cst_is_string, { .s = "10.11" } };
-        _jm_cst_14[5] = (jm_constant_t) { cst_is_string, { .s = "10.12" } };
-        _jm_cst_14[6] = (jm_constant_t) { cst_is_string, { .s = "10.13" } };
-        _jm_cst_14[7] = (jm_constant_t) { cst_is_string, { .s = "10.14" } };
-        _jm_cst_14[8] = (jm_constant_t) { cst_is_string, { .s = "10.15" } };
-        _jm_cst_14[9] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_14, 10);
-        // initialize sorted set _jm_cst_15
-        _jm_cst_15[0] = (jm_constant_t) { cst_is_string, { .s = "7" } };
-        _jm_cst_15[1] = (jm_constant_t) { cst_is_string, { .s = "8" } };
-        _jm_cst_15[2] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_15, 3);
-        // initialize sorted set _jm_cst_16
-        _jm_cst_16[0] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_16[1] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_16[2] = (jm_constant_t) { cst_is_string, { .s = "8.2" } };
-        _jm_cst_16[3] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_16[4] = (jm_constant_t) { cst_is_string, { .s = "9.1" } };
-        _jm_cst_16[5] = (jm_constant_t) { cst_is_string, { .s = "9.2" } };
-        _jm_cst_16[6] = (jm_constant_t) { cst_is_string, { .s = "9.3" } };
-        _jm_cst_16[7] = (jm_constant_t) { cst_is_string, { .s = "10.0" } };
-        _jm_cst_16[8] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_16, 9);
-        // initialize sorted set _jm_cst_17
-        _jm_cst_17[0] = (jm_constant_t) { cst_is_string, { .s = "5.6" } };
-        _jm_cst_17[1] = (jm_constant_t) { cst_is_string, { .s = "5.7" } };
-        _jm_cst_17[2] = (jm_constant_t) { cst_is_string, { .s = "5.8" } };
-        _jm_cst_17[3] = (jm_constant_t) { cst_is_string, { .s = "5.9" } };
-        _jm_cst_17[4] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_17[5] = (jm_constant_t) { cst_is_string, { .s = "6.1" } };
-        _jm_cst_17[6] = (jm_constant_t) { cst_is_string, { .s = "6.2" } };
-        _jm_cst_17[7] = (jm_constant_t) { cst_is_string, { .s = "6.3" } };
-        _jm_cst_17[8] = (jm_constant_t) { cst_is_string, { .s = "6.4" } };
-        _jm_cst_17[9] = (jm_constant_t) { cst_is_string, { .s = "6.5" } };
-        _jm_cst_17[10] = (jm_constant_t) { cst_is_string, { .s = "6.6" } };
-        _jm_cst_17[11] = (jm_constant_t) { cst_is_string, { .s = "6.7" } };
-        _jm_cst_17[12] = (jm_constant_t) { cst_is_string, { .s = "6.8" } };
-        _jm_cst_17[13] = (jm_constant_t) { cst_is_string, { .s = "6.9" } };
-        _jm_cst_17[14] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_17[15] = (jm_constant_t) { cst_is_string, { .s = "7.1" } };
-        _jm_cst_17[16] = (jm_constant_t) { cst_is_string, { .s = "7.2" } };
-        _jm_cst_17[17] = (jm_constant_t) { cst_is_string, { .s = "7.3" } };
-        _jm_cst_17[18] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_17, 19);
-        // initialize sorted set _jm_cst_18
-        _jm_cst_18[0] = (jm_constant_t) { cst_is_string, { .s = "17.01" } };
-        _jm_cst_18[1] = (jm_constant_t) { cst_is_string, { .s = "18.06" } };
-        _jm_cst_18[2] = (jm_constant_t) { cst_is_string, { .s = "19.07" } };
-        _jm_cst_18[3] = (jm_constant_t) { cst_is_string, { .s = "21.02" } };
-        _jm_cst_18[4] = (jm_constant_t) { cst_is_string, { .s = "22.03" } };
-        _jm_cst_18[5] = (jm_constant_t) { cst_is_string, { .s = "23.05" } };
-        _jm_cst_18[6] = (jm_constant_t) { cst_is_string, { .s = "24.10" } };
-        _jm_cst_18[7] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_18, 8);
-        // initialize sorted set _jm_cst_19
-        _jm_cst_19[0] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_19[1] = (jm_constant_t) { cst_is_string, { .s = "7.1" } };
-        _jm_cst_19[2] = (jm_constant_t) { cst_is_string, { .s = "7.2" } };
-        _jm_cst_19[3] = (jm_constant_t) { cst_is_string, { .s = "7.3" } };
-        _jm_cst_19[4] = (jm_constant_t) { cst_is_string, { .s = "7.4" } };
-        _jm_cst_19[5] = (jm_constant_t) { cst_is_string, { .s = "7.5" } };
-        _jm_cst_19[6] = (jm_constant_t) { cst_is_string, { .s = "7.6" } };
-        _jm_cst_19[7] = (jm_constant_t) { cst_is_string, { .s = "7.7" } };
-        _jm_cst_19[8] = (jm_constant_t) { cst_is_string, { .s = "7.8" } };
-        _jm_cst_19[9] = (jm_constant_t) { cst_is_string, { .s = "7.9" } };
-        _jm_cst_19[10] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_19[11] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_19[12] = (jm_constant_t) { cst_is_string, { .s = "8.2" } };
-        _jm_cst_19[13] = (jm_constant_t) { cst_is_string, { .s = "8.3" } };
-        _jm_cst_19[14] = (jm_constant_t) { cst_is_string, { .s = "8.4" } };
-        _jm_cst_19[15] = (jm_constant_t) { cst_is_string, { .s = "8.5" } };
-        _jm_cst_19[16] = (jm_constant_t) { cst_is_string, { .s = "8.6" } };
-        _jm_cst_19[17] = (jm_constant_t) { cst_is_string, { .s = "8.7" } };
-        _jm_cst_19[18] = (jm_constant_t) { cst_is_string, { .s = "8.8" } };
-        _jm_cst_19[19] = (jm_constant_t) { cst_is_string, { .s = "8.9" } };
-        _jm_cst_19[20] = (jm_constant_t) { cst_is_string, { .s = "8.10" } };
-        _jm_cst_19[21] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_19[22] = (jm_constant_t) { cst_is_string, { .s = "9.1" } };
-        _jm_cst_19[23] = (jm_constant_t) { cst_is_string, { .s = "9.2" } };
-        _jm_cst_19[24] = (jm_constant_t) { cst_is_string, { .s = "9.3" } };
-        _jm_cst_19[25] = (jm_constant_t) { cst_is_string, { .s = "9.4" } };
-        _jm_cst_19[26] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_19, 27);
-        // initialize sorted set _jm_cst_20
-        _jm_cst_20[0] = (jm_constant_t) { cst_is_string, { .s = "7.1" } };
-        _jm_cst_20[1] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_20[2] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_20[3] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_20[4] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_20, 5);
-        // initialize sorted set _jm_cst_21
-        _jm_cst_21[0] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_21[1] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_21[2] = (jm_constant_t) { cst_is_string, { .s = "8.2" } };
-        _jm_cst_21[3] = (jm_constant_t) { cst_is_string, { .s = "8.3" } };
-        _jm_cst_21[4] = (jm_constant_t) { cst_is_string, { .s = "8.4" } };
-        _jm_cst_21[5] = (jm_constant_t) { cst_is_string, { .s = "8.5" } };
-        _jm_cst_21[6] = (jm_constant_t) { cst_is_string, { .s = "8.6" } };
-        _jm_cst_21[7] = (jm_constant_t) { cst_is_string, { .s = "8.7" } };
-        _jm_cst_21[8] = (jm_constant_t) { cst_is_string, { .s = "8.8" } };
-        _jm_cst_21[9] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_21[10] = (jm_constant_t) { cst_is_string, { .s = "9.1" } };
-        _jm_cst_21[11] = (jm_constant_t) { cst_is_string, { .s = "9.2" } };
-        _jm_cst_21[12] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_21, 13);
-        // initialize sorted set _jm_cst_22
-        _jm_cst_22[0] = (jm_constant_t) { cst_is_string, { .s = "10SP3" } };
-        _jm_cst_22[1] = (jm_constant_t) { cst_is_string, { .s = "10SP4" } };
-        _jm_cst_22[2] = (jm_constant_t) { cst_is_string, { .s = "11" } };
-        _jm_cst_22[3] = (jm_constant_t) { cst_is_string, { .s = "11SP1" } };
-        _jm_cst_22[4] = (jm_constant_t) { cst_is_string, { .s = "11SP2" } };
-        _jm_cst_22[5] = (jm_constant_t) { cst_is_string, { .s = "11SP3" } };
-        _jm_cst_22[6] = (jm_constant_t) { cst_is_string, { .s = "11SP4" } };
-        _jm_cst_22[7] = (jm_constant_t) { cst_is_string, { .s = "12" } };
-        _jm_cst_22[8] = (jm_constant_t) { cst_is_string, { .s = "12SP1" } };
-        _jm_cst_22[9] = (jm_constant_t) { cst_is_string, { .s = "12SP2" } };
-        _jm_cst_22[10] = (jm_constant_t) { cst_is_string, { .s = "12SP3" } };
-        _jm_cst_22[11] = (jm_constant_t) { cst_is_string, { .s = "12SP4" } };
-        _jm_cst_22[12] = (jm_constant_t) { cst_is_string, { .s = "12SP5" } };
-        _jm_cst_22[13] = (jm_constant_t) { cst_is_string, { .s = "15" } };
-        _jm_cst_22[14] = (jm_constant_t) { cst_is_string, { .s = "15SP1" } };
-        _jm_cst_22[15] = (jm_constant_t) { cst_is_string, { .s = "15SP2" } };
-        _jm_cst_22[16] = (jm_constant_t) { cst_is_string, { .s = "15SP3" } };
-        _jm_cst_22[17] = (jm_constant_t) { cst_is_string, { .s = "15SP4" } };
-        _jm_cst_22[18] = (jm_constant_t) { cst_is_string, { .s = "15SP5" } };
-        _jm_cst_22[19] = (jm_constant_t) { cst_is_string, { .s = "15SP6" } };
-        _jm_cst_22[20] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_22, 21);
-        // initialize sorted set _jm_cst_23
-        _jm_cst_23[0] = (jm_constant_t) { cst_is_string, { .s = "10" } };
-        _jm_cst_23[1] = (jm_constant_t) { cst_is_string, { .s = "11.0" } };
-        _jm_cst_23[2] = (jm_constant_t) { cst_is_string, { .s = "11.1" } };
-        _jm_cst_23[3] = (jm_constant_t) { cst_is_string, { .s = "11.2" } };
-        _jm_cst_23[4] = (jm_constant_t) { cst_is_string, { .s = "11.3" } };
-        _jm_cst_23[5] = (jm_constant_t) { cst_is_string, { .s = "11.4" } };
-        _jm_cst_23[6] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_23, 7);
-        // initialize sorted set _jm_cst_24
-        _jm_cst_24[0] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_24[1] = (jm_constant_t) { cst_is_string, { .s = "6.1" } };
-        _jm_cst_24[2] = (jm_constant_t) { cst_is_string, { .s = "6.2" } };
-        _jm_cst_24[3] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_24[4] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_24, 5);
-        // initialize sorted set _jm_cst_25
-        _jm_cst_25[0] = (jm_constant_t) { cst_is_string, { .s = "12.1" } };
-        _jm_cst_25[1] = (jm_constant_t) { cst_is_string, { .s = "13.0" } };
-        _jm_cst_25[2] = (jm_constant_t) { cst_is_string, { .s = "13.1" } };
-        _jm_cst_25[3] = (jm_constant_t) { cst_is_string, { .s = "14.0" } };
-        _jm_cst_25[4] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_25, 5);
-        // initialize sorted set _jm_cst_26
-        _jm_cst_26[0] = (jm_constant_t) { cst_is_string, { .s = "artful" } };
-        _jm_cst_26[1] = (jm_constant_t) { cst_is_string, { .s = "bionic" } };
-        _jm_cst_26[2] = (jm_constant_t) { cst_is_string, { .s = "cosmic" } };
-        _jm_cst_26[3] = (jm_constant_t) { cst_is_string, { .s = "disco" } };
-        _jm_cst_26[4] = (jm_constant_t) { cst_is_string, { .s = "eoan" } };
-        _jm_cst_26[5] = (jm_constant_t) { cst_is_string, { .s = "focal" } };
-        _jm_cst_26[6] = (jm_constant_t) { cst_is_string, { .s = "groovy" } };
-        _jm_cst_26[7] = (jm_constant_t) { cst_is_string, { .s = "hirsute" } };
-        _jm_cst_26[8] = (jm_constant_t) { cst_is_string, { .s = "impish" } };
-        _jm_cst_26[9] = (jm_constant_t) { cst_is_string, { .s = "jammy" } };
-        _jm_cst_26[10] = (jm_constant_t) { cst_is_string, { .s = "kinetic" } };
-        _jm_cst_26[11] = (jm_constant_t) { cst_is_string, { .s = "lucid" } };
-        _jm_cst_26[12] = (jm_constant_t) { cst_is_string, { .s = "lunar" } };
-        _jm_cst_26[13] = (jm_constant_t) { cst_is_string, { .s = "mantic" } };
-        _jm_cst_26[14] = (jm_constant_t) { cst_is_string, { .s = "noble" } };
-        _jm_cst_26[15] = (jm_constant_t) { cst_is_string, { .s = "maverick" } };
-        _jm_cst_26[16] = (jm_constant_t) { cst_is_string, { .s = "natty" } };
-        _jm_cst_26[17] = (jm_constant_t) { cst_is_string, { .s = "oneiric" } };
-        _jm_cst_26[18] = (jm_constant_t) { cst_is_string, { .s = "oracular" } };
-        _jm_cst_26[19] = (jm_constant_t) { cst_is_string, { .s = "plucky" } };
-        _jm_cst_26[20] = (jm_constant_t) { cst_is_string, { .s = "precise" } };
-        _jm_cst_26[21] = (jm_constant_t) { cst_is_string, { .s = "quantal" } };
-        _jm_cst_26[22] = (jm_constant_t) { cst_is_string, { .s = "raring" } };
-        _jm_cst_26[23] = (jm_constant_t) { cst_is_string, { .s = "saucy" } };
-        _jm_cst_26[24] = (jm_constant_t) { cst_is_string, { .s = "trusty" } };
-        _jm_cst_26[25] = (jm_constant_t) { cst_is_string, { .s = "utopic" } };
-        _jm_cst_26[26] = (jm_constant_t) { cst_is_string, { .s = "vivid" } };
-        _jm_cst_26[27] = (jm_constant_t) { cst_is_string, { .s = "wily" } };
-        _jm_cst_26[28] = (jm_constant_t) { cst_is_string, { .s = "xenial" } };
-        _jm_cst_26[29] = (jm_constant_t) { cst_is_string, { .s = "yakkety" } };
-        _jm_cst_26[30] = (jm_constant_t) { cst_is_string, { .s = "zesty" } };
-        _jm_cst_26[31] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_26, 32);
-        // initialize sorted set _jm_cst_27
-        _jm_cst_27[0] = (jm_constant_t) { cst_is_string, { .s = "2008R2" } };
-        _jm_cst_27[1] = (jm_constant_t) { cst_is_string, { .s = "2008x64" } };
-        _jm_cst_27[2] = (jm_constant_t) { cst_is_string, { .s = "2008x86" } };
-        _jm_cst_27[3] = (jm_constant_t) { cst_is_string, { .s = "2012" } };
-        _jm_cst_27[4] = (jm_constant_t) { cst_is_string, { .s = "2012R2" } };
-        _jm_cst_27[5] = (jm_constant_t) { cst_is_string, { .s = "2016" } };
-        _jm_cst_27[6] = (jm_constant_t) { cst_is_string, { .s = "2019" } };
-        _jm_cst_27[7] = (jm_constant_t) { cst_is_string, { .s = "2022" } };
-        _jm_cst_27[8] = (jm_constant_t) { cst_is_string, { .s = "2025" } };
-        _jm_cst_27[9] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_27, 10);
-        // initialize sorted set _jm_cst_28
-        _jm_cst_28[0] = (jm_constant_t) { cst_is_string, { .s = "Big-Sur" } };
-        _jm_cst_28[1] = (jm_constant_t) { cst_is_string, { .s = "Catalina" } };
-        _jm_cst_28[2] = (jm_constant_t) { cst_is_string, { .s = "High-Sierra" } };
-        _jm_cst_28[3] = (jm_constant_t) { cst_is_string, { .s = "Mojave" } };
-        _jm_cst_28[4] = (jm_constant_t) { cst_is_string, { .s = "Monterey" } };
-        _jm_cst_28[5] = (jm_constant_t) { cst_is_string, { .s = "Sierra" } };
-        _jm_cst_28[6] = (jm_constant_t) { cst_is_string, { .s = "Sonoma" } };
-        _jm_cst_28[7] = (jm_constant_t) { cst_is_string, { .s = "Ventura" } };
-        _jm_cst_28[8] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_28, 9);
-        // initialize sorted set _jm_cst_29
-        _jm_cst_29[0] = (jm_constant_t) { cst_is_string, { .s = "12.1" } };
-        _jm_cst_29[1] = (jm_constant_t) { cst_is_string, { .s = "12.2" } };
-        _jm_cst_29[2] = (jm_constant_t) { cst_is_string, { .s = "12.3" } };
-        _jm_cst_29[3] = (jm_constant_t) { cst_is_string, { .s = "13.1" } };
-        _jm_cst_29[4] = (jm_constant_t) { cst_is_string, { .s = "13.2" } };
-        _jm_cst_29[5] = (jm_constant_t) { cst_is_string, { .s = "15.0" } };
-        _jm_cst_29[6] = (jm_constant_t) { cst_is_string, { .s = "15.1" } };
-        _jm_cst_29[7] = (jm_constant_t) { cst_is_string, { .s = "15.2" } };
-        _jm_cst_29[8] = (jm_constant_t) { cst_is_string, { .s = "15.3" } };
-        _jm_cst_29[9] = (jm_constant_t) { cst_is_string, { .s = "15.4" } };
-        _jm_cst_29[10] = (jm_constant_t) { cst_is_string, { .s = "15.5" } };
-        _jm_cst_29[11] = (jm_constant_t) { cst_is_string, { .s = "42.1" } };
-        _jm_cst_29[12] = (jm_constant_t) { cst_is_string, { .s = "42.2" } };
-        _jm_cst_29[13] = (jm_constant_t) { cst_is_string, { .s = "42.3" } };
-        _jm_cst_29[14] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_29, 15);
-        // initialize sorted set _jm_cst_30
-        _jm_cst_30[0] = (jm_constant_t) { cst_is_string, { .s = "5.5" } };
-        _jm_cst_30[1] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_30[2] = (jm_constant_t) { cst_is_string, { .s = "6.5" } };
-        _jm_cst_30[3] = (jm_constant_t) { cst_is_string, { .s = "6.7" } };
-        _jm_cst_30[4] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_30[5] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_30[6] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_30, 7);
-        // initialize sorted set _jm_cst_31
-        _jm_cst_31[0] = (jm_constant_t) { cst_is_string, { .s = "5.5" } };
-        _jm_cst_31[1] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_31[2] = (jm_constant_t) { cst_is_string, { .s = "6.5" } };
-        _jm_cst_31[3] = (jm_constant_t) { cst_is_string, { .s = "6.7" } };
-        _jm_cst_31[4] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_31[5] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_31[6] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_31, 7);
-        // initialize sorted set _jm_cst_32
-        _jm_cst_32[0] = (jm_constant_t) { cst_is_string, { .s = "2008R2" } };
-        _jm_cst_32[1] = (jm_constant_t) { cst_is_string, { .s = "2008x64" } };
-        _jm_cst_32[2] = (jm_constant_t) { cst_is_string, { .s = "2008x86" } };
-        _jm_cst_32[3] = (jm_constant_t) { cst_is_string, { .s = "2012" } };
-        _jm_cst_32[4] = (jm_constant_t) { cst_is_string, { .s = "2012R2" } };
-        _jm_cst_32[5] = (jm_constant_t) { cst_is_string, { .s = "2016" } };
-        _jm_cst_32[6] = (jm_constant_t) { cst_is_string, { .s = "2019" } };
-        _jm_cst_32[7] = (jm_constant_t) { cst_is_string, { .s = "2022" } };
-        _jm_cst_32[8] = (jm_constant_t) { cst_is_string, { .s = "2025" } };
-        _jm_cst_32[9] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_32, 10);
-        // initialize sorted set _jm_cst_33
-        _jm_cst_33[0] = (jm_constant_t) { cst_is_string, { .s = "5.5" } };
-        _jm_cst_33[1] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_33[2] = (jm_constant_t) { cst_is_string, { .s = "6.5" } };
-        _jm_cst_33[3] = (jm_constant_t) { cst_is_string, { .s = "6.7" } };
-        _jm_cst_33[4] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_33[5] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_33[6] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_33, 7);
-        // initialize sorted set _jm_cst_34
-        _jm_cst_34[0] = (jm_constant_t) { cst_is_string, { .s = "5.5" } };
-        _jm_cst_34[1] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_34[2] = (jm_constant_t) { cst_is_string, { .s = "6.5" } };
-        _jm_cst_34[3] = (jm_constant_t) { cst_is_string, { .s = "6.7" } };
-        _jm_cst_34[4] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_34[5] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_34[6] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_34, 7);
-        // initialize sorted set _jm_cst_35
-        _jm_cst_35[0] = (jm_constant_t) { cst_is_string, { .s = "artful" } };
-        _jm_cst_35[1] = (jm_constant_t) { cst_is_string, { .s = "bionic" } };
-        _jm_cst_35[2] = (jm_constant_t) { cst_is_string, { .s = "cosmic" } };
-        _jm_cst_35[3] = (jm_constant_t) { cst_is_string, { .s = "disco" } };
-        _jm_cst_35[4] = (jm_constant_t) { cst_is_string, { .s = "eoan" } };
-        _jm_cst_35[5] = (jm_constant_t) { cst_is_string, { .s = "focal" } };
-        _jm_cst_35[6] = (jm_constant_t) { cst_is_string, { .s = "groovy" } };
-        _jm_cst_35[7] = (jm_constant_t) { cst_is_string, { .s = "hirsute" } };
-        _jm_cst_35[8] = (jm_constant_t) { cst_is_string, { .s = "impish" } };
-        _jm_cst_35[9] = (jm_constant_t) { cst_is_string, { .s = "jammy" } };
-        _jm_cst_35[10] = (jm_constant_t) { cst_is_string, { .s = "kinetic" } };
-        _jm_cst_35[11] = (jm_constant_t) { cst_is_string, { .s = "lucid" } };
-        _jm_cst_35[12] = (jm_constant_t) { cst_is_string, { .s = "lunar" } };
-        _jm_cst_35[13] = (jm_constant_t) { cst_is_string, { .s = "mantic" } };
-        _jm_cst_35[14] = (jm_constant_t) { cst_is_string, { .s = "noble" } };
-        _jm_cst_35[15] = (jm_constant_t) { cst_is_string, { .s = "maverick" } };
-        _jm_cst_35[16] = (jm_constant_t) { cst_is_string, { .s = "natty" } };
-        _jm_cst_35[17] = (jm_constant_t) { cst_is_string, { .s = "oneiric" } };
-        _jm_cst_35[18] = (jm_constant_t) { cst_is_string, { .s = "oracular" } };
-        _jm_cst_35[19] = (jm_constant_t) { cst_is_string, { .s = "plucky" } };
-        _jm_cst_35[20] = (jm_constant_t) { cst_is_string, { .s = "precise" } };
-        _jm_cst_35[21] = (jm_constant_t) { cst_is_string, { .s = "quantal" } };
-        _jm_cst_35[22] = (jm_constant_t) { cst_is_string, { .s = "raring" } };
-        _jm_cst_35[23] = (jm_constant_t) { cst_is_string, { .s = "saucy" } };
-        _jm_cst_35[24] = (jm_constant_t) { cst_is_string, { .s = "trusty" } };
-        _jm_cst_35[25] = (jm_constant_t) { cst_is_string, { .s = "utopic" } };
-        _jm_cst_35[26] = (jm_constant_t) { cst_is_string, { .s = "vivid" } };
-        _jm_cst_35[27] = (jm_constant_t) { cst_is_string, { .s = "wily" } };
-        _jm_cst_35[28] = (jm_constant_t) { cst_is_string, { .s = "xenial" } };
-        _jm_cst_35[29] = (jm_constant_t) { cst_is_string, { .s = "yakkety" } };
-        _jm_cst_35[30] = (jm_constant_t) { cst_is_string, { .s = "zesty" } };
-        _jm_cst_35[31] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_35, 32);
-        // initialize sorted set _jm_cst_36
-        _jm_cst_36[0] = (jm_constant_t) { cst_is_string, { .s = "12.1" } };
-        _jm_cst_36[1] = (jm_constant_t) { cst_is_string, { .s = "13.0" } };
-        _jm_cst_36[2] = (jm_constant_t) { cst_is_string, { .s = "13.1" } };
-        _jm_cst_36[3] = (jm_constant_t) { cst_is_string, { .s = "14.0" } };
-        _jm_cst_36[4] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_36, 5);
-        // initialize sorted set _jm_cst_37
-        _jm_cst_37[0] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_37[1] = (jm_constant_t) { cst_is_string, { .s = "6.1" } };
-        _jm_cst_37[2] = (jm_constant_t) { cst_is_string, { .s = "6.2" } };
-        _jm_cst_37[3] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_37[4] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_37, 5);
-        // initialize sorted set _jm_cst_38
-        _jm_cst_38[0] = (jm_constant_t) { cst_is_string, { .s = "10" } };
-        _jm_cst_38[1] = (jm_constant_t) { cst_is_string, { .s = "11.0" } };
-        _jm_cst_38[2] = (jm_constant_t) { cst_is_string, { .s = "11.1" } };
-        _jm_cst_38[3] = (jm_constant_t) { cst_is_string, { .s = "11.2" } };
-        _jm_cst_38[4] = (jm_constant_t) { cst_is_string, { .s = "11.3" } };
-        _jm_cst_38[5] = (jm_constant_t) { cst_is_string, { .s = "11.4" } };
-        _jm_cst_38[6] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_38, 7);
-        // initialize sorted set _jm_cst_39
-        _jm_cst_39[0] = (jm_constant_t) { cst_is_string, { .s = "10SP3" } };
-        _jm_cst_39[1] = (jm_constant_t) { cst_is_string, { .s = "10SP4" } };
-        _jm_cst_39[2] = (jm_constant_t) { cst_is_string, { .s = "11" } };
-        _jm_cst_39[3] = (jm_constant_t) { cst_is_string, { .s = "11SP1" } };
-        _jm_cst_39[4] = (jm_constant_t) { cst_is_string, { .s = "11SP2" } };
-        _jm_cst_39[5] = (jm_constant_t) { cst_is_string, { .s = "11SP3" } };
-        _jm_cst_39[6] = (jm_constant_t) { cst_is_string, { .s = "11SP4" } };
-        _jm_cst_39[7] = (jm_constant_t) { cst_is_string, { .s = "12" } };
-        _jm_cst_39[8] = (jm_constant_t) { cst_is_string, { .s = "12SP1" } };
-        _jm_cst_39[9] = (jm_constant_t) { cst_is_string, { .s = "12SP2" } };
-        _jm_cst_39[10] = (jm_constant_t) { cst_is_string, { .s = "12SP3" } };
-        _jm_cst_39[11] = (jm_constant_t) { cst_is_string, { .s = "12SP4" } };
-        _jm_cst_39[12] = (jm_constant_t) { cst_is_string, { .s = "12SP5" } };
-        _jm_cst_39[13] = (jm_constant_t) { cst_is_string, { .s = "15" } };
-        _jm_cst_39[14] = (jm_constant_t) { cst_is_string, { .s = "15SP1" } };
-        _jm_cst_39[15] = (jm_constant_t) { cst_is_string, { .s = "15SP2" } };
-        _jm_cst_39[16] = (jm_constant_t) { cst_is_string, { .s = "15SP3" } };
-        _jm_cst_39[17] = (jm_constant_t) { cst_is_string, { .s = "15SP4" } };
-        _jm_cst_39[18] = (jm_constant_t) { cst_is_string, { .s = "15SP5" } };
-        _jm_cst_39[19] = (jm_constant_t) { cst_is_string, { .s = "15SP6" } };
-        _jm_cst_39[20] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_39, 21);
-        // initialize sorted set _jm_cst_40
-        _jm_cst_40[0] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_40[1] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_40[2] = (jm_constant_t) { cst_is_string, { .s = "8.2" } };
-        _jm_cst_40[3] = (jm_constant_t) { cst_is_string, { .s = "8.3" } };
-        _jm_cst_40[4] = (jm_constant_t) { cst_is_string, { .s = "8.4" } };
-        _jm_cst_40[5] = (jm_constant_t) { cst_is_string, { .s = "8.5" } };
-        _jm_cst_40[6] = (jm_constant_t) { cst_is_string, { .s = "8.6" } };
-        _jm_cst_40[7] = (jm_constant_t) { cst_is_string, { .s = "8.7" } };
-        _jm_cst_40[8] = (jm_constant_t) { cst_is_string, { .s = "8.8" } };
-        _jm_cst_40[9] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_40[10] = (jm_constant_t) { cst_is_string, { .s = "9.1" } };
-        _jm_cst_40[11] = (jm_constant_t) { cst_is_string, { .s = "9.2" } };
-        _jm_cst_40[12] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_40, 13);
-        // initialize sorted set _jm_cst_41
-        _jm_cst_41[0] = (jm_constant_t) { cst_is_string, { .s = "7.1" } };
-        _jm_cst_41[1] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_41[2] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_41[3] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_41[4] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_41, 5);
-        // initialize sorted set _jm_cst_42
-        _jm_cst_42[0] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_42[1] = (jm_constant_t) { cst_is_string, { .s = "7.1" } };
-        _jm_cst_42[2] = (jm_constant_t) { cst_is_string, { .s = "7.2" } };
-        _jm_cst_42[3] = (jm_constant_t) { cst_is_string, { .s = "7.3" } };
-        _jm_cst_42[4] = (jm_constant_t) { cst_is_string, { .s = "7.4" } };
-        _jm_cst_42[5] = (jm_constant_t) { cst_is_string, { .s = "7.5" } };
-        _jm_cst_42[6] = (jm_constant_t) { cst_is_string, { .s = "7.6" } };
-        _jm_cst_42[7] = (jm_constant_t) { cst_is_string, { .s = "7.7" } };
-        _jm_cst_42[8] = (jm_constant_t) { cst_is_string, { .s = "7.8" } };
-        _jm_cst_42[9] = (jm_constant_t) { cst_is_string, { .s = "7.9" } };
-        _jm_cst_42[10] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_42[11] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_42[12] = (jm_constant_t) { cst_is_string, { .s = "8.2" } };
-        _jm_cst_42[13] = (jm_constant_t) { cst_is_string, { .s = "8.3" } };
-        _jm_cst_42[14] = (jm_constant_t) { cst_is_string, { .s = "8.4" } };
-        _jm_cst_42[15] = (jm_constant_t) { cst_is_string, { .s = "8.5" } };
-        _jm_cst_42[16] = (jm_constant_t) { cst_is_string, { .s = "8.6" } };
-        _jm_cst_42[17] = (jm_constant_t) { cst_is_string, { .s = "8.7" } };
-        _jm_cst_42[18] = (jm_constant_t) { cst_is_string, { .s = "8.8" } };
-        _jm_cst_42[19] = (jm_constant_t) { cst_is_string, { .s = "8.9" } };
-        _jm_cst_42[20] = (jm_constant_t) { cst_is_string, { .s = "8.10" } };
-        _jm_cst_42[21] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_42[22] = (jm_constant_t) { cst_is_string, { .s = "9.1" } };
-        _jm_cst_42[23] = (jm_constant_t) { cst_is_string, { .s = "9.2" } };
-        _jm_cst_42[24] = (jm_constant_t) { cst_is_string, { .s = "9.3" } };
-        _jm_cst_42[25] = (jm_constant_t) { cst_is_string, { .s = "9.4" } };
-        _jm_cst_42[26] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_42, 27);
-        // initialize sorted set _jm_cst_43
-        _jm_cst_43[0] = (jm_constant_t) { cst_is_string, { .s = "17.01" } };
-        _jm_cst_43[1] = (jm_constant_t) { cst_is_string, { .s = "18.06" } };
-        _jm_cst_43[2] = (jm_constant_t) { cst_is_string, { .s = "19.07" } };
-        _jm_cst_43[3] = (jm_constant_t) { cst_is_string, { .s = "21.02" } };
-        _jm_cst_43[4] = (jm_constant_t) { cst_is_string, { .s = "22.03" } };
-        _jm_cst_43[5] = (jm_constant_t) { cst_is_string, { .s = "23.05" } };
-        _jm_cst_43[6] = (jm_constant_t) { cst_is_string, { .s = "24.10" } };
-        _jm_cst_43[7] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_43, 8);
-        // initialize sorted set _jm_cst_44
-        _jm_cst_44[0] = (jm_constant_t) { cst_is_string, { .s = "12.1" } };
-        _jm_cst_44[1] = (jm_constant_t) { cst_is_string, { .s = "12.2" } };
-        _jm_cst_44[2] = (jm_constant_t) { cst_is_string, { .s = "12.3" } };
-        _jm_cst_44[3] = (jm_constant_t) { cst_is_string, { .s = "13.1" } };
-        _jm_cst_44[4] = (jm_constant_t) { cst_is_string, { .s = "13.2" } };
-        _jm_cst_44[5] = (jm_constant_t) { cst_is_string, { .s = "15.0" } };
-        _jm_cst_44[6] = (jm_constant_t) { cst_is_string, { .s = "15.1" } };
-        _jm_cst_44[7] = (jm_constant_t) { cst_is_string, { .s = "15.2" } };
-        _jm_cst_44[8] = (jm_constant_t) { cst_is_string, { .s = "15.3" } };
-        _jm_cst_44[9] = (jm_constant_t) { cst_is_string, { .s = "15.4" } };
-        _jm_cst_44[10] = (jm_constant_t) { cst_is_string, { .s = "15.5" } };
-        _jm_cst_44[11] = (jm_constant_t) { cst_is_string, { .s = "42.1" } };
-        _jm_cst_44[12] = (jm_constant_t) { cst_is_string, { .s = "42.2" } };
-        _jm_cst_44[13] = (jm_constant_t) { cst_is_string, { .s = "42.3" } };
-        _jm_cst_44[14] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_44, 15);
-        // initialize sorted set _jm_cst_45
-        _jm_cst_45[0] = (jm_constant_t) { cst_is_string, { .s = "5.6" } };
-        _jm_cst_45[1] = (jm_constant_t) { cst_is_string, { .s = "5.7" } };
-        _jm_cst_45[2] = (jm_constant_t) { cst_is_string, { .s = "5.8" } };
-        _jm_cst_45[3] = (jm_constant_t) { cst_is_string, { .s = "5.9" } };
-        _jm_cst_45[4] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_45[5] = (jm_constant_t) { cst_is_string, { .s = "6.1" } };
-        _jm_cst_45[6] = (jm_constant_t) { cst_is_string, { .s = "6.2" } };
-        _jm_cst_45[7] = (jm_constant_t) { cst_is_string, { .s = "6.3" } };
-        _jm_cst_45[8] = (jm_constant_t) { cst_is_string, { .s = "6.4" } };
-        _jm_cst_45[9] = (jm_constant_t) { cst_is_string, { .s = "6.5" } };
-        _jm_cst_45[10] = (jm_constant_t) { cst_is_string, { .s = "6.6" } };
-        _jm_cst_45[11] = (jm_constant_t) { cst_is_string, { .s = "6.7" } };
-        _jm_cst_45[12] = (jm_constant_t) { cst_is_string, { .s = "6.8" } };
-        _jm_cst_45[13] = (jm_constant_t) { cst_is_string, { .s = "6.9" } };
-        _jm_cst_45[14] = (jm_constant_t) { cst_is_string, { .s = "7.0" } };
-        _jm_cst_45[15] = (jm_constant_t) { cst_is_string, { .s = "7.1" } };
-        _jm_cst_45[16] = (jm_constant_t) { cst_is_string, { .s = "7.2" } };
-        _jm_cst_45[17] = (jm_constant_t) { cst_is_string, { .s = "7.3" } };
-        _jm_cst_45[18] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_45, 19);
-        // initialize sorted set _jm_cst_46
-        _jm_cst_46[0] = (jm_constant_t) { cst_is_string, { .s = "7" } };
-        _jm_cst_46[1] = (jm_constant_t) { cst_is_string, { .s = "8" } };
-        _jm_cst_46[2] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_46, 3);
-        // initialize sorted set _jm_cst_47
-        _jm_cst_47[0] = (jm_constant_t) { cst_is_string, { .s = "10.7" } };
-        _jm_cst_47[1] = (jm_constant_t) { cst_is_string, { .s = "10.8" } };
-        _jm_cst_47[2] = (jm_constant_t) { cst_is_string, { .s = "10.9" } };
-        _jm_cst_47[3] = (jm_constant_t) { cst_is_string, { .s = "10.10" } };
-        _jm_cst_47[4] = (jm_constant_t) { cst_is_string, { .s = "10.11" } };
-        _jm_cst_47[5] = (jm_constant_t) { cst_is_string, { .s = "10.12" } };
-        _jm_cst_47[6] = (jm_constant_t) { cst_is_string, { .s = "10.13" } };
-        _jm_cst_47[7] = (jm_constant_t) { cst_is_string, { .s = "10.14" } };
-        _jm_cst_47[8] = (jm_constant_t) { cst_is_string, { .s = "10.15" } };
-        _jm_cst_47[9] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_47, 10);
-        // initialize sorted set _jm_cst_48
-        _jm_cst_48[0] = (jm_constant_t) { cst_is_string, { .s = "Big-Sur" } };
-        _jm_cst_48[1] = (jm_constant_t) { cst_is_string, { .s = "Catalina" } };
-        _jm_cst_48[2] = (jm_constant_t) { cst_is_string, { .s = "High-Sierra" } };
-        _jm_cst_48[3] = (jm_constant_t) { cst_is_string, { .s = "Mojave" } };
-        _jm_cst_48[4] = (jm_constant_t) { cst_is_string, { .s = "Monterey" } };
-        _jm_cst_48[5] = (jm_constant_t) { cst_is_string, { .s = "Sierra" } };
-        _jm_cst_48[6] = (jm_constant_t) { cst_is_string, { .s = "Sonoma" } };
-        _jm_cst_48[7] = (jm_constant_t) { cst_is_string, { .s = "Ventura" } };
-        _jm_cst_48[8] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_48, 9);
-        // initialize sorted set _jm_cst_49
-        _jm_cst_49[0] = (jm_constant_t) { cst_is_string, { .s = "2.0" } };
-        _jm_cst_49[1] = (jm_constant_t) { cst_is_string, { .s = "2016" } };
-        _jm_cst_49[2] = (jm_constant_t) { cst_is_string, { .s = "2017" } };
-        _jm_cst_49[3] = (jm_constant_t) { cst_is_string, { .s = "2018" } };
-        _jm_cst_49[4] = (jm_constant_t) { cst_is_string, { .s = "2019" } };
-        _jm_cst_49[5] = (jm_constant_t) { cst_is_string, { .s = "2020" } };
-        _jm_cst_49[6] = (jm_constant_t) { cst_is_string, { .s = "2021" } };
-        _jm_cst_49[7] = (jm_constant_t) { cst_is_string, { .s = "2022" } };
-        _jm_cst_49[8] = (jm_constant_t) { cst_is_string, { .s = "2023" } };
-        _jm_cst_49[9] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_49, 10);
-        // initialize sorted set _jm_cst_50
-        _jm_cst_50[0] = (jm_constant_t) { cst_is_string, { .s = "10" } };
-        _jm_cst_50[1] = (jm_constant_t) { cst_is_string, { .s = "11" } };
-        _jm_cst_50[2] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_50, 3);
-        // initialize sorted set _jm_cst_51
-        _jm_cst_51[0] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_51[1] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_51[2] = (jm_constant_t) { cst_is_string, { .s = "8.2" } };
-        _jm_cst_51[3] = (jm_constant_t) { cst_is_string, { .s = "8.3" } };
-        _jm_cst_51[4] = (jm_constant_t) { cst_is_string, { .s = "8.4" } };
-        _jm_cst_51[5] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_51[6] = (jm_constant_t) { cst_is_string, { .s = "9.1" } };
-        _jm_cst_51[7] = (jm_constant_t) { cst_is_string, { .s = "9.2" } };
-        _jm_cst_51[8] = (jm_constant_t) { cst_is_string, { .s = "9.3" } };
-        _jm_cst_51[9] = (jm_constant_t) { cst_is_string, { .s = "10.0" } };
-        _jm_cst_51[10] = (jm_constant_t) { cst_is_string, { .s = "10.1" } };
-        _jm_cst_51[11] = (jm_constant_t) { cst_is_string, { .s = "10.2" } };
-        _jm_cst_51[12] = (jm_constant_t) { cst_is_string, { .s = "10.3" } };
-        _jm_cst_51[13] = (jm_constant_t) { cst_is_string, { .s = "10.4" } };
-        _jm_cst_51[14] = (jm_constant_t) { cst_is_string, { .s = "11.0" } };
-        _jm_cst_51[15] = (jm_constant_t) { cst_is_string, { .s = "11.1" } };
-        _jm_cst_51[16] = (jm_constant_t) { cst_is_string, { .s = "11.2" } };
-        _jm_cst_51[17] = (jm_constant_t) { cst_is_string, { .s = "11.3" } };
-        _jm_cst_51[18] = (jm_constant_t) { cst_is_string, { .s = "11.4" } };
-        _jm_cst_51[19] = (jm_constant_t) { cst_is_string, { .s = "12.0" } };
-        _jm_cst_51[20] = (jm_constant_t) { cst_is_string, { .s = "12.1" } };
-        _jm_cst_51[21] = (jm_constant_t) { cst_is_string, { .s = "12.2" } };
-        _jm_cst_51[22] = (jm_constant_t) { cst_is_string, { .s = "13.0" } };
-        _jm_cst_51[23] = (jm_constant_t) { cst_is_string, { .s = "13.1" } };
-        _jm_cst_51[24] = (jm_constant_t) { cst_is_string, { .s = "13.2" } };
-        _jm_cst_51[25] = (jm_constant_t) { cst_is_string, { .s = "14.0" } };
-        _jm_cst_51[26] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_51, 27);
-        // initialize sorted set _jm_cst_52
-        _jm_cst_52[0] = (jm_constant_t) { cst_is_string, { .s = "16" } };
-        _jm_cst_52[1] = (jm_constant_t) { cst_is_string, { .s = "17" } };
-        _jm_cst_52[2] = (jm_constant_t) { cst_is_string, { .s = "18" } };
-        _jm_cst_52[3] = (jm_constant_t) { cst_is_string, { .s = "19" } };
-        _jm_cst_52[4] = (jm_constant_t) { cst_is_string, { .s = "20" } };
-        _jm_cst_52[5] = (jm_constant_t) { cst_is_string, { .s = "21" } };
-        _jm_cst_52[6] = (jm_constant_t) { cst_is_string, { .s = "22" } };
-        _jm_cst_52[7] = (jm_constant_t) { cst_is_string, { .s = "23" } };
-        _jm_cst_52[8] = (jm_constant_t) { cst_is_string, { .s = "24" } };
-        _jm_cst_52[9] = (jm_constant_t) { cst_is_string, { .s = "25" } };
-        _jm_cst_52[10] = (jm_constant_t) { cst_is_string, { .s = "26" } };
-        _jm_cst_52[11] = (jm_constant_t) { cst_is_string, { .s = "27" } };
-        _jm_cst_52[12] = (jm_constant_t) { cst_is_string, { .s = "28" } };
-        _jm_cst_52[13] = (jm_constant_t) { cst_is_string, { .s = "29" } };
-        _jm_cst_52[14] = (jm_constant_t) { cst_is_string, { .s = "30" } };
-        _jm_cst_52[15] = (jm_constant_t) { cst_is_string, { .s = "31" } };
-        _jm_cst_52[16] = (jm_constant_t) { cst_is_string, { .s = "32" } };
-        _jm_cst_52[17] = (jm_constant_t) { cst_is_string, { .s = "33" } };
-        _jm_cst_52[18] = (jm_constant_t) { cst_is_string, { .s = "34" } };
-        _jm_cst_52[19] = (jm_constant_t) { cst_is_string, { .s = "35" } };
-        _jm_cst_52[20] = (jm_constant_t) { cst_is_string, { .s = "36" } };
-        _jm_cst_52[21] = (jm_constant_t) { cst_is_string, { .s = "37" } };
-        _jm_cst_52[22] = (jm_constant_t) { cst_is_string, { .s = "38" } };
-        _jm_cst_52[23] = (jm_constant_t) { cst_is_string, { .s = "39" } };
-        _jm_cst_52[24] = (jm_constant_t) { cst_is_string, { .s = "40" } };
-        _jm_cst_52[25] = (jm_constant_t) { cst_is_string, { .s = "41" } };
-        _jm_cst_52[26] = (jm_constant_t) { cst_is_string, { .s = "42" } };
-        _jm_cst_52[27] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_52, 28);
-        // initialize sorted set _jm_cst_53
-        _jm_cst_53[0] = (jm_constant_t) { cst_is_string, { .s = "5" } };
-        _jm_cst_53[1] = (jm_constant_t) { cst_is_string, { .s = "6" } };
-        _jm_cst_53[2] = (jm_constant_t) { cst_is_string, { .s = "7" } };
-        _jm_cst_53[3] = (jm_constant_t) { cst_is_string, { .s = "8" } };
-        _jm_cst_53[4] = (jm_constant_t) { cst_is_string, { .s = "9" } };
-        _jm_cst_53[5] = (jm_constant_t) { cst_is_string, { .s = "10" } };
-        _jm_cst_53[6] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_53, 7);
-        // initialize sorted set _jm_cst_54
-        _jm_cst_54[0] = (jm_constant_t) { cst_is_string, { .s = "5.2" } };
-        _jm_cst_54[1] = (jm_constant_t) { cst_is_string, { .s = "5.4" } };
-        _jm_cst_54[2] = (jm_constant_t) { cst_is_string, { .s = "5.6" } };
-        _jm_cst_54[3] = (jm_constant_t) { cst_is_string, { .s = "5.8" } };
-        _jm_cst_54[4] = (jm_constant_t) { cst_is_string, { .s = "6.0" } };
-        _jm_cst_54[5] = (jm_constant_t) { cst_is_string, { .s = "6.2" } };
-        _jm_cst_54[6] = (jm_constant_t) { cst_is_string, { .s = "6.4" } };
-        _jm_cst_54[7] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_54, 8);
-        // initialize sorted set _jm_cst_55
-        _jm_cst_55[0] = (jm_constant_t) { cst_is_string, { .s = "ascii" } };
-        _jm_cst_55[1] = (jm_constant_t) { cst_is_string, { .s = "beowulf" } };
-        _jm_cst_55[2] = (jm_constant_t) { cst_is_string, { .s = "chimaera" } };
-        _jm_cst_55[3] = (jm_constant_t) { cst_is_string, { .s = "daedalus" } };
-        _jm_cst_55[4] = (jm_constant_t) { cst_is_string, { .s = "jessie" } };
-        _jm_cst_55[5] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_55, 6);
-        // initialize sorted set _jm_cst_56
-        _jm_cst_56[0] = (jm_constant_t) { cst_is_string, { .s = "10" } };
-        _jm_cst_56[1] = (jm_constant_t) { cst_is_string, { .s = "6" } };
-        _jm_cst_56[2] = (jm_constant_t) { cst_is_string, { .s = "9" } };
-        _jm_cst_56[3] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_56, 4);
-        // initialize sorted set _jm_cst_57
-        _jm_cst_57[0] = (jm_constant_t) { cst_is_string, { .s = "bookworm" } };
-        _jm_cst_57[1] = (jm_constant_t) { cst_is_string, { .s = "bullseye" } };
-        _jm_cst_57[2] = (jm_constant_t) { cst_is_string, { .s = "buster" } };
-        _jm_cst_57[3] = (jm_constant_t) { cst_is_string, { .s = "etch" } };
-        _jm_cst_57[4] = (jm_constant_t) { cst_is_string, { .s = "jessie" } };
-        _jm_cst_57[5] = (jm_constant_t) { cst_is_string, { .s = "lenny" } };
-        _jm_cst_57[6] = (jm_constant_t) { cst_is_string, { .s = "sid" } };
-        _jm_cst_57[7] = (jm_constant_t) { cst_is_string, { .s = "squeeze" } };
-        _jm_cst_57[8] = (jm_constant_t) { cst_is_string, { .s = "stretch" } };
-        _jm_cst_57[9] = (jm_constant_t) { cst_is_string, { .s = "trixie" } };
-        _jm_cst_57[10] = (jm_constant_t) { cst_is_string, { .s = "wheezy" } };
-        _jm_cst_57[11] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_57, 12);
-        // initialize sorted set _jm_cst_58
-        _jm_cst_58[0] = (jm_constant_t) { cst_is_string, { .s = "8.0" } };
-        _jm_cst_58[1] = (jm_constant_t) { cst_is_string, { .s = "8.1" } };
-        _jm_cst_58[2] = (jm_constant_t) { cst_is_string, { .s = "8.2" } };
-        _jm_cst_58[3] = (jm_constant_t) { cst_is_string, { .s = "9.0" } };
-        _jm_cst_58[4] = (jm_constant_t) { cst_is_string, { .s = "9.1" } };
-        _jm_cst_58[5] = (jm_constant_t) { cst_is_string, { .s = "9.2" } };
-        _jm_cst_58[6] = (jm_constant_t) { cst_is_string, { .s = "9.3" } };
-        _jm_cst_58[7] = (jm_constant_t) { cst_is_string, { .s = "10.0" } };
-        _jm_cst_58[8] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_58, 9);
-        // initialize sorted set _jm_cst_59
-        _jm_cst_59[0] = (jm_constant_t) { cst_is_string, { .s = "2.5" } };
-        _jm_cst_59[1] = (jm_constant_t) { cst_is_string, { .s = "3.0" } };
-        _jm_cst_59[2] = (jm_constant_t) { cst_is_string, { .s = "3.1" } };
-        _jm_cst_59[3] = (jm_constant_t) { cst_is_string, { .s = "3.2" } };
-        _jm_cst_59[4] = (jm_constant_t) { cst_is_string, { .s = "3.3" } };
-        _jm_cst_59[5] = (jm_constant_t) { cst_is_string, { .s = "3.4" } };
-        _jm_cst_59[6] = (jm_constant_t) { cst_is_string, { .s = "3.5" } };
-        _jm_cst_59[7] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_59, 8);
-        // initialize sorted set _jm_cst_60
-        _jm_cst_60[0] = (jm_constant_t) { cst_is_string, { .s = "1.8" } };
-        _jm_cst_60[1] = (jm_constant_t) { cst_is_string, { .s = "1.7" } };
-        _jm_cst_60[2] = (jm_constant_t) { cst_is_string, { .s = "1.6" } };
-        _jm_cst_60[3] = (jm_constant_t) { cst_is_string, { .s = "2.12" } };
-        _jm_cst_60[4] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_60, 5);
-        // initialize sorted set _jm_cst_61
-        _jm_cst_61[0] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        _jm_cst_61[1] = (jm_constant_t) { cst_is_string, { .s = "1" } };
-        _jm_cst_61[2] = (jm_constant_t) { cst_is_string, { .s = "2" } };
-        _jm_cst_61[3] = (jm_constant_t) { cst_is_string, { .s = "2023" } };
-        jm_sort_cst(_jm_cst_61, 4);
-        // initialize sorted set _jm_cst_62
-        _jm_cst_62[0] = (jm_constant_t) { cst_is_string, { .s = "2013.03" } };
-        _jm_cst_62[1] = (jm_constant_t) { cst_is_string, { .s = "2013.09" } };
-        _jm_cst_62[2] = (jm_constant_t) { cst_is_string, { .s = "2014.03" } };
-        _jm_cst_62[3] = (jm_constant_t) { cst_is_string, { .s = "2014.09" } };
-        _jm_cst_62[4] = (jm_constant_t) { cst_is_string, { .s = "2015.03" } };
-        _jm_cst_62[5] = (jm_constant_t) { cst_is_string, { .s = "2015.09" } };
-        _jm_cst_62[6] = (jm_constant_t) { cst_is_string, { .s = "2016.03" } };
-        _jm_cst_62[7] = (jm_constant_t) { cst_is_string, { .s = "2016.09" } };
-        _jm_cst_62[8] = (jm_constant_t) { cst_is_string, { .s = "2017.03" } };
-        _jm_cst_62[9] = (jm_constant_t) { cst_is_string, { .s = "2017.09" } };
-        _jm_cst_62[10] = (jm_constant_t) { cst_is_string, { .s = "2017.12" } };
-        _jm_cst_62[11] = (jm_constant_t) { cst_is_string, { .s = "2018.03" } };
-        _jm_cst_62[12] = (jm_constant_t) { cst_is_string, { .s = "Candidate" } };
-        _jm_cst_62[13] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_62, 14);
-        // initialize sorted set _jm_cst_63
-        _jm_cst_63[0] = (jm_constant_t) { cst_is_string, { .s = "6.1" } };
-        _jm_cst_63[1] = (jm_constant_t) { cst_is_string, { .s = "7.1" } };
-        _jm_cst_63[2] = (jm_constant_t) { cst_is_string, { .s = "7.2" } };
-        _jm_cst_63[3] = (jm_constant_t) { cst_is_string, { .s = "all" } };
-        jm_sort_cst(_jm_cst_63, 4);
         _jm_re_0_re2 = cre2_new("^[a-z][-a-z0-9_]+$", strlen("^[a-z][-a-z0-9_]+$"), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
@@ -9569,10 +9703,6 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
-        // initialize sorted set _jm_cst_64
-        _jm_cst_64[0] = (jm_constant_t) { cst_is_string, { .s = "hg" } };
-        _jm_cst_64[1] = (jm_constant_t) { cst_is_string, { .s = "git" } };
-        jm_sort_cst(_jm_cst_64, 2);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_60 };
         check_model_map_tab[1] = (jm_propmap_t) { "AIXPlatformModel", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "AlpinePlatformModel", json_model_3 };

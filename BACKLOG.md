@@ -8,6 +8,7 @@
 - [x] backend: optimize pattern "if (!? V) V = cst;"
 - [x] backend: optimize pattern "V = C; if (!? V) ..."
 - [x] backend: optimize pattern "V = E1; V = E2;"
+- [x] backend: generate direct code for search constant on small str sets
 - [ ] model: avoid dead code in `mv-0f/dedup-002`.
 - [ ] static: maybe skip must checks if all must props already seen
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
@@ -16,7 +17,6 @@
 - [ ] command: export before/after model optimization
 - [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
-- [ ] backend: generate direct code for search constant on small sets
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
 - [ ] backend: simplify assignment patterns with ternary operator when available?

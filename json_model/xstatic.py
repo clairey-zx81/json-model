@@ -1707,6 +1707,7 @@ def xstatic_compile(
         predef: bool = True,
         ir_optimize: bool = True,
         strcmp: bool = True,
+        max_strcmp_cset: int = 64,
         byte_order: str = "le",
     ) -> Code:
     """Generate the check source code for a model.
@@ -1729,6 +1730,7 @@ def xstatic_compile(
     - predef: enable string content predef checks.
     - ir_optimize: enable IR optimizations.
     - strcmp: whether to optimize some string comparisons
+    - max_strcmp_cset: max size for direct str constant set
     - byte_order: le, be or dpd
     """
     # target language
@@ -1740,7 +1742,8 @@ def xstatic_compile(
         from .clang import CLangJansson
         language = CLangJansson(debug=debug, with_report=report, with_path=report,
                                 with_predef=predef, relib=relib or "re2",
-                                inline=inline, strcmp_opt=strcmp, byte_order=byte_order)
+                                inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
+                                max_strcmp_cset=max_strcmp_cset)
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report, with_path=report,

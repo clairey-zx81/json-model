@@ -10,18 +10,24 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static jm_constant_t _jm_cst_0[2];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000021)  // "!"
+        || jm_str_eq_6(s, 0x000000646c726f77LL)  // "world"
+    ;
+}
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // world or !
     // .
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);
+    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'|']", path);
@@ -42,10 +48,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "world" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "!" } };
-        jm_sort_cst(_jm_cst_0, 2);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }

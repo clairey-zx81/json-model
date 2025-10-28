@@ -14,10 +14,10 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[4];
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_0[14];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[3];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -233,12 +233,30 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x0000000065746164LL)  // "date"
+        || jm_str_eq_5(s, 0x000000006c6c756eLL)  // "null"
+        || jm_str_eq_5(s, 0x00000000656d6974LL)  // "time"
+        || jm_str_eq_7(s, 0x0000495255796e61LL)  // "anyURI"
+        || jm_str_eq_7(s, 0x0000656c62756f64LL)  // "double"
+        || jm_str_eq_7(s, 0x0000676e69727473LL)  // "string"
+        || jm_str_eq_8(s, 0x006e61656c6f6f62LL)  // "boolean"
+        || jm_str_eq_8(s, 0x006c616d69636564LL)  // "decimal"
+        || jm_str_eq_8(s, 0x0072656765746e69LL)  // "integer"
+        || jm_str_eq_8(s, 0x656d695465746164LL) && jm_str_eq_0(s + 8)  // "dateTime"
+        || jm_str_eq_8(s, 0x6e6f697461727564LL) && jm_str_eq_0(s + 8)  // "duration"
+        || jm_str_eq_8(s, 0x72616e6942786568LL) && jm_str_eq_2(s + 8, 0x00000079)  // "hexBinary"
+        || jm_str_eq_8(s, 0x6942343665736162LL) && jm_str_eq_5(s + 8, 0x000000007972616eLL)  // "base64Binary"
+        || jm_str_eq_8(s, 0x656d695465746164LL) && jm_str_eq_6(s + 8, 0x000000706d617453LL)  // "dateTimeStamp"
+    ;
+}
 
 // check $atomic-types (.'$atomic-types')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$atomic-types'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 14);
+    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$atomic-types'.'|']", path);
@@ -303,6 +321,13 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_8(s, 0x6c616e6f6974706fLL) && jm_str_eq_0(s + 8)  // "optional"
+        || jm_str_eq_8(s, 0x6465726975716572LL) && jm_str_eq_0(s + 8)  // "required"
+        || jm_str_eq_8(s, 0x74696269686f7270LL) && jm_str_eq_3(s + 8, 0x00006465)  // "prohibited"
+    ;
+}
 
 // check $Atomic (.'$Atomic')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -511,7 +536,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may explicitTypeZone property
             // .'$Atomic'.explicitTypeZone
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 3);
+            res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$Atomic'.explicitTypeZone.'|']", (path ? &lpath_2 : NULL));
@@ -1032,27 +1057,6 @@ const char *check_model_init(void)
         _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "array" } }, json_model_9 };
         _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "union" } }, json_model_10 };
         jm_sort_constmap(_jm_map_0_tab, 4);
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "string" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "decimal" } };
-        _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "integer" } };
-        _jm_cst_0[3] = (jm_constant_t) { cst_is_string, { .s = "double" } };
-        _jm_cst_0[4] = (jm_constant_t) { cst_is_string, { .s = "boolean" } };
-        _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "anyURI" } };
-        _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "base64Binary" } };
-        _jm_cst_0[7] = (jm_constant_t) { cst_is_string, { .s = "hexBinary" } };
-        _jm_cst_0[8] = (jm_constant_t) { cst_is_string, { .s = "date" } };
-        _jm_cst_0[9] = (jm_constant_t) { cst_is_string, { .s = "dateTime" } };
-        _jm_cst_0[10] = (jm_constant_t) { cst_is_string, { .s = "time" } };
-        _jm_cst_0[11] = (jm_constant_t) { cst_is_string, { .s = "dateTimeStamp" } };
-        _jm_cst_0[12] = (jm_constant_t) { cst_is_string, { .s = "duration" } };
-        _jm_cst_0[13] = (jm_constant_t) { cst_is_string, { .s = "null" } };
-        jm_sort_cst(_jm_cst_0, 14);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "required" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "prohibited" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "optional" } };
-        jm_sort_cst(_jm_cst_1, 3);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
         check_model_map_tab[1] = (jm_propmap_t) { "Schema", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "Type", json_model_3 };

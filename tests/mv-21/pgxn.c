@@ -15,14 +15,14 @@ static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_0[28];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_1_re2 = NULL;
 static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[3];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -40,9 +40,9 @@ static cre2_regexp_t *_jm_re_4_re2 = NULL;
 static int _jm_re_4_nn = 0;
 static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_2[5];
+static INLINE bool _jm_cst_2_str_test(const char *);
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_3[4];
+static INLINE bool _jm_cst_3_str_test(const char *);
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -112,12 +112,44 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00647362)  // "bsd"
+        || jm_str_eq_4(s, 0x0074696d)  // "mit"
+        || jm_str_eq_4(s, 0x006e7573)  // "sun"
+        || jm_str_eq_5(s, 0x0000000062696c7aLL)  // "zlib"
+        || jm_str_eq_6(s, 0x000000315f6c7067LL)  // "gpl_1"
+        || jm_str_eq_6(s, 0x000000325f6c7067LL)  // "gpl_2"
+        || jm_str_eq_6(s, 0x000000335f6c7067LL)  // "gpl_3"
+        || jm_str_eq_7(s, 0x0000335f6c706761LL)  // "agpl_3"
+        || jm_str_eq_7(s, 0x0000355f6c726570LL)  // "perl_5"
+        || jm_str_eq_7(s, 0x00007961656c7373LL)  // "ssleay"
+        || jm_str_eq_8(s, 0x0064736265657266LL)  // "freebsd"
+        || jm_str_eq_8(s, 0x006c73736e65706fLL)  // "openssl"
+        || jm_str_eq_8(s, 0x00305f315f6c7071LL)  // "qpl_1_0"
+        || jm_str_eq_8(s, 0x006e776f6e6b6e75LL)  // "unknown"
+        || jm_str_eq_8(s, 0x325f315f6c646667LL) && jm_str_eq_0(s + 8)  // "gfdl_1_2"
+        || jm_str_eq_8(s, 0x335f315f6c646667LL) && jm_str_eq_0(s + 8)  // "gfdl_1_3"
+        || jm_str_eq_8(s, 0x315f325f6c70676cLL) && jm_str_eq_0(s + 8)  // "lgpl_2_1"
+        || jm_str_eq_8(s, 0x305f335f6c70676cLL) && jm_str_eq_0(s + 8)  // "lgpl_3_0"
+        || jm_str_eq_8(s, 0x315f656863617061LL) && jm_str_eq_3(s + 8, 0x0000315f)  // "apache_1_1"
+        || jm_str_eq_8(s, 0x325f656863617061LL) && jm_str_eq_3(s + 8, 0x0000305f)  // "apache_2_0"
+        || jm_str_eq_8(s, 0x6369747369747261LL) && jm_str_eq_3(s + 8, 0x0000315f)  // "artistic_1"
+        || jm_str_eq_8(s, 0x6369747369747261LL) && jm_str_eq_3(s + 8, 0x0000325f)  // "artistic_2"
+        || jm_str_eq_8(s, 0x7365726774736f70LL) && jm_str_eq_3(s + 8, 0x00006c71)  // "postgresql"
+        || jm_str_eq_8(s, 0x7463697274736572LL) && jm_str_eq_3(s + 8, 0x00006465)  // "restricted"
+        || jm_str_eq_8(s, 0x5f616c6c697a6f6dLL) && jm_str_eq_4(s + 8, 0x00305f31)  // "mozilla_1_0"
+        || jm_str_eq_8(s, 0x5f616c6c697a6f6dLL) && jm_str_eq_4(s + 8, 0x00315f31)  // "mozilla_1_1"
+        || jm_str_eq_8(s, 0x756f735f6e65706fLL) && jm_str_eq_4(s + 8, 0x00656372)  // "open_source"
+        || jm_str_eq_8(s, 0x6972747365726e75LL) && jm_str_eq_5(s + 8, 0x0000000064657463LL)  // "unrestricted"
+    ;
+}
 
 // check $License (.'$License')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$License'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 28);
+    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$License'.'|']", path);
@@ -263,12 +295,19 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_7(s, 0x0000656c62617473LL)  // "stable"
+        || jm_str_eq_8(s, 0x00676e6974736574LL)  // "testing"
+        || jm_str_eq_8(s, 0x656c626174736e75LL) && jm_str_eq_0(s + 8)  // "unstable"
+    ;
+}
 
 // check $Status (.'$Status')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Status'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 3);
+    bool res = json_is_string(val) && _jm_cst_1_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Status'.'|']", path);
@@ -534,12 +573,21 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_2_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x0000000074736574LL)  // "test"
+        || jm_str_eq_6(s, 0x000000646c697562LL)  // "build"
+        || jm_str_eq_8(s, 0x00706f6c65766564LL)  // "develop"
+        || jm_str_eq_8(s, 0x00656d69746e7572LL)  // "runtime"
+        || jm_str_eq_8(s, 0x72756769666e6f63LL) && jm_str_eq_2(s + 8, 0x00000065)  // "configure"
+    ;
+}
 
 // check $Phase (.'$Phase')
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Phase'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 5);
+    bool res = json_is_string(val) && _jm_cst_2_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Phase'.'|']", path);
@@ -547,12 +595,20 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_3_str_test(const char *s)
+{
+    return jm_str_eq_8(s, 0x7365726975716572LL) && jm_str_eq_0(s + 8)  // "requires"
+        || jm_str_eq_8(s, 0x7374736567677573LL) && jm_str_eq_0(s + 8)  // "suggests"
+        || jm_str_eq_8(s, 0x7463696c666e6f63LL) && jm_str_eq_2(s + 8, 0x00000073)  // "conflicts"
+        || jm_str_eq_8(s, 0x6e656d6d6f636572LL) && jm_str_eq_3(s + 8, 0x00007364)  // "recommends"
+    ;
+}
 
 // check $Relation (.'$Relation')
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Relation'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_3, 4);
+    bool res = json_is_string(val) && _jm_cst_3_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Relation'.'|']", path);
@@ -1158,45 +1214,10 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "agpl_3" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "apache_1_1" } };
-        _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "apache_2_0" } };
-        _jm_cst_0[3] = (jm_constant_t) { cst_is_string, { .s = "artistic_1" } };
-        _jm_cst_0[4] = (jm_constant_t) { cst_is_string, { .s = "artistic_2" } };
-        _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "bsd" } };
-        _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "freebsd" } };
-        _jm_cst_0[7] = (jm_constant_t) { cst_is_string, { .s = "gfdl_1_2" } };
-        _jm_cst_0[8] = (jm_constant_t) { cst_is_string, { .s = "gfdl_1_3" } };
-        _jm_cst_0[9] = (jm_constant_t) { cst_is_string, { .s = "gpl_1" } };
-        _jm_cst_0[10] = (jm_constant_t) { cst_is_string, { .s = "gpl_2" } };
-        _jm_cst_0[11] = (jm_constant_t) { cst_is_string, { .s = "gpl_3" } };
-        _jm_cst_0[12] = (jm_constant_t) { cst_is_string, { .s = "lgpl_2_1" } };
-        _jm_cst_0[13] = (jm_constant_t) { cst_is_string, { .s = "lgpl_3_0" } };
-        _jm_cst_0[14] = (jm_constant_t) { cst_is_string, { .s = "mit" } };
-        _jm_cst_0[15] = (jm_constant_t) { cst_is_string, { .s = "mozilla_1_0" } };
-        _jm_cst_0[16] = (jm_constant_t) { cst_is_string, { .s = "mozilla_1_1" } };
-        _jm_cst_0[17] = (jm_constant_t) { cst_is_string, { .s = "openssl" } };
-        _jm_cst_0[18] = (jm_constant_t) { cst_is_string, { .s = "perl_5" } };
-        _jm_cst_0[19] = (jm_constant_t) { cst_is_string, { .s = "postgresql" } };
-        _jm_cst_0[20] = (jm_constant_t) { cst_is_string, { .s = "qpl_1_0" } };
-        _jm_cst_0[21] = (jm_constant_t) { cst_is_string, { .s = "ssleay" } };
-        _jm_cst_0[22] = (jm_constant_t) { cst_is_string, { .s = "sun" } };
-        _jm_cst_0[23] = (jm_constant_t) { cst_is_string, { .s = "zlib" } };
-        _jm_cst_0[24] = (jm_constant_t) { cst_is_string, { .s = "open_source" } };
-        _jm_cst_0[25] = (jm_constant_t) { cst_is_string, { .s = "restricted" } };
-        _jm_cst_0[26] = (jm_constant_t) { cst_is_string, { .s = "unrestricted" } };
-        _jm_cst_0[27] = (jm_constant_t) { cst_is_string, { .s = "unknown" } };
-        jm_sort_cst(_jm_cst_0, 28);
         _jm_re_1_re2 = cre2_new("^[Xx]_", strlen("^[Xx]_"), NULL);
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "stable" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "testing" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "unstable" } };
-        jm_sort_cst(_jm_cst_1, 3);
         _jm_re_2_re2 = cre2_new("^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$", strlen("^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$"), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
@@ -1209,19 +1230,6 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_4_re2))
             return cre2_error_string(_jm_re_4_re2);
         _jm_re_4_nn = cre2_num_capturing_groups(_jm_re_4_re2) + 1;
-        // initialize sorted set _jm_cst_2
-        _jm_cst_2[0] = (jm_constant_t) { cst_is_string, { .s = "configure" } };
-        _jm_cst_2[1] = (jm_constant_t) { cst_is_string, { .s = "build" } };
-        _jm_cst_2[2] = (jm_constant_t) { cst_is_string, { .s = "test" } };
-        _jm_cst_2[3] = (jm_constant_t) { cst_is_string, { .s = "runtime" } };
-        _jm_cst_2[4] = (jm_constant_t) { cst_is_string, { .s = "develop" } };
-        jm_sort_cst(_jm_cst_2, 5);
-        // initialize sorted set _jm_cst_3
-        _jm_cst_3[0] = (jm_constant_t) { cst_is_string, { .s = "requires" } };
-        _jm_cst_3[1] = (jm_constant_t) { cst_is_string, { .s = "recommends" } };
-        _jm_cst_3[2] = (jm_constant_t) { cst_is_string, { .s = "suggests" } };
-        _jm_cst_3[3] = (jm_constant_t) { cst_is_string, { .s = "conflicts" } };
-        jm_sort_cst(_jm_cst_3, 4);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "neStr", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "neStrList", json_model_3 };

@@ -12,7 +12,7 @@
 
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_0[2];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
@@ -41,13 +41,19 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_8(s, 0x2e2f2f3a656c6966LL) && jm_str_eq_8(s + 8, 0x6f6f6c5f6c72752fLL) && jm_str_eq_8(s + 16, 0x646f6d2e676e696bLL) && jm_str_eq_8(s + 24, 0x006e6f736a2e6c65LL)  // "file://./url_looking.model.json"
+        || jm_str_eq_8(s, 0x2f2f3a7370747468LL) && jm_str_eq_8(s + 8, 0x646f6d2d6e6f736aLL) && jm_str_eq_8(s + 16, 0x6d2f67726f2e6c65LL) && jm_str_eq_8(s + 24, 0x736a2f736c65646fLL) && jm_str_eq_8(s + 32, 0x6c65646f6d2d6e6fLL) && jm_str_eq_0(s + 40)  // "https://json-model.org/models/json-model"
+    ;
+}
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // trigger a warning on url-looking definitions
     // .
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);
+    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'|']", path);
@@ -68,10 +74,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "https://json-model.org/models/json-model" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "file://./url_looking.model.json" } };
-        jm_sort_cst(_jm_cst_0, 2);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "u1", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "u2", json_model_3 };

@@ -23,7 +23,7 @@ static jm_constant_t _jm_cst_0[2];
 static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_1[2];
 static jm_constant_t _jm_cst_2[3];
-static jm_constant_t _jm_cst_3[3];
+static INLINE bool _jm_cst_3_str_test(const char *);
 static bool _jm_cst_4_test(const json_t *);
 static jm_constant_t _jm_cst_4[4];
 static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -819,6 +819,13 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
 
 
 
+static INLINE bool _jm_cst_3_str_test(const char *s)
+{
+    return jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
+        || jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
+        || jm_str_eq_7(s, 0x0000736562626f48LL)  // "Hobbes"
+    ;
+}
 
 static INLINE bool _jm_cst_4_test(const json_t *val)
 {
@@ -869,7 +876,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may e2 property
             // .enum.e2
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 3);
+            res = json_is_string(pval) && _jm_cst_3_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e2.'|']", (path ? &lpath_8 : NULL));
@@ -4005,11 +4012,6 @@ const char *check_model_init(void)
         _jm_cst_2[1] = (jm_constant_t) { cst_is_integer, { .i = 201 } };
         _jm_cst_2[2] = (jm_constant_t) { cst_is_integer, { .i = 204 } };
         jm_sort_cst(_jm_cst_2, 3);
-        // initialize sorted set _jm_cst_3
-        _jm_cst_3[0] = (jm_constant_t) { cst_is_string, { .s = "Susie" } };
-        _jm_cst_3[1] = (jm_constant_t) { cst_is_string, { .s = "Calvin" } };
-        _jm_cst_3[2] = (jm_constant_t) { cst_is_string, { .s = "Hobbes" } };
-        jm_sort_cst(_jm_cst_3, 3);
         // initialize sorted set _jm_cst_4
         _jm_cst_4[0] = (jm_constant_t) { cst_is_string, { .s = "Susie" } };
         _jm_cst_4[1] = (jm_constant_t) { cst_is_integer, { .i = 42 } };

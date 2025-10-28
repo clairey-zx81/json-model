@@ -16,11 +16,11 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_0[6];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[17];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
@@ -663,12 +663,22 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x000000006c6c756eLL)  // "null"
+        || jm_str_eq_6(s, 0x0000007961727261LL)  // "array"
+        || jm_str_eq_7(s, 0x00007265626d756eLL)  // "number"
+        || jm_str_eq_7(s, 0x00007463656a626fLL)  // "object"
+        || jm_str_eq_7(s, 0x0000676e69727473LL)  // "string"
+        || jm_str_eq_8(s, 0x006e61656c6f6f62LL)  // "boolean"
+    ;
+}
 
 // check $schema#simpleTypes (.'$schema#simpleTypes')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schema#simpleTypes'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 6);
+    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$schema#simpleTypes'.'|']", path);
@@ -752,13 +762,34 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00746e69)  // "int"
+        || jm_str_eq_5(s, 0x000000006c6f6f62LL)  // "bool"
+        || jm_str_eq_5(s, 0x0000000065746164LL)  // "date"
+        || jm_str_eq_5(s, 0x00000000676e6f6cLL)  // "long"
+        || jm_str_eq_5(s, 0x000000006c6c756eLL)  // "null"
+        || jm_str_eq_6(s, 0x0000007961727261LL)  // "array"
+        || jm_str_eq_6(s, 0x0000007865676572LL)  // "regex"
+        || jm_str_eq_7(s, 0x0000656c62756f64LL)  // "double"
+        || jm_str_eq_7(s, 0x000079654b78616dLL)  // "maxKey"
+        || jm_str_eq_7(s, 0x000079654b6e696dLL)  // "minKey"
+        || jm_str_eq_7(s, 0x00007463656a626fLL)  // "object"
+        || jm_str_eq_7(s, 0x0000676e69727473LL)  // "string"
+        || jm_str_eq_8(s, 0x00617461446e6962LL)  // "binData"
+        || jm_str_eq_8(s, 0x006c616d69636564LL)  // "decimal"
+        || jm_str_eq_8(s, 0x64497463656a626fLL) && jm_str_eq_0(s + 8)  // "objectId"
+        || jm_str_eq_8(s, 0x6d617473656d6974LL) && jm_str_eq_2(s + 8, 0x00000070)  // "timestamp"
+        || jm_str_eq_8(s, 0x697263736176616aLL) && jm_str_eq_3(s + 8, 0x00007470)  // "javascript"
+    ;
+}
 
 // check $schema#bsonType (.'$schema#bsonType')
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // add a definition for BSON types
     // .'$schema#bsonType'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 17);
+    bool res = json_is_string(val) && _jm_cst_1_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$schema#bsonType'.'|']", path);
@@ -779,33 +810,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "null" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "boolean" } };
-        _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "number" } };
-        _jm_cst_0[3] = (jm_constant_t) { cst_is_string, { .s = "string" } };
-        _jm_cst_0[4] = (jm_constant_t) { cst_is_string, { .s = "array" } };
-        _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "object" } };
-        jm_sort_cst(_jm_cst_0, 6);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "null" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "bool" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "string" } };
-        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "object" } };
-        _jm_cst_1[4] = (jm_constant_t) { cst_is_string, { .s = "array" } };
-        _jm_cst_1[5] = (jm_constant_t) { cst_is_string, { .s = "double" } };
-        _jm_cst_1[6] = (jm_constant_t) { cst_is_string, { .s = "int" } };
-        _jm_cst_1[7] = (jm_constant_t) { cst_is_string, { .s = "long" } };
-        _jm_cst_1[8] = (jm_constant_t) { cst_is_string, { .s = "decimal" } };
-        _jm_cst_1[9] = (jm_constant_t) { cst_is_string, { .s = "binData" } };
-        _jm_cst_1[10] = (jm_constant_t) { cst_is_string, { .s = "objectId" } };
-        _jm_cst_1[11] = (jm_constant_t) { cst_is_string, { .s = "date" } };
-        _jm_cst_1[12] = (jm_constant_t) { cst_is_string, { .s = "regex" } };
-        _jm_cst_1[13] = (jm_constant_t) { cst_is_string, { .s = "javascript" } };
-        _jm_cst_1[14] = (jm_constant_t) { cst_is_string, { .s = "timestamp" } };
-        _jm_cst_1[15] = (jm_constant_t) { cst_is_string, { .s = "minKey" } };
-        _jm_cst_1[16] = (jm_constant_t) { cst_is_string, { .s = "maxKey" } };
-        jm_sort_cst(_jm_cst_1, 17);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_3 };
         check_model_map_tab[1] = (jm_propmap_t) { "schema", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 2);

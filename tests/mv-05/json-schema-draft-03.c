@@ -10,10 +10,10 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static jm_constant_t _jm_cst_0[8];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[13];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -21,12 +21,24 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
 const size_t check_model_map_size = 4;
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00796e61)  // "any"
+        || jm_str_eq_5(s, 0x000000006c6c756eLL)  // "null"
+        || jm_str_eq_6(s, 0x0000007961727261LL)  // "array"
+        || jm_str_eq_7(s, 0x00007265626d756eLL)  // "number"
+        || jm_str_eq_7(s, 0x00007463656a626fLL)  // "object"
+        || jm_str_eq_7(s, 0x0000676e69727473LL)  // "string"
+        || jm_str_eq_8(s, 0x006e61656c6f6f62LL)  // "boolean"
+        || jm_str_eq_8(s, 0x0072656765746e69LL)  // "integer"
+    ;
+}
 
 // check $allTypes (.'$allTypes')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$allTypes'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 8);
+    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$allTypes'.'|']", path);
@@ -89,6 +101,23 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00697275)  // "uri"
+        || jm_str_eq_5(s, 0x0000000065746164LL)  // "date"
+        || jm_str_eq_5(s, 0x0000000036767069LL)  // "ipv6"
+        || jm_str_eq_5(s, 0x00000000656d6974LL)  // "time"
+        || jm_str_eq_6(s, 0x000000726f6c6f63LL)  // "color"
+        || jm_str_eq_6(s, 0x0000006c69616d65LL)  // "email"
+        || jm_str_eq_6(s, 0x000000656e6f6870LL)  // "phone"
+        || jm_str_eq_6(s, 0x0000007865676572LL)  // "regex"
+        || jm_str_eq_6(s, 0x000000656c797473LL)  // "style"
+        || jm_str_eq_8(s, 0x6d69742d65746164LL) && jm_str_eq_2(s + 8, 0x00000065)  // "date-time"
+        || jm_str_eq_8(s, 0x6d616e2d74736f68LL) && jm_str_eq_2(s + 8, 0x00000065)  // "host-name"
+        || jm_str_eq_8(s, 0x65726464612d7069LL) && jm_str_eq_3(s + 8, 0x00007373)  // "ip-address"
+        || jm_str_eq_8(s, 0x6c6c696d2d637475LL) && jm_str_eq_5(s + 8, 0x0000000063657369LL)  // "utc-millisec"
+    ;
+}
 
 // object .properties
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -402,7 +431,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may format property
             // .format
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 13);
+            res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.format.'|']", (path ? &lpath_0 : NULL));
@@ -776,31 +805,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "null" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "boolean" } };
-        _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "integer" } };
-        _jm_cst_0[3] = (jm_constant_t) { cst_is_string, { .s = "number" } };
-        _jm_cst_0[4] = (jm_constant_t) { cst_is_string, { .s = "string" } };
-        _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "array" } };
-        _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "object" } };
-        _jm_cst_0[7] = (jm_constant_t) { cst_is_string, { .s = "any" } };
-        jm_sort_cst(_jm_cst_0, 8);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "date-time" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "date" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "time" } };
-        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "utc-millisec" } };
-        _jm_cst_1[4] = (jm_constant_t) { cst_is_string, { .s = "regex" } };
-        _jm_cst_1[5] = (jm_constant_t) { cst_is_string, { .s = "color" } };
-        _jm_cst_1[6] = (jm_constant_t) { cst_is_string, { .s = "style" } };
-        _jm_cst_1[7] = (jm_constant_t) { cst_is_string, { .s = "phone" } };
-        _jm_cst_1[8] = (jm_constant_t) { cst_is_string, { .s = "uri" } };
-        _jm_cst_1[9] = (jm_constant_t) { cst_is_string, { .s = "email" } };
-        _jm_cst_1[10] = (jm_constant_t) { cst_is_string, { .s = "ip-address" } };
-        _jm_cst_1[11] = (jm_constant_t) { cst_is_string, { .s = "ipv6" } };
-        _jm_cst_1[12] = (jm_constant_t) { cst_is_string, { .s = "host-name" } };
-        jm_sort_cst(_jm_cst_1, 13);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "allTypes", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "distinctSchemaArray", json_model_3 };

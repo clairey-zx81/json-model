@@ -74,7 +74,7 @@ class CLangJansson(Language):
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
                  with_predef: bool = True, strcmp_opt: bool = True, byte_order: str = "le",
-                 inline: bool = True, with_hints: bool = True,
+                 inline: bool = True, with_hints: bool = True, max_strcmp_cset: int = 64,
                  relib: str = "pcre2", int_t: str = "int64_t"):
 
         super().__init__(
@@ -95,6 +95,7 @@ class CLangJansson(Language):
         self._json_esc_table = str.maketrans(_ESC_TABLE)
         self._inline = "INLINE " if inline else ""
         self._strcmp_opt = strcmp_opt
+        self._max_strcmp_cset = max_strcmp_cset
         self._byte_order = byte_order
 
     #
@@ -559,7 +560,41 @@ class CLangJansson(Language):
             r"}",
         ]
 
+    #
+    # CONSTANT SETS
+    #
+    # TODO other constants
+    # TODO generalize to other types
+    def _str_cset_opt(self, constants: ConstList) -> bool:
+        return (len(constants) < self._max_strcmp_cset and
+                all(map(lambda c: type(c) is str, constants)))
+
+    def _def_str_cset(self, name: str, constants: ConstList) -> Block:
+        return [ f"static {self._inline}bool {name}_str_test(const char *);" ]
+
+    def _sub_str_cset(self, name: str, constants: ConstList) -> Block:
+        # sort str constants
+        code = [
+            f"static {self._inline}bool {name}_str_test(const char *s)",
+            "{",
+        ]
+        first = True
+        for s in sorted(constants, key=lambda s: (len(s), s)):
+            code += [
+                ("    return " if first else "        || ") +
+                _str_cmp("s", json.dumps(s), self._byte_order, True) +
+                f"  // {self.esc(s)}"
+            ]
+            first = False
+        code += [ "    ;", "}" ]
+        return code
+
+    def _in_str_cset(self, name: str, var: str, constants: ConstList) -> BoolExpr:
+        return f"{self.is_a(var, str)} && {name}_str_test(json_string_value({var}))"
+
     def def_cset(self, name: str, constants: ConstList) -> Block:
+        if self._str_cset_opt(constants):
+            return self._def_str_cset(name, constants)
         types = set(type(c) for c in constants)
         code = []
         if len(types) > 1:
@@ -567,6 +602,8 @@ class CLangJansson(Language):
         return  code + [ f"static jm_constant_t {name}[{len(constants)}];" ]
 
     def sub_cset(self, name: str, constants: ConstList) -> Block:
+        if self._str_cset_opt(constants):
+            return self._sub_str_cset(name, constants)
         types = set(type(c) for c in constants)
         code = []
         if len(types) > 1:
@@ -596,6 +633,8 @@ class CLangJansson(Language):
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         """Tell whether JSON variable var value of potential types is in set name."""
+        if self._str_cset_opt(constants):
+            return self._in_str_cset(name, var, constants)
         types = set(type(c) for c in constants)
         if len(types) == 1:
             tcs = types.pop()
@@ -620,11 +659,16 @@ class CLangJansson(Language):
                 raise Exception(f"unexpected constant value: {value}")
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
+        if self._str_cset_opt(constants):
+            return []
         code = self.lcom(f"initialize sorted set {name}")
         for i, cst in enumerate(constants):
             code.append(f"{name}[{i}] = {self._cst(cst)};")
         code.append(f"jm_sort_cst({name}, {len(constants)});")
         return code
+
+    def del_cset(self, name: str, constants: ConstList) -> Block:
+        return []
 
     def _fun(self, name: str, inline: bool = False) -> str:
         declare = f"static {self._inline}" if inline else "static "

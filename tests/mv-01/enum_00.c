@@ -10,20 +10,29 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static jm_constant_t _jm_cst_0[5];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[5];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00646142)  // "Bad"
+        || jm_str_eq_4(s, 0x00656f4d)  // "Moe"
+        || jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
+        || jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
+        || jm_str_eq_7(s, 0x0000736562626f48LL)  // "Hobbes"
+    ;
+}
 
 // check $p1 (.'$p1')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$p1'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 5);
+    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$p1'.'|']", path);
@@ -31,12 +40,21 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00646142)  // "Bad"
+        || jm_str_eq_6(s, 0x000000756f6c694dLL)  // "Milou"
+        || jm_str_eq_7(s, 0x00006e69746e6954LL)  // "Tintin"
+        || jm_str_eq_8(s, 0x006b636f64646148LL)  // "Haddock"
+        || jm_str_eq_8(s, 0x6f69666174736143LL) && jm_str_eq_3(s + 8, 0x00006572)  // "Castafiore"
+    ;
+}
 
 // check $p2 (.'$p2')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$p2'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 5);
+    bool res = json_is_string(val) && _jm_cst_1_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$p2'.'|']", path);
@@ -93,20 +111,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "Susie" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "Calvin" } };
-        _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "Hobbes" } };
-        _jm_cst_0[3] = (jm_constant_t) { cst_is_string, { .s = "Moe" } };
-        _jm_cst_0[4] = (jm_constant_t) { cst_is_string, { .s = "Bad" } };
-        jm_sort_cst(_jm_cst_0, 5);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "Castafiore" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "Haddock" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "Milou" } };
-        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "Tintin" } };
-        _jm_cst_1[4] = (jm_constant_t) { cst_is_string, { .s = "Bad" } };
-        jm_sort_cst(_jm_cst_1, 5);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "p1", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "p2", json_model_3 };

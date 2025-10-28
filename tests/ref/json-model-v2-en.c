@@ -21,7 +21,7 @@ static bool _jm_cst_0_test(const json_t *);
 static jm_constant_t _jm_cst_0[8];
 static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[29];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
@@ -359,12 +359,45 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00384924)  // "$I8"
+        || jm_str_eq_4(s, 0x00385524)  // "$U8"
+        || jm_str_eq_5(s, 0x00000000594e4124LL)  // "$ANY"
+        || jm_str_eq_5(s, 0x0000000036314624LL)  // "$F16"
+        || jm_str_eq_5(s, 0x0000000032334624LL)  // "$F32"
+        || jm_str_eq_5(s, 0x0000000034364624LL)  // "$F64"
+        || jm_str_eq_5(s, 0x0000000036314924LL)  // "$I16"
+        || jm_str_eq_5(s, 0x0000000032334924LL)  // "$I32"
+        || jm_str_eq_5(s, 0x0000000034364924LL)  // "$I64"
+        || jm_str_eq_5(s, 0x00000000544e4924LL)  // "$INT"
+        || jm_str_eq_5(s, 0x0000000036315524LL)  // "$U16"
+        || jm_str_eq_5(s, 0x0000000032335524LL)  // "$U32"
+        || jm_str_eq_5(s, 0x0000000034365524LL)  // "$U64"
+        || jm_str_eq_5(s, 0x0000000049525524LL)  // "$URI"
+        || jm_str_eq_5(s, 0x000000004c525524LL)  // "$URL"
+        || jm_str_eq_6(s, 0x0000004c4f4f4224LL)  // "$BOOL"
+        || jm_str_eq_6(s, 0x0000004554414424LL)  // "$DATE"
+        || jm_str_eq_6(s, 0x000000454e4f4e24LL)  // "$NONE"
+        || jm_str_eq_6(s, 0x0000004c4c554e24LL)  // "$NULL"
+        || jm_str_eq_6(s, 0x000000454d495424LL)  // "$TIME"
+        || jm_str_eq_6(s, 0x0000004449555524LL)  // "$UUID"
+        || jm_str_eq_7(s, 0x00004c49414d4524LL)  // "$EMAIL"
+        || jm_str_eq_7(s, 0x0000474552584524LL)  // "$EXREG"
+        || jm_str_eq_7(s, 0x000054414f4c4624LL)  // "$FLOAT"
+        || jm_str_eq_7(s, 0x0000584547455224LL)  // "$REGEX"
+        || jm_str_eq_8(s, 0x005245424d554e24LL)  // "$NUMBER"
+        || jm_str_eq_8(s, 0x00474e4952545324LL)  // "$STRING"
+        || jm_str_eq_8(s, 0x52454745544e4924LL) && jm_str_eq_0(s + 8)  // "$INTEGER"
+        || jm_str_eq_8(s, 0x4d49544554414424LL) && jm_str_eq_2(s + 8, 0x00000045)  // "$DATETIME"
+    ;
+}
 
 // check $Model#PreDef (.'$Model#PreDef')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Model#PreDef'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 29);
+    bool res = json_is_string(val) && _jm_cst_1_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$Model#PreDef'.'|']", path);
@@ -3299,37 +3332,6 @@ const char *check_model_init(void)
         _jm_cst_0[6] = (jm_constant_t) { cst_is_float, { .f = 1.0 } };
         _jm_cst_0[7] = (jm_constant_t) { cst_is_float, { .f = -1.0 } };
         jm_sort_cst(_jm_cst_0, 8);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "$DATE" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "$TIME" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "$DATETIME" } };
-        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "$URL" } };
-        _jm_cst_1[4] = (jm_constant_t) { cst_is_string, { .s = "$URI" } };
-        _jm_cst_1[5] = (jm_constant_t) { cst_is_string, { .s = "$UUID" } };
-        _jm_cst_1[6] = (jm_constant_t) { cst_is_string, { .s = "$EMAIL" } };
-        _jm_cst_1[7] = (jm_constant_t) { cst_is_string, { .s = "$REGEX" } };
-        _jm_cst_1[8] = (jm_constant_t) { cst_is_string, { .s = "$EXREG" } };
-        _jm_cst_1[9] = (jm_constant_t) { cst_is_string, { .s = "$NULL" } };
-        _jm_cst_1[10] = (jm_constant_t) { cst_is_string, { .s = "$BOOL" } };
-        _jm_cst_1[11] = (jm_constant_t) { cst_is_string, { .s = "$FLOAT" } };
-        _jm_cst_1[12] = (jm_constant_t) { cst_is_string, { .s = "$F16" } };
-        _jm_cst_1[13] = (jm_constant_t) { cst_is_string, { .s = "$F32" } };
-        _jm_cst_1[14] = (jm_constant_t) { cst_is_string, { .s = "$F64" } };
-        _jm_cst_1[15] = (jm_constant_t) { cst_is_string, { .s = "$NUMBER" } };
-        _jm_cst_1[16] = (jm_constant_t) { cst_is_string, { .s = "$INT" } };
-        _jm_cst_1[17] = (jm_constant_t) { cst_is_string, { .s = "$INTEGER" } };
-        _jm_cst_1[18] = (jm_constant_t) { cst_is_string, { .s = "$I8" } };
-        _jm_cst_1[19] = (jm_constant_t) { cst_is_string, { .s = "$I16" } };
-        _jm_cst_1[20] = (jm_constant_t) { cst_is_string, { .s = "$I32" } };
-        _jm_cst_1[21] = (jm_constant_t) { cst_is_string, { .s = "$I64" } };
-        _jm_cst_1[22] = (jm_constant_t) { cst_is_string, { .s = "$U8" } };
-        _jm_cst_1[23] = (jm_constant_t) { cst_is_string, { .s = "$U16" } };
-        _jm_cst_1[24] = (jm_constant_t) { cst_is_string, { .s = "$U32" } };
-        _jm_cst_1[25] = (jm_constant_t) { cst_is_string, { .s = "$U64" } };
-        _jm_cst_1[26] = (jm_constant_t) { cst_is_string, { .s = "$STRING" } };
-        _jm_cst_1[27] = (jm_constant_t) { cst_is_string, { .s = "$NONE" } };
-        _jm_cst_1[28] = (jm_constant_t) { cst_is_string, { .s = "$ANY" } };
-        jm_sort_cst(_jm_cst_1, 29);
         _jm_re_0_re2 = cre2_new("^\\$.", strlen("^\\$."), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);

@@ -17,11 +17,11 @@ B<jmc> - JSON Model Compiler
      [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
      [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS]
      [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
-     [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version]
+     [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version] [--short-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
      [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD]
-     [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef] [--short-version]
+     [--max-strcmp-cset SIZE] [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] model [values ...]
 
@@ -220,6 +220,10 @@ generate inline hints.
 =item B<--strcmp-optimize> B<--no-strcmp-optimize>
 
 whether to optimize string comparisons in some cases.
+
+=item B<--max-strcmp-cset SIZE>
+
+maximum size for string constant set expansion.
 
 =item B<--byte-order ORDER>
 

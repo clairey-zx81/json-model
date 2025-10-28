@@ -11,13 +11,13 @@
 #define JSON_MODEL_VERSION "2"
 
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_0[2];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[2];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_2[2];
+static INLINE bool _jm_cst_2_str_test(const char *);
 static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -34,12 +34,18 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000067);
 }
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000068)  // "h"
+        || jm_str_eq_2(s, 0x00000069)  // "i"
+    ;
+}
 
 // check $h_ou_i (.'$h_ou_i')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$h_ou_i'
-    return json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 2);
+    return json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
 }
 
 // check $d (.'$d')
@@ -78,6 +84,12 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return must_count == 2;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000065)  // "e"
+        || jm_str_eq_2(s, 0x00000066)  // "f"
+    ;
+}
 
 // check $ef (.'$ef')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -96,7 +108,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must t property
             must_count += 1;
             // .'$ef'.t
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);
+            res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
             if (unlikely(! res))
                 return false;
         }
@@ -150,6 +162,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return must_count == 2;
 }
 
+static INLINE bool _jm_cst_2_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000062)  // "b"
+        || jm_str_eq_2(s, 0x00000063)  // "c"
+    ;
+}
 
 // object .'$alternative'.'|'.1
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -167,7 +185,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must t property
             must_count += 1;
             // .'$alternative'.'|'.1.t
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 2);
+            res = json_is_string(pval) && _jm_cst_2_str_test(json_string_value(pval));
             if (unlikely(! res))
                 return false;
         }
@@ -305,18 +323,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "h" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "i" } };
-        jm_sort_cst(_jm_cst_0, 2);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "e" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "f" } };
-        jm_sort_cst(_jm_cst_1, 2);
-        // initialize sorted set _jm_cst_2
-        _jm_cst_2[0] = (jm_constant_t) { cst_is_string, { .s = "b" } };
-        _jm_cst_2[1] = (jm_constant_t) { cst_is_string, { .s = "c" } };
-        jm_sort_cst(_jm_cst_2, 2);
         _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "a" } }, _jm_obj_0 };
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "b" } }, _jm_obj_1 };
         _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "c" } }, _jm_obj_1 };

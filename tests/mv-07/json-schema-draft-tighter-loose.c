@@ -20,7 +20,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_0[27];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -452,6 +452,37 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00746e69)  // "int"
+        || jm_str_eq_4(s, 0x00697269)  // "iri"
+        || jm_str_eq_4(s, 0x00697275)  // "uri"
+        || jm_str_eq_5(s, 0x0000000065747962LL)  // "byte"
+        || jm_str_eq_5(s, 0x0000000065746164LL)  // "date"
+        || jm_str_eq_5(s, 0x0000000034767069LL)  // "ipv4"
+        || jm_str_eq_5(s, 0x0000000036767069LL)  // "ipv6"
+        || jm_str_eq_5(s, 0x00000000656d6974LL)  // "time"
+        || jm_str_eq_5(s, 0x00000000746e6975LL)  // "uint"
+        || jm_str_eq_5(s, 0x0000000064697575LL)  // "uuid"
+        || jm_str_eq_6(s, 0x0000006c69616d65LL)  // "email"
+        || jm_str_eq_6(s, 0x0000003233746e69LL)  // "int32"
+        || jm_str_eq_6(s, 0x0000003436746e69LL)  // "int64"
+        || jm_str_eq_6(s, 0x0000007865676572LL)  // "regex"
+        || jm_str_eq_7(s, 0x0000656c62756f64LL)  // "double"
+        || jm_str_eq_7(s, 0x00003233746e6975LL)  // "uint32"
+        || jm_str_eq_7(s, 0x00003436746e6975LL)  // "uint64"
+        || jm_str_eq_8(s, 0x6e6f697461727564LL) && jm_str_eq_0(s + 8)  // "duration"
+        || jm_str_eq_8(s, 0x656d616e74736f68LL) && jm_str_eq_0(s + 8)  // "hostname"
+        || jm_str_eq_8(s, 0x6d69742d65746164LL) && jm_str_eq_2(s + 8, 0x00000065)  // "date-time"
+        || jm_str_eq_8(s, 0x69616d652d6e6469LL) && jm_str_eq_2(s + 8, 0x0000006c)  // "idn-email"
+        || jm_str_eq_8(s, 0x7079742d656d696dLL) && jm_str_eq_2(s + 8, 0x00000065)  // "mime-type"
+        || jm_str_eq_8(s, 0x74736f682d6e6469LL) && jm_str_eq_5(s + 8, 0x00000000656d616eLL)  // "idn-hostname"
+        || jm_str_eq_8(s, 0x696f702d6e6f736aLL) && jm_str_eq_5(s + 8, 0x000000007265746eLL)  // "json-pointer"
+        || jm_str_eq_8(s, 0x656665722d697269LL) && jm_str_eq_6(s + 8, 0x00000065636e6572LL)  // "iri-reference"
+        || jm_str_eq_8(s, 0x656665722d697275LL) && jm_str_eq_6(s + 8, 0x00000065636e6572LL)  // "uri-reference"
+        || jm_str_eq_8(s, 0x65766974616c6572LL) && jm_str_eq_8(s + 8, 0x6f702d6e6f736a2dLL) && jm_str_eq_6(s + 16, 0x0000007265746e69LL)  // "relative-json-pointer"
+    ;
+}
 
 // object .'$tight#String'.definitions
 static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -560,7 +591,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may format property
             // .'$tight#String'.format
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 27);
+            res = json_is_string(pval) && _jm_cst_0_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$tight#String'.format.'|']", (path ? &lpath_4 : NULL));
@@ -5383,35 +5414,6 @@ const char *check_model_init(void)
         _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "array" } }, json_model_13 };
         _jm_map_0_tab[6] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "object" } }, json_model_14 };
         jm_sort_constmap(_jm_map_0_tab, 7);
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "uri" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "uri-reference" } };
-        _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "iri" } };
-        _jm_cst_0[3] = (jm_constant_t) { cst_is_string, { .s = "iri-reference" } };
-        _jm_cst_0[4] = (jm_constant_t) { cst_is_string, { .s = "date" } };
-        _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "time" } };
-        _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "date-time" } };
-        _jm_cst_0[7] = (jm_constant_t) { cst_is_string, { .s = "ipv4" } };
-        _jm_cst_0[8] = (jm_constant_t) { cst_is_string, { .s = "ipv6" } };
-        _jm_cst_0[9] = (jm_constant_t) { cst_is_string, { .s = "regex" } };
-        _jm_cst_0[10] = (jm_constant_t) { cst_is_string, { .s = "uuid" } };
-        _jm_cst_0[11] = (jm_constant_t) { cst_is_string, { .s = "hostname" } };
-        _jm_cst_0[12] = (jm_constant_t) { cst_is_string, { .s = "email" } };
-        _jm_cst_0[13] = (jm_constant_t) { cst_is_string, { .s = "idn-hostname" } };
-        _jm_cst_0[14] = (jm_constant_t) { cst_is_string, { .s = "idn-email" } };
-        _jm_cst_0[15] = (jm_constant_t) { cst_is_string, { .s = "duration" } };
-        _jm_cst_0[16] = (jm_constant_t) { cst_is_string, { .s = "int32" } };
-        _jm_cst_0[17] = (jm_constant_t) { cst_is_string, { .s = "int64" } };
-        _jm_cst_0[18] = (jm_constant_t) { cst_is_string, { .s = "uint" } };
-        _jm_cst_0[19] = (jm_constant_t) { cst_is_string, { .s = "uint32" } };
-        _jm_cst_0[20] = (jm_constant_t) { cst_is_string, { .s = "uint64" } };
-        _jm_cst_0[21] = (jm_constant_t) { cst_is_string, { .s = "json-pointer" } };
-        _jm_cst_0[22] = (jm_constant_t) { cst_is_string, { .s = "relative-json-pointer" } };
-        _jm_cst_0[23] = (jm_constant_t) { cst_is_string, { .s = "byte" } };
-        _jm_cst_0[24] = (jm_constant_t) { cst_is_string, { .s = "double" } };
-        _jm_cst_0[25] = (jm_constant_t) { cst_is_string, { .s = "int" } };
-        _jm_cst_0[26] = (jm_constant_t) { cst_is_string, { .s = "mime-type" } };
-        jm_sort_cst(_jm_cst_0, 27);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_27 };
         check_model_map_tab[1] = (jm_propmap_t) { "tight", json_model_27 };
         jm_sort_propmap(check_model_map_tab, 2);

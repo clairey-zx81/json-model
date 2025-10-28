@@ -10,21 +10,21 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static jm_constant_t _jm_cst_0[13];
+static INLINE bool _jm_cst_0_str_test(const char *);
 static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[4];
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_2[7];
+static INLINE bool _jm_cst_2_str_test(const char *);
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -33,13 +33,13 @@ static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[4];
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_3[10];
+static INLINE bool _jm_cst_3_str_test(const char *);
 static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_4[4];
-static jm_constant_t _jm_cst_5[3];
+static INLINE bool _jm_cst_4_str_test(const char *);
+static INLINE bool _jm_cst_5_str_test(const char *);
 static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_6[2];
+static INLINE bool _jm_cst_6_str_test(const char *);
 static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_1_re2 = NULL;
@@ -49,17 +49,17 @@ static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_7[4];
-static jm_constant_t _jm_cst_8[9];
-static jm_constant_t _jm_cst_9[2];
-static jm_constant_t _jm_cst_10[3];
+static INLINE bool _jm_cst_7_str_test(const char *);
+static INLINE bool _jm_cst_8_str_test(const char *);
+static INLINE bool _jm_cst_9_str_test(const char *);
+static INLINE bool _jm_cst_10_str_test(const char *);
 static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_11[2];
-static jm_constant_t _jm_cst_12[3];
+static INLINE bool _jm_cst_11_str_test(const char *);
+static INLINE bool _jm_cst_12_str_test(const char *);
 static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_13[3];
+static INLINE bool _jm_cst_13_str_test(const char *);
 static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_2_re2 = NULL;
 static int _jm_re_2_nn = 0;
@@ -76,14 +76,31 @@ static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_14[13];
+static INLINE bool _jm_cst_14_str_test(const char *);
 static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_15[4];
+static INLINE bool _jm_cst_15_str_test(const char *);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[10];
 const size_t check_model_map_size = 10;
 
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x00646572)  // "red"
+        || jm_str_eq_5(s, 0x0000000065756c62LL)  // "blue"
+        || jm_str_eq_5(s, 0x00000000646c6f62LL)  // "bold"
+        || jm_str_eq_5(s, 0x000000006e617963LL)  // "cyan"
+        || jm_str_eq_6(s, 0x0000006b63616c62LL)  // "black"
+        || jm_str_eq_6(s, 0x0000006e65657267LL)  // "green"
+        || jm_str_eq_6(s, 0x0000006574696877LL)  // "white"
+        || jm_str_eq_7(s, 0x0000776f6c6c6579LL)  // "yellow"
+        || jm_str_eq_8(s, 0x00746c7561666564LL)  // "default"
+        || jm_str_eq_8(s, 0x0061746e6567616dLL)  // "magenta"
+        || jm_str_eq_8(s, 0x0065737265766572LL)  // "reverse"
+        || jm_str_eq_8(s, 0x6e696c7265646e75LL) && jm_str_eq_2(s + 8, 0x00000065)  // "underline"
+        || jm_str_eq_8(s, 0x6874656b69727473LL) && jm_str_eq_6(s + 8, 0x0000006867756f72LL)  // "strikethrough"
+    ;
+}
 
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
@@ -95,7 +112,7 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$color'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 13);
+    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$color'.'|']", path);
@@ -194,12 +211,20 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_1_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x00000000756e656dLL)  // "menu"
+        || jm_str_eq_6(s, 0x0000007475706e69LL)  // "input"
+        || jm_str_eq_8(s, 0x006d7269666e6f63LL)  // "confirm"
+        || jm_str_eq_8(s, 0x6d6f7246756e656dLL) && jm_str_eq_8(s + 8, 0x00646e616d6d6f43LL)  // "menuFromCommand"
+    ;
+}
 
 // check $custom-commands-prompts-type-property (.'$custom-commands-prompts-type-property')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$custom-commands-prompts-type-property'
-    bool res = json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 4);
+    bool res = json_is_string(val) && _jm_cst_1_str_test(json_string_value(val));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'$custom-commands-prompts-type-property'.'|']", path);
@@ -338,6 +363,17 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_2_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x0000000073666572LL)  // "refs"
+        || jm_str_eq_5(s, 0x0000000073676174LL)  // "tags"
+        || jm_str_eq_6(s, 0x00000073656c6966LL)  // "files"
+        || jm_str_eq_8(s, 0x0073726f68747561LL)  // "authors"
+        || jm_str_eq_8(s, 0x007365746f6d6572LL)  // "remotes"
+        || jm_str_eq_8(s, 0x736568636e617262LL) && jm_str_eq_0(s + 8)  // "branches"
+        || jm_str_eq_8(s, 0x724265746f6d6572LL) && jm_str_eq_7(s + 8, 0x0000736568636e61LL)  // "remoteBranches"
+    ;
+}
 
 // object .'$Prompts'.'|'.0.suggestions.'|'.0
 static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -359,7 +395,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must preset property
             must_count += 1;
             // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 7);
+            res = json_is_string(pval) && _jm_cst_2_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", (path ? &lpath_2 : NULL));
@@ -991,6 +1027,20 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE bool _jm_cst_3_str_test(const char *s)
+{
+    return jm_str_eq_4(s, 0x006d6976)  // "vim"
+        || jm_str_eq_5(s, 0x000000006f6e616eLL)  // "nano"
+        || jm_str_eq_5(s, 0x000000006d69766eLL)  // "nvim"
+        || jm_str_eq_6(s, 0x0000007363616d65LL)  // "emacs"
+        || jm_str_eq_6(s, 0x00000078696c6568LL)  // "helix"
+        || jm_str_eq_6(s, 0x00000065646f6378LL)  // "xcode"
+        || jm_str_eq_7(s, 0x0000746964656262LL)  // "bbedit"
+        || jm_str_eq_7(s, 0x000065646f637376LL)  // "vscode"
+        || jm_str_eq_8(s, 0x00656e756f6b616bLL)  // "kakoune"
+        || jm_str_eq_8(s, 0x00656d696c627573LL)  // "sublime"
+    ;
+}
 
 // object .os
 static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1058,7 +1108,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may editPreset property
             // .os.editPreset
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_3, 10);
+            res = json_is_string(pval) && _jm_cst_3_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.os.editPreset.'|']", (path ? &lpath_8 : NULL));
@@ -1124,7 +1174,22 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static INLINE bool _jm_cst_4_str_test(const char *s)
+{
+    return jm_str_eq_8(s, 0x00746c7561666564LL)  // "default"
+        || jm_str_eq_8(s, 0x64726f2d65746164LL) && jm_str_eq_3(s + 8, 0x00007265)  // "date-order"
+        || jm_str_eq_8(s, 0x64726f2d6f706f74LL) && jm_str_eq_3(s + 8, 0x00007265)  // "topo-order"
+        || jm_str_eq_8(s, 0x642d726f68747561LL) && jm_str_eq_8(s + 8, 0x6564726f2d657461LL) && jm_str_eq_2(s + 16, 0x00000072)  // "author-date-order"
+    ;
+}
 
+static INLINE bool _jm_cst_5_str_test(const char *s)
+{
+    return jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
+        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
+        || jm_str_eq_8(s, 0x78616d2d6e656877LL) && jm_str_eq_7(s + 8, 0x0000646573696d69LL)  // "when-maximised"
+    ;
+}
 
 // object .git.log
 static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1144,7 +1209,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may order property
             // .git.log.order
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_4, 4);
+            res = json_is_string(pval) && _jm_cst_4_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_10 : NULL));
@@ -1156,7 +1221,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may showGraph property
             // .git.log.showGraph
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_5, 3);
+            res = json_is_string(pval) && _jm_cst_5_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_10 : NULL));
@@ -1220,6 +1285,12 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_6_str_test(const char *s)
+{
+    return jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
+        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
+    ;
+}
 
 // object .git.paging
 static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1264,7 +1335,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may colorArg property
             // .git.paging.colorArg
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_6, 2);
+            res = json_is_string(pval) && _jm_cst_6_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_12 : NULL));
@@ -1803,9 +1874,43 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_7_str_test(const char *s)
+{
+    return jm_str_eq_7(s, 0x0000656c62756f64LL)  // "double"
+        || jm_str_eq_7(s, 0x00006e6564646968LL)  // "hidden"
+        || jm_str_eq_7(s, 0x0000656c676e6973LL)  // "single"
+        || jm_str_eq_8(s, 0x006465646e756f72LL)  // "rounded"
+    ;
+}
 
+static INLINE bool _jm_cst_8_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00006e65)  // "en"
+        || jm_str_eq_3(s, 0x0000616a)  // "ja"
+        || jm_str_eq_3(s, 0x00006f6b)  // "ko"
+        || jm_str_eq_3(s, 0x00006c6e)  // "nl"
+        || jm_str_eq_3(s, 0x00006c70)  // "pl"
+        || jm_str_eq_3(s, 0x00007572)  // "ru"
+        || jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
+        || jm_str_eq_6(s, 0x0000004e432d687aLL)  // "zh-CN"
+        || jm_str_eq_6(s, 0x00000057542d687aLL)  // "zh-TW"
+    ;
+}
 
+static INLINE bool _jm_cst_9_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
+        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
+    ;
+}
 
+static INLINE bool _jm_cst_10_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x000000006c6c7566LL)  // "full"
+        || jm_str_eq_5(s, 0x00000000666c6168LL)  // "half"
+        || jm_str_eq_7(s, 0x00006c616d726f6eLL)  // "normal"
+    ;
+}
 
 // object .gui.authorColors
 static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1910,7 +2015,20 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_11_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000032)  // "2"
+        || jm_str_eq_2(s, 0x00000033)  // "3"
+    ;
+}
 
+static INLINE bool _jm_cst_12_str_test(const char *s)
+{
+    return jm_str_eq_8(s, 0x656c626978656c66LL) && jm_str_eq_0(s + 8)  // "flexible"
+        || jm_str_eq_8(s, 0x6c61636974726576LL) && jm_str_eq_0(s + 8)  // "vertical"
+        || jm_str_eq_8(s, 0x746e6f7a69726f68LL) && jm_str_eq_3(s + 8, 0x00006c61)  // "horizontal"
+    ;
+}
 
 // object .gui
 static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1942,7 +2060,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may border property
             // .gui.border
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_7, 4);
+            res = json_is_string(pval) && _jm_cst_7_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.gui.border.'|']", (path ? &lpath_16 : NULL));
@@ -1954,7 +2072,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may language property
             // .gui.language
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_8, 9);
+            res = json_is_string(pval) && _jm_cst_8_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.gui.language.'|']", (path ? &lpath_16 : NULL));
@@ -1966,7 +2084,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may splitDiff property
             // .gui.splitDiff
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_9, 2);
+            res = json_is_string(pval) && _jm_cst_9_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.gui.splitDiff.'|']", (path ? &lpath_16 : NULL));
@@ -1990,7 +2108,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may windowSize property
             // .gui.windowSize
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_10, 3);
+            res = json_is_string(pval) && _jm_cst_10_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.gui.windowSize.'|']", (path ? &lpath_16 : NULL));
@@ -2183,7 +2301,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may nerdFontsVersion property
             // .gui.nerdFontsVersion
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_11, 2);
+            res = json_is_string(pval) && _jm_cst_11_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.gui.nerdFontsVersion.'|']", (path ? &lpath_16 : NULL));
@@ -2244,7 +2362,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may mainPanelSplitMode property
             // .gui.mainPanelSplitMode
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_12, 3);
+            res = json_is_string(pval) && _jm_cst_12_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.gui.mainPanelSplitMode.'|']", (path ? &lpath_16 : NULL));
@@ -2309,6 +2427,13 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_13_str_test(const char *s)
+{
+    return jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
+        || jm_str_eq_7(s, 0x000074706d6f7270LL)  // "prompt"
+        || jm_str_eq_8(s, 0x756f72676b636162LL) && jm_str_eq_3(s + 8, 0x0000646e)  // "background"
+    ;
+}
 
 // object .update
 static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2340,7 +2465,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may method property
             // .update.method
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_13, 3);
+            res = json_is_string(pval) && _jm_cst_13_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.update.method.'|']", (path ? &lpath_21 : NULL));
@@ -4211,6 +4336,23 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_14_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x0000000073676174LL)  // "tags"
+        || jm_str_eq_6(s, 0x00000073656c6966LL)  // "files"
+        || jm_str_eq_6(s, 0x0000006873617473LL)  // "stash"
+        || jm_str_eq_7(s, 0x00006c61626f6c67LL)  // "global"
+        || jm_str_eq_7(s, 0x0000737574617473LL)  // "status"
+        || jm_str_eq_8(s, 0x007374696d6d6f63LL)  // "commits"
+        || jm_str_eq_8(s, 0x007365746f6d6572LL)  // "remotes"
+        || jm_str_eq_8(s, 0x656572746b726f77LL) && jm_str_eq_2(s + 8, 0x00000073)  // "worktrees"
+        || jm_str_eq_8(s, 0x696d6d6f43627573LL) && jm_str_eq_3(s + 8, 0x00007374)  // "subCommits"
+        || jm_str_eq_8(s, 0x694674696d6d6f63LL) && jm_str_eq_4(s + 8, 0x0073656c)  // "commitFiles"
+        || jm_str_eq_8(s, 0x6172426c61636f6cLL) && jm_str_eq_6(s + 8, 0x000000736568636eLL)  // "localBranches"
+        || jm_str_eq_8(s, 0x6f43676f6c666572LL) && jm_str_eq_6(s + 8, 0x0000007374696d6dLL)  // "reflogCommits"
+        || jm_str_eq_8(s, 0x724265746f6d6572LL) && jm_str_eq_7(s + 8, 0x0000736568636e61LL)  // "remoteBranches"
+    ;
+}
 
 // object .customCommands.'@'.0.after
 static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4293,7 +4435,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must context property
             must_count += 1;
             // .customCommands.'@'.0.context
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_14, 13);
+            res = json_is_string(pval) && _jm_cst_14_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.customCommands.'@'.0.context.'|']", (path ? &lpath_34 : NULL));
@@ -4429,6 +4571,14 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
+static INLINE bool _jm_cst_15_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x0000000074697571LL)  // "quit"
+        || jm_str_eq_5(s, 0x0000000070696b73LL)  // "skip"
+        || jm_str_eq_7(s, 0x0000657461657263LL)  // "create"
+        || jm_str_eq_7(s, 0x000074706d6f7270LL)  // "prompt"
+    ;
+}
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -4586,7 +4736,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may notARepository property
             // .notARepository
-            res = json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_15, 4);
+            res = json_is_string(pval) && _jm_cst_15_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.notARepository.'|']", (path ? &lpath_7 : NULL));
@@ -4652,141 +4802,23 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "black" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "red" } };
-        _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "green" } };
-        _jm_cst_0[3] = (jm_constant_t) { cst_is_string, { .s = "yellow" } };
-        _jm_cst_0[4] = (jm_constant_t) { cst_is_string, { .s = "blue" } };
-        _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "magenta" } };
-        _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "cyan" } };
-        _jm_cst_0[7] = (jm_constant_t) { cst_is_string, { .s = "white" } };
-        _jm_cst_0[8] = (jm_constant_t) { cst_is_string, { .s = "bold" } };
-        _jm_cst_0[9] = (jm_constant_t) { cst_is_string, { .s = "default" } };
-        _jm_cst_0[10] = (jm_constant_t) { cst_is_string, { .s = "reverse" } };
-        _jm_cst_0[11] = (jm_constant_t) { cst_is_string, { .s = "underline" } };
-        _jm_cst_0[12] = (jm_constant_t) { cst_is_string, { .s = "strikethrough" } };
-        jm_sort_cst(_jm_cst_0, 13);
         _jm_re_0_re2 = cre2_new("^#[0-9a-fA-F]{6}$", strlen("^#[0-9a-fA-F]{6}$"), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "input" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "confirm" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "menu" } };
-        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "menuFromCommand" } };
-        jm_sort_cst(_jm_cst_1, 4);
-        // initialize sorted set _jm_cst_2
-        _jm_cst_2[0] = (jm_constant_t) { cst_is_string, { .s = "authors" } };
-        _jm_cst_2[1] = (jm_constant_t) { cst_is_string, { .s = "branches" } };
-        _jm_cst_2[2] = (jm_constant_t) { cst_is_string, { .s = "files" } };
-        _jm_cst_2[3] = (jm_constant_t) { cst_is_string, { .s = "refs" } };
-        _jm_cst_2[4] = (jm_constant_t) { cst_is_string, { .s = "remotes" } };
-        _jm_cst_2[5] = (jm_constant_t) { cst_is_string, { .s = "remoteBranches" } };
-        _jm_cst_2[6] = (jm_constant_t) { cst_is_string, { .s = "tags" } };
-        jm_sort_cst(_jm_cst_2, 7);
         _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "input" } }, _jm_obj_0 };
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "confirm" } }, _jm_obj_3 };
         _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "menu" } }, _jm_obj_4 };
         _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "menuFromCommand" } }, _jm_obj_6 };
         jm_sort_constmap(_jm_map_0_tab, 4);
-        // initialize sorted set _jm_cst_3
-        _jm_cst_3[0] = (jm_constant_t) { cst_is_string, { .s = "vim" } };
-        _jm_cst_3[1] = (jm_constant_t) { cst_is_string, { .s = "nvim" } };
-        _jm_cst_3[2] = (jm_constant_t) { cst_is_string, { .s = "emacs" } };
-        _jm_cst_3[3] = (jm_constant_t) { cst_is_string, { .s = "nano" } };
-        _jm_cst_3[4] = (jm_constant_t) { cst_is_string, { .s = "vscode" } };
-        _jm_cst_3[5] = (jm_constant_t) { cst_is_string, { .s = "sublime" } };
-        _jm_cst_3[6] = (jm_constant_t) { cst_is_string, { .s = "bbedit" } };
-        _jm_cst_3[7] = (jm_constant_t) { cst_is_string, { .s = "kakoune" } };
-        _jm_cst_3[8] = (jm_constant_t) { cst_is_string, { .s = "helix" } };
-        _jm_cst_3[9] = (jm_constant_t) { cst_is_string, { .s = "xcode" } };
-        jm_sort_cst(_jm_cst_3, 10);
-        // initialize sorted set _jm_cst_4
-        _jm_cst_4[0] = (jm_constant_t) { cst_is_string, { .s = "date-order" } };
-        _jm_cst_4[1] = (jm_constant_t) { cst_is_string, { .s = "author-date-order" } };
-        _jm_cst_4[2] = (jm_constant_t) { cst_is_string, { .s = "topo-order" } };
-        _jm_cst_4[3] = (jm_constant_t) { cst_is_string, { .s = "default" } };
-        jm_sort_cst(_jm_cst_4, 4);
-        // initialize sorted set _jm_cst_5
-        _jm_cst_5[0] = (jm_constant_t) { cst_is_string, { .s = "always" } };
-        _jm_cst_5[1] = (jm_constant_t) { cst_is_string, { .s = "never" } };
-        _jm_cst_5[2] = (jm_constant_t) { cst_is_string, { .s = "when-maximised" } };
-        jm_sort_cst(_jm_cst_5, 3);
-        // initialize sorted set _jm_cst_6
-        _jm_cst_6[0] = (jm_constant_t) { cst_is_string, { .s = "always" } };
-        _jm_cst_6[1] = (jm_constant_t) { cst_is_string, { .s = "never" } };
-        jm_sort_cst(_jm_cst_6, 2);
         _jm_re_1_re2 = cre2_new(".", strlen("."), NULL);
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        // initialize sorted set _jm_cst_7
-        _jm_cst_7[0] = (jm_constant_t) { cst_is_string, { .s = "single" } };
-        _jm_cst_7[1] = (jm_constant_t) { cst_is_string, { .s = "double" } };
-        _jm_cst_7[2] = (jm_constant_t) { cst_is_string, { .s = "rounded" } };
-        _jm_cst_7[3] = (jm_constant_t) { cst_is_string, { .s = "hidden" } };
-        jm_sort_cst(_jm_cst_7, 4);
-        // initialize sorted set _jm_cst_8
-        _jm_cst_8[0] = (jm_constant_t) { cst_is_string, { .s = "auto" } };
-        _jm_cst_8[1] = (jm_constant_t) { cst_is_string, { .s = "en" } };
-        _jm_cst_8[2] = (jm_constant_t) { cst_is_string, { .s = "zh-CN" } };
-        _jm_cst_8[3] = (jm_constant_t) { cst_is_string, { .s = "zh-TW" } };
-        _jm_cst_8[4] = (jm_constant_t) { cst_is_string, { .s = "pl" } };
-        _jm_cst_8[5] = (jm_constant_t) { cst_is_string, { .s = "nl" } };
-        _jm_cst_8[6] = (jm_constant_t) { cst_is_string, { .s = "ja" } };
-        _jm_cst_8[7] = (jm_constant_t) { cst_is_string, { .s = "ko" } };
-        _jm_cst_8[8] = (jm_constant_t) { cst_is_string, { .s = "ru" } };
-        jm_sort_cst(_jm_cst_8, 9);
-        // initialize sorted set _jm_cst_9
-        _jm_cst_9[0] = (jm_constant_t) { cst_is_string, { .s = "auto" } };
-        _jm_cst_9[1] = (jm_constant_t) { cst_is_string, { .s = "always" } };
-        jm_sort_cst(_jm_cst_9, 2);
-        // initialize sorted set _jm_cst_10
-        _jm_cst_10[0] = (jm_constant_t) { cst_is_string, { .s = "normal" } };
-        _jm_cst_10[1] = (jm_constant_t) { cst_is_string, { .s = "half" } };
-        _jm_cst_10[2] = (jm_constant_t) { cst_is_string, { .s = "full" } };
-        jm_sort_cst(_jm_cst_10, 3);
-        // initialize sorted set _jm_cst_11
-        _jm_cst_11[0] = (jm_constant_t) { cst_is_string, { .s = "2" } };
-        _jm_cst_11[1] = (jm_constant_t) { cst_is_string, { .s = "3" } };
-        jm_sort_cst(_jm_cst_11, 2);
-        // initialize sorted set _jm_cst_12
-        _jm_cst_12[0] = (jm_constant_t) { cst_is_string, { .s = "horizontal" } };
-        _jm_cst_12[1] = (jm_constant_t) { cst_is_string, { .s = "flexible" } };
-        _jm_cst_12[2] = (jm_constant_t) { cst_is_string, { .s = "vertical" } };
-        jm_sort_cst(_jm_cst_12, 3);
-        // initialize sorted set _jm_cst_13
-        _jm_cst_13[0] = (jm_constant_t) { cst_is_string, { .s = "prompt" } };
-        _jm_cst_13[1] = (jm_constant_t) { cst_is_string, { .s = "background" } };
-        _jm_cst_13[2] = (jm_constant_t) { cst_is_string, { .s = "never" } };
-        jm_sort_cst(_jm_cst_13, 3);
         _jm_re_2_re2 = cre2_new("^[^:]+:[^:]+$", strlen("^[^:]+:[^:]+$"), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
-        // initialize sorted set _jm_cst_14
-        _jm_cst_14[0] = (jm_constant_t) { cst_is_string, { .s = "status" } };
-        _jm_cst_14[1] = (jm_constant_t) { cst_is_string, { .s = "files" } };
-        _jm_cst_14[2] = (jm_constant_t) { cst_is_string, { .s = "worktrees" } };
-        _jm_cst_14[3] = (jm_constant_t) { cst_is_string, { .s = "localBranches" } };
-        _jm_cst_14[4] = (jm_constant_t) { cst_is_string, { .s = "remotes" } };
-        _jm_cst_14[5] = (jm_constant_t) { cst_is_string, { .s = "remoteBranches" } };
-        _jm_cst_14[6] = (jm_constant_t) { cst_is_string, { .s = "tags" } };
-        _jm_cst_14[7] = (jm_constant_t) { cst_is_string, { .s = "commits" } };
-        _jm_cst_14[8] = (jm_constant_t) { cst_is_string, { .s = "reflogCommits" } };
-        _jm_cst_14[9] = (jm_constant_t) { cst_is_string, { .s = "subCommits" } };
-        _jm_cst_14[10] = (jm_constant_t) { cst_is_string, { .s = "commitFiles" } };
-        _jm_cst_14[11] = (jm_constant_t) { cst_is_string, { .s = "stash" } };
-        _jm_cst_14[12] = (jm_constant_t) { cst_is_string, { .s = "global" } };
-        jm_sort_cst(_jm_cst_14, 13);
-        // initialize sorted set _jm_cst_15
-        _jm_cst_15[0] = (jm_constant_t) { cst_is_string, { .s = "prompt" } };
-        _jm_cst_15[1] = (jm_constant_t) { cst_is_string, { .s = "create" } };
-        _jm_cst_15[2] = (jm_constant_t) { cst_is_string, { .s = "skip" } };
-        _jm_cst_15[3] = (jm_constant_t) { cst_is_string, { .s = "quit" } };
-        jm_sort_cst(_jm_cst_15, 4);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "color", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "colorArray", json_model_3 };

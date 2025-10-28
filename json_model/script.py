@@ -401,6 +401,8 @@ def jmc_script():
         help="do not sort may props")
     arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
         help="optimize some string comparisons")
+    arg("--max-strcmp-cset", default=64, type=int,
+        help="max size for str cset expression")
     arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
         help="do not optimize string comparisons")
     arg("--byte-order", choices=["le", "be", "dpd"], default="le", help="set endian-ness")
@@ -714,6 +716,7 @@ def jmc_script():
             may_must_open_threshold=args.may_must_open_threshold,
             must_only_threshold=args.must_only_threshold,
             sort_must=args.sort_must, sort_may=args.sort_may,
+            max_strcmp_cset=args.max_strcmp_cset,
         )
         source = str(code)
 
