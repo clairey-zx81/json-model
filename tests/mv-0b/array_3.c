@@ -19,7 +19,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_is_array(val) && json_array_size(val) == 4;
-    if (res)
+    if (likely(res))
     {
         jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
         // .0
@@ -28,7 +28,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "not a bool [.0]", (path ? &lpath_0 : NULL));
         }
-        if (res)
+        if (likely(res))
         {
             lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
             // .1
@@ -37,7 +37,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.1]", (path ? &lpath_0 : NULL));
             }
-            if (res)
+            if (likely(res))
             {
                 lpath_0 = (jm_path_t) { NULL, 2, path, NULL };
                 // .2
@@ -46,7 +46,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.2]", (path ? &lpath_0 : NULL));
                 }
-                if (res)
+                if (likely(res))
                 {
                     lpath_0 = (jm_path_t) { NULL, 3, path, NULL };
                     // .3

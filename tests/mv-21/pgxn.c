@@ -80,7 +80,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$neStrList'
     // .'$neStrList'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_0_idx;
         json_t *arr_0_item;
@@ -163,7 +163,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$LicenseList'
     // .'$LicenseList'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_1_idx;
         json_t *arr_1_item;

@@ -71,7 +71,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may authors property
             // .'$Schema'.metadata.authors
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_1_idx;
                 json_t *arr_1_item;
@@ -137,7 +137,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$Schema'.types
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_0_idx;
                 json_t *arr_0_item;
@@ -437,7 +437,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may enumeration property
             // .'$Atomic'.enumeration
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_2_idx;
                 json_t *arr_2_item;
@@ -626,7 +626,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may content property
             // .'$Object'.content
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_3_idx;
                 json_t *arr_3_item;
@@ -934,7 +934,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$Union'.content
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;

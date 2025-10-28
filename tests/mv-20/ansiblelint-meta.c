@@ -242,7 +242,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$AIXPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_0_idx;
                 json_t *arr_0_item;
@@ -306,7 +306,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$AlpinePlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_1_idx;
                 json_t *arr_1_item;
@@ -379,7 +379,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$AmazonLinuxPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_2_idx;
                 json_t *arr_2_item;
@@ -462,7 +462,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$AmazonPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_3_idx;
                 json_t *arr_3_item;
@@ -526,7 +526,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$ArchLinuxPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;
@@ -600,7 +600,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$AstraLinuxPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_5_idx;
                 json_t *arr_5_item;
@@ -664,7 +664,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$ClearLinuxPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_6_idx;
                 json_t *arr_6_item;
@@ -741,7 +741,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$CumulusPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_7_idx;
                 json_t *arr_7_item;
@@ -822,7 +822,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$DebianPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_8_idx;
                 json_t *arr_8_item;
@@ -895,7 +895,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$DellOSPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_9_idx;
                 json_t *arr_9_item;
@@ -970,7 +970,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$DevuanPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_10_idx;
                 json_t *arr_10_item;
@@ -1047,7 +1047,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$DragonFlyBSDPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_11_idx;
                 json_t *arr_11_item;
@@ -1123,7 +1123,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$ELPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_12_idx;
                 json_t *arr_12_item;
@@ -1220,7 +1220,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$FedoraPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_13_idx;
                 json_t *arr_13_item;
@@ -1316,7 +1316,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$FreeBSDPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_14_idx;
                 json_t *arr_14_item;
@@ -1380,7 +1380,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$GenericBSDPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_15_idx;
                 json_t *arr_15_item;
@@ -1444,7 +1444,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$GenericLinuxPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_16_idx;
                 json_t *arr_16_item;
@@ -1508,7 +1508,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$GenericUNIXPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_17_idx;
                 json_t *arr_17_item;
@@ -1572,7 +1572,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$GentooPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_18_idx;
                 json_t *arr_18_item;
@@ -1644,7 +1644,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$HardenedBSDPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_19_idx;
                 json_t *arr_19_item;
@@ -1708,7 +1708,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$IOSPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_20_idx;
                 json_t *arr_20_item;
@@ -1772,7 +1772,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$JunosPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_21_idx;
                 json_t *arr_21_item;
@@ -1851,7 +1851,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$KaliPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_22_idx;
                 json_t *arr_22_item;
@@ -1930,7 +1930,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$MacOSXPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_23_idx;
                 json_t *arr_23_item;
@@ -2002,7 +2002,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$MageiaPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_24_idx;
                 json_t *arr_24_item;
@@ -2066,7 +2066,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$NXOSPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_25_idx;
                 json_t *arr_25_item;
@@ -2144,7 +2144,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$NetBSDPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_26_idx;
                 json_t *arr_26_item;
@@ -2232,7 +2232,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$OpenBSDPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_27_idx;
                 json_t *arr_27_item;
@@ -2309,7 +2309,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$OpenWrtPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_28_idx;
                 json_t *arr_28_item;
@@ -2405,7 +2405,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$OracleLinuxPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_29_idx;
                 json_t *arr_29_item;
@@ -2479,7 +2479,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$PAN-OSPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_30_idx;
                 json_t *arr_30_item;
@@ -2561,7 +2561,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$RockyLinuxPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_31_idx;
                 json_t *arr_31_item;
@@ -2651,7 +2651,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$SLESPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_32_idx;
                 json_t *arr_32_item;
@@ -2715,7 +2715,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$SmartOSPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_33_idx;
                 json_t *arr_33_item;
@@ -2791,7 +2791,7 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$SolarisPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_34_idx;
                 json_t *arr_34_item;
@@ -2865,7 +2865,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$SynologyPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_35_idx;
                 json_t *arr_35_item;
@@ -2939,7 +2939,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$TMOSPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_36_idx;
                 json_t *arr_36_item;
@@ -3040,7 +3040,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$UbuntuPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_37_idx;
                 json_t *arr_37_item;
@@ -3104,7 +3104,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$Void_LinuxPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_38_idx;
                 json_t *arr_38_item;
@@ -3183,7 +3183,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$WindowsPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_39_idx;
                 json_t *arr_39_item;
@@ -3247,7 +3247,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$aosPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_40_idx;
                 json_t *arr_40_item;
@@ -3311,7 +3311,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$eosPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_41_idx;
                 json_t *arr_41_item;
@@ -3389,7 +3389,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$macOSPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_42_idx;
                 json_t *arr_42_item;
@@ -3473,7 +3473,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$opensusePlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_43_idx;
                 json_t *arr_43_item;
@@ -3537,7 +3537,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$os10PlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_44_idx;
                 json_t *arr_44_item;
@@ -3613,7 +3613,7 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$vCenterPlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_45_idx;
                 json_t *arr_45_item;
@@ -3689,7 +3689,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may versions property
             // .'$vSpherePlatformModel'.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_46_idx;
                 json_t *arr_46_item;
@@ -4203,7 +4203,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.46.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_48_idx;
                 json_t *arr_48_item;
@@ -4277,7 +4277,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.45.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_49_idx;
                 json_t *arr_49_item;
@@ -4339,7 +4339,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.44.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_50_idx;
                 json_t *arr_50_item;
@@ -4413,7 +4413,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.43.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_51_idx;
                 json_t *arr_51_item;
@@ -4512,7 +4512,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.42.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_52_idx;
                 json_t *arr_52_item;
@@ -4584,7 +4584,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.41.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_53_idx;
                 json_t *arr_53_item;
@@ -4656,7 +4656,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.40.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_54_idx;
                 json_t *arr_54_item;
@@ -4730,7 +4730,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.39.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_55_idx;
                 json_t *arr_55_item;
@@ -4792,7 +4792,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.38.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_56_idx;
                 json_t *arr_56_item;
@@ -4880,7 +4880,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may versions property
             // .'$platforms'.0.'|'.37.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_57_idx;
                 json_t *arr_57_item;
@@ -4960,7 +4960,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.36.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_58_idx;
                 json_t *arr_58_item;
@@ -5032,7 +5032,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.35.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_59_idx;
                 json_t *arr_59_item;
@@ -5094,7 +5094,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.34.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_60_idx;
                 json_t *arr_60_item;
@@ -5188,7 +5188,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.33.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_61_idx;
                 json_t *arr_61_item;
@@ -5263,7 +5263,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.32.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_62_idx;
                 json_t *arr_62_item;
@@ -5345,7 +5345,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.31.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_63_idx;
                 json_t *arr_63_item;
@@ -5431,7 +5431,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.30.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_64_idx;
                 json_t *arr_64_item;
@@ -5493,7 +5493,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.29.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_65_idx;
                 json_t *arr_65_item;
@@ -5563,7 +5563,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.28.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_66_idx;
                 json_t *arr_66_item;
@@ -5640,7 +5640,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.27.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_67_idx;
                 json_t *arr_67_item;
@@ -5716,7 +5716,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.26.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_68_idx;
                 json_t *arr_68_item;
@@ -5793,7 +5793,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.25.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_69_idx;
                 json_t *arr_69_item;
@@ -5855,7 +5855,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.24.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_70_idx;
                 json_t *arr_70_item;
@@ -5917,7 +5917,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.23.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_71_idx;
                 json_t *arr_71_item;
@@ -5987,7 +5987,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.22.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_72_idx;
                 json_t *arr_72_item;
@@ -6049,7 +6049,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.21.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_73_idx;
                 json_t *arr_73_item;
@@ -6111,7 +6111,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.20.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_74_idx;
                 json_t *arr_74_item;
@@ -6173,7 +6173,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.19.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_75_idx;
                 json_t *arr_75_item;
@@ -6235,7 +6235,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.18.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_76_idx;
                 json_t *arr_76_item;
@@ -6329,7 +6329,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.17.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_77_idx;
                 json_t *arr_77_item;
@@ -6424,7 +6424,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.16.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_78_idx;
                 json_t *arr_78_item;
@@ -6486,7 +6486,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.15.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_79_idx;
                 json_t *arr_79_item;
@@ -6560,7 +6560,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.14.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_80_idx;
                 json_t *arr_80_item;
@@ -6635,7 +6635,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.13.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_81_idx;
                 json_t *arr_81_item;
@@ -6708,7 +6708,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.12.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_82_idx;
                 json_t *arr_82_item;
@@ -6779,7 +6779,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.11.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_83_idx;
                 json_t *arr_83_item;
@@ -6858,7 +6858,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.10.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_84_idx;
                 json_t *arr_84_item;
@@ -6934,7 +6934,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.9.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_85_idx;
                 json_t *arr_85_item;
@@ -7009,7 +7009,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.8.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_86_idx;
                 json_t *arr_86_item;
@@ -7071,7 +7071,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.7.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_87_idx;
                 json_t *arr_87_item;
@@ -7143,7 +7143,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.6.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_88_idx;
                 json_t *arr_88_item;
@@ -7205,7 +7205,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.5.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_89_idx;
                 json_t *arr_89_item;
@@ -7267,7 +7267,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.4.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_90_idx;
                 json_t *arr_90_item;
@@ -7338,7 +7338,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.3.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_91_idx;
                 json_t *arr_91_item;
@@ -7419,7 +7419,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.2.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_92_idx;
                 json_t *arr_92_item;
@@ -7481,7 +7481,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.1.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_93_idx;
                 json_t *arr_93_item;
@@ -7552,7 +7552,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may versions property
             // .'$platforms'.0.'|'.0.versions
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_94_idx;
                 json_t *arr_94_item;
@@ -7588,7 +7588,7 @@ static bool json_model_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$platforms'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_47_idx;
         json_t *arr_47_item;
@@ -8113,7 +8113,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may galaxy_tags property
             // .'$GalaxyInfoModelCollection'.galaxy_tags
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_95_idx;
                 json_t *arr_95_item;
@@ -8141,7 +8141,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may video_links property
             // .'$GalaxyInfoModelCollection'.video_links
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", (path ? &lpath_94 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", (path ? &lpath_94 : NULL));
@@ -8431,7 +8431,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may galaxy_tags property
             // .'$GalaxyInfoModelStandalone'.galaxy_tags
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_96_idx;
                 json_t *arr_96_item;
@@ -8459,7 +8459,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may video_links property
             // .'$GalaxyInfoModelStandalone'.video_links
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", (path ? &lpath_96 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelStandalone'.video_links]", (path ? &lpath_96 : NULL));
@@ -8662,7 +8662,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may galaxy_tags property
             // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_97_idx;
                 json_t *arr_97_item;
@@ -8690,7 +8690,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may video_links property
             // .'$GalaxyInfoModel'.'|'.1.video_links
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.video_links]", (path ? &lpath_97 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.video_links]", (path ? &lpath_97 : NULL));
@@ -8880,7 +8880,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may galaxy_tags property
             // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_98_idx;
                 json_t *arr_98_item;
@@ -8908,7 +8908,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may video_links property
             // .'$GalaxyInfoModel'.'|'.2.video_links
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", (path ? &lpath_98 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.video_links]", (path ? &lpath_98 : NULL));
@@ -9049,7 +9049,7 @@ static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$collections'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_99_idx;
         json_t *arr_99_item;
@@ -9095,7 +9095,7 @@ static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // .'$complex_conditional'.'|'.2
             res = json_is_array(val);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_100_idx;
                 json_t *arr_100_item;
@@ -9227,7 +9227,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // .'$DependencyModelLoose'.tags.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_101_idx;
                     json_t *arr_101_item;
@@ -9570,7 +9570,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may dependencies property
             // .'$AnsibleMetaObj'.dependencies
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_102_idx;
                 json_t *arr_102_item;

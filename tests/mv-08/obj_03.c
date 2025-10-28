@@ -84,7 +84,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$foo#li0'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_0_idx;
         json_t *arr_0_item;
@@ -112,7 +112,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$foo#ls0'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_1_idx;
         json_t *arr_1_item;
@@ -140,7 +140,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$foo#lb0'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_2_idx;
         json_t *arr_2_item;
@@ -168,7 +168,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$foo#lf0'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_3_idx;
         json_t *arr_3_item;

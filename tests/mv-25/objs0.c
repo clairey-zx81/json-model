@@ -136,7 +136,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .stuff
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_0_idx;
                 json_t *arr_0_item;

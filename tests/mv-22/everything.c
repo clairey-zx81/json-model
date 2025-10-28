@@ -327,7 +327,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // .or.o2.'|'.2
                     res = json_is_array(pval);
-                    if (! res)
+                    if (likely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.or.o2.'|'.2]", (path ? &lpath_3 : NULL));
                     }
@@ -983,7 +983,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may a0 property
             // .array.a0
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_0_idx;
                 json_t *arr_0_item;
@@ -1011,7 +1011,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may a1 property
             // .array.a1
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_1_idx;
                 json_t *arr_1_item;
@@ -1039,7 +1039,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may a2 property
             // .array.a2
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_2_idx;
                 json_t *arr_2_item;
@@ -1067,7 +1067,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may a3 property
             // .array.a3
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_3_idx;
                 json_t *arr_3_item;
@@ -1095,7 +1095,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may a4 property
             // .array.a4
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.array.a4]", (path ? &lpath_10 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.array.a4]", (path ? &lpath_10 : NULL));
@@ -2141,7 +2141,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             // .tuple.t1
             // .tuple.t1.'@'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;
@@ -2181,7 +2181,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may t2 property
             // .tuple.t2
             res = json_is_array(pval) && json_array_size(pval) == 2;
-            if (res)
+            if (likely(res))
             {
                 jm_path_t lpath_24 = (jm_path_t) { NULL, 0, (path ? &lpath_23 : NULL), NULL };
                 // .tuple.t2.0
@@ -2190,7 +2190,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     if (rep) jm_report_add_entry(rep, "not a 0 strict int [.tuple.t2.0]", ((path ? &lpath_23 : NULL) ? &lpath_24 : NULL));
                 }
-                if (res)
+                if (likely(res))
                 {
                     lpath_24 = (jm_path_t) { NULL, 1, (path ? &lpath_23 : NULL), NULL };
                     // .tuple.t2.1
@@ -2213,7 +2213,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may t3 property
             // .tuple.t3
             res = json_is_array(pval) && json_array_size(pval) == 3;
-            if (res)
+            if (likely(res))
             {
                 jm_path_t lpath_25 = (jm_path_t) { NULL, 0, (path ? &lpath_23 : NULL), NULL };
                 // .tuple.t3.0
@@ -2222,7 +2222,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     if (rep) jm_report_add_entry(rep, "not a bool [.tuple.t3.0]", ((path ? &lpath_23 : NULL) ? &lpath_25 : NULL));
                 }
-                if (res)
+                if (likely(res))
                 {
                     lpath_25 = (jm_path_t) { NULL, 1, (path ? &lpath_23 : NULL), NULL };
                     // .tuple.t3.1
@@ -2231,7 +2231,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                     {
                         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.tuple.t3.1]", ((path ? &lpath_23 : NULL) ? &lpath_25 : NULL));
                     }
-                    if (res)
+                    if (likely(res))
                     {
                         lpath_25 = (jm_path_t) { NULL, 2, (path ? &lpath_23 : NULL), NULL };
                         // .tuple.t3.2
@@ -2257,7 +2257,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             // .tuple.t4.'@'
             jm_path_t lpath_26;
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 int64_t len_0 = json_array_size(pval);
                 if (len_0 > 0)
@@ -2270,7 +2270,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                         if (rep) jm_report_add_entry(rep, "unexpected string [.tuple.t4.'@'.0]", ((path ? &lpath_23 : NULL) ? &lpath_26 : NULL));
                     }
                 }
-                if (res)
+                if (likely(res))
                 {
                     for (int64_t idx_0 = 1; idx_0 < len_0; idx_0++)
                     {
@@ -3130,7 +3130,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             // .constraints.cia0
             // .constraints.cia0.'@'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_5_idx;
                 json_t *arr_5_item;
@@ -3171,7 +3171,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             // .constraints.cia1
             // .constraints.cia1.'@'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_6_idx;
                 json_t *arr_6_item;
@@ -3212,7 +3212,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             // .constraints.cia2
             // .constraints.cia2.'@'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_7_idx;
                 json_t *arr_7_item;
@@ -3740,7 +3740,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             // .constraints.cua0
             // .constraints.cua0.'@'
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cua0.'@']", (path ? &lpath_35 : NULL));
             }

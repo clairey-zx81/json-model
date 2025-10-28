@@ -237,7 +237,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$schemaArray'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_3_idx;
         json_t *arr_3_item;
@@ -572,7 +572,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may required property
             // .'$objectKeywords'.required
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;
@@ -932,7 +932,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$metas'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$metas'.examples]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.examples]", (path ? &lpath_6 : NULL));
@@ -1296,7 +1296,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$String'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$String'.examples]", (path ? &lpath_10 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.examples]", (path ? &lpath_10 : NULL));
@@ -1669,7 +1669,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Array'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Array'.examples]", (path ? &lpath_14 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.examples]", (path ? &lpath_14 : NULL));
@@ -2120,7 +2120,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Object'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Object'.examples]", (path ? &lpath_18 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.examples]", (path ? &lpath_18 : NULL));
@@ -2144,7 +2144,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may required property
             // .'$Object'.required
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_5_idx;
                 json_t *arr_5_item;
@@ -2575,7 +2575,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Integer'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Integer'.examples]", (path ? &lpath_24 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.examples]", (path ? &lpath_24 : NULL));
@@ -2918,7 +2918,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Number'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Number'.examples]", (path ? &lpath_28 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.examples]", (path ? &lpath_28 : NULL));
@@ -3237,7 +3237,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Bool'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Bool'.examples]", (path ? &lpath_32 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.examples]", (path ? &lpath_32 : NULL));
@@ -3556,7 +3556,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Null'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Null'.examples]", (path ? &lpath_36 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.examples]", (path ? &lpath_36 : NULL));
@@ -3875,7 +3875,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$AllOf'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$AllOf'.examples]", (path ? &lpath_40 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.examples]", (path ? &lpath_40 : NULL));
@@ -4194,7 +4194,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$AnyOf'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$AnyOf'.examples]", (path ? &lpath_44 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.examples]", (path ? &lpath_44 : NULL));
@@ -4513,7 +4513,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$OneOf'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$OneOf'.examples]", (path ? &lpath_48 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.examples]", (path ? &lpath_48 : NULL));
@@ -4832,7 +4832,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Enum'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Enum'.examples]", (path ? &lpath_52 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.examples]", (path ? &lpath_52 : NULL));
@@ -5151,7 +5151,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Const'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Const'.examples]", (path ? &lpath_56 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.examples]", (path ? &lpath_56 : NULL));
@@ -5470,7 +5470,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Ref'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Ref'.examples]", (path ? &lpath_60 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.examples]", (path ? &lpath_60 : NULL));
@@ -5789,7 +5789,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$DynRef'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$DynRef'.examples]", (path ? &lpath_64 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.examples]", (path ? &lpath_64 : NULL));

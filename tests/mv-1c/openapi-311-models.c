@@ -262,7 +262,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may tags property
             // .'$openapi#OpenAPI'.tags
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_0_idx;
                 json_t *arr_0_item;
@@ -302,7 +302,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may servers property
             // .'$openapi#OpenAPI'.servers
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_1_idx;
                 json_t *arr_1_item;
@@ -330,7 +330,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may security property
             // .'$openapi#OpenAPI'.security
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_2_idx;
                 json_t *arr_2_item;
@@ -942,7 +942,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may enum property
             // .'$openapi#ServerVariable'.enum
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_3_idx;
                 json_t *arr_3_item;
@@ -1738,7 +1738,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may servers property
             // .'$openapi#PathItem'.servers
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;
@@ -1778,7 +1778,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may parameters property
             // .'$openapi#PathItem'.parameters
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_5_idx;
                 json_t *arr_5_item;
@@ -1908,7 +1908,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may tags property
             // .'$openapi#Operation'.tags
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_6_idx;
                 json_t *arr_6_item;
@@ -1936,7 +1936,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may servers property
             // .'$openapi#Operation'.servers
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_7_idx;
                 json_t *arr_7_item;
@@ -1976,7 +1976,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may security property
             // .'$openapi#Operation'.security
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_8_idx;
                 json_t *arr_8_item;
@@ -2040,7 +2040,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may parameters property
             // .'$openapi#Operation'.parameters
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_9_idx;
                 json_t *arr_9_item;
@@ -4943,7 +4943,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // handle other props
         // .'$openapi#SecurityRequirement'.''
         res = json_is_array(pval);
-        if (res)
+        if (likely(res))
         {
             size_t arr_10_idx;
             json_t *arr_10_item;
@@ -5024,7 +5024,7 @@ static bool json_model_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#model#Array'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_11_idx;
         json_t *arr_11_item;
@@ -5161,7 +5161,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             must_count += 1;
             // .'$openapi#model#Element'.'|'.4.'+'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_12_idx;
                 json_t *arr_12_item;
@@ -5241,7 +5241,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
             must_count += 1;
             // .'$openapi#model#Element'.'|'.3.'^'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_13_idx;
                 json_t *arr_13_item;
@@ -5321,7 +5321,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
             must_count += 1;
             // .'$openapi#model#Element'.'|'.2.'&'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_14_idx;
                 json_t *arr_14_item;
@@ -5401,7 +5401,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
             must_count += 1;
             // .'$openapi#model#Element'.'|'.1.'|'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_15_idx;
                 json_t *arr_15_item;

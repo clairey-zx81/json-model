@@ -20,7 +20,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$array'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_0_idx;
         json_t *arr_0_item;

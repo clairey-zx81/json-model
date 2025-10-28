@@ -36,7 +36,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$position'
     // .'$position'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_0_idx;
         json_t *arr_0_item;
@@ -74,7 +74,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$coord_array'
     // .'$coord_array'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_1_idx;
         json_t *arr_1_item;
@@ -112,7 +112,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$linear_ring'
     // .'$linear_ring'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_2_idx;
         json_t *arr_2_item;
@@ -191,7 +191,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$Point'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_3_idx;
                 json_t *arr_3_item;
@@ -272,7 +272,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$MultiPoint'.coordinates
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;
@@ -300,7 +300,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$MultiPoint'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_5_idx;
                 json_t *arr_5_item;
@@ -393,7 +393,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$LineString'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_6_idx;
                 json_t *arr_6_item;
@@ -474,7 +474,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$MultiLineString'.coordinates
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_7_idx;
                 json_t *arr_7_item;
@@ -502,7 +502,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$MultiLineString'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_8_idx;
                 json_t *arr_8_item;
@@ -583,7 +583,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$Polygon'.coordinates
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_9_idx;
                 json_t *arr_9_item;
@@ -611,7 +611,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$Polygon'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_10_idx;
                 json_t *arr_10_item;
@@ -692,7 +692,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$MultiPolygon'.coordinates
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_11_idx;
                 json_t *arr_11_item;
@@ -701,7 +701,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     jm_path_t arr_11_lpath = (jm_path_t) { NULL, arr_11_idx, (path ? &lpath_5 : NULL), NULL };
                     // .'$MultiPolygon'.coordinates.0
                     res = json_is_array(arr_11_item);
-                    if (res)
+                    if (likely(res))
                     {
                         size_t arr_12_idx;
                         json_t *arr_12_item;
@@ -736,7 +736,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$MultiPolygon'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_13_idx;
                 json_t *arr_13_item;
@@ -858,7 +858,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$GeometryCollection'.geometries
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_14_idx;
                 json_t *arr_14_item;
@@ -886,7 +886,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$GeometryCollection'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_15_idx;
                 json_t *arr_15_item;
@@ -1079,7 +1079,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$Feature'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_16_idx;
                 json_t *arr_16_item;
@@ -1164,7 +1164,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$FeatureCollection'.features
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_17_idx;
                 json_t *arr_17_item;
@@ -1192,7 +1192,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may bbox property
             // .'$FeatureCollection'.bbox
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_18_idx;
                 json_t *arr_18_item;

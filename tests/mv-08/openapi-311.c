@@ -221,7 +221,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may tags property
             // .'$OpenAPI'.tags
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_0_idx;
                 json_t *arr_0_item;
@@ -261,7 +261,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may servers property
             // .'$OpenAPI'.servers
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_1_idx;
                 json_t *arr_1_item;
@@ -289,7 +289,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may security property
             // .'$OpenAPI'.security
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_2_idx;
                 json_t *arr_2_item;
@@ -901,7 +901,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may enum property
             // .'$ServerVariable'.enum
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_3_idx;
                 json_t *arr_3_item;
@@ -1697,7 +1697,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may servers property
             // .'$PathItem'.servers
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;
@@ -1737,7 +1737,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may parameters property
             // .'$PathItem'.parameters
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_5_idx;
                 json_t *arr_5_item;
@@ -1867,7 +1867,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may tags property
             // .'$Operation'.tags
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_6_idx;
                 json_t *arr_6_item;
@@ -1895,7 +1895,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may servers property
             // .'$Operation'.servers
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_7_idx;
                 json_t *arr_7_item;
@@ -1935,7 +1935,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may security property
             // .'$Operation'.security
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_8_idx;
                 json_t *arr_8_item;
@@ -1999,7 +1999,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may parameters property
             // .'$Operation'.parameters
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_9_idx;
                 json_t *arr_9_item;
@@ -4831,7 +4831,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may enum property
             // .'$Schema'.enum
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Schema'.enum]", (path ? &lpath_57 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Schema'.enum]", (path ? &lpath_57 : NULL));
@@ -5065,7 +5065,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$Schema'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Schema'.examples]", (path ? &lpath_57 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Schema'.examples]", (path ? &lpath_57 : NULL));
@@ -6782,7 +6782,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
         // handle other props
         // .'$SecurityRequirement'.''
         res = json_is_array(pval);
-        if (res)
+        if (likely(res))
         {
             size_t arr_10_idx;
             json_t *arr_10_item;
@@ -6889,7 +6889,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$schema#simpleTypesArray'
     // .'$schema#simpleTypesArray'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_11_idx;
         json_t *arr_11_item;
@@ -6927,7 +6927,7 @@ static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$schema#stringArray'
     // .'$schema#stringArray'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_12_idx;
         json_t *arr_12_item;
@@ -6976,7 +6976,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$schema#schemaArray'
     // .'$schema#schemaArray'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_13_idx;
         json_t *arr_13_item;
@@ -7290,7 +7290,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may enum property
             // .'$schema#ObjectSchema'.enum
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#ObjectSchema'.enum]", (path ? &lpath_83 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$schema#ObjectSchema'.enum]", (path ? &lpath_83 : NULL));
@@ -7520,7 +7520,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may examples property
             // .'$schema#ObjectSchema'.examples
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#ObjectSchema'.examples]", (path ? &lpath_83 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$schema#ObjectSchema'.examples]", (path ? &lpath_83 : NULL));

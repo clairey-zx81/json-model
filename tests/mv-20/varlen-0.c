@@ -22,7 +22,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'@'
     jm_path_t lpath_0;
     res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         int64_t len_0 = json_array_size(val);
         if (len_0 > 0)
@@ -35,7 +35,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'@'.0]", (path ? &lpath_0 : NULL));
             }
         }
-        if (res)
+        if (likely(res))
         {
             if (len_0 > 1)
             {
@@ -47,7 +47,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     if (rep) jm_report_add_entry(rep, "unexpected string [.'@'.1]", (path ? &lpath_0 : NULL));
                 }
             }
-            if (res)
+            if (likely(res))
             {
                 for (int64_t idx_0 = 2; idx_0 < len_0; idx_0++)
                 {

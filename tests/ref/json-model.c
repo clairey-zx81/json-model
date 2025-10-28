@@ -670,7 +670,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Array'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_0_idx;
         json_t *arr_0_item;
@@ -822,7 +822,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$Or'.'|'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_1_idx;
                 json_t *arr_1_item;
@@ -887,7 +887,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$And'.'&'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_2_idx;
                 json_t *arr_2_item;
@@ -952,7 +952,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$Xor'.'^'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_3_idx;
                 json_t *arr_3_item;
@@ -1017,7 +1017,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'$Add'.'+'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;
@@ -1305,7 +1305,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             must_count += 1;
             // .'$Element'.'|'.4.'+'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_5_idx;
                 json_t *arr_5_item;
@@ -1385,7 +1385,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             must_count += 1;
             // .'$Element'.'|'.3.'^'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_6_idx;
                 json_t *arr_6_item;
@@ -1465,7 +1465,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             must_count += 1;
             // .'$Element'.'|'.2.'&'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_7_idx;
                 json_t *arr_7_item;
@@ -1545,7 +1545,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             must_count += 1;
             // .'$Element'.'|'.1.'|'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_8_idx;
                 json_t *arr_8_item;
@@ -1836,7 +1836,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // .'$Trafo'.'/'.'|'.1
                 res = json_is_array(pval);
-                if (! res)
+                if (likely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Trafo'.'/'.'|'.1]", (path ? &lpath_13 : NULL));
                 }
@@ -1943,7 +1943,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // .'$Transformation'.'|'.1.'/'.'|'.1
                 res = json_is_array(pval);
-                if (! res)
+                if (likely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Transformation'.'|'.1.'/'.'|'.1]", (path ? &lpath_15 : NULL));
                 }
@@ -2242,7 +2242,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // .'$Import'.'<'.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_9_idx;
                     json_t *arr_9_item;
@@ -2385,7 +2385,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // .'$RootOnly'.'%'.'<'.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_10_idx;
                     json_t *arr_10_item;
@@ -2616,7 +2616,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // .'$Root'.'|'.5.'%'.'<'.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_11_idx;
                     json_t *arr_11_item;
@@ -2872,7 +2872,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // .'$Root'.'|'.4.'%'.'<'.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_13_idx;
                     json_t *arr_13_item;
@@ -2961,7 +2961,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             must_count += 1;
             // .'$Root'.'|'.4.'+'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_12_idx;
                 json_t *arr_12_item;
@@ -3158,7 +3158,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // .'$Root'.'|'.3.'%'.'<'.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_15_idx;
                     json_t *arr_15_item;
@@ -3247,7 +3247,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             must_count += 1;
             // .'$Root'.'|'.3.'^'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_14_idx;
                 json_t *arr_14_item;
@@ -3444,7 +3444,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // .'$Root'.'|'.2.'%'.'<'.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_17_idx;
                     json_t *arr_17_item;
@@ -3533,7 +3533,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             must_count += 1;
             // .'$Root'.'|'.2.'&'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_16_idx;
                 json_t *arr_16_item;
@@ -3730,7 +3730,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // .'$Root'.'|'.1.'%'.'<'.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_19_idx;
                     json_t *arr_19_item;
@@ -3819,7 +3819,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             must_count += 1;
             // .'$Root'.'|'.1.'|'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_18_idx;
                 json_t *arr_18_item;
@@ -4016,7 +4016,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // .'$Root'.'|'.0.'%'.'<'.'|'.1
                 res = json_is_array(pval);
-                if (res)
+                if (likely(res))
                 {
                     size_t arr_20_idx;
                     json_t *arr_20_item;

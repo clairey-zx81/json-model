@@ -34,7 +34,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Qq'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_0_idx;
         json_t *arr_0_item;
@@ -100,7 +100,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle may t property
             // .o.t
             res = json_is_array(pval) && json_array_size(pval) == 2;
-            if (res)
+            if (likely(res))
             {
                 jm_path_t lpath_2 = (jm_path_t) { NULL, 0, (path ? &lpath_1 : NULL), NULL };
                 // .o.t.0
@@ -109,7 +109,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     if (rep) jm_report_add_entry(rep, "not a bool [.o.t.0]", ((path ? &lpath_1 : NULL) ? &lpath_2 : NULL));
                 }
-                if (res)
+                if (likely(res))
                 {
                     lpath_2 = (jm_path_t) { NULL, 1, (path ? &lpath_1 : NULL), NULL };
                     // .o.t.1

@@ -149,7 +149,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$colorArray'
     // .'$colorArray'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_0_idx;
         json_t *arr_0_item;
@@ -284,7 +284,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$stringArray'
     // .'$stringArray'.'@'
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_1_idx;
         json_t *arr_1_item;
@@ -785,7 +785,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             // .'$Prompts'.'|'.2.options
             // .'$Prompts'.'|'.2.options.'@'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_2_idx;
                 json_t *arr_2_item;
@@ -3771,7 +3771,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may jumpToBlock property
             // .keybinding.universal.jumpToBlock
             res = json_is_array(pval);
-            if (! res)
+            if (likely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [.keybinding.universal.jumpToBlock]", (path ? &lpath_31 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.jumpToBlock]", (path ? &lpath_31 : NULL));
@@ -4472,7 +4472,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may prompts property
             // .customCommands.'@'.0.prompts
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_4_idx;
                 json_t *arr_4_item;
@@ -4698,7 +4698,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .customCommands
             // .customCommands.'@'
             res = json_is_array(pval);
-            if (res)
+            if (likely(res))
             {
                 size_t arr_3_idx;
                 json_t *arr_3_item;

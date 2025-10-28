@@ -22,7 +22,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'@'
     jm_path_t lpath_0;
     res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         int64_t len_0 = json_array_size(val);
         if (len_0 > 0)

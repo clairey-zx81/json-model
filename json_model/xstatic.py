@@ -1402,7 +1402,7 @@ class CodeGenerator:
 
                     code += (
                         gen.bool_var(res, expr if expr else gen.true()) +
-                        gen.if_stmt(res, loop) if expr else loop
+                        gen.if_stmt(res, loop, likely=True) if expr else loop
                     )
 
                 else:
@@ -1424,7 +1424,8 @@ class CodeGenerator:
                                 self._compileModel(
                                     jm, model[i], mpath + [i],
                                     res, gen.arr_item_val(val, i), lpath_ref) +
-                                body)
+                                body,
+                                likely=True)
                         code += body
                     else:
                         # assume varlen tuple: [ A, B, C* ]
@@ -1451,7 +1452,7 @@ class CodeGenerator:
                                     self._compileModel(jm, m, mpath + [i], res,
                                                        gen.arr_item_val(val, i), lpath_ref))
                             if body:
-                                body = ith_check + gen.if_stmt(res, body)
+                                body = ith_check + gen.if_stmt(res, body, likely=True)
                             else:
                                 body = ith_check
 
@@ -1463,7 +1464,7 @@ class CodeGenerator:
 
                         code += (
                             gen.bool_var(res, expr if expr else gen.true()) +
-                            gen.if_stmt(res, body) if expr else body
+                            gen.if_stmt(res, body, likely=True) if expr else body
                         )
 
                 code += self._gen_report(res, f"not array or unexpected array [{smpath}]", vpath)
