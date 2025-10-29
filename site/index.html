@@ -110,10 +110,35 @@
         // TODO improve chart size and resize management
         const labels = indexes.map(i => i + 1)
         const ctx = document.getElementById(display).getContext('2d')
-        const RadarChart = new Chart(ctx, {
+        const chart = new Chart(ctx, {
           type: 'radar',
           data: { labels: labels, datasets: data },
           options: {
+            plugins: {
+              legend: {
+                // when a dataset is hidden or shown, adjust values wrt the fastest visible
+                onClick: function(e, item) {
+                  const datasets = chart.data.datasets
+                  const index = item.datasetIndex
+                  const dataset = datasets[index]
+                  // toggle clicked dataset visibility
+                  dataset.hidden = !dataset.hidden
+                  // adjust data
+                  for (let idx = 0; idx < dataset.data.length; idx++) {
+                    // compute visible fastest
+                    let maxi = 0.0
+                    for (let ds = 0; ds < datasets.length; ds++)
+                      if (!datasets[ds].hidden && datasets[ds].data[idx] > maxi)
+                        maxi = datasets[ds].data[idx]
+                    // update data according to fastest
+                    if (maxi !== 1.0 && maxi !== 0.0)
+                      for (let ds = 0; ds < datasets.length; ds++)
+                        datasets[ds].data[idx] /= maxi
+                  }
+                  chart.update()
+                }
+              }
+            },
             scales: {
               r: {
                 beginAtZero: true,

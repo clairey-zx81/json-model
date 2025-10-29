@@ -12,6 +12,7 @@
 - [x] static: add likely hints on array checks
 - [x] perf: test max strcmp cset to set default default
 - [x] pr: move out schema-to-model conversion
+- [x] pr: adjust radar display to visible datasets
 - [ ] perf: investigate best settings for js, java and python.
 - [ ] model: avoid dead code in `mv-0f/dedup-002`.
 - [ ] static: maybe skip must checks if all must props already seen
