@@ -401,7 +401,7 @@ def jmc_script():
         help="do not sort may props")
     arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
         help="optimize some string comparisons")
-    arg("--max-strcmp-cset", default=64, type=int,
+    arg("--max-strcmp-cset", default=512, type=int,  # actual cutoff about 2300 on tests
         help="max size for str cset expression")
     arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
         help="do not optimize string comparisons")

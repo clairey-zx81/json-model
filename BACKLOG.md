@@ -10,6 +10,7 @@
 - [x] backend: optimize pattern "V = E1; V = E2;"
 - [x] backend: generate direct code for search constant on small str sets
 - [x] static: add likely hints on array checks
+- [x] perf: test max strcmp cset to set default default
 - [ ] model: avoid dead code in `mv-0f/dedup-002`.
 - [ ] pr: move out schema-to-model conversion
 - [ ] static: maybe skip must checks if all must props already seen
