@@ -36,18 +36,20 @@ SELECT * FROM ShowBadResults ORDER BY 1;
 .print ## Compilation Per Case
 .print
 .print For each tool and case, compilation time in second.
+.print Tool `s2m` is initial schema-to-model conversion.
 .print
-.print RLRRRRR
-.width -2 16 -5 -5 -5 -5 -5
+.print RLRRRRRR
+.width -2 16 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompilePerCase ORDER BY 1;
 
 .print
 .print ## Compilation Summary
 .print
 .print For each tool, average/max/min compilation time in seconds.
+.print Tool `s2m` is initial schema-to-model conversion.
 .print
-.print LRRRRR
-.width 0 -5 -5 -5 -5 -5
+.print LRRRRRR
+.width 0 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompileSummary ORDER BY 1;
 
 .print
