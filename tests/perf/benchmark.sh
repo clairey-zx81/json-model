@@ -244,9 +244,11 @@ function docker_id()
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
 
-For each test case, a radar or the relative speed performance of each tool,
+For each test case, a radar of the relative speed performance of each tool,
 the higher the better, 1.0 is best. Fully non working case(s) removed, if any.
 Cases are sorted per decreasing performance of the fastest tools.
+The radar is adjusted dynamically wrt the fastest _visible_ tool, click to select
+or deselect tools for easier comparisons.
 
 <div class="chart-container" style="position: relative; width: 70vw; height: 50vh;">
   <canvas id="PerformanceRadar"></canvas>
@@ -277,9 +279,8 @@ Cases are sorted per decreasing performance of the fastest tools.
 - **debug:** $debug
 - **format:** $JMC_BENCH_TIME_FMT
 - **tasks:** $tasks
-- **exported environment variables:** $JMC_ENV
-$(for var in $JMC_ENV ; do echo "  - $var: \`${!var}\`" ; done)
-
+- **exported environment variables:** \`$JMC_ENV\`
+$(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
 
 # for markdown
