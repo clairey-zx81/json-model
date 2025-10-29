@@ -464,7 +464,7 @@ class CodeGenerator:
                 tag_code += tagt
 
             alt_code.append(tag_code)
- 
+
         # build cascading alternative tests
         or_code: Block = None
 
@@ -1693,10 +1693,10 @@ def xstatic_compile(
         lang: str = "py",
         prefix: str = "_jm_",
         relib: str|None = None,
-        map_threshold: int = 3,
+        map_threshold: int = None,
         map_share: bool = False,
-        may_must_open_threshold: int = 5,
-        must_only_threshold: int = 5,
+        may_must_open_threshold: int = None,
+        must_only_threshold: int = None,
         sort_must: bool = True,
         sort_may: bool = True,
         execute: bool = True,
@@ -1734,6 +1734,45 @@ def xstatic_compile(
     - max_strcmp_cset: max size for direct str constant set
     - byte_order: le, be or dpd
     """
+    # set default threshold for must-only scheme
+    MUST_ONLY_THRESHOLD: dict[str, int] = {
+        "c": 0,        # never good enough vs unroll
+        "js": 256,     # no cutoff?
+        "py": 256,     # no cutoff?
+        "pl": 128,     # ?
+        "java": 256,   # GSON
+        "sql": 0,  # FIXME not tested
+    }
+    if must_only_threshold is None:
+        must_only_threshold = MUST_ONLY_THRESHOLD.get(lang, 8)
+
+    # set default threshold for may-must-open scheme
+    MAY_MUST_OPEN_THRESHOLD: dict[str, int] = {
+        "c": 0,        # never good enough vs unroll, but faster than map
+        "js": 256,     # no cutoff? better than unroll and map
+        "py": 256,     # much better than unroll, slightly better than map
+        "pl": 256,     # idem py
+        "java": 128,   # better than map < 256
+        "sql": 0,  # FIXME not tested
+    }
+    if may_must_open_threshold is None:
+       may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(lang, 16)
+
+    # set default map threshold depending on target language
+    MAP_THRESHOLD: dict[str, int] = {
+        "c": 256,  # NOTE the actual cutoff is _very_ far, probably over 1000/1300
+        "js": 40,
+        "py": 10,
+        "pl": 8,
+        "java": 12,
+        "sql": 8,  # FIXME not tested
+    }
+    if map_threshold is None:
+        map_threshold = MAP_THRESHOLD.get(lang, 12)
+
+    log.warning(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
+              f"mo={must_only_threshold}")
+
     # target language
     if lang == "py":
         from .python import Python

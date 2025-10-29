@@ -233,9 +233,9 @@ EXPECT: dict[str, int] = {
     "draft4:jsts": 159,
     "draft6:jsts": 231,
     "draft7:jsts": 254,
-    "draft2019-09:jsts": 361,
-    "draft2020-12:jsts": 368,
-    "draft-next:jsts": 365,
+    "draft2019-09:jsts": 363,
+    "draft2020-12:jsts": 371,
+    "draft-next:jsts": 368,
 }
 
 
@@ -468,8 +468,7 @@ def test_lang(directory, language):
 
     def generate_language(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **mod_opts)
-        code = xstatic_compile(jm, "check_model", lang=language,
-            map_threshold=5, short_version=True, **cmp_opts)
+        code = xstatic_compile(jm, "check_model", lang=language, short_version=True, **cmp_opts)
         return str(code)
 
     check_generated(directory, f"lang-{language}", f".{language}", generate_language)

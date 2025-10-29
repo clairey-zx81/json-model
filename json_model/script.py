@@ -379,7 +379,7 @@ def jmc_script():
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
 
     # code generation settings
-    # NOTE mostly a bad idea: it can trigger an large code size expansion
+    # TODO add option for smaller vs faster code?
     arg("--map-threshold", "-mt", default=None, type=int,
         help="property map vs unrolling threshold, target-dependent default, 0 to force map")
     arg("--map-share", "-ms", default=False, action="store_true",
@@ -588,45 +588,6 @@ def jmc_script():
             log.warning("keeping float strictness as already set")
 
     with_main = args.gen == "exec" or args.gen == "source" and args.format == "java"
-
-    # TODO add option for smaller vs faster code?
-
-    # set default threshold for must-only scheme
-    MUST_ONLY_THRESHOLD: dict[str, int] = {
-        "c": 0,        # never good enough vs unroll
-        "js": 256,     # no cutoff?
-        "py": 256,     # no cutoff?
-        "pl": 128,     # ?
-        "java": 256,   # GSON
-        "plpgsql": 0,  # FIXME not tested
-    }
-    if args.must_only_threshold is None:
-        args.must_only_threshold = MUST_ONLY_THRESHOLD.get(args.format, 0)
-
-    # set default threshold for may-must-open scheme
-    MAY_MUST_OPEN_THRESHOLD: dict[str, int] = {
-        "c": 0,        # never good enough vs unroll, but faster than map
-        "js": 256,     # no cutoff? better than unroll and map
-        "py": 256,     # much better than unroll, slightly better than map
-        "pl": 256,     # idem py
-        "java": 128,   # better than map < 256
-        "plpgsql": 0,  # FIXME not tested
-    }
-    if args.may_must_open_threshold is None:
-        args.may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(args.format, 0)
-
-    # set default map threshold depending on target language
-    MAP_THRESHOLD: dict[str, int] = {
-        "c": 256,  # NOTE the actual cutoff is _very_ far, probably over 1000/1300
-        "js": 40,
-        "py": 10,
-        "pl": 8,
-        "java": 12,
-        "plpgsql": 8,  # FIXME not tested
-    }
-
-    if args.map_threshold is None:
-        args.map_threshold = MAP_THRESHOLD.get(args.format, 12)
 
     # debug
     log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
