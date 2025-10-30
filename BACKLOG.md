@@ -8,7 +8,7 @@
 - [x] backend: optimize pattern "if (!? V) V = cst;"
 - [x] backend: optimize pattern "V = C; if (!? V) ..."
 - [x] backend: optimize pattern "V = E1; V = E2;"
-- [x] backend: generate direct code for search constant on small str sets
+- [x] c-backend: generate direct code for search constant on small str sets
 - [x] static: add likely hints on array checks
 - [x] perf: test max strcmp cset to set default default
 - [x] pr: move out schema-to-model conversion
@@ -29,6 +29,7 @@
 - [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] c-backend: strcmp to const inlining and unrolling for all instances
+- [ ] c-backend: more typed cset optimizations?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
 - [ ] perf: compute performance overhead globally instead of per run
