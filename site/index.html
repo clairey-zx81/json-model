@@ -52,9 +52,13 @@
     <!-- Performance Radar Chart -->
     <script src="//cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+      /*
+       * Generate an interactive dynamic radar chart about tool performance on a bench.
+       */
       async function showRadar(display, source, sort = true) {
         const resp = await fetch(source)
         const res = await resp.json()
+        // data model: [ {"label": "", "data": [0.0]} ]
         const data = res.map((x) => { return {...x, fill: true} })
 
         // only keep used case indexes
@@ -107,25 +111,24 @@
           o.data = indexes.map(i => o.data[i])
         })
 
-        // TODO improve chart size and resize management
+        // TODO improve chart size and resize management?
         const labels = indexes.map(i => i + 1)
         const ctx = document.getElementById(display).getContext('2d')
-        const chart = new Chart(ctx, {
+        const radar = new Chart(ctx, {
           type: 'radar',
           data: { labels: labels, datasets: data },
           options: {
             plugins: {
               legend: {
-                // when a dataset is hidden or shown, adjust values wrt the fastest visible
-                onClick: function(e, item) {
-                  const datasets = chart.data.datasets
-                  const index = item.datasetIndex
-                  const dataset = datasets[index]
+                // when a dataset is hidden or shown, adjust values wrt the fastest visible tool
+                onClick: (e, item, legend) => {
+                  const datasets = radar.data.datasets
+                  const dataset = datasets[item.datasetIndex]
                   // toggle clicked dataset visibility
                   dataset.hidden = !dataset.hidden
                   // adjust data
                   for (let idx = 0; idx < dataset.data.length; idx++) {
-                    // compute visible fastest
+                    // compute visible fastest for this case
                     let maxi = 0.0
                     for (let ds = 0; ds < datasets.length; ds++)
                       if (!datasets[ds].hidden && datasets[ds].data[idx] > maxi)
@@ -135,7 +138,8 @@
                       for (let ds = 0; ds < datasets.length; ds++)
                         datasets[ds].data[idx] /= maxi
                   }
-                  chart.update()
+                  // redraw radar to show updated data with an animation
+                  radar.update()
                 }
               }
             },
