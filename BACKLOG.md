@@ -2,20 +2,13 @@
 
 ## Current Tasks
 
-- [x] static: order must/may props by increasing size
-- [x] command: fix bad mmo threshold initializations
-- [x] static: shorten return on open one may no must/regs/defs
-- [x] backend: optimize pattern "if (!? V) V = cst;"
-- [x] backend: optimize pattern "V = C; if (!? V) ..."
-- [x] backend: optimize pattern "V = E1; V = E2;"
-- [x] c-backend: generate direct code for search constant on small str sets
-- [x] static: add likely hints on array checks
-- [x] perf: test max strcmp cset to set default default
-- [x] pr: move out schema-to-model conversion
-- [x] pr: adjust radar display to visible datasets
-- [ ] perf: investigate best settings for js, java and python.
-- [ ] model: avoid dead code in `mv-0f/dedup-002`.
+- [ ] static: partition long lists of properties based on first few bytes
+- [ ] perf: investigate best settings for js, java and python
+- [ ] perf: allow to run with any docker image
+- [ ] pr: add explicit winner column to per case perf
+- [ ] model: avoid dead code in `mv-0f/dedup-002`
 - [ ] static: maybe skip must checks if all must props already seen
+- [ ] static: or acceleration based on distinct mandatory props
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] backend: fix `unused but set variable` warning and remove `-Wno-…` (dead code)
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`
@@ -722,3 +715,14 @@
 - [x] static: further improve likely hints
 - [x] command: rename `--unroll-may-…` options for `--may-must-open-threshold`
 - [x] command: set optimization parameters depending on target language
+- [x] static: order must/may props by increasing size
+- [x] command: fix bad mmo threshold initializations
+- [x] static: shorten return on open one may no must/regs/defs
+- [x] backend: optimize pattern "if (!? V) V = cst;"
+- [x] backend: optimize pattern "V = C; if (!? V) ..."
+- [x] backend: optimize pattern "V = E1; V = E2;"
+- [x] c-backend: generate direct code for search constant on small str sets
+- [x] static: add likely hints on array checks
+- [x] perf: test max strcmp cset to set default default
+- [x] pr: move out schema-to-model conversion
+- [x] pr: adjust radar display to visible datasets
