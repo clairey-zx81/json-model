@@ -1770,7 +1770,7 @@ def xstatic_compile(
     if map_threshold is None:
         map_threshold = MAP_THRESHOLD.get(lang, 12)
 
-    log.warning(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
+    log.debug(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
               f"mo={must_only_threshold}")
 
     # target language
