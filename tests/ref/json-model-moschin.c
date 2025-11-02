@@ -3522,7 +3522,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_0 = (*((uint32_t *) (prop))) & 0xffff;
-        if (hash_0 <= 37)
+        if (hash_0 <= 0x25)
         {
             if (jm_str_eq_2(prop, 0x00000021))
             {

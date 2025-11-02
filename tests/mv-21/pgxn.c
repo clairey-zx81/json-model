@@ -918,7 +918,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_0 = *((uint32_t *) (prop));
-        if (hash_0 <= 1701733735)
+        if (hash_0 <= 0x656e6567)
         {
             if (jm_str_eq_4(prop, 0x006c7275))
             {

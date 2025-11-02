@@ -518,11 +518,11 @@ class CodeGenerator:
         gen = self._lang
         if len(codes) == 2:
             first, second = min(codes.keys()), max(codes.keys())
-            return gen.if_stmt(gen.num_cmp(var, "<=", first), codes[first], codes[second])
+            return gen.if_stmt(gen.num_cmp(var, "<=", first, True), codes[first], codes[second])
         else:
             limit = list(sorted(codes.keys()))[len(codes) // 2 - 1]
             return gen.if_stmt(
-                        gen.num_cmp(var, "<=", limit),
+                        gen.num_cmp(var, "<=", limit, True),
                         self._gen_parts(var, { v: c for v, c in codes.items() if v <= limit }),
                         self._gen_parts(var, { v: c for v, c in codes.items() if v > limit })
             )

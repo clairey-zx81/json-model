@@ -159,9 +159,9 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_0 = (*((uint32_t *) (prop))) & 0xffffff;
-        if (hash_0 <= 7235949)
+        if (hash_0 <= 0x6e696d)
         {
-            if (hash_0 <= 6648937)
+            if (hash_0 <= 0x657469)
             {
                 if (jm_str_eq_3(prop, 0x00006469))
                 {
@@ -403,7 +403,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (hash_0 <= 7563620)
+            if (hash_0 <= 0x736964)
             {
                 if (jm_str_eq_5(prop, 0x0000000065707974LL))
                 {

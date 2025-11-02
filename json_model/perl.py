@@ -76,8 +76,8 @@ class Perl(Language):
     def get_value(self, var: Var, tvar: type) -> Expr:
         return self._val(var)
 
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr) -> BoolExpr:
-        return super().num_cmp(self._val(e1), op, e2)
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False) -> BoolExpr:
+        return super().num_cmp(self._val(e1), op, e2, hexa)
 
     def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
         e1 = self._val(e1)  # type: ignore

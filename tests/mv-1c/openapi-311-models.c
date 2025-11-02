@@ -231,7 +231,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_0 = *((uint32_t *) (prop));
-        if (hash_0 <= 1852797802)
+        if (hash_0 <= 0x6e6f736a)
         {
             if (jm_str_eq_6(prop, 0x0000007368746170LL))
             {
@@ -1454,7 +1454,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_1 = *((uint32_t *) (prop));
-        if (hash_1 <= 1802398060)
+        if (hash_1 <= 0x6b6e696c)
         {
             if (jm_str_eq_6(prop, 0x000000736b6e696cLL))
             {
@@ -1658,7 +1658,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_2 = *((uint32_t *) (prop));
-        if (hash_2 <= 1668571504)
+        if (hash_2 <= 0x63746170)
         {
             if (jm_str_eq_4(prop, 0x00746567))
             {
@@ -1956,7 +1956,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_3 = *((uint32_t *) (prop));
-        if (hash_3 <= 1886610802)
+        if (hash_3 <= 0x70736572)
         {
             if (jm_str_eq_8(prop, 0x007972616d6d7573LL))
             {
@@ -2529,7 +2529,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_4 = *((uint32_t *) (prop));
-        if (hash_4 <= 1819898995)
+        if (hash_4 <= 0x6c797473)
         {
             if (jm_str_eq_6(prop, 0x0000006c65646f6dLL))
             {
@@ -3974,7 +3974,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_47 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_5 = *((uint32_t *) (prop));
-        if (hash_5 <= 1819898995)
+        if (hash_5 <= 0x6c797473)
         {
             if (jm_str_eq_6(prop, 0x0000006c65646f6dLL))
             {

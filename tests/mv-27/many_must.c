@@ -27,9 +27,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         uint32_t hash_0 = prop[0];
-        if (hash_0 <= 98)
+        if (hash_0 <= 0x62)
         {
-            if (hash_0 <= 77)
+            if (hash_0 <= 0x4d)
             {
                 if (jm_str_eq_0(prop))
                 {
@@ -128,7 +128,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (hash_0 <= 109)
+            if (hash_0 <= 0x6d)
             {
                 if (jm_str_eq_4(prop, 0x00666564))
                 {

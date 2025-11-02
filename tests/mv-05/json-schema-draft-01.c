@@ -85,9 +85,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_0 = (*((uint32_t *) (prop))) & 0xffffff;
-        if (hash_0 <= 7431538)
+        if (hash_0 <= 0x716572)
         {
-            if (hash_0 <= 6710628)
+            if (hash_0 <= 0x666564)
             {
                 if (jm_str_eq_3(prop, 0x00006469))
                 {
@@ -118,16 +118,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         res = json_is_array(pval);
                         if (likely(res))
                         {
-                            size_t arr_1_idx;
-                            json_t *arr_1_item;
-                            json_array_foreach(pval, arr_1_idx, arr_1_item)
+                            size_t arr_3_idx;
+                            json_t *arr_3_item;
+                            json_array_foreach(pval, arr_3_idx, arr_3_item)
                             {
-                                jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, (path ? &lpath_0 : NULL), NULL };
+                                jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_0 : NULL), NULL };
                                 // .items.'|'.1.0
-                                res = json_model_1(arr_1_item, ((path ? &lpath_0 : NULL) ? &arr_1_lpath : NULL), rep);
+                                res = json_model_1(arr_3_item, ((path ? &lpath_0 : NULL) ? &arr_3_lpath : NULL), rep);
                                 if (unlikely(! res))
                                 {
-                                    if (rep) jm_report_add_entry(rep, "unexpected $Schema [.items.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_1_lpath : NULL));
+                                    if (rep) jm_report_add_entry(rep, "unexpected $Schema [.items.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_3_lpath : NULL));
                                     break;
                                 }
                             }
@@ -219,25 +219,25 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         res = json_is_array(pval);
                         if (likely(res))
                         {
-                            size_t arr_0_idx;
-                            json_t *arr_0_item;
-                            json_array_foreach(pval, arr_0_idx, arr_0_item)
+                            size_t arr_2_idx;
+                            json_t *arr_2_item;
+                            json_array_foreach(pval, arr_2_idx, arr_2_item)
                             {
-                                jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
+                                jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, (path ? &lpath_0 : NULL), NULL };
                                 // .type.'|'.1.0
                                 // .type.'|'.1.0.'|'.0
-                                res = json_is_string(arr_0_item);
+                                res = json_is_string(arr_2_item);
                                 if (unlikely(! res))
                                 {
-                                    if (rep) jm_report_add_entry(rep, "unexpected string [.type.'|'.1.0.'|'.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
+                                    if (rep) jm_report_add_entry(rep, "unexpected string [.type.'|'.1.0.'|'.0]", ((path ? &lpath_0 : NULL) ? &arr_2_lpath : NULL));
                                 }
                                 if (! res)
                                 {
                                     // .type.'|'.1.0.'|'.1
-                                    res = json_model_1(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
+                                    res = json_model_1(arr_2_item, ((path ? &lpath_0 : NULL) ? &arr_2_lpath : NULL), rep);
                                     if (unlikely(! res))
                                     {
-                                        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.type.'|'.1.0.'|'.1]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
+                                        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.type.'|'.1.0.'|'.1]", ((path ? &lpath_0 : NULL) ? &arr_2_lpath : NULL));
                                     }
                                 }
                                 if (likely(res))
@@ -246,7 +246,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                 }
                                 else
                                 {
-                                    if (rep) jm_report_add_entry(rep, "no model matched [.type.'|'.1.0.'|']", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
+                                    if (rep) jm_report_add_entry(rep, "no model matched [.type.'|'.1.0.'|']", ((path ? &lpath_0 : NULL) ? &arr_2_lpath : NULL));
                                     break;
                                 }
                             }
@@ -381,7 +381,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (hash_0 <= 7695973)
+            if (hash_0 <= 0x756e65)
             {
                 if (jm_str_eq_5(prop, 0x000000006d756e65LL))
                 {
@@ -451,16 +451,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         res = json_is_array(pval);
                         if (likely(res))
                         {
-                            size_t arr_2_idx;
-                            json_t *arr_2_item;
-                            json_array_foreach(pval, arr_2_idx, arr_2_item)
+                            size_t arr_0_idx;
+                            json_t *arr_0_item;
+                            json_array_foreach(pval, arr_0_idx, arr_0_item)
                             {
-                                jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, (path ? &lpath_0 : NULL), NULL };
+                                jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
                                 // .extends.'|'.1.0
-                                res = json_model_1(arr_2_item, ((path ? &lpath_0 : NULL) ? &arr_2_lpath : NULL), rep);
+                                res = json_model_1(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
                                 if (unlikely(! res))
                                 {
-                                    if (rep) jm_report_add_entry(rep, "unexpected $Schema [.extends.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_2_lpath : NULL));
+                                    if (rep) jm_report_add_entry(rep, "unexpected $Schema [.extends.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
                                     break;
                                 }
                             }
@@ -511,16 +511,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         res = json_is_array(pval);
                         if (likely(res))
                         {
-                            size_t arr_3_idx;
-                            json_t *arr_3_item;
-                            json_array_foreach(pval, arr_3_idx, arr_3_item)
+                            size_t arr_1_idx;
+                            json_t *arr_1_item;
+                            json_array_foreach(pval, arr_1_idx, arr_1_item)
                             {
-                                jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_0 : NULL), NULL };
+                                jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, (path ? &lpath_0 : NULL), NULL };
                                 // .disallow.'|'.1.0
-                                res = json_is_string(arr_3_item);
+                                res = json_is_string(arr_1_item);
                                 if (unlikely(! res))
                                 {
-                                    if (rep) jm_report_add_entry(rep, "unexpected string [.disallow.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_3_lpath : NULL));
+                                    if (rep) jm_report_add_entry(rep, "unexpected string [.disallow.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_1_lpath : NULL));
                                     break;
                                 }
                             }

@@ -152,7 +152,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_0 = *((uint32_t *) (prop));
-        if (hash_0 <= 1717920804)
+        if (hash_0 <= 0x66656424)
         {
             if (jm_str_eq_4(prop, 0x00646924))
             {
@@ -1013,7 +1013,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_1 = *((uint32_t *) (prop));
-        if (hash_1 <= 1232626029)
+        if (hash_1 <= 0x4978616d)
         {
             if (jm_str_eq_8(prop, 0x736d65744978616dLL) && jm_str_eq_0(prop + 8))
             {
@@ -1169,68 +1169,8 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$Object'.properties
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.properties]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$Object'.properties.''
-        res = json_model_16(pval, (path ? &lpath_11 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.properties.'']", (path ? &lpath_11 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$Object'.patternProperties
-static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.patternProperties]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_12 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Object'.patternProperties.'$REGEX'
-            res = json_model_16(pval, (path ? &lpath_12 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.patternProperties.'$REGEX']", (path ? &lpath_12 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Object'.patternProperties]", (path ? &lpath_12 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Object'.dependentSchemas
-static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1242,13 +1182,13 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Object'.dependentSchemas.''
-        res = json_model_16(pval, (path ? &lpath_13 : NULL), rep);
+        res = json_model_16(pval, (path ? &lpath_11 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.dependentSchemas.'']", (path ? &lpath_13 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.dependentSchemas.'']", (path ? &lpath_11 : NULL));
             return false;
         }
     }
@@ -1256,7 +1196,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .'$Object'.dependentRequired
-static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1268,13 +1208,73 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Object'.dependentRequired.''
-        res = json_model_10(pval, (path ? &lpath_14 : NULL), rep);
+        res = json_model_10(pval, (path ? &lpath_12 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.'$Object'.dependentRequired.'']", (path ? &lpath_14 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.'$Object'.dependentRequired.'']", (path ? &lpath_12 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Object'.properties
+static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.properties]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$Object'.properties.''
+        res = json_model_16(pval, (path ? &lpath_13 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.properties.'']", (path ? &lpath_13 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Object'.patternProperties
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.patternProperties]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_14 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Object'.patternProperties.'$REGEX'
+            res = json_model_16(pval, (path ? &lpath_14 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.patternProperties.'$REGEX']", (path ? &lpath_14 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Object'.patternProperties]", (path ? &lpath_14 : NULL));
             return false;
         }
     }
@@ -1298,7 +1298,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_2 = *((uint32_t *) (prop));
-        if (hash_2 <= 1768186977)
+        if (hash_2 <= 0x69646461)
         {
             if (jm_str_eq_8(prop, 0x65706f725078616dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL))
             {
@@ -1330,7 +1330,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may dependentSchemas property
                 // .'$Object'.dependentSchemas
-                res = _jm_obj_4(pval, (path ? &lpath_10 : NULL), rep);
+                res = _jm_obj_2(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.dependentSchemas]", (path ? &lpath_10 : NULL));
@@ -1343,7 +1343,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may dependentRequired property
                 // .'$Object'.dependentRequired
-                res = _jm_obj_5(pval, (path ? &lpath_10 : NULL), rep);
+                res = _jm_obj_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.dependentRequired]", (path ? &lpath_10 : NULL));
@@ -1385,7 +1385,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may properties property
                 // .'$Object'.properties
-                res = _jm_obj_2(pval, (path ? &lpath_10 : NULL), rep);
+                res = _jm_obj_4(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.properties]", (path ? &lpath_10 : NULL));
@@ -1411,7 +1411,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may patternProperties property
                 // .'$Object'.patternProperties
-                res = _jm_obj_3(pval, (path ? &lpath_10 : NULL), rep);
+                res = _jm_obj_5(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.patternProperties]", (path ? &lpath_10 : NULL));
@@ -1483,7 +1483,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_3 = (*((uint32_t *) (prop))) & 0xffffff;
-        if (hash_3 <= 7105633)
+        if (hash_3 <= 0x6c6c61)
         {
             if (jm_str_eq_3(prop, 0x00006669))
             {
@@ -1682,7 +1682,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_4 = *((uint32_t *) (prop));
-        if (hash_4 <= 1717924388)
+        if (hash_4 <= 0x66657224)
         {
             if (jm_str_eq_4(prop, 0x00646924))
             {
@@ -1999,7 +1999,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_5 = *((uint32_t *) (prop));
-        if (hash_5 <= 1717924388)
+        if (hash_5 <= 0x66657224)
         {
             if (jm_str_eq_4(prop, 0x00646924))
             {
@@ -2316,9 +2316,9 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_6 = *((uint32_t *) (prop));
-        if (hash_6 <= 1818458213)
+        if (hash_6 <= 0x6c637865)
         {
-            if (hash_6 <= 1717924388)
+            if (hash_6 <= 0x66657224)
             {
                 if (jm_str_eq_4(prop, 0x00646924))
                 {
@@ -2562,7 +2562,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
         }
         else
         {
-            if (hash_6 <= 1853449252)
+            if (hash_6 <= 0x6e796424)
             {
                 if (jm_str_eq_6(prop, 0x000000656c746974LL))
                 {
@@ -2800,9 +2800,9 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_25 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_7 = *((uint32_t *) (prop));
-        if (hash_7 <= 1818458213)
+        if (hash_7 <= 0x6c637865)
         {
-            if (hash_7 <= 1717924388)
+            if (hash_7 <= 0x66657224)
             {
                 if (jm_str_eq_4(prop, 0x00646924))
                 {
@@ -2974,7 +2974,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         }
         else
         {
-            if (hash_7 <= 1853449252)
+            if (hash_7 <= 0x6e796424)
             {
                 if (jm_str_eq_6(prop, 0x000000656c746974LL))
                 {
@@ -3118,42 +3118,8 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$TightSchema'.'|'.4.'$vocabulary'
-static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.4.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_29 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$TightSchema'.'|'.4.'$vocabulary'.'$URI']", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$TightSchema'.'|'.4.'$vocabulary']", (path ? &lpath_29 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$TightSchema'.'|'.4.'$defs'
-static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3165,13 +3131,47 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$TightSchema'.'|'.4.'$defs'.''
-        res = json_model_16(pval, (path ? &lpath_30 : NULL), rep);
+        res = json_model_16(pval, (path ? &lpath_29 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.4.'$defs'.'']", (path ? &lpath_30 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.4.'$defs'.'']", (path ? &lpath_29 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$TightSchema'.'|'.4.'$vocabulary'
+static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.4.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_30 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$TightSchema'.'|'.4.'$vocabulary'.'$URI']", (path ? &lpath_30 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$TightSchema'.'|'.4.'$vocabulary']", (path ? &lpath_30 : NULL));
             return false;
         }
     }
@@ -3194,9 +3194,9 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_8 = *((uint32_t *) (prop));
-        if (hash_8 <= 1836216166)
+        if (hash_8 <= 0x6d726f66)
         {
-            if (hash_8 <= 1684104562)
+            if (hash_8 <= 0x64616572)
             {
                 if (jm_str_eq_4(prop, 0x00646924))
                 {
@@ -3274,7 +3274,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may $vocabulary property
                     // .'$TightSchema'.'|'.4.'$vocabulary'
-                    res = _jm_obj_19(pval, (path ? &lpath_28 : NULL), rep);
+                    res = _jm_obj_20(pval, (path ? &lpath_28 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.4.'$vocabulary']", (path ? &lpath_28 : NULL));
@@ -3316,7 +3316,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may $defs property
                     // .'$TightSchema'.'|'.4.'$defs'
-                    res = _jm_obj_20(pval, (path ? &lpath_28 : NULL), rep);
+                    res = _jm_obj_19(pval, (path ? &lpath_28 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.4.'$defs']", (path ? &lpath_28 : NULL));
@@ -3394,7 +3394,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         }
         else
         {
-            if (hash_8 <= 1953067639)
+            if (hash_8 <= 0x74697277)
             {
                 if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
                 {
@@ -3614,9 +3614,9 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_9 = *((uint32_t *) (prop));
-        if (hash_9 <= 1835104357)
+        if (hash_9 <= 0x6d617865)
         {
-            if (hash_9 <= 1668249124)
+            if (hash_9 <= 0x636f7624)
             {
                 if (jm_str_eq_4(prop, 0x00646924))
                 {
@@ -3827,7 +3827,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
         }
         else
         {
-            if (hash_9 <= 1853449252)
+            if (hash_9 <= 0x6e796424)
             {
                 if (jm_str_eq_6(prop, 0x000000736d657469LL))
                 {
@@ -3984,146 +3984,8 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$TightSchema'.'|'.6.'$vocabulary'
-static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_35 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_35 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$TightSchema'.'|'.6.'$vocabulary'.'$URI']", (path ? &lpath_35 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$TightSchema'.'|'.6.'$vocabulary']", (path ? &lpath_35 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$TightSchema'.'|'.6.'$defs'
-static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.'$defs']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$TightSchema'.'|'.6.'$defs'.''
-        res = json_model_16(pval, (path ? &lpath_36 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.6.'$defs'.'']", (path ? &lpath_36 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$TightSchema'.'|'.6.dependentSchemas
-static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.dependentSchemas]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_37 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$TightSchema'.'|'.6.dependentSchemas.''
-        res = json_model_16(pval, (path ? &lpath_37 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.6.dependentSchemas.'']", (path ? &lpath_37 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$TightSchema'.'|'.6.dependentRequired
-static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.dependentRequired]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_38 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$TightSchema'.'|'.6.dependentRequired.''
-        res = json_model_10(pval, (path ? &lpath_38 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.'$TightSchema'.'|'.6.dependentRequired.'']", (path ? &lpath_38 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$TightSchema'.'|'.6.properties
-static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.properties]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_39 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$TightSchema'.'|'.6.properties.''
-        res = json_model_16(pval, (path ? &lpath_39 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.6.properties.'']", (path ? &lpath_39 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$TightSchema'.'|'.6.patternProperties
-static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -4135,21 +3997,159 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_40 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_40 : NULL), rep)))
+        jm_path_t lpath_35 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_35 : NULL), rep)))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.6.patternProperties.'$REGEX'
-            res = json_model_16(pval, (path ? &lpath_40 : NULL), rep);
+            res = json_model_16(pval, (path ? &lpath_35 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", (path ? &lpath_40 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", (path ? &lpath_35 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$TightSchema'.'|'.6.patternProperties]", (path ? &lpath_40 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$TightSchema'.'|'.6.patternProperties]", (path ? &lpath_35 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$TightSchema'.'|'.6.properties
+static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.properties]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$TightSchema'.'|'.6.properties.''
+        res = json_model_16(pval, (path ? &lpath_36 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.6.properties.'']", (path ? &lpath_36 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$TightSchema'.'|'.6.'$vocabulary'
+static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_37 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_37 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$TightSchema'.'|'.6.'$vocabulary'.'$URI']", (path ? &lpath_37 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$TightSchema'.'|'.6.'$vocabulary']", (path ? &lpath_37 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$TightSchema'.'|'.6.'$defs'
+static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.'$defs']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_38 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$TightSchema'.'|'.6.'$defs'.''
+        res = json_model_16(pval, (path ? &lpath_38 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.6.'$defs'.'']", (path ? &lpath_38 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$TightSchema'.'|'.6.dependentSchemas
+static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.dependentSchemas]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_39 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$TightSchema'.'|'.6.dependentSchemas.''
+        res = json_model_16(pval, (path ? &lpath_39 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.6.dependentSchemas.'']", (path ? &lpath_39 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$TightSchema'.'|'.6.dependentRequired
+static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.6.dependentRequired]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_40 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$TightSchema'.'|'.6.dependentRequired.''
+        res = json_model_10(pval, (path ? &lpath_40 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.'$TightSchema'.'|'.6.dependentRequired.'']", (path ? &lpath_40 : NULL));
             return false;
         }
     }
@@ -4172,9 +4172,9 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_34 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_10 = *((uint32_t *) (prop));
-        if (hash_10 <= 1836016420)
+        if (hash_10 <= 0x6d6f6324)
         {
-            if (hash_10 <= 1684104562)
+            if (hash_10 <= 0x64616572)
             {
                 if (jm_str_eq_4(prop, 0x00646924))
                 {
@@ -4226,7 +4226,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may $vocabulary property
                     // .'$TightSchema'.'|'.6.'$vocabulary'
-                    res = _jm_obj_25(pval, (path ? &lpath_34 : NULL), rep);
+                    res = _jm_obj_27(pval, (path ? &lpath_34 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.6.'$vocabulary']", (path ? &lpath_34 : NULL));
@@ -4294,7 +4294,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may $defs property
                     // .'$TightSchema'.'|'.6.'$defs'
-                    res = _jm_obj_26(pval, (path ? &lpath_34 : NULL), rep);
+                    res = _jm_obj_28(pval, (path ? &lpath_34 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.6.'$defs']", (path ? &lpath_34 : NULL));
@@ -4359,7 +4359,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may dependentSchemas property
                     // .'$TightSchema'.'|'.6.dependentSchemas
-                    res = _jm_obj_27(pval, (path ? &lpath_34 : NULL), rep);
+                    res = _jm_obj_29(pval, (path ? &lpath_34 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.6.dependentSchemas]", (path ? &lpath_34 : NULL));
@@ -4372,7 +4372,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may dependentRequired property
                     // .'$TightSchema'.'|'.6.dependentRequired
-                    res = _jm_obj_28(pval, (path ? &lpath_34 : NULL), rep);
+                    res = _jm_obj_30(pval, (path ? &lpath_34 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.6.dependentRequired]", (path ? &lpath_34 : NULL));
@@ -4398,13 +4398,13 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
         }
         else
         {
-            if (hash_10 <= 1886351984)
+            if (hash_10 <= 0x706f7270)
             {
                 if (jm_str_eq_8(prop, 0x69747265706f7270LL) && jm_str_eq_3(prop + 8, 0x00007365))
                 {
                     // handle may properties property
                     // .'$TightSchema'.'|'.6.properties
-                    res = _jm_obj_29(pval, (path ? &lpath_34 : NULL), rep);
+                    res = _jm_obj_26(pval, (path ? &lpath_34 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.6.properties]", (path ? &lpath_34 : NULL));
@@ -4498,7 +4498,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may patternProperties property
                     // .'$TightSchema'.'|'.6.patternProperties
-                    res = _jm_obj_30(pval, (path ? &lpath_34 : NULL), rep);
+                    res = _jm_obj_25(pval, (path ? &lpath_34 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.6.patternProperties]", (path ? &lpath_34 : NULL));
@@ -4555,42 +4555,8 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$TightSchema'.'|'.7.'$vocabulary'
-static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.7.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_42 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$TightSchema'.'|'.7.'$vocabulary'.'$URI']", (path ? &lpath_42 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$TightSchema'.'|'.7.'$vocabulary']", (path ? &lpath_42 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$TightSchema'.'|'.7.'$defs'
-static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -4602,13 +4568,47 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_43 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$TightSchema'.'|'.7.'$defs'.''
-        res = json_model_16(pval, (path ? &lpath_43 : NULL), rep);
+        res = json_model_16(pval, (path ? &lpath_42 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.7.'$defs'.'']", (path ? &lpath_43 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$TightSchema'.'|'.7.'$defs'.'']", (path ? &lpath_42 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$TightSchema'.'|'.7.'$vocabulary'
+static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$TightSchema'.'|'.7.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_43 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_43 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$TightSchema'.'|'.7.'$vocabulary'.'$URI']", (path ? &lpath_43 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$TightSchema'.'|'.7.'$vocabulary']", (path ? &lpath_43 : NULL));
             return false;
         }
     }
@@ -4630,9 +4630,9 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_41 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_11 = (*((uint32_t *) (prop))) & 0xffffff;
-        if (hash_11 <= 7304740)
+        if (hash_11 <= 0x6f7624)
         {
-            if (hash_11 <= 6647407)
+            if (hash_11 <= 0x656e6f)
             {
                 if (jm_str_eq_3(prop, 0x00006669))
                 {
@@ -4677,7 +4677,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may $defs property
                     // .'$TightSchema'.'|'.7.'$defs'
-                    res = _jm_obj_33(pval, (path ? &lpath_41 : NULL), rep);
+                    res = _jm_obj_32(pval, (path ? &lpath_41 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.7.'$defs']", (path ? &lpath_41 : NULL));
@@ -4824,7 +4824,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may $vocabulary property
                     // .'$TightSchema'.'|'.7.'$vocabulary'
-                    res = _jm_obj_32(pval, (path ? &lpath_41 : NULL), rep);
+                    res = _jm_obj_33(pval, (path ? &lpath_41 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$TightSchema'.'|'.7.'$vocabulary']", (path ? &lpath_41 : NULL));
@@ -4837,7 +4837,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
         }
         else
         {
-            if (hash_11 <= 7629172)
+            if (hash_11 <= 0x746974)
             {
                 if (jm_str_eq_5(prop, 0x0000000065736c65LL))
                 {

@@ -374,9 +374,11 @@ class Language:
     #
     # inline comparison expressions for numbers
     #
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr) -> BoolExpr:
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False) -> BoolExpr:
         """Numerical comparison."""
         assert op in ("=", "!=", "<", "<=", ">=", ">")
+        if hexa and isinstance(e2, int):
+            e2 = hex(e2)
         if op == "=":
             return f"{e1} {self._eq} {e2}"
         elif op == "!=":

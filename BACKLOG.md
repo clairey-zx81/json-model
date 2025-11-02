@@ -4,8 +4,9 @@
 
 - [x] static: partition long lists of properties based on first bytes
 - [x] static: use more bytes for str hashing depending on min len
+- [x] static: generate hexa constants for partition limits tests
 - [ ] static: take into account str _byte_ len when partitioning
-- [ ] static: generate hexa constants for partition limits tests
+- [ ] static: possibly use up to 8 bytes when hashing?
 - [ ] static: fix hash size to depends on byte encoding, not str len
 - [ ] c-backend: partition inlined str cset
 - [ ] perf: test partitioning for js, java, perl, python…
