@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "a": {
+      "type": "string"
+    },
+    "aaa": {
+      "type": "string"
+    },
+    "abc": {
+      "type": "string"
+    },
+    "bcd": {
+      "type": "string"
+    },
+    "cdef": {
+      "type": "string"
+    },
+    "calvin": {
+      "type": "string"
+    },
+    "def": {
+      "type": "string"
+    },
+    "foo": {
+      "type": "string"
+    },
+    "hobbes": {
+      "type": "string"
+    },
+    "moe": {
+      "type": "string"
+    },
+    "saxo": {
+      "type": "string"
+    },
+    "stuff": {
+      "type": "string"
+    },
+    "swap": {
+      "type": "string"
+    },
+    "susie": {
+      "type": "string"
+    },
+    "wtf": {
+      "type": "string"
+    },
+    "zoo": {
+      "type": "string"
+    },
+    "zee": {
+      "type": "string"
+    },
+    "Calvin": {
+      "type": "string"
+    },
+    "Susie": {
+      "type": "string"
+    },
+    "Hobbes": {
+      "type": "string"
+    },
+    "Moe": {
+      "type": "string"
+    },
+    "Rosalyn": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+[
+  [ true,  { "a": "xx", "aaa": "yy", "abc": "zz", "bcd": "bb", "cdef": "cc", "calvin": "ccc", "def": "dd", "foo": "ff", "hobbes": "hhh", "moe": "mmm", "swap": "sss", "saxo": "ststst", "stuff": "xxxxxxxxxx", "susie": "ssss", "wtf": "www", "zoo": "zzz", "zee": "zzz", "Calvin": "CCC", "Susie": "SSS", "Hobbes": "HHH", "Moe": "MMM", "Rosalyn": "RRR" } ],
+  [ true,  { "a": "xx", "aaa": "yy", "abc": "zz", "bcd": "bb", "cdef": "cc", "calvin": "ccc" } ],
+  [ true,  { "def": "dd", "foo": "ff", "hobbes": "hhh", "moe": "mmm", "swap": "sss" } ],
+  [ true,  { "aaa": "yy", "calvin": "ccc", "swap": "sss", "saxo": "ststst",  "zee": "zzz" } ],
+  [ true,  { "a": "xx", "Calvin": "CCC", "Susie": "SSS", "Hobbes": "HHH", "Moe": "MMM", "Rosalyn": "RRR" } ],
+  [ true,  { "swap": "sss", "saxo": "ststst", "stuff": "xxxxxxxxxx" } ],
+  [ true,  { "calvin": "ccc", "susie": "ssss" } ],
+  [ true,  { "Calvin": "ccc", "Susie": "ssss" } ],
+  [ true,  { "Hobbes": "HHH" } ],
+  [ true,  {} ],
+  [ false, { "calvin": "ccc", "susie": "ssss", "un": "expected" } ],
+  [ false, { "bla": "HHH" } ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

@@ -24,8 +24,8 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_1_str_test(const char *);
+static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -567,123 +567,135 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
+        uint32_t hash_0 = *((uint32_t *) (prop));
+        if (hash_0 <= 1886351984)
         {
-            // handle may required property
-            // .'$objectKeywords'.required
-            res = json_is_array(pval);
-            if (likely(res))
+            if (jm_str_eq_8(prop, 0x69747265706f7270LL) && jm_str_eq_3(prop + 8, 0x00007365))
             {
-                size_t arr_4_idx;
-                json_t *arr_4_item;
-                json_array_foreach(pval, arr_4_idx, arr_4_item)
+                // handle may properties property
+                // .'$objectKeywords'.properties
+                res = _jm_obj_0(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
                 {
-                    jm_path_t arr_4_lpath = (jm_path_t) { NULL, arr_4_idx, (path ? &lpath_2 : NULL), NULL };
-                    // .'$objectKeywords'.required.0
-                    res = json_is_string(arr_4_item);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$objectKeywords'.required.0]", ((path ? &lpath_2 : NULL) ? &arr_4_lpath : NULL));
-                        break;
-                    }
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$objectKeywords'.properties]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.properties]", (path ? &lpath_2 : NULL));
+                    return false;
                 }
+                continue;
             }
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x65706f725078616dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL))
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$objectKeywords'.required]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.required]", (path ? &lpath_2 : NULL));
-                return false;
+                // handle may maxProperties property
+                // .'$objectKeywords'.maxProperties
+                res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$objectKeywords'.maxProperties]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.maxProperties]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x69747265706f7270LL) && jm_str_eq_3(prop + 8, 0x00007365)))
-        {
-            // handle may properties property
-            // .'$objectKeywords'.properties
-            res = _jm_obj_0(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x65706f72506e696dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$objectKeywords'.properties]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.properties]", (path ? &lpath_2 : NULL));
-                return false;
+                // handle may minProperties property
+                // .'$objectKeywords'.minProperties
+                res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$objectKeywords'.minProperties]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.minProperties]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x65706f725078616dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL)))
-        {
-            // handle may maxProperties property
-            // .'$objectKeywords'.maxProperties
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x79747265706f7270LL) && jm_str_eq_6(prop + 8, 0x00000073656d614eLL))
             {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$objectKeywords'.maxProperties]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.maxProperties]", (path ? &lpath_2 : NULL));
-                return false;
+                // handle may propertyNames property
+                // .'$objectKeywords'.propertyNames
+                res = json_model_24(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$objectKeywords'.propertyNames]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.propertyNames]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x65706f72506e696dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL)))
-        {
-            // handle may minProperties property
-            // .'$objectKeywords'.minProperties
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x6e6f697469646461LL) && jm_str_eq_8(prop + 8, 0x7265706f72506c61LL) && jm_str_eq_5(prop + 16, 0x0000000073656974LL))
             {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$objectKeywords'.minProperties]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.minProperties]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x79747265706f7270LL) && jm_str_eq_6(prop + 8, 0x00000073656d614eLL)))
-        {
-            // handle may propertyNames property
-            // .'$objectKeywords'.propertyNames
-            res = json_model_24(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$objectKeywords'.propertyNames]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.propertyNames]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x506e726574746170LL) && jm_str_eq_8(prop + 8, 0x6569747265706f72LL) && jm_str_eq_2(prop + 16, 0x00000073)))
-        {
-            // handle may patternProperties property
-            // .'$objectKeywords'.patternProperties
-            res = _jm_obj_1(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$objectKeywords'.patternProperties]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.patternProperties]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6e6f697469646461LL) && jm_str_eq_8(prop + 8, 0x7265706f72506c61LL) && jm_str_eq_5(prop + 16, 0x0000000073656974LL))
-        {
-            // handle may additionalProperties property
-            // .'$objectKeywords'.additionalProperties
-            res = json_model_25(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$objectKeywords'.additionalProperties]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.additionalProperties]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x65706f7250646574LL) && jm_str_eq_6(prop + 16, 0x0000007365697472LL)))
-        {
-            // handle may unevaluatedProperties property
-            // .'$objectKeywords'.unevaluatedProperties
-            res = json_model_25(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$objectKeywords'.unevaluatedProperties]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.unevaluatedProperties]", (path ? &lpath_2 : NULL));
-                return false;
+                // handle may additionalProperties property
+                // .'$objectKeywords'.additionalProperties
+                res = json_model_25(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$objectKeywords'.additionalProperties]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.additionalProperties]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$objectKeywords']", (path ? &lpath_2 : NULL));
-            return false;
+            if (jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may required property
+                // .'$objectKeywords'.required
+                res = json_is_array(pval);
+                if (likely(res))
+                {
+                    size_t arr_4_idx;
+                    json_t *arr_4_item;
+                    json_array_foreach(pval, arr_4_idx, arr_4_item)
+                    {
+                        jm_path_t arr_4_lpath = (jm_path_t) { NULL, arr_4_idx, (path ? &lpath_2 : NULL), NULL };
+                        // .'$objectKeywords'.required.0
+                        res = json_is_string(arr_4_item);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected string [.'$objectKeywords'.required.0]", ((path ? &lpath_2 : NULL) ? &arr_4_lpath : NULL));
+                            break;
+                        }
+                    }
+                }
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$objectKeywords'.required]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.required]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x506e726574746170LL) && jm_str_eq_8(prop + 8, 0x6569747265706f72LL) && jm_str_eq_2(prop + 16, 0x00000073))
+            {
+                // handle may patternProperties property
+                // .'$objectKeywords'.patternProperties
+                res = _jm_obj_1(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$objectKeywords'.patternProperties]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.patternProperties]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x65706f7250646574LL) && jm_str_eq_6(prop + 16, 0x0000007365697472LL))
+            {
+                // handle may unevaluatedProperties property
+                // .'$objectKeywords'.unevaluatedProperties
+                res = json_model_25(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$objectKeywords'.unevaluatedProperties]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$objectKeywords'.unevaluatedProperties]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
         }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$objectKeywords']", (path ? &lpath_2 : NULL));
+        return false;
     }
     return true;
 }
@@ -763,42 +775,8 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// object .'$metas'.'$vocabulary'
-static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$metas'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_8 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$metas'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$metas'.'$vocabulary'.'$URI']", (path ? &lpath_8 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$metas'.'$vocabulary']", (path ? &lpath_8 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$metas'.definitions
-static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -810,13 +788,47 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$metas'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_9 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_8 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$metas'.definitions.'']", (path ? &lpath_9 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$metas'.definitions.'']", (path ? &lpath_8 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$metas'.'$vocabulary'
+static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$metas'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_9 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$metas'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$metas'.'$vocabulary'.'$URI']", (path ? &lpath_9 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$metas'.'$vocabulary']", (path ? &lpath_9 : NULL));
             return false;
         }
     }
@@ -839,221 +851,217 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_3(prop, 0x00006469)))
+        uint32_t hash_1 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_1 <= 6710628)
         {
-            // handle may id property
-            // .'$metas'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            if (jm_str_eq_3(prop, 0x00006469))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.id]", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.id]", (path ? &lpath_6 : NULL));
-                return false;
+                // handle may id property
+                // .'$metas'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.id]", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.id]", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$metas'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_4(prop, 0x00646924))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$id']", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$id']", (path ? &lpath_6 : NULL));
-                return false;
+                // handle may $id property
+                // .'$metas'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$id']", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$id']", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$metas'.'$defs'
-            res = _jm_obj_2(pval, (path ? &lpath_6 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$metas'.'$defs']", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$defs']", (path ? &lpath_6 : NULL));
-                return false;
+                // handle may $defs property
+                // .'$metas'.'$defs'
+                res = _jm_obj_2(pval, (path ? &lpath_6 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$metas'.'$defs']", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$defs']", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$metas'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.title]", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.title]", (path ? &lpath_6 : NULL));
-                return false;
+                // handle may $schema property
+                // .'$metas'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$schema']", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$schema']", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$metas'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$anchor']", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$anchor']", (path ? &lpath_6 : NULL));
-                return false;
+                // handle may default property
+                // .'$metas'.default
+                res = true;
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$metas'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$schema']", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$schema']", (path ? &lpath_6 : NULL));
-                return false;
+                // handle may examples property
+                // .'$metas'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$metas'.examples]", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.examples]", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$metas'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$metas'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$comment']", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$comment']", (path ? &lpath_6 : NULL));
-                return false;
+                // handle may readOnly property
+                // .'$metas'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$metas'.readOnly]", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.readOnly]", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$metas'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$metas'.examples]", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.examples]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$metas'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$metas'.readOnly]", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.readOnly]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$metas'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$metas'.writeOnly]", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.writeOnly]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$metas'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$metas'.deprecated]", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.deprecated]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$metas'.'$vocabulary'
-            res = _jm_obj_3(pval, (path ? &lpath_6 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$metas'.'$vocabulary']", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$vocabulary']", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$metas'.definitions
-            res = _jm_obj_4(pval, (path ? &lpath_6 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$metas'.definitions]", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.definitions]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$metas'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.description]", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.description]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$metas'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$dynamicAnchor']", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$dynamicAnchor']", (path ? &lpath_6 : NULL));
-                return false;
+                // handle may definitions property
+                // .'$metas'.definitions
+                res = _jm_obj_3(pval, (path ? &lpath_6 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$metas'.definitions]", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.definitions]", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$metas']", (path ? &lpath_6 : NULL));
-            return false;
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$metas'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.title]", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.title]", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$metas'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$anchor']", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$anchor']", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$metas'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$comment']", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$comment']", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$metas'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$metas'.writeOnly]", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.writeOnly]", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$metas'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$metas'.deprecated]", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.deprecated]", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$metas'.'$vocabulary'
+                res = _jm_obj_4(pval, (path ? &lpath_6 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$metas'.'$vocabulary']", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$vocabulary']", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$metas'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.description]", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.description]", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$metas'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$metas'.'$dynamicAnchor']", (path ? &lpath_6 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$metas'.'$dynamicAnchor']", (path ? &lpath_6 : NULL));
+                    return false;
+                }
+                continue;
+            }
         }
-    }
-    return true;
-}
-
-// object .'$String'.'$defs'
-static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$String'.'$defs']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$metas']", (path ? &lpath_6 : NULL));
         return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$String'.'$defs'.''
-        res = json_model_25(pval, (path ? &lpath_11 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$String'.'$defs'.'']", (path ? &lpath_11 : NULL));
-            return false;
-        }
     }
     return true;
 }
@@ -1091,7 +1099,7 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
 }
 
 // object .'$String'.'$vocabulary'
-static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1103,21 +1111,47 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_12 : NULL), rep)))
+        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_11 : NULL), rep)))
         {
             // handle 1 key props
             // .'$String'.'$vocabulary'.'$URI'
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.'$vocabulary'.'$URI']", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.'$vocabulary'.'$URI']", (path ? &lpath_11 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$String'.'$vocabulary']", (path ? &lpath_12 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$String'.'$vocabulary']", (path ? &lpath_11 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$String'.'$defs'
+static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$String'.'$defs']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$String'.'$defs'.''
+        res = json_model_25(pval, (path ? &lpath_12 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$String'.'$defs'.'']", (path ? &lpath_12 : NULL));
             return false;
         }
     }
@@ -1166,6 +1200,279 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_2 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_2 <= 7299876)
+        {
+            if (hash_2 <= 6710628)
+            {
+                if (jm_str_eq_3(prop, 0x00006469))
+                {
+                    // handle may id property
+                    // .'$String'.id
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.id]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.id]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x00646924))
+                {
+                    // handle may $id property
+                    // .'$String'.'$id'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$id']", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$id']", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+                {
+                    // handle may $defs property
+                    // .'$String'.'$defs'
+                    res = _jm_obj_6(pval, (path ? &lpath_10 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.'$defs']", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$defs']", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+                {
+                    // handle may $schema property
+                    // .'$String'.'$schema'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$schema']", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$schema']", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+                {
+                    // handle may default property
+                    // .'$String'.default
+                    res = true;
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may examples property
+                    // .'$String'.examples
+                    res = json_is_array(pval);
+                    if (likely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$String'.examples]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.examples]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may readOnly property
+                    // .'$String'.readOnly
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.readOnly]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.readOnly]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+                {
+                    // handle may definitions property
+                    // .'$String'.definitions
+                    res = _jm_obj_7(pval, (path ? &lpath_10 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.definitions]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.definitions]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+                {
+                    // handle may $anchor property
+                    // .'$String'.'$anchor'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$anchor']", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$anchor']", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may $comment property
+                    // .'$String'.'$comment'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$comment']", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$comment']", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x74676e654c6e696dLL) && jm_str_eq_2(prop + 8, 0x00000068))
+                {
+                    // handle may minLength property
+                    // .'$String'.minLength
+                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$String'.minLength]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.minLength]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+                {
+                    // handle may writeOnly property
+                    // .'$String'.writeOnly
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.writeOnly]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.writeOnly]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
+        else
+        {
+            if (hash_2 <= 7562596)
+            {
+                if (jm_str_eq_7(prop, 0x000074616d726f66LL))
+                {
+                    // handle may format property
+                    // .'$String'.format
+                    res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "value not in enum [.'$String'.format.'|']", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.format]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+                {
+                    // handle may deprecated property
+                    // .'$String'.deprecated
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.deprecated]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.deprecated]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+                {
+                    // handle may $vocabulary property
+                    // .'$String'.'$vocabulary'
+                    res = _jm_obj_5(pval, (path ? &lpath_10 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.'$vocabulary']", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$vocabulary']", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+                {
+                    // handle may description property
+                    // .'$String'.description
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.description]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.description]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_6(prop, 0x000000656c746974LL))
+                {
+                    // handle may title property
+                    // .'$String'.title
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.title]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.title]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x006e726574746170LL))
+                {
+                    // handle may pattern property
+                    // .'$String'.pattern
+                    res = jm_is_valid_regex(json_string_value(pval), false, (path ? &lpath_10 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$String'.pattern]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.pattern]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068))
+                {
+                    // handle may maxLength property
+                    // .'$String'.maxLength
+                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$String'.maxLength]", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.maxLength]", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+                {
+                    // handle may $dynamicAnchor property
+                    // .'$String'.'$dynamicAnchor'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$dynamicAnchor']", (path ? &lpath_10 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$dynamicAnchor']", (path ? &lpath_10 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
         {
             // handle must type property
@@ -1176,238 +1483,6 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.type]", (path ? &lpath_10 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$String'.type]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$String'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.id]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.id]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$String'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$id']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$id']", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$String'.'$defs'
-            res = _jm_obj_5(pval, (path ? &lpath_10 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.'$defs']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$defs']", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$String'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.title]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.title]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x000074616d726f66LL)))
-        {
-            // handle may format property
-            // .'$String'.format
-            res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.'$String'.format.'|']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.format]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$String'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$anchor']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$anchor']", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$String'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$schema']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$schema']", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$String'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x006e726574746170LL)))
-        {
-            // handle may pattern property
-            // .'$String'.pattern
-            res = jm_is_valid_regex(json_string_value(pval), false, (path ? &lpath_10 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$String'.pattern]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.pattern]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$String'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$comment']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$comment']", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$String'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$String'.examples]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.examples]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$String'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.readOnly]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.readOnly]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068)))
-        {
-            // handle may maxLength property
-            // .'$String'.maxLength
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$String'.maxLength]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.maxLength]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x74676e654c6e696dLL) && jm_str_eq_2(prop + 8, 0x00000068)))
-        {
-            // handle may minLength property
-            // .'$String'.minLength
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$String'.minLength]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.minLength]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$String'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.writeOnly]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.writeOnly]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$String'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.deprecated]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.deprecated]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$String'.'$vocabulary'
-            res = _jm_obj_6(pval, (path ? &lpath_10 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.'$vocabulary']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$vocabulary']", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$String'.definitions
-            res = _jm_obj_7(pval, (path ? &lpath_10 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.definitions]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.definitions]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$String'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.description]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.description]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$String'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$String'.'$dynamicAnchor']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$String'.'$dynamicAnchor']", (path ? &lpath_10 : NULL));
                 return false;
             }
         }
@@ -1431,68 +1506,8 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$Array'.'$defs'
-static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Array'.'$defs']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$Array'.'$defs'.''
-        res = json_model_25(pval, (path ? &lpath_15 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.'$defs'.'']", (path ? &lpath_15 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$Array'.'$vocabulary'
-static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Array'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_16 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Array'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.'$vocabulary'.'$URI']", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Array'.'$vocabulary']", (path ? &lpath_16 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Array'.definitions
-static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1504,13 +1519,73 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Array'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_17 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_15 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.definitions.'']", (path ? &lpath_17 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.definitions.'']", (path ? &lpath_15 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Array'.'$defs'
+static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Array'.'$defs']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$Array'.'$defs'.''
+        res = json_model_25(pval, (path ? &lpath_16 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.'$defs'.'']", (path ? &lpath_16 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Array'.'$vocabulary'
+static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Array'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_17 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Array'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.'$vocabulary'.'$URI']", (path ? &lpath_17 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Array'.'$vocabulary']", (path ? &lpath_17 : NULL));
             return false;
         }
     }
@@ -1533,6 +1608,336 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_3 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_3 <= 6710628)
+        {
+            if (hash_3 <= 6647413)
+            {
+                if (jm_str_eq_3(prop, 0x00006469))
+                {
+                    // handle may id property
+                    // .'$Array'.id
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.id]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.id]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x00646924))
+                {
+                    // handle may $id property
+                    // .'$Array'.'$id'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$id']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$id']", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+                {
+                    // handle may $defs property
+                    // .'$Array'.'$defs'
+                    res = _jm_obj_9(pval, (path ? &lpath_14 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Array'.'$defs']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$defs']", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+                {
+                    // handle may $schema property
+                    // .'$Array'.'$schema'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$schema']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$schema']", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may examples property
+                    // .'$Array'.examples
+                    res = json_is_array(pval);
+                    if (likely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Array'.examples]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.examples]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may readOnly property
+                    // .'$Array'.readOnly
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.readOnly]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.readOnly]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6e6f697469646461LL) && jm_str_eq_8(prop + 8, 0x00736d6574496c61LL))
+                {
+                    // handle may additionalItems property
+                    // .'$Array'.additionalItems
+                    res = json_model_25(pval, (path ? &lpath_14 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.additionalItems]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.additionalItems]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x736d657449646574LL) && jm_str_eq_0(prop + 16))
+                {
+                    // handle may unevaluatedItems property
+                    // .'$Array'.unevaluatedItems
+                    res = json_model_25(pval, (path ? &lpath_14 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.unevaluatedItems]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.unevaluatedItems]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_6(prop, 0x000000736d657469LL))
+                {
+                    // handle may items property
+                    // .'$Array'.items
+                    // .'$Array'.items.'|'.0
+                    res = json_model_25(pval, (path ? &lpath_14 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.items.'|'.0]", (path ? &lpath_14 : NULL));
+                    }
+                    if (! res)
+                    {
+                        // .'$Array'.items.'|'.1
+                        res = json_model_4(pval, (path ? &lpath_14 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$Array'.items.'|'.1]", (path ? &lpath_14 : NULL));
+                        }
+                    }
+                    if (likely(res))
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "no model matched [.'$Array'.items.'|']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.items]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+                {
+                    // handle may default property
+                    // .'$Array'.default
+                    res = true;
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+                {
+                    // handle may definitions property
+                    // .'$Array'.definitions
+                    res = _jm_obj_8(pval, (path ? &lpath_14 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Array'.definitions]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.definitions]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7449786966657270LL) && jm_str_eq_4(prop + 8, 0x00736d65))
+                {
+                    // handle may prefixItems property
+                    // .'$Array'.prefixItems
+                    res = json_model_4(pval, (path ? &lpath_14 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$Array'.prefixItems]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.prefixItems]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
+        else
+        {
+            if (hash_3 <= 7235949)
+            {
+                if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+                {
+                    // handle may $anchor property
+                    // .'$Array'.'$anchor'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$anchor']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$anchor']", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x736d6574496e696dLL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may minItems property
+                    // .'$Array'.minItems
+                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Array'.minItems]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.minItems]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+                {
+                    // handle may writeOnly property
+                    // .'$Array'.writeOnly
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.writeOnly]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.writeOnly]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7449657571696e75LL) && jm_str_eq_4(prop + 8, 0x00736d65))
+                {
+                    // handle may uniqueItems property
+                    // .'$Array'.uniqueItems
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.uniqueItems]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.uniqueItems]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_6(prop, 0x000000656c746974LL))
+                {
+                    // handle may title property
+                    // .'$Array'.title
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.title]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.title]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may $comment property
+                    // .'$Array'.'$comment'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$comment']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$comment']", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x736d65744978616dLL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may maxItems property
+                    // .'$Array'.maxItems
+                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Array'.maxItems]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.maxItems]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+                {
+                    // handle may deprecated property
+                    // .'$Array'.deprecated
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.deprecated]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.deprecated]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+                {
+                    // handle may $vocabulary property
+                    // .'$Array'.'$vocabulary'
+                    res = _jm_obj_10(pval, (path ? &lpath_14 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Array'.'$vocabulary']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$vocabulary']", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+                {
+                    // handle may description property
+                    // .'$Array'.description
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.description]", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.description]", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+                {
+                    // handle may $dynamicAnchor property
+                    // .'$Array'.'$dynamicAnchor'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$dynamicAnchor']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$dynamicAnchor']", (path ? &lpath_14 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
         {
             // handle must type property
@@ -1543,292 +1948,6 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected array [.'$Array'.type]", (path ? &lpath_14 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Array'.type]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Array'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.id]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.id]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Array'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$id']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$id']", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Array'.'$defs'
-            res = _jm_obj_8(pval, (path ? &lpath_14 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Array'.'$defs']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$defs']", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000736d657469LL)))
-        {
-            // handle may items property
-            // .'$Array'.items
-            // .'$Array'.items.'|'.0
-            res = json_model_25(pval, (path ? &lpath_14 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.items.'|'.0]", (path ? &lpath_14 : NULL));
-            }
-            if (! res)
-            {
-                // .'$Array'.items.'|'.1
-                res = json_model_4(pval, (path ? &lpath_14 : NULL), rep);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$Array'.items.'|'.1]", (path ? &lpath_14 : NULL));
-                }
-            }
-            if (likely(res))
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$Array'.items.'|']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.items]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Array'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.title]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.title]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Array'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$anchor']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$anchor']", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Array'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$schema']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$schema']", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Array'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Array'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$comment']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$comment']", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Array'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Array'.examples]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.examples]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x736d65744978616dLL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may maxItems property
-            // .'$Array'.maxItems
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Array'.maxItems]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.maxItems]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x736d6574496e696dLL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may minItems property
-            // .'$Array'.minItems
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Array'.minItems]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.minItems]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Array'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.readOnly]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.readOnly]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Array'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.writeOnly]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.writeOnly]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Array'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.deprecated]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.deprecated]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Array'.'$vocabulary'
-            res = _jm_obj_9(pval, (path ? &lpath_14 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Array'.'$vocabulary']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$vocabulary']", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Array'.definitions
-            res = _jm_obj_10(pval, (path ? &lpath_14 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Array'.definitions]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.definitions]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
-        {
-            // handle may description property
-            // .'$Array'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.description]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.description]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7449786966657270LL) && jm_str_eq_4(prop + 8, 0x00736d65)))
-        {
-            // handle may prefixItems property
-            // .'$Array'.prefixItems
-            res = json_model_4(pval, (path ? &lpath_14 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$Array'.prefixItems]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.prefixItems]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7449657571696e75LL) && jm_str_eq_4(prop + 8, 0x00736d65)))
-        {
-            // handle may uniqueItems property
-            // .'$Array'.uniqueItems
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.uniqueItems]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.uniqueItems]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Array'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Array'.'$dynamicAnchor']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.'$dynamicAnchor']", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6e6f697469646461LL) && jm_str_eq_8(prop + 8, 0x00736d6574496c61LL))
-        {
-            // handle may additionalItems property
-            // .'$Array'.additionalItems
-            res = json_model_25(pval, (path ? &lpath_14 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.additionalItems]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.additionalItems]", (path ? &lpath_14 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x736d657449646574LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may unevaluatedItems property
-            // .'$Array'.unevaluatedItems
-            res = json_model_25(pval, (path ? &lpath_14 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.unevaluatedItems]", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Array'.unevaluatedItems]", (path ? &lpath_14 : NULL));
                 return false;
             }
         }
@@ -1852,34 +1971,8 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$Object'.'$defs'
-static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.'$defs']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$Object'.'$defs'.''
-        res = json_model_25(pval, (path ? &lpath_19 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.'$defs'.'']", (path ? &lpath_19 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Object'.properties
-static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1891,13 +1984,39 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Object'.properties.''
+        res = json_model_25(pval, (path ? &lpath_19 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.properties.'']", (path ? &lpath_19 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Object'.definitions
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.definitions]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$Object'.definitions.''
         res = json_model_25(pval, (path ? &lpath_20 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.properties.'']", (path ? &lpath_20 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.definitions.'']", (path ? &lpath_20 : NULL));
             return false;
         }
     }
@@ -1938,12 +2057,12 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Object'.definitions
+// object .'$Object'.'$defs'
 static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.definitions]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.'$defs']", path);
         return false;
     }
     bool res;
@@ -1953,11 +2072,11 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
-        // .'$Object'.definitions.''
+        // .'$Object'.'$defs'.''
         res = json_model_25(pval, (path ? &lpath_22 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.definitions.'']", (path ? &lpath_22 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.'$defs'.'']", (path ? &lpath_22 : NULL));
             return false;
         }
     }
@@ -2014,6 +2133,347 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_4 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_4 <= 7303792)
+        {
+            if (hash_4 <= 6647413)
+            {
+                if (jm_str_eq_3(prop, 0x00006469))
+                {
+                    // handle may id property
+                    // .'$Object'.id
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.id]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.id]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x00646924))
+                {
+                    // handle may $id property
+                    // .'$Object'.'$id'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$id']", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$id']", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+                {
+                    // handle may $defs property
+                    // .'$Object'.'$defs'
+                    res = _jm_obj_14(pval, (path ? &lpath_18 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.'$defs']", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$defs']", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+                {
+                    // handle may $schema property
+                    // .'$Object'.'$schema'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$schema']", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$schema']", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may examples property
+                    // .'$Object'.examples
+                    res = json_is_array(pval);
+                    if (likely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Object'.examples]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.examples]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may readOnly property
+                    // .'$Object'.readOnly
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$Object'.readOnly]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.readOnly]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6e6f697469646461LL) && jm_str_eq_8(prop + 8, 0x7265706f72506c61LL) && jm_str_eq_5(prop + 16, 0x0000000073656974LL))
+                {
+                    // handle may additionalProperties property
+                    // .'$Object'.additionalProperties
+                    res = json_model_25(pval, (path ? &lpath_18 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.additionalProperties]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.additionalProperties]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x65706f7250646574LL) && jm_str_eq_6(prop + 16, 0x0000007365697472LL))
+                {
+                    // handle may unevaluatedProperties property
+                    // .'$Object'.unevaluatedProperties
+                    res = json_model_25(pval, (path ? &lpath_18 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.unevaluatedProperties]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.unevaluatedProperties]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+                {
+                    // handle may $anchor property
+                    // .'$Object'.'$anchor'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$anchor']", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$anchor']", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+                {
+                    // handle may default property
+                    // .'$Object'.default
+                    res = true;
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may $comment property
+                    // .'$Object'.'$comment'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$comment']", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$comment']", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+                {
+                    // handle may writeOnly property
+                    // .'$Object'.writeOnly
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$Object'.writeOnly]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.writeOnly]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x69747265706f7270LL) && jm_str_eq_3(prop + 8, 0x00007365))
+                {
+                    // handle may properties property
+                    // .'$Object'.properties
+                    res = _jm_obj_11(pval, (path ? &lpath_18 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.properties]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.properties]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+                {
+                    // handle may definitions property
+                    // .'$Object'.definitions
+                    res = _jm_obj_12(pval, (path ? &lpath_18 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.definitions]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.definitions]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x65706f72506e696dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL))
+                {
+                    // handle may minProperties property
+                    // .'$Object'.minProperties
+                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Object'.minProperties]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.minProperties]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x79747265706f7270LL) && jm_str_eq_6(prop + 8, 0x00000073656d614eLL))
+                {
+                    // handle may propertyNames property
+                    // .'$Object'.propertyNames
+                    res = json_model_24(pval, (path ? &lpath_18 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$Object'.propertyNames]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.propertyNames]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
+        else
+        {
+            if (hash_4 <= 7562596)
+            {
+                if (jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may required property
+                    // .'$Object'.required
+                    res = json_is_array(pval);
+                    if (likely(res))
+                    {
+                        size_t arr_5_idx;
+                        json_t *arr_5_item;
+                        json_array_foreach(pval, arr_5_idx, arr_5_item)
+                        {
+                            jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_18 : NULL), NULL };
+                            // .'$Object'.required.0
+                            res = json_is_string(arr_5_item);
+                            if (unlikely(! res))
+                            {
+                                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.required.0]", ((path ? &lpath_18 : NULL) ? &arr_5_lpath : NULL));
+                                break;
+                            }
+                        }
+                    }
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Object'.required]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.required]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+                {
+                    // handle may deprecated property
+                    // .'$Object'.deprecated
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.'$Object'.deprecated]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.deprecated]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+                {
+                    // handle may $vocabulary property
+                    // .'$Object'.'$vocabulary'
+                    res = _jm_obj_13(pval, (path ? &lpath_18 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.'$vocabulary']", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$vocabulary']", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+                {
+                    // handle may description property
+                    // .'$Object'.description
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.description]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.description]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_6(prop, 0x000000656c746974LL))
+                {
+                    // handle may title property
+                    // .'$Object'.title
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.title]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.title]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x65706f725078616dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL))
+                {
+                    // handle may maxProperties property
+                    // .'$Object'.maxProperties
+                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Object'.maxProperties]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.maxProperties]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+                {
+                    // handle may $dynamicAnchor property
+                    // .'$Object'.'$dynamicAnchor'
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$dynamicAnchor']", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$dynamicAnchor']", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x506e726574746170LL) && jm_str_eq_8(prop + 8, 0x6569747265706f72LL) && jm_str_eq_2(prop + 16, 0x00000073))
+                {
+                    // handle may patternProperties property
+                    // .'$Object'.patternProperties
+                    res = _jm_obj_15(pval, (path ? &lpath_18 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.patternProperties]", (path ? &lpath_18 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.patternProperties]", (path ? &lpath_18 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
         {
             // handle must type property
@@ -2024,302 +2484,6 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected object [.'$Object'.type]", (path ? &lpath_18 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Object'.type]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Object'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.id]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.id]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Object'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$id']", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$id']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Object'.'$defs'
-            res = _jm_obj_11(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.'$defs']", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$defs']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Object'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.title]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.title]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Object'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$anchor']", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$anchor']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Object'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$schema']", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$schema']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Object'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Object'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$comment']", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$comment']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Object'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Object'.examples]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.examples]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Object'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Object'.readOnly]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.readOnly]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may required property
-            // .'$Object'.required
-            res = json_is_array(pval);
-            if (likely(res))
-            {
-                size_t arr_5_idx;
-                json_t *arr_5_item;
-                json_array_foreach(pval, arr_5_idx, arr_5_item)
-                {
-                    jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_18 : NULL), NULL };
-                    // .'$Object'.required.0
-                    res = json_is_string(arr_5_item);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.required.0]", ((path ? &lpath_18 : NULL) ? &arr_5_lpath : NULL));
-                        break;
-                    }
-                }
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Object'.required]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.required]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Object'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Object'.writeOnly]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.writeOnly]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Object'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Object'.deprecated]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.deprecated]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x69747265706f7270LL) && jm_str_eq_3(prop + 8, 0x00007365)))
-        {
-            // handle may properties property
-            // .'$Object'.properties
-            res = _jm_obj_12(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.properties]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.properties]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Object'.'$vocabulary'
-            res = _jm_obj_13(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.'$vocabulary']", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$vocabulary']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Object'.definitions
-            res = _jm_obj_14(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.definitions]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.definitions]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
-        {
-            // handle may description property
-            // .'$Object'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.description]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.description]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x65706f725078616dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL)))
-        {
-            // handle may maxProperties property
-            // .'$Object'.maxProperties
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Object'.maxProperties]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.maxProperties]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x65706f72506e696dLL) && jm_str_eq_6(prop + 8, 0x0000007365697472LL)))
-        {
-            // handle may minProperties property
-            // .'$Object'.minProperties
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Object'.minProperties]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.minProperties]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x79747265706f7270LL) && jm_str_eq_6(prop + 8, 0x00000073656d614eLL)))
-        {
-            // handle may propertyNames property
-            // .'$Object'.propertyNames
-            res = json_model_24(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$Object'.propertyNames]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.propertyNames]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Object'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Object'.'$dynamicAnchor']", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.'$dynamicAnchor']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x506e726574746170LL) && jm_str_eq_8(prop + 8, 0x6569747265706f72LL) && jm_str_eq_2(prop + 16, 0x00000073)))
-        {
-            // handle may patternProperties property
-            // .'$Object'.patternProperties
-            res = _jm_obj_15(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.patternProperties]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.patternProperties]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6e6f697469646461LL) && jm_str_eq_8(prop + 8, 0x7265706f72506c61LL) && jm_str_eq_5(prop + 16, 0x0000000073656974LL))
-        {
-            // handle may additionalProperties property
-            // .'$Object'.additionalProperties
-            res = json_model_25(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.additionalProperties]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.additionalProperties]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x61756c6176656e75LL) && jm_str_eq_8(prop + 8, 0x65706f7250646574LL) && jm_str_eq_6(prop + 16, 0x0000007365697472LL)))
-        {
-            // handle may unevaluatedProperties property
-            // .'$Object'.unevaluatedProperties
-            res = json_model_25(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.unevaluatedProperties]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Object'.unevaluatedProperties]", (path ? &lpath_18 : NULL));
                 return false;
             }
         }
@@ -2369,42 +2533,8 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Integer'.'$vocabulary'
-static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Integer'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_26 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Integer'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Integer'.'$vocabulary'.'$URI']", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Integer'.'$vocabulary']", (path ? &lpath_26 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Integer'.definitions
-static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2416,13 +2546,47 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Integer'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_27 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_26 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Integer'.definitions.'']", (path ? &lpath_27 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Integer'.definitions.'']", (path ? &lpath_26 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Integer'.'$vocabulary'
+static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Integer'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_27 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Integer'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Integer'.'$vocabulary'.'$URI']", (path ? &lpath_27 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Integer'.'$vocabulary']", (path ? &lpath_27 : NULL));
             return false;
         }
     }
@@ -2445,6 +2609,241 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_5 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_5 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$Integer'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.id]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.id]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$Integer'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$id']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$id']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$Integer'.'$defs'
+                res = _jm_obj_16(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Integer'.'$defs']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$defs']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$Integer'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$schema']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$schema']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$Integer'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$Integer'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Integer'.examples]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.examples]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$Integer'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Integer'.readOnly]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.readOnly]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$Integer'.definitions
+                res = _jm_obj_17(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Integer'.definitions]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.definitions]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$Integer'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.title]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.title]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$Integer'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$anchor']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$anchor']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x006d756d6978616dLL))
+            {
+                // handle may maximum property
+                // .'$Integer'.maximum
+                res = json_is_real(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$Integer'.maximum]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.maximum]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x006d756d696e696dLL))
+            {
+                // handle may minimum property
+                // .'$Integer'.minimum
+                res = json_is_real(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$Integer'.minimum]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.minimum]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$Integer'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$comment']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$comment']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$Integer'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Integer'.writeOnly]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.writeOnly]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$Integer'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Integer'.deprecated]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.deprecated]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$Integer'.'$vocabulary'
+                res = _jm_obj_18(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Integer'.'$vocabulary']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$vocabulary']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$Integer'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.description]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.description]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$Integer'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$dynamicAnchor']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$dynamicAnchor']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
         {
             // handle must type property
@@ -2455,214 +2854,6 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected integer [.'$Integer'.type]", (path ? &lpath_24 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Integer'.type]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Integer'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.id]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.id]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Integer'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$id']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$id']", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Integer'.'$defs'
-            res = _jm_obj_16(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Integer'.'$defs']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$defs']", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Integer'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.title]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.title]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Integer'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$anchor']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$anchor']", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Integer'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$schema']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$schema']", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Integer'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x006d756d6978616dLL)))
-        {
-            // handle may maximum property
-            // .'$Integer'.maximum
-            res = json_is_real(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$Integer'.maximum]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.maximum]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x006d756d696e696dLL)))
-        {
-            // handle may minimum property
-            // .'$Integer'.minimum
-            res = json_is_real(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$Integer'.minimum]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.minimum]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Integer'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$comment']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$comment']", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Integer'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Integer'.examples]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.examples]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Integer'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Integer'.readOnly]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.readOnly]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Integer'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Integer'.writeOnly]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.writeOnly]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Integer'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Integer'.deprecated]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.deprecated]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Integer'.'$vocabulary'
-            res = _jm_obj_17(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Integer'.'$vocabulary']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$vocabulary']", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Integer'.definitions
-            res = _jm_obj_18(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Integer'.definitions]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.definitions]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$Integer'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.description]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.description]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Integer'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Integer'.'$dynamicAnchor']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Integer'.'$dynamicAnchor']", (path ? &lpath_24 : NULL));
                 return false;
             }
         }
@@ -2712,42 +2903,8 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Number'.'$vocabulary'
-static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Number'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_30 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Number'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Number'.'$vocabulary'.'$URI']", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Number'.'$vocabulary']", (path ? &lpath_30 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Number'.definitions
-static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2759,13 +2916,47 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Number'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_31 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_30 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Number'.definitions.'']", (path ? &lpath_31 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Number'.definitions.'']", (path ? &lpath_30 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Number'.'$vocabulary'
+static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Number'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_31 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Number'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Number'.'$vocabulary'.'$URI']", (path ? &lpath_31 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Number'.'$vocabulary']", (path ? &lpath_31 : NULL));
             return false;
         }
     }
@@ -2788,6 +2979,241 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_6 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_6 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$Number'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.id]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.id]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$Number'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$id']", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$id']", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$Number'.'$defs'
+                res = _jm_obj_19(pval, (path ? &lpath_28 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Number'.'$defs']", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$defs']", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$Number'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$schema']", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$schema']", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$Number'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$Number'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Number'.examples]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.examples]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$Number'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Number'.readOnly]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.readOnly]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$Number'.definitions
+                res = _jm_obj_20(pval, (path ? &lpath_28 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Number'.definitions]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.definitions]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$Number'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.title]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.title]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$Number'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$anchor']", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$anchor']", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x006d756d6978616dLL))
+            {
+                // handle may maximum property
+                // .'$Number'.maximum
+                res = json_is_real(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$Number'.maximum]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.maximum]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x006d756d696e696dLL))
+            {
+                // handle may minimum property
+                // .'$Number'.minimum
+                res = json_is_real(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$Number'.minimum]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.minimum]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$Number'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$comment']", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$comment']", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$Number'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Number'.writeOnly]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.writeOnly]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$Number'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Number'.deprecated]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.deprecated]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$Number'.'$vocabulary'
+                res = _jm_obj_21(pval, (path ? &lpath_28 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Number'.'$vocabulary']", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$vocabulary']", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$Number'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.description]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.description]", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$Number'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$dynamicAnchor']", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$dynamicAnchor']", (path ? &lpath_28 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
         {
             // handle must type property
@@ -2798,214 +3224,6 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected number [.'$Number'.type]", (path ? &lpath_28 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Number'.type]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Number'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.id]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.id]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Number'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$id']", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$id']", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Number'.'$defs'
-            res = _jm_obj_19(pval, (path ? &lpath_28 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Number'.'$defs']", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$defs']", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Number'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.title]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.title]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Number'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$anchor']", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$anchor']", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Number'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$schema']", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$schema']", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Number'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x006d756d6978616dLL)))
-        {
-            // handle may maximum property
-            // .'$Number'.maximum
-            res = json_is_real(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$Number'.maximum]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.maximum]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x006d756d696e696dLL)))
-        {
-            // handle may minimum property
-            // .'$Number'.minimum
-            res = json_is_real(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$Number'.minimum]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.minimum]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Number'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$comment']", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$comment']", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Number'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Number'.examples]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.examples]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Number'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Number'.readOnly]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.readOnly]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Number'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Number'.writeOnly]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.writeOnly]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Number'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Number'.deprecated]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.deprecated]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Number'.'$vocabulary'
-            res = _jm_obj_20(pval, (path ? &lpath_28 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Number'.'$vocabulary']", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$vocabulary']", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Number'.definitions
-            res = _jm_obj_21(pval, (path ? &lpath_28 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Number'.definitions]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.definitions]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$Number'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.description]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.description]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Number'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Number'.'$dynamicAnchor']", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Number'.'$dynamicAnchor']", (path ? &lpath_28 : NULL));
                 return false;
             }
         }
@@ -3055,42 +3273,8 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Bool'.'$vocabulary'
-static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Bool'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_34 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_34 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Bool'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Bool'.'$vocabulary'.'$URI']", (path ? &lpath_34 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Bool'.'$vocabulary']", (path ? &lpath_34 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Bool'.definitions
-static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3102,13 +3286,47 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_35 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_34 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Bool'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_35 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_34 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Bool'.definitions.'']", (path ? &lpath_35 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Bool'.definitions.'']", (path ? &lpath_34 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Bool'.'$vocabulary'
+static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Bool'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_35 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_35 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Bool'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Bool'.'$vocabulary'.'$URI']", (path ? &lpath_35 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Bool'.'$vocabulary']", (path ? &lpath_35 : NULL));
             return false;
         }
     }
@@ -3131,6 +3349,215 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_32 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_7 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_7 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$Bool'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.id]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.id]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$Bool'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$id']", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$id']", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$Bool'.'$defs'
+                res = _jm_obj_22(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bool'.'$defs']", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$defs']", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$Bool'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$schema']", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$schema']", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$Bool'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$Bool'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Bool'.examples]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.examples]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$Bool'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Bool'.readOnly]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.readOnly]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$Bool'.definitions
+                res = _jm_obj_23(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bool'.definitions]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.definitions]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$Bool'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.title]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.title]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$Bool'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$anchor']", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$anchor']", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$Bool'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$comment']", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$comment']", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$Bool'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Bool'.writeOnly]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.writeOnly]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$Bool'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Bool'.deprecated]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.deprecated]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$Bool'.'$vocabulary'
+                res = _jm_obj_24(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bool'.'$vocabulary']", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$vocabulary']", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$Bool'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.description]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.description]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$Bool'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$dynamicAnchor']", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$dynamicAnchor']", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
         {
             // handle must type property
@@ -3141,190 +3568,6 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected boolean [.'$Bool'.type]", (path ? &lpath_32 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Bool'.type]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Bool'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.id]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.id]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Bool'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$id']", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$id']", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Bool'.'$defs'
-            res = _jm_obj_22(pval, (path ? &lpath_32 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bool'.'$defs']", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$defs']", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Bool'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.title]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.title]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Bool'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$anchor']", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$anchor']", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Bool'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$schema']", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$schema']", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Bool'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Bool'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$comment']", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$comment']", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Bool'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Bool'.examples]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.examples]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Bool'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Bool'.readOnly]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.readOnly]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Bool'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Bool'.writeOnly]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.writeOnly]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Bool'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Bool'.deprecated]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.deprecated]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Bool'.'$vocabulary'
-            res = _jm_obj_23(pval, (path ? &lpath_32 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bool'.'$vocabulary']", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$vocabulary']", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Bool'.definitions
-            res = _jm_obj_24(pval, (path ? &lpath_32 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bool'.definitions]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.definitions]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$Bool'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.description]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.description]", (path ? &lpath_32 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Bool'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Bool'.'$dynamicAnchor']", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Bool'.'$dynamicAnchor']", (path ? &lpath_32 : NULL));
                 return false;
             }
         }
@@ -3374,42 +3617,8 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Null'.'$vocabulary'
-static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Null'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_38 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_38 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Null'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Null'.'$vocabulary'.'$URI']", (path ? &lpath_38 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Null'.'$vocabulary']", (path ? &lpath_38 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Null'.definitions
-static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3421,13 +3630,47 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_39 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_38 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Null'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_39 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_38 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Null'.definitions.'']", (path ? &lpath_39 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Null'.definitions.'']", (path ? &lpath_38 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Null'.'$vocabulary'
+static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Null'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_39 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_39 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Null'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Null'.'$vocabulary'.'$URI']", (path ? &lpath_39 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Null'.'$vocabulary']", (path ? &lpath_39 : NULL));
             return false;
         }
     }
@@ -3450,6 +3693,215 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_8 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_8 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$Null'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.id]", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.id]", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$Null'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$id']", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$id']", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$Null'.'$defs'
+                res = _jm_obj_25(pval, (path ? &lpath_36 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Null'.'$defs']", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$defs']", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$Null'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$schema']", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$schema']", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$Null'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$Null'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Null'.examples]", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.examples]", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$Null'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Null'.readOnly]", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.readOnly]", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$Null'.definitions
+                res = _jm_obj_26(pval, (path ? &lpath_36 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Null'.definitions]", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.definitions]", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$Null'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.title]", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.title]", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$Null'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$anchor']", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$anchor']", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$Null'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$comment']", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$comment']", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$Null'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Null'.writeOnly]", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.writeOnly]", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$Null'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Null'.deprecated]", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.deprecated]", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$Null'.'$vocabulary'
+                res = _jm_obj_27(pval, (path ? &lpath_36 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Null'.'$vocabulary']", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$vocabulary']", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$Null'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.description]", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.description]", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$Null'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$dynamicAnchor']", (path ? &lpath_36 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$dynamicAnchor']", (path ? &lpath_36 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
         {
             // handle must type property
@@ -3460,190 +3912,6 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected null [.'$Null'.type]", (path ? &lpath_36 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Null'.type]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Null'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.id]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.id]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Null'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$id']", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$id']", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Null'.'$defs'
-            res = _jm_obj_25(pval, (path ? &lpath_36 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Null'.'$defs']", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$defs']", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Null'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.title]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.title]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Null'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$anchor']", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$anchor']", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Null'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$schema']", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$schema']", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Null'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Null'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$comment']", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$comment']", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Null'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Null'.examples]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.examples]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Null'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Null'.readOnly]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.readOnly]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Null'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Null'.writeOnly]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.writeOnly]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Null'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Null'.deprecated]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.deprecated]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Null'.'$vocabulary'
-            res = _jm_obj_26(pval, (path ? &lpath_36 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Null'.'$vocabulary']", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$vocabulary']", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Null'.definitions
-            res = _jm_obj_27(pval, (path ? &lpath_36 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Null'.definitions]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.definitions]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$Null'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.description]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.description]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Null'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Null'.'$dynamicAnchor']", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Null'.'$dynamicAnchor']", (path ? &lpath_36 : NULL));
                 return false;
             }
         }
@@ -3693,42 +3961,8 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$AllOf'.'$vocabulary'
-static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$AllOf'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_42 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$AllOf'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AllOf'.'$vocabulary'.'$URI']", (path ? &lpath_42 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AllOf'.'$vocabulary']", (path ? &lpath_42 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$AllOf'.definitions
-static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3740,13 +3974,47 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_43 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$AllOf'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_43 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_42 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$AllOf'.definitions.'']", (path ? &lpath_43 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$AllOf'.definitions.'']", (path ? &lpath_42 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$AllOf'.'$vocabulary'
+static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$AllOf'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_43 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_43 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$AllOf'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$AllOf'.'$vocabulary'.'$URI']", (path ? &lpath_43 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AllOf'.'$vocabulary']", (path ? &lpath_43 : NULL));
             return false;
         }
     }
@@ -3769,6 +4037,215 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_40 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_9 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_9 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$AllOf'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.id]", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.id]", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$AllOf'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$id']", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$id']", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$AllOf'.'$defs'
+                res = _jm_obj_28(pval, (path ? &lpath_40 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$AllOf'.'$defs']", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$defs']", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$AllOf'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$schema']", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$schema']", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$AllOf'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$AllOf'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$AllOf'.examples]", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.examples]", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$AllOf'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$AllOf'.readOnly]", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.readOnly]", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$AllOf'.definitions
+                res = _jm_obj_29(pval, (path ? &lpath_40 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$AllOf'.definitions]", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.definitions]", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$AllOf'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.title]", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.title]", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$AllOf'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$anchor']", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$anchor']", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$AllOf'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$comment']", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$comment']", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$AllOf'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$AllOf'.writeOnly]", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.writeOnly]", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$AllOf'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$AllOf'.deprecated]", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.deprecated]", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$AllOf'.'$vocabulary'
+                res = _jm_obj_30(pval, (path ? &lpath_40 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$AllOf'.'$vocabulary']", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$vocabulary']", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$AllOf'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.description]", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.description]", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$AllOf'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$dynamicAnchor']", (path ? &lpath_40 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$dynamicAnchor']", (path ? &lpath_40 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_6(prop, 0x000000664f6c6c61LL)))
         {
             // handle must allOf property
@@ -3779,190 +4256,6 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$AllOf'.allOf]", (path ? &lpath_40 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$AllOf'.allOf]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$AllOf'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.id]", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.id]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$AllOf'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$id']", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$id']", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$AllOf'.'$defs'
-            res = _jm_obj_28(pval, (path ? &lpath_40 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$AllOf'.'$defs']", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$defs']", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$AllOf'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.title]", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.title]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$AllOf'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$anchor']", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$anchor']", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$AllOf'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$schema']", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$schema']", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$AllOf'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$AllOf'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$comment']", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$comment']", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$AllOf'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$AllOf'.examples]", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.examples]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$AllOf'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AllOf'.readOnly]", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.readOnly]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$AllOf'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AllOf'.writeOnly]", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.writeOnly]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$AllOf'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AllOf'.deprecated]", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.deprecated]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$AllOf'.'$vocabulary'
-            res = _jm_obj_29(pval, (path ? &lpath_40 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$AllOf'.'$vocabulary']", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$vocabulary']", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$AllOf'.definitions
-            res = _jm_obj_30(pval, (path ? &lpath_40 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$AllOf'.definitions]", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.definitions]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$AllOf'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.description]", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.description]", (path ? &lpath_40 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$AllOf'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AllOf'.'$dynamicAnchor']", (path ? &lpath_40 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AllOf'.'$dynamicAnchor']", (path ? &lpath_40 : NULL));
                 return false;
             }
         }
@@ -4012,42 +4305,8 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$AnyOf'.'$vocabulary'
-static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$AnyOf'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_46 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_46 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$AnyOf'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AnyOf'.'$vocabulary'.'$URI']", (path ? &lpath_46 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AnyOf'.'$vocabulary']", (path ? &lpath_46 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$AnyOf'.definitions
-static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -4059,13 +4318,47 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_47 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_46 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$AnyOf'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_47 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_46 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$AnyOf'.definitions.'']", (path ? &lpath_47 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$AnyOf'.definitions.'']", (path ? &lpath_46 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$AnyOf'.'$vocabulary'
+static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$AnyOf'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_47 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_47 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$AnyOf'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$AnyOf'.'$vocabulary'.'$URI']", (path ? &lpath_47 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AnyOf'.'$vocabulary']", (path ? &lpath_47 : NULL));
             return false;
         }
     }
@@ -4088,6 +4381,215 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_44 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_10 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_10 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$AnyOf'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.id]", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.id]", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$AnyOf'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$id']", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$id']", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$AnyOf'.'$defs'
+                res = _jm_obj_31(pval, (path ? &lpath_44 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$AnyOf'.'$defs']", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$defs']", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$AnyOf'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$schema']", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$schema']", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$AnyOf'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$AnyOf'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$AnyOf'.examples]", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.examples]", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$AnyOf'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$AnyOf'.readOnly]", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.readOnly]", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$AnyOf'.definitions
+                res = _jm_obj_32(pval, (path ? &lpath_44 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$AnyOf'.definitions]", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.definitions]", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$AnyOf'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.title]", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.title]", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$AnyOf'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$anchor']", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$anchor']", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$AnyOf'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$comment']", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$comment']", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$AnyOf'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$AnyOf'.writeOnly]", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.writeOnly]", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$AnyOf'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$AnyOf'.deprecated]", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.deprecated]", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$AnyOf'.'$vocabulary'
+                res = _jm_obj_33(pval, (path ? &lpath_44 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$AnyOf'.'$vocabulary']", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$vocabulary']", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$AnyOf'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.description]", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.description]", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$AnyOf'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$dynamicAnchor']", (path ? &lpath_44 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$dynamicAnchor']", (path ? &lpath_44 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_6(prop, 0x000000664f796e61LL)))
         {
             // handle must anyOf property
@@ -4098,190 +4600,6 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$AnyOf'.anyOf]", (path ? &lpath_44 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$AnyOf'.anyOf]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$AnyOf'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.id]", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.id]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$AnyOf'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$id']", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$id']", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$AnyOf'.'$defs'
-            res = _jm_obj_31(pval, (path ? &lpath_44 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$AnyOf'.'$defs']", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$defs']", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$AnyOf'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.title]", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.title]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$AnyOf'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$anchor']", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$anchor']", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$AnyOf'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$schema']", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$schema']", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$AnyOf'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$AnyOf'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$comment']", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$comment']", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$AnyOf'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$AnyOf'.examples]", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.examples]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$AnyOf'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AnyOf'.readOnly]", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.readOnly]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$AnyOf'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AnyOf'.writeOnly]", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.writeOnly]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$AnyOf'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AnyOf'.deprecated]", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.deprecated]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$AnyOf'.'$vocabulary'
-            res = _jm_obj_32(pval, (path ? &lpath_44 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$AnyOf'.'$vocabulary']", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$vocabulary']", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$AnyOf'.definitions
-            res = _jm_obj_33(pval, (path ? &lpath_44 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$AnyOf'.definitions]", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.definitions]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$AnyOf'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.description]", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.description]", (path ? &lpath_44 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$AnyOf'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnyOf'.'$dynamicAnchor']", (path ? &lpath_44 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnyOf'.'$dynamicAnchor']", (path ? &lpath_44 : NULL));
                 return false;
             }
         }
@@ -4331,42 +4649,8 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$OneOf'.'$vocabulary'
-static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$OneOf'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_50 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_50 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$OneOf'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$OneOf'.'$vocabulary'.'$URI']", (path ? &lpath_50 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$OneOf'.'$vocabulary']", (path ? &lpath_50 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$OneOf'.definitions
-static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -4378,13 +4662,47 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_51 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_50 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$OneOf'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_51 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_50 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$OneOf'.definitions.'']", (path ? &lpath_51 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$OneOf'.definitions.'']", (path ? &lpath_50 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$OneOf'.'$vocabulary'
+static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$OneOf'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_51 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_51 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$OneOf'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$OneOf'.'$vocabulary'.'$URI']", (path ? &lpath_51 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$OneOf'.'$vocabulary']", (path ? &lpath_51 : NULL));
             return false;
         }
     }
@@ -4407,6 +4725,215 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_48 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_11 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_11 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$OneOf'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.id]", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.id]", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$OneOf'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$id']", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$id']", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$OneOf'.'$defs'
+                res = _jm_obj_34(pval, (path ? &lpath_48 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$OneOf'.'$defs']", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$defs']", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$OneOf'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$schema']", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$schema']", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$OneOf'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$OneOf'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$OneOf'.examples]", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.examples]", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$OneOf'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$OneOf'.readOnly]", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.readOnly]", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$OneOf'.definitions
+                res = _jm_obj_35(pval, (path ? &lpath_48 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$OneOf'.definitions]", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.definitions]", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$OneOf'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.title]", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.title]", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$OneOf'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$anchor']", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$anchor']", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$OneOf'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$comment']", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$comment']", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$OneOf'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$OneOf'.writeOnly]", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.writeOnly]", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$OneOf'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$OneOf'.deprecated]", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.deprecated]", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$OneOf'.'$vocabulary'
+                res = _jm_obj_36(pval, (path ? &lpath_48 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$OneOf'.'$vocabulary']", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$vocabulary']", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$OneOf'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.description]", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.description]", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$OneOf'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$dynamicAnchor']", (path ? &lpath_48 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$dynamicAnchor']", (path ? &lpath_48 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_6(prop, 0x000000664f656e6fLL)))
         {
             // handle must oneOf property
@@ -4417,190 +4944,6 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$OneOf'.oneOf]", (path ? &lpath_48 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$OneOf'.oneOf]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$OneOf'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.id]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.id]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$OneOf'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$id']", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$id']", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$OneOf'.'$defs'
-            res = _jm_obj_34(pval, (path ? &lpath_48 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$OneOf'.'$defs']", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$defs']", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$OneOf'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.title]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.title]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$OneOf'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$anchor']", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$anchor']", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$OneOf'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$schema']", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$schema']", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$OneOf'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$OneOf'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$comment']", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$comment']", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$OneOf'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$OneOf'.examples]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.examples]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$OneOf'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$OneOf'.readOnly]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.readOnly]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$OneOf'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$OneOf'.writeOnly]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.writeOnly]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$OneOf'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$OneOf'.deprecated]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.deprecated]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$OneOf'.'$vocabulary'
-            res = _jm_obj_35(pval, (path ? &lpath_48 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$OneOf'.'$vocabulary']", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$vocabulary']", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$OneOf'.definitions
-            res = _jm_obj_36(pval, (path ? &lpath_48 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$OneOf'.definitions]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.definitions]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$OneOf'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.description]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.description]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$OneOf'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$OneOf'.'$dynamicAnchor']", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OneOf'.'$dynamicAnchor']", (path ? &lpath_48 : NULL));
                 return false;
             }
         }
@@ -4650,42 +4993,8 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Enum'.'$vocabulary'
-static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Enum'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_54 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_54 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Enum'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Enum'.'$vocabulary'.'$URI']", (path ? &lpath_54 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Enum'.'$vocabulary']", (path ? &lpath_54 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Enum'.definitions
-static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -4697,13 +5006,47 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_55 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_54 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Enum'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_55 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_54 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Enum'.definitions.'']", (path ? &lpath_55 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Enum'.definitions.'']", (path ? &lpath_54 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Enum'.'$vocabulary'
+static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Enum'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_55 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_55 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Enum'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Enum'.'$vocabulary'.'$URI']", (path ? &lpath_55 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Enum'.'$vocabulary']", (path ? &lpath_55 : NULL));
             return false;
         }
     }
@@ -4726,6 +5069,215 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_52 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_12 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_12 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$Enum'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.id]", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.id]", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$Enum'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$id']", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$id']", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$Enum'.'$defs'
+                res = _jm_obj_37(pval, (path ? &lpath_52 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Enum'.'$defs']", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$defs']", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$Enum'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$schema']", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$schema']", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$Enum'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$Enum'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Enum'.examples]", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.examples]", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$Enum'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Enum'.readOnly]", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.readOnly]", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$Enum'.definitions
+                res = _jm_obj_38(pval, (path ? &lpath_52 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Enum'.definitions]", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.definitions]", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$Enum'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.title]", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.title]", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$Enum'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$anchor']", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$anchor']", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$Enum'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$comment']", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$comment']", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$Enum'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Enum'.writeOnly]", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.writeOnly]", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$Enum'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Enum'.deprecated]", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.deprecated]", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$Enum'.'$vocabulary'
+                res = _jm_obj_39(pval, (path ? &lpath_52 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Enum'.'$vocabulary']", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$vocabulary']", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$Enum'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.description]", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.description]", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$Enum'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$dynamicAnchor']", (path ? &lpath_52 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$dynamicAnchor']", (path ? &lpath_52 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
         {
             // handle must enum property
@@ -4736,190 +5288,6 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $enum [.'$Enum'.enum]", (path ? &lpath_52 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Enum'.enum]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Enum'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.id]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.id]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Enum'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$id']", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$id']", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Enum'.'$defs'
-            res = _jm_obj_37(pval, (path ? &lpath_52 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Enum'.'$defs']", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$defs']", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Enum'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.title]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.title]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Enum'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$anchor']", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$anchor']", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Enum'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$schema']", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$schema']", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Enum'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Enum'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$comment']", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$comment']", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Enum'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Enum'.examples]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.examples]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Enum'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Enum'.readOnly]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.readOnly]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Enum'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Enum'.writeOnly]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.writeOnly]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Enum'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Enum'.deprecated]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.deprecated]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Enum'.'$vocabulary'
-            res = _jm_obj_38(pval, (path ? &lpath_52 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Enum'.'$vocabulary']", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$vocabulary']", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Enum'.definitions
-            res = _jm_obj_39(pval, (path ? &lpath_52 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Enum'.definitions]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.definitions]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$Enum'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.description]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.description]", (path ? &lpath_52 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Enum'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Enum'.'$dynamicAnchor']", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Enum'.'$dynamicAnchor']", (path ? &lpath_52 : NULL));
                 return false;
             }
         }
@@ -4969,42 +5337,8 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Const'.'$vocabulary'
-static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Const'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_58 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_58 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Const'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Const'.'$vocabulary'.'$URI']", (path ? &lpath_58 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Const'.'$vocabulary']", (path ? &lpath_58 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Const'.definitions
-static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -5016,13 +5350,47 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_59 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_58 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Const'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_59 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_58 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Const'.definitions.'']", (path ? &lpath_59 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Const'.definitions.'']", (path ? &lpath_58 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Const'.'$vocabulary'
+static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Const'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_59 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_59 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Const'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Const'.'$vocabulary'.'$URI']", (path ? &lpath_59 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Const'.'$vocabulary']", (path ? &lpath_59 : NULL));
             return false;
         }
     }
@@ -5045,6 +5413,215 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_56 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_13 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_13 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$Const'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.id]", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.id]", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$Const'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$id']", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$id']", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$Const'.'$defs'
+                res = _jm_obj_40(pval, (path ? &lpath_56 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Const'.'$defs']", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$defs']", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$Const'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$schema']", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$schema']", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$Const'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$Const'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Const'.examples]", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.examples]", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$Const'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Const'.readOnly]", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.readOnly]", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$Const'.definitions
+                res = _jm_obj_41(pval, (path ? &lpath_56 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Const'.definitions]", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.definitions]", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$Const'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.title]", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.title]", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$Const'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$anchor']", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$anchor']", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$Const'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$comment']", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$comment']", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$Const'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Const'.writeOnly]", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.writeOnly]", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$Const'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Const'.deprecated]", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.deprecated]", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$Const'.'$vocabulary'
+                res = _jm_obj_42(pval, (path ? &lpath_56 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Const'.'$vocabulary']", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$vocabulary']", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$Const'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.description]", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.description]", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$Const'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$dynamicAnchor']", (path ? &lpath_56 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$dynamicAnchor']", (path ? &lpath_56 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
         {
             // handle must const property
@@ -5055,190 +5632,6 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $const [.'$Const'.const]", (path ? &lpath_56 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Const'.const]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Const'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.id]", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.id]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Const'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$id']", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$id']", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Const'.'$defs'
-            res = _jm_obj_40(pval, (path ? &lpath_56 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Const'.'$defs']", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$defs']", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Const'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.title]", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.title]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Const'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$anchor']", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$anchor']", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Const'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$schema']", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$schema']", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Const'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Const'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$comment']", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$comment']", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Const'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Const'.examples]", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.examples]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Const'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Const'.readOnly]", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.readOnly]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Const'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Const'.writeOnly]", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.writeOnly]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Const'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Const'.deprecated]", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.deprecated]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Const'.'$vocabulary'
-            res = _jm_obj_41(pval, (path ? &lpath_56 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Const'.'$vocabulary']", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$vocabulary']", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Const'.definitions
-            res = _jm_obj_42(pval, (path ? &lpath_56 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Const'.definitions]", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.definitions]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$Const'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.description]", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.description]", (path ? &lpath_56 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Const'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Const'.'$dynamicAnchor']", (path ? &lpath_56 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Const'.'$dynamicAnchor']", (path ? &lpath_56 : NULL));
                 return false;
             }
         }
@@ -5288,42 +5681,8 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Ref'.'$vocabulary'
-static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Ref'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_62 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_62 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Ref'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Ref'.'$vocabulary'.'$URI']", (path ? &lpath_62 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Ref'.'$vocabulary']", (path ? &lpath_62 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Ref'.definitions
-static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -5335,13 +5694,47 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_63 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_62 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Ref'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_63 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_62 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Ref'.definitions.'']", (path ? &lpath_63 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Ref'.definitions.'']", (path ? &lpath_62 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Ref'.'$vocabulary'
+static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Ref'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_63 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_63 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Ref'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Ref'.'$vocabulary'.'$URI']", (path ? &lpath_63 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Ref'.'$vocabulary']", (path ? &lpath_63 : NULL));
             return false;
         }
     }
@@ -5364,6 +5757,215 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_60 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_14 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_14 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$Ref'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.id]", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.id]", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$Ref'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$id']", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$id']", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$Ref'.'$defs'
+                res = _jm_obj_43(pval, (path ? &lpath_60 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ref'.'$defs']", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$defs']", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$Ref'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$schema']", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$schema']", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$Ref'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$Ref'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Ref'.examples]", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.examples]", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$Ref'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Ref'.readOnly]", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.readOnly]", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$Ref'.definitions
+                res = _jm_obj_44(pval, (path ? &lpath_60 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ref'.definitions]", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.definitions]", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$Ref'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.title]", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.title]", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$Ref'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$anchor']", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$anchor']", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$Ref'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$comment']", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$comment']", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$Ref'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Ref'.writeOnly]", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.writeOnly]", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$Ref'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$Ref'.deprecated]", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.deprecated]", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$Ref'.'$vocabulary'
+                res = _jm_obj_45(pval, (path ? &lpath_60 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ref'.'$vocabulary']", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$vocabulary']", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$Ref'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.description]", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.description]", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$Ref'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$dynamicAnchor']", (path ? &lpath_60 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$dynamicAnchor']", (path ? &lpath_60 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x0000000066657224LL)))
         {
             // handle must $ref property
@@ -5374,190 +5976,6 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URI [.'$Ref'.'$ref']", (path ? &lpath_60 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Ref'.'$ref']", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$Ref'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.id]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.id]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$Ref'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$id']", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$id']", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$Ref'.'$defs'
-            res = _jm_obj_43(pval, (path ? &lpath_60 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ref'.'$defs']", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$defs']", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$Ref'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.title]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.title]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$Ref'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$anchor']", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$anchor']", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$Ref'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$schema']", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$schema']", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$Ref'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$Ref'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$comment']", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$comment']", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$Ref'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Ref'.examples]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.examples]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$Ref'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Ref'.readOnly]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.readOnly]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$Ref'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Ref'.writeOnly]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.writeOnly]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$Ref'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Ref'.deprecated]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.deprecated]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$Ref'.'$vocabulary'
-            res = _jm_obj_44(pval, (path ? &lpath_60 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ref'.'$vocabulary']", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$vocabulary']", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$Ref'.definitions
-            res = _jm_obj_45(pval, (path ? &lpath_60 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ref'.definitions]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.definitions]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$Ref'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.description]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.description]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$Ref'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ref'.'$dynamicAnchor']", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ref'.'$dynamicAnchor']", (path ? &lpath_60 : NULL));
                 return false;
             }
         }
@@ -5607,42 +6025,8 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$DynRef'.'$vocabulary'
-static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$DynRef'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_66 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_66 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$DynRef'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$DynRef'.'$vocabulary'.'$URI']", (path ? &lpath_66 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$DynRef'.'$vocabulary']", (path ? &lpath_66 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$DynRef'.definitions
-static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -5654,13 +6038,47 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_67 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_66 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$DynRef'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_67 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_66 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$DynRef'.definitions.'']", (path ? &lpath_67 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$DynRef'.definitions.'']", (path ? &lpath_66 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$DynRef'.'$vocabulary'
+static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$DynRef'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_67 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_67 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$DynRef'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$DynRef'.'$vocabulary'.'$URI']", (path ? &lpath_67 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$DynRef'.'$vocabulary']", (path ? &lpath_67 : NULL));
             return false;
         }
     }
@@ -5683,6 +6101,215 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_64 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_15 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_15 <= 6710628)
+        {
+            if (jm_str_eq_3(prop, 0x00006469))
+            {
+                // handle may id property
+                // .'$DynRef'.id
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.id]", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.id]", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x00646924))
+            {
+                // handle may $id property
+                // .'$DynRef'.'$id'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$id']", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$id']", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000007366656424LL))
+            {
+                // handle may $defs property
+                // .'$DynRef'.'$defs'
+                res = _jm_obj_46(pval, (path ? &lpath_64 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$DynRef'.'$defs']", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$defs']", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00616d6568637324LL))
+            {
+                // handle may $schema property
+                // .'$DynRef'.'$schema'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$schema']", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$schema']", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
+            {
+                // handle may default property
+                // .'$DynRef'.default
+                res = true;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may examples property
+                // .'$DynRef'.examples
+                res = json_is_array(pval);
+                if (likely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$DynRef'.examples]", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.examples]", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may readOnly property
+                // .'$DynRef'.readOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$DynRef'.readOnly]", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.readOnly]", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f))
+            {
+                // handle may definitions property
+                // .'$DynRef'.definitions
+                res = _jm_obj_47(pval, (path ? &lpath_64 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$DynRef'.definitions]", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.definitions]", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_6(prop, 0x000000656c746974LL))
+            {
+                // handle may title property
+                // .'$DynRef'.title
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.title]", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.title]", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x00726f68636e6124LL))
+            {
+                // handle may $anchor property
+                // .'$DynRef'.'$anchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$anchor']", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$anchor']", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may $comment property
+                // .'$DynRef'.'$comment'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$comment']", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$comment']", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079))
+            {
+                // handle may writeOnly property
+                // .'$DynRef'.writeOnly
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$DynRef'.writeOnly]", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.writeOnly]", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465))
+            {
+                // handle may deprecated property
+                // .'$DynRef'.deprecated
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.'$DynRef'.deprecated]", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.deprecated]", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261))
+            {
+                // handle may $vocabulary property
+                // .'$DynRef'.'$vocabulary'
+                res = _jm_obj_48(pval, (path ? &lpath_64 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$DynRef'.'$vocabulary']", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$vocabulary']", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .'$DynRef'.description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.description]", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.description]", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL))
+            {
+                // handle may $dynamicAnchor property
+                // .'$DynRef'.'$dynamicAnchor'
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$dynamicAnchor']", (path ? &lpath_64 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$dynamicAnchor']", (path ? &lpath_64 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_4(prop + 8, 0x00666552)))
         {
             // handle must $dynamicRef property
@@ -5693,190 +6320,6 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URI [.'$DynRef'.'$dynamicRef']", (path ? &lpath_64 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$DynRef'.'$dynamicRef']", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00006469)))
-        {
-            // handle may id property
-            // .'$DynRef'.id
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.id]", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.id]", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00646924)))
-        {
-            // handle may $id property
-            // .'$DynRef'.'$id'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$id']", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$id']", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000007366656424LL)))
-        {
-            // handle may $defs property
-            // .'$DynRef'.'$defs'
-            res = _jm_obj_46(pval, (path ? &lpath_64 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$DynRef'.'$defs']", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$defs']", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x000000656c746974LL)))
-        {
-            // handle may title property
-            // .'$DynRef'.title
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.title]", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.title]", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00726f68636e6124LL)))
-        {
-            // handle may $anchor property
-            // .'$DynRef'.'$anchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$anchor']", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$anchor']", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
-        {
-            // handle may $schema property
-            // .'$DynRef'.'$schema'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$schema']", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$schema']", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746c7561666564LL)))
-            // handle may default property
-            // .'$DynRef'.default
-            res = true;
-        else if (unlikely(jm_str_eq_8(prop, 0x746e656d6d6f6324LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may $comment property
-            // .'$DynRef'.'$comment'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$comment']", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$comment']", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may examples property
-            // .'$DynRef'.examples
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$DynRef'.examples]", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.examples]", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x796c6e4f64616572LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may readOnly property
-            // .'$DynRef'.readOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$DynRef'.readOnly]", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.readOnly]", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6e4f6574697277LL) && jm_str_eq_2(prop + 8, 0x00000079)))
-        {
-            // handle may writeOnly property
-            // .'$DynRef'.writeOnly
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$DynRef'.writeOnly]", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.writeOnly]", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
-        {
-            // handle may deprecated property
-            // .'$DynRef'.deprecated
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$DynRef'.deprecated]", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.deprecated]", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c756261636f7624LL) && jm_str_eq_4(prop + 8, 0x00797261)))
-        {
-            // handle may $vocabulary property
-            // .'$DynRef'.'$vocabulary'
-            res = _jm_obj_47(pval, (path ? &lpath_64 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$DynRef'.'$vocabulary']", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$vocabulary']", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6974696e69666564LL) && jm_str_eq_4(prop + 8, 0x00736e6f)))
-        {
-            // handle may definitions property
-            // .'$DynRef'.definitions
-            res = _jm_obj_48(pval, (path ? &lpath_64 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$DynRef'.definitions]", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.definitions]", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
-        {
-            // handle may description property
-            // .'$DynRef'.description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.description]", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.description]", (path ? &lpath_64 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x63696d616e796424LL) && jm_str_eq_7(prop + 8, 0x0000726f68636e41LL)))
-        {
-            // handle may $dynamicAnchor property
-            // .'$DynRef'.'$dynamicAnchor'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DynRef'.'$dynamicAnchor']", (path ? &lpath_64 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DynRef'.'$dynamicAnchor']", (path ? &lpath_64 : NULL));
                 return false;
             }
         }

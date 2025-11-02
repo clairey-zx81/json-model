@@ -82,7 +82,7 @@ class CLangJansson(Language):
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
-             path_t="jm_path_t", float_t="double", str_t="const char *",
+             path_t="jm_path_t", float_t="double", str_t="const char *", hash_t="uint32_t",
              match_t="bool" if relib == "pcre2" else "int", with_hints=with_hints,
              eoi=";", relib=relib, debug=debug, with_predef=with_predef,
              set_caps=(type(None), bool, int, float, str))  # type: ignore
@@ -252,6 +252,18 @@ class CLangJansson(Language):
 
     def any_len(self, var: Var) -> IntExpr:
         return f"_any_len({var})"
+
+    def str_hash(self, val: Var, size: int = 1) -> IntExpr:
+        if size == 1:
+            return f"{val}[0]"
+        if self._byte_order == "le":
+            mask = "0x" + "00" * (size - 4) + "ff" * size
+        else:
+            mask = "0x" + "ff" * size + "00" * (size - 4)
+        expr = f"*((uint32_t *) ({val}))"
+        if size != 4:
+            expr = f"({expr}) & {mask}"
+        return f"({expr}) >> {8 * (size-4)}" if size != 4 and self._byte_order == "be" else expr
 
     #
     # misc expressions

@@ -21,6 +21,7 @@ B<jmc> - JSON Model Compiler
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
      [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD]
+     [--partition-threshold THRESHOLD]
      [--max-strcmp-cset SIZE] [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] model [values ...]
@@ -171,12 +172,17 @@ whether to share common maps, may result in smaller generated code.
 =item B<--may-must-open-threshold THRESHOLD>
 
 consider mmo object property scheme if the number of optional properties
-is below the provided threshold, default is 5.
+is below the provided threshold, default is depends on target.
 
 =item B<--must-only-threshold THRESHOLD>
 
 consider must-only object property scheme if the number of mandatory
-properties is below the provided threshold, default is 5.
+properties is below the provided threshold, default depends on target.
+
+=item B<--partition-threshold THRESHOLD>
+
+number of properties to trigger partitioning inlined property checks,
+default depends on target, 0 means no partitioning.
 
 =item B<--sort-must> B<--no-sort-must> B<--sort-may> B<--no-sort-may>
 

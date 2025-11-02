@@ -785,4 +785,85 @@ def is_a_simple_object(model: ModelType) -> bool:
     return True
 
 def load_data_file(fn: str) -> str:
+    """Load <python-files>/data/{fn}."""
     return data_files("json_model.data").joinpath(fn).read_text()
+
+def hasher(s: str, size: int, byte_order: str = "le") -> int:
+    assert 1 <= size <= 4 and byte_order in ("le", "be")
+    h = 0
+    if s:
+        for i in reversed(range(size)) if byte_order == "le" else range(size):
+            h = 256 * h + (ord(s[i]) if len(s) > i else 0)
+    return h
+
+def partition(names: set[str], limit: int, byte_order: str) -> tuple[int, dict[int, set[str]]]|None:
+    """Create a partition based on first bytes.
+
+    This must be endian-friendly. Avoid (expensive) operators.
+    The only sure thing is that the c-string is at least 1 byte for the termination,
+    so we may rely on one byte at least.
+
+    NOTE this is an optimization problem which we approximate crudely.
+    NOTE maybe we would want some _very_ inexpensive hash based on the first few bytes?
+
+    Return: limit -> (previous limit < names <= limit)
+    """
+    nnames = len(names)
+    if nnames < limit:
+        return None
+    # 1 <= hash_size < 4
+    hash_size = min(map(len, names)) + 1
+    hash_size = 4 if hash_size > 4 else hash_size
+    part_names: dict[int, set[str]] = {}
+    for s in names:
+        part = hasher(s, hash_size, byte_order)
+        if part not in part_names:
+            part_names[part] = set()
+        part_names[part].add(s)
+    # max_pnames = max(map(len, part_names.values()))
+    n_part_names = len(part_names)
+    if n_part_names <= 1:
+        log.warning(f"cannot partition properties: {names}")
+        return None
+    # number of partitions is a power of 2 to generate a dichotomy
+    max_nparts, max_depth = 2, 1
+    while n_part_names > 2 * max_nparts:
+        max_nparts *= 2
+    # but we want not too small partitions!
+    nparts = max_nparts
+    while nparts > 2 and nnames // nparts <= limit / 2:
+        nparts //= 2
+    # log.debug(f"part_names: {part_names}")
+    # with a perfect hash, balance partitions
+    if max(map(len, part_names.values())) == 1:
+        nnames, parts, part_chunks, part_remains = len(names), nparts, {}, dict(part_names)
+        # flip/flop for slightly better balance
+        flip = True
+        while nnames != 0:
+            chunk = nnames // parts
+            all_hashes = list(sorted(part_remains.keys()))
+            hashes = all_hashes[:chunk] if flip else all_hashes[-chunk:]
+            nnames -= chunk
+            parts -= 1
+            flip = not flip
+            part_chunks[hashes[-1]] = set()
+            for h in hashes:
+                part_chunks[hashes[-1]] |= part_remains[h]
+                del part_remains[h]
+        assert len(part_remains) == 0 and len(part_chunks) == nparts
+        part_names = part_chunks
+    else:
+        # merge small subsets to match the target nparts
+        # this is not very good…
+        while len(part_names) > nparts:
+            limits = { i: limit for i, limit in enumerate(sorted(part_names.keys())) }
+            # find first smallest neighboring limits
+            mini, weight = None, None
+            for i in range(0, len(limits)-1):
+                iweight = len(part_names[limits[i]]) + len(part_names[limits[i+1]])
+                if mini is None or iweight < weight:
+                    mini, weight = i, iweight
+            # merge minimum found with next
+            part_names[limits[mini+1]] |= part_names[limits[mini]]
+            del part_names[limits[mini]]
+    return hash_size, part_names

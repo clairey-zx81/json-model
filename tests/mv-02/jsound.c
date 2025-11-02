@@ -346,6 +346,198 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_0 = *((uint32_t *) (prop));
+        if (hash_0 <= 1282957677)
+        {
+            if (jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068))
+            {
+                // handle may maxLength property
+                // .'$Atomic'.maxLength
+                res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.maxLength]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.maxLength]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x74676e654c6e696dLL) && jm_str_eq_2(prop + 8, 0x00000068))
+            {
+                // handle may minLength property
+                // .'$Atomic'.minLength
+                res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.minLength]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.minLength]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x756c63784578616dLL) && jm_str_eq_5(prop + 8, 0x0000000065766973LL))
+            {
+                // handle may maxExclusive property
+                // .'$Atomic'.maxExclusive
+                res = json_model_5(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.maxExclusive]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.maxExclusive]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x756c636e4978616dLL) && jm_str_eq_5(prop + 8, 0x0000000065766973LL))
+            {
+                // handle may maxInclusive property
+                // .'$Atomic'.maxInclusive
+                res = json_model_5(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.maxInclusive]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.maxInclusive]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x756c6378456e696dLL) && jm_str_eq_5(prop + 8, 0x0000000065766973LL))
+            {
+                // handle may minExclusive property
+                // .'$Atomic'.minExclusive
+                res = json_model_5(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.minExclusive]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.minExclusive]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x756c636e496e696dLL) && jm_str_eq_5(prop + 8, 0x0000000065766973LL))
+            {
+                // handle may minInclusive property
+                // .'$Atomic'.minInclusive
+                res = json_model_5(pval, (path ? &lpath_2 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.minInclusive]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.minInclusive]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_5(prop, 0x00000000656d616eLL))
+            {
+                // handle may name property
+                // .'$Atomic'.name
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Atomic'.name]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.name]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_7(prop, 0x00006874676e656cLL))
+            {
+                // handle may length property
+                // .'$Atomic'.length
+                res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.length]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.length]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x006e726574746170LL))
+            {
+                // handle may pattern property
+                // .'$Atomic'.pattern
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$Atomic'.pattern]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.pattern]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746172656d756e65LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may enumeration property
+                // .'$Atomic'.enumeration
+                res = json_is_array(pval);
+                if (likely(res))
+                {
+                    size_t arr_2_idx;
+                    json_t *arr_2_item;
+                    json_array_foreach(pval, arr_2_idx, arr_2_item)
+                    {
+                        jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, (path ? &lpath_2 : NULL), NULL };
+                        // .'$Atomic'.enumeration.0
+                        res = json_model_5(arr_2_item, ((path ? &lpath_2 : NULL) ? &arr_2_lpath : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.enumeration.0]", ((path ? &lpath_2 : NULL) ? &arr_2_lpath : NULL));
+                            break;
+                        }
+                    }
+                }
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Atomic'.enumeration]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.enumeration]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6769446c61746f74LL) && jm_str_eq_4(prop + 8, 0x00737469))
+            {
+                // handle may totalDigits property
+                // .'$Atomic'.totalDigits
+                res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.totalDigits]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.totalDigits]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6e6f697463617266LL) && jm_str_eq_7(prop + 8, 0x0000737469676944LL))
+            {
+                // handle may fractionDigits property
+                // .'$Atomic'.fractionDigits
+                res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.fractionDigits]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.fractionDigits]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746963696c707865LL) && jm_str_eq_8(prop + 8, 0x656e6f5a65707954LL) && jm_str_eq_0(prop + 16))
+            {
+                // handle may explicitTypeZone property
+                // .'$Atomic'.explicitTypeZone
+                res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "value not in enum [.'$Atomic'.explicitTypeZone.'|']", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.explicitTypeZone]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x00000000646e696bLL)))
         {
             // handle must kind property
@@ -369,178 +561,6 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $atomic-types [.'$Atomic'.baseType]", (path ? &lpath_2 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Atomic'.baseType]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
-        {
-            // handle may name property
-            // .'$Atomic'.name
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Atomic'.name]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.name]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x00006874676e656cLL)))
-        {
-            // handle may length property
-            // .'$Atomic'.length
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.length]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.length]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x006e726574746170LL)))
-        {
-            // handle may pattern property
-            // .'$Atomic'.pattern
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Atomic'.pattern]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.pattern]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x74676e654c78616dLL) && jm_str_eq_2(prop + 8, 0x00000068)))
-        {
-            // handle may maxLength property
-            // .'$Atomic'.maxLength
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.maxLength]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.maxLength]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x74676e654c6e696dLL) && jm_str_eq_2(prop + 8, 0x00000068)))
-        {
-            // handle may minLength property
-            // .'$Atomic'.minLength
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.minLength]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.minLength]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x746172656d756e65LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
-        {
-            // handle may enumeration property
-            // .'$Atomic'.enumeration
-            res = json_is_array(pval);
-            if (likely(res))
-            {
-                size_t arr_2_idx;
-                json_t *arr_2_item;
-                json_array_foreach(pval, arr_2_idx, arr_2_item)
-                {
-                    jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, (path ? &lpath_2 : NULL), NULL };
-                    // .'$Atomic'.enumeration.0
-                    res = json_model_5(arr_2_item, ((path ? &lpath_2 : NULL) ? &arr_2_lpath : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.enumeration.0]", ((path ? &lpath_2 : NULL) ? &arr_2_lpath : NULL));
-                        break;
-                    }
-                }
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Atomic'.enumeration]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.enumeration]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6769446c61746f74LL) && jm_str_eq_4(prop + 8, 0x00737469)))
-        {
-            // handle may totalDigits property
-            // .'$Atomic'.totalDigits
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.totalDigits]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.totalDigits]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x756c63784578616dLL) && jm_str_eq_5(prop + 8, 0x0000000065766973LL)))
-        {
-            // handle may maxExclusive property
-            // .'$Atomic'.maxExclusive
-            res = json_model_5(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.maxExclusive]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.maxExclusive]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x756c636e4978616dLL) && jm_str_eq_5(prop + 8, 0x0000000065766973LL)))
-        {
-            // handle may maxInclusive property
-            // .'$Atomic'.maxInclusive
-            res = json_model_5(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.maxInclusive]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.maxInclusive]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x756c6378456e696dLL) && jm_str_eq_5(prop + 8, 0x0000000065766973LL)))
-        {
-            // handle may minExclusive property
-            // .'$Atomic'.minExclusive
-            res = json_model_5(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.minExclusive]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.minExclusive]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x756c636e496e696dLL) && jm_str_eq_5(prop + 8, 0x0000000065766973LL)))
-        {
-            // handle may minInclusive property
-            // .'$Atomic'.minInclusive
-            res = json_model_5(pval, (path ? &lpath_2 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.minInclusive]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.minInclusive]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6e6f697463617266LL) && jm_str_eq_7(prop + 8, 0x0000737469676944LL))
-        {
-            // handle may fractionDigits property
-            // .'$Atomic'.fractionDigits
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Atomic'.fractionDigits]", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.fractionDigits]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x746963696c707865LL) && jm_str_eq_8(prop + 8, 0x656e6f5a65707954LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may explicitTypeZone property
-            // .'$Atomic'.explicitTypeZone
-            res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.'$Atomic'.explicitTypeZone.'|']", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Atomic'.explicitTypeZone]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }

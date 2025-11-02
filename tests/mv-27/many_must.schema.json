@@ -1,0 +1,96 @@
+{
+  "type": "object",
+  "properties": {
+    "": {
+      "type": "string"
+    },
+    "aaa": {
+      "type": "string"
+    },
+    "abc": {
+      "type": "string"
+    },
+    "bcd": {
+      "type": "string"
+    },
+    "cdef": {
+      "type": "string"
+    },
+    "calvin": {
+      "type": "string"
+    },
+    "def": {
+      "type": "string"
+    },
+    "foo": {
+      "type": "string"
+    },
+    "hobbes": {
+      "type": "string"
+    },
+    "moe": {
+      "type": "string"
+    },
+    "surprise": {
+      "type": "string"
+    },
+    "stu": {
+      "type": "string"
+    },
+    "stuff": {
+      "type": "string"
+    },
+    "susie": {
+      "type": "string"
+    },
+    "wtf": {
+      "type": "string"
+    },
+    "zoo": {
+      "type": "string"
+    },
+    "zee": {
+      "type": "string"
+    },
+    "Calvin": {
+      "type": "string"
+    },
+    "Susie": {
+      "type": "string"
+    },
+    "Hobbes": {
+      "type": "string"
+    },
+    "Moe": {
+      "type": "string"
+    },
+    "Rosalyn": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "",
+    "aaa",
+    "abc",
+    "bcd",
+    "cdef",
+    "calvin",
+    "def",
+    "foo",
+    "hobbes",
+    "moe",
+    "surprise",
+    "stu",
+    "stuff",
+    "susie",
+    "wtf",
+    "zoo",
+    "zee",
+    "Calvin",
+    "Susie",
+    "Hobbes",
+    "Moe",
+    "Rosalyn"
+  ],
+  "additionalProperties": false
+}

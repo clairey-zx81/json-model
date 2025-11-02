@@ -6,7 +6,7 @@ import json
 from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
 from .mtypes import Jsonable, Number, JsonScalar
 from .utils import split_object, model_in_models, all_model_type, constant_value, is_a_simple_object
-from .utils import log, tname, MODEL_PREDEFS
+from .utils import log, tname, MODEL_PREDEFS, partition
 from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse
 from .model import JsonModel
@@ -37,6 +37,7 @@ class CodeGenerator:
     - map_share: whether to share property maps
     - may_must_open_threshold: max number of optional props to mmop scheme, default 5
     - must_only_threshold: max number of mandatory props for must-only scheme, default 5
+    - partition_threshold: max number of strings without search partitioning, 0 for no partitioning
     - sort_must: whether to sort must properties, default True
     - sort_may: whether to sort may properties, default True
     - report: whether to report rejection reasons.
@@ -47,7 +48,7 @@ class CodeGenerator:
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
                  may_must_open_threshold: int = 5, must_only_threshold: int = 5,
-                 sort_must: bool = True, sort_may: bool = True,
+                 sort_must: bool = True, sort_may: bool = True, partition_threshold: int = 0,
                  execute: bool = True, report: bool = True, path: bool = True,
                  package: str|None = None, debug: bool = False):
 
@@ -61,6 +62,7 @@ class CodeGenerator:
         self._must_only_threshold = must_only_threshold
         self._sort_must = sort_must
         self._sort_may = sort_may
+        self._partition_threshold = partition_threshold
         self._map_share = map_share
         self._report = report
         self._path = path
@@ -508,6 +510,23 @@ class CodeGenerator:
         gen = self._lang
         return gen.if_stmt(gen.not_op(expr), gen.ret(gen.false()), likely=False)
 
+    def _gen_parts(self, var: str, codes: dict[int, Block]) -> Block:
+        """Return dichotomic conditional blocks over partition conditions.
+        The function assumes that len(codes) is a power of 2.
+        """
+        assert len(codes) >= 2
+        gen = self._lang
+        if len(codes) == 2:
+            first, second = min(codes.keys()), max(codes.keys())
+            return gen.if_stmt(gen.num_cmp(var, "<=", first), codes[first], codes[second])
+        else:
+            limit = list(sorted(codes.keys()))[len(codes) // 2 - 1]
+            return gen.if_stmt(
+                        gen.num_cmp(var, "<=", limit),
+                        self._gen_parts(var, { v: c for v, c in codes.items() if v <= limit }),
+                        self._gen_parts(var, { v: c for v, c in codes.items() if v > limit })
+            )
+
     def _propmap_name(self, model: ModelObject, default: str) -> str:
         """Memoize property map names for reuse.
 
@@ -704,7 +723,8 @@ class CodeGenerator:
 
         # generated code helpers
         code: Block = []
-        multi_if: list[tuple[BoolExpr, Block]] = []
+        body_code: Block = []
+        multi_if: list[tuple[BoolExpr, bool|None, Block]] = []
         prop, pval, must_c, pfun = "prop", "pval", "must_count", "pfun"
 
         # should be an object
@@ -768,6 +788,8 @@ class CodeGenerator:
             # we need a function pointer for simple properties
             code += gen.fun_var(pfun, declare=True)
 
+        hash_var = None
+
         # build multi-if structure to put in prop/val loop
         if must:
 
@@ -776,28 +798,77 @@ class CodeGenerator:
 
             if len(must) <= self._map_threshold:  # unroll property checks
 
-                must_pm = must.items()
-                if self._sort_must:
-                    must_pm = sorted(must_pm, key=lambda pm: (len(pm[0]), pm[0]))
+                props = set(must.keys())
+                if self._partition_threshold:
+                    partitioning = partition(props, self._partition_threshold, gen._byte_order)
+                else:
+                    partitioning = None
 
-                for p, m in must_pm:
+                if partitioning is not None:
+                    hash_size, partitions = partitioning
+                    partitioned = True
+                    # partition -> multi_if stuff
+                    part_mif = { part: [] for part in partitions.keys() }
+                    # property -> partition
+                    prop_part = {}
+                    for part, props in partitions.items():
+                        for p in props:
+                            prop_part[p] = part
+                else:
+                    # no partition
+                    hash_size, partitions = 0, None
+                    partitioned = False
+                    partitions = { 255: props }
+                    part_mif = { 255: [] }
+                    prop_part = { p: 255 for p in props }
 
-                    likely = is_likely(1, 0.5 * expected_nprops)
-                    expected_nprops -= 1
+                log.debug(f"partitions = {partitions}")
 
-                    mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
-                    mu_code = (
-                        gen.lcom(f"handle must {p} property") +
-                        gen.inc_var(must_c) +
-                        self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
-                        gen.if_stmt(gen.not_op(res),
-                            self._gen_fail(
-                                f"invalid mandatory prop value [{json_path(mpath + [p])}]",
-                                lpath_ref),
-                            likely=False
+                for part, props in partitions.items():
+
+                    # subset of properties for this partition
+                    must_pm = [ (p, m) for p, m in must.items() if prop_part[p] == part ]
+                    if self._sort_must:
+                        must_pm = sorted(must_pm, key=lambda pm: (len(pm[0]), pm[0]))
+
+                    for p, m in must_pm:
+
+                        likely = is_likely(1, 0.5 * expected_nprops)
+                        expected_nprops -= 1
+
+                        # TODO likely hint under partitioning?
+                        if partitioned:
+                            likely = None
+
+                        mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
+                        mu_code = (
+                            gen.lcom(f"handle must {p} property") +
+                            gen.inc_var(must_c) +
+                            self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
+                            gen.if_stmt(gen.not_op(res),
+                                self._gen_fail(
+                                    f"invalid mandatory prop value [{json_path(mpath + [p])}]",
+                                    lpath_ref),
+                                likely=False
+                            )
                         )
+
+                        # underpartitioning there is no global multi-if
+                        if partitioned:
+                            mu_code += gen.cont()
+
+                        part_mif[part] += [(mu_expr, likely, mu_code)]
+
+                if partitioned:
+                    part_code = { p: gen.mif_stmt(mi) for p, mi in part_mif.items() }
+                    hash_var = gen.ident("hash")
+                    body_code += (
+                        gen.hash_var(hash_var, gen.str_hash(prop, hash_size), declare=True) +
+                        self._gen_parts(hash_var, part_code)
                     )
-                    multi_if += [(mu_expr, likely, mu_code)]
+                else:
+                    # accumulate in global multi_if
+                    multi_if += part_mif[255]
 
             else:  # generic code with a map above threshold
 
@@ -840,32 +911,81 @@ class CodeGenerator:
 
             if len(may) <= self._map_threshold:  # simple few-property code
 
-                may_pm = may.items()
-                if self._sort_may:
-                    may_pm = sorted(may_pm, key=lambda pm: (len(pm[0]), pm[0]))
+                props = set(may.keys())
+                if self._partition_threshold:
+                    partitioning = partition(props, self._partition_threshold, gen._byte_order)
+                else:
+                    partitioning = None
 
-                for p, m in may_pm:
+                if partitioning is not None:
+                    hash_size, partitions = partitioning
+                    partitioned = True
+                    # partition -> multi_if stuff
+                    part_mif = { part: [] for part in partitions.keys() }
+                    # property -> partition
+                    prop_part = {}
+                    for part, props in partitions.items():
+                        for p in props:
+                            prop_part[p] = part
+                else:
+                    # no partition
+                    hash_size, partitions = 0, None
+                    partitioned = False
+                    partitions = { 255: props }
+                    part_mif = { 255: [] }
+                    prop_part = { p: 255 for p in props }
 
-                    likely = is_likely(MAY_P, 0.5 * expected_nprops)
-                    expected_nprops -= MAY_P
+                log.debug(f"partitions = {partitions}")
 
-                    ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
-                    ma_code = (
-                        gen.lcom(f"handle may {p} property") +
-                        self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
-                        gen.if_stmt(gen.not_op(res),
-                            self._gen_fail(
-                                f"invalid optional prop value [{json_path(mpath + [p])}]",
-                                lpath_ref),
-                            likely=False
+                for part, props in partitions.items():
+
+                    # subset of properties for this partition
+                    may_pm = [ (p, m) for p, m in may.items() if prop_part[p] == part ]
+                    if self._sort_may:
+                        may_pm = sorted(may_pm, key=lambda pm: (len(pm[0]), pm[0]))
+
+                    for p, m in may_pm:
+
+                        likely = is_likely(MAY_P, 0.5 * expected_nprops)
+                        expected_nprops -= MAY_P
+
+                        if partitioned:
+                            likely = None
+
+                        ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
+                        ma_code = (
+                            gen.lcom(f"handle may {p} property") +
+                            self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
+                            gen.if_stmt(gen.not_op(res),
+                                self._gen_fail(
+                                    f"invalid optional prop value [{json_path(mpath + [p])}]",
+                                    lpath_ref),
+                                likely=False
+                            )
                         )
-                    )
-                    if len(must) == 0 and len(may) == 1 and len(regs) == 0 and len(defs) == 0:
-                        if oth == {"": "$ANY"}:
-                            # shortcut: expecting only one may prop and no other checks needed
-                            ma_code += gen.ret(gen.const(True))
 
-                    multi_if += [(ma_expr, likely, ma_code)]
+                        # shortcut on expecting only one may prop and no other checks needed
+                        if len(must) == 0 and len(may) == 1 and len(regs) == 0 and len(defs) == 0:
+                            if oth == {"": "$ANY"}:
+                                ma_code += gen.ret(gen.const(True))
+
+                        if partitioned:
+                            ma_code += gen.cont()
+
+                        part_mif[part] += [(ma_expr, likely, ma_code)]
+
+                if partitioned:
+                    part_code = { p: gen.mif_stmt(mi) for p, mi in part_mif.items() }
+                    declare = hash_var is None
+                    if declare:
+                        hash_var = gen.ident("hash")
+                    body_code += (
+                        gen.hash_var(hash_var, gen.str_hash(prop, hash_size), declare=declare) +
+                        self._gen_parts(hash_var, part_code)
+                    )
+                else:
+                    # accumulate in global multi_if
+                    multi_if += part_mif[255]
 
             else:  # generic code
 
@@ -947,6 +1067,7 @@ class CodeGenerator:
 
         code += gen.obj_loop(val, prop, pval,
             gen.path_var(lpath, gen.path_val(vpath, prop, True, True), True) +
+            body_code +
             gen.mif_stmt(multi_if, ot_code))
 
         # check that all must were seen, with some effort to report the missing ones
@@ -1699,6 +1820,7 @@ def xstatic_compile(
         must_only_threshold: int = None,
         sort_must: bool = True,
         sort_may: bool = True,
+        partition_threshold: int = None,
         execute: bool = True,
         debug: bool = False,
         report: bool = True,
@@ -1723,6 +1845,7 @@ def xstatic_compile(
     - must_only_threshold: must-only scheme if below threshold mandatory props
     - sort_must: whether to sort must properties
     - sort_may: whether to sort may properties
+    - partition_threshold: partition if over this threshold, 0 for no partitioning
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
@@ -1741,7 +1864,8 @@ def xstatic_compile(
         "py": 256,     # no cutoff?
         "pl": 128,     # ?
         "java": 256,   # GSON
-        "sql": 0,  # FIXME not tested
+        "sql": 0,      # FIXME not tested
+        "plpgsql": 0,  # FIXME not tested
     }
     if must_only_threshold is None:
         must_only_threshold = MUST_ONLY_THRESHOLD.get(lang, 8)
@@ -1753,25 +1877,35 @@ def xstatic_compile(
         "py": 256,     # much better than unroll, slightly better than map
         "pl": 256,     # idem py
         "java": 128,   # better than map < 256
-        "sql": 0,  # FIXME not tested
+        "sql": 0,      # FIXME not tested
+        "plpgsql": 0,  # FIXME not tested
     }
     if may_must_open_threshold is None:
        may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(lang, 16)
 
     # set default map threshold depending on target language
     MAP_THRESHOLD: dict[str, int] = {
-        "c": 256,  # NOTE the actual cutoff is _very_ far, probably over 1000/1300
+        "c": 256,      # NOTE the actual cutoff is _very_ far, probably over 1000/1300
         "js": 40,
         "py": 10,
         "pl": 8,
         "java": 12,
-        "sql": 8,  # FIXME not tested
+        "sql": 8,      # FIXME not tested
+        "plpgsql": 8,  # FIXME not tested
     }
     if map_threshold is None:
         map_threshold = MAP_THRESHOLD.get(lang, 12)
 
-    log.debug(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
-              f"mo={must_only_threshold}")
+    # partition threshold to generate a dichotomy on unrolled tests
+    PARTITION_THRESHOLD: dict[str, int] = {
+        "c": 8,
+        # TODO other languages once tested
+    }
+    if partition_threshold is None:
+        partition_threshold = PARTITION_THRESHOLD.get(lang, 0)
+
+    log.warning(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
+                f"mo={must_only_threshold} pt={partition_threshold}")
 
     # target language
     if lang == "py":
@@ -1825,6 +1959,7 @@ def xstatic_compile(
         execute=execute, map_threshold=map_threshold, map_share=map_share,
         may_must_open_threshold=may_must_open_threshold,
         must_only_threshold=must_only_threshold,
+        partition_threshold=partition_threshold,
         sort_must=sort_must, sort_may=sort_may,
         debug=debug, report=report, package=package
     )

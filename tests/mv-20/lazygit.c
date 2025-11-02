@@ -35,36 +35,36 @@ static jm_constmap_t _jm_map_0_tab[4];
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_3_str_test(const char *);
 static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static INLINE bool _jm_cst_4_str_test(const char *);
-static INLINE bool _jm_cst_5_str_test(const char *);
-static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static INLINE bool _jm_cst_6_str_test(const char *);
-static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_1_re2 = NULL;
 static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_4_str_test(const char *);
+static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_5_str_test(const char *);
+static INLINE bool _jm_cst_6_str_test(const char *);
 static INLINE bool _jm_cst_7_str_test(const char *);
 static INLINE bool _jm_cst_8_str_test(const char *);
+static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_9_str_test(const char *);
+static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_10_str_test(const char *);
+static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_11_str_test(const char *);
+static INLINE bool _jm_cst_12_str_test(const char *);
+static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_13_str_test(const char *);
 static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static INLINE bool _jm_cst_11_str_test(const char *);
-static INLINE bool _jm_cst_12_str_test(const char *);
-static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static INLINE bool _jm_cst_13_str_test(const char *);
+static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_2_re2 = NULL;
 static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -1174,7 +1174,869 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
+static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_1_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+// object .gui.branchColors
+static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.gui.branchColors]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(_jm_re_1(prop, path, rep)))
+        {
+            // handle 1 re props
+            // .gui.branchColors.'/./'
+            res = json_model_2(pval, (path ? &lpath_10 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.branchColors.'/./']", (path ? &lpath_10 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.branchColors]", (path ? &lpath_10 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .gui.commitLength
+static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.gui.commitLength]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_5(prop, 0x00000000776f6873LL)))
+        {
+            // handle may show property
+            // .gui.commitLength.show
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.gui.commitLength.show]", (path ? &lpath_11 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commitLength.show]", (path ? &lpath_11 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.commitLength]", (path ? &lpath_11 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
 static INLINE bool _jm_cst_4_str_test(const char *s)
+{
+    return jm_str_eq_8(s, 0x656c626978656c66LL) && jm_str_eq_0(s + 8)  // "flexible"
+        || jm_str_eq_8(s, 0x6c61636974726576LL) && jm_str_eq_0(s + 8)  // "vertical"
+        || jm_str_eq_8(s, 0x746e6f7a69726f68LL) && jm_str_eq_3(s + 8, 0x00006c61)  // "horizontal"
+    ;
+}
+
+// object .gui.theme
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.gui.theme]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_0 = *((uint32_t *) (prop));
+        if (hash_0 <= 1701602675)
+        {
+            if (jm_str_eq_8(prop, 0x46746c7561666564LL) && jm_str_eq_7(prop + 8, 0x0000726f6c6f4367LL))
+            {
+                // handle may defaultFgColor property
+                // .gui.theme.defaultFgColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.defaultFgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.defaultFgColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6576697463616e69LL) && jm_str_eq_8(prop + 8, 0x6f43726564726f42LL) && jm_str_eq_4(prop + 16, 0x00726f6c))
+            {
+                // handle may inactiveBorderColor property
+                // .gui.theme.inactiveBorderColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.inactiveBorderColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x64657463656c6573LL) && jm_str_eq_8(prop + 8, 0x6f436742656e694cLL) && jm_str_eq_4(prop + 16, 0x00726f6c))
+            {
+                // handle may selectedLineBgColor property
+                // .gui.theme.selectedLineBgColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedLineBgColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x64657463656c6573LL) && jm_str_eq_8(prop + 8, 0x43674265676e6152LL) && jm_str_eq_5(prop + 16, 0x00000000726f6c6fLL))
+            {
+                // handle may selectedRangeBgColor property
+                // .gui.theme.selectedRangeBgColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_8(prop, 0x54736e6f6974706fLL) && jm_str_eq_8(prop + 8, 0x726f6c6f43747865LL) && jm_str_eq_0(prop + 16))
+            {
+                // handle may optionsTextColor property
+                // .gui.theme.optionsTextColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.optionsTextColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.optionsTextColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6f42657669746361LL) && jm_str_eq_8(prop + 8, 0x6f6c6f4372656472LL) && jm_str_eq_2(prop + 16, 0x00000072))
+            {
+                // handle may activeBorderColor property
+                // .gui.theme.activeBorderColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.activeBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.activeBorderColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6465676174736e75LL) && jm_str_eq_8(prop + 8, 0x437365676e616843LL) && jm_str_eq_5(prop + 16, 0x00000000726f6c6fLL))
+            {
+                // handle may unstagedChangesColor property
+                // .gui.theme.unstagedChangesColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.unstagedChangesColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6950797272656863LL) && jm_str_eq_8(prop + 8, 0x6d6d6f4364656b63LL) && jm_str_eq_8(prop + 16, 0x6f6c6f4367427469LL) && jm_str_eq_2(prop + 24, 0x00000072))
+            {
+                // handle may cherryPickedCommitBgColor property
+                // .gui.theme.cherryPickedCommitBgColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6950797272656863LL) && jm_str_eq_8(prop + 8, 0x6d6d6f4364656b63LL) && jm_str_eq_8(prop + 16, 0x6f6c6f4367467469LL) && jm_str_eq_2(prop + 24, 0x00000072))
+            {
+                // handle may cherryPickedCommitFgColor property
+                // .gui.theme.cherryPickedCommitFgColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6e69686372616573LL) && jm_str_eq_8(prop + 8, 0x4265766974634167LL) && jm_str_eq_8(prop + 16, 0x6c6f43726564726fLL) && jm_str_eq_3(prop + 24, 0x0000726f))
+            {
+                // handle may searchingActiveBorderColor property
+                // .gui.theme.searchingActiveBorderColor
+                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_12 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.theme]", (path ? &lpath_12 : NULL));
+        return false;
+    }
+    return true;
+}
+
+static INLINE bool _jm_cst_5_str_test(const char *s)
+{
+    return jm_str_eq_7(s, 0x0000656c62756f64LL)  // "double"
+        || jm_str_eq_7(s, 0x00006e6564646968LL)  // "hidden"
+        || jm_str_eq_7(s, 0x0000656c676e6973LL)  // "single"
+        || jm_str_eq_8(s, 0x006465646e756f72LL)  // "rounded"
+    ;
+}
+
+static INLINE bool _jm_cst_6_str_test(const char *s)
+{
+    return jm_str_eq_3(s, 0x00006e65)  // "en"
+        || jm_str_eq_3(s, 0x0000616a)  // "ja"
+        || jm_str_eq_3(s, 0x00006f6b)  // "ko"
+        || jm_str_eq_3(s, 0x00006c6e)  // "nl"
+        || jm_str_eq_3(s, 0x00006c70)  // "pl"
+        || jm_str_eq_3(s, 0x00007572)  // "ru"
+        || jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
+        || jm_str_eq_6(s, 0x0000004e432d687aLL)  // "zh-CN"
+        || jm_str_eq_6(s, 0x00000057542d687aLL)  // "zh-TW"
+    ;
+}
+
+static INLINE bool _jm_cst_7_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
+        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
+    ;
+}
+
+static INLINE bool _jm_cst_8_str_test(const char *s)
+{
+    return jm_str_eq_5(s, 0x000000006c6c7566LL)  // "full"
+        || jm_str_eq_5(s, 0x00000000666c6168LL)  // "half"
+        || jm_str_eq_7(s, 0x00006c616d726f6eLL)  // "normal"
+    ;
+}
+
+// object .gui.authorColors
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.gui.authorColors]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(_jm_re_1(prop, path, rep)))
+        {
+            // handle 1 re props
+            // .gui.authorColors.'/./'
+            res = json_model_2(pval, (path ? &lpath_13 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.authorColors.'/./']", (path ? &lpath_13 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.authorColors]", (path ? &lpath_13 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+static INLINE bool _jm_cst_9_str_test(const char *s)
+{
+    return jm_str_eq_2(s, 0x00000032)  // "2"
+        || jm_str_eq_2(s, 0x00000033)  // "3"
+    ;
+}
+
+// object .gui
+static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.gui]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_1 = *((uint32_t *) (prop));
+        if (hash_1 <= 1852399981)
+        {
+            if (hash_1 <= 1835626081)
+            {
+                if (jm_str_eq_6(prop, 0x000000656d656874LL))
+                {
+                    // handle may theme property
+                    // .gui.theme
+                    res = _jm_obj_11(pval, (path ? &lpath_9 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.gui.theme]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_7(prop, 0x0000726564726f62LL))
+                {
+                    // handle may border property
+                    // .gui.border
+                    res = json_is_string(pval) && _jm_cst_5_str_test(json_string_value(pval));
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "value not in enum [.gui.border.'|']", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.border]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x65676175676e616cLL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may language property
+                    // .gui.language
+                    res = json_is_string(pval) && _jm_cst_6_str_test(json_string_value(pval));
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "value not in enum [.gui.language.'|']", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.language]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x66694474696c7073LL) && jm_str_eq_2(prop + 8, 0x00000066))
+                {
+                    // handle may splitDiff property
+                    // .gui.splitDiff
+                    res = json_is_string(pval) && _jm_cst_7_str_test(json_string_value(pval));
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "value not in enum [.gui.splitDiff.'|']", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.splitDiff]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6d726f46656d6974LL) && jm_str_eq_3(prop + 8, 0x00007461))
+                {
+                    // handle may timeFormat property
+                    // .gui.timeFormat
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.gui.timeFormat]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.timeFormat]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6953776f646e6977LL) && jm_str_eq_3(prop + 8, 0x0000657a))
+                {
+                    // handle may windowSize property
+                    // .gui.windowSize
+                    res = json_is_string(pval) && _jm_cst_8_str_test(json_string_value(pval));
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "value not in enum [.gui.windowSize.'|']", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.windowSize]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6f43726f68747561LL) && jm_str_eq_5(prop + 8, 0x0000000073726f6cLL))
+                {
+                    // handle may authorColors property
+                    // .gui.authorColors
+                    res = _jm_obj_12(pval, (path ? &lpath_9 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.gui.authorColors]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.authorColors]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x656e615065646973LL) && jm_str_eq_7(prop + 8, 0x000068746469576cLL))
+                {
+                    // handle may sidePanelWidth property
+                    // .gui.sidePanelWidth
+                    // .gui.sidePanelWidth.'@'
+                    res = json_is_real(pval) && json_real_value(pval) >= 0.0;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.gui.sidePanelWidth.'@']", (path ? &lpath_9 : NULL));
+                    }
+                    if (likely(res))
+                    {
+                        double fval_0 = json_real_value(pval);
+                        res = fval_0 <= 1.0;
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "constraints failed [.gui.sidePanelWidth]", (path ? &lpath_9 : NULL));
+                        }
+                    }
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.sidePanelWidth]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x456574616d696e61LL) && jm_str_eq_8(prop + 8, 0x6e6f69736f6c7078LL) && jm_str_eq_0(prop + 16))
+                {
+                    // handle may animateExplosion property
+                    // .gui.animateExplosion
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.animateExplosion]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.animateExplosion]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x746e6f466472656eLL) && jm_str_eq_8(prop + 8, 0x6e6f697372655673LL) && jm_str_eq_0(prop + 16))
+                {
+                    // handle may nerdFontsVersion property
+                    // .gui.nerdFontsVersion
+                    res = json_is_string(pval) && _jm_cst_9_str_test(json_string_value(pval));
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "value not in enum [.gui.nerdFontsVersion.'|']", (path ? &lpath_9 : NULL));
+                    }
+                    if (! res)
+                    {
+                        res = json_is_string(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected type [.gui.nerdFontsVersion.'|']", (path ? &lpath_9 : NULL));
+                        }
+                        if (res)
+                        {
+                            // .gui.nerdFontsVersion.'|'.0
+                            res = true;
+                            if (unlikely(res))
+                            {
+                                if (rep) jm_report_free_entries(rep);
+                            }
+                            else
+                            {
+                                if (rep) jm_report_add_entry(rep, "unexpected string [.gui.nerdFontsVersion.'|'.0]", (path ? &lpath_9 : NULL));
+                                if (rep) jm_report_add_entry(rep, "no model matched [.gui.nerdFontsVersion.'|']", (path ? &lpath_9 : NULL));
+                            }
+                        }
+                    }
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.nerdFontsVersion]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6f46646e61707865LL) && jm_str_eq_8(prop + 8, 0x6469536465737563LL) && jm_str_eq_7(prop + 16, 0x00006c656e615065LL))
+                {
+                    // handle may expandFocusedSidePanel property
+                    // .gui.expandFocusedSidePanel
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.expandFocusedSidePanel]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.expandFocusedSidePanel]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_8(prop, 0x6f4368636e617262LL) && jm_str_eq_5(prop + 8, 0x0000000073726f6cLL))
+                {
+                    // handle may branchColors property
+                    // .gui.branchColors
+                    res = _jm_obj_9(pval, (path ? &lpath_9 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.gui.branchColors]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.branchColors]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x654c74696d6d6f63LL) && jm_str_eq_5(prop + 8, 0x000000006874676eLL))
+                {
+                    // handle may commitLength property
+                    // .gui.commitLength
+                    res = _jm_obj_10(pval, (path ? &lpath_9 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.gui.commitLength]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commitLength]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x4c646e616d6d6f63LL) && jm_str_eq_7(prop + 8, 0x0000657a6953676fLL))
+                {
+                    // handle may commandLogSize property
+                    // .gui.commandLogSize
+                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.gui.commandLogSize]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commandLogSize]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x656e61506e69616dLL) && jm_str_eq_8(prop + 8, 0x6f4d74696c70536cLL) && jm_str_eq_3(prop + 16, 0x00006564))
+                {
+                    // handle may mainPanelSplitMode property
+                    // .gui.mainPanelSplitMode
+                    res = json_is_string(pval) && _jm_cst_4_str_test(json_string_value(pval));
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "value not in enum [.gui.mainPanelSplitMode.'|']", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.mainPanelSplitMode]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
+        else
+        {
+            if (hash_1 <= 1937076077)
+            {
+                if (jm_str_eq_8(prop, 0x6576456573756f6dLL) && jm_str_eq_4(prop + 8, 0x0073746e))
+                {
+                    // handle may mouseEvents property
+                    // .gui.mouseEvents
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.mouseEvents]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.mouseEvents]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x65486c6c6f726373LL) && jm_str_eq_5(prop + 8, 0x0000000074686769LL))
+                {
+                    // handle may scrollHeight property
+                    // .gui.scrollHeight
+                    res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 1 strict int [.gui.scrollHeight]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.scrollHeight]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6d695474726f6873LL) && jm_str_eq_8(prop + 8, 0x0074616d726f4665LL))
+                {
+                    // handle may shortTimeFormat property
+                    // .gui.shortTimeFormat
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.gui.shortTimeFormat]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.shortTimeFormat]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x61506c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x6d6f74746f427473LL) && jm_str_eq_0(prop + 16))
+                {
+                    // handle may scrollPastBottom property
+                    // .gui.scrollPastBottom
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.scrollPastBottom]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.scrollPastBottom]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7361745370696b73LL) && jm_str_eq_8(prop + 8, 0x676e696e72615768LL) && jm_str_eq_0(prop + 16))
+                {
+                    // handle may skipStashWarning property
+                    // .gui.skipStashWarning
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipStashWarning]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.skipStashWarning]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6373694470696b73LL) && jm_str_eq_8(prop + 8, 0x676e616843647261LL) && jm_str_eq_8(prop + 16, 0x676e696e72615765LL) && jm_str_eq_0(prop + 24))
+                {
+                    // handle may skipDiscardChangeWarning property
+                    // .gui.skipDiscardChangeWarning
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipDiscardChangeWarning]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.skipDiscardChangeWarning]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6f77655270696b73LL) && jm_str_eq_8(prop + 8, 0x746964456e496472LL) && jm_str_eq_8(prop + 16, 0x6e696e726157726fLL) && jm_str_eq_2(prop + 24, 0x00000067))
+                {
+                    // handle may skipRewordInEditorWarning property
+                    // .gui.skipRewordInEditorWarning
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipRewordInEditorWarning]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.skipRewordInEditorWarning]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_8(prop, 0x656c6946776f6873LL) && jm_str_eq_5(prop + 8, 0x0000000065657254LL))
+                {
+                    // handle may showFileTree property
+                    // .gui.showFileTree
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.showFileTree]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showFileTree]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x646e6152776f6873LL) && jm_str_eq_6(prop + 8, 0x0000007069546d6fLL))
+                {
+                    // handle may showRandomTip property
+                    // .gui.showRandomTip
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.showRandomTip]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showRandomTip]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x74746f42776f6873LL) && jm_str_eq_7(prop + 8, 0x0000656e694c6d6fLL))
+                {
+                    // handle may showBottomLine property
+                    // .gui.showBottomLine
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.showBottomLine]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showBottomLine]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6d6d6f43776f6873LL) && jm_str_eq_7(prop + 8, 0x0000676f4c646e61LL))
+                {
+                    // handle may showCommandLog property
+                    // .gui.showCommandLog
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.showCommandLog]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showCommandLog]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x7473694c776f6873LL) && jm_str_eq_7(prop + 8, 0x00007265746f6f46LL))
+                {
+                    // handle may showListFooter property
+                    // .gui.showListFooter
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.showListFooter]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showListFooter]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6e617242776f6873LL) && jm_str_eq_8(prop + 8, 0x74696d6d6f436863LL) && jm_str_eq_5(prop + 16, 0x0000000068736148LL))
+                {
+                    // handle may showBranchCommitHash property
+                    // .gui.showBranchCommitHash
+                    res = json_is_boolean(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a bool [.gui.showBranchCommitHash]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showBranchCommitHash]", (path ? &lpath_9 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.gui]", (path ? &lpath_9 : NULL));
+        return false;
+    }
+    return true;
+}
+
+static INLINE bool _jm_cst_10_str_test(const char *s)
+{
+    return jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
+        || jm_str_eq_7(s, 0x000074706d6f7270LL)  // "prompt"
+        || jm_str_eq_8(s, 0x756f72676b636162LL) && jm_str_eq_3(s + 8, 0x0000646e)  // "background"
+    ;
+}
+
+// object .update
+static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.update]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_5(prop, 0x0000000073796164LL))
+        {
+            // handle may days property
+            // .update.days
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.update.days]", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.update.days]", (path ? &lpath_14 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_7(prop, 0x0000646f6874656dLL)))
+        {
+            // handle may method property
+            // .update.method
+            res = json_is_string(pval) && _jm_cst_10_str_test(json_string_value(pval));
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "value not in enum [.update.method.'|']", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.update.method]", (path ? &lpath_14 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.update]", (path ? &lpath_14 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .refresher
+static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.refresher]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_8(prop, 0x746e496863746566LL) && jm_str_eq_6(prop + 8, 0x0000006c61767265LL))
+        {
+            // handle may fetchInterval property
+            // .refresher.fetchInterval
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.refresher.fetchInterval]", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.refresher.fetchInterval]", (path ? &lpath_15 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_8(prop, 0x4968736572666572LL) && jm_str_eq_8(prop + 8, 0x006c61767265746eLL)))
+        {
+            // handle may refreshInterval property
+            // .refresher.refreshInterval
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.refresher.refreshInterval]", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.refresher.refreshInterval]", (path ? &lpath_15 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.refresher]", (path ? &lpath_15 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+static INLINE bool _jm_cst_11_str_test(const char *s)
 {
     return jm_str_eq_8(s, 0x00746c7561666564LL)  // "default"
         || jm_str_eq_8(s, 0x64726f2d65746164LL) && jm_str_eq_3(s + 8, 0x00007265)  // "date-order"
@@ -1183,7 +2045,7 @@ static INLINE bool _jm_cst_4_str_test(const char *s)
     ;
 }
 
-static INLINE bool _jm_cst_5_str_test(const char *s)
+static INLINE bool _jm_cst_12_str_test(const char *s)
 {
     return jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
         || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
@@ -1192,7 +2054,7 @@ static INLINE bool _jm_cst_5_str_test(const char *s)
 }
 
 // object .git.log
-static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1204,16 +2066,16 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
         if (unlikely(jm_str_eq_6(prop, 0x000000726564726fLL)))
         {
             // handle may order property
             // .git.log.order
-            res = json_is_string(pval) && _jm_cst_4_str_test(json_string_value(pval));
+            res = json_is_string(pval) && _jm_cst_11_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.order]", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.order]", (path ? &lpath_17 : NULL));
                 return false;
             }
         }
@@ -1221,11 +2083,11 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may showGraph property
             // .git.log.showGraph
-            res = json_is_string(pval) && _jm_cst_5_str_test(json_string_value(pval));
+            res = json_is_string(pval) && _jm_cst_12_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showGraph]", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showGraph]", (path ? &lpath_17 : NULL));
                 return false;
             }
         }
@@ -1236,56 +2098,21 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.log.showWholeGraph]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showWholeGraph]", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.log.showWholeGraph]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showWholeGraph]", (path ? &lpath_17 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.log]", (path ? &lpath_10 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.log]", (path ? &lpath_17 : NULL));
             return false;
         }
     }
     return true;
 }
 
-// object .git.commit
-static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.git.commit]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_str_eq_8(prop, 0x0066664f6e676973LL)))
-        {
-            // handle may signOff property
-            // .git.commit.signOff
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.commit.signOff]", (path ? &lpath_11 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit.signOff]", (path ? &lpath_11 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commit]", (path ? &lpath_11 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-static INLINE bool _jm_cst_6_str_test(const char *s)
+static INLINE bool _jm_cst_13_str_test(const char *s)
 {
     return jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
         || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
@@ -1293,7 +2120,7 @@ static INLINE bool _jm_cst_6_str_test(const char *s)
 }
 
 // object .git.paging
-static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1305,7 +2132,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
         if (unlikely(jm_str_eq_6(prop, 0x0000007265676170LL)))
         {
             // handle may pager property
@@ -1314,7 +2141,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.paging.pager.'@']", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.git.paging.pager.'@']", (path ? &lpath_18 : NULL));
             }
             if (likely(res))
             {
@@ -1322,12 +2149,12 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = (jm_str_ne_0(sval_1));
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "constraints failed [.git.paging.pager]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "constraints failed [.git.paging.pager]", (path ? &lpath_18 : NULL));
                 }
             }
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.pager]", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.pager]", (path ? &lpath_18 : NULL));
                 return false;
             }
         }
@@ -1335,11 +2162,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may colorArg property
             // .git.paging.colorArg
-            res = json_is_string(pval) && _jm_cst_6_str_test(json_string_value(pval));
+            res = json_is_string(pval) && _jm_cst_13_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_12 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.colorArg]", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.colorArg]", (path ? &lpath_18 : NULL));
                 return false;
             }
         }
@@ -1350,14 +2177,14 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.paging.useConfig]", (path ? &lpath_12 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.useConfig]", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.paging.useConfig]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.useConfig]", (path ? &lpath_18 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.paging]", (path ? &lpath_12 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.paging]", (path ? &lpath_18 : NULL));
             return false;
         }
     }
@@ -1365,7 +2192,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .git.merging
-static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1377,7 +2204,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
         if (jm_str_eq_5(prop, 0x0000000073677261LL))
         {
             // handle may args property
@@ -1385,8 +2212,8 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.merging.args]", (path ? &lpath_13 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.args]", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.git.merging.args]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.args]", (path ? &lpath_19 : NULL));
                 return false;
             }
         }
@@ -1397,28 +2224,57 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.merging.manualCommit]", (path ? &lpath_13 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.manualCommit]", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.merging.manualCommit]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.manualCommit]", (path ? &lpath_19 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.merging]", (path ? &lpath_13 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.merging]", (path ? &lpath_19 : NULL));
             return false;
         }
     }
     return true;
 }
 
-static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
+// object .git.commit
+static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_1_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.git.commit]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_8(prop, 0x0066664f6e676973LL)))
+        {
+            // handle may signOff property
+            // .git.commit.signOff
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.commit.signOff]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit.signOff]", (path ? &lpath_20 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commit]", (path ? &lpath_20 : NULL));
+            return false;
+        }
+    }
+    return true;
 }
 
 // object .git.commitPrefixes.'/./'
-static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1431,17 +2287,17 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
         if (jm_str_eq_8(prop, 0x006e726574746170LL))
         {
             // handle must pattern property
             must_count += 1;
             // .git.commitPrefixes.'/./'.pattern
-            res = json_model_8(pval, (path ? &lpath_15 : NULL), rep);
+            res = json_model_8(pval, (path ? &lpath_22 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_15 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_22 : NULL));
                 return false;
             }
         }
@@ -1450,17 +2306,17 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must replace property
             must_count += 1;
             // .git.commitPrefixes.'/./'.replace
-            res = json_model_8(pval, (path ? &lpath_15 : NULL), rep);
+            res = json_model_8(pval, (path ? &lpath_22 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_15 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_22 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes.'/./']", (path ? &lpath_15 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes.'/./']", (path ? &lpath_22 : NULL));
             return false;
         }
     }
@@ -1483,7 +2339,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .git.commitPrefixes
-static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1495,21 +2351,21 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
         if (likely(_jm_re_1(prop, path, rep)))
         {
             // handle 1 re props
             // .git.commitPrefixes.'/./'
-            res = _jm_obj_14(pval, (path ? &lpath_14 : NULL), rep);
+            res = _jm_obj_21(pval, (path ? &lpath_21 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes.'/./']", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes.'/./']", (path ? &lpath_21 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes]", (path ? &lpath_14 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes]", (path ? &lpath_21 : NULL));
             return false;
         }
     }
@@ -1517,7 +2373,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .git
-static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1529,955 +2385,224 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_4(prop, 0x00676f6c)))
-        {
-            // handle may log property
-            // .git.log
-            res = _jm_obj_9(pval, (path ? &lpath_9 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git.log]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x000074696d6d6f63LL)))
-        {
-            // handle may commit property
-            // .git.commit
-            res = _jm_obj_10(pval, (path ? &lpath_9 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git.commit]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x0000676e69676170LL)))
-        {
-            // handle may paging property
-            // .git.paging
-            res = _jm_obj_11(pval, (path ? &lpath_9 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git.paging]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00676e696772656dLL)))
-        {
-            // handle may merging property
-            // .git.merging
-            res = _jm_obj_12(pval, (path ? &lpath_9 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git.merging]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6c416863746566LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may fetchAll property
-            // .git.fetchAll
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.fetchAll]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.fetchAll]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x637465466f747561LL) && jm_str_eq_2(prop + 8, 0x00000068)))
-        {
-            // handle may autoFetch property
-            // .git.autoFetch
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.autoFetch]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.autoFetch]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f6d456573726170LL) && jm_str_eq_3(prop + 8, 0x0000696a)))
-        {
-            // handle may parseEmoji property
-            // .git.parseEmoji
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.parseEmoji]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.parseEmoji]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x726665526f747561LL) && jm_str_eq_4(prop + 8, 0x00687365)))
-        {
-            // handle may autoRefresh property
-            // .git.autoRefresh
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.autoRefresh]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.autoRefresh]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656469727265766fLL) && jm_str_eq_4(prop + 8, 0x00677047)))
-        {
-            // handle may overrideGpg property
-            // .git.overrideGpg
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.overrideGpg]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.overrideGpg]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f4c68636e617262LL) && jm_str_eq_5(prop + 8, 0x00000000646d4367LL)))
-        {
-            // handle may branchLogCmd property
-            // .git.branchLogCmd
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.branchLogCmd]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.branchLogCmd]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6e6172426e69616dLL) && jm_str_eq_5(prop + 8, 0x0000000073656863LL)))
-        {
-            // handle may mainBranches property
-            // .git.mainBranches
-            res = json_model_9(pval, (path ? &lpath_9 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.git.mainBranches]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.mainBranches]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x725074696d6d6f63LL) && jm_str_eq_7(prop + 8, 0x0000736578696665LL)))
-        {
-            // handle may commitPrefixes property
-            // .git.commitPrefixes
-            res = _jm_obj_13(pval, (path ? &lpath_9 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commitPrefixes]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6b6f6f4870696b73LL) && jm_str_eq_7(prop + 8, 0x0000786966657250LL)))
-        {
-            // handle may skipHookPrefix property
-            // .git.skipHookPrefix
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.skipHookPrefix]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.skipHookPrefix]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x746e6f4366666964LL) && jm_str_eq_8(prop + 8, 0x00657a6953747865LL)))
-        {
-            // handle may diffContextSize property
-            // .git.diffContextSize
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.git.diffContextSize]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.diffContextSize]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x636e6172426c6c61LL) && jm_str_eq_8(prop + 8, 0x6d43676f4c736568LL) && jm_str_eq_2(prop + 16, 0x00000064))
-        {
-            // handle may allBranchesLogCmd property
-            // .git.allBranchesLogCmd
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.allBranchesLogCmd]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.allBranchesLogCmd]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x46656c6261736964LL) && jm_str_eq_8(prop + 8, 0x687375506563726fLL) && jm_str_eq_4(prop + 16, 0x00676e69)))
-        {
-            // handle may disableForcePushing property
-            // .git.disableForcePushing
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.disableForcePushing]", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.disableForcePushing]", (path ? &lpath_9 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git]", (path ? &lpath_9 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .gui.theme
-static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.gui.theme]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x46746c7561666564LL) && jm_str_eq_7(prop + 8, 0x0000726f6c6f4367LL)))
-        {
-            // handle may defaultFgColor property
-            // .gui.theme.defaultFgColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.defaultFgColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.defaultFgColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x54736e6f6974706fLL) && jm_str_eq_8(prop + 8, 0x726f6c6f43747865LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may optionsTextColor property
-            // .gui.theme.optionsTextColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.optionsTextColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.optionsTextColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f42657669746361LL) && jm_str_eq_8(prop + 8, 0x6f6c6f4372656472LL) && jm_str_eq_2(prop + 16, 0x00000072)))
-        {
-            // handle may activeBorderColor property
-            // .gui.theme.activeBorderColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.activeBorderColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.activeBorderColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6576697463616e69LL) && jm_str_eq_8(prop + 8, 0x6f43726564726f42LL) && jm_str_eq_4(prop + 16, 0x00726f6c)))
-        {
-            // handle may inactiveBorderColor property
-            // .gui.theme.inactiveBorderColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.inactiveBorderColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x64657463656c6573LL) && jm_str_eq_8(prop + 8, 0x6f436742656e694cLL) && jm_str_eq_4(prop + 16, 0x00726f6c)))
-        {
-            // handle may selectedLineBgColor property
-            // .gui.theme.selectedLineBgColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedLineBgColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x64657463656c6573LL) && jm_str_eq_8(prop + 8, 0x43674265676e6152LL) && jm_str_eq_5(prop + 16, 0x00000000726f6c6fLL)))
-        {
-            // handle may selectedRangeBgColor property
-            // .gui.theme.selectedRangeBgColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6465676174736e75LL) && jm_str_eq_8(prop + 8, 0x437365676e616843LL) && jm_str_eq_5(prop + 16, 0x00000000726f6c6fLL)))
-        {
-            // handle may unstagedChangesColor property
-            // .gui.theme.unstagedChangesColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.unstagedChangesColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6950797272656863LL) && jm_str_eq_8(prop + 8, 0x6d6d6f4364656b63LL) && jm_str_eq_8(prop + 16, 0x6f6c6f4367427469LL) && jm_str_eq_2(prop + 24, 0x00000072)))
-        {
-            // handle may cherryPickedCommitBgColor property
-            // .gui.theme.cherryPickedCommitBgColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6950797272656863LL) && jm_str_eq_8(prop + 8, 0x6d6d6f4364656b63LL) && jm_str_eq_8(prop + 16, 0x6f6c6f4367467469LL) && jm_str_eq_2(prop + 24, 0x00000072))
-        {
-            // handle may cherryPickedCommitFgColor property
-            // .gui.theme.cherryPickedCommitFgColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x6e69686372616573LL) && jm_str_eq_8(prop + 8, 0x4265766974634167LL) && jm_str_eq_8(prop + 16, 0x6c6f43726564726fLL) && jm_str_eq_3(prop + 24, 0x0000726f)))
-        {
-            // handle may searchingActiveBorderColor property
-            // .gui.theme.searchingActiveBorderColor
-            res = json_model_3(pval, (path ? &lpath_17 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.theme]", (path ? &lpath_17 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-static INLINE bool _jm_cst_7_str_test(const char *s)
-{
-    return jm_str_eq_7(s, 0x0000656c62756f64LL)  // "double"
-        || jm_str_eq_7(s, 0x00006e6564646968LL)  // "hidden"
-        || jm_str_eq_7(s, 0x0000656c676e6973LL)  // "single"
-        || jm_str_eq_8(s, 0x006465646e756f72LL)  // "rounded"
-    ;
-}
-
-static INLINE bool _jm_cst_8_str_test(const char *s)
-{
-    return jm_str_eq_3(s, 0x00006e65)  // "en"
-        || jm_str_eq_3(s, 0x0000616a)  // "ja"
-        || jm_str_eq_3(s, 0x00006f6b)  // "ko"
-        || jm_str_eq_3(s, 0x00006c6e)  // "nl"
-        || jm_str_eq_3(s, 0x00006c70)  // "pl"
-        || jm_str_eq_3(s, 0x00007572)  // "ru"
-        || jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
-        || jm_str_eq_6(s, 0x0000004e432d687aLL)  // "zh-CN"
-        || jm_str_eq_6(s, 0x00000057542d687aLL)  // "zh-TW"
-    ;
-}
-
-static INLINE bool _jm_cst_9_str_test(const char *s)
-{
-    return jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
-        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
-    ;
-}
-
-static INLINE bool _jm_cst_10_str_test(const char *s)
-{
-    return jm_str_eq_5(s, 0x000000006c6c7566LL)  // "full"
-        || jm_str_eq_5(s, 0x00000000666c6168LL)  // "half"
-        || jm_str_eq_7(s, 0x00006c616d726f6eLL)  // "normal"
-    ;
-}
-
-// object .gui.authorColors
-static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.gui.authorColors]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(_jm_re_1(prop, path, rep)))
-        {
-            // handle 1 re props
-            // .gui.authorColors.'/./'
-            res = json_model_2(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.authorColors.'/./']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.authorColors]", (path ? &lpath_18 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .gui.branchColors
-static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.gui.branchColors]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(_jm_re_1(prop, path, rep)))
-        {
-            // handle 1 re props
-            // .gui.branchColors.'/./'
-            res = json_model_2(pval, (path ? &lpath_19 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.branchColors.'/./']", (path ? &lpath_19 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.branchColors]", (path ? &lpath_19 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .gui.commitLength
-static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.gui.commitLength]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_str_eq_5(prop, 0x00000000776f6873LL)))
-        {
-            // handle may show property
-            // .gui.commitLength.show
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.commitLength.show]", (path ? &lpath_20 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commitLength.show]", (path ? &lpath_20 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.commitLength]", (path ? &lpath_20 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-static INLINE bool _jm_cst_11_str_test(const char *s)
-{
-    return jm_str_eq_2(s, 0x00000032)  // "2"
-        || jm_str_eq_2(s, 0x00000033)  // "3"
-    ;
-}
-
-static INLINE bool _jm_cst_12_str_test(const char *s)
-{
-    return jm_str_eq_8(s, 0x656c626978656c66LL) && jm_str_eq_0(s + 8)  // "flexible"
-        || jm_str_eq_8(s, 0x6c61636974726576LL) && jm_str_eq_0(s + 8)  // "vertical"
-        || jm_str_eq_8(s, 0x746e6f7a69726f68LL) && jm_str_eq_3(s + 8, 0x00006c61)  // "horizontal"
-    ;
-}
-
-// object .gui
-static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.gui]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_6(prop, 0x000000656d656874LL)))
+        uint32_t hash_2 = *((uint32_t *) (prop));
+        if (hash_2 <= 1768382832)
         {
-            // handle may theme property
-            // .gui.theme
-            res = _jm_obj_16(pval, (path ? &lpath_16 : NULL), rep);
-            if (unlikely(! res))
+            if (jm_str_eq_4(prop, 0x00676f6c))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.gui.theme]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x0000726564726f62LL)))
-        {
-            // handle may border property
-            // .gui.border
-            res = json_is_string(pval) && _jm_cst_7_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.gui.border.'|']", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.border]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x65676175676e616cLL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may language property
-            // .gui.language
-            res = json_is_string(pval) && _jm_cst_8_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.gui.language.'|']", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.language]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x66694474696c7073LL) && jm_str_eq_2(prop + 8, 0x00000066)))
-        {
-            // handle may splitDiff property
-            // .gui.splitDiff
-            res = json_is_string(pval) && _jm_cst_9_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.gui.splitDiff.'|']", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.splitDiff]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d726f46656d6974LL) && jm_str_eq_3(prop + 8, 0x00007461)))
-        {
-            // handle may timeFormat property
-            // .gui.timeFormat
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.gui.timeFormat]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.timeFormat]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6953776f646e6977LL) && jm_str_eq_3(prop + 8, 0x0000657a)))
-        {
-            // handle may windowSize property
-            // .gui.windowSize
-            res = json_is_string(pval) && _jm_cst_10_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.gui.windowSize.'|']", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.windowSize]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6576456573756f6dLL) && jm_str_eq_4(prop + 8, 0x0073746e)))
-        {
-            // handle may mouseEvents property
-            // .gui.mouseEvents
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.mouseEvents]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.mouseEvents]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f43726f68747561LL) && jm_str_eq_5(prop + 8, 0x0000000073726f6cLL)))
-        {
-            // handle may authorColors property
-            // .gui.authorColors
-            res = _jm_obj_17(pval, (path ? &lpath_16 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.gui.authorColors]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.authorColors]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f4368636e617262LL) && jm_str_eq_5(prop + 8, 0x0000000073726f6cLL)))
-        {
-            // handle may branchColors property
-            // .gui.branchColors
-            res = _jm_obj_18(pval, (path ? &lpath_16 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.gui.branchColors]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.branchColors]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x654c74696d6d6f63LL) && jm_str_eq_5(prop + 8, 0x000000006874676eLL)))
-        {
-            // handle may commitLength property
-            // .gui.commitLength
-            res = _jm_obj_19(pval, (path ? &lpath_16 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.gui.commitLength]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commitLength]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x65486c6c6f726373LL) && jm_str_eq_5(prop + 8, 0x0000000074686769LL)))
-        {
-            // handle may scrollHeight property
-            // .gui.scrollHeight
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 1 strict int [.gui.scrollHeight]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.scrollHeight]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656c6946776f6873LL) && jm_str_eq_5(prop + 8, 0x0000000065657254LL)))
-        {
-            // handle may showFileTree property
-            // .gui.showFileTree
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.showFileTree]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showFileTree]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x646e6152776f6873LL) && jm_str_eq_6(prop + 8, 0x0000007069546d6fLL)))
-        {
-            // handle may showRandomTip property
-            // .gui.showRandomTip
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.showRandomTip]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showRandomTip]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x4c646e616d6d6f63LL) && jm_str_eq_7(prop + 8, 0x0000657a6953676fLL)))
-        {
-            // handle may commandLogSize property
-            // .gui.commandLogSize
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.gui.commandLogSize]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commandLogSize]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x74746f42776f6873LL) && jm_str_eq_7(prop + 8, 0x0000656e694c6d6fLL)))
-        {
-            // handle may showBottomLine property
-            // .gui.showBottomLine
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.showBottomLine]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showBottomLine]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d6d6f43776f6873LL) && jm_str_eq_7(prop + 8, 0x0000676f4c646e61LL)))
-        {
-            // handle may showCommandLog property
-            // .gui.showCommandLog
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.showCommandLog]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showCommandLog]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7473694c776f6873LL) && jm_str_eq_7(prop + 8, 0x00007265746f6f46LL)))
-        {
-            // handle may showListFooter property
-            // .gui.showListFooter
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.showListFooter]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showListFooter]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656e615065646973LL) && jm_str_eq_7(prop + 8, 0x000068746469576cLL)))
-        {
-            // handle may sidePanelWidth property
-            // .gui.sidePanelWidth
-            // .gui.sidePanelWidth.'@'
-            res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.gui.sidePanelWidth.'@']", (path ? &lpath_16 : NULL));
-            }
-            if (likely(res))
-            {
-                double fval_0 = json_real_value(pval);
-                res = fval_0 <= 1.0;
+                // handle may log property
+                // .git.log
+                res = _jm_obj_16(pval, (path ? &lpath_16 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "constraints failed [.gui.sidePanelWidth]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.git.log]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log]", (path ? &lpath_16 : NULL));
+                    return false;
                 }
+                continue;
             }
-            if (unlikely(! res))
+            else if (jm_str_eq_7(prop, 0x0000676e69676170LL))
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.sidePanelWidth]", (path ? &lpath_16 : NULL));
-                return false;
+                // handle may paging property
+                // .git.paging
+                res = _jm_obj_17(pval, (path ? &lpath_16 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.git.paging]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d695474726f6873LL) && jm_str_eq_8(prop + 8, 0x0074616d726f4665LL)))
-        {
-            // handle may shortTimeFormat property
-            // .gui.shortTimeFormat
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x00676e696772656dLL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.gui.shortTimeFormat]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.shortTimeFormat]", (path ? &lpath_16 : NULL));
-                return false;
+                // handle may merging property
+                // .git.merging
+                res = _jm_obj_18(pval, (path ? &lpath_16 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.git.merging]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x456574616d696e61LL) && jm_str_eq_8(prop + 8, 0x6e6f69736f6c7078LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may animateExplosion property
-            // .gui.animateExplosion
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x6c6c416863746566LL) && jm_str_eq_0(prop + 8))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.animateExplosion]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.animateExplosion]", (path ? &lpath_16 : NULL));
-                return false;
+                // handle may fetchAll property
+                // .git.fetchAll
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.git.fetchAll]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.fetchAll]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x746e6f466472656eLL) && jm_str_eq_8(prop + 8, 0x6e6f697372655673LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may nerdFontsVersion property
-            // .gui.nerdFontsVersion
-            res = json_is_string(pval) && _jm_cst_11_str_test(json_string_value(pval));
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x746e6f4366666964LL) && jm_str_eq_8(prop + 8, 0x00657a6953747865LL))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.gui.nerdFontsVersion.'|']", (path ? &lpath_16 : NULL));
+                // handle may diffContextSize property
+                // .git.diffContextSize
+                res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.git.diffContextSize]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.diffContextSize]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
             }
-            if (! res)
+            else if (jm_str_eq_8(prop, 0x636e6172426c6c61LL) && jm_str_eq_8(prop + 8, 0x6d43676f4c736568LL) && jm_str_eq_2(prop + 16, 0x00000064))
             {
+                // handle may allBranchesLogCmd property
+                // .git.allBranchesLogCmd
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected type [.gui.nerdFontsVersion.'|']", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.git.allBranchesLogCmd]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.allBranchesLogCmd]", (path ? &lpath_16 : NULL));
+                    return false;
                 }
-                if (res)
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x46656c6261736964LL) && jm_str_eq_8(prop + 8, 0x687375506563726fLL) && jm_str_eq_4(prop + 16, 0x00676e69))
+            {
+                // handle may disableForcePushing property
+                // .git.disableForcePushing
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
                 {
-                    // .gui.nerdFontsVersion.'|'.0
-                    res = true;
-                    if (unlikely(res))
-                    {
-                        if (rep) jm_report_free_entries(rep);
-                    }
-                    else
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.gui.nerdFontsVersion.'|'.0]", (path ? &lpath_16 : NULL));
-                        if (rep) jm_report_add_entry(rep, "no model matched [.gui.nerdFontsVersion.'|']", (path ? &lpath_16 : NULL));
-                    }
+                    if (rep) jm_report_add_entry(rep, "not a bool [.git.disableForcePushing]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.disableForcePushing]", (path ? &lpath_16 : NULL));
+                    return false;
                 }
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.nerdFontsVersion]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x61506c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x6d6f74746f427473LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may scrollPastBottom property
-            // .gui.scrollPastBottom
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.scrollPastBottom]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.scrollPastBottom]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7361745370696b73LL) && jm_str_eq_8(prop + 8, 0x676e696e72615768LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may skipStashWarning property
-            // .gui.skipStashWarning
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipStashWarning]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.skipStashWarning]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656e61506e69616dLL) && jm_str_eq_8(prop + 8, 0x6f4d74696c70536cLL) && jm_str_eq_3(prop + 16, 0x00006564)))
-        {
-            // handle may mainPanelSplitMode property
-            // .gui.mainPanelSplitMode
-            res = json_is_string(pval) && _jm_cst_12_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.gui.mainPanelSplitMode.'|']", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.mainPanelSplitMode]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6e617242776f6873LL) && jm_str_eq_8(prop + 8, 0x74696d6d6f436863LL) && jm_str_eq_5(prop + 16, 0x0000000068736148LL)))
-        {
-            // handle may showBranchCommitHash property
-            // .gui.showBranchCommitHash
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.showBranchCommitHash]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.showBranchCommitHash]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f46646e61707865LL) && jm_str_eq_8(prop + 8, 0x6469536465737563LL) && jm_str_eq_7(prop + 16, 0x00006c656e615065LL)))
-        {
-            // handle may expandFocusedSidePanel property
-            // .gui.expandFocusedSidePanel
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.expandFocusedSidePanel]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.expandFocusedSidePanel]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6373694470696b73LL) && jm_str_eq_8(prop + 8, 0x676e616843647261LL) && jm_str_eq_8(prop + 16, 0x676e696e72615765LL) && jm_str_eq_0(prop + 24))
-        {
-            // handle may skipDiscardChangeWarning property
-            // .gui.skipDiscardChangeWarning
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipDiscardChangeWarning]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.skipDiscardChangeWarning]", (path ? &lpath_16 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x6f77655270696b73LL) && jm_str_eq_8(prop + 8, 0x746964456e496472LL) && jm_str_eq_8(prop + 16, 0x6e696e726157726fLL) && jm_str_eq_2(prop + 24, 0x00000067)))
-        {
-            // handle may skipRewordInEditorWarning property
-            // .gui.skipRewordInEditorWarning
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.skipRewordInEditorWarning]", (path ? &lpath_16 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.skipRewordInEditorWarning]", (path ? &lpath_16 : NULL));
-                return false;
+                continue;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui]", (path ? &lpath_16 : NULL));
-            return false;
+            if (jm_str_eq_7(prop, 0x000074696d6d6f63LL))
+            {
+                // handle may commit property
+                // .git.commit
+                res = _jm_obj_19(pval, (path ? &lpath_16 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.git.commit]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x637465466f747561LL) && jm_str_eq_2(prop + 8, 0x00000068))
+            {
+                // handle may autoFetch property
+                // .git.autoFetch
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.git.autoFetch]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.autoFetch]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6f6d456573726170LL) && jm_str_eq_3(prop + 8, 0x0000696a))
+            {
+                // handle may parseEmoji property
+                // .git.parseEmoji
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.git.parseEmoji]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.parseEmoji]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x726665526f747561LL) && jm_str_eq_4(prop + 8, 0x00687365))
+            {
+                // handle may autoRefresh property
+                // .git.autoRefresh
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.git.autoRefresh]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.autoRefresh]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x656469727265766fLL) && jm_str_eq_4(prop + 8, 0x00677047))
+            {
+                // handle may overrideGpg property
+                // .git.overrideGpg
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.git.overrideGpg]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.overrideGpg]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6f4c68636e617262LL) && jm_str_eq_5(prop + 8, 0x00000000646d4367LL))
+            {
+                // handle may branchLogCmd property
+                // .git.branchLogCmd
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.git.branchLogCmd]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.branchLogCmd]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6e6172426e69616dLL) && jm_str_eq_5(prop + 8, 0x0000000073656863LL))
+            {
+                // handle may mainBranches property
+                // .git.mainBranches
+                res = json_model_9(pval, (path ? &lpath_16 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.git.mainBranches]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.mainBranches]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x725074696d6d6f63LL) && jm_str_eq_7(prop + 8, 0x0000736578696665LL))
+            {
+                // handle may commitPrefixes property
+                // .git.commitPrefixes
+                res = _jm_obj_20(pval, (path ? &lpath_16 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commitPrefixes]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6b6f6f4870696b73LL) && jm_str_eq_7(prop + 8, 0x0000786966657250LL))
+            {
+                // handle may skipHookPrefix property
+                // .git.skipHookPrefix
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.git.skipHookPrefix]", (path ? &lpath_16 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.skipHookPrefix]", (path ? &lpath_16 : NULL));
+                    return false;
+                }
+                continue;
+            }
         }
-    }
-    return true;
-}
-
-static INLINE bool _jm_cst_13_str_test(const char *s)
-{
-    return jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
-        || jm_str_eq_7(s, 0x000074706d6f7270LL)  // "prompt"
-        || jm_str_eq_8(s, 0x756f72676b636162LL) && jm_str_eq_3(s + 8, 0x0000646e)  // "background"
-    ;
-}
-
-// object .update
-static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.update]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git]", (path ? &lpath_16 : NULL));
         return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_5(prop, 0x0000000073796164LL))
-        {
-            // handle may days property
-            // .update.days
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.update.days]", (path ? &lpath_21 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.update.days]", (path ? &lpath_21 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_7(prop, 0x0000646f6874656dLL)))
-        {
-            // handle may method property
-            // .update.method
-            res = json_is_string(pval) && _jm_cst_13_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.update.method.'|']", (path ? &lpath_21 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.update.method]", (path ? &lpath_21 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.update]", (path ? &lpath_21 : NULL));
-            return false;
-        }
     }
     return true;
 }
@@ -2489,7 +2614,7 @@ static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .services
-static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2501,140 +2626,22 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
         if (likely(_jm_re_1(prop, path, rep)))
         {
             // handle 1 re props
             // .services.'/./'
             // "/^[^:]+:[^:]+$/"
-            res = json_is_string(pval) && _jm_re_2(json_string_value(pval), (path ? &lpath_22 : NULL), rep);
+            res = json_is_string(pval) && _jm_re_2(json_string_value(pval), (path ? &lpath_23 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path ? &lpath_23 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.services]", (path ? &lpath_22 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .refresher
-static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.refresher]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_23 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_8(prop, 0x746e496863746566LL) && jm_str_eq_6(prop + 8, 0x0000006c61767265LL))
-        {
-            // handle may fetchInterval property
-            // .refresher.fetchInterval
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.refresher.fetchInterval]", (path ? &lpath_23 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.refresher.fetchInterval]", (path ? &lpath_23 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x4968736572666572LL) && jm_str_eq_8(prop + 8, 0x006c61767265746eLL)))
-        {
-            // handle may refreshInterval property
-            // .refresher.refreshInterval
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.refresher.refreshInterval]", (path ? &lpath_23 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.refresher.refreshInterval]", (path ? &lpath_23 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.refresher]", (path ? &lpath_23 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .keybinding.main
-static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.main]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_25 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x68746f426b636970LL) && jm_str_eq_6(prop + 8, 0x000000736b6e7548LL)))
-        {
-            // handle may pickBothHunks property
-            // .keybinding.main.pickBothHunks
-            res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.pickBothHunks]", (path ? &lpath_25 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.pickBothHunks]", (path ? &lpath_25 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7244656c67676f74LL) && jm_str_eq_8(prop + 8, 0x7463656c65536761LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may toggleDragSelect property
-            // .keybinding.main.toggleDragSelect
-            res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path ? &lpath_25 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.toggleDragSelect]", (path ? &lpath_25 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6553656c67676f74LL) && jm_str_eq_8(prop + 8, 0x6b6e75487463656cLL) && jm_str_eq_0(prop + 16))
-        {
-            // handle may toggleSelectHunk property
-            // .keybinding.main.toggleSelectHunk
-            res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path ? &lpath_25 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path ? &lpath_25 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x7244656c67676f74LL) && jm_str_eq_8(prop + 8, 0x7463656c65536761LL) && jm_str_eq_5(prop + 16, 0x00000000746c612dLL)))
-        {
-            // handle may toggleDragSelect-alt property
-            // .keybinding.main.'toggleDragSelect-alt'
-            res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_25 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_25 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.main]", (path ? &lpath_25 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.services]", (path ? &lpath_23 : NULL));
             return false;
         }
     }
@@ -2642,7 +2649,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .keybinding.files
-static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2654,280 +2661,204 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_6(prop, 0x0000006863746566LL)))
+        jm_path_t lpath_25 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_3 = *((uint32_t *) (prop));
+        if (hash_3 <= 1835888483)
         {
-            // handle may fetch property
-            // .keybinding.files.fetch
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
+            if (jm_str_eq_6(prop, 0x0000006863746566LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.fetch]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.fetch]", (path ? &lpath_26 : NULL));
-                return false;
+                // handle may fetch property
+                // .keybinding.files.fetch
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.fetch]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.fetch]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x694665726f6e6769LL) && jm_str_eq_3(prop + 8, 0x0000656c)))
-        {
-            // handle may ignoreFile property
-            // .keybinding.files.ignoreFile
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x684374696d6d6f63LL) && jm_str_eq_6(prop + 8, 0x0000007365676e61LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.ignoreFile]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.ignoreFile]", (path ? &lpath_26 : NULL));
-                return false;
+                // handle may commitChanges property
+                // .keybinding.files.commitChanges
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChanges]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChanges]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x4668736572666572LL) && jm_str_eq_5(prop + 8, 0x0000000073656c69LL)))
-        {
-            // handle may refreshFiles property
-            // .keybinding.files.refreshFiles
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x7254656c67676f74LL) && jm_str_eq_7(prop + 8, 0x0000776569566565LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.refreshFiles]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.refreshFiles]", (path ? &lpath_26 : NULL));
-                return false;
+                // handle may toggleTreeView property
+                // .keybinding.files.toggleTreeView
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.toggleTreeView]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.toggleTreeView]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x684374696d6d6f63LL) && jm_str_eq_6(prop + 8, 0x0000007365676e61LL)))
-        {
-            // handle may commitChanges property
-            // .keybinding.files.commitChanges
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x7453656c67676f74LL) && jm_str_eq_8(prop + 8, 0x006c6c4164656761LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChanges]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChanges]", (path ? &lpath_26 : NULL));
-                return false;
+                // handle may toggleStagedAll property
+                // .keybinding.files.toggleStagedAll
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.toggleStagedAll]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.toggleStagedAll]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6772654d6e65706fLL) && jm_str_eq_6(prop + 8, 0x0000006c6f6f5465LL)))
-        {
-            // handle may openMergeTool property
-            // .keybinding.files.openMergeTool
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x684374696d6d6f63LL) && jm_str_eq_8(prop + 8, 0x7469577365676e61LL) && jm_str_eq_8(prop + 16, 0x00726f7469644568LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.openMergeTool]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.openMergeTool]", (path ? &lpath_26 : NULL));
-                return false;
+                // handle may commitChangesWithEditor property
+                // .keybinding.files.commitChangesWithEditor
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChangesWithEditor]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChangesWithEditor]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7254656c67676f74LL) && jm_str_eq_7(prop + 8, 0x0000776569566565LL)))
-        {
-            // handle may toggleTreeView property
-            // .keybinding.files.toggleTreeView
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x684374696d6d6f63LL) && jm_str_eq_8(prop + 8, 0x7469577365676e61LL) && jm_str_eq_8(prop + 16, 0x6b6f6f4874756f68LL) && jm_str_eq_0(prop + 24))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.toggleTreeView]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.toggleTreeView]", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x73614c646e656d61LL) && jm_str_eq_8(prop + 8, 0x0074696d6d6f4374LL)))
-        {
-            // handle may amendLastCommit property
-            // .keybinding.files.amendLastCommit
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.amendLastCommit]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.amendLastCommit]", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c6c416873617473LL) && jm_str_eq_8(prop + 8, 0x007365676e616843LL)))
-        {
-            // handle may stashAllChanges property
-            // .keybinding.files.stashAllChanges
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.stashAllChanges]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.stashAllChanges]", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7453656c67676f74LL) && jm_str_eq_8(prop + 8, 0x006c6c4164656761LL)))
-        {
-            // handle may toggleStagedAll property
-            // .keybinding.files.toggleStagedAll
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.toggleStagedAll]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.toggleStagedAll]", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x746174536e65706fLL) && jm_str_eq_8(prop + 8, 0x7265746c69467375LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may openStatusFilter property
-            // .keybinding.files.openStatusFilter
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.openStatusFilter]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.openStatusFilter]", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6573655277656976LL) && jm_str_eq_8(prop + 8, 0x736e6f6974704f74LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may viewResetOptions property
-            // .keybinding.files.viewResetOptions
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.viewResetOptions]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.viewResetOptions]", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7361745377656976LL) && jm_str_eq_8(prop + 8, 0x736e6f6974704f68LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may viewStashOptions property
-            // .keybinding.files.viewStashOptions
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.viewStashOptions]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.viewStashOptions]", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x684374696d6d6f63LL) && jm_str_eq_8(prop + 8, 0x7469577365676e61LL) && jm_str_eq_8(prop + 16, 0x00726f7469644568LL))
-        {
-            // handle may commitChangesWithEditor property
-            // .keybinding.files.commitChangesWithEditor
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChangesWithEditor]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChangesWithEditor]", (path ? &lpath_26 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x684374696d6d6f63LL) && jm_str_eq_8(prop + 8, 0x7469577365676e61LL) && jm_str_eq_8(prop + 16, 0x6b6f6f4874756f68LL) && jm_str_eq_0(prop + 24)))
-        {
-            // handle may commitChangesWithoutHook property
-            // .keybinding.files.commitChangesWithoutHook
-            res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChangesWithoutHook]", (path ? &lpath_26 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChangesWithoutHook]", (path ? &lpath_26 : NULL));
-                return false;
+                // handle may commitChangesWithoutHook property
+                // .keybinding.files.commitChangesWithoutHook
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChangesWithoutHook]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChangesWithoutHook]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.files]", (path ? &lpath_26 : NULL));
-            return false;
+            if (jm_str_eq_8(prop, 0x694665726f6e6769LL) && jm_str_eq_3(prop + 8, 0x0000656c))
+            {
+                // handle may ignoreFile property
+                // .keybinding.files.ignoreFile
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.ignoreFile]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.ignoreFile]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x4668736572666572LL) && jm_str_eq_5(prop + 8, 0x0000000073656c69LL))
+            {
+                // handle may refreshFiles property
+                // .keybinding.files.refreshFiles
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.refreshFiles]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.refreshFiles]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6772654d6e65706fLL) && jm_str_eq_6(prop + 8, 0x0000006c6f6f5465LL))
+            {
+                // handle may openMergeTool property
+                // .keybinding.files.openMergeTool
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.openMergeTool]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.openMergeTool]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73614c646e656d61LL) && jm_str_eq_8(prop + 8, 0x0074696d6d6f4374LL))
+            {
+                // handle may amendLastCommit property
+                // .keybinding.files.amendLastCommit
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.amendLastCommit]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.amendLastCommit]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6c416873617473LL) && jm_str_eq_8(prop + 8, 0x007365676e616843LL))
+            {
+                // handle may stashAllChanges property
+                // .keybinding.files.stashAllChanges
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.stashAllChanges]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.stashAllChanges]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746174536e65706fLL) && jm_str_eq_8(prop + 8, 0x7265746c69467375LL) && jm_str_eq_0(prop + 16))
+            {
+                // handle may openStatusFilter property
+                // .keybinding.files.openStatusFilter
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.openStatusFilter]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.openStatusFilter]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6573655277656976LL) && jm_str_eq_8(prop + 8, 0x736e6f6974704f74LL) && jm_str_eq_0(prop + 16))
+            {
+                // handle may viewResetOptions property
+                // .keybinding.files.viewResetOptions
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.viewResetOptions]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.viewResetOptions]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7361745377656976LL) && jm_str_eq_8(prop + 8, 0x736e6f6974704f68LL) && jm_str_eq_0(prop + 16))
+            {
+                // handle may viewStashOptions property
+                // .keybinding.files.viewStashOptions
+                res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.viewStashOptions]", (path ? &lpath_25 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.viewStashOptions]", (path ? &lpath_25 : NULL));
+                    return false;
+                }
+                continue;
+            }
         }
-    }
-    return true;
-}
-
-// object .keybinding.stash
-static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.stash]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.files]", (path ? &lpath_25 : NULL));
         return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_8(prop, 0x6873617453706f70LL) && jm_str_eq_0(prop + 8))
-        {
-            // handle may popStash property
-            // .keybinding.stash.popStash
-            res = json_model_4(pval, (path ? &lpath_27 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.stash.popStash]", (path ? &lpath_27 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash.popStash]", (path ? &lpath_27 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x7453656d616e6572LL) && jm_str_eq_4(prop + 8, 0x00687361)))
-        {
-            // handle may renameStash property
-            // .keybinding.stash.renameStash
-            res = json_model_4(pval, (path ? &lpath_27 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.stash.renameStash]", (path ? &lpath_27 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash.renameStash]", (path ? &lpath_27 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.stash]", (path ? &lpath_27 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .keybinding.status
-static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.status]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_8(prop, 0x6552746e65636572LL) && jm_str_eq_4(prop + 8, 0x00736f70))
-        {
-            // handle may recentRepos property
-            // .keybinding.status.recentRepos
-            res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.status.recentRepos]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status.recentRepos]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x726f466b63656863LL) && jm_str_eq_7(prop + 8, 0x0000657461647055LL)))
-        {
-            // handle may checkForUpdate property
-            // .keybinding.status.checkForUpdate
-            res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.status.checkForUpdate]", (path ? &lpath_28 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status.checkForUpdate]", (path ? &lpath_28 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.status]", (path ? &lpath_28 : NULL));
-            return false;
-        }
     }
     return true;
 }
 
 // object .keybinding.commits
-static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2939,1180 +2870,307 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x696d6d6f43676174LL) && jm_str_eq_2(prop + 8, 0x00000074)))
+        jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_4 = *((uint32_t *) (prop));
+        if (hash_4 <= 1702258034)
         {
-            // handle may tagCommit property
-            // .keybinding.commits.tagCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
+            if (hash_4 <= 1634624882)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.tagCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.tagCommit]", (path ? &lpath_29 : NULL));
-                return false;
+                if (jm_str_eq_8(prop, 0x696d6d6f43676174LL) && jm_str_eq_2(prop + 8, 0x00000074))
+                {
+                    // handle may tagCommit property
+                    // .keybinding.commits.tagCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.tagCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.tagCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6f43656d616e6572LL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL))
+                {
+                    // handle may renameCommit property
+                    // .keybinding.commits.renameCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.renameCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.renameCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6946657461657263LL) && jm_str_eq_8(prop + 8, 0x696d6d6f43707578LL) && jm_str_eq_2(prop + 16, 0x00000074))
+                {
+                    // handle may createFixupCommit property
+                    // .keybinding.commits.createFixupCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.createFixupCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.createFixupCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6f43656d616e6572LL) && jm_str_eq_8(prop + 8, 0x6874695774696d6dLL) && jm_str_eq_7(prop + 16, 0x0000726f74696445LL))
+                {
+                    // handle may renameCommitWithEditor property
+                    // .keybinding.commits.renameCommitWithEditor
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.renameCommitWithEditor]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.renameCommitWithEditor]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d6d6f436b636970LL) && jm_str_eq_3(prop + 8, 0x00007469)))
-        {
-            // handle may pickCommit property
-            // .keybinding.commits.pickCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
+            else
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.pickCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.pickCommit]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f44687361757173LL) && jm_str_eq_3(prop + 8, 0x00006e77)))
-        {
-            // handle may squashDown property
-            // .keybinding.commits.squashDown
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.squashDown]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.squashDown]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x4d676f4c6e65706fLL) && jm_str_eq_4(prop + 8, 0x00756e65)))
-        {
-            // handle may openLogMenu property
-            // .keybinding.commits.openLogMenu
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.openLogMenu]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.openLogMenu]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f43705565766f6dLL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL)))
-        {
-            // handle may moveUpCommit property
-            // .keybinding.commits.moveUpCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.moveUpCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.moveUpCommit]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d6f436574736170LL) && jm_str_eq_5(prop + 8, 0x000000007374696dLL)))
-        {
-            // handle may pasteCommits property
-            // .keybinding.commits.pasteCommits
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.pasteCommits]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.pasteCommits]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f43656d616e6572LL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL)))
-        {
-            // handle may renameCommit property
-            // .keybinding.commits.renameCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.renameCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.renameCommit]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f43747265766572LL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL)))
-        {
-            // handle may revertCommit property
-            // .keybinding.commits.revertCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.revertCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.revertCommit]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x436f54646e656d61LL) && jm_str_eq_6(prop + 8, 0x00000074696d6d6fLL)))
-        {
-            // handle may amendToCommit property
-            // .keybinding.commits.amendToCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.amendToCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.amendToCommit]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x74756f6b63656863LL) && jm_str_eq_7(prop + 8, 0x000074696d6d6f43LL)))
-        {
-            // handle may checkoutCommit property
-            // .keybinding.commits.checkoutCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.checkoutCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.checkoutCommit]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6950797272656863LL) && jm_str_eq_7(prop + 8, 0x000079706f436b63LL)))
-        {
-            // handle may cherryPickCopy property
-            // .keybinding.commits.cherryPickCopy
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.cherryPickCopy]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.cherryPickCopy]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6e776f4465766f6dLL) && jm_str_eq_7(prop + 8, 0x000074696d6d6f43LL)))
-        {
-            // handle may moveDownCommit property
-            // .keybinding.commits.moveDownCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.moveDownCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.moveDownCommit]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6568437465736572LL) && jm_str_eq_8(prop + 8, 0x006b636950797272LL)))
-        {
-            // handle may resetCherryPick property
-            // .keybinding.commits.resetCherryPick
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.resetCherryPick]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.resetCherryPick]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6573655277656976LL) && jm_str_eq_8(prop + 8, 0x736e6f6974704f74LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may viewResetOptions property
-            // .keybinding.commits.viewResetOptions
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.viewResetOptions]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.viewResetOptions]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6946657461657263LL) && jm_str_eq_8(prop + 8, 0x696d6d6f43707578LL) && jm_str_eq_2(prop + 16, 0x00000074)))
-        {
-            // handle may createFixupCommit property
-            // .keybinding.commits.createFixupCommit
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.createFixupCommit]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.createFixupCommit]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d6d6f436b72616dLL) && jm_str_eq_8(prop + 8, 0x7578694673417469LL) && jm_str_eq_2(prop + 16, 0x00000070)))
-        {
-            // handle may markCommitAsFixup property
-            // .keybinding.commits.markCommitAsFixup
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.markCommitAsFixup]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.markCommitAsFixup]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6573694277656976LL) && jm_str_eq_8(prop + 8, 0x6e6f6974704f7463LL) && jm_str_eq_2(prop + 16, 0x00000073)))
-        {
-            // handle may viewBisectOptions property
-            // .keybinding.commits.viewBisectOptions
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.viewBisectOptions]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.viewBisectOptions]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6241687361757173LL) && jm_str_eq_8(prop + 8, 0x696d6d6f4365766fLL) && jm_str_eq_3(prop + 16, 0x00007374)))
-        {
-            // handle may squashAboveCommits property
-            // .keybinding.commits.squashAboveCommits
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.squashAboveCommits]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.squashAboveCommits]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6950797272656863LL) && jm_str_eq_8(prop + 8, 0x615279706f436b63LL) && jm_str_eq_4(prop + 16, 0x0065676e)))
-        {
-            // handle may cherryPickCopyRange property
-            // .keybinding.commits.cherryPickCopyRange
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.cherryPickCopyRange]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.cherryPickCopyRange]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6f43656d616e6572LL) && jm_str_eq_8(prop + 8, 0x6874695774696d6dLL) && jm_str_eq_7(prop + 16, 0x0000726f74696445LL))
-        {
-            // handle may renameCommitWithEditor property
-            // .keybinding.commits.renameCommitWithEditor
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.renameCommitWithEditor]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.renameCommitWithEditor]", (path ? &lpath_29 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x6d6d6f4379706f63LL) && jm_str_eq_8(prop + 8, 0x67617373654d7469LL) && jm_str_eq_8(prop + 16, 0x6270696c436f5465LL) && jm_str_eq_5(prop + 24, 0x000000006472616fLL)))
-        {
-            // handle may copyCommitMessageToClipboard property
-            // .keybinding.commits.copyCommitMessageToClipboard
-            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.copyCommitMessageToClipboard]", (path ? &lpath_29 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.copyCommitMessageToClipboard]", (path ? &lpath_29 : NULL));
-                return false;
+                if (jm_str_eq_8(prop, 0x6f44687361757173LL) && jm_str_eq_3(prop + 8, 0x00006e77))
+                {
+                    // handle may squashDown property
+                    // .keybinding.commits.squashDown
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.squashDown]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.squashDown]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6f43747265766572LL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL))
+                {
+                    // handle may revertCommit property
+                    // .keybinding.commits.revertCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.revertCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.revertCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x74756f6b63656863LL) && jm_str_eq_7(prop + 8, 0x000074696d6d6f43LL))
+                {
+                    // handle may checkoutCommit property
+                    // .keybinding.commits.checkoutCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.checkoutCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.checkoutCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6568437465736572LL) && jm_str_eq_8(prop + 8, 0x006b636950797272LL))
+                {
+                    // handle may resetCherryPick property
+                    // .keybinding.commits.resetCherryPick
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.resetCherryPick]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.resetCherryPick]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6241687361757173LL) && jm_str_eq_8(prop + 8, 0x696d6d6f4365766fLL) && jm_str_eq_3(prop + 16, 0x00007374))
+                {
+                    // handle may squashAboveCommits property
+                    // .keybinding.commits.squashAboveCommits
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.squashAboveCommits]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.squashAboveCommits]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.commits]", (path ? &lpath_29 : NULL));
-            return false;
+            if (hash_4 <= 1802658157)
+            {
+                if (jm_str_eq_8(prop, 0x6d6d6f436b636970LL) && jm_str_eq_3(prop + 8, 0x00007469))
+                {
+                    // handle may pickCommit property
+                    // .keybinding.commits.pickCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.pickCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.pickCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6f43705565766f6dLL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL))
+                {
+                    // handle may moveUpCommit property
+                    // .keybinding.commits.moveUpCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.moveUpCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.moveUpCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6e776f4465766f6dLL) && jm_str_eq_7(prop + 8, 0x000074696d6d6f43LL))
+                {
+                    // handle may moveDownCommit property
+                    // .keybinding.commits.moveDownCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.moveDownCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.moveDownCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6d6d6f436b72616dLL) && jm_str_eq_8(prop + 8, 0x7578694673417469LL) && jm_str_eq_2(prop + 16, 0x00000070))
+                {
+                    // handle may markCommitAsFixup property
+                    // .keybinding.commits.markCommitAsFixup
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.markCommitAsFixup]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.markCommitAsFixup]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_8(prop, 0x4d676f4c6e65706fLL) && jm_str_eq_4(prop + 8, 0x00756e65))
+                {
+                    // handle may openLogMenu property
+                    // .keybinding.commits.openLogMenu
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.openLogMenu]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.openLogMenu]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6d6f436574736170LL) && jm_str_eq_5(prop + 8, 0x000000007374696dLL))
+                {
+                    // handle may pasteCommits property
+                    // .keybinding.commits.pasteCommits
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.pasteCommits]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.pasteCommits]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x436f54646e656d61LL) && jm_str_eq_6(prop + 8, 0x00000074696d6d6fLL))
+                {
+                    // handle may amendToCommit property
+                    // .keybinding.commits.amendToCommit
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.amendToCommit]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.amendToCommit]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6950797272656863LL) && jm_str_eq_7(prop + 8, 0x000079706f436b63LL))
+                {
+                    // handle may cherryPickCopy property
+                    // .keybinding.commits.cherryPickCopy
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.cherryPickCopy]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.cherryPickCopy]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6573655277656976LL) && jm_str_eq_8(prop + 8, 0x736e6f6974704f74LL) && jm_str_eq_0(prop + 16))
+                {
+                    // handle may viewResetOptions property
+                    // .keybinding.commits.viewResetOptions
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.viewResetOptions]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.viewResetOptions]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6573694277656976LL) && jm_str_eq_8(prop + 8, 0x6e6f6974704f7463LL) && jm_str_eq_2(prop + 16, 0x00000073))
+                {
+                    // handle may viewBisectOptions property
+                    // .keybinding.commits.viewBisectOptions
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.viewBisectOptions]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.viewBisectOptions]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6950797272656863LL) && jm_str_eq_8(prop + 8, 0x615279706f436b63LL) && jm_str_eq_4(prop + 16, 0x0065676e))
+                {
+                    // handle may cherryPickCopyRange property
+                    // .keybinding.commits.cherryPickCopyRange
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.cherryPickCopyRange]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.cherryPickCopyRange]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x6d6d6f4379706f63LL) && jm_str_eq_8(prop + 8, 0x67617373654d7469LL) && jm_str_eq_8(prop + 16, 0x6270696c436f5465LL) && jm_str_eq_5(prop + 24, 0x000000006472616fLL))
+                {
+                    // handle may copyCommitMessageToClipboard property
+                    // .keybinding.commits.copyCommitMessageToClipboard
+                    res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.copyCommitMessageToClipboard]", (path ? &lpath_26 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.copyCommitMessageToClipboard]", (path ? &lpath_26 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
         }
-    }
-    return true;
-}
-
-// object .keybinding.branches
-static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.branches]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.commits]", (path ? &lpath_26 : NULL));
         return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x0067615468737570LL)))
-        {
-            // handle may pushTag property
-            // .keybinding.branches.pushTag
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.pushTag]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.pushTag]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6154657461657263LL) && jm_str_eq_2(prop + 8, 0x00000067)))
-        {
-            // handle may createTag property
-            // .keybinding.branches.createTag
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.createTag]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.createTag]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x77726f4674736166LL) && jm_str_eq_4(prop + 8, 0x00647261)))
-        {
-            // handle may fastForward property
-            // .keybinding.branches.fastForward
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.fastForward]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.fastForward]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d65526863746566LL) && jm_str_eq_4(prop + 8, 0x0065746f)))
-        {
-            // handle may fetchRemote property
-            // .keybinding.branches.fetchRemote
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.fetchRemote]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.fetchRemote]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7274737055746573LL) && jm_str_eq_4(prop + 8, 0x006d6165)))
-        {
-            // handle may setUpstream property
-            // .keybinding.branches.setUpstream
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.setUpstream]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.setUpstream]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7242657361626572LL) && jm_str_eq_5(prop + 8, 0x0000000068636e61LL)))
-        {
-            // handle may rebaseBranch property
-            // .keybinding.branches.rebaseBranch
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.rebaseBranch]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.rebaseBranch]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7242656d616e6572LL) && jm_str_eq_5(prop + 8, 0x0000000068636e61LL)))
-        {
-            // handle may renameBranch property
-            // .keybinding.branches.renameBranch
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.renameBranch]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.renameBranch]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7550657461657263LL) && jm_str_eq_8(prop + 8, 0x7365757165526c6cLL) && jm_str_eq_2(prop + 16, 0x00000074)))
-        {
-            // handle may createPullRequest property
-            // .keybinding.branches.createPullRequest
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.createPullRequest]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.createPullRequest]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x4674694777656976LL) && jm_str_eq_8(prop + 8, 0x6f6974704f776f6cLL) && jm_str_eq_3(prop + 16, 0x0000736e)))
-        {
-            // handle may viewGitFlowOptions property
-            // .keybinding.branches.viewGitFlowOptions
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.viewGitFlowOptions]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.viewGitFlowOptions]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6568436563726f66LL) && jm_str_eq_8(prop + 8, 0x61724274756f6b63LL) && jm_str_eq_4(prop + 16, 0x0068636e)))
-        {
-            // handle may forceCheckoutBranch property
-            // .keybinding.branches.forceCheckoutBranch
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.forceCheckoutBranch]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.forceCheckoutBranch]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x74756f6b63656863LL) && jm_str_eq_8(prop + 8, 0x794268636e617242LL) && jm_str_eq_5(prop + 16, 0x00000000656d614eLL)))
-        {
-            // handle may checkoutBranchByName property
-            // .keybinding.branches.checkoutBranchByName
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.checkoutBranchByName]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.checkoutBranchByName]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x746e49656772656dLL) && jm_str_eq_8(prop + 8, 0x746e65727275436fLL) && jm_str_eq_7(prop + 16, 0x000068636e617242LL))
-        {
-            // handle may mergeIntoCurrentBranch property
-            // .keybinding.branches.mergeIntoCurrentBranch
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.mergeIntoCurrentBranch]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.mergeIntoCurrentBranch]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x6c6c755077656976LL) && jm_str_eq_8(prop + 8, 0x4f74736575716552LL) && jm_str_eq_7(prop + 16, 0x0000736e6f697470LL)))
-        {
-            // handle may viewPullRequestOptions property
-            // .keybinding.branches.viewPullRequestOptions
-            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.viewPullRequestOptions]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.viewPullRequestOptions]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.branches]", (path ? &lpath_30 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .keybinding.universal
-static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.universal]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_4(prop, 0x0077656e)))
-        {
-            // handle may new property
-            // .keybinding.universal.new
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.new]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.new]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000074696465LL)))
-        {
-            // handle may edit property
-            // .keybinding.universal.edit
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.edit]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.edit]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000074697571LL)))
-        {
-            // handle may quit property
-            // .keybinding.universal.quit
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.quit]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.quit]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x000000006f646572LL)))
-        {
-            // handle may redo property
-            // .keybinding.universal.redo
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.redo]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.redo]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x000000006f646e75LL)))
-        {
-            // handle may undo property
-            // .keybinding.universal.undo
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.undo]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.undo]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x00006f746e496f67LL)))
-        {
-            // handle may goInto property
-            // .keybinding.universal.goInto
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.goInto]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.goInto]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x000065766f6d6572LL)))
-        {
-            // handle may remove property
-            // .keybinding.universal.remove
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.remove]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.remove]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x00006e7275746572LL)))
-        {
-            // handle may return property
-            // .keybinding.universal.return
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.return]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.return]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x00007463656c6573LL)))
-        {
-            // handle may select property
-            // .keybinding.universal.select
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.select]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.select]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x006d7269666e6f63LL)))
-        {
-            // handle may confirm property
-            // .keybinding.universal.confirm
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.confirm]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.confirm]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x00706f546f746f67LL)))
-        {
-            // handle may gotoTop property
-            // .keybinding.universal.gotoTop
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.gotoTop]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.gotoTop]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x006261547478656eLL)))
-        {
-            // handle may nextTab property
-            // .keybinding.universal.nextTab
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextTab]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextTab]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x0062615476657270LL)))
-        {
-            // handle may prevTab property
-            // .keybinding.universal.prevTab
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevTab]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevTab]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x0068736572666572LL)))
-        {
-            // handle may refresh property
-            // .keybinding.universal.refresh
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.refresh]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.refresh]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d6574497478656eLL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may nextItem property
-            // .keybinding.universal.nextItem
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextItem]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextItem]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656761507478656eLL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may nextPage property
-            // .keybinding.universal.nextPage
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextPage]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextPage]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656c69466e65706fLL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may openFile property
-            // .keybinding.universal.openFile
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.openFile]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.openFile]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d65744976657270LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may prevItem property
-            // .keybinding.universal.prevItem
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevItem]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevItem]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6567615076657270LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may prevPage property
-            // .keybinding.universal.prevPage
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevPage]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevPage]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x636f6c427478656eLL) && jm_str_eq_2(prop + 8, 0x0000006b)))
-        {
-            // handle may nextBlock property
-            // .keybinding.universal.nextBlock
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextBlock]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextBlock]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6374614d7478656eLL) && jm_str_eq_2(prop + 8, 0x00000068)))
-        {
-            // handle may nextMatch property
-            // .keybinding.universal.nextMatch
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextMatch]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextMatch]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x636f6c4276657270LL) && jm_str_eq_2(prop + 8, 0x0000006b)))
-        {
-            // handle may prevBlock property
-            // .keybinding.universal.prevBlock
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevBlock]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevBlock]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6374614d76657270LL) && jm_str_eq_2(prop + 8, 0x00000068)))
-        {
-            // handle may prevMatch property
-            // .keybinding.universal.prevMatch
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevMatch]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevMatch]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656c69466c6c7570LL) && jm_str_eq_2(prop + 8, 0x00000073)))
-        {
-            // handle may pullFiles property
-            // .keybinding.universal.pullFiles
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.pullFiles]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.pullFiles]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656c694668737570LL) && jm_str_eq_2(prop + 8, 0x00000073)))
-        {
-            // handle may pushFiles property
-            // .keybinding.universal.pushFiles
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.pushFiles]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.pushFiles]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x746c612d74697571LL) && jm_str_eq_2(prop + 8, 0x00000031)))
-        {
-            // handle may quit-alt1 property
-            // .keybinding.universal.'quit-alt1'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'quit-alt1']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'quit-alt1']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x654d736172747865LL) && jm_str_eq_3(prop + 8, 0x0000756e)))
-        {
-            // handle may extrasMenu property
-            // .keybinding.universal.extrasMenu
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.extrasMenu]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.extrasMenu]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x74746f426f746f67LL) && jm_str_eq_3(prop + 8, 0x00006d6f)))
-        {
-            // handle may gotoBottom property
-            // .keybinding.universal.gotoBottom
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.gotoBottom]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.gotoBottom]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x654d6e6f6974706fLL) && jm_str_eq_3(prop + 8, 0x0000756e)))
-        {
-            // handle may optionMenu property
-            // .keybinding.universal.optionMenu
-            res = json_is_null(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not null [.keybinding.universal.optionMenu]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.optionMenu]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x654c6c6c6f726373LL) && jm_str_eq_3(prop + 8, 0x00007466)))
-        {
-            // handle may scrollLeft property
-            // .keybinding.universal.scrollLeft
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollLeft]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollLeft]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x4d676e6966666964LL) && jm_str_eq_4(prop + 8, 0x00756e65)))
-        {
-            // handle may diffingMenu property
-            // .keybinding.universal.diffingMenu
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.diffingMenu]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.diffingMenu]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c426f54706d756aLL) && jm_str_eq_4(prop + 8, 0x006b636f)))
-        {
-            // handle may jumpToBlock property
-            // .keybinding.universal.jumpToBlock
-            res = json_is_array(pval);
-            if (likely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.keybinding.universal.jumpToBlock]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.jumpToBlock]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x69526c6c6f726373LL) && jm_str_eq_4(prop + 8, 0x00746867)))
-        {
-            // handle may scrollRight property
-            // .keybinding.universal.scrollRight
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollRight]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollRight]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6150656c67676f74LL) && jm_str_eq_4(prop + 8, 0x006c656e)))
-        {
-            // handle may togglePanel property
-            // .keybinding.universal.togglePanel
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.togglePanel]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.togglePanel]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d6574497478656eLL) && jm_str_eq_5(prop + 8, 0x00000000746c612dLL)))
-        {
-            // handle may nextItem-alt property
-            // .keybinding.universal.'nextItem-alt'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'nextItem-alt']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'nextItem-alt']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d65744976657270LL) && jm_str_eq_5(prop + 8, 0x00000000746c612dLL)))
-        {
-            // handle may prevItem-alt property
-            // .keybinding.universal.'prevItem-alt'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'prevItem-alt']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'prevItem-alt']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x70556c6c6f726373LL) && jm_str_eq_5(prop + 8, 0x000000006e69614dLL)))
-        {
-            // handle may scrollUpMain property
-            // .keybinding.universal.scrollUpMain
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollUpMain]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollUpMain]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6e697265746c6966LL) && jm_str_eq_6(prop + 8, 0x000000756e654d67LL)))
-        {
-            // handle may filteringMenu property
-            // .keybinding.universal.filteringMenu
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.filteringMenu]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.filteringMenu]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x636f6c427478656eLL) && jm_str_eq_6(prop + 8, 0x000000746c612d6bLL)))
-        {
-            // handle may nextBlock-alt property
-            // .keybinding.universal.'nextBlock-alt'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'nextBlock-alt']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'nextBlock-alt']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x636f6c4276657270LL) && jm_str_eq_6(prop + 8, 0x000000746c612d6bLL)))
-        {
-            // handle may prevBlock-alt property
-            // .keybinding.universal.'prevBlock-alt'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'prevBlock-alt']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'prevBlock-alt']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x657263537478656eLL) && jm_str_eq_7(prop + 8, 0x000065646f4d6e65LL)))
-        {
-            // handle may nextScreenMode property
-            // .keybinding.universal.nextScreenMode
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextScreenMode]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextScreenMode]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6572635376657270LL) && jm_str_eq_7(prop + 8, 0x000065646f4d6e65LL)))
-        {
-            // handle may prevScreenMode property
-            // .keybinding.universal.prevScreenMode
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevScreenMode]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevScreenMode]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f446c6c6f726373LL) && jm_str_eq_7(prop + 8, 0x00006e69614d6e77LL)))
-        {
-            // handle may scrollDownMain property
-            // .keybinding.universal.scrollDownMain
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollDownMain]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollDownMain]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6c436f5479706f63LL) && jm_str_eq_8(prop + 8, 0x006472616f627069LL)))
-        {
-            // handle may copyToClipboard property
-            // .keybinding.universal.copyToClipboard
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.copyToClipboard]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.copyToClipboard]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x4d676e6966666964LL) && jm_str_eq_8(prop + 8, 0x00746c612d756e65LL)))
-        {
-            // handle may diffingMenu-alt property
-            // .keybinding.universal.'diffingMenu-alt'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'diffingMenu-alt']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'diffingMenu-alt']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656365526e65706fLL) && jm_str_eq_8(prop + 8, 0x00736f706552746eLL)))
-        {
-            // handle may openRecentRepos property
-            // .keybinding.universal.openRecentRepos
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.openRecentRepos]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.openRecentRepos]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x654d6e6f6974706fLL) && jm_str_eq_8(prop + 8, 0x0031746c612d756eLL)))
-        {
-            // handle may optionMenu-alt1 property
-            // .keybinding.universal.'optionMenu-alt1'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'optionMenu-alt1']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'optionMenu-alt1']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x644574696d627573LL) && jm_str_eq_8(prop + 8, 0x74786554726f7469LL) && jm_str_eq_0(prop + 16)))
-        {
-            // handle may submitEditorText property
-            // .keybinding.universal.submitEditorText
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.submitEditorText]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.submitEditorText]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x70556c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x746c612d6e69614dLL) && jm_str_eq_2(prop + 16, 0x00000031)))
-        {
-            // handle may scrollUpMain-alt1 property
-            // .keybinding.universal.'scrollUpMain-alt1'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollUpMain-alt1']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollUpMain-alt1']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x70556c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x746c612d6e69614dLL) && jm_str_eq_2(prop + 16, 0x00000032)))
-        {
-            // handle may scrollUpMain-alt2 property
-            // .keybinding.universal.'scrollUpMain-alt2'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollUpMain-alt2']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollUpMain-alt2']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f446c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x612d6e69614d6e77LL) && jm_str_eq_4(prop + 16, 0x0031746c)))
-        {
-            // handle may scrollDownMain-alt1 property
-            // .keybinding.universal.'scrollDownMain-alt1'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollDownMain-alt1']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollDownMain-alt1']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f446c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x612d6e69614d6e77LL) && jm_str_eq_4(prop + 16, 0x0032746c)))
-        {
-            // handle may scrollDownMain-alt2 property
-            // .keybinding.universal.'scrollDownMain-alt2'
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollDownMain-alt2']", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollDownMain-alt2']", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x4365747563657865LL) && jm_str_eq_8(prop + 8, 0x6d6f436d6f747375LL) && jm_str_eq_5(prop + 16, 0x00000000646e616dLL)))
-        {
-            // handle may executeCustomCommand property
-            // .keybinding.universal.executeCustomCommand
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.executeCustomCommand]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.executeCustomCommand]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6150657461657263LL) && jm_str_eq_8(prop + 8, 0x6f6974704f686374LL) && jm_str_eq_7(prop + 16, 0x0000756e654d736eLL)))
-        {
-            // handle may createPatchOptionsMenu property
-            // .keybinding.universal.createPatchOptionsMenu
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.createPatchOptionsMenu]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.createPatchOptionsMenu]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6552657461657263LL) && jm_str_eq_8(prop + 8, 0x6974704f65736162LL) && jm_str_eq_8(prop + 16, 0x00756e654d736e6fLL)))
-        {
-            // handle may createRebaseOptionsMenu property
-            // .keybinding.universal.createRebaseOptionsMenu
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.createRebaseOptionsMenu]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.createRebaseOptionsMenu]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6573616572636564LL) && jm_str_eq_8(prop + 8, 0x49747865746e6f43LL) && jm_str_eq_8(prop + 16, 0x656956666669446eLL) && jm_str_eq_2(prop + 24, 0x00000077)))
-        {
-            // handle may decreaseContextInDiffView property
-            // .keybinding.universal.decreaseContextInDiffView
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.decreaseContextInDiffView]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.decreaseContextInDiffView]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6573616572636e69LL) && jm_str_eq_8(prop + 8, 0x49747865746e6f43LL) && jm_str_eq_8(prop + 16, 0x656956666669446eLL) && jm_str_eq_2(prop + 24, 0x00000077)))
-        {
-            // handle may increaseContextInDiffView property
-            // .keybinding.universal.increaseContextInDiffView
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.increaseContextInDiffView]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.increaseContextInDiffView]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6857656c67676f74LL) && jm_str_eq_8(prop + 8, 0x6563617073657469LL) && jm_str_eq_8(prop + 16, 0x6956666669446e49LL) && jm_str_eq_3(prop + 24, 0x00007765))
-        {
-            // handle may toggleWhitespaceInDiffView property
-            // .keybinding.universal.toggleWhitespaceInDiffView
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.toggleWhitespaceInDiffView]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.toggleWhitespaceInDiffView]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x6874695774697571LL) && jm_str_eq_8(prop + 8, 0x676e61684374756fLL) && jm_str_eq_8(prop + 16, 0x6365726944676e69LL) && jm_str_eq_5(prop + 24, 0x0000000079726f74LL)))
-        {
-            // handle may quitWithoutChangingDirectory property
-            // .keybinding.universal.quitWithoutChangingDirectory
-            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.quitWithoutChangingDirectory]", (path ? &lpath_31 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.quitWithoutChangingDirectory]", (path ? &lpath_31 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.universal]", (path ? &lpath_31 : NULL));
-            return false;
-        }
     }
     return true;
 }
 
 // object .keybinding.submodules
-static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -4124,16 +3182,16 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_32 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
         if (unlikely(jm_str_eq_5(prop, 0x0000000074696e69LL)))
         {
             // handle may init property
             // .keybinding.submodules.init
-            res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+            res = json_model_4(pval, (path ? &lpath_27 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.init]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.init]", (path ? &lpath_32 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.init]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.init]", (path ? &lpath_27 : NULL));
                 return false;
             }
         }
@@ -4141,11 +3199,11 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may update property
             // .keybinding.submodules.update
-            res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+            res = json_model_4(pval, (path ? &lpath_27 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.update]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.update]", (path ? &lpath_32 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.update]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.update]", (path ? &lpath_27 : NULL));
                 return false;
             }
         }
@@ -4153,17 +3211,17 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may bulkMenu property
             // .keybinding.submodules.bulkMenu
-            res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+            res = json_model_4(pval, (path ? &lpath_27 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path ? &lpath_32 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.bulkMenu]", (path ? &lpath_32 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.bulkMenu]", (path ? &lpath_27 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.submodules]", (path ? &lpath_32 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.submodules]", (path ? &lpath_27 : NULL));
             return false;
         }
     }
@@ -4171,7 +3229,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .keybinding.commitFiles
-static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -4183,24 +3241,1215 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_33 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
         if (likely(jm_str_eq_8(prop, 0x74756f6b63656863LL) && jm_str_eq_8(prop + 8, 0x694674696d6d6f43LL) && jm_str_eq_3(prop + 16, 0x0000656c)))
         {
             // handle may checkoutCommitFile property
             // .keybinding.commitFiles.checkoutCommitFile
-            res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+            res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_33 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_33 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_28 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_28 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.commitFiles]", (path ? &lpath_33 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.commitFiles]", (path ? &lpath_28 : NULL));
             return false;
         }
+    }
+    return true;
+}
+
+// object .keybinding.main
+static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.main]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_29 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_8(prop, 0x68746f426b636970LL) && jm_str_eq_6(prop + 8, 0x000000736b6e7548LL)))
+        {
+            // handle may pickBothHunks property
+            // .keybinding.main.pickBothHunks
+            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.pickBothHunks]", (path ? &lpath_29 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.pickBothHunks]", (path ? &lpath_29 : NULL));
+                return false;
+            }
+        }
+        else if (unlikely(jm_str_eq_8(prop, 0x7244656c67676f74LL) && jm_str_eq_8(prop + 8, 0x7463656c65536761LL) && jm_str_eq_0(prop + 16)))
+        {
+            // handle may toggleDragSelect property
+            // .keybinding.main.toggleDragSelect
+            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path ? &lpath_29 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.toggleDragSelect]", (path ? &lpath_29 : NULL));
+                return false;
+            }
+        }
+        else if (jm_str_eq_8(prop, 0x6553656c67676f74LL) && jm_str_eq_8(prop + 8, 0x6b6e75487463656cLL) && jm_str_eq_0(prop + 16))
+        {
+            // handle may toggleSelectHunk property
+            // .keybinding.main.toggleSelectHunk
+            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path ? &lpath_29 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path ? &lpath_29 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_8(prop, 0x7244656c67676f74LL) && jm_str_eq_8(prop + 8, 0x7463656c65536761LL) && jm_str_eq_5(prop + 16, 0x00000000746c612dLL)))
+        {
+            // handle may toggleDragSelect-alt property
+            // .keybinding.main.'toggleDragSelect-alt'
+            res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_29 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_29 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.main]", (path ? &lpath_29 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .keybinding.stash
+static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.stash]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_8(prop, 0x6873617453706f70LL) && jm_str_eq_0(prop + 8))
+        {
+            // handle may popStash property
+            // .keybinding.stash.popStash
+            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.stash.popStash]", (path ? &lpath_30 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash.popStash]", (path ? &lpath_30 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_8(prop, 0x7453656d616e6572LL) && jm_str_eq_4(prop + 8, 0x00687361)))
+        {
+            // handle may renameStash property
+            // .keybinding.stash.renameStash
+            res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.stash.renameStash]", (path ? &lpath_30 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash.renameStash]", (path ? &lpath_30 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.stash]", (path ? &lpath_30 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .keybinding.status
+static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.status]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_31 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_8(prop, 0x6552746e65636572LL) && jm_str_eq_4(prop + 8, 0x00736f70))
+        {
+            // handle may recentRepos property
+            // .keybinding.status.recentRepos
+            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.status.recentRepos]", (path ? &lpath_31 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status.recentRepos]", (path ? &lpath_31 : NULL));
+                return false;
+            }
+        }
+        else if (likely(jm_str_eq_8(prop, 0x726f466b63656863LL) && jm_str_eq_7(prop + 8, 0x0000657461647055LL)))
+        {
+            // handle may checkForUpdate property
+            // .keybinding.status.checkForUpdate
+            res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.status.checkForUpdate]", (path ? &lpath_31 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status.checkForUpdate]", (path ? &lpath_31 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.status]", (path ? &lpath_31 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .keybinding.branches
+static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.branches]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_32 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_5 = *((uint32_t *) (prop));
+        if (hash_5 <= 1668572518)
+        {
+            if (jm_str_eq_8(prop, 0x6154657461657263LL) && jm_str_eq_2(prop + 8, 0x00000067))
+            {
+                // handle may createTag property
+                // .keybinding.branches.createTag
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.createTag]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.createTag]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6d65526863746566LL) && jm_str_eq_4(prop + 8, 0x0065746f))
+            {
+                // handle may fetchRemote property
+                // .keybinding.branches.fetchRemote
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.fetchRemote]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.fetchRemote]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7274737055746573LL) && jm_str_eq_4(prop + 8, 0x006d6165))
+            {
+                // handle may setUpstream property
+                // .keybinding.branches.setUpstream
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.setUpstream]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.setUpstream]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7242657361626572LL) && jm_str_eq_5(prop + 8, 0x0000000068636e61LL))
+            {
+                // handle may rebaseBranch property
+                // .keybinding.branches.rebaseBranch
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.rebaseBranch]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.rebaseBranch]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7242656d616e6572LL) && jm_str_eq_5(prop + 8, 0x0000000068636e61LL))
+            {
+                // handle may renameBranch property
+                // .keybinding.branches.renameBranch
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.renameBranch]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.renameBranch]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7550657461657263LL) && jm_str_eq_8(prop + 8, 0x7365757165526c6cLL) && jm_str_eq_2(prop + 16, 0x00000074))
+            {
+                // handle may createPullRequest property
+                // .keybinding.branches.createPullRequest
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.createPullRequest]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.createPullRequest]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6568436563726f66LL) && jm_str_eq_8(prop + 8, 0x61724274756f6b63LL) && jm_str_eq_4(prop + 16, 0x0068636e))
+            {
+                // handle may forceCheckoutBranch property
+                // .keybinding.branches.forceCheckoutBranch
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.forceCheckoutBranch]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.forceCheckoutBranch]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x74756f6b63656863LL) && jm_str_eq_8(prop + 8, 0x794268636e617242LL) && jm_str_eq_5(prop + 16, 0x00000000656d614eLL))
+            {
+                // handle may checkoutBranchByName property
+                // .keybinding.branches.checkoutBranchByName
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.checkoutBranchByName]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.checkoutBranchByName]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_8(prop, 0x0067615468737570LL))
+            {
+                // handle may pushTag property
+                // .keybinding.branches.pushTag
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.pushTag]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.pushTag]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x77726f4674736166LL) && jm_str_eq_4(prop + 8, 0x00647261))
+            {
+                // handle may fastForward property
+                // .keybinding.branches.fastForward
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.fastForward]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.fastForward]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x4674694777656976LL) && jm_str_eq_8(prop + 8, 0x6f6974704f776f6cLL) && jm_str_eq_3(prop + 16, 0x0000736e))
+            {
+                // handle may viewGitFlowOptions property
+                // .keybinding.branches.viewGitFlowOptions
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.viewGitFlowOptions]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.viewGitFlowOptions]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x746e49656772656dLL) && jm_str_eq_8(prop + 8, 0x746e65727275436fLL) && jm_str_eq_7(prop + 16, 0x000068636e617242LL))
+            {
+                // handle may mergeIntoCurrentBranch property
+                // .keybinding.branches.mergeIntoCurrentBranch
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.mergeIntoCurrentBranch]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.mergeIntoCurrentBranch]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c6c755077656976LL) && jm_str_eq_8(prop + 8, 0x4f74736575716552LL) && jm_str_eq_7(prop + 16, 0x0000736e6f697470LL))
+            {
+                // handle may viewPullRequestOptions property
+                // .keybinding.branches.viewPullRequestOptions
+                res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.viewPullRequestOptions]", (path ? &lpath_32 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.viewPullRequestOptions]", (path ? &lpath_32 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.branches]", (path ? &lpath_32 : NULL));
+        return false;
+    }
+    return true;
+}
+
+// object .keybinding.universal
+static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.keybinding.universal]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_33 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_6 = *((uint32_t *) (prop));
+        if (hash_6 <= 1869767539)
+        {
+            if (hash_6 <= 1769238639)
+            {
+                if (hash_6 <= 1718513507)
+                {
+                    if (jm_str_eq_4(prop, 0x0077656e))
+                    {
+                        // handle may new property
+                        // .keybinding.universal.new
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.new]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.new]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_7(prop, 0x00007463656c6573LL))
+                    {
+                        // handle may select property
+                        // .keybinding.universal.select
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.select]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.select]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x006d7269666e6f63LL))
+                    {
+                        // handle may confirm property
+                        // .keybinding.universal.confirm
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.confirm]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.confirm]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x4d676e6966666964LL) && jm_str_eq_4(prop + 8, 0x00756e65))
+                    {
+                        // handle may diffingMenu property
+                        // .keybinding.universal.diffingMenu
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.diffingMenu]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.diffingMenu]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x4d676e6966666964LL) && jm_str_eq_8(prop + 8, 0x00746c612d756e65LL))
+                    {
+                        // handle may diffingMenu-alt property
+                        // .keybinding.universal.'diffingMenu-alt'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'diffingMenu-alt']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'diffingMenu-alt']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x4365747563657865LL) && jm_str_eq_8(prop + 8, 0x6d6f436d6f747375LL) && jm_str_eq_5(prop + 16, 0x00000000646e616dLL))
+                    {
+                        // handle may executeCustomCommand property
+                        // .keybinding.universal.executeCustomCommand
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.executeCustomCommand]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.executeCustomCommand]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6150657461657263LL) && jm_str_eq_8(prop + 8, 0x6f6974704f686374LL) && jm_str_eq_7(prop + 16, 0x0000756e654d736eLL))
+                    {
+                        // handle may createPatchOptionsMenu property
+                        // .keybinding.universal.createPatchOptionsMenu
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.createPatchOptionsMenu]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.createPatchOptionsMenu]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6552657461657263LL) && jm_str_eq_8(prop + 8, 0x6974704f65736162LL) && jm_str_eq_8(prop + 16, 0x00756e654d736e6fLL))
+                    {
+                        // handle may createRebaseOptionsMenu property
+                        // .keybinding.universal.createRebaseOptionsMenu
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.createRebaseOptionsMenu]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.createRebaseOptionsMenu]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (jm_str_eq_8(prop, 0x656c694668737570LL) && jm_str_eq_2(prop + 8, 0x00000073))
+                    {
+                        // handle may pushFiles property
+                        // .keybinding.universal.pushFiles
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.pushFiles]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.pushFiles]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x654d6e6f6974706fLL) && jm_str_eq_3(prop + 8, 0x0000756e))
+                    {
+                        // handle may optionMenu property
+                        // .keybinding.universal.optionMenu
+                        res = json_is_null(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "not null [.keybinding.universal.optionMenu]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.optionMenu]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6150656c67676f74LL) && jm_str_eq_4(prop + 8, 0x006c656e))
+                    {
+                        // handle may togglePanel property
+                        // .keybinding.universal.togglePanel
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.togglePanel]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.togglePanel]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x654d6e6f6974706fLL) && jm_str_eq_8(prop + 8, 0x0031746c612d756eLL))
+                    {
+                        // handle may optionMenu-alt1 property
+                        // .keybinding.universal.'optionMenu-alt1'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'optionMenu-alt1']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'optionMenu-alt1']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6857656c67676f74LL) && jm_str_eq_8(prop + 8, 0x6563617073657469LL) && jm_str_eq_8(prop + 16, 0x6956666669446e49LL) && jm_str_eq_3(prop + 24, 0x00007765))
+                    {
+                        // handle may toggleWhitespaceInDiffView property
+                        // .keybinding.universal.toggleWhitespaceInDiffView
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.toggleWhitespaceInDiffView]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.toggleWhitespaceInDiffView]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                }
+            }
+            else
+            {
+                if (hash_6 <= 1869440370)
+                {
+                    if (jm_str_eq_5(prop, 0x000000006f646572LL))
+                    {
+                        // handle may redo property
+                        // .keybinding.universal.redo
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.redo]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.redo]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_5(prop, 0x000000006f646e75LL))
+                    {
+                        // handle may undo property
+                        // .keybinding.universal.undo
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.undo]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.undo]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_7(prop, 0x00006f746e496f67LL))
+                    {
+                        // handle may goInto property
+                        // .keybinding.universal.goInto
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.goInto]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.goInto]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_7(prop, 0x000065766f6d6572LL))
+                    {
+                        // handle may remove property
+                        // .keybinding.universal.remove
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.remove]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.remove]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x656c69466e65706fLL) && jm_str_eq_0(prop + 8))
+                    {
+                        // handle may openFile property
+                        // .keybinding.universal.openFile
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.openFile]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.openFile]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x656c69466c6c7570LL) && jm_str_eq_2(prop + 8, 0x00000073))
+                    {
+                        // handle may pullFiles property
+                        // .keybinding.universal.pullFiles
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.pullFiles]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.pullFiles]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x656365526e65706fLL) && jm_str_eq_8(prop + 8, 0x00736f706552746eLL))
+                    {
+                        // handle may openRecentRepos property
+                        // .keybinding.universal.openRecentRepos
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.openRecentRepos]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.openRecentRepos]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x644574696d627573LL) && jm_str_eq_8(prop + 8, 0x74786554726f7469LL) && jm_str_eq_0(prop + 16))
+                    {
+                        // handle may submitEditorText property
+                        // .keybinding.universal.submitEditorText
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.submitEditorText]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.submitEditorText]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (jm_str_eq_8(prop, 0x654c6c6c6f726373LL) && jm_str_eq_3(prop + 8, 0x00007466))
+                    {
+                        // handle may scrollLeft property
+                        // .keybinding.universal.scrollLeft
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollLeft]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollLeft]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x69526c6c6f726373LL) && jm_str_eq_4(prop + 8, 0x00746867))
+                    {
+                        // handle may scrollRight property
+                        // .keybinding.universal.scrollRight
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollRight]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollRight]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x70556c6c6f726373LL) && jm_str_eq_5(prop + 8, 0x000000006e69614dLL))
+                    {
+                        // handle may scrollUpMain property
+                        // .keybinding.universal.scrollUpMain
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollUpMain]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollUpMain]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6f446c6c6f726373LL) && jm_str_eq_7(prop + 8, 0x00006e69614d6e77LL))
+                    {
+                        // handle may scrollDownMain property
+                        // .keybinding.universal.scrollDownMain
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollDownMain]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollDownMain]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x70556c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x746c612d6e69614dLL) && jm_str_eq_2(prop + 16, 0x00000031))
+                    {
+                        // handle may scrollUpMain-alt1 property
+                        // .keybinding.universal.'scrollUpMain-alt1'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollUpMain-alt1']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollUpMain-alt1']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x70556c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x746c612d6e69614dLL) && jm_str_eq_2(prop + 16, 0x00000032))
+                    {
+                        // handle may scrollUpMain-alt2 property
+                        // .keybinding.universal.'scrollUpMain-alt2'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollUpMain-alt2']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollUpMain-alt2']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6f446c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x612d6e69614d6e77LL) && jm_str_eq_4(prop + 16, 0x0031746c))
+                    {
+                        // handle may scrollDownMain-alt1 property
+                        // .keybinding.universal.'scrollDownMain-alt1'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollDownMain-alt1']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollDownMain-alt1']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6f446c6c6f726373LL) && jm_str_eq_8(prop + 8, 0x612d6e69614d6e77LL) && jm_str_eq_4(prop + 16, 0x0032746c))
+                    {
+                        // handle may scrollDownMain-alt2 property
+                        // .keybinding.universal.'scrollDownMain-alt2'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollDownMain-alt2']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollDownMain-alt2']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (hash_6 <= 1953261926)
+            {
+                if (hash_6 <= 1953064037)
+                {
+                    if (jm_str_eq_5(prop, 0x0000000074696465LL))
+                    {
+                        // handle may edit property
+                        // .keybinding.universal.edit
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.edit]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.edit]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x00706f546f746f67LL))
+                    {
+                        // handle may gotoTop property
+                        // .keybinding.universal.gotoTop
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.gotoTop]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.gotoTop]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x0068736572666572LL))
+                    {
+                        // handle may refresh property
+                        // .keybinding.universal.refresh
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.refresh]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.refresh]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x654d736172747865LL) && jm_str_eq_3(prop + 8, 0x0000756e))
+                    {
+                        // handle may extrasMenu property
+                        // .keybinding.universal.extrasMenu
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.extrasMenu]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.extrasMenu]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x74746f426f746f67LL) && jm_str_eq_3(prop + 8, 0x00006d6f))
+                    {
+                        // handle may gotoBottom property
+                        // .keybinding.universal.gotoBottom
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.gotoBottom]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.gotoBottom]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6c426f54706d756aLL) && jm_str_eq_4(prop + 8, 0x006b636f))
+                    {
+                        // handle may jumpToBlock property
+                        // .keybinding.universal.jumpToBlock
+                        res = json_is_array(pval);
+                        if (likely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.keybinding.universal.jumpToBlock]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.jumpToBlock]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6573616572636564LL) && jm_str_eq_8(prop + 8, 0x49747865746e6f43LL) && jm_str_eq_8(prop + 16, 0x656956666669446eLL) && jm_str_eq_2(prop + 24, 0x00000077))
+                    {
+                        // handle may decreaseContextInDiffView property
+                        // .keybinding.universal.decreaseContextInDiffView
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.decreaseContextInDiffView]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.decreaseContextInDiffView]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6573616572636e69LL) && jm_str_eq_8(prop + 8, 0x49747865746e6f43LL) && jm_str_eq_8(prop + 16, 0x656956666669446eLL) && jm_str_eq_2(prop + 24, 0x00000077))
+                    {
+                        // handle may increaseContextInDiffView property
+                        // .keybinding.universal.increaseContextInDiffView
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.increaseContextInDiffView]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.increaseContextInDiffView]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (jm_str_eq_5(prop, 0x0000000074697571LL))
+                    {
+                        // handle may quit property
+                        // .keybinding.universal.quit
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.quit]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.quit]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x746c612d74697571LL) && jm_str_eq_2(prop + 8, 0x00000031))
+                    {
+                        // handle may quit-alt1 property
+                        // .keybinding.universal.'quit-alt1'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'quit-alt1']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'quit-alt1']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6e697265746c6966LL) && jm_str_eq_6(prop + 8, 0x000000756e654d67LL))
+                    {
+                        // handle may filteringMenu property
+                        // .keybinding.universal.filteringMenu
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.filteringMenu]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.filteringMenu]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6874695774697571LL) && jm_str_eq_8(prop + 8, 0x676e61684374756fLL) && jm_str_eq_8(prop + 16, 0x6365726944676e69LL) && jm_str_eq_5(prop + 24, 0x0000000079726f74LL))
+                    {
+                        // handle may quitWithoutChangingDirectory property
+                        // .keybinding.universal.quitWithoutChangingDirectory
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.quitWithoutChangingDirectory]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.quitWithoutChangingDirectory]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                }
+            }
+            else
+            {
+                if (hash_6 <= 1970562418)
+                {
+                    if (jm_str_eq_7(prop, 0x00006e7275746572LL))
+                    {
+                        // handle may return property
+                        // .keybinding.universal.return
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.return]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.return]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x006261547478656eLL))
+                    {
+                        // handle may nextTab property
+                        // .keybinding.universal.nextTab
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextTab]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextTab]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6d6574497478656eLL) && jm_str_eq_0(prop + 8))
+                    {
+                        // handle may nextItem property
+                        // .keybinding.universal.nextItem
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextItem]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextItem]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x656761507478656eLL) && jm_str_eq_0(prop + 8))
+                    {
+                        // handle may nextPage property
+                        // .keybinding.universal.nextPage
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextPage]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextPage]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x636f6c427478656eLL) && jm_str_eq_2(prop + 8, 0x0000006b))
+                    {
+                        // handle may nextBlock property
+                        // .keybinding.universal.nextBlock
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextBlock]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextBlock]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6374614d7478656eLL) && jm_str_eq_2(prop + 8, 0x00000068))
+                    {
+                        // handle may nextMatch property
+                        // .keybinding.universal.nextMatch
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextMatch]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextMatch]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6d6574497478656eLL) && jm_str_eq_5(prop + 8, 0x00000000746c612dLL))
+                    {
+                        // handle may nextItem-alt property
+                        // .keybinding.universal.'nextItem-alt'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'nextItem-alt']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'nextItem-alt']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x636f6c427478656eLL) && jm_str_eq_6(prop + 8, 0x000000746c612d6bLL))
+                    {
+                        // handle may nextBlock-alt property
+                        // .keybinding.universal.'nextBlock-alt'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'nextBlock-alt']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'nextBlock-alt']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x657263537478656eLL) && jm_str_eq_7(prop + 8, 0x000065646f4d6e65LL))
+                    {
+                        // handle may nextScreenMode property
+                        // .keybinding.universal.nextScreenMode
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextScreenMode]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextScreenMode]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (jm_str_eq_8(prop, 0x0062615476657270LL))
+                    {
+                        // handle may prevTab property
+                        // .keybinding.universal.prevTab
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevTab]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevTab]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6d65744976657270LL) && jm_str_eq_0(prop + 8))
+                    {
+                        // handle may prevItem property
+                        // .keybinding.universal.prevItem
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevItem]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevItem]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6567615076657270LL) && jm_str_eq_0(prop + 8))
+                    {
+                        // handle may prevPage property
+                        // .keybinding.universal.prevPage
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevPage]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevPage]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x636f6c4276657270LL) && jm_str_eq_2(prop + 8, 0x0000006b))
+                    {
+                        // handle may prevBlock property
+                        // .keybinding.universal.prevBlock
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevBlock]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevBlock]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6374614d76657270LL) && jm_str_eq_2(prop + 8, 0x00000068))
+                    {
+                        // handle may prevMatch property
+                        // .keybinding.universal.prevMatch
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevMatch]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevMatch]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6d65744976657270LL) && jm_str_eq_5(prop + 8, 0x00000000746c612dLL))
+                    {
+                        // handle may prevItem-alt property
+                        // .keybinding.universal.'prevItem-alt'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'prevItem-alt']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'prevItem-alt']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x636f6c4276657270LL) && jm_str_eq_6(prop + 8, 0x000000746c612d6bLL))
+                    {
+                        // handle may prevBlock-alt property
+                        // .keybinding.universal.'prevBlock-alt'
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'prevBlock-alt']", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'prevBlock-alt']", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6572635376657270LL) && jm_str_eq_7(prop + 8, 0x000065646f4d6e65LL))
+                    {
+                        // handle may prevScreenMode property
+                        // .keybinding.universal.prevScreenMode
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevScreenMode]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevScreenMode]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x6c436f5479706f63LL) && jm_str_eq_8(prop + 8, 0x006472616f627069LL))
+                    {
+                        // handle may copyToClipboard property
+                        // .keybinding.universal.copyToClipboard
+                        res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.copyToClipboard]", (path ? &lpath_33 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.copyToClipboard]", (path ? &lpath_33 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                }
+            }
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding.universal]", (path ? &lpath_33 : NULL));
+        return false;
     }
     return true;
 }
@@ -4219,119 +4468,132 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x000000006e69616dLL)))
+        uint32_t hash_7 = *((uint32_t *) (prop));
+        if (hash_7 <= 1835888483)
         {
-            // handle may main property
-            // .keybinding.main
-            res = _jm_obj_24(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
+            if (jm_str_eq_6(prop, 0x00000073656c6966LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.main]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main]", (path ? &lpath_24 : NULL));
-                return false;
+                // handle may files property
+                // .keybinding.files
+                res = _jm_obj_24(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.files]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x00000073656c6966LL)))
-        {
-            // handle may files property
-            // .keybinding.files
-            res = _jm_obj_25(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x007374696d6d6f63LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.files]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files]", (path ? &lpath_24 : NULL));
-                return false;
+                // handle may commits property
+                // .keybinding.commits
+                res = _jm_obj_25(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.commits]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x0000006873617473LL)))
-        {
-            // handle may stash property
-            // .keybinding.stash
-            res = _jm_obj_26(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x6c75646f6d627573LL) && jm_str_eq_3(prop + 8, 0x00007365))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.stash]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash]", (path ? &lpath_24 : NULL));
-                return false;
+                // handle may submodules property
+                // .keybinding.submodules
+                res = _jm_obj_26(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.submodules]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x0000737574617473LL)))
-        {
-            // handle may status property
-            // .keybinding.status
-            res = _jm_obj_27(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x694674696d6d6f63LL) && jm_str_eq_4(prop + 8, 0x0073656c))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.status]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x007374696d6d6f63LL)))
-        {
-            // handle may commits property
-            // .keybinding.commits
-            res = _jm_obj_28(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.commits]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x736568636e617262LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may branches property
-            // .keybinding.branches
-            res = _jm_obj_29(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.branches]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6173726576696e75LL) && jm_str_eq_2(prop + 8, 0x0000006c)))
-        {
-            // handle may universal property
-            // .keybinding.universal
-            res = _jm_obj_30(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.universal]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x6c75646f6d627573LL) && jm_str_eq_3(prop + 8, 0x00007365))
-        {
-            // handle may submodules property
-            // .keybinding.submodules
-            res = _jm_obj_31(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.submodules]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x694674696d6d6f63LL) && jm_str_eq_4(prop + 8, 0x0073656c)))
-        {
-            // handle may commitFiles property
-            // .keybinding.commitFiles
-            res = _jm_obj_32(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.commitFiles]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commitFiles]", (path ? &lpath_24 : NULL));
-                return false;
+                // handle may commitFiles property
+                // .keybinding.commitFiles
+                res = _jm_obj_27(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.commitFiles]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commitFiles]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding]", (path ? &lpath_24 : NULL));
-            return false;
+            if (jm_str_eq_5(prop, 0x000000006e69616dLL))
+            {
+                // handle may main property
+                // .keybinding.main
+                res = _jm_obj_28(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.main]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_6(prop, 0x0000006873617473LL))
+            {
+                // handle may stash property
+                // .keybinding.stash
+                res = _jm_obj_29(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.stash]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_7(prop, 0x0000737574617473LL))
+            {
+                // handle may status property
+                // .keybinding.status
+                res = _jm_obj_30(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.status]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x736568636e617262LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may branches property
+                // .keybinding.branches
+                res = _jm_obj_31(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.branches]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6173726576696e75LL) && jm_str_eq_2(prop + 8, 0x0000006c))
+            {
+                // handle may universal property
+                // .keybinding.universal
+                res = _jm_obj_32(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.universal]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal]", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
         }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.keybinding]", (path ? &lpath_24 : NULL));
+        return false;
     }
     return true;
 }
@@ -4596,195 +4858,212 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_3(prop, 0x0000736f)))
+        uint32_t hash_8 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_8 <= 7237475)
         {
-            // handle may os property
-            // .os
-            res = _jm_obj_7(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
+            if (jm_str_eq_3(prop, 0x0000736f))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.os]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00746967)))
-        {
-            // handle may git property
-            // .git
-            res = _jm_obj_8(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x00697567)))
-        {
-            // handle may gui property
-            // .gui
-            res = _jm_obj_15(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.gui]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_7(prop, 0x0000657461647075LL)))
-        {
-            // handle may update property
-            // .update
-            res = _jm_obj_20(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.update]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.update]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7365636976726573LL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may services property
-            // .services
-            res = _jm_obj_21(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.services]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.services]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6568736572666572LL) && jm_str_eq_2(prop + 8, 0x00000072)))
-        {
-            // handle may refresher property
-            // .refresher
-            res = _jm_obj_22(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.refresher]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.refresher]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x69646e696279656bLL) && jm_str_eq_3(prop + 8, 0x0000676e)))
-        {
-            // handle may keybinding property
-            // .keybinding
-            res = _jm_obj_23(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x4f6d7269666e6f63LL) && jm_str_eq_6(prop + 8, 0x000000746975516eLL)))
-        {
-            // handle may confirmOnQuit property
-            // .confirmOnQuit
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.confirmOnQuit]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.confirmOnQuit]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f436d6f74737563LL) && jm_str_eq_7(prop + 8, 0x000073646e616d6dLL)))
-        {
-            // handle may customCommands property
-            // .customCommands
-            // .customCommands.'@'
-            res = json_is_array(pval);
-            if (likely(res))
-            {
-                size_t arr_3_idx;
-                json_t *arr_3_item;
-                json_array_foreach(pval, arr_3_idx, arr_3_item)
-                {
-                    jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_7 : NULL), NULL };
-                    // .customCommands.'@'.0
-                    res = _jm_obj_33(arr_3_item, ((path ? &lpath_7 : NULL) ? &arr_3_lpath : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.customCommands.'@'.0]", ((path ? &lpath_7 : NULL) ? &arr_3_lpath : NULL));
-                        break;
-                    }
-                }
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.customCommands.'@']", (path ? &lpath_7 : NULL));
-            }
-            if (likely(res))
-            {
-                res = jm_array_is_unique(pval, (path ? &lpath_7 : NULL), rep);
+                // handle may os property
+                // .os
+                res = _jm_obj_7(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "constraints failed [.customCommands]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.os]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os]", (path ? &lpath_7 : NULL));
+                    return false;
                 }
+                continue;
             }
-            if (unlikely(! res))
+            else if (jm_str_eq_4(prop, 0x00697567))
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.customCommands]", (path ? &lpath_7 : NULL));
-                return false;
+                // handle may gui property
+                // .gui
+                res = _jm_obj_8(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.gui]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6f70655241746f6eLL) && jm_str_eq_7(prop + 8, 0x000079726f746973LL)))
-        {
-            // handle may notARepository property
-            // .notARepository
-            res = json_is_string(pval) && _jm_cst_15_str_test(json_string_value(pval));
-            if (unlikely(! res))
+            else if (jm_str_eq_7(prop, 0x0000657461647075LL))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.notARepository.'|']", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.notARepository]", (path ? &lpath_7 : NULL));
-                return false;
+                // handle may update property
+                // .update
+                res = _jm_obj_13(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.update]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.update]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x53656c6261736964LL) && jm_str_eq_8(prop + 8, 0x6f50707574726174LL) && jm_str_eq_5(prop + 16, 0x0000000073707570LL)))
-        {
-            // handle may disableStartupPopups property
-            // .disableStartupPopups
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x6568736572666572LL) && jm_str_eq_2(prop + 8, 0x00000072))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.disableStartupPopups]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.disableStartupPopups]", (path ? &lpath_7 : NULL));
-                return false;
+                // handle may refresher property
+                // .refresher
+                res = _jm_obj_14(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.refresher]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.refresher]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (jm_str_eq_8(prop, 0x6f546e4f74697571LL) && jm_str_eq_8(prop + 8, 0x65526c6576654c70LL) && jm_str_eq_5(prop + 16, 0x000000006e727574LL))
-        {
-            // handle may quitOnTopLevelReturn property
-            // .quitOnTopLevelReturn
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x4f6d7269666e6f63LL) && jm_str_eq_6(prop + 8, 0x000000746975516eLL))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.quitOnTopLevelReturn]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.quitOnTopLevelReturn]", (path ? &lpath_7 : NULL));
-                return false;
+                // handle may confirmOnQuit property
+                // .confirmOnQuit
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.confirmOnQuit]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.confirmOnQuit]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
             }
-        }
-        else if (likely(jm_str_eq_8(prop, 0x6f5474706d6f7270LL) && jm_str_eq_8(prop + 8, 0x72466e7275746552LL) && jm_str_eq_8(prop + 16, 0x6f72706275536d6fLL) && jm_str_eq_5(prop + 24, 0x0000000073736563LL)))
-        {
-            // handle may promptToReturnFromSubprocess property
-            // .promptToReturnFromSubprocess
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x6f546e4f74697571LL) && jm_str_eq_8(prop + 8, 0x65526c6576654c70LL) && jm_str_eq_5(prop + 16, 0x000000006e727574LL))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.promptToReturnFromSubprocess]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.promptToReturnFromSubprocess]", (path ? &lpath_7 : NULL));
-                return false;
+                // handle may quitOnTopLevelReturn property
+                // .quitOnTopLevelReturn
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.quitOnTopLevelReturn]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.quitOnTopLevelReturn]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.]", (path ? &lpath_7 : NULL));
-            return false;
+            if (jm_str_eq_4(prop, 0x00746967))
+            {
+                // handle may git property
+                // .git
+                res = _jm_obj_15(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.git]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7365636976726573LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may services property
+                // .services
+                res = _jm_obj_22(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.services]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.services]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x69646e696279656bLL) && jm_str_eq_3(prop + 8, 0x0000676e))
+            {
+                // handle may keybinding property
+                // .keybinding
+                res = _jm_obj_23(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6f436d6f74737563LL) && jm_str_eq_7(prop + 8, 0x000073646e616d6dLL))
+            {
+                // handle may customCommands property
+                // .customCommands
+                // .customCommands.'@'
+                res = json_is_array(pval);
+                if (likely(res))
+                {
+                    size_t arr_3_idx;
+                    json_t *arr_3_item;
+                    json_array_foreach(pval, arr_3_idx, arr_3_item)
+                    {
+                        jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_7 : NULL), NULL };
+                        // .customCommands.'@'.0
+                        res = _jm_obj_33(arr_3_item, ((path ? &lpath_7 : NULL) ? &arr_3_lpath : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected element [.customCommands.'@'.0]", ((path ? &lpath_7 : NULL) ? &arr_3_lpath : NULL));
+                            break;
+                        }
+                    }
+                }
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.customCommands.'@']", (path ? &lpath_7 : NULL));
+                }
+                if (likely(res))
+                {
+                    res = jm_array_is_unique(pval, (path ? &lpath_7 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "constraints failed [.customCommands]", (path ? &lpath_7 : NULL));
+                    }
+                }
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.customCommands]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6f70655241746f6eLL) && jm_str_eq_7(prop + 8, 0x000079726f746973LL))
+            {
+                // handle may notARepository property
+                // .notARepository
+                res = json_is_string(pval) && _jm_cst_15_str_test(json_string_value(pval));
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "value not in enum [.notARepository.'|']", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.notARepository]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x53656c6261736964LL) && jm_str_eq_8(prop + 8, 0x6f50707574726174LL) && jm_str_eq_5(prop + 16, 0x0000000073707570LL))
+            {
+                // handle may disableStartupPopups property
+                // .disableStartupPopups
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.disableStartupPopups]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.disableStartupPopups]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6f5474706d6f7270LL) && jm_str_eq_8(prop + 8, 0x72466e7275746552LL) && jm_str_eq_8(prop + 16, 0x6f72706275536d6fLL) && jm_str_eq_5(prop + 24, 0x0000000073736563LL))
+            {
+                // handle may promptToReturnFromSubprocess property
+                // .promptToReturnFromSubprocess
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.promptToReturnFromSubprocess]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.promptToReturnFromSubprocess]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
         }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.]", (path ? &lpath_7 : NULL));
+        return false;
     }
     return true;
 }

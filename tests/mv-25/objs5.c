@@ -33,88 +33,104 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_3(prop, 0x00003066)))
+        uint32_t hash_0 = (*((uint32_t *) (prop))) & 0xffffff;
+        if (hash_0 <= 13414)
         {
-            // handle may f0 property
-            // .f0
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00003166)))
-        {
-            // handle may f1 property
-            // .f1
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00003266)))
-        {
-            // handle may f2 property
-            // .f2
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00003366)))
-        {
-            // handle may f3 property
-            // .f3
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00003466)))
-        {
-            // handle may f4 property
-            // .f4
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00003566)))
-        {
-            // handle may f5 property
-            // .f5
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00003666)))
-        {
-            // handle may f6 property
-            // .f6
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (unlikely(jm_str_eq_3(prop, 0x00003766)))
-        {
-            // handle may f7 property
-            // .f7
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (jm_str_eq_3(prop, 0x00003866))
-        {
-            // handle may f8 property
-            // .f8
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
-        }
-        else if (likely(jm_str_eq_3(prop, 0x00003966)))
-        {
-            // handle may f9 property
-            // .f9
-            res = json_model_2(pval, NULL, NULL);
-            if (unlikely(! res))
-                return false;
+            if (jm_str_eq_3(prop, 0x00003066))
+            {
+                // handle may f0 property
+                // .f0
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_3(prop, 0x00003166))
+            {
+                // handle may f1 property
+                // .f1
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_3(prop, 0x00003266))
+            {
+                // handle may f2 property
+                // .f2
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_3(prop, 0x00003366))
+            {
+                // handle may f3 property
+                // .f3
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_3(prop, 0x00003466))
+            {
+                // handle may f4 property
+                // .f4
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
         }
         else
-            return false;
+        {
+            if (jm_str_eq_3(prop, 0x00003566))
+            {
+                // handle may f5 property
+                // .f5
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_3(prop, 0x00003666))
+            {
+                // handle may f6 property
+                // .f6
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_3(prop, 0x00003766))
+            {
+                // handle may f7 property
+                // .f7
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_3(prop, 0x00003866))
+            {
+                // handle may f8 property
+                // .f8
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_3(prop, 0x00003966))
+            {
+                // handle may f9 property
+                // .f9
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+        }
+        return false;
     }
     return true;
 }

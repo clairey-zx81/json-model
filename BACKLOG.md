@@ -2,7 +2,14 @@
 
 ## Current Tasks
 
-- [ ] static: partition long lists of properties based on first few bytes
+- [x] static: partition long lists of properties based on first bytes
+- [x] static: use more bytes for str hashing depending on min len
+- [ ] static: take into account str _byte_ len when partitioning
+- [ ] static: generate hexa constants for partition limits tests
+- [ ] static: fix hash size to depends on byte encoding, not str len
+- [ ] c-backend: partition inlined str cset
+- [ ] perf: test partitioning for js, java, perl, python…
+- [ ] static: merge may/must property handling, or not?
 - [ ] perf: investigate best settings for js, java and python
 - [ ] perf: allow to run with any docker image
 - [ ] pr: add explicit winner column to per case perf

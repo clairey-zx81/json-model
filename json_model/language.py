@@ -45,7 +45,7 @@ class Language:
             lcom: str = "#", relib: str = "re2",
             true: str = "True", false: str = "False", null: str = "None",
             check_t: str = "CheckFun", json_t: str = "Jsonable", path_t: str = "Path",
-            match_t: str|None = None,
+            match_t: str|None = None, hash_t: str = "int",
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
             with_path: bool = True, with_report: bool = True, with_package: bool = False,
@@ -98,11 +98,14 @@ class Language:
         self._int_t = int_t
         self._float_t = float_t
         self._str_t = str_t
+        self._hash_t = hash_t
 
         # other stuff
         self._version = __version__
         self._idcounts: dict[str, int] = {}  # per-prefix ident count for unicity
         self._re_used: bool = False          # whether regular expressions are used
+        self._byte_order: str = "le"         # just in case
+
         self.set_caps = tuple(set_caps)      # constant types in a set
         self.reindent = False
 
@@ -299,6 +302,10 @@ class Language:
     def str_end(self, val: Var, end: str) -> BoolExpr:
         raise NotImplementedError("str_end")
 
+    def str_hash(self, val: Var, size: int = 1) -> IntExpr:
+        """Get hash for string partitioning purpose."""
+        raise NotImplementedError("str_hash")
+
     def any_int_val(self, val: JsonExpr, tval: type) -> IntExpr:
         """Known type int extraction for constraints."""
         if tval is int:
@@ -477,6 +484,10 @@ class Language:
         """Assign and possibly declare a match result variable."""
         return self._var(var, val, self._match_t if declare else None)
 
+    def hash_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
+        """Assign and possibly declare a value to a hash variable."""
+        return self._var(var, val, self._hash_t if declare else None)
+
     def match_ko(self, var: Var) -> BoolExpr:
         return self.not_op(var)
 
@@ -501,9 +512,14 @@ class Language:
         """Break from surrounding loop."""
         return [ f"break{self._eoi}" ]
 
+    def cont(self) -> Block:
+        """Skip to next loop interation."""
+        return [ f"continue{self._eoi}" ]
+
     def esc(self, s: str) -> StrExpr:
         """Escape string, with double quotes."""
         # FIXME too late!
+        # log.warning(f"esc: {s}")
         if isinstance(s, bool):
             s = "true" if s else "false"
         return '"' + s.replace("\\", "\\\\").replace('"', r'\"') + '"'

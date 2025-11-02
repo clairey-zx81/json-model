@@ -1,6 +1,7 @@
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr
 from .mtypes import Number, TestHint, Conditionals
+# from .utils import log
 
 
 class Python(Language):

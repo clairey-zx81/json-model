@@ -917,6 +917,117 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
+        uint32_t hash_0 = *((uint32_t *) (prop));
+        if (hash_0 <= 1701733735)
+        {
+            if (jm_str_eq_4(prop, 0x006c7275))
+            {
+                // handle may url property
+                // .url
+                res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $URL [.url]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.url]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+            {
+                // handle may description property
+                // .description
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.description]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.description]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x65746172656e6567LL) && jm_str_eq_5(prop + 8, 0x0000000079625f64LL))
+            {
+                // handle may generated_by property
+                // .generated_by
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.generated_by]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.generated_by]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x5f657361656c6572LL) && jm_str_eq_7(prop + 8, 0x0000737574617473LL))
+            {
+                // handle may release_status property
+                // .release_status
+                res = json_model_7(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Status [.release_status]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.release_status]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_5(prop, 0x0000000073676174LL))
+            {
+                // handle may tags property
+                // .tags
+                res = json_model_3(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $neStrList [.tags]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.tags]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x0073716572657270LL))
+            {
+                // handle may prereqs property
+                // .prereqs
+                res = json_model_16(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Prereqs [.prereqs]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.prereqs]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7865646e695f6f6eLL) && jm_str_eq_0(prop + 8))
+            {
+                // handle may no_index property
+                // .no_index
+                res = _jm_obj_6(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.no_index]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.no_index]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x656372756f736572LL) && jm_str_eq_2(prop + 8, 0x00000073))
+            {
+                // handle may resources property
+                // .resources
+                res = json_model_8(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Resources [.resources]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.resources]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+        }
         if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
         {
             // handle must name property
@@ -1050,102 +1161,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "no model matched [.maintainer.'|']", (path ? &lpath_7 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.maintainer]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x006c7275)))
-        {
-            // handle may url property
-            // .url
-            res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $URL [.url]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.url]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000073676174LL)))
-        {
-            // handle may tags property
-            // .tags
-            res = json_model_3(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $neStrList [.tags]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.tags]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x0073716572657270LL)))
-        {
-            // handle may prereqs property
-            // .prereqs
-            res = json_model_16(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Prereqs [.prereqs]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.prereqs]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7865646e695f6f6eLL) && jm_str_eq_0(prop + 8)))
-        {
-            // handle may no_index property
-            // .no_index
-            res = _jm_obj_6(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.no_index]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.no_index]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x656372756f736572LL) && jm_str_eq_2(prop + 8, 0x00000073)))
-        {
-            // handle may resources property
-            // .resources
-            res = json_model_8(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Resources [.resources]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.resources]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
-        {
-            // handle may description property
-            // .description
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.description]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.description]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x65746172656e6567LL) && jm_str_eq_5(prop + 8, 0x0000000079625f64LL)))
-        {
-            // handle may generated_by property
-            // .generated_by
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.generated_by]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.generated_by]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (jm_str_eq_8(prop, 0x5f657361656c6572LL) && jm_str_eq_7(prop + 8, 0x0000737574617473LL))
-        {
-            // handle may release_status property
-            // .release_status
-            res = json_model_7(pval, (path ? &lpath_7 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Status [.release_status]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.release_status]", (path ? &lpath_7 : NULL));
                 return false;
             }
         }

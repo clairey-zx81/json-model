@@ -70,7 +70,7 @@ def _getEffect(op: Jsonable, bool_vars: set[str], reporting: bool) -> Effect:
     NO_BOOL_EFFECT = {
         "co", "rep", "cst", "pl", "isa", "val", "iv", "i+", "hp", "isr", "cr",
         "brk", "apf", "id", "ss", "se", "pre", "no", "esc", "pvl", "scc", "jv",
-        "gcm", "hpf", "gpf", "ol", "al", "sl", "nl", "cpv",
+        "gcm", "hpf", "gpf", "ol", "al", "sl", "nl", "cpv", "cont", "sh", "hv",
     }
 
     match op["o"]:
@@ -932,6 +932,7 @@ class IRep(Language):
         super().__init__("JSON", indent=",", debug=debug)
         self._lang = lang or self
         self._if_optim = if_optim
+        self._byte_order = lang._byte_order if lang else "le"
 
     # langage dependent stuff
     def assign_expr(self) -> bool:
@@ -993,10 +994,10 @@ class IRep(Language):
         return _j("aiv", arr=_l(arr), idx=_l(idx))
 
     def obj_prop_val(self, obj: Var, prop: str|StrExpr, is_var: bool = False) -> JsonExpr:
-        return _j("opv", obj=_l(obj), prop=_l(prop), is_var=is_var)
+        return _j("opv", obj=_l(obj), prop=prop, is_var=is_var)
 
     def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
-        return _j("cpv", dst=_l(dst), obj=_l(obj), prop=_l(prop), is_var=is_var)
+        return _j("cpv", dst=_l(dst), obj=_l(obj), prop=prop, is_var=is_var)
 
     def obj_len(self, var: Var) -> IntExpr:
         return _j("ol", var=_l(var))
@@ -1009,6 +1010,9 @@ class IRep(Language):
 
     def any_len(self, var: Var) -> IntExpr:
         return _j("nl", var=_l(var))
+
+    def str_hash(self, val: Var, size: int = 1) -> IntExpr:
+        return _j("sh", val=_l(val), size=size)
 
     def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return _j("apf", fun=fun, prop=prop, mapname=mapname)
@@ -1062,6 +1066,9 @@ class IRep(Language):
     def str_var(self, var: Var, val: StrExpr|None = None, declare: bool = False) -> Block:
         return [ _j("sv", var=_l(var), val=_l(val), declare=declare) ]
 
+    def hash_var(self, var: Var, val: StrExpr|None = None, declare: bool = False) -> Block:
+        return [ _j("hv", var=_l(var), val=_l(val), declare=declare) ]
+
     def flt_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
         return [ _j("fv", var=_l(var), val=_l(val), declare=declare) ]
 
@@ -1070,6 +1077,9 @@ class IRep(Language):
 
     def brk(self) -> Block:
         return [ _j("brk") ]
+
+    def cont(self) -> Block:
+        return [ _j("cont") ]
 
     def skip(self) -> Block:
         return [ _j("skip") ]
@@ -1272,12 +1282,13 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "val": return gen.value(var=ev("var"), tvar=s2t(jv["tvar"]))
             case "gv": return gen.get_value(var=jv["var"], tvar=s2t(jv["tvar"]))
             case "aiv": return gen.arr_item_val(arr=ev("arr"), idx=ev("idx"))
-            case "opv": return gen.obj_prop_val(obj=ev("obj"), prop=ev("prop"), is_var=jv["is_var"])
-            case "cpv": return gen.obj_has_prop_val(dst=ev("dst"), obj=ev("obj"), prop=ev("prop"), is_var=jv["is_var"])
+            case "opv": return gen.obj_prop_val(obj=ev("obj"), prop=jv["prop"], is_var=jv["is_var"])
+            case "cpv": return gen.obj_has_prop_val(dst=ev("dst"), obj=ev("obj"), prop=jv["prop"], is_var=jv["is_var"])
             case "ol": return gen.obj_len(var=ev("var"))
             case "al": return gen.arr_len(var=ev("var"))
             case "sl": return gen.str_len(var=ev("var"))
             case "nl": return gen.any_len(var=ev("var"))
+            case "sh": return gen.str_hash(val=ev("val"), size=jv["size"])
             case "apf": return gen.assign_prop_fun(fun=jv["fun"], prop=jv["prop"], mapname=jv["mapname"])
             case "hpf": return gen.has_prop_fun(prop=jv["prop"], mapname=jv["mapname"])
             case "gpf": return gen.get_prop_fun(prop=jv["prop"], mapname=jv["mapname"])
@@ -1300,6 +1311,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "iv": return gen.int_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "bv": return gen.bool_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "sv": return gen.str_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
+            case "hv": return gen.hash_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "jv": return gen.json_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "fv": return gen.flt_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "Fv": return gen.fun_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
@@ -1307,6 +1319,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             # simple instructions
             case "no": return gen.nope()
             case "brk": return gen.brk()
+            case "cont": return gen.cont()
             case "skip": return gen.skip()
             case "ign": return gen.ignore()
             case "cr": return gen.clean_report()
