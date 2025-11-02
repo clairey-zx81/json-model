@@ -54,6 +54,7 @@ public class mg_any extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b") == 0)
             {
@@ -67,8 +68,9 @@ public class mg_any extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("c") == 0)
+            if (prop.compareTo("c") == 0)
             {
                 // handle may c property
                 // .c
@@ -79,8 +81,9 @@ public class mg_any extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.c]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (rt.is_valid_date(prop))
+            if (rt.is_valid_date(prop))
             {
                 // handle 1 key props
                 // .'$DATE'

@@ -22,23 +22,29 @@ public class eval_00 extends ModelChecker
     // check $false (.'$false')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$false'
+        res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.'$false']", path);
-        return false;
+        return res;
     }
 
     // check $true (.'$true')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$true'
-        return true;
+        res = true;
+        return res;
     }
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
+        boolean res;
         // .
-        return true;
+        res = true;
+        return res;
     }
 
 

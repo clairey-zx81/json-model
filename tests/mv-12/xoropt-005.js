@@ -36,17 +36,15 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.b]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
+        // handle other props
+        // .'|'.1.''
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        if (! res)
         {
-            // handle other props
-            // .'|'.1.''
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'|'.1.'']", (path ? lpath_0 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["not a 0 strict int [.'|'.1.'']", (path ? lpath_0 : null)])
+            return false;
         }
     }
     if (must_count != 1)
@@ -88,17 +86,15 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.a]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
+        // handle other props
+        // .'|'.0.''
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        if (! res)
         {
-            // handle other props
-            // .'|'.0.''
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'|'.0.'']", (path ? lpath_1 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["not a 0 strict int [.'|'.0.'']", (path ? lpath_1 : null)])
+            return false;
         }
     }
     if (must_count != 1)

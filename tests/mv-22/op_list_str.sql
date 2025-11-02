@@ -27,6 +27,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'foo' THEN
       -- handle must foo property
       must_count := must_count + 1;
@@ -35,9 +36,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -74,6 +75,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'bla' THEN
       -- handle must bla property
       must_count := must_count + 1;
@@ -82,9 +84,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;

@@ -44,6 +44,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 1 strict int [.a]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.a]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "b":
             # handle must b property
             must_count += 1
@@ -53,7 +54,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 1 strict int [.b]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.b]", lpath_0 if path is not None else None))
                 return False
-        elif prop == "c":
+            continue
+        if prop == "c":
             # handle may c property
             # .c
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
@@ -61,7 +63,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 1 strict int [.c]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.c]", lpath_0 if path is not None else None))
                 return False
-        elif is_valid_date(prop, lpath_0 if path is not None else None, rep):
+            continue
+        if is_valid_date(prop, lpath_0 if path is not None else None, rep):
             # handle 1 key props
             # .'$DATE'
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1

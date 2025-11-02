@@ -57,6 +57,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'q' THEN
       -- handle may q property
       -- .o.q
@@ -64,6 +65,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 't' THEN
       -- handle may t property
       -- .o.t
@@ -79,9 +81,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -109,9 +111,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;

@@ -17,9 +17,11 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    bool res;
     // .
+    res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.]", path);
-    return false;
+    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

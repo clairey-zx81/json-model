@@ -200,12 +200,10 @@ public class many_must extends ModelChecker
                     {
                         return false;
                     }
+                    continue;
                 }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         return must_count == 22;
     }

@@ -61,6 +61,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.id]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "enum")
         {
@@ -86,6 +87,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.enum]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -149,6 +151,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.type]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "items")
         {
@@ -194,6 +197,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.items]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -206,6 +210,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.title]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "format")
         {
@@ -218,6 +223,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.format]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -230,12 +236,14 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.'$schema']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$schema'.default
             res = true;
+            continue;
         }
         else if (prop == "extends")
         {
@@ -281,6 +289,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.extends]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -293,6 +302,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.maximum]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -305,6 +315,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.minimum]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -317,6 +328,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.pattern]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "disallow")
         {
@@ -362,6 +374,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.disallow]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxItems")
         {
@@ -374,6 +387,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.maxItems]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minItems")
         {
@@ -386,6 +400,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.minItems]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "optional")
         {
@@ -398,6 +413,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.optional]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "requires")
         {
@@ -428,6 +444,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.requires]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -440,6 +457,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.maxLength]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -452,6 +470,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.minLength]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxDecimal")
         {
@@ -464,6 +483,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.maxDecimal]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "properties")
         {
@@ -476,6 +496,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.properties]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -488,6 +509,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.description]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contentEncoding")
         {
@@ -500,6 +522,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.contentEncoding]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maximumCanEqual")
         {
@@ -512,6 +535,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.maximumCanEqual]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimumCanEqual")
         {
@@ -524,6 +548,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.minimumCanEqual]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalProperties")
         {
@@ -554,17 +579,15 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$schema'.additionalProperties]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
+        // handle other props
+        // .'$schema'.''
+        res = json_model_3(pval, (path ? lpath_0 : null), rep);
+        if (! res)
         {
-            // handle other props
-            // .'$schema'.''
-            res = json_model_3(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $Schema [.'$schema'.'']", (path ? lpath_0 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["unexpected $Schema [.'$schema'.'']", (path ? lpath_0 : null)])
+            return false;
         }
     }
     return true;

@@ -43,14 +43,14 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'^'.0.a]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'^'.0.a]", lpath_0 if path is not None else None))
                 return False
-        else:
-            # handle other props
-            # .'^'.0.''
-            # "/.../"
-            res = isinstance(pval, str) and _jm_re_0(pval, lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected /.../ [.'^'.0.'']", lpath_0 if path is not None else None))
-                return False
+            continue
+        # handle other props
+        # .'^'.0.''
+        # "/.../"
+        res = isinstance(pval, str) and _jm_re_0(pval, lpath_0 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected /.../ [.'^'.0.'']", lpath_0 if path is not None else None))
+            return False
     if must_count != 1:
         if rep is not None:
             if not "a" in val:
@@ -76,14 +76,14 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'^'.1.b]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'^'.1.b]", lpath_1 if path is not None else None))
                 return False
-        else:
-            # handle other props
-            # .'^'.1.''
-            # "/.../"
-            res = isinstance(pval, str) and _jm_re_0(pval, lpath_1 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected /.../ [.'^'.1.'']", lpath_1 if path is not None else None))
-                return False
+            continue
+        # handle other props
+        # .'^'.1.''
+        # "/.../"
+        res = isinstance(pval, str) and _jm_re_0(pval, lpath_1 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected /.../ [.'^'.1.'']", lpath_1 if path is not None else None))
+            return False
     if must_count != 1:
         if rep is not None:
             if not "b" in val:

@@ -75,62 +75,71 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = _jm_obj_0(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f1":
             # handle may f1 property
             # .f1
             res = _jm_obj_1(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f2":
             # handle may f2 property
             # .f2
             res = _jm_obj_2(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f3":
             # handle may f3 property
             # .f3
             res = _jm_obj_3(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f4":
             # handle may f4 property
             # .f4
             res = _jm_obj_4(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f5":
             # handle may f5 property
             # .f5
             res = _jm_obj_5(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f6":
             # handle may f6 property
             # .f6
             res = _jm_obj_6(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f7":
             # handle may f7 property
             # .f7
             res = _jm_obj_7(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f8":
             # handle may f8 property
             # .f8
             res = _jm_obj_8(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "f9":
             # handle may f9 property
             # .f9
             res = _jm_obj_9(pval, None, None)
             if not res:
                 return False
-        else:
-            return False
+            continue
+        return False
     return True
 
 

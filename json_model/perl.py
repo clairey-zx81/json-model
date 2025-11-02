@@ -279,6 +279,9 @@ class Perl(Language):
     def brk(self) -> Block:
         return [ "last;" ]
 
+    def cont(self) -> Block:
+        return [ "next;" ]
+
     def ret(self, res: BoolExpr) -> Block:
         return super().ret(f"${res}" if self.is_a_var(res) else res)
 

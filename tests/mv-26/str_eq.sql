@@ -22,17 +22,19 @@ BEGIN
       -- handle may  property
       -- .''
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'hello' THEN
       -- handle may hello property
       -- .hello
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'quite-a-long-property-name' THEN
       -- handle may quite-a-long-property-name property
       -- .'quite-a-long-property-name'
       res := TRUE;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;

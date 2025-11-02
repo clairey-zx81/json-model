@@ -321,6 +321,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'type')
         {
@@ -332,6 +333,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'title')
         {
@@ -343,8 +345,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'suggestions')
+        if ($prop eq 'suggestions')
         {
             # handle may suggestions property
             # .'$Prompts'.'|'.0.suggestions
@@ -355,6 +358,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'initialValue')
         {
@@ -365,11 +369,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 3;
 }
@@ -397,6 +399,7 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'type')
         {
@@ -408,6 +411,7 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'title')
         {
@@ -419,8 +423,9 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'body')
+        if ($prop eq 'body')
         {
             # handle may body property
             # .'$Prompts'.'|'.1.body
@@ -429,11 +434,9 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 3;
 }
@@ -461,8 +464,9 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'name')
+        if ($prop eq 'name')
         {
             # handle may name property
             # .'$Prompts'.'|'.2.options.'@'.0.name
@@ -471,6 +475,7 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'description')
         {
@@ -481,11 +486,9 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -589,6 +592,7 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'type')
         {
@@ -600,6 +604,7 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'title')
         {
@@ -611,6 +616,7 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'command')
         {
@@ -622,8 +628,9 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'filter')
+        if ($prop eq 'filter')
         {
             # handle may filter property
             # .'$Prompts'.'|'.3.filter
@@ -632,6 +639,7 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'labelFormat')
         {
@@ -642,6 +650,7 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'valueFormat')
         {
@@ -652,11 +661,9 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 4;
 }
@@ -720,11 +727,9 @@ sub _jm_obj_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -752,6 +757,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'command')
         {
@@ -763,6 +769,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'context')
         {
@@ -774,8 +781,9 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'after')
+        if ($prop eq 'after')
         {
             # handle may after property
             # .customCommands.'@'.0.after
@@ -784,6 +792,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'stream')
         {
@@ -794,6 +803,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'prompts')
         {
@@ -817,6 +827,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'showOutput')
         {
@@ -827,6 +838,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'subprocess')
         {
@@ -837,6 +849,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'description')
         {
@@ -847,6 +860,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'loadingText')
         {
@@ -857,11 +871,9 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 3;
 }
@@ -955,11 +967,9 @@ sub _jm_f_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1085,6 +1095,7 @@ sub _jm_f_13($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'showGraph')
         {
@@ -1095,6 +1106,7 @@ sub _jm_f_13($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'showWholeGraph')
         {
@@ -1105,11 +1117,9 @@ sub _jm_f_13($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1136,6 +1146,7 @@ sub _jm_f_14($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'manualCommit')
         {
@@ -1146,11 +1157,9 @@ sub _jm_f_14($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1192,6 +1201,7 @@ sub _jm_f_16($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'colorArg')
         {
@@ -1202,6 +1212,7 @@ sub _jm_f_16($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'useConfig')
         {
@@ -1212,11 +1223,9 @@ sub _jm_f_16($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1258,11 +1267,9 @@ sub _jm_f_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1376,11 +1383,9 @@ sub _jm_f_25($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1569,11 +1574,9 @@ sub _jm_f_45($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1616,11 +1619,9 @@ sub _jm_f_19($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1646,11 +1647,9 @@ sub _jm_f_49($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1677,11 +1676,9 @@ sub _jm_f_50($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1707,11 +1704,9 @@ sub _jm_f_51($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1737,11 +1732,9 @@ sub _jm_f_52($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1768,6 +1761,7 @@ sub _jm_f_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'toggleDragSelect')
         {
@@ -1778,6 +1772,7 @@ sub _jm_f_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'toggleSelectHunk')
         {
@@ -1788,6 +1783,7 @@ sub _jm_f_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'toggleDragSelect-alt')
         {
@@ -1798,11 +1794,9 @@ sub _jm_f_53($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1829,6 +1823,7 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'renameStash')
         {
@@ -1839,11 +1834,9 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1870,6 +1863,7 @@ sub _jm_f_55($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'checkForUpdate')
         {
@@ -1880,11 +1874,9 @@ sub _jm_f_55($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1911,6 +1903,7 @@ sub _jm_f_56($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'update')
         {
@@ -1921,6 +1914,7 @@ sub _jm_f_56($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'bulkMenu')
         {
@@ -1931,11 +1925,9 @@ sub _jm_f_56($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1977,11 +1969,9 @@ sub _jm_f_57($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2007,11 +1997,9 @@ sub _jm_f_48($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2048,6 +2036,7 @@ sub _jm_f_61($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'open')
         {
@@ -2058,6 +2047,7 @@ sub _jm_f_61($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'openLink')
         {
@@ -2068,6 +2058,7 @@ sub _jm_f_61($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'editAtLine')
         {
@@ -2078,6 +2069,7 @@ sub _jm_f_61($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'editPreset')
         {
@@ -2088,6 +2080,7 @@ sub _jm_f_61($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'editAtLineAndWait')
         {
@@ -2098,6 +2091,7 @@ sub _jm_f_61($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'copyToClipboardCmd')
         {
@@ -2108,11 +2102,9 @@ sub _jm_f_61($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2155,6 +2147,7 @@ sub _jm_f_64($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'refreshInterval')
         {
@@ -2165,11 +2158,9 @@ sub _jm_f_64($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2236,6 +2227,7 @@ sub _jm_f_66($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'method')
         {
@@ -2246,11 +2238,9 @@ sub _jm_f_66($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2277,11 +2267,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }

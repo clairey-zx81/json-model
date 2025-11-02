@@ -58,8 +58,9 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Ex09'.'$URL'

@@ -70,8 +70,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ex09'.'#']", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_is_valid_url(prop, (path ? &lpath_0 : NULL), rep)))
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_0 : NULL), rep)))
         {
             // handle 1 key props
             // .'$Ex09'.'$URL'

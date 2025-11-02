@@ -73,6 +73,7 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.o.p]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "q")
         {
@@ -85,6 +86,7 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.o.q]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "t")
         {
@@ -117,12 +119,10 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.o.t]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.o]", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.o]", (path ? lpath_1 : null)])
+        return false;
     }
     return true;
 }
@@ -153,12 +153,10 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.o]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }

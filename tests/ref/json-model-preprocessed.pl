@@ -316,8 +316,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_28($prop, undef, undef))
+        if (json_model_28($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Element'.'|'.4.'$Prop'
@@ -377,8 +378,9 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '#')
+        if ($prop eq '#')
         {
             # handle may # property
             # .'$Model#Element'.'|'.3.'#'
@@ -387,8 +389,9 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
             # .'$Model#Element'.'|'.3.'/^#/'
@@ -438,8 +441,9 @@ sub _jm_obj_2($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '#')
+        if ($prop eq '#')
         {
             # handle may # property
             # .'$Model#Element'.'|'.2.'#'
@@ -448,8 +452,9 @@ sub _jm_obj_2($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
             # .'$Model#Element'.'|'.2.'/^#/'
@@ -499,8 +504,9 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '#')
+        if ($prop eq '#')
         {
             # handle may # property
             # .'$Model#Element'.'|'.1.'#'
@@ -509,8 +515,9 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
             # .'$Model#Element'.'|'.1.'/^#/'
@@ -561,8 +568,9 @@ sub _jm_obj_4($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '!')
+        if ($prop eq '!')
         {
             # handle may ! property
             # .'$Model#Element'.'|'.0.'!'
@@ -571,6 +579,7 @@ sub _jm_obj_4($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '#')
         {
@@ -581,8 +590,9 @@ sub _jm_obj_4($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 3 re props
             # .'$Model#Element'.'|'.0.'/^#/'
@@ -710,6 +720,7 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '#')
         {
@@ -720,8 +731,9 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_6($prop, undef, undef))
+        if (json_model_6($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.4.'$'.'$Identifier'
@@ -773,6 +785,7 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '<')
         {
@@ -802,8 +815,9 @@ sub _jm_obj_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_13($prop, undef, undef))
+        if (json_model_13($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.4.'%'.'$Name'
@@ -849,6 +863,7 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '$')
         {
@@ -859,6 +874,7 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '%')
         {
@@ -869,6 +885,7 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '~')
         {
@@ -879,8 +896,9 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_28($prop, undef, undef))
+        if (json_model_28($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.4.'$Prop'
@@ -925,6 +943,7 @@ sub _jm_obj_9($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '#')
         {
@@ -935,8 +954,9 @@ sub _jm_obj_9($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_6($prop, undef, undef))
+        if (json_model_6($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.3.'$'.'$Identifier'
@@ -981,6 +1001,7 @@ sub _jm_obj_10($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '<')
         {
@@ -1010,8 +1031,9 @@ sub _jm_obj_10($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_13($prop, undef, undef))
+        if (json_model_13($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.3.'%'.'$Name'
@@ -1072,8 +1094,9 @@ sub _jm_obj_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '#')
+        if ($prop eq '#')
         {
             # handle may # property
             # .'$Model#Root'.'|'.3.'#'
@@ -1082,6 +1105,7 @@ sub _jm_obj_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '$')
         {
@@ -1092,6 +1116,7 @@ sub _jm_obj_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '%')
         {
@@ -1102,6 +1127,7 @@ sub _jm_obj_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '~')
         {
@@ -1112,8 +1138,9 @@ sub _jm_obj_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
             # .'$Model#Root'.'|'.3.'/^#/'
@@ -1148,6 +1175,7 @@ sub _jm_obj_12($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '#')
         {
@@ -1158,8 +1186,9 @@ sub _jm_obj_12($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_6($prop, undef, undef))
+        if (json_model_6($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.2.'$'.'$Identifier'
@@ -1204,6 +1233,7 @@ sub _jm_obj_13($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '<')
         {
@@ -1233,8 +1263,9 @@ sub _jm_obj_13($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_13($prop, undef, undef))
+        if (json_model_13($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.2.'%'.'$Name'
@@ -1295,8 +1326,9 @@ sub _jm_obj_11($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '#')
+        if ($prop eq '#')
         {
             # handle may # property
             # .'$Model#Root'.'|'.2.'#'
@@ -1305,6 +1337,7 @@ sub _jm_obj_11($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '$')
         {
@@ -1315,6 +1348,7 @@ sub _jm_obj_11($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '%')
         {
@@ -1325,6 +1359,7 @@ sub _jm_obj_11($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '~')
         {
@@ -1335,8 +1370,9 @@ sub _jm_obj_11($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
             # .'$Model#Root'.'|'.2.'/^#/'
@@ -1371,6 +1407,7 @@ sub _jm_obj_15($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '#')
         {
@@ -1381,8 +1418,9 @@ sub _jm_obj_15($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_6($prop, undef, undef))
+        if (json_model_6($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.1.'$'.'$Identifier'
@@ -1427,6 +1465,7 @@ sub _jm_obj_16($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '<')
         {
@@ -1456,8 +1495,9 @@ sub _jm_obj_16($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_13($prop, undef, undef))
+        if (json_model_13($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.1.'%'.'$Name'
@@ -1518,8 +1558,9 @@ sub _jm_obj_14($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '#')
+        if ($prop eq '#')
         {
             # handle may # property
             # .'$Model#Root'.'|'.1.'#'
@@ -1528,6 +1569,7 @@ sub _jm_obj_14($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '$')
         {
@@ -1538,6 +1580,7 @@ sub _jm_obj_14($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '%')
         {
@@ -1548,6 +1591,7 @@ sub _jm_obj_14($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '~')
         {
@@ -1558,8 +1602,9 @@ sub _jm_obj_14($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
             # .'$Model#Root'.'|'.1.'/^#/'
@@ -1594,6 +1639,7 @@ sub _jm_obj_18($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '#')
         {
@@ -1604,8 +1650,9 @@ sub _jm_obj_18($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_6($prop, undef, undef))
+        if (json_model_6($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.0.'$'.'$Identifier'
@@ -1650,6 +1697,7 @@ sub _jm_obj_19($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '<')
         {
@@ -1679,8 +1727,9 @@ sub _jm_obj_19($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_13($prop, undef, undef))
+        if (json_model_13($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.0.'%'.'$Name'
@@ -1728,8 +1777,9 @@ sub _jm_obj_17($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '!')
+        if ($prop eq '!')
         {
             # handle may ! property
             # .'$Model#Root'.'|'.0.'!'
@@ -1738,6 +1788,7 @@ sub _jm_obj_17($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '#')
         {
@@ -1748,6 +1799,7 @@ sub _jm_obj_17($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '$')
         {
@@ -1758,6 +1810,7 @@ sub _jm_obj_17($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '%')
         {
@@ -1768,6 +1821,7 @@ sub _jm_obj_17($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '~')
         {
@@ -1778,8 +1832,9 @@ sub _jm_obj_17($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 3 re props
             # .'$Model#Root'.'|'.0.'/^#/'

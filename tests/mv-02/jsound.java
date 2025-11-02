@@ -49,6 +49,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.date]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("name") == 0)
             {
@@ -61,6 +62,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.name]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("authors") == 0)
             {
@@ -91,6 +93,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.authors]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("previous") == 0)
             {
@@ -103,12 +106,10 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.previous]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Schema'.metadata]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Schema'.metadata]", (path != null ? lpath_1 : null));
+            return false;
         }
         return true;
     }
@@ -160,8 +161,9 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Schema'.types]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("metadata") == 0)
+            if (prop.compareTo("metadata") == 0)
             {
                 // handle may metadata property
                 // .'$Schema'.metadata
@@ -172,12 +174,10 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Schema']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Schema']", (path != null ? lpath_0 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -459,6 +459,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Atomic'.kind]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("baseType") == 0)
             {
@@ -472,8 +473,9 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Atomic'.baseType]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if ((pfun = json_model_6_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_6_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_2 : null), rep)))
@@ -481,12 +483,10 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Atomic']", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Atomic']", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Atomic']", (path != null ? lpath_2 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -535,8 +535,9 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Object'.kind]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("name") == 0)
+            if (prop.compareTo("name") == 0)
             {
                 // handle may name property
                 // .'$Object'.name
@@ -547,6 +548,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.name]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("closed") == 0)
             {
@@ -559,6 +561,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.closed]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("content") == 0)
             {
@@ -589,6 +592,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.content]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("baseType") == 0)
             {
@@ -601,12 +605,10 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.baseType]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Object']", (path != null ? lpath_3 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Object']", (path != null ? lpath_3 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -651,6 +653,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Fields'.name]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("type") == 0)
             {
@@ -664,8 +667,9 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Fields'.type]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("unique") == 0)
+            if (prop.compareTo("unique") == 0)
             {
                 // handle may unique property
                 // .'$Fields'.unique
@@ -676,12 +680,14 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.unique]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$Fields'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("required") == 0)
             {
@@ -694,12 +700,10 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.required]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Fields']", (path != null ? lpath_4 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Fields']", (path != null ? lpath_4 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -749,8 +753,9 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Array'.kind]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("name") == 0)
+            if (prop.compareTo("name") == 0)
             {
                 // handle may name property
                 // .'$Array'.name
@@ -761,6 +766,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.name]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("content") == 0)
             {
@@ -773,6 +779,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.content]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("baseType") == 0)
             {
@@ -785,6 +792,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.baseType]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("maxLength") == 0)
             {
@@ -797,6 +805,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.maxLength]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("minLength") == 0)
             {
@@ -809,12 +818,10 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.minLength]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Array']", (path != null ? lpath_5 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Array']", (path != null ? lpath_5 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -860,6 +867,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.kind]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("name") == 0)
             {
@@ -873,6 +881,7 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.name]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("content") == 0)
             {
@@ -904,8 +913,9 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.content]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("baseType") == 0)
+            if (prop.compareTo("baseType") == 0)
             {
                 // handle may baseType property
                 // .'$Union'.baseType
@@ -916,12 +926,10 @@ public class jsound extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Union'.baseType]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Union']", (path != null ? lpath_6 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Union']", (path != null ? lpath_6 : null));
+            return false;
         }
         if (must_count != 3)
         {

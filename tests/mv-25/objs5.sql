@@ -42,9 +42,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;

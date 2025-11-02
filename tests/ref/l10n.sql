@@ -27,16 +27,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '' THEN
       -- handle may  property
       -- .'$'.''
       res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -117,6 +119,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle must % property
       must_count := must_count + 1;
@@ -126,6 +129,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '@' THEN
       -- handle must @ property
       must_count := must_count + 1;
@@ -134,6 +138,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle must ~ property
       must_count := must_count + 1;
@@ -142,7 +147,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'/^#/'
       res := JSONB_TYPEOF(pval) = 'string';

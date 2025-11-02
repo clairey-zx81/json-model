@@ -90,6 +90,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'p31' THEN
       -- handle must p31 property
       must_count := must_count + 1;
@@ -98,6 +99,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'p32' THEN
       -- handle must p32 property
       must_count := must_count + 1;
@@ -106,9 +108,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -135,6 +137,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'mo1' THEN
       -- handle may mo1 property
       -- one mandatory prop
@@ -143,6 +146,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'mo2' THEN
       -- handle may mo2 property
       -- two mandatory props
@@ -151,6 +155,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'mo3' THEN
       -- handle may mo3 property
       -- three mandatory props
@@ -159,9 +164,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;

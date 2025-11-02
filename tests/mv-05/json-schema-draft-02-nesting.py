@@ -60,8 +60,10 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_default (.'$schema'.default)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$schema'.default
-    return True
+    res = True
+    return res
 
 # check json_model_3_map_description (.'$schema'.description)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -363,13 +365,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$schema']", lpath_0 if path is not None else None))
                 return False
-        else:
-            # handle other props
-            # .'$schema'.''
-            res = json_model_3(pval, lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Schema [.'$schema'.'']", lpath_0 if path is not None else None))
-                return False
+            continue
+        # handle other props
+        # .'$schema'.''
+        res = json_model_3(pval, lpath_0 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Schema [.'$schema'.'']", lpath_0 if path is not None else None))
+            return False
     return True
 
 # check $ (.)

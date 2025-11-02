@@ -201,12 +201,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.and.a0]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.and]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.and]", (path != null ? lpath_1 : null));
+            return false;
         }
         return true;
     }
@@ -257,6 +255,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a0]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("a1") == 0)
             {
@@ -287,6 +286,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a1]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("a2") == 0)
             {
@@ -317,6 +317,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a2]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("a3") == 0)
             {
@@ -347,6 +348,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a3]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("a4") == 0)
             {
@@ -359,12 +361,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a4]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.array]", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.array]", (path != null ? lpath_2 : null));
+            return false;
         }
         return true;
     }
@@ -398,6 +398,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b0]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b1") == 0)
             {
@@ -410,6 +411,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b1]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b2") == 0)
             {
@@ -422,6 +424,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b2]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b3") == 0)
             {
@@ -434,6 +437,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b3]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b4") == 0)
             {
@@ -446,6 +450,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b4]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b5") == 0)
             {
@@ -458,12 +463,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b5]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.bool]", (path != null ? lpath_3 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.bool]", (path != null ? lpath_3 : null));
+            return false;
         }
         return true;
     }
@@ -1103,12 +1106,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.constraints]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.constraints]", (path != null ? lpath_4 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.constraints]", (path != null ? lpath_4 : null));
+            return false;
         }
         return true;
     }
@@ -1145,6 +1146,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.enum.e0]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("e1") == 0)
             {
@@ -1157,6 +1159,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.enum.e1]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("e2") == 0)
             {
@@ -1169,6 +1172,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.enum.e2]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("e3") == 0)
             {
@@ -1181,12 +1185,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.enum.e3]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.enum]", (path != null ? lpath_5 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.enum]", (path != null ? lpath_5 : null));
+            return false;
         }
         return true;
     }
@@ -1219,6 +1221,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f0]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f1") == 0)
             {
@@ -1231,6 +1234,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f1]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f2") == 0)
             {
@@ -1243,6 +1247,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f2]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f3") == 0)
             {
@@ -1255,6 +1260,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f3]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f4") == 0)
             {
@@ -1267,6 +1273,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f4]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f5") == 0)
             {
@@ -1279,6 +1286,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f5]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f6") == 0)
             {
@@ -1291,6 +1299,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f6]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f7") == 0)
             {
@@ -1303,6 +1312,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f7]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f8") == 0)
             {
@@ -1315,12 +1325,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f8]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.float]", (path != null ? lpath_6 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.float]", (path != null ? lpath_6 : null));
+            return false;
         }
         return true;
     }
@@ -1353,6 +1361,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i0]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i1") == 0)
             {
@@ -1365,6 +1374,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i1]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i2") == 0)
             {
@@ -1377,6 +1387,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i2]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i3") == 0)
             {
@@ -1389,6 +1400,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i3]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i4") == 0)
             {
@@ -1401,6 +1413,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i4]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i5") == 0)
             {
@@ -1413,6 +1426,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i5]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i6") == 0)
             {
@@ -1425,6 +1439,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i6]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i7") == 0)
             {
@@ -1437,6 +1452,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i7]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i8") == 0)
             {
@@ -1449,6 +1465,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i8]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("i9") == 0)
             {
@@ -1461,6 +1478,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i9]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("ia") == 0)
             {
@@ -1473,12 +1491,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.ia]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.int]", (path != null ? lpath_7 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.int]", (path != null ? lpath_7 : null));
+            return false;
         }
         return true;
     }
@@ -1511,8 +1527,9 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m0.a]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("b") == 0)
+            if (prop.compareTo("b") == 0)
             {
                 // handle may b property
                 // .merge.m0.b
@@ -1523,12 +1540,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m0.b]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.merge.m0]", (path != null ? lpath_9 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.merge.m0]", (path != null ? lpath_9 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -2032,6 +2047,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m0]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("m1") == 0)
             {
@@ -2073,6 +2089,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m1]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("m2") == 0)
             {
@@ -2114,6 +2131,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m2]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("m3") == 0)
             {
@@ -2173,6 +2191,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m3]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("m4") == 0)
             {
@@ -2185,12 +2204,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m4]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.merge]", (path != null ? lpath_8 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.merge]", (path != null ? lpath_8 : null));
+            return false;
         }
         return true;
     }
@@ -2223,6 +2240,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.null.n0]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("n1") == 0)
             {
@@ -2235,6 +2253,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.null.n1]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("n2") == 0)
             {
@@ -2247,12 +2266,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.null.n2]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.null]", (path != null ? lpath_10 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.null]", (path != null ? lpath_10 : null));
+            return false;
         }
         return true;
     }
@@ -2364,12 +2381,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o2.a]", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.object.o2]", (path != null ? lpath_12 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.object.o2]", (path != null ? lpath_12 : null));
+            return false;
         }
         return true;
     }
@@ -2511,6 +2526,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o0]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("o1") == 0)
             {
@@ -2523,6 +2539,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o1]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("o2") == 0)
             {
@@ -2535,6 +2552,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o2]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("o3") == 0)
             {
@@ -2547,6 +2565,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o3]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("o4") == 0)
             {
@@ -2559,6 +2578,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o4]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("o5") == 0)
             {
@@ -2571,6 +2591,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o5]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("o6") == 0)
             {
@@ -2583,12 +2604,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o6]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.object]", (path != null ? lpath_11 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.object]", (path != null ? lpath_11 : null));
+            return false;
         }
         return true;
     }
@@ -2651,6 +2670,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.or.o0]", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("o1") == 0)
             {
@@ -2681,6 +2701,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.or.o1]", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("o2") == 0)
             {
@@ -2729,12 +2750,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.or.o2]", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.or]", (path != null ? lpath_16 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.or]", (path != null ? lpath_16 : null));
+            return false;
         }
         return true;
     }
@@ -2742,8 +2761,10 @@ public class everything extends ModelChecker
     // check _jm_f_36_map_ANY (.predefs.ANY)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
+        boolean res;
         // .predefs.ANY
-        return true;
+        res = true;
+        return res;
     }
 
     // check _jm_f_36_map_BOOL (.predefs.BOOL)
@@ -2917,9 +2938,11 @@ public class everything extends ModelChecker
     // check _jm_f_36_map_NONE (.predefs.NONE)
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
+        boolean res;
         // .predefs.NONE
+        res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.predefs.NONE]", path);
-        return false;
+        return res;
     }
 
     // check _jm_f_36_map_NULL (.predefs.NULL)
@@ -3068,12 +3091,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.predefs]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.predefs]", (path != null ? lpath_17 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.predefs]", (path != null ? lpath_17 : null));
+            return false;
         }
         return true;
     }
@@ -3111,6 +3132,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s0]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("s1") == 0)
             {
@@ -3123,6 +3145,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s1]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("s2") == 0)
             {
@@ -3135,6 +3158,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s2]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("s3") == 0)
             {
@@ -3147,6 +3171,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s3]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("s4") == 0)
             {
@@ -3160,12 +3185,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s4]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.string]", (path != null ? lpath_18 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.string]", (path != null ? lpath_18 : null));
+            return false;
         }
         return true;
     }
@@ -3198,6 +3221,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.tuple.t0]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("t1") == 0)
             {
@@ -3241,6 +3265,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.tuple.t1]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("t2") == 0)
             {
@@ -3273,6 +3298,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.tuple.t2]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("t3") == 0)
             {
@@ -3315,6 +3341,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.tuple.t3]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("t4") == 0)
             {
@@ -3369,12 +3396,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.tuple.t4]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.tuple]", (path != null ? lpath_19 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.tuple]", (path != null ? lpath_19 : null));
+            return false;
         }
         return true;
     }
@@ -3425,6 +3450,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.xor.x0]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("x1") == 0)
             {
@@ -3465,6 +3491,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.xor.x1]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("x2") == 0)
             {
@@ -3503,6 +3530,7 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.xor.x2]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("x3") == 0)
             {
@@ -3526,12 +3554,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.xor.x3]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.xor]", (path != null ? lpath_23 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.xor]", (path != null ? lpath_23 : null));
+            return false;
         }
         return true;
     }
@@ -3562,12 +3588,10 @@ public class everything extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }

@@ -38,6 +38,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '/')
         {
@@ -49,6 +50,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '?')
         {
@@ -60,6 +62,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '_')
         {
@@ -71,6 +74,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'a')
         {
@@ -82,8 +86,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'b')
+        if ($prop eq 'b')
         {
             # handle may b property
             # .b
@@ -92,11 +97,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 5;
 }

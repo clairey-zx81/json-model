@@ -410,11 +410,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }

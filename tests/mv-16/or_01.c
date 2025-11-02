@@ -52,7 +52,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .'|'.0
             // "/[0-9]/"
             res = _jm_re_0(json_string_value(val), path, rep);
-            if (unlikely(res))
+            if (likely(res))
             {
                 if (rep) jm_report_free_entries(rep);
             }

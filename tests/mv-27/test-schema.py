@@ -49,6 +49,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # .'$Test'.data
             res = True
+            continue
         elif prop == "valid":
             # handle must valid property
             must_count += 1
@@ -56,6 +57,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, bool)
             if not res:
                 return False
+            continue
         elif prop == "description":
             # handle must description property
             must_count += 1
@@ -63,14 +65,15 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 return False
-        elif prop == "comment":
+            continue
+        if prop == "comment":
             # handle may comment property
             # .'$Test'.comment
             res = isinstance(pval, str)
             if not res:
                 return False
-        else:
-            return False
+            continue
+        return False
     return must_count == 3
 
 
@@ -87,31 +90,36 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_2(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "perl5":
             # handle may perl5 property
             # .'$Specification'.'@'.perl5
             res = isinstance(pval, str)
             if not res:
                 return False
+            continue
         elif prop == "quote":
             # handle may quote property
             # .'$Specification'.'@'.quote
             res = isinstance(pval, str)
             if not res:
                 return False
+            continue
         elif prop == "ecma262":
             # handle may ecma262 property
             # .'$Specification'.'@'.ecma262
             res = json_model_2(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "validation":
             # handle may validation property
             # .'$Specification'.'@'.validation
             res = json_model_2(pval, None, None)
             if not res:
                 return False
-        elif _jm_re_1(prop, None, None):
+            continue
+        if _jm_re_1(prop, None, None):
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
             res = json_model_2(pval, None, None)
@@ -162,11 +170,13 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = ival_1 >= 1
             if not res:
                 return False
+            continue
         elif prop == "schema":
             # handle must schema property
             must_count += 1
             # .'$TestCase'.schema
             res = True
+            continue
         elif prop == "description":
             # handle must description property
             must_count += 1
@@ -174,12 +184,14 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 return False
-        elif prop == "comment":
+            continue
+        if prop == "comment":
             # handle may comment property
             # .'$TestCase'.comment
             res = isinstance(pval, str)
             if not res:
                 return False
+            continue
         elif prop == "specification":
             # handle may specification property
             # .'$TestCase'.specification
@@ -196,8 +208,8 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = is_unique_array(pval, None, rep) and ival_2 >= 1
             if not res:
                 return False
-        else:
-            return False
+            continue
+        return False
     return must_count == 3
 
 # check $ (.)

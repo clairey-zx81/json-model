@@ -152,8 +152,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ObjectComment'.'#']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$ObjectComment'.'/^#/'
@@ -482,16 +483,20 @@ public class json_model extends ModelChecker
     // check $Any (.'$Any')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$Any'
-        return true;
+        res = true;
+        return res;
     }
 
     // check $None (.'$None')
     public boolean json_model_17(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$None'
+        res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.'$None']", path);
-        return false;
+        return res;
     }
 
     // check $CModel (.'$CModel')
@@ -605,8 +610,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Constraint'.'@']", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("!") == 0)
+            if (prop.compareTo("!") == 0)
             {
                 // handle may ! property
                 // .'$Constraint'.'!'
@@ -617,8 +623,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Constraint'.'!']", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_7(prop, path, rep))
+            if (_jm_re_7(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Constraint'.'/^(<=|>=|<|>)$/'
@@ -1072,8 +1079,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.5.'#']", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_26(json.strToJSON(prop), (path != null ? lpath_3 : null), rep))
+            if (json_model_26(json.strToJSON(prop), (path != null ? lpath_3 : null), rep))
             {
                 // handle 1 key props
                 // .'$Element'.'|'.5.'$Prop'
@@ -1145,8 +1153,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Element'.'|'.4.'+']", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Element'.'|'.4.'#'
@@ -1157,8 +1166,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.4.'#']", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Element'.'|'.4.'/^#/'
@@ -1230,8 +1240,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Element'.'|'.3.'^']", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Element'.'|'.3.'#'
@@ -1242,8 +1253,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.3.'#']", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Element'.'|'.3.'/^#/'
@@ -1315,8 +1327,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Element'.'|'.2.'&']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Element'.'|'.2.'#'
@@ -1327,8 +1340,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.2.'#']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Element'.'|'.2.'/^#/'
@@ -1400,8 +1414,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Element'.'|'.1.'|']", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Element'.'|'.1.'#'
@@ -1412,8 +1427,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.1.'#']", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Element'.'|'.1.'/^#/'
@@ -1467,8 +1483,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Element'.'|'.0.'@']", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("!") == 0)
+            if (prop.compareTo("!") == 0)
             {
                 // handle may ! property
                 // .'$Element'.'|'.0.'!'
@@ -1479,6 +1496,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.0.'!']", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -1491,8 +1509,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.0.'#']", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 3 re props
                 // .'$Element'.'|'.0.'/^#/'
@@ -1663,6 +1682,7 @@ public class json_model extends ModelChecker
                 // handle may * property
                 // .'$Trafo'.'*'
                 res = true;
+                continue;
             }
             else if (prop.compareTo("/") == 0)
             {
@@ -1693,6 +1713,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Trafo'.'/']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -1705,12 +1726,10 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Trafo'.'~']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Trafo']", (path != null ? lpath_9 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Trafo']", (path != null ? lpath_9 : null));
+            return false;
         }
         return true;
     }
@@ -1768,12 +1787,14 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Transformation'.'|'.1.'#']", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("*") == 0)
             {
                 // handle may * property
                 // .'$Transformation'.'|'.1.'*'
                 res = true;
+                continue;
             }
             else if (prop.compareTo("/") == 0)
             {
@@ -1804,6 +1825,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Transformation'.'|'.1.'/']", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -1816,8 +1838,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Transformation'.'|'.1.'~']", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Transformation'.'|'.1.'/^#/'
@@ -1958,8 +1981,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Defs'.'']", (path != null ? lpath_13 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_4(json.strToJSON(prop), (path != null ? lpath_13 : null), rep))
+            if (json_model_4(json.strToJSON(prop), (path != null ? lpath_13 : null), rep))
             {
                 // handle 1 key props
                 // .'$Defs'.'$Identifier'
@@ -2125,12 +2149,10 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Import'.'<']", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Import']", (path != null ? lpath_16 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Import']", (path != null ? lpath_16 : null));
+            return false;
         }
         return true;
     }
@@ -2161,6 +2183,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RootOnly'.'$'.'']", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -2173,8 +2196,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RootOnly'.'$'.'#']", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_4(json.strToJSON(prop), (path != null ? lpath_18 : null), rep))
+            if (json_model_4(json.strToJSON(prop), (path != null ? lpath_18 : null), rep))
             {
                 // handle 1 key props
                 // .'$RootOnly'.'$'.'$Identifier'
@@ -2226,6 +2250,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RootOnly'.'%'.'#']", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -2274,8 +2299,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RootOnly'.'%'.'<']", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_11(json.strToJSON(prop), (path != null ? lpath_19 : null), rep))
+            if (json_model_11(json.strToJSON(prop), (path != null ? lpath_19 : null), rep))
             {
                 // handle 1 key props
                 // .'$RootOnly'.'%'.'$Name'
@@ -2341,6 +2367,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RootOnly'.'$']", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -2353,6 +2380,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RootOnly'.'%']", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -2365,12 +2393,10 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RootOnly'.'~']", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$RootOnly']", (path != null ? lpath_17 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$RootOnly']", (path != null ? lpath_17 : null));
+            return false;
         }
         return true;
     }
@@ -2401,6 +2427,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.5.'$'.'']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -2413,8 +2440,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.5.'$'.'#']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_4(json.strToJSON(prop), (path != null ? lpath_21 : null), rep))
+            if (json_model_4(json.strToJSON(prop), (path != null ? lpath_21 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.5.'$'.'$Identifier'
@@ -2466,6 +2494,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.5.'%'.'#']", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -2514,8 +2543,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.5.'%'.'<']", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_11(json.strToJSON(prop), (path != null ? lpath_22 : null), rep))
+            if (json_model_11(json.strToJSON(prop), (path != null ? lpath_22 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.5.'%'.'$Name'
@@ -2579,6 +2609,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.5.'#']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -2591,6 +2622,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.5.'$']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -2603,6 +2635,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.5.'%']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -2615,8 +2648,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.5.'~']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_26(json.strToJSON(prop), (path != null ? lpath_20 : null), rep))
+            if (json_model_26(json.strToJSON(prop), (path != null ? lpath_20 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.5.'$Prop'
@@ -2668,6 +2702,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.4.'$'.'']", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -2680,8 +2715,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.4.'$'.'#']", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_4(json.strToJSON(prop), (path != null ? lpath_24 : null), rep))
+            if (json_model_4(json.strToJSON(prop), (path != null ? lpath_24 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.4.'$'.'$Identifier'
@@ -2733,6 +2769,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.4.'%'.'#']", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -2781,8 +2818,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.4.'%'.'<']", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_11(json.strToJSON(prop), (path != null ? lpath_25 : null), rep))
+            if (json_model_11(json.strToJSON(prop), (path != null ? lpath_25 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.4.'%'.'$Name'
@@ -2866,8 +2904,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Root'.'|'.4.'+']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Root'.'|'.4.'#'
@@ -2878,6 +2917,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.4.'#']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -2890,6 +2930,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.4.'$']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -2902,6 +2943,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.4.'%']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -2914,8 +2956,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.4.'~']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Root'.'|'.4.'/^#/'
@@ -2967,6 +3010,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.3.'$'.'']", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -2979,8 +3023,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.3.'$'.'#']", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_4(json.strToJSON(prop), (path != null ? lpath_27 : null), rep))
+            if (json_model_4(json.strToJSON(prop), (path != null ? lpath_27 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.3.'$'.'$Identifier'
@@ -3032,6 +3077,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.3.'%'.'#']", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -3080,8 +3126,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.3.'%'.'<']", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_11(json.strToJSON(prop), (path != null ? lpath_28 : null), rep))
+            if (json_model_11(json.strToJSON(prop), (path != null ? lpath_28 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.3.'%'.'$Name'
@@ -3165,8 +3212,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Root'.'|'.3.'^']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Root'.'|'.3.'#'
@@ -3177,6 +3225,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.3.'#']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -3189,6 +3238,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.3.'$']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -3201,6 +3251,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.3.'%']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -3213,8 +3264,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.3.'~']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Root'.'|'.3.'/^#/'
@@ -3266,6 +3318,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.2.'$'.'']", (path != null ? lpath_30 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -3278,8 +3331,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.2.'$'.'#']", (path != null ? lpath_30 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_4(json.strToJSON(prop), (path != null ? lpath_30 : null), rep))
+            if (json_model_4(json.strToJSON(prop), (path != null ? lpath_30 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.2.'$'.'$Identifier'
@@ -3331,6 +3385,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.2.'%'.'#']", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -3379,8 +3434,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.2.'%'.'<']", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_11(json.strToJSON(prop), (path != null ? lpath_31 : null), rep))
+            if (json_model_11(json.strToJSON(prop), (path != null ? lpath_31 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.2.'%'.'$Name'
@@ -3464,8 +3520,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Root'.'|'.2.'&']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Root'.'|'.2.'#'
@@ -3476,6 +3533,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.2.'#']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -3488,6 +3546,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.2.'$']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -3500,6 +3559,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.2.'%']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -3512,8 +3572,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.2.'~']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Root'.'|'.2.'/^#/'
@@ -3565,6 +3626,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.1.'$'.'']", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -3577,8 +3639,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.1.'$'.'#']", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_4(json.strToJSON(prop), (path != null ? lpath_33 : null), rep))
+            if (json_model_4(json.strToJSON(prop), (path != null ? lpath_33 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.1.'$'.'$Identifier'
@@ -3630,6 +3693,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.1.'%'.'#']", (path != null ? lpath_34 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -3678,8 +3742,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.1.'%'.'<']", (path != null ? lpath_34 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_11(json.strToJSON(prop), (path != null ? lpath_34 : null), rep))
+            if (json_model_11(json.strToJSON(prop), (path != null ? lpath_34 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.1.'%'.'$Name'
@@ -3763,8 +3828,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Root'.'|'.1.'|']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Root'.'|'.1.'#'
@@ -3775,6 +3841,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.1.'#']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -3787,6 +3854,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.1.'$']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -3799,6 +3867,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.1.'%']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -3811,8 +3880,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.1.'~']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Root'.'|'.1.'/^#/'
@@ -3864,6 +3934,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'$'.'']", (path != null ? lpath_36 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -3876,8 +3947,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'$'.'#']", (path != null ? lpath_36 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_4(json.strToJSON(prop), (path != null ? lpath_36 : null), rep))
+            if (json_model_4(json.strToJSON(prop), (path != null ? lpath_36 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.0.'$'.'$Identifier'
@@ -3929,6 +4001,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'%'.'#']", (path != null ? lpath_37 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -3977,8 +4050,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'%'.'<']", (path != null ? lpath_37 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_11(json.strToJSON(prop), (path != null ? lpath_37 : null), rep))
+            if (json_model_11(json.strToJSON(prop), (path != null ? lpath_37 : null), rep))
             {
                 // handle 1 key props
                 // .'$Root'.'|'.0.'%'.'$Name'
@@ -4044,8 +4118,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Root'.'|'.0.'@']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("!") == 0)
+            if (prop.compareTo("!") == 0)
             {
                 // handle may ! property
                 // .'$Root'.'|'.0.'!'
@@ -4056,6 +4131,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'!']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -4068,6 +4144,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'#']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -4080,6 +4157,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'$']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -4092,6 +4170,7 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'%']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -4104,8 +4183,9 @@ public class json_model extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'~']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 3 re props
                 // .'$Root'.'|'.0.'/^#/'

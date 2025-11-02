@@ -241,8 +241,10 @@ public class json_schema_draft_04 extends ModelChecker
     // check json_model_1_map_default (.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
+        boolean res;
         // .default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_1_map_definitions (.definitions)
@@ -687,12 +689,10 @@ public class json_schema_draft_04 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }

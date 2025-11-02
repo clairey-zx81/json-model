@@ -37,6 +37,7 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo0'.a]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "b")
         {
@@ -50,6 +51,7 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo0'.b]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "c")
         {
@@ -63,6 +65,7 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo0'.c]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "d")
         {
@@ -76,17 +79,15 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo0'.d]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
+        // handle other props
+        // .'$Oo0'.''
+        res = runtime.jm_is_valid_date(pval, (path ? lpath_0 : null), rep);
+        if (! res)
         {
-            // handle other props
-            // .'$Oo0'.''
-            res = runtime.jm_is_valid_date(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $DATE [.'$Oo0'.'']", (path ? lpath_0 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["unexpected $DATE [.'$Oo0'.'']", (path ? lpath_0 : null)])
+            return false;
         }
     }
     if (must_count != 4)
@@ -141,8 +142,9 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo1'.z]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "a")
+        if (prop == "a")
         {
             // handle may a property
             // .'$Oo1'.a
@@ -153,6 +155,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Oo1'.a]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "b")
         {
@@ -165,6 +168,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Oo1'.b]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "c")
         {
@@ -177,6 +181,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Oo1'.c]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "d")
         {
@@ -189,12 +194,10 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Oo1'.d]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Oo1']", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Oo1']", (path ? lpath_1 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -236,6 +239,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo2'.a]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "b")
         {
@@ -249,6 +253,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo2'.b]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "c")
         {
@@ -262,6 +267,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo2'.c]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "d")
         {
@@ -275,8 +281,9 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Oo2'.d]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "y")
+        if (prop == "y")
         {
             // handle may y property
             // .'$Oo2'.y
@@ -287,12 +294,10 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Oo2'.y]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Oo2']", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Oo2']", (path ? lpath_2 : null)])
+        return false;
     }
     if (must_count != 4)
     {

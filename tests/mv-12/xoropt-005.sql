@@ -27,13 +27,13 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- handle other props
-      -- .'|'.1.''
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      CONTINUE;
+    END IF;
+    -- handle other props
+    -- .'|'.1.''
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+    IF NOT res THEN
+      RETURN FALSE;
     END IF;
   END LOOP;
   RETURN must_count = 1;
@@ -62,13 +62,13 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- handle other props
-      -- .'|'.0.''
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      CONTINUE;
+    END IF;
+    -- handle other props
+    -- .'|'.0.''
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+    IF NOT res THEN
+      RETURN FALSE;
     END IF;
   END LOOP;
   RETURN must_count = 1;

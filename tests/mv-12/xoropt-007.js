@@ -36,8 +36,9 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'^'.0.a]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "b")
+        if (prop == "b")
         {
             // handle may b property
             // .'^'.0.b
@@ -48,12 +49,10 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'^'.0.b]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'^'.0]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'^'.0]", (path ? lpath_0 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -94,8 +93,9 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'^'.1.b]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "a")
+        if (prop == "a")
         {
             // handle may a property
             // .'^'.1.a
@@ -106,12 +106,10 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'^'.1.a]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'^'.1]", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'^'.1]", (path ? lpath_1 : null)])
+        return false;
     }
     if (must_count != 1)
     {

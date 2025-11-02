@@ -26,6 +26,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle may name property
       -- .'$Schema'.metadata.name
@@ -33,6 +34,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'authors' THEN
       -- handle may authors property
       -- .'$Schema'.metadata.authors
@@ -50,6 +52,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'previous' THEN
       -- handle may previous property
       -- .'$Schema'.metadata.previous
@@ -57,9 +60,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -100,16 +103,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'metadata' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'metadata' THEN
       -- handle may metadata property
       -- .'$Schema'.metadata
       res := _jm_obj_0(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -314,6 +319,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'baseType' THEN
       -- handle must baseType property
       must_count := must_count + 1;
@@ -322,15 +328,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_6_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_6_map(prop) IS NOT NULL THEN
       -- handle 13 may props
       pfun := json_model_6_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -361,13 +369,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'name' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'name' THEN
       -- handle may name property
       -- .'$Object'.name
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'closed' THEN
       -- handle may closed property
       -- .'$Object'.closed
@@ -375,6 +386,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$Object'.content
@@ -392,6 +404,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'baseType' THEN
       -- handle may baseType property
       -- .'$Object'.baseType
@@ -399,9 +412,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -430,6 +443,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -438,17 +452,21 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'unique' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'unique' THEN
       -- handle may unique property
       -- .'$Fields'.unique
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'default' THEN
       -- handle may default property
       -- .'$Fields'.default
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$Fields'.required
@@ -456,9 +474,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -488,13 +506,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'name' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'name' THEN
       -- handle may name property
       -- .'$Array'.name
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$Array'.content
@@ -502,6 +523,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'baseType' THEN
       -- handle may baseType property
       -- .'$Array'.baseType
@@ -509,6 +531,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'maxLength' THEN
       -- handle may maxLength property
       -- .'$Array'.maxLength
@@ -516,6 +539,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'minLength' THEN
       -- handle may minLength property
       -- .'$Array'.minLength
@@ -523,9 +547,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -557,6 +581,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -565,6 +590,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'content' THEN
       -- handle must content property
       must_count := must_count + 1;
@@ -583,16 +609,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'baseType' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'baseType' THEN
       -- handle may baseType property
       -- .'$Union'.baseType
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;

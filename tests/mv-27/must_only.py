@@ -74,6 +74,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 return False
+            continue
         elif prop == "p31":
             # handle must p31 property
             must_count += 1
@@ -81,6 +82,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 return False
+            continue
         elif prop == "p32":
             # handle must p32 property
             must_count += 1
@@ -88,8 +90,8 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 return False
-        else:
-            return False
+            continue
+        return False
     return must_count == 3
 
 # check $ (.)
@@ -106,6 +108,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = _jm_obj_0(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "mo1":
             # handle may mo1 property
             # one mandatory prop
@@ -113,6 +116,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = _jm_obj_1(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "mo2":
             # handle may mo2 property
             # two mandatory props
@@ -120,6 +124,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = _jm_obj_2(pval, None, None)
             if not res:
                 return False
+            continue
         elif prop == "mo3":
             # handle may mo3 property
             # three mandatory props
@@ -127,8 +132,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = _jm_obj_3(pval, None, None)
             if not res:
                 return False
-        else:
-            return False
+            continue
+        return False
     return True
 
 

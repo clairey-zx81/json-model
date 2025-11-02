@@ -42,8 +42,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.name]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x000000006e726f62LL)))
+        if (unlikely(jm_str_eq_5(prop, 0x000000006e726f62LL)))
         {
             // handle may born property
             // .born
@@ -54,15 +55,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.born]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x007373656c657375LL)))
+        {
             // handle may useless property
             // .useless
             res = true;
-        else
-        {
-            // accept any other props
+            continue;
         }
+        // accept any other props
     }
     if (unlikely(must_count != 1))
     {

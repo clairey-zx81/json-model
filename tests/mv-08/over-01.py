@@ -55,9 +55,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _rewritten foo [.'$over#Foo'.foo]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$over#Foo'.foo]", lpath_0 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$over#Foo']", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$over#Foo']", lpath_0 if path is not None else None))
+        return False
     return True
 
 

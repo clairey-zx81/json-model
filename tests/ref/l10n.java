@@ -49,8 +49,9 @@ public class l10n extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$'.Model]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("") == 0)
+            if (prop.compareTo("") == 0)
             {
                 // handle may  property
                 // .'$'.''
@@ -61,12 +62,10 @@ public class l10n extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$'.'']", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$']", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$']", (path != null ? lpath_1 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -169,6 +168,7 @@ public class l10n extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -183,6 +183,7 @@ public class l10n extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'%']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("@") == 0)
             {
@@ -196,6 +197,7 @@ public class l10n extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'@']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -209,8 +211,9 @@ public class l10n extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'~']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'/^#/'

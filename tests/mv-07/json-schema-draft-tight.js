@@ -203,6 +203,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.format]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -215,6 +216,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.pattern]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -227,6 +229,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.maxLength]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -239,12 +242,10 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.minLength]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$stringKeywords']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$stringKeywords']", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }
@@ -292,6 +293,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.items]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxItems")
         {
@@ -304,6 +306,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.maxItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minItems")
         {
@@ -316,6 +319,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.minItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "prefixItems")
         {
@@ -328,6 +332,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.prefixItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "uniqueItems")
         {
@@ -340,6 +345,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.uniqueItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalItems")
         {
@@ -352,6 +358,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.additionalItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unevaluatedItems")
         {
@@ -364,12 +371,10 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.unevaluatedItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$arrayKeywords']", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$arrayKeywords']", (path ? lpath_1 : null)])
+        return false;
     }
     return true;
 }
@@ -470,6 +475,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.required]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "properties")
         {
@@ -482,6 +488,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.properties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxProperties")
         {
@@ -494,6 +501,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.maxProperties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minProperties")
         {
@@ -506,6 +514,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.minProperties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "propertyNames")
         {
@@ -518,6 +527,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.propertyNames]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "patternProperties")
         {
@@ -530,6 +540,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.patternProperties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalProperties")
         {
@@ -542,6 +553,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.additionalProperties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unevaluatedProperties")
         {
@@ -554,12 +566,10 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.unevaluatedProperties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$objectKeywords']", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$objectKeywords']", (path ? lpath_2 : null)])
+        return false;
     }
     return true;
 }
@@ -589,6 +599,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$numberKeywords'.maximum]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -601,12 +612,10 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$numberKeywords'.minimum]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$numberKeywords']", (path ? lpath_5 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$numberKeywords']", (path ? lpath_5 : null)])
+        return false;
     }
     return true;
 }
@@ -716,6 +725,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.id]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -728,6 +738,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$id']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -740,6 +751,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$defs']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -752,6 +764,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.title]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -764,6 +777,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$anchor']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -776,12 +790,14 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$schema']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$metas'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -794,6 +810,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$comment']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -806,6 +823,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.examples]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -818,6 +836,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.readOnly]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -830,6 +849,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.writeOnly]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -842,6 +862,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.deprecated]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -854,6 +875,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$vocabulary']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -866,6 +888,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.definitions]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -878,6 +901,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.description]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -890,12 +914,10 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$dynamicAnchor']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$metas']", (path ? lpath_6 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$metas']", (path ? lpath_6 : null)])
+        return false;
     }
     return true;
 }
@@ -1007,8 +1029,9 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$String'.type]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$String'.id
@@ -1019,6 +1042,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.id]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1031,6 +1055,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$id']", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1043,6 +1068,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$defs']", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1055,6 +1081,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.title]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "format")
         {
@@ -1067,6 +1094,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.format]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -1079,6 +1107,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$anchor']", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1091,12 +1120,14 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$schema']", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$String'.default
             res = true;
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -1109,6 +1140,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.pattern]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1121,6 +1153,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$comment']", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1133,6 +1166,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.examples]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -1145,6 +1179,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.readOnly]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -1157,6 +1192,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.maxLength]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -1169,6 +1205,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.minLength]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -1181,6 +1218,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.writeOnly]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -1193,6 +1231,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.deprecated]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -1205,6 +1244,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$vocabulary']", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1217,6 +1257,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.definitions]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1229,6 +1270,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.description]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -1241,12 +1283,10 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$dynamicAnchor']", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$String']", (path ? lpath_10 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$String']", (path ? lpath_10 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1368,8 +1408,9 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.type]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Array'.id
@@ -1380,6 +1421,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.id]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1392,6 +1434,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$id']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1404,6 +1447,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$defs']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "items")
         {
@@ -1434,6 +1478,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.items]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1446,6 +1491,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.title]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -1458,6 +1504,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$anchor']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1470,12 +1517,14 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$schema']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Array'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1488,6 +1537,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$comment']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1500,6 +1550,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.examples]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxItems")
         {
@@ -1512,6 +1563,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.maxItems]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minItems")
         {
@@ -1524,6 +1576,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.minItems]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -1536,6 +1589,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.readOnly]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -1548,6 +1602,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.writeOnly]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -1560,6 +1615,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.deprecated]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -1572,6 +1628,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$vocabulary']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1584,6 +1641,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.definitions]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1596,6 +1654,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.description]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "prefixItems")
         {
@@ -1608,6 +1667,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.prefixItems]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "uniqueItems")
         {
@@ -1620,6 +1680,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.uniqueItems]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -1632,6 +1693,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$dynamicAnchor']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalItems")
         {
@@ -1644,6 +1706,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.additionalItems]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unevaluatedItems")
         {
@@ -1656,12 +1719,10 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.unevaluatedItems]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_14 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_14 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1839,8 +1900,9 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.type]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Object'.id
@@ -1851,6 +1913,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.id]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1863,6 +1926,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$id']", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1875,6 +1939,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$defs']", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1887,6 +1952,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.title]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -1899,6 +1965,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$anchor']", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1911,12 +1978,14 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$schema']", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Object'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1929,6 +1998,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$comment']", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1941,6 +2011,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.examples]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -1953,6 +2024,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.readOnly]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -1980,6 +2052,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.required]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -1992,6 +2065,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.writeOnly]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -2004,6 +2078,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.deprecated]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "properties")
         {
@@ -2016,6 +2091,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.properties]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -2028,6 +2104,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$vocabulary']", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2040,6 +2117,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.definitions]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2052,6 +2130,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.description]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxProperties")
         {
@@ -2064,6 +2143,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.maxProperties]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minProperties")
         {
@@ -2076,6 +2156,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.minProperties]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "propertyNames")
         {
@@ -2088,6 +2169,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.propertyNames]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -2100,6 +2182,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$dynamicAnchor']", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "patternProperties")
         {
@@ -2112,6 +2195,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.patternProperties]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalProperties")
         {
@@ -2124,6 +2208,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.additionalProperties]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unevaluatedProperties")
         {
@@ -2136,12 +2221,10 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.unevaluatedProperties]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_18 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_18 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2263,8 +2346,9 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Integer'.type]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Integer'.id
@@ -2275,6 +2359,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.id]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2287,6 +2372,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$id']", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2299,6 +2385,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$defs']", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2311,6 +2398,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.title]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -2323,6 +2411,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$anchor']", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2335,12 +2424,14 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$schema']", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Integer'.default
             res = true;
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -2353,6 +2444,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.maximum]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -2365,6 +2457,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.minimum]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2377,6 +2470,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$comment']", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2389,6 +2483,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.examples]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -2401,6 +2496,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.readOnly]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -2413,6 +2509,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.writeOnly]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -2425,6 +2522,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.deprecated]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -2437,6 +2535,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$vocabulary']", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2449,6 +2548,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.definitions]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2461,6 +2561,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.description]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -2473,12 +2574,10 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$dynamicAnchor']", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Integer']", (path ? lpath_24 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Integer']", (path ? lpath_24 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2600,8 +2699,9 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Number'.type]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Number'.id
@@ -2612,6 +2712,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.id]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2624,6 +2725,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$id']", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2636,6 +2738,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$defs']", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2648,6 +2751,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.title]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -2660,6 +2764,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$anchor']", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2672,12 +2777,14 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$schema']", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Number'.default
             res = true;
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -2690,6 +2797,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.maximum]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -2702,6 +2810,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.minimum]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2714,6 +2823,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$comment']", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2726,6 +2836,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.examples]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -2738,6 +2849,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.readOnly]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -2750,6 +2862,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.writeOnly]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -2762,6 +2875,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.deprecated]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -2774,6 +2888,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$vocabulary']", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2786,6 +2901,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.definitions]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2798,6 +2914,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.description]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -2810,12 +2927,10 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$dynamicAnchor']", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Number']", (path ? lpath_28 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Number']", (path ? lpath_28 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2937,8 +3052,9 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Bool'.type]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Bool'.id
@@ -2949,6 +3065,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.id]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2961,6 +3078,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$id']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2973,6 +3091,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$defs']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2985,6 +3104,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.title]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -2997,6 +3117,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$anchor']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3009,12 +3130,14 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$schema']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Bool'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3027,6 +3150,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$comment']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3039,6 +3163,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.examples]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -3051,6 +3176,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.readOnly]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -3063,6 +3189,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.writeOnly]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -3075,6 +3202,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.deprecated]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -3087,6 +3215,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$vocabulary']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3099,6 +3228,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.definitions]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3111,6 +3241,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.description]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -3123,12 +3254,10 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$dynamicAnchor']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Bool']", (path ? lpath_32 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Bool']", (path ? lpath_32 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3250,8 +3379,9 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Null'.type]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Null'.id
@@ -3262,6 +3392,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.id]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3274,6 +3405,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$id']", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3286,6 +3418,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$defs']", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3298,6 +3431,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.title]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -3310,6 +3444,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$anchor']", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3322,12 +3457,14 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$schema']", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Null'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3340,6 +3477,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$comment']", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3352,6 +3490,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.examples]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -3364,6 +3503,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.readOnly]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -3376,6 +3516,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.writeOnly]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -3388,6 +3529,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.deprecated]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -3400,6 +3542,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$vocabulary']", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3412,6 +3555,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.definitions]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3424,6 +3568,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.description]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -3436,12 +3581,10 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$dynamicAnchor']", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Null']", (path ? lpath_36 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Null']", (path ? lpath_36 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3563,8 +3706,9 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$AllOf'.allOf]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$AllOf'.id
@@ -3575,6 +3719,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.id]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3587,6 +3732,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$id']", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3599,6 +3745,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$defs']", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3611,6 +3758,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.title]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -3623,6 +3771,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$anchor']", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3635,12 +3784,14 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$schema']", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$AllOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3653,6 +3804,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$comment']", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3665,6 +3817,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.examples]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -3677,6 +3830,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.readOnly]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -3689,6 +3843,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.writeOnly]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -3701,6 +3856,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.deprecated]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -3713,6 +3869,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$vocabulary']", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3725,6 +3882,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.definitions]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3737,6 +3895,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.description]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -3749,12 +3908,10 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$dynamicAnchor']", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AllOf']", (path ? lpath_40 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AllOf']", (path ? lpath_40 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3876,8 +4033,9 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$AnyOf'.anyOf]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$AnyOf'.id
@@ -3888,6 +4046,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.id]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3900,6 +4059,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$id']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3912,6 +4072,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$defs']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3924,6 +4085,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.title]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -3936,6 +4098,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$anchor']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3948,12 +4111,14 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$schema']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$AnyOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3966,6 +4131,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$comment']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3978,6 +4144,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.examples]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -3990,6 +4157,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.readOnly]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -4002,6 +4170,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.writeOnly]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -4014,6 +4183,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.deprecated]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -4026,6 +4196,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$vocabulary']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -4038,6 +4209,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.definitions]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4050,6 +4222,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.description]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -4062,12 +4235,10 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$dynamicAnchor']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AnyOf']", (path ? lpath_44 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AnyOf']", (path ? lpath_44 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -4189,8 +4360,9 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$OneOf'.oneOf]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$OneOf'.id
@@ -4201,6 +4373,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.id]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -4213,6 +4386,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$id']", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -4225,6 +4399,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$defs']", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -4237,6 +4412,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.title]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -4249,6 +4425,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$anchor']", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -4261,12 +4438,14 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$schema']", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$OneOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -4279,6 +4458,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$comment']", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -4291,6 +4471,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.examples]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -4303,6 +4484,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.readOnly]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -4315,6 +4497,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.writeOnly]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -4327,6 +4510,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.deprecated]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -4339,6 +4523,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$vocabulary']", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -4351,6 +4536,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.definitions]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4363,6 +4549,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.description]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -4375,12 +4562,10 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$dynamicAnchor']", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$OneOf']", (path ? lpath_48 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$OneOf']", (path ? lpath_48 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -4502,8 +4687,9 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Enum'.enum]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Enum'.id
@@ -4514,6 +4700,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.id]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -4526,6 +4713,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$id']", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -4538,6 +4726,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$defs']", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -4550,6 +4739,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.title]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -4562,6 +4752,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$anchor']", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -4574,12 +4765,14 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$schema']", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Enum'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -4592,6 +4785,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$comment']", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -4604,6 +4798,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.examples]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -4616,6 +4811,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.readOnly]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -4628,6 +4824,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.writeOnly]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -4640,6 +4837,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.deprecated]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -4652,6 +4850,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$vocabulary']", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -4664,6 +4863,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.definitions]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4676,6 +4876,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.description]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -4688,12 +4889,10 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$dynamicAnchor']", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Enum']", (path ? lpath_52 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Enum']", (path ? lpath_52 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -4815,8 +5014,9 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Const'.const]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Const'.id
@@ -4827,6 +5027,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.id]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -4839,6 +5040,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$id']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -4851,6 +5053,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$defs']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -4863,6 +5066,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.title]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -4875,6 +5079,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$anchor']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -4887,12 +5092,14 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$schema']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Const'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -4905,6 +5112,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$comment']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -4917,6 +5125,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.examples]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -4929,6 +5138,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.readOnly]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -4941,6 +5151,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.writeOnly]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -4953,6 +5164,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.deprecated]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -4965,6 +5177,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$vocabulary']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -4977,6 +5190,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.definitions]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4989,6 +5203,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.description]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -5001,12 +5216,10 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$dynamicAnchor']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Const']", (path ? lpath_56 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Const']", (path ? lpath_56 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -5128,8 +5341,9 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ref'.'$ref']", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Ref'.id
@@ -5140,6 +5354,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.id]", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -5152,6 +5367,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$id']", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -5164,6 +5380,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$defs']", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -5176,6 +5393,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.title]", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -5188,6 +5406,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$anchor']", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -5200,12 +5419,14 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$schema']", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Ref'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -5218,6 +5439,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$comment']", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -5230,6 +5452,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.examples]", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -5242,6 +5465,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.readOnly]", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -5254,6 +5478,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.writeOnly]", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -5266,6 +5491,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.deprecated]", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -5278,6 +5504,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$vocabulary']", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -5290,6 +5517,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.definitions]", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -5302,6 +5530,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.description]", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -5314,12 +5543,10 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$dynamicAnchor']", (path ? lpath_60 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Ref']", (path ? lpath_60 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Ref']", (path ? lpath_60 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -5441,8 +5668,9 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$DynRef'.'$dynamicRef']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$DynRef'.id
@@ -5453,6 +5681,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.id]", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -5465,6 +5694,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.'$id']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -5477,6 +5707,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.'$defs']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -5489,6 +5720,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.title]", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -5501,6 +5733,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.'$anchor']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -5513,12 +5746,14 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.'$schema']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$DynRef'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -5531,6 +5766,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.'$comment']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -5543,6 +5779,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.examples]", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -5555,6 +5792,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.readOnly]", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -5567,6 +5805,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.writeOnly]", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -5579,6 +5818,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.deprecated]", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -5591,6 +5831,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.'$vocabulary']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -5603,6 +5844,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.definitions]", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -5615,6 +5857,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.description]", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -5627,12 +5870,10 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DynRef'.'$dynamicAnchor']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$DynRef']", (path ? lpath_64 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$DynRef']", (path ? lpath_64 : null)])
+        return false;
     }
     if (must_count != 1)
     {

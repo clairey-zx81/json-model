@@ -114,6 +114,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _AIX [.'$AIXPlatformModel'.name]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AIXPlatformModel'.name]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$AIXPlatformModel'.versions
@@ -130,9 +131,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$AIXPlatformModel'.versions]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AIXPlatformModel'.versions]", lpath_0 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$AIXPlatformModel']", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$AIXPlatformModel']", lpath_0 if path is not None else None))
+        return False
     return True
 
 # check $AlpinePlatformModel (.'$AlpinePlatformModel')
@@ -152,6 +153,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Alpine [.'$AlpinePlatformModel'.name]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AlpinePlatformModel'.name]", lpath_1 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$AlpinePlatformModel'.versions
@@ -168,9 +170,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$AlpinePlatformModel'.versions]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AlpinePlatformModel'.versions]", lpath_1 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$AlpinePlatformModel']", lpath_1 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$AlpinePlatformModel']", lpath_1 if path is not None else None))
+        return False
     return True
 
 
@@ -191,6 +193,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Amazon Linux [.'$AmazonLinuxPlatformModel'.name]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AmazonLinuxPlatformModel'.name]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$AmazonLinuxPlatformModel'.versions
@@ -207,9 +210,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$AmazonLinuxPlatformModel'.versions]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AmazonLinuxPlatformModel'.versions]", lpath_2 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$AmazonLinuxPlatformModel']", lpath_2 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$AmazonLinuxPlatformModel']", lpath_2 if path is not None else None))
+        return False
     return True
 
 
@@ -230,6 +233,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Amazon [.'$AmazonPlatformModel'.name]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AmazonPlatformModel'.name]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$AmazonPlatformModel'.versions
@@ -246,9 +250,9 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$AmazonPlatformModel'.versions]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AmazonPlatformModel'.versions]", lpath_3 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$AmazonPlatformModel']", lpath_3 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$AmazonPlatformModel']", lpath_3 if path is not None else None))
+        return False
     return True
 
 # check $ArchLinuxPlatformModel (.'$ArchLinuxPlatformModel')
@@ -268,6 +272,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _ArchLinux [.'$ArchLinuxPlatformModel'.name]", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$ArchLinuxPlatformModel'.name]", lpath_4 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$ArchLinuxPlatformModel'.versions
@@ -284,9 +289,9 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$ArchLinuxPlatformModel'.versions]", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$ArchLinuxPlatformModel'.versions]", lpath_4 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$ArchLinuxPlatformModel']", lpath_4 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$ArchLinuxPlatformModel']", lpath_4 if path is not None else None))
+        return False
     return True
 
 
@@ -307,6 +312,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Astra Linux [.'$AstraLinuxPlatformModel'.name]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AstraLinuxPlatformModel'.name]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$AstraLinuxPlatformModel'.versions
@@ -323,9 +329,9 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$AstraLinuxPlatformModel'.versions]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AstraLinuxPlatformModel'.versions]", lpath_5 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$AstraLinuxPlatformModel']", lpath_5 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$AstraLinuxPlatformModel']", lpath_5 if path is not None else None))
+        return False
     return True
 
 # check $ClearLinuxPlatformModel (.'$ClearLinuxPlatformModel')
@@ -345,6 +351,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _ClearLinux [.'$ClearLinuxPlatformModel'.name]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$ClearLinuxPlatformModel'.name]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$ClearLinuxPlatformModel'.versions
@@ -361,9 +368,9 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$ClearLinuxPlatformModel'.versions]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$ClearLinuxPlatformModel'.versions]", lpath_6 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$ClearLinuxPlatformModel']", lpath_6 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$ClearLinuxPlatformModel']", lpath_6 if path is not None else None))
+        return False
     return True
 
 
@@ -384,6 +391,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Cumulus [.'$CumulusPlatformModel'.name]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$CumulusPlatformModel'.name]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$CumulusPlatformModel'.versions
@@ -400,9 +408,9 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$CumulusPlatformModel'.versions]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$CumulusPlatformModel'.versions]", lpath_7 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$CumulusPlatformModel']", lpath_7 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$CumulusPlatformModel']", lpath_7 if path is not None else None))
+        return False
     return True
 
 
@@ -423,6 +431,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Debian [.'$DebianPlatformModel'.name]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DebianPlatformModel'.name]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$DebianPlatformModel'.versions
@@ -439,9 +448,9 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$DebianPlatformModel'.versions]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DebianPlatformModel'.versions]", lpath_8 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$DebianPlatformModel']", lpath_8 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$DebianPlatformModel']", lpath_8 if path is not None else None))
+        return False
     return True
 
 
@@ -462,6 +471,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _DellOS [.'$DellOSPlatformModel'.name]", lpath_9 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DellOSPlatformModel'.name]", lpath_9 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$DellOSPlatformModel'.versions
@@ -478,9 +488,9 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$DellOSPlatformModel'.versions]", lpath_9 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DellOSPlatformModel'.versions]", lpath_9 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$DellOSPlatformModel']", lpath_9 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$DellOSPlatformModel']", lpath_9 if path is not None else None))
+        return False
     return True
 
 
@@ -501,6 +511,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Devuan [.'$DevuanPlatformModel'.name]", lpath_10 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DevuanPlatformModel'.name]", lpath_10 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$DevuanPlatformModel'.versions
@@ -517,9 +528,9 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$DevuanPlatformModel'.versions]", lpath_10 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DevuanPlatformModel'.versions]", lpath_10 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$DevuanPlatformModel']", lpath_10 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$DevuanPlatformModel']", lpath_10 if path is not None else None))
+        return False
     return True
 
 
@@ -540,6 +551,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _DragonFlyBSD [.'$DragonFlyBSDPlatformModel'.name]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DragonFlyBSDPlatformModel'.name]", lpath_11 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$DragonFlyBSDPlatformModel'.versions
@@ -556,9 +568,9 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$DragonFlyBSDPlatformModel'.versions]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$DragonFlyBSDPlatformModel'.versions]", lpath_11 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$DragonFlyBSDPlatformModel']", lpath_11 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$DragonFlyBSDPlatformModel']", lpath_11 if path is not None else None))
+        return False
     return True
 
 
@@ -579,6 +591,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _EL [.'$ELPlatformModel'.name]", lpath_12 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$ELPlatformModel'.name]", lpath_12 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$ELPlatformModel'.versions
@@ -595,9 +608,9 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$ELPlatformModel'.versions]", lpath_12 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$ELPlatformModel'.versions]", lpath_12 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$ELPlatformModel']", lpath_12 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$ELPlatformModel']", lpath_12 if path is not None else None))
+        return False
     return True
 
 
@@ -618,6 +631,7 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Fedora [.'$FedoraPlatformModel'.name]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$FedoraPlatformModel'.name]", lpath_13 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$FedoraPlatformModel'.versions
@@ -634,9 +648,9 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$FedoraPlatformModel'.versions]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$FedoraPlatformModel'.versions]", lpath_13 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$FedoraPlatformModel']", lpath_13 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$FedoraPlatformModel']", lpath_13 if path is not None else None))
+        return False
     return True
 
 
@@ -657,6 +671,7 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _FreeBSD [.'$FreeBSDPlatformModel'.name]", lpath_14 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$FreeBSDPlatformModel'.name]", lpath_14 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$FreeBSDPlatformModel'.versions
@@ -673,9 +688,9 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$FreeBSDPlatformModel'.versions]", lpath_14 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$FreeBSDPlatformModel'.versions]", lpath_14 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$FreeBSDPlatformModel']", lpath_14 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$FreeBSDPlatformModel']", lpath_14 if path is not None else None))
+        return False
     return True
 
 # check $GenericBSDPlatformModel (.'$GenericBSDPlatformModel')
@@ -695,6 +710,7 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _GenericBSD [.'$GenericBSDPlatformModel'.name]", lpath_15 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GenericBSDPlatformModel'.name]", lpath_15 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$GenericBSDPlatformModel'.versions
@@ -711,9 +727,9 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$GenericBSDPlatformModel'.versions]", lpath_15 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GenericBSDPlatformModel'.versions]", lpath_15 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GenericBSDPlatformModel']", lpath_15 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GenericBSDPlatformModel']", lpath_15 if path is not None else None))
+        return False
     return True
 
 # check $GenericLinuxPlatformModel (.'$GenericLinuxPlatformModel')
@@ -733,6 +749,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _GenericLinux [.'$GenericLinuxPlatformModel'.name]", lpath_16 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GenericLinuxPlatformModel'.name]", lpath_16 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$GenericLinuxPlatformModel'.versions
@@ -749,9 +766,9 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$GenericLinuxPlatformModel'.versions]", lpath_16 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GenericLinuxPlatformModel'.versions]", lpath_16 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GenericLinuxPlatformModel']", lpath_16 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GenericLinuxPlatformModel']", lpath_16 if path is not None else None))
+        return False
     return True
 
 # check $GenericUNIXPlatformModel (.'$GenericUNIXPlatformModel')
@@ -771,6 +788,7 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _GenericUNIX [.'$GenericUNIXPlatformModel'.name]", lpath_17 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GenericUNIXPlatformModel'.name]", lpath_17 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$GenericUNIXPlatformModel'.versions
@@ -787,9 +805,9 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$GenericUNIXPlatformModel'.versions]", lpath_17 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GenericUNIXPlatformModel'.versions]", lpath_17 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GenericUNIXPlatformModel']", lpath_17 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GenericUNIXPlatformModel']", lpath_17 if path is not None else None))
+        return False
     return True
 
 # check $GentooPlatformModel (.'$GentooPlatformModel')
@@ -809,6 +827,7 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Gentoo [.'$GentooPlatformModel'.name]", lpath_18 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GentooPlatformModel'.name]", lpath_18 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$GentooPlatformModel'.versions
@@ -825,9 +844,9 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$GentooPlatformModel'.versions]", lpath_18 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GentooPlatformModel'.versions]", lpath_18 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GentooPlatformModel']", lpath_18 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GentooPlatformModel']", lpath_18 if path is not None else None))
+        return False
     return True
 
 
@@ -848,6 +867,7 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _HardenedBSD [.'$HardenedBSDPlatformModel'.name]", lpath_19 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$HardenedBSDPlatformModel'.name]", lpath_19 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$HardenedBSDPlatformModel'.versions
@@ -864,9 +884,9 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$HardenedBSDPlatformModel'.versions]", lpath_19 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$HardenedBSDPlatformModel'.versions]", lpath_19 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$HardenedBSDPlatformModel']", lpath_19 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$HardenedBSDPlatformModel']", lpath_19 if path is not None else None))
+        return False
     return True
 
 # check $IOSPlatformModel (.'$IOSPlatformModel')
@@ -886,6 +906,7 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _IOS [.'$IOSPlatformModel'.name]", lpath_20 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$IOSPlatformModel'.name]", lpath_20 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$IOSPlatformModel'.versions
@@ -902,9 +923,9 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$IOSPlatformModel'.versions]", lpath_20 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$IOSPlatformModel'.versions]", lpath_20 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$IOSPlatformModel']", lpath_20 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$IOSPlatformModel']", lpath_20 if path is not None else None))
+        return False
     return True
 
 # check $JunosPlatformModel (.'$JunosPlatformModel')
@@ -924,6 +945,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Junos [.'$JunosPlatformModel'.name]", lpath_21 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$JunosPlatformModel'.name]", lpath_21 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$JunosPlatformModel'.versions
@@ -940,9 +962,9 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$JunosPlatformModel'.versions]", lpath_21 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$JunosPlatformModel'.versions]", lpath_21 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$JunosPlatformModel']", lpath_21 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$JunosPlatformModel']", lpath_21 if path is not None else None))
+        return False
     return True
 
 
@@ -963,6 +985,7 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Kali [.'$KaliPlatformModel'.name]", lpath_22 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$KaliPlatformModel'.name]", lpath_22 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$KaliPlatformModel'.versions
@@ -979,9 +1002,9 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$KaliPlatformModel'.versions]", lpath_22 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$KaliPlatformModel'.versions]", lpath_22 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$KaliPlatformModel']", lpath_22 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$KaliPlatformModel']", lpath_22 if path is not None else None))
+        return False
     return True
 
 
@@ -1002,6 +1025,7 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Kali [.'$MacOSXPlatformModel'.name]", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$MacOSXPlatformModel'.name]", lpath_23 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$MacOSXPlatformModel'.versions
@@ -1018,9 +1042,9 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$MacOSXPlatformModel'.versions]", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$MacOSXPlatformModel'.versions]", lpath_23 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$MacOSXPlatformModel']", lpath_23 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$MacOSXPlatformModel']", lpath_23 if path is not None else None))
+        return False
     return True
 
 
@@ -1041,6 +1065,7 @@ def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Megeia [.'$MageiaPlatformModel'.name]", lpath_24 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$MageiaPlatformModel'.name]", lpath_24 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$MageiaPlatformModel'.versions
@@ -1057,9 +1082,9 @@ def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$MageiaPlatformModel'.versions]", lpath_24 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$MageiaPlatformModel'.versions]", lpath_24 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$MageiaPlatformModel']", lpath_24 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$MageiaPlatformModel']", lpath_24 if path is not None else None))
+        return False
     return True
 
 # check $NXOSPlatformModel (.'$NXOSPlatformModel')
@@ -1079,6 +1104,7 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _NXOS [.'$NXOSPlatformModel'.name]", lpath_25 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$NXOSPlatformModel'.name]", lpath_25 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$NXOSPlatformModel'.versions
@@ -1095,9 +1121,9 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$NXOSPlatformModel'.versions]", lpath_25 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$NXOSPlatformModel'.versions]", lpath_25 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$NXOSPlatformModel']", lpath_25 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$NXOSPlatformModel']", lpath_25 if path is not None else None))
+        return False
     return True
 
 
@@ -1118,6 +1144,7 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _NetBSD [.'$NetBSDPlatformModel'.name]", lpath_26 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$NetBSDPlatformModel'.name]", lpath_26 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$NetBSDPlatformModel'.versions
@@ -1134,9 +1161,9 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$NetBSDPlatformModel'.versions]", lpath_26 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$NetBSDPlatformModel'.versions]", lpath_26 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$NetBSDPlatformModel']", lpath_26 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$NetBSDPlatformModel']", lpath_26 if path is not None else None))
+        return False
     return True
 
 
@@ -1157,6 +1184,7 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _OpenBSD [.'$OpenBSDPlatformModel'.name]", lpath_27 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$OpenBSDPlatformModel'.name]", lpath_27 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$OpenBSDPlatformModel'.versions
@@ -1173,9 +1201,9 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$OpenBSDPlatformModel'.versions]", lpath_27 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$OpenBSDPlatformModel'.versions]", lpath_27 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$OpenBSDPlatformModel']", lpath_27 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$OpenBSDPlatformModel']", lpath_27 if path is not None else None))
+        return False
     return True
 
 
@@ -1196,6 +1224,7 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _OpenWrt [.'$OpenWrtPlatformModel'.name]", lpath_28 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$OpenWrtPlatformModel'.name]", lpath_28 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$OpenWrtPlatformModel'.versions
@@ -1212,9 +1241,9 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$OpenWrtPlatformModel'.versions]", lpath_28 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$OpenWrtPlatformModel'.versions]", lpath_28 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$OpenWrtPlatformModel']", lpath_28 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$OpenWrtPlatformModel']", lpath_28 if path is not None else None))
+        return False
     return True
 
 
@@ -1235,6 +1264,7 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _OracleLinux [.'$OracleLinuxPlatformModel'.name]", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$OracleLinuxPlatformModel'.name]", lpath_29 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$OracleLinuxPlatformModel'.versions
@@ -1251,9 +1281,9 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$OracleLinuxPlatformModel'.versions]", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$OracleLinuxPlatformModel'.versions]", lpath_29 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$OracleLinuxPlatformModel']", lpath_29 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$OracleLinuxPlatformModel']", lpath_29 if path is not None else None))
+        return False
     return True
 
 
@@ -1274,6 +1304,7 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _PAN-OS [.'$PAN-OSPlatformModel'.name]", lpath_30 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$PAN-OSPlatformModel'.name]", lpath_30 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$PAN-OSPlatformModel'.versions
@@ -1290,9 +1321,9 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$PAN-OSPlatformModel'.versions]", lpath_30 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$PAN-OSPlatformModel'.versions]", lpath_30 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$PAN-OSPlatformModel']", lpath_30 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$PAN-OSPlatformModel']", lpath_30 if path is not None else None))
+        return False
     return True
 
 
@@ -1313,6 +1344,7 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Rocky [.'$RockyLinuxPlatformModel'.name]", lpath_31 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$RockyLinuxPlatformModel'.name]", lpath_31 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$RockyLinuxPlatformModel'.versions
@@ -1329,9 +1361,9 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$RockyLinuxPlatformModel'.versions]", lpath_31 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$RockyLinuxPlatformModel'.versions]", lpath_31 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$RockyLinuxPlatformModel']", lpath_31 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$RockyLinuxPlatformModel']", lpath_31 if path is not None else None))
+        return False
     return True
 
 
@@ -1352,6 +1384,7 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _SLES [.'$SLESPlatformModel'.name]", lpath_32 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$SLESPlatformModel'.name]", lpath_32 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$SLESPlatformModel'.versions
@@ -1368,9 +1401,9 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$SLESPlatformModel'.versions]", lpath_32 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$SLESPlatformModel'.versions]", lpath_32 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SLESPlatformModel']", lpath_32 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$SLESPlatformModel']", lpath_32 if path is not None else None))
+        return False
     return True
 
 # check $SmartOSPlatformModel (.'$SmartOSPlatformModel')
@@ -1390,6 +1423,7 @@ def json_model_35(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _SmartOS [.'$SmartOSPlatformModel'.name]", lpath_33 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$SmartOSPlatformModel'.name]", lpath_33 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$SmartOSPlatformModel'.versions
@@ -1406,9 +1440,9 @@ def json_model_35(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$SmartOSPlatformModel'.versions]", lpath_33 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$SmartOSPlatformModel'.versions]", lpath_33 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SmartOSPlatformModel']", lpath_33 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$SmartOSPlatformModel']", lpath_33 if path is not None else None))
+        return False
     return True
 
 
@@ -1429,6 +1463,7 @@ def json_model_36(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Solaris [.'$SolarisPlatformModel'.name]", lpath_34 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$SolarisPlatformModel'.name]", lpath_34 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$SolarisPlatformModel'.versions
@@ -1445,9 +1480,9 @@ def json_model_36(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$SolarisPlatformModel'.versions]", lpath_34 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$SolarisPlatformModel'.versions]", lpath_34 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SolarisPlatformModel']", lpath_34 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$SolarisPlatformModel']", lpath_34 if path is not None else None))
+        return False
     return True
 
 
@@ -1468,6 +1503,7 @@ def json_model_37(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Synology [.'$SynologyPlatformModel'.name]", lpath_35 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$SynologyPlatformModel'.name]", lpath_35 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$SynologyPlatformModel'.versions
@@ -1484,9 +1520,9 @@ def json_model_37(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$SynologyPlatformModel'.versions]", lpath_35 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$SynologyPlatformModel'.versions]", lpath_35 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SynologyPlatformModel']", lpath_35 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$SynologyPlatformModel']", lpath_35 if path is not None else None))
+        return False
     return True
 
 
@@ -1507,6 +1543,7 @@ def json_model_38(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _TMOS [.'$TMOSPlatformModel'.name]", lpath_36 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$TMOSPlatformModel'.name]", lpath_36 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$TMOSPlatformModel'.versions
@@ -1523,9 +1560,9 @@ def json_model_38(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$TMOSPlatformModel'.versions]", lpath_36 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$TMOSPlatformModel'.versions]", lpath_36 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TMOSPlatformModel']", lpath_36 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TMOSPlatformModel']", lpath_36 if path is not None else None))
+        return False
     return True
 
 
@@ -1546,6 +1583,7 @@ def json_model_39(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Ubuntu [.'$UbuntuPlatformModel'.name]", lpath_37 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$UbuntuPlatformModel'.name]", lpath_37 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$UbuntuPlatformModel'.versions
@@ -1562,9 +1600,9 @@ def json_model_39(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$UbuntuPlatformModel'.versions]", lpath_37 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$UbuntuPlatformModel'.versions]", lpath_37 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$UbuntuPlatformModel']", lpath_37 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$UbuntuPlatformModel']", lpath_37 if path is not None else None))
+        return False
     return True
 
 # check $Void_LinuxPlatformModel (.'$Void_LinuxPlatformModel')
@@ -1584,6 +1622,7 @@ def json_model_40(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Void Linux [.'$Void_LinuxPlatformModel'.name]", lpath_38 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Void_LinuxPlatformModel'.name]", lpath_38 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$Void_LinuxPlatformModel'.versions
@@ -1600,9 +1639,9 @@ def json_model_40(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$Void_LinuxPlatformModel'.versions]", lpath_38 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Void_LinuxPlatformModel'.versions]", lpath_38 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Void_LinuxPlatformModel']", lpath_38 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Void_LinuxPlatformModel']", lpath_38 if path is not None else None))
+        return False
     return True
 
 
@@ -1623,6 +1662,7 @@ def json_model_41(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Windows [.'$WindowsPlatformModel'.name]", lpath_39 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$WindowsPlatformModel'.name]", lpath_39 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$WindowsPlatformModel'.versions
@@ -1639,9 +1679,9 @@ def json_model_41(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$WindowsPlatformModel'.versions]", lpath_39 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$WindowsPlatformModel'.versions]", lpath_39 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$WindowsPlatformModel']", lpath_39 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$WindowsPlatformModel']", lpath_39 if path is not None else None))
+        return False
     return True
 
 # check $aosPlatformModel (.'$aosPlatformModel')
@@ -1661,6 +1701,7 @@ def json_model_42(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _aos [.'$aosPlatformModel'.name]", lpath_40 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$aosPlatformModel'.name]", lpath_40 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$aosPlatformModel'.versions
@@ -1677,9 +1718,9 @@ def json_model_42(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$aosPlatformModel'.versions]", lpath_40 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$aosPlatformModel'.versions]", lpath_40 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$aosPlatformModel']", lpath_40 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$aosPlatformModel']", lpath_40 if path is not None else None))
+        return False
     return True
 
 # check $eosPlatformModel (.'$eosPlatformModel')
@@ -1699,6 +1740,7 @@ def json_model_43(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _eos [.'$eosPlatformModel'.name]", lpath_41 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$eosPlatformModel'.name]", lpath_41 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$eosPlatformModel'.versions
@@ -1715,9 +1757,9 @@ def json_model_43(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$eosPlatformModel'.versions]", lpath_41 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$eosPlatformModel'.versions]", lpath_41 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$eosPlatformModel']", lpath_41 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$eosPlatformModel']", lpath_41 if path is not None else None))
+        return False
     return True
 
 
@@ -1738,6 +1780,7 @@ def json_model_44(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _macOS [.'$macOSPlatformModel'.name]", lpath_42 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$macOSPlatformModel'.name]", lpath_42 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$macOSPlatformModel'.versions
@@ -1754,9 +1797,9 @@ def json_model_44(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$macOSPlatformModel'.versions]", lpath_42 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$macOSPlatformModel'.versions]", lpath_42 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$macOSPlatformModel']", lpath_42 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$macOSPlatformModel']", lpath_42 if path is not None else None))
+        return False
     return True
 
 
@@ -1777,6 +1820,7 @@ def json_model_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _opensuse [.'$opensusePlatformModel'.name]", lpath_43 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$opensusePlatformModel'.name]", lpath_43 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$opensusePlatformModel'.versions
@@ -1793,9 +1837,9 @@ def json_model_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$opensusePlatformModel'.versions]", lpath_43 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$opensusePlatformModel'.versions]", lpath_43 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$opensusePlatformModel']", lpath_43 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$opensusePlatformModel']", lpath_43 if path is not None else None))
+        return False
     return True
 
 # check $os10PlatformModel (.'$os10PlatformModel')
@@ -1815,6 +1859,7 @@ def json_model_46(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _os10 [.'$os10PlatformModel'.name]", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$os10PlatformModel'.name]", lpath_44 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$os10PlatformModel'.versions
@@ -1831,9 +1876,9 @@ def json_model_46(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$os10PlatformModel'.versions]", lpath_44 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$os10PlatformModel'.versions]", lpath_44 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$os10PlatformModel']", lpath_44 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$os10PlatformModel']", lpath_44 if path is not None else None))
+        return False
     return True
 
 
@@ -1854,6 +1899,7 @@ def json_model_47(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _vCenter [.'$vCenterPlatformModel'.name]", lpath_45 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$vCenterPlatformModel'.name]", lpath_45 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$vCenterPlatformModel'.versions
@@ -1870,9 +1916,9 @@ def json_model_47(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$vCenterPlatformModel'.versions]", lpath_45 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$vCenterPlatformModel'.versions]", lpath_45 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$vCenterPlatformModel']", lpath_45 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$vCenterPlatformModel']", lpath_45 if path is not None else None))
+        return False
     return True
 
 
@@ -1893,6 +1939,7 @@ def json_model_48(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _vSphere [.'$vSpherePlatformModel'.name]", lpath_46 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$vSpherePlatformModel'.name]", lpath_46 if path is not None else None))
                 return False
+            continue
         elif prop == "versions":
             # handle may versions property
             # .'$vSpherePlatformModel'.versions
@@ -1909,9 +1956,9 @@ def json_model_48(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$vSpherePlatformModel'.versions]", lpath_46 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$vSpherePlatformModel'.versions]", lpath_46 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$vSpherePlatformModel']", lpath_46 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$vSpherePlatformModel']", lpath_46 if path is not None else None))
+        return False
     return True
 
 # check $any_platform (.'$any_platform')
@@ -4111,6 +4158,7 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", lpath_47 if path is not None else None))
                 return False
+            continue
         elif prop == "platforms":
             # handle may platforms property
             # .'$GalaxyInfoModelCollection'.platforms
@@ -4119,6 +4167,7 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", lpath_47 if path is not None else None))
                 return False
+            continue
         elif prop == "role_name":
             # handle may role_name property
             # .'$GalaxyInfoModelCollection'.role_name
@@ -4128,6 +4177,7 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", lpath_47 if path is not None else None))
                 return False
+            continue
         elif prop == "galaxy_tags":
             # handle may galaxy_tags property
             # .'$GalaxyInfoModelCollection'.galaxy_tags
@@ -4144,6 +4194,7 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", lpath_47 if path is not None else None))
                 return False
+            continue
         elif prop == "video_links":
             # handle may video_links property
             # .'$GalaxyInfoModelCollection'.video_links
@@ -4152,10 +4203,12 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", lpath_47 if path is not None else None))
                 return False
+            continue
         elif prop == "cloud_platforms":
             # handle may cloud_platforms property
             # .'$GalaxyInfoModelCollection'.cloud_platforms
             res = True
+            continue
         elif prop == "min_ansible_version":
             # handle may min_ansible_version property
             # .'$GalaxyInfoModelCollection'.min_ansible_version
@@ -4164,9 +4217,9 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", lpath_47 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", lpath_47 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelCollection']", lpath_47 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelCollection']", lpath_47 if path is not None else None))
+        return False
     return True
 
 # check $GalaxyInfoModelLoose (.'$GalaxyInfoModelLoose')
@@ -4189,7 +4242,8 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.description]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", lpath_48 if path is not None else None))
                 return False
-        elif prop == "author":
+            continue
+        if prop == "author":
             # handle may author property
             # .'$GalaxyInfoModelLoose'.author
             res = isinstance(pval, str)
@@ -4197,6 +4251,7 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.author]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", lpath_48 if path is not None else None))
                 return False
+            continue
         elif prop == "company":
             # handle may company property
             # .'$GalaxyInfoModelLoose'.company
@@ -4205,6 +4260,7 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.company]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", lpath_48 if path is not None else None))
                 return False
+            continue
         elif prop == "license":
             # handle may license property
             # .'$GalaxyInfoModelLoose'.license
@@ -4213,6 +4269,7 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.license]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", lpath_48 if path is not None else None))
                 return False
+            continue
         elif prop == "github_branch":
             # handle may github_branch property
             # .'$GalaxyInfoModelLoose'.github_branch
@@ -4221,6 +4278,7 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", lpath_48 if path is not None else None))
                 return False
+            continue
         elif prop == "issue_tracker_url":
             # handle may issue_tracker_url property
             # .'$GalaxyInfoModelLoose'.issue_tracker_url
@@ -4229,6 +4287,7 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", lpath_48 if path is not None else None))
                 return False
+            continue
         elif prop == "min_ansible_container_version":
             # handle may min_ansible_container_version property
             # .'$GalaxyInfoModelLoose'.min_ansible_container_version
@@ -4237,9 +4296,9 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", lpath_48 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", lpath_48 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelLoose']", lpath_48 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelLoose']", lpath_48 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "description" in val:
@@ -4266,6 +4325,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.author]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "license":
             # handle must license property
             must_count += 1
@@ -4275,6 +4335,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.license]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "standalone":
             # handle must standalone property
             must_count += 1
@@ -4284,6 +4345,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "description":
             # handle must description property
             must_count += 1
@@ -4293,6 +4355,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.description]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "min_ansible_version":
             # handle must min_ansible_version property
             must_count += 1
@@ -4302,7 +4365,8 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", lpath_49 if path is not None else None))
                 return False
-        elif prop == "company":
+            continue
+        if prop == "company":
             # handle may company property
             # .'$GalaxyInfoModelStandalone'.company
             res = isinstance(pval, str)
@@ -4310,6 +4374,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.company]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "namespace":
             # handle may namespace property
             # .'$GalaxyInfoModelStandalone'.namespace
@@ -4319,6 +4384,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.namespace]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "platforms":
             # handle may platforms property
             # .'$GalaxyInfoModelStandalone'.platforms
@@ -4327,6 +4393,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.platforms]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "role_name":
             # handle may role_name property
             # .'$GalaxyInfoModelStandalone'.role_name
@@ -4336,6 +4403,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.role_name]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "galaxy_tags":
             # handle may galaxy_tags property
             # .'$GalaxyInfoModelStandalone'.galaxy_tags
@@ -4352,6 +4420,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "video_links":
             # handle may video_links property
             # .'$GalaxyInfoModelStandalone'.video_links
@@ -4360,6 +4429,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.video_links]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "github_branch":
             # handle may github_branch property
             # .'$GalaxyInfoModelStandalone'.github_branch
@@ -4368,10 +4438,12 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "cloud_platforms":
             # handle may cloud_platforms property
             # .'$GalaxyInfoModelStandalone'.cloud_platforms
             res = True
+            continue
         elif prop == "issue_tracker_url":
             # handle may issue_tracker_url property
             # .'$GalaxyInfoModelStandalone'.issue_tracker_url
@@ -4380,6 +4452,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", lpath_49 if path is not None else None))
                 return False
+            continue
         elif prop == "min_ansible_container_version":
             # handle may min_ansible_container_version property
             # .'$GalaxyInfoModelStandalone'.min_ansible_container_version
@@ -4388,9 +4461,9 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", lpath_49 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", lpath_49 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelStandalone']", lpath_49 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelStandalone']", lpath_49 if path is not None else None))
+        return False
     if must_count != 5:
         if rep is not None:
             if not ("author" in val):
@@ -4416,8 +4489,10 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-    return True
+    res = True
+    return res
 
 # check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -4529,6 +4604,7 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", lpath_50 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", lpath_50 if path is not None else None))
                 return False
+            continue
         elif prop == "description":
             # handle must description property
             must_count += 1
@@ -4538,14 +4614,15 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", lpath_50 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", lpath_50 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_47_map.get(prop):
+            continue
+        if pfun := _jm_obj_47_map.get(prop):
             # handle 13 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_50 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", lpath_50 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", lpath_50 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", lpath_50 if path is not None else None))
+        return False
     if must_count != 2:
         if rep is not None:
             if not "description" in val:
@@ -4565,8 +4642,10 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-    return True
+    res = True
+    return res
 
 # check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
 def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -4678,14 +4757,15 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", lpath_51 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", lpath_51 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_48_map.get(prop):
+            continue
+        if pfun := _jm_obj_48_map.get(prop):
             # handle 13 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_51 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.2]", lpath_51 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.2]", lpath_51 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.2]", lpath_51 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "description" in val:
@@ -5005,6 +5085,7 @@ def json_model_59(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $collections [.'$AnsibleMetaObj'.collections]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.collections]", lpath_52 if path is not None else None))
                 return False
+            continue
         elif prop == "galaxy_info":
             # handle may galaxy_info property
             # .'$AnsibleMetaObj'.galaxy_info
@@ -5013,6 +5094,7 @@ def json_model_59(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", lpath_52 if path is not None else None))
                 return False
+            continue
         elif prop == "dependencies":
             # handle may dependencies property
             # .'$AnsibleMetaObj'.dependencies
@@ -5039,6 +5121,7 @@ def json_model_59(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", lpath_52 if path is not None else None))
                 return False
+            continue
         elif prop == "allow_duplicates":
             # handle may allow_duplicates property
             # .'$AnsibleMetaObj'.allow_duplicates
@@ -5047,9 +5130,9 @@ def json_model_59(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", lpath_52 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", lpath_52 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$AnsibleMetaObj']", lpath_52 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$AnsibleMetaObj']", lpath_52 if path is not None else None))
+        return False
     return True
 
 # check $AnsibleMeta (.'$AnsibleMeta')

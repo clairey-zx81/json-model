@@ -46,8 +46,9 @@ function json_model_1(val, path, rep)
         }
         res = ! is_0;
     }
+    res = false;
     rep !== null && rep.push(["not one model match [.'^']", path])
-    return false;
+    return res;
 }
 
 

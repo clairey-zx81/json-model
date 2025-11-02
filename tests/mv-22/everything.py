@@ -147,9 +147,9 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not all model match [.and.a0.'&']", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.and.a0]", lpath_1 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.and]", lpath_1 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.and]", lpath_1 if path is not None else None))
+        return False
     return True
 
 # check json_model_1_map_array (.array)
@@ -178,6 +178,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.array.a0]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.array.a0]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "a1":
             # handle may a1 property
             # .array.a1
@@ -194,6 +195,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.array.a1]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.array.a1]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "a2":
             # handle may a2 property
             # .array.a2
@@ -210,6 +212,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.array.a2]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.array.a2]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "a3":
             # handle may a3 property
             # .array.a3
@@ -226,6 +229,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.array.a3]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.array.a3]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "a4":
             # handle may a4 property
             # .array.a4
@@ -234,9 +238,9 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.array.a4]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.array.a4]", lpath_2 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.array]", lpath_2 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.array]", lpath_2 if path is not None else None))
+        return False
     return True
 
 # check json_model_1_map_bool (.bool)
@@ -257,6 +261,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.bool.b0]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.bool.b0]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "b1":
             # handle may b1 property
             # .bool.b1
@@ -265,6 +270,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $BOOL [.bool.b1]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.bool.b1]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "b2":
             # handle may b2 property
             # .bool.b2
@@ -273,6 +279,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $BOOLEAN [.bool.b2]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.bool.b2]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "b3":
             # handle may b3 property
             # .bool.b3
@@ -281,6 +288,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected =true [.bool.b3]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.bool.b3]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "b4":
             # handle may b4 property
             # .bool.b4
@@ -289,6 +297,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected =false [.bool.b4]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.bool.b4]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "b5":
             # handle may b5 property
             # .bool.b5
@@ -312,9 +321,9 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.bool.b5]", lpath_3 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.bool]", lpath_3 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.bool]", lpath_3 if path is not None else None))
+        return False
     return True
 
 # check _jm_f_3_map_cia0 (.constraints.cia0)
@@ -712,9 +721,9 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_4 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.constraints]", lpath_4 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.constraints]", lpath_4 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.constraints]", lpath_4 if path is not None else None))
+        return False
     return True
 
 
@@ -752,6 +761,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.enum.e0]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "e1":
             # handle may e1 property
             # .enum.e1
@@ -780,6 +790,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.enum.e1]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "e2":
             # handle may e2 property
             # .enum.e2
@@ -788,6 +799,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("value not in enum [.enum.e2.'|']", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.enum.e2]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "e3":
             # handle may e3 property
             # .enum.e3
@@ -816,9 +828,9 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.enum.e3]", lpath_5 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.enum]", lpath_5 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.enum]", lpath_5 if path is not None else None))
+        return False
     return True
 
 # check json_model_1_map_float (.float)
@@ -839,6 +851,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0.0 strict float [.float.f0]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f0]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "f1":
             # handle may f1 property
             # .float.f1
@@ -847,6 +860,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 1.0 strict float [.float.f1]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f1]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "f2":
             # handle may f2 property
             # .float.f2
@@ -855,6 +869,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a -1.0 strict float [.float.f2]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f2]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "f3":
             # handle may f3 property
             # .float.f3
@@ -863,6 +878,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $FLOAT [.float.f3]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f3]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "f4":
             # handle may f4 property
             # .float.f4
@@ -871,6 +887,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $F32 [.float.f4]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f4]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "f5":
             # handle may f5 property
             # .float.f5
@@ -879,6 +896,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $F64 [.float.f5]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f5]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "f6":
             # handle may f6 property
             # .float.f6
@@ -887,6 +905,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected =3.1415927 [.float.f6]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f6]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "f7":
             # handle may f7 property
             # .float.f7
@@ -895,6 +914,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected =1.0E100 [.float.f7]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f7]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "f8":
             # handle may f8 property
             # .float.f8
@@ -903,9 +923,9 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected =-42.1 [.float.f8]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.float.f8]", lpath_6 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.float]", lpath_6 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.float]", lpath_6 if path is not None else None))
+        return False
     return True
 
 # check _jm_f_31_map_i0 (.int.i0)
@@ -1012,9 +1032,9 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_7 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.int]", lpath_7 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.int]", lpath_7 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.int]", lpath_7 if path is not None else None))
+        return False
     return True
 
 # object .merge.m0
@@ -1035,7 +1055,8 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.merge.m0.a]", lpath_9 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.merge.m0.a]", lpath_9 if path is not None else None))
                 return False
-        elif prop == "b":
+            continue
+        if prop == "b":
             # handle may b property
             # .merge.m0.b
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
@@ -1043,9 +1064,9 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.merge.m0.b]", lpath_9 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.merge.m0.b]", lpath_9 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.merge.m0]", lpath_9 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.merge.m0]", lpath_9 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "a" in val:
@@ -1397,6 +1418,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.merge.m0]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.merge.m0]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "m1":
             # handle may m1 property
             # .merge.m1
@@ -1420,6 +1442,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.merge.m1]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "m2":
             # handle may m2 property
             # .merge.m2
@@ -1443,6 +1466,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.merge.m2]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "m3":
             # handle may m3 property
             # .merge.m3
@@ -1476,6 +1500,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.merge.m3]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "m4":
             # handle may m4 property
             # .merge.m4
@@ -1484,9 +1509,9 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.merge.m4]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.merge.m4]", lpath_8 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.merge]", lpath_8 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.merge]", lpath_8 if path is not None else None))
+        return False
     return True
 
 # check json_model_1_map_null (.null)
@@ -1507,6 +1532,7 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not null [.null.n0]", lpath_10 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.null.n0]", lpath_10 if path is not None else None))
                 return False
+            continue
         elif prop == "n1":
             # handle may n1 property
             # .null.n1
@@ -1515,6 +1541,7 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $NULL [.null.n1]", lpath_10 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.null.n1]", lpath_10 if path is not None else None))
                 return False
+            continue
         elif prop == "n2":
             # handle may n2 property
             # .null.n2
@@ -1523,9 +1550,9 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected =null [.null.n2]", lpath_10 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.null.n2]", lpath_10 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.null]", lpath_10 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.null]", lpath_10 if path is not None else None))
+        return False
     return True
 
 # object .object.o0
@@ -1599,9 +1626,9 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.object.o2.a]", lpath_12 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o2.a]", lpath_12 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.object.o2]", lpath_12 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.object.o2]", lpath_12 if path is not None else None))
+        return False
     return True
 
 # object .object.o3
@@ -1686,6 +1713,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.object.o0]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o0]", lpath_11 if path is not None else None))
                 return False
+            continue
         elif prop == "o1":
             # handle may o1 property
             # .object.o1
@@ -1694,6 +1722,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.object.o1]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o1]", lpath_11 if path is not None else None))
                 return False
+            continue
         elif prop == "o2":
             # handle may o2 property
             # .object.o2
@@ -1702,6 +1731,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.object.o2]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o2]", lpath_11 if path is not None else None))
                 return False
+            continue
         elif prop == "o3":
             # handle may o3 property
             # .object.o3
@@ -1710,6 +1740,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.object.o3]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o3]", lpath_11 if path is not None else None))
                 return False
+            continue
         elif prop == "o4":
             # handle may o4 property
             # .object.o4
@@ -1718,6 +1749,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.object.o4]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o4]", lpath_11 if path is not None else None))
                 return False
+            continue
         elif prop == "o5":
             # handle may o5 property
             # .object.o5
@@ -1726,6 +1758,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.object.o5]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o5]", lpath_11 if path is not None else None))
                 return False
+            continue
         elif prop == "o6":
             # handle may o6 property
             # .object.o6
@@ -1734,9 +1767,9 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.object.o6]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o6]", lpath_11 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.object]", lpath_11 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.object]", lpath_11 if path is not None else None))
+        return False
     return True
 
 # object .or.o2.'|'.3
@@ -1775,6 +1808,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.or.o0.'|']", lpath_16 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.or.o0]", lpath_16 if path is not None else None))
                 return False
+            continue
         elif prop == "o1":
             # handle may o1 property
             # .or.o1
@@ -1793,6 +1827,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.or.o1.'|']", lpath_16 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.or.o1]", lpath_16 if path is not None else None))
                 return False
+            continue
         elif prop == "o2":
             # handle may o2 property
             # .or.o2
@@ -1821,15 +1856,17 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.or.o2.'|']", lpath_16 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.or.o2]", lpath_16 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.or]", lpath_16 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.or]", lpath_16 if path is not None else None))
+        return False
     return True
 
 # check _jm_f_47_map_ANY (.predefs.ANY)
 def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .predefs.ANY
-    return True
+    res = True
+    return res
 
 # check _jm_f_47_map_BOOL (.predefs.BOOL)
 def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1945,9 +1982,11 @@ def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_47_map_NONE (.predefs.NONE)
 def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .predefs.NONE
+    res = False
     rep is None or rep.append(("unexpected $NONE [.predefs.NONE]", path))
-    return False
+    return res
 
 # check _jm_f_47_map_NULL (.predefs.NULL)
 def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2045,9 +2084,9 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_17 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.predefs]", lpath_17 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.predefs]", lpath_17 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.predefs]", lpath_17 if path is not None else None))
+        return False
     return True
 
 
@@ -2069,6 +2108,7 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.string.s0]", lpath_18 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.string.s0]", lpath_18 if path is not None else None))
                 return False
+            continue
         elif prop == "s1":
             # handle may s1 property
             # .string.s1
@@ -2077,6 +2117,7 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $STRING [.string.s1]", lpath_18 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.string.s1]", lpath_18 if path is not None else None))
                 return False
+            continue
         elif prop == "s2":
             # handle may s2 property
             # .string.s2
@@ -2085,6 +2126,7 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected Susie [.string.s2]", lpath_18 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.string.s2]", lpath_18 if path is not None else None))
                 return False
+            continue
         elif prop == "s3":
             # handle may s3 property
             # .string.s3
@@ -2093,6 +2135,7 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _Calvin [.string.s3]", lpath_18 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.string.s3]", lpath_18 if path is not None else None))
                 return False
+            continue
         elif prop == "s4":
             # handle may s4 property
             # .string.s4
@@ -2102,9 +2145,9 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /^(Calvin|Susie)$/ [.string.s4]", lpath_18 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.string.s4]", lpath_18 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.string]", lpath_18 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.string]", lpath_18 if path is not None else None))
+        return False
     return True
 
 # check json_model_1_map_tuple (.tuple)
@@ -2125,6 +2168,7 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.tuple.t0]", lpath_19 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.tuple.t0]", lpath_19 if path is not None else None))
                 return False
+            continue
         elif prop == "t1":
             # handle may t1 property
             # .tuple.t1
@@ -2148,6 +2192,7 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.tuple.t1]", lpath_19 if path is not None else None))
                 return False
+            continue
         elif prop == "t2":
             # handle may t2 property
             # .tuple.t2
@@ -2168,6 +2213,7 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.tuple.t2]", lpath_19 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.tuple.t2]", lpath_19 if path is not None else None))
                 return False
+            continue
         elif prop == "t3":
             # handle may t3 property
             # .tuple.t3
@@ -2194,6 +2240,7 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.tuple.t3]", lpath_19 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.tuple.t3]", lpath_19 if path is not None else None))
                 return False
+            continue
         elif prop == "t4":
             # handle may t4 property
             # .tuple.t4
@@ -2226,9 +2273,9 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.tuple.t4]", lpath_19 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.tuple]", lpath_19 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.tuple]", lpath_19 if path is not None else None))
+        return False
     return True
 
 # check json_model_1_map_xor (.xor)
@@ -2259,6 +2306,7 @@ def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.xor.x0.'|']", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.xor.x0]", lpath_23 if path is not None else None))
                 return False
+            continue
         elif prop == "x1":
             # handle may x1 property
             # .xor.x1
@@ -2285,6 +2333,7 @@ def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not one model match [.xor.x1.'^']", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.xor.x1]", lpath_23 if path is not None else None))
                 return False
+            continue
         elif prop == "x2":
             # handle may x2 property
             # .xor.x2
@@ -2309,6 +2358,7 @@ def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not one model match [.xor.x2.'^']", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.xor.x2]", lpath_23 if path is not None else None))
                 return False
+            continue
         elif prop == "x3":
             # handle may x3 property
             # .xor.x3
@@ -2324,9 +2374,9 @@ def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not one model match [.xor.x3.'^']", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.xor.x3]", lpath_23 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.xor]", lpath_23 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.xor]", lpath_23 if path is not None else None))
+        return False
     return True
 
 
@@ -2345,9 +2395,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.]", lpath_0 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
+        return False
     return True
 
 

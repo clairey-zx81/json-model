@@ -111,13 +111,17 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_7_map_const (.'$ObjectSchema'.const)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$ObjectSchema'.const
-    return True
+    res = True
+    return res
 
 # check json_model_7_map_default (.'$ObjectSchema'.default)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$ObjectSchema'.default
-    return True
+    res = True
+    return res
 
 # check json_model_7_map_definitions (.'$ObjectSchema'.definitions)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -402,9 +406,9 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$ObjectSchema']", lpath_0 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$ObjectSchema']", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$ObjectSchema']", lpath_0 if path is not None else None))
+        return False
     return True
 
 # check $Schema (.'$Schema')

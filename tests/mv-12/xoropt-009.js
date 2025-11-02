@@ -69,12 +69,10 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'^'.1.a]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'^'.1]", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'^'.1]", (path ? lpath_1 : null)])
+        return false;
     }
     return true;
 }

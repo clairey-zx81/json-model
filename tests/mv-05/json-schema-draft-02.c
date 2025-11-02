@@ -440,7 +440,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     // .enum
                     // .enum.'@'
                     res = json_is_array(pval);
-                    if (likely(! res))
+                    if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.enum.'@']", (path ? &lpath_0 : NULL));
                     }

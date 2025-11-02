@@ -246,11 +246,9 @@ sub _jm_f_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -291,6 +289,7 @@ sub _jm_f_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'a1')
         {
@@ -314,6 +313,7 @@ sub _jm_f_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'a2')
         {
@@ -337,6 +337,7 @@ sub _jm_f_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'a3')
         {
@@ -360,6 +361,7 @@ sub _jm_f_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'a4')
         {
@@ -370,11 +372,9 @@ sub _jm_f_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -402,6 +402,7 @@ sub _jm_f_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b1')
         {
@@ -412,6 +413,7 @@ sub _jm_f_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b2')
         {
@@ -422,6 +424,7 @@ sub _jm_f_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b3')
         {
@@ -432,6 +435,7 @@ sub _jm_f_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b4')
         {
@@ -442,6 +446,7 @@ sub _jm_f_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b5')
         {
@@ -454,11 +459,9 @@ sub _jm_f_2($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -896,11 +899,9 @@ sub _jm_f_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -932,6 +933,7 @@ sub _jm_f_29($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'e1')
         {
@@ -945,6 +947,7 @@ sub _jm_f_29($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'e2')
         {
@@ -955,6 +958,7 @@ sub _jm_f_29($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'e3')
         {
@@ -968,11 +972,9 @@ sub _jm_f_29($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1071,11 +1073,9 @@ sub _jm_f_30($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1190,11 +1190,9 @@ sub _jm_f_40($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1222,8 +1220,9 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'b')
+        if ($prop eq 'b')
         {
             # handle may b property
             # .merge.m0.b
@@ -1232,11 +1231,9 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -1601,6 +1598,7 @@ sub _jm_f_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'm1')
         {
@@ -1613,6 +1611,7 @@ sub _jm_f_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'm2')
         {
@@ -1625,6 +1624,7 @@ sub _jm_f_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'm3')
         {
@@ -1639,6 +1639,7 @@ sub _jm_f_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'm4')
         {
@@ -1649,11 +1650,9 @@ sub _jm_f_52($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1681,6 +1680,7 @@ sub _jm_f_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'n1')
         {
@@ -1691,6 +1691,7 @@ sub _jm_f_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'n2')
         {
@@ -1701,11 +1702,9 @@ sub _jm_f_53($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1784,11 +1783,9 @@ sub _jm_obj_15($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1907,6 +1904,7 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'o1')
         {
@@ -1917,6 +1915,7 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'o2')
         {
@@ -1927,6 +1926,7 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'o3')
         {
@@ -1937,6 +1937,7 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'o4')
         {
@@ -1947,6 +1948,7 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'o5')
         {
@@ -1957,6 +1959,7 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'o6')
         {
@@ -1967,11 +1970,9 @@ sub _jm_f_54($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2009,6 +2010,7 @@ sub _jm_f_55($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'o1')
         {
@@ -2021,6 +2023,7 @@ sub _jm_f_55($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'o2')
         {
@@ -2035,11 +2038,9 @@ sub _jm_f_55($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2274,11 +2275,9 @@ sub _jm_f_56($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2313,6 +2312,7 @@ sub _jm_f_83($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 's1')
         {
@@ -2323,6 +2323,7 @@ sub _jm_f_83($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 's2')
         {
@@ -2333,6 +2334,7 @@ sub _jm_f_83($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 's3')
         {
@@ -2343,6 +2345,7 @@ sub _jm_f_83($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 's4')
         {
@@ -2354,11 +2357,9 @@ sub _jm_f_83($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2386,6 +2387,7 @@ sub _jm_f_84($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 't1')
         {
@@ -2415,6 +2417,7 @@ sub _jm_f_84($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 't2')
         {
@@ -2435,6 +2438,7 @@ sub _jm_f_84($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 't3')
         {
@@ -2460,6 +2464,7 @@ sub _jm_f_84($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 't4')
         {
@@ -2497,11 +2502,9 @@ sub _jm_f_84($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2531,6 +2534,7 @@ sub _jm_f_85($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'x1')
         {
@@ -2557,6 +2561,7 @@ sub _jm_f_85($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'x2')
         {
@@ -2581,6 +2586,7 @@ sub _jm_f_85($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'x3')
         {
@@ -2594,11 +2600,9 @@ sub _jm_f_85($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2625,11 +2629,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }

@@ -28,6 +28,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'v' THEN
       -- handle must v property
       must_count := must_count + 1;
@@ -36,10 +37,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -77,6 +78,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'v' THEN
       -- handle must v property
       must_count := must_count + 1;
@@ -85,10 +87,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -145,6 +147,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'v' THEN
       -- handle must v property
       must_count := must_count + 1;
@@ -153,10 +156,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -194,6 +197,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'v' THEN
       -- handle must v property
       must_count := must_count + 1;
@@ -202,10 +206,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;

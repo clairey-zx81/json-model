@@ -384,16 +384,14 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
+        # handle other props
+        # .'$schema'.''
+        $res = json_model_3($pval, undef, undef);
+        if (! $res)
         {
-            # handle other props
-            # .'$schema'.''
-            $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
     }
     return 1;

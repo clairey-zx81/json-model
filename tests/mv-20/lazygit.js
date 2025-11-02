@@ -328,6 +328,7 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.0.key]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -341,6 +342,7 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.0.type]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -354,8 +356,9 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.0.title]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "suggestions")
+        if (prop == "suggestions")
         {
             // handle may suggestions property
             // .'$Prompts'.'|'.0.suggestions
@@ -395,6 +398,7 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.0.suggestions]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "initialValue")
         {
@@ -407,12 +411,10 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.0.initialValue]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Prompts'.'|'.0]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Prompts'.'|'.0]", (path ? lpath_0 : null)])
+        return false;
     }
     if (must_count != 3)
     {
@@ -461,6 +463,7 @@ function _jm_obj_3(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.1.key]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -474,6 +477,7 @@ function _jm_obj_3(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.1.type]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -487,8 +491,9 @@ function _jm_obj_3(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.1.title]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "body")
+        if (prop == "body")
         {
             // handle may body property
             // .'$Prompts'.'|'.1.body
@@ -499,12 +504,10 @@ function _jm_obj_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.1.body]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Prompts'.'|'.1]", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Prompts'.'|'.1]", (path ? lpath_1 : null)])
+        return false;
     }
     if (must_count != 3)
     {
@@ -553,8 +556,9 @@ function _jm_obj_5(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "name")
+        if (prop == "name")
         {
             // handle may name property
             // .'$Prompts'.'|'.2.options.'@'.0.name
@@ -565,6 +569,7 @@ function _jm_obj_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -577,12 +582,10 @@ function _jm_obj_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Prompts'.'|'.2.options.'@'.0]", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Prompts'.'|'.2.options.'@'.0]", (path ? lpath_2 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -730,6 +733,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.3.key]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -743,6 +747,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.3.type]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -756,6 +761,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.3.title]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "command")
         {
@@ -769,8 +775,9 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.3.command]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "filter")
+        if (prop == "filter")
         {
             // handle may filter property
             // .'$Prompts'.'|'.3.filter
@@ -781,6 +788,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.3.filter]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "labelFormat")
         {
@@ -793,6 +801,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.3.labelFormat]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "valueFormat")
         {
@@ -805,12 +814,10 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.3.valueFormat]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Prompts'.'|'.3]", (path ? lpath_3 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Prompts'.'|'.3]", (path ? lpath_3 : null)])
+        return false;
     }
     if (must_count != 4)
     {
@@ -899,6 +906,7 @@ function _jm_obj_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.os.edit]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "open")
         {
@@ -911,6 +919,7 @@ function _jm_obj_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.os.open]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "openLink")
         {
@@ -923,6 +932,7 @@ function _jm_obj_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.os.openLink]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "editAtLine")
         {
@@ -935,6 +945,7 @@ function _jm_obj_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.os.editAtLine]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "editPreset")
         {
@@ -972,6 +983,7 @@ function _jm_obj_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.os.editPreset]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "editAtLineAndWait")
         {
@@ -984,6 +996,7 @@ function _jm_obj_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.os.editAtLineAndWait]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "copyToClipboardCmd")
         {
@@ -996,12 +1009,10 @@ function _jm_obj_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.os.copyToClipboardCmd]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.os]", (path ? lpath_5 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.os]", (path ? lpath_5 : null)])
+        return false;
     }
     return true;
 }
@@ -1031,6 +1042,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.log.order]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showGraph")
         {
@@ -1043,6 +1055,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.log.showGraph]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showWholeGraph")
         {
@@ -1055,12 +1068,10 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.log.showWholeGraph]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git.log]", (path ? lpath_7 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.git.log]", (path ? lpath_7 : null)])
+        return false;
     }
     return true;
 }
@@ -1088,12 +1099,10 @@ function _jm_obj_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.commit.signOff]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git.commit]", (path ? lpath_8 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.git.commit]", (path ? lpath_8 : null)])
+        return false;
     }
     return true;
 }
@@ -1135,6 +1144,7 @@ function _jm_obj_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.paging.pager]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "colorArg")
         {
@@ -1147,6 +1157,7 @@ function _jm_obj_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.paging.colorArg]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "useConfig")
         {
@@ -1159,12 +1170,10 @@ function _jm_obj_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.paging.useConfig]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git.paging]", (path ? lpath_9 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.git.paging]", (path ? lpath_9 : null)])
+        return false;
     }
     return true;
 }
@@ -1192,6 +1201,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.merging.args]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "manualCommit")
         {
@@ -1204,12 +1214,10 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.merging.manualCommit]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git.merging]", (path ? lpath_10 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.git.merging]", (path ? lpath_10 : null)])
+        return false;
     }
     return true;
 }
@@ -1321,6 +1329,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.log]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commit")
         {
@@ -1333,6 +1342,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.commit]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "paging")
         {
@@ -1345,6 +1355,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.paging]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "merging")
         {
@@ -1357,6 +1368,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.merging]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "fetchAll")
         {
@@ -1369,6 +1381,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.fetchAll]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "autoFetch")
         {
@@ -1381,6 +1394,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.autoFetch]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "parseEmoji")
         {
@@ -1393,6 +1407,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.parseEmoji]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "autoRefresh")
         {
@@ -1405,6 +1420,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.autoRefresh]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "overrideGpg")
         {
@@ -1417,6 +1433,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.overrideGpg]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "branchLogCmd")
         {
@@ -1429,6 +1446,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.branchLogCmd]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "mainBranches")
         {
@@ -1441,6 +1459,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.mainBranches]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commitPrefixes")
         {
@@ -1453,6 +1472,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.commitPrefixes]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "skipHookPrefix")
         {
@@ -1465,6 +1485,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.skipHookPrefix]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "diffContextSize")
         {
@@ -1477,6 +1498,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.diffContextSize]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allBranchesLogCmd")
         {
@@ -1489,6 +1511,7 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.allBranchesLogCmd]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "disableForcePushing")
         {
@@ -1501,12 +1524,10 @@ function _jm_obj_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git.disableForcePushing]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.git]", (path ? lpath_6 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.git]", (path ? lpath_6 : null)])
+        return false;
     }
     return true;
 }
@@ -1534,6 +1555,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.defaultFgColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "optionsTextColor")
         {
@@ -1546,6 +1568,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.optionsTextColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "activeBorderColor")
         {
@@ -1558,6 +1581,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.activeBorderColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "inactiveBorderColor")
         {
@@ -1570,6 +1594,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.inactiveBorderColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "selectedLineBgColor")
         {
@@ -1582,6 +1607,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.selectedLineBgColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "selectedRangeBgColor")
         {
@@ -1594,6 +1620,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unstagedChangesColor")
         {
@@ -1606,6 +1633,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.unstagedChangesColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "cherryPickedCommitBgColor")
         {
@@ -1618,6 +1646,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "cherryPickedCommitFgColor")
         {
@@ -1630,6 +1659,7 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "searchingActiveBorderColor")
         {
@@ -1642,12 +1672,10 @@ function _jm_obj_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.gui.theme]", (path ? lpath_13 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.gui.theme]", (path ? lpath_13 : null)])
+        return false;
     }
     return true;
 }
@@ -1743,12 +1771,10 @@ function _jm_obj_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.commitLength.show]", (path ? lpath_16 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.gui.commitLength]", (path ? lpath_16 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.gui.commitLength]", (path ? lpath_16 : null)])
+        return false;
     }
     return true;
 }
@@ -1778,6 +1804,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "border")
         {
@@ -1790,6 +1817,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.border]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "language")
         {
@@ -1802,6 +1830,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.language]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "splitDiff")
         {
@@ -1814,6 +1843,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.splitDiff]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "timeFormat")
         {
@@ -1826,6 +1856,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.timeFormat]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "windowSize")
         {
@@ -1838,6 +1869,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.windowSize]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "mouseEvents")
         {
@@ -1850,6 +1882,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.mouseEvents]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "authorColors")
         {
@@ -1862,6 +1895,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.authorColors]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "branchColors")
         {
@@ -1874,6 +1908,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.branchColors]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commitLength")
         {
@@ -1886,6 +1921,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.commitLength]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "scrollHeight")
         {
@@ -1898,6 +1934,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.scrollHeight]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showFileTree")
         {
@@ -1910,6 +1947,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.showFileTree]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showRandomTip")
         {
@@ -1922,6 +1960,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.showRandomTip]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commandLogSize")
         {
@@ -1934,6 +1973,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.commandLogSize]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showBottomLine")
         {
@@ -1946,6 +1986,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.showBottomLine]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showCommandLog")
         {
@@ -1958,6 +1999,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.showCommandLog]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showListFooter")
         {
@@ -1970,6 +2012,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.showListFooter]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "sidePanelWidth")
         {
@@ -1995,6 +2038,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.sidePanelWidth]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "shortTimeFormat")
         {
@@ -2007,6 +2051,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.shortTimeFormat]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "animateExplosion")
         {
@@ -2019,6 +2064,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.animateExplosion]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "nerdFontsVersion")
         {
@@ -2056,6 +2102,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.nerdFontsVersion]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "scrollPastBottom")
         {
@@ -2068,6 +2115,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.scrollPastBottom]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "skipStashWarning")
         {
@@ -2080,6 +2128,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.skipStashWarning]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "mainPanelSplitMode")
         {
@@ -2092,6 +2141,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.mainPanelSplitMode]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showBranchCommitHash")
         {
@@ -2104,6 +2154,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.showBranchCommitHash]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "expandFocusedSidePanel")
         {
@@ -2116,6 +2167,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.expandFocusedSidePanel]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "skipDiscardChangeWarning")
         {
@@ -2128,6 +2180,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.skipDiscardChangeWarning]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "skipRewordInEditorWarning")
         {
@@ -2140,12 +2193,10 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui.skipRewordInEditorWarning]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.gui]", (path ? lpath_12 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.gui]", (path ? lpath_12 : null)])
+        return false;
     }
     return true;
 }
@@ -2174,6 +2225,7 @@ function _jm_obj_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.update.days]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "method")
         {
@@ -2186,12 +2238,10 @@ function _jm_obj_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.update.method]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.update]", (path ? lpath_17 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.update]", (path ? lpath_17 : null)])
+        return false;
     }
     return true;
 }
@@ -2254,6 +2304,7 @@ function _jm_obj_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.refresher.fetchInterval]", (path ? lpath_19 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "refreshInterval")
         {
@@ -2266,12 +2317,10 @@ function _jm_obj_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.refresher.refreshInterval]", (path ? lpath_19 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.refresher]", (path ? lpath_19 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.refresher]", (path ? lpath_19 : null)])
+        return false;
     }
     return true;
 }
@@ -2299,6 +2348,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main.pickBothHunks]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "toggleDragSelect")
         {
@@ -2311,6 +2361,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main.toggleDragSelect]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "toggleSelectHunk")
         {
@@ -2323,6 +2374,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "toggleDragSelect-alt")
         {
@@ -2335,12 +2387,10 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.main]", (path ? lpath_21 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.main]", (path ? lpath_21 : null)])
+        return false;
     }
     return true;
 }
@@ -2368,6 +2418,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.fetch]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "ignoreFile")
         {
@@ -2380,6 +2431,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.ignoreFile]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "refreshFiles")
         {
@@ -2392,6 +2444,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.refreshFiles]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commitChanges")
         {
@@ -2404,6 +2457,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChanges]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "openMergeTool")
         {
@@ -2416,6 +2470,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.openMergeTool]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "toggleTreeView")
         {
@@ -2428,6 +2483,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.toggleTreeView]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "amendLastCommit")
         {
@@ -2440,6 +2496,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.amendLastCommit]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "stashAllChanges")
         {
@@ -2452,6 +2509,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.stashAllChanges]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "toggleStagedAll")
         {
@@ -2464,6 +2522,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.toggleStagedAll]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "openStatusFilter")
         {
@@ -2476,6 +2535,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.openStatusFilter]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "viewResetOptions")
         {
@@ -2488,6 +2548,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.viewResetOptions]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "viewStashOptions")
         {
@@ -2500,6 +2561,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.viewStashOptions]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commitChangesWithEditor")
         {
@@ -2512,6 +2574,7 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChangesWithEditor]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commitChangesWithoutHook")
         {
@@ -2524,12 +2587,10 @@ function _jm_obj_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChangesWithoutHook]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.files]", (path ? lpath_22 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.files]", (path ? lpath_22 : null)])
+        return false;
     }
     return true;
 }
@@ -2557,6 +2618,7 @@ function _jm_obj_26(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.stash.popStash]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "renameStash")
         {
@@ -2569,12 +2631,10 @@ function _jm_obj_26(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.stash.renameStash]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.stash]", (path ? lpath_23 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.stash]", (path ? lpath_23 : null)])
+        return false;
     }
     return true;
 }
@@ -2602,6 +2662,7 @@ function _jm_obj_27(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.status.recentRepos]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "checkForUpdate")
         {
@@ -2614,12 +2675,10 @@ function _jm_obj_27(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.status.checkForUpdate]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.status]", (path ? lpath_24 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.status]", (path ? lpath_24 : null)])
+        return false;
     }
     return true;
 }
@@ -2647,6 +2706,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.tagCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "pickCommit")
         {
@@ -2659,6 +2719,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.pickCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "squashDown")
         {
@@ -2671,6 +2732,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.squashDown]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "openLogMenu")
         {
@@ -2683,6 +2745,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.openLogMenu]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "moveUpCommit")
         {
@@ -2695,6 +2758,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.moveUpCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "pasteCommits")
         {
@@ -2707,6 +2771,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.pasteCommits]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "renameCommit")
         {
@@ -2719,6 +2784,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.renameCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "revertCommit")
         {
@@ -2731,6 +2797,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.revertCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "amendToCommit")
         {
@@ -2743,6 +2810,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.amendToCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "checkoutCommit")
         {
@@ -2755,6 +2823,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.checkoutCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "cherryPickCopy")
         {
@@ -2767,6 +2836,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.cherryPickCopy]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "moveDownCommit")
         {
@@ -2779,6 +2849,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.moveDownCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "resetCherryPick")
         {
@@ -2791,6 +2862,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.resetCherryPick]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "viewResetOptions")
         {
@@ -2803,6 +2875,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.viewResetOptions]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "createFixupCommit")
         {
@@ -2815,6 +2888,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.createFixupCommit]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "markCommitAsFixup")
         {
@@ -2827,6 +2901,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.markCommitAsFixup]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "viewBisectOptions")
         {
@@ -2839,6 +2914,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.viewBisectOptions]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "squashAboveCommits")
         {
@@ -2851,6 +2927,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.squashAboveCommits]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "cherryPickCopyRange")
         {
@@ -2863,6 +2940,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.cherryPickCopyRange]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "renameCommitWithEditor")
         {
@@ -2875,6 +2953,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.renameCommitWithEditor]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "copyCommitMessageToClipboard")
         {
@@ -2887,12 +2966,10 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits.copyCommitMessageToClipboard]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.commits]", (path ? lpath_25 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.commits]", (path ? lpath_25 : null)])
+        return false;
     }
     return true;
 }
@@ -2920,6 +2997,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.pushTag]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "createTag")
         {
@@ -2932,6 +3010,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.createTag]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "fastForward")
         {
@@ -2944,6 +3023,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.fastForward]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "fetchRemote")
         {
@@ -2956,6 +3036,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.fetchRemote]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "setUpstream")
         {
@@ -2968,6 +3049,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.setUpstream]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "rebaseBranch")
         {
@@ -2980,6 +3062,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.rebaseBranch]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "renameBranch")
         {
@@ -2992,6 +3075,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.renameBranch]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "createPullRequest")
         {
@@ -3004,6 +3088,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.createPullRequest]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "viewGitFlowOptions")
         {
@@ -3016,6 +3101,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.viewGitFlowOptions]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "forceCheckoutBranch")
         {
@@ -3028,6 +3114,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.forceCheckoutBranch]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "checkoutBranchByName")
         {
@@ -3040,6 +3127,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.checkoutBranchByName]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "mergeIntoCurrentBranch")
         {
@@ -3052,6 +3140,7 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.mergeIntoCurrentBranch]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "viewPullRequestOptions")
         {
@@ -3064,12 +3153,10 @@ function _jm_obj_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.viewPullRequestOptions]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.branches]", (path ? lpath_26 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.branches]", (path ? lpath_26 : null)])
+        return false;
     }
     return true;
 }
@@ -3119,12 +3206,10 @@ function _jm_obj_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.universal]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.universal]", (path ? lpath_27 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.universal]", (path ? lpath_27 : null)])
+        return false;
     }
     return true;
 }
@@ -3152,6 +3237,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.init]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "update")
         {
@@ -3164,6 +3250,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.update]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "bulkMenu")
         {
@@ -3176,12 +3263,10 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.bulkMenu]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.submodules]", (path ? lpath_28 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.submodules]", (path ? lpath_28 : null)])
+        return false;
     }
     return true;
 }
@@ -3209,12 +3294,10 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding.commitFiles]", (path ? lpath_29 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding.commitFiles]", (path ? lpath_29 : null)])
+        return false;
     }
     return true;
 }
@@ -3242,6 +3325,7 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "files")
         {
@@ -3254,6 +3338,7 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "stash")
         {
@@ -3266,6 +3351,7 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.stash]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "status")
         {
@@ -3278,6 +3364,7 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.status]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commits")
         {
@@ -3290,6 +3377,7 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commits]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "branches")
         {
@@ -3302,6 +3390,7 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "universal")
         {
@@ -3314,6 +3403,7 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.universal]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "submodules")
         {
@@ -3326,6 +3416,7 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "commitFiles")
         {
@@ -3338,12 +3429,10 @@ function _jm_obj_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commitFiles]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.keybinding]", (path ? lpath_20 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.keybinding]", (path ? lpath_20 : null)])
+        return false;
     }
     return true;
 }
@@ -3372,12 +3461,10 @@ function _jm_obj_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.after.checkForConflicts]", (path ? lpath_31 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.customCommands.'@'.0.after]", (path ? lpath_31 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.customCommands.'@'.0.after]", (path ? lpath_31 : null)])
+        return false;
     }
     return true;
 }
@@ -3407,6 +3494,7 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.key]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "command")
         {
@@ -3420,6 +3508,7 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.command]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "context")
         {
@@ -3433,8 +3522,9 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.context]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "after")
+        if (prop == "after")
         {
             // handle may after property
             // .customCommands.'@'.0.after
@@ -3445,6 +3535,7 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.after]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "stream")
         {
@@ -3457,6 +3548,7 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.stream]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "prompts")
         {
@@ -3484,6 +3576,7 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.prompts]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "showOutput")
         {
@@ -3496,6 +3589,7 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.showOutput]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "subprocess")
         {
@@ -3508,6 +3602,7 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.subprocess]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3520,6 +3615,7 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.description]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "loadingText")
         {
@@ -3532,12 +3628,10 @@ function _jm_obj_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.loadingText]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.customCommands.'@'.0]", (path ? lpath_30 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.customCommands.'@'.0]", (path ? lpath_30 : null)])
+        return false;
     }
     if (must_count != 3)
     {
@@ -3587,6 +3681,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.os]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "git")
         {
@@ -3599,6 +3694,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.git]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "gui")
         {
@@ -3611,6 +3707,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.gui]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "update")
         {
@@ -3623,6 +3720,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.update]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "services")
         {
@@ -3635,6 +3733,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.services]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "refresher")
         {
@@ -3647,6 +3746,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.refresher]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "keybinding")
         {
@@ -3659,6 +3759,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.keybinding]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "confirmOnQuit")
         {
@@ -3671,6 +3772,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.confirmOnQuit]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "customCommands")
         {
@@ -3710,6 +3812,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.customCommands]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "notARepository")
         {
@@ -3722,6 +3825,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.notARepository]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "disableStartupPopups")
         {
@@ -3734,6 +3838,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.disableStartupPopups]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "quitOnTopLevelReturn")
         {
@@ -3746,6 +3851,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.quitOnTopLevelReturn]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "promptToReturnFromSubprocess")
         {
@@ -3758,12 +3864,10 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.promptToReturnFromSubprocess]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_4 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_4 : null)])
+        return false;
     }
     return true;
 }

@@ -57,6 +57,7 @@ public class test_schema extends ModelChecker
                 must_count += 1;
                 // .'$Test'.data
                 res = true;
+                continue;
             }
             else if (prop.compareTo("valid") == 0)
             {
@@ -68,6 +69,7 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -79,8 +81,9 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("comment") == 0)
+            if (prop.compareTo("comment") == 0)
             {
                 // handle may comment property
                 // .'$Test'.comment
@@ -89,11 +92,9 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         return must_count == 3;
     }
@@ -130,6 +131,7 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("perl5") == 0)
             {
@@ -140,6 +142,7 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("quote") == 0)
             {
@@ -150,6 +153,7 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("ecma262") == 0)
             {
@@ -160,6 +164,7 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("validation") == 0)
             {
@@ -170,8 +175,9 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_1(prop, null, null))
+            if (_jm_re_1(prop, null, null))
             {
                 // handle 2 re props
                 // .'$Specification'.'@'.'/^rfc\\d+$/'
@@ -260,6 +266,7 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("schema") == 0)
             {
@@ -267,6 +274,7 @@ public class test_schema extends ModelChecker
                 must_count += 1;
                 // .'$TestCase'.schema
                 res = true;
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -278,8 +286,9 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("comment") == 0)
+            if (prop.compareTo("comment") == 0)
             {
                 // handle may comment property
                 // .'$TestCase'.comment
@@ -288,6 +297,7 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("specification") == 0)
             {
@@ -320,11 +330,9 @@ public class test_schema extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         return must_count == 3;
     }

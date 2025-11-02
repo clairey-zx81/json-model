@@ -29,24 +29,24 @@ function json_model_1(val, path, rep)
             // handle may  property
             // .''
             res = true;
+            continue;
         }
         else if (prop == "hello")
         {
             // handle may hello property
             // .hello
             res = true;
+            continue;
         }
         else if (prop == "quite-a-long-property-name")
         {
             // handle may quite-a-long-property-name property
             // .'quite-a-long-property-name'
             res = true;
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }

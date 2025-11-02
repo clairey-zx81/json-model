@@ -48,6 +48,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo0'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b") == 0)
             {
@@ -61,6 +62,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo0'.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("c") == 0)
             {
@@ -74,6 +76,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo0'.c]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("d") == 0)
             {
@@ -87,17 +90,15 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo0'.d]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
+            // handle other props
+            // .'$Oo0'.''
+            res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
+            if (! res)
             {
-                // handle other props
-                // .'$Oo0'.''
-                res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $DATE [.'$Oo0'.'']", (path != null ? lpath_0 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("unexpected $DATE [.'$Oo0'.'']", (path != null ? lpath_0 : null));
+                return false;
             }
         }
         if (must_count != 4)
@@ -155,8 +156,9 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo1'.z]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("a") == 0)
+            if (prop.compareTo("a") == 0)
             {
                 // handle may a property
                 // .'$Oo1'.a
@@ -167,6 +169,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo1'.a]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b") == 0)
             {
@@ -179,6 +182,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo1'.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("c") == 0)
             {
@@ -191,6 +195,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo1'.c]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("d") == 0)
             {
@@ -203,12 +208,10 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo1'.d]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Oo1']", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Oo1']", (path != null ? lpath_1 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -253,6 +256,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo2'.a]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b") == 0)
             {
@@ -266,6 +270,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo2'.b]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("c") == 0)
             {
@@ -279,6 +284,7 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo2'.c]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("d") == 0)
             {
@@ -292,8 +298,9 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo2'.d]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("y") == 0)
+            if (prop.compareTo("y") == 0)
             {
                 // handle may y property
                 // .'$Oo2'.y
@@ -304,12 +311,10 @@ public class pmap_shared_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo2'.y]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Oo2']", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Oo2']", (path != null ? lpath_2 : null));
+            return false;
         }
         if (must_count != 4)
         {

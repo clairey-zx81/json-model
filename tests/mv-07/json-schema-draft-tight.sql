@@ -123,6 +123,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'pattern' THEN
       -- handle may pattern property
       -- .'$stringKeywords'.pattern
@@ -130,6 +131,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'maxLength' THEN
       -- handle may maxLength property
       -- .'$stringKeywords'.maxLength
@@ -137,6 +139,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'minLength' THEN
       -- handle may minLength property
       -- .'$stringKeywords'.minLength
@@ -144,9 +147,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -175,6 +178,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'maxItems' THEN
       -- handle may maxItems property
       -- .'$arrayKeywords'.maxItems
@@ -182,6 +186,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'minItems' THEN
       -- handle may minItems property
       -- .'$arrayKeywords'.minItems
@@ -189,6 +194,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'prefixItems' THEN
       -- handle may prefixItems property
       -- .'$arrayKeywords'.prefixItems
@@ -196,6 +202,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'uniqueItems' THEN
       -- handle may uniqueItems property
       -- .'$arrayKeywords'.uniqueItems
@@ -203,6 +210,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'additionalItems' THEN
       -- handle may additionalItems property
       -- .'$arrayKeywords'.additionalItems
@@ -210,6 +218,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'unevaluatedItems' THEN
       -- handle may unevaluatedItems property
       -- .'$arrayKeywords'.unevaluatedItems
@@ -217,9 +226,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -308,6 +317,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'properties' THEN
       -- handle may properties property
       -- .'$objectKeywords'.properties
@@ -315,6 +325,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'maxProperties' THEN
       -- handle may maxProperties property
       -- .'$objectKeywords'.maxProperties
@@ -322,6 +333,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'minProperties' THEN
       -- handle may minProperties property
       -- .'$objectKeywords'.minProperties
@@ -329,6 +341,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'propertyNames' THEN
       -- handle may propertyNames property
       -- .'$objectKeywords'.propertyNames
@@ -336,6 +349,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'patternProperties' THEN
       -- handle may patternProperties property
       -- .'$objectKeywords'.patternProperties
@@ -343,6 +357,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'additionalProperties' THEN
       -- handle may additionalProperties property
       -- .'$objectKeywords'.additionalProperties
@@ -350,6 +365,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'unevaluatedProperties' THEN
       -- handle may unevaluatedProperties property
       -- .'$objectKeywords'.unevaluatedProperties
@@ -357,9 +373,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -386,6 +402,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'minimum' THEN
       -- handle may minimum property
       -- .'$numberKeywords'.minimum
@@ -393,9 +410,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -623,9 +640,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -902,15 +919,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_10_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_10_map(prop) IS NOT NULL THEN
       -- handle 20 may props
       pfun := json_model_10_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1180,15 +1199,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_11_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_11_map(prop) IS NOT NULL THEN
       -- handle 23 may props
       pfun := json_model_11_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1514,15 +1535,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_12_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_12_map(prop) IS NOT NULL THEN
       -- handle 24 may props
       pfun := json_model_12_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1772,15 +1795,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_13_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_13_map(prop) IS NOT NULL THEN
       -- handle 18 may props
       pfun := json_model_13_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2030,15 +2055,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_14_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_14_map(prop) IS NOT NULL THEN
       -- handle 18 may props
       pfun := json_model_14_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2270,15 +2297,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_15_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_15_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_15_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2510,15 +2539,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_16_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_16_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_16_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2750,15 +2781,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_17_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_17_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_17_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2990,15 +3023,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_18_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_18_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_18_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -3230,15 +3265,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_19_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_19_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_19_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -3470,15 +3507,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_20_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_20_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_20_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -3710,15 +3749,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_21_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_21_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_21_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -3950,15 +3991,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_22_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_22_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_22_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -4190,15 +4233,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_23_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_23_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_23_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -4266,10 +4311,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 1;
 END;

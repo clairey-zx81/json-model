@@ -28,6 +28,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '/' THEN
       -- handle must / property
       must_count := must_count + 1;
@@ -36,6 +37,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '?' THEN
       -- handle must ? property
       must_count := must_count + 1;
@@ -44,6 +46,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '_' THEN
       -- handle must _ property
       must_count := must_count + 1;
@@ -52,6 +55,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'a' THEN
       -- handle must a property
       must_count := must_count + 1;
@@ -60,16 +64,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'b' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'b' THEN
       -- handle may b property
       -- .b
       res := JSONB_TYPEOF(pval) = 'null';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 5;
 END;

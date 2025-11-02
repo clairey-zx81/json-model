@@ -140,11 +140,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#RootSchema'.'&'.0.'$schema']", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            // accept any other props
-        }
+        // accept any other props
     }
     if (unlikely(must_count != 1))
     {
@@ -365,7 +363,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#metas'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#metas'.examples]", (path ? &lpath_1 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#metas'.examples]", (path ? &lpath_1 : NULL));
@@ -542,6 +540,20 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#String'.type
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#String'.type]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#String'.type]", (path ? &lpath_4 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_1 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_1 <= 0x6f6324)
         {
@@ -622,7 +634,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#String'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#String'.examples]", (path ? &lpath_4 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#String'.examples]", (path ? &lpath_4 : NULL));
@@ -725,24 +737,8 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#String'.type
-            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#String'.type]", (path ? &lpath_4 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#String'.type]", (path ? &lpath_4 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#String']", (path ? &lpath_4 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#String']", (path ? &lpath_4 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -758,34 +754,8 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$tight#Array'.'$defs'
-static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$tight#Array'.'$defs']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$tight#Array'.'$defs'.''
-        res = json_model_26(pval, (path ? &lpath_8 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Array'.'$defs'.'']", (path ? &lpath_8 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$tight#Array'.definitions
-static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -797,13 +767,39 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$tight#Array'.definitions.''
+        res = json_model_26(pval, (path ? &lpath_8 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Array'.definitions.'']", (path ? &lpath_8 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$tight#Array'.'$defs'
+static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$tight#Array'.'$defs']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$tight#Array'.'$defs'.''
         res = json_model_26(pval, (path ? &lpath_9 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Array'.definitions.'']", (path ? &lpath_9 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Array'.'$defs'.'']", (path ? &lpath_9 : NULL));
             return false;
         }
     }
@@ -826,6 +822,20 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#Array'.type
+            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007961727261LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected array [.'$tight#Array'.type]", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Array'.type]", (path ? &lpath_7 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_2 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_2 <= 0x657469)
         {
@@ -859,7 +869,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may $defs property
                 // .'$tight#Array'.'$defs'
-                res = _jm_obj_5(pval, (path ? &lpath_7 : NULL), rep);
+                res = _jm_obj_6(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$tight#Array'.'$defs']", (path ? &lpath_7 : NULL));
@@ -917,7 +927,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Array'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Array'.examples]", (path ? &lpath_7 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Array'.examples]", (path ? &lpath_7 : NULL));
@@ -1017,7 +1027,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may definitions property
                 // .'$tight#Array'.definitions
-                res = _jm_obj_6(pval, (path ? &lpath_7 : NULL), rep);
+                res = _jm_obj_5(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$tight#Array'.definitions]", (path ? &lpath_7 : NULL));
@@ -1053,24 +1063,8 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#Array'.type
-            res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007961727261LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected array [.'$tight#Array'.type]", (path ? &lpath_7 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Array'.type]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Array']", (path ? &lpath_7 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Array']", (path ? &lpath_7 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -1242,6 +1236,20 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#Object'.type
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007463656a626fLL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected object [.'$tight#Object'.type]", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Object'.type]", (path ? &lpath_10 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_3 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_3 <= 0x666564)
         {
@@ -1309,7 +1317,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Object'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Object'.examples]", (path ? &lpath_10 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Object'.examples]", (path ? &lpath_10 : NULL));
@@ -1441,24 +1449,8 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#Object'.type
-            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007463656a626fLL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected object [.'$tight#Object'.type]", (path ? &lpath_10 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Object'.type]", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Object']", (path ? &lpath_10 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Object']", (path ? &lpath_10 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -1474,34 +1466,8 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$tight#Integer'.definitions
-static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$tight#Integer'.definitions]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$tight#Integer'.definitions.''
-        res = json_model_26(pval, (path ? &lpath_16 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Integer'.definitions.'']", (path ? &lpath_16 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$tight#Integer'.'$defs'
-static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1513,13 +1479,39 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$tight#Integer'.'$defs'.''
+        res = json_model_26(pval, (path ? &lpath_16 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Integer'.'$defs'.'']", (path ? &lpath_16 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$tight#Integer'.definitions
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$tight#Integer'.definitions]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$tight#Integer'.definitions.''
         res = json_model_26(pval, (path ? &lpath_17 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Integer'.'$defs'.'']", (path ? &lpath_17 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Integer'.definitions.'']", (path ? &lpath_17 : NULL));
             return false;
         }
     }
@@ -1542,6 +1534,20 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#Integer'.type
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#Integer'.type]", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Integer'.type]", (path ? &lpath_15 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_4 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_4 <= 0x656424)
         {
@@ -1575,7 +1581,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may $defs property
                 // .'$tight#Integer'.'$defs'
-                res = _jm_obj_12(pval, (path ? &lpath_15 : NULL), rep);
+                res = _jm_obj_11(pval, (path ? &lpath_15 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$tight#Integer'.'$defs']", (path ? &lpath_15 : NULL));
@@ -1602,7 +1608,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Integer'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Integer'.examples]", (path ? &lpath_15 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Integer'.examples]", (path ? &lpath_15 : NULL));
@@ -1676,7 +1682,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may definitions property
                 // .'$tight#Integer'.definitions
-                res = _jm_obj_11(pval, (path ? &lpath_15 : NULL), rep);
+                res = _jm_obj_12(pval, (path ? &lpath_15 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$tight#Integer'.definitions]", (path ? &lpath_15 : NULL));
@@ -1699,24 +1705,8 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#Integer'.type
-            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#Integer'.type]", (path ? &lpath_15 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Integer'.type]", (path ? &lpath_15 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Integer']", (path ? &lpath_15 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Integer']", (path ? &lpath_15 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -1732,34 +1722,8 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$tight#Number'.definitions
-static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$tight#Number'.definitions]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$tight#Number'.definitions.''
-        res = json_model_26(pval, (path ? &lpath_19 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Number'.definitions.'']", (path ? &lpath_19 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$tight#Number'.'$defs'
-static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1771,13 +1735,39 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$tight#Number'.'$defs'.''
+        res = json_model_26(pval, (path ? &lpath_19 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Number'.'$defs'.'']", (path ? &lpath_19 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$tight#Number'.definitions
+static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$tight#Number'.definitions]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$tight#Number'.definitions.''
         res = json_model_26(pval, (path ? &lpath_20 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Number'.'$defs'.'']", (path ? &lpath_20 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$tight#Number'.definitions.'']", (path ? &lpath_20 : NULL));
             return false;
         }
     }
@@ -1800,6 +1790,20 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#Number'.type
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#Number'.type]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Number'.type]", (path ? &lpath_18 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_5 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_5 <= 0x656424)
         {
@@ -1833,7 +1837,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may $defs property
                 // .'$tight#Number'.'$defs'
-                res = _jm_obj_14(pval, (path ? &lpath_18 : NULL), rep);
+                res = _jm_obj_13(pval, (path ? &lpath_18 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$tight#Number'.'$defs']", (path ? &lpath_18 : NULL));
@@ -1860,7 +1864,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Number'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Number'.examples]", (path ? &lpath_18 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Number'.examples]", (path ? &lpath_18 : NULL));
@@ -1934,7 +1938,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may definitions property
                 // .'$tight#Number'.definitions
-                res = _jm_obj_13(pval, (path ? &lpath_18 : NULL), rep);
+                res = _jm_obj_14(pval, (path ? &lpath_18 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$tight#Number'.definitions]", (path ? &lpath_18 : NULL));
@@ -1957,24 +1961,8 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#Number'.type
-            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#Number'.type]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Number'.type]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Number']", (path ? &lpath_18 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Number']", (path ? &lpath_18 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -2058,6 +2046,20 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#Bool'.type
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006e61656c6f6f62LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected boolean [.'$tight#Bool'.type]", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Bool'.type]", (path ? &lpath_21 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_6 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_6 <= 0x656424)
         {
@@ -2118,7 +2120,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Bool'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Bool'.examples]", (path ? &lpath_21 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Bool'.examples]", (path ? &lpath_21 : NULL));
@@ -2189,24 +2191,8 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#Bool'.type
-            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006e61656c6f6f62LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected boolean [.'$tight#Bool'.type]", (path ? &lpath_21 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Bool'.type]", (path ? &lpath_21 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Bool']", (path ? &lpath_21 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Bool']", (path ? &lpath_21 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -2290,6 +2276,20 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#Null'.type
+            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000006c6c756eLL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected null [.'$tight#Null'.type]", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Null'.type]", (path ? &lpath_24 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_7 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_7 <= 0x656424)
         {
@@ -2350,7 +2350,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Null'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Null'.examples]", (path ? &lpath_24 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Null'.examples]", (path ? &lpath_24 : NULL));
@@ -2421,24 +2421,8 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#Null'.type
-            res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000006c6c756eLL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected null [.'$tight#Null'.type]", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Null'.type]", (path ? &lpath_24 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Null']", (path ? &lpath_24 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Null']", (path ? &lpath_24 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -2522,6 +2506,20 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_6(prop, 0x000000664f6c6c61LL)))
+        {
+            // handle must allOf property
+            must_count += 1;
+            // .'$tight#AllOf'.allOf
+            res = json_model_6(pval, (path ? &lpath_27 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$tight#AllOf'.allOf]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#AllOf'.allOf]", (path ? &lpath_27 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_8 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_8 <= 0x656424)
         {
@@ -2582,7 +2580,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#AllOf'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#AllOf'.examples]", (path ? &lpath_27 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#AllOf'.examples]", (path ? &lpath_27 : NULL));
@@ -2653,24 +2651,8 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_6(prop, 0x000000664f6c6c61LL)))
-        {
-            // handle must allOf property
-            must_count += 1;
-            // .'$tight#AllOf'.allOf
-            res = json_model_6(pval, (path ? &lpath_27 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$tight#AllOf'.allOf]", (path ? &lpath_27 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#AllOf'.allOf]", (path ? &lpath_27 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#AllOf']", (path ? &lpath_27 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#AllOf']", (path ? &lpath_27 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -2754,6 +2736,20 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_6(prop, 0x000000664f796e61LL)))
+        {
+            // handle must anyOf property
+            must_count += 1;
+            // .'$tight#AnyOf'.anyOf
+            res = json_model_6(pval, (path ? &lpath_30 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$tight#AnyOf'.anyOf]", (path ? &lpath_30 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#AnyOf'.anyOf]", (path ? &lpath_30 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_9 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_9 <= 0x656424)
         {
@@ -2814,7 +2810,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#AnyOf'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#AnyOf'.examples]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#AnyOf'.examples]", (path ? &lpath_30 : NULL));
@@ -2885,24 +2881,8 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_6(prop, 0x000000664f796e61LL)))
-        {
-            // handle must anyOf property
-            must_count += 1;
-            // .'$tight#AnyOf'.anyOf
-            res = json_model_6(pval, (path ? &lpath_30 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$tight#AnyOf'.anyOf]", (path ? &lpath_30 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#AnyOf'.anyOf]", (path ? &lpath_30 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#AnyOf']", (path ? &lpath_30 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#AnyOf']", (path ? &lpath_30 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -2986,6 +2966,20 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_33 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_6(prop, 0x000000664f656e6fLL)))
+        {
+            // handle must oneOf property
+            must_count += 1;
+            // .'$tight#OneOf'.oneOf
+            res = json_model_6(pval, (path ? &lpath_33 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$tight#OneOf'.oneOf]", (path ? &lpath_33 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#OneOf'.oneOf]", (path ? &lpath_33 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_10 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_10 <= 0x656424)
         {
@@ -3046,7 +3040,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#OneOf'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#OneOf'.examples]", (path ? &lpath_33 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#OneOf'.examples]", (path ? &lpath_33 : NULL));
@@ -3117,24 +3111,8 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_6(prop, 0x000000664f656e6fLL)))
-        {
-            // handle must oneOf property
-            must_count += 1;
-            // .'$tight#OneOf'.oneOf
-            res = json_model_6(pval, (path ? &lpath_33 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$tight#OneOf'.oneOf]", (path ? &lpath_33 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#OneOf'.oneOf]", (path ? &lpath_33 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#OneOf']", (path ? &lpath_33 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#OneOf']", (path ? &lpath_33 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -3218,6 +3196,20 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
+        {
+            // handle must enum property
+            must_count += 1;
+            // .'$tight#Enum'.enum
+            res = json_model_5(pval, (path ? &lpath_36 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $enum [.'$tight#Enum'.enum]", (path ? &lpath_36 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Enum'.enum]", (path ? &lpath_36 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_11 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_11 <= 0x656424)
         {
@@ -3278,7 +3270,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Enum'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Enum'.examples]", (path ? &lpath_36 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Enum'.examples]", (path ? &lpath_36 : NULL));
@@ -3349,24 +3341,8 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
-        {
-            // handle must enum property
-            must_count += 1;
-            // .'$tight#Enum'.enum
-            res = json_model_5(pval, (path ? &lpath_36 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $enum [.'$tight#Enum'.enum]", (path ? &lpath_36 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Enum'.enum]", (path ? &lpath_36 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Enum']", (path ? &lpath_36 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Enum']", (path ? &lpath_36 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -3533,6 +3509,20 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_39 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
+        {
+            // handle must const property
+            must_count += 1;
+            // .'$tight#Const'.const
+            res = json_model_4(pval, (path ? &lpath_39 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $const [.'$tight#Const'.const]", (path ? &lpath_39 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Const'.const]", (path ? &lpath_39 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_12 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_12 <= 0x656424)
         {
@@ -3593,7 +3583,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Const'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Const'.examples]", (path ? &lpath_39 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Const'.examples]", (path ? &lpath_39 : NULL));
@@ -3664,24 +3654,8 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
-        {
-            // handle must const property
-            must_count += 1;
-            // .'$tight#Const'.const
-            res = json_model_4(pval, (path ? &lpath_39 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $const [.'$tight#Const'.const]", (path ? &lpath_39 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Const'.const]", (path ? &lpath_39 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Const']", (path ? &lpath_39 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Const']", (path ? &lpath_39 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -3822,6 +3796,20 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000066657224LL)))
+        {
+            // handle must $ref property
+            must_count += 1;
+            // .'$tight#Ref'.'$ref'
+            res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_42 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$tight#Ref'.'$ref']", (path ? &lpath_42 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Ref'.'$ref']", (path ? &lpath_42 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_13 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_13 <= 0x656424)
         {
@@ -3882,7 +3870,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#Ref'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#Ref'.examples]", (path ? &lpath_42 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#Ref'.examples]", (path ? &lpath_42 : NULL));
@@ -3953,24 +3941,8 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000066657224LL)))
-        {
-            // handle must $ref property
-            must_count += 1;
-            // .'$tight#Ref'.'$ref'
-            res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_42 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$tight#Ref'.'$ref']", (path ? &lpath_42 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#Ref'.'$ref']", (path ? &lpath_42 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Ref']", (path ? &lpath_42 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Ref']", (path ? &lpath_42 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -4084,6 +4056,50 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_45 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
+        {
+            // handle must enum property
+            must_count += 1;
+            // .'$tight#EnumString'.enum
+            res = json_is_array(pval);
+            if (likely(res))
+            {
+                size_t arr_5_idx;
+                json_t *arr_5_item;
+                json_array_foreach(pval, arr_5_idx, arr_5_item)
+                {
+                    jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_45 : NULL), NULL };
+                    // .'$tight#EnumString'.enum.0
+                    res = json_is_string(arr_5_item);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#EnumString'.enum.0]", ((path ? &lpath_45 : NULL) ? &arr_5_lpath : NULL));
+                        break;
+                    }
+                }
+            }
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumString'.enum]", (path ? &lpath_45 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumString'.enum]", (path ? &lpath_45 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#EnumString'.type
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#EnumString'.type]", (path ? &lpath_45 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumString'.type]", (path ? &lpath_45 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_14 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_14 <= 0x656424)
         {
@@ -4144,7 +4160,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#EnumString'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumString'.examples]", (path ? &lpath_45 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#EnumString'.examples]", (path ? &lpath_45 : NULL));
@@ -4215,53 +4231,8 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
-        {
-            // handle must enum property
-            must_count += 1;
-            // .'$tight#EnumString'.enum
-            res = json_is_array(pval);
-            if (likely(res))
-            {
-                size_t arr_5_idx;
-                json_t *arr_5_item;
-                json_array_foreach(pval, arr_5_idx, arr_5_item)
-                {
-                    jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_45 : NULL), NULL };
-                    // .'$tight#EnumString'.enum.0
-                    res = json_is_string(arr_5_item);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#EnumString'.enum.0]", ((path ? &lpath_45 : NULL) ? &arr_5_lpath : NULL));
-                        break;
-                    }
-                }
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumString'.enum]", (path ? &lpath_45 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumString'.enum]", (path ? &lpath_45 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#EnumString'.type
-            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#EnumString'.type]", (path ? &lpath_45 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumString'.type]", (path ? &lpath_45 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumString']", (path ? &lpath_45 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumString']", (path ? &lpath_45 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -4349,6 +4320,50 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_48 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
+        {
+            // handle must enum property
+            must_count += 1;
+            // .'$tight#EnumNum'.enum
+            res = json_is_array(pval);
+            if (likely(res))
+            {
+                size_t arr_6_idx;
+                json_t *arr_6_item;
+                json_array_foreach(pval, arr_6_idx, arr_6_item)
+                {
+                    jm_path_t arr_6_lpath = (jm_path_t) { NULL, arr_6_idx, (path ? &lpath_48 : NULL), NULL };
+                    // .'$tight#EnumNum'.enum.0
+                    res = json_is_real(arr_6_item);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$tight#EnumNum'.enum.0]", ((path ? &lpath_48 : NULL) ? &arr_6_lpath : NULL));
+                        break;
+                    }
+                }
+            }
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumNum'.enum]", (path ? &lpath_48 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumNum'.enum]", (path ? &lpath_48 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#EnumNum'.type
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#EnumNum'.type]", (path ? &lpath_48 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumNum'.type]", (path ? &lpath_48 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_15 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_15 <= 0x656424)
         {
@@ -4409,7 +4424,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#EnumNum'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumNum'.examples]", (path ? &lpath_48 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#EnumNum'.examples]", (path ? &lpath_48 : NULL));
@@ -4480,53 +4495,8 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
-        {
-            // handle must enum property
-            must_count += 1;
-            // .'$tight#EnumNum'.enum
-            res = json_is_array(pval);
-            if (likely(res))
-            {
-                size_t arr_6_idx;
-                json_t *arr_6_item;
-                json_array_foreach(pval, arr_6_idx, arr_6_item)
-                {
-                    jm_path_t arr_6_lpath = (jm_path_t) { NULL, arr_6_idx, (path ? &lpath_48 : NULL), NULL };
-                    // .'$tight#EnumNum'.enum.0
-                    res = json_is_real(arr_6_item);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$tight#EnumNum'.enum.0]", ((path ? &lpath_48 : NULL) ? &arr_6_lpath : NULL));
-                        break;
-                    }
-                }
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumNum'.enum]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumNum'.enum]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#EnumNum'.type
-            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#EnumNum'.type]", (path ? &lpath_48 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumNum'.type]", (path ? &lpath_48 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumNum']", (path ? &lpath_48 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumNum']", (path ? &lpath_48 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -4614,6 +4584,50 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_51 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
+        {
+            // handle must enum property
+            must_count += 1;
+            // .'$tight#EnumInt'.enum
+            res = json_is_array(pval);
+            if (likely(res))
+            {
+                size_t arr_7_idx;
+                json_t *arr_7_item;
+                json_array_foreach(pval, arr_7_idx, arr_7_item)
+                {
+                    jm_path_t arr_7_lpath = (jm_path_t) { NULL, arr_7_idx, (path ? &lpath_51 : NULL), NULL };
+                    // .'$tight#EnumInt'.enum.0
+                    res = json_is_integer(arr_7_item);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$tight#EnumInt'.enum.0]", ((path ? &lpath_51 : NULL) ? &arr_7_lpath : NULL));
+                        break;
+                    }
+                }
+            }
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumInt'.enum]", (path ? &lpath_51 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumInt'.enum]", (path ? &lpath_51 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#EnumInt'.type
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#EnumInt'.type]", (path ? &lpath_51 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumInt'.type]", (path ? &lpath_51 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_16 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_16 <= 0x656424)
         {
@@ -4674,7 +4688,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#EnumInt'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumInt'.examples]", (path ? &lpath_51 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#EnumInt'.examples]", (path ? &lpath_51 : NULL));
@@ -4745,53 +4759,8 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
-        {
-            // handle must enum property
-            must_count += 1;
-            // .'$tight#EnumInt'.enum
-            res = json_is_array(pval);
-            if (likely(res))
-            {
-                size_t arr_7_idx;
-                json_t *arr_7_item;
-                json_array_foreach(pval, arr_7_idx, arr_7_item)
-                {
-                    jm_path_t arr_7_lpath = (jm_path_t) { NULL, arr_7_idx, (path ? &lpath_51 : NULL), NULL };
-                    // .'$tight#EnumInt'.enum.0
-                    res = json_is_integer(arr_7_item);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$tight#EnumInt'.enum.0]", ((path ? &lpath_51 : NULL) ? &arr_7_lpath : NULL));
-                        break;
-                    }
-                }
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#EnumInt'.enum]", (path ? &lpath_51 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumInt'.enum]", (path ? &lpath_51 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#EnumInt'.type
-            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#EnumInt'.type]", (path ? &lpath_51 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#EnumInt'.type]", (path ? &lpath_51 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumInt']", (path ? &lpath_51 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumInt']", (path ? &lpath_51 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -4879,6 +4848,34 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_54 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#ConstString'.type
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#ConstString'.type]", (path ? &lpath_54 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstString'.type]", (path ? &lpath_54 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
+        {
+            // handle must const property
+            must_count += 1;
+            // .'$tight#ConstString'.const
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#ConstString'.const]", (path ? &lpath_54 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstString'.const]", (path ? &lpath_54 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_17 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_17 <= 0x656424)
         {
@@ -4939,7 +4936,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#ConstString'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#ConstString'.examples]", (path ? &lpath_54 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#ConstString'.examples]", (path ? &lpath_54 : NULL));
@@ -5010,37 +5007,8 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#ConstString'.type
-            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000676e69727473LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#ConstString'.type]", (path ? &lpath_54 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstString'.type]", (path ? &lpath_54 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
-        {
-            // handle must const property
-            must_count += 1;
-            // .'$tight#ConstString'.const
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$tight#ConstString'.const]", (path ? &lpath_54 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstString'.const]", (path ? &lpath_54 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstString']", (path ? &lpath_54 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstString']", (path ? &lpath_54 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -5128,6 +5096,34 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_57 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#ConstNum'.type
+            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#ConstNum'.type]", (path ? &lpath_57 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstNum'.type]", (path ? &lpath_57 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
+        {
+            // handle must const property
+            must_count += 1;
+            // .'$tight#ConstNum'.const
+            res = json_is_real(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$tight#ConstNum'.const]", (path ? &lpath_57 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstNum'.const]", (path ? &lpath_57 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_18 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_18 <= 0x656424)
         {
@@ -5188,7 +5184,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#ConstNum'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#ConstNum'.examples]", (path ? &lpath_57 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#ConstNum'.examples]", (path ? &lpath_57 : NULL));
@@ -5259,37 +5255,8 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#ConstNum'.type
-            res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00007265626d756eLL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected number [.'$tight#ConstNum'.type]", (path ? &lpath_57 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstNum'.type]", (path ? &lpath_57 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
-        {
-            // handle must const property
-            must_count += 1;
-            // .'$tight#ConstNum'.const
-            res = json_is_real(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$tight#ConstNum'.const]", (path ? &lpath_57 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstNum'.const]", (path ? &lpath_57 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstNum']", (path ? &lpath_57 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstNum']", (path ? &lpath_57 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -5377,6 +5344,34 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_60 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#ConstInt'.type
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#ConstInt'.type]", (path ? &lpath_60 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstInt'.type]", (path ? &lpath_60 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
+        {
+            // handle must const property
+            must_count += 1;
+            // .'$tight#ConstInt'.const
+            res = json_is_integer(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$tight#ConstInt'.const]", (path ? &lpath_60 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstInt'.const]", (path ? &lpath_60 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_19 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_19 <= 0x656424)
         {
@@ -5437,7 +5432,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#ConstInt'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#ConstInt'.examples]", (path ? &lpath_60 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#ConstInt'.examples]", (path ? &lpath_60 : NULL));
@@ -5508,37 +5503,8 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#ConstInt'.type
-            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0072656765746e69LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected integer [.'$tight#ConstInt'.type]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstInt'.type]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
-        {
-            // handle must const property
-            must_count += 1;
-            // .'$tight#ConstInt'.const
-            res = json_is_integer(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$tight#ConstInt'.const]", (path ? &lpath_60 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstInt'.const]", (path ? &lpath_60 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstInt']", (path ? &lpath_60 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstInt']", (path ? &lpath_60 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -5626,6 +5592,34 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_63 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$tight#ConstBool'.type
+            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006e61656c6f6f62LL);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected boolean [.'$tight#ConstBool'.type]", (path ? &lpath_63 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstBool'.type]", (path ? &lpath_63 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
+        {
+            // handle must const property
+            must_count += 1;
+            // .'$tight#ConstBool'.const
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$tight#ConstBool'.const]", (path ? &lpath_63 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstBool'.const]", (path ? &lpath_63 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_20 = (*((uint32_t *) (prop))) & 0xffffff;
         if (hash_20 <= 0x656424)
         {
@@ -5686,7 +5680,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may examples property
                 // .'$tight#ConstBool'.examples
                 res = json_is_array(pval);
-                if (likely(! res))
+                if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$tight#ConstBool'.examples]", (path ? &lpath_63 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$tight#ConstBool'.examples]", (path ? &lpath_63 : NULL));
@@ -5757,37 +5751,8 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x0000000065707974LL)))
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$tight#ConstBool'.type
-            res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006e61656c6f6f62LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected boolean [.'$tight#ConstBool'.type]", (path ? &lpath_63 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstBool'.type]", (path ? &lpath_63 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_6(prop, 0x00000074736e6f63LL)))
-        {
-            // handle must const property
-            must_count += 1;
-            // .'$tight#ConstBool'.const
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$tight#ConstBool'.const]", (path ? &lpath_63 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$tight#ConstBool'.const]", (path ? &lpath_63 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstBool']", (path ? &lpath_63 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstBool']", (path ? &lpath_63 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {

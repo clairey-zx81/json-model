@@ -38,8 +38,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'age')
+        if ($prop eq 'age')
         {
             # handle may age property
             # .age
@@ -48,16 +49,14 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
+        # handle other props
+        # .''
+        $res = jm_is_string($pval);
+        if (! $res)
         {
-            # handle other props
-            # .''
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
     }
     return $must_count == 1;

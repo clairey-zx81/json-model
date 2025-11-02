@@ -55,14 +55,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bla' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bla' THEN
       -- handle may bla property
       -- .bla
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_2(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_2(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Xxx'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 >= 0.0;

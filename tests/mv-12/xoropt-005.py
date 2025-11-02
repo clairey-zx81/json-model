@@ -40,13 +40,13 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'|'.1.b]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'|'.1.b]", lpath_0 if path is not None else None))
                 return False
-        else:
-            # handle other props
-            # .'|'.1.''
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if not res:
-                rep is None or rep.append(("not a 0 strict int [.'|'.1.'']", lpath_0 if path is not None else None))
-                return False
+            continue
+        # handle other props
+        # .'|'.1.''
+        res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+        if not res:
+            rep is None or rep.append(("not a 0 strict int [.'|'.1.'']", lpath_0 if path is not None else None))
+            return False
     if must_count != 1:
         if rep is not None:
             if not "b" in val:
@@ -72,13 +72,13 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'|'.0.a]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'|'.0.a]", lpath_1 if path is not None else None))
                 return False
-        else:
-            # handle other props
-            # .'|'.0.''
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if not res:
-                rep is None or rep.append(("not a 0 strict int [.'|'.0.'']", lpath_1 if path is not None else None))
-                return False
+            continue
+        # handle other props
+        # .'|'.0.''
+        res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+        if not res:
+            rep is None or rep.append(("not a 0 strict int [.'|'.0.'']", lpath_1 if path is not None else None))
+            return False
     if must_count != 1:
         if rep is not None:
             if not "a" in val:

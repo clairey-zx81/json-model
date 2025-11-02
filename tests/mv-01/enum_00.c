@@ -72,7 +72,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     int64_t xc_0 = 0;
     // .'^'.0
     bool xr_0 = json_model_2(val, path, rep);
-    if (unlikely(xr_0))
+    if (likely(xr_0))
         xc_0 += 1;
     else
     {
@@ -80,7 +80,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'^'.1
     xr_0 = json_model_3(val, path, rep);
-    if (unlikely(xr_0))
+    if (likely(xr_0))
         xc_0 += 1;
     else
     {

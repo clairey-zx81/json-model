@@ -59,12 +59,10 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$over#Foo'.foo]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$over#Foo']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$over#Foo']", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }

@@ -46,8 +46,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         if not is_0:
             rep is None or rep.append(("unexpected string [.'^'.7]", path))
         res = not is_0
+    res = False
     rep is None or rep.append(("not one model match [.'^']", path))
-    return False
+    return res
 
 
 # initialization guard

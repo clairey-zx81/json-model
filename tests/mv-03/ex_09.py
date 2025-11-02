@@ -55,7 +55,8 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$Ex09'.'#']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Ex09'.'#']", lpath_0 if path is not None else None))
                 return False
-        elif is_valid_url(prop, lpath_0 if path is not None else None, rep):
+            continue
+        if is_valid_url(prop, lpath_0 if path is not None else None, rep):
             # handle 1 key props
             # .'$Ex09'.'$URL'
             res = json_model_6(pval, lpath_0 if path is not None else None, rep)

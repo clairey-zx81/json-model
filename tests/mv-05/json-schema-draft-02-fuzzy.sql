@@ -369,10 +369,10 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN TRUE;
 END;

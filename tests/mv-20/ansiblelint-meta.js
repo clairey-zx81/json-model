@@ -105,6 +105,7 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AIXPlatformModel'.name]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -132,12 +133,10 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AIXPlatformModel'.versions]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AIXPlatformModel']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AIXPlatformModel']", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }
@@ -166,6 +165,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AlpinePlatformModel'.name]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -193,12 +193,10 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AlpinePlatformModel'.versions]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AlpinePlatformModel']", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AlpinePlatformModel']", (path ? lpath_1 : null)])
+        return false;
     }
     return true;
 }
@@ -228,6 +226,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AmazonLinuxPlatformModel'.name]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -255,12 +254,10 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AmazonLinuxPlatformModel'.versions]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AmazonLinuxPlatformModel']", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AmazonLinuxPlatformModel']", (path ? lpath_2 : null)])
+        return false;
     }
     return true;
 }
@@ -290,6 +287,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AmazonPlatformModel'.name]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -317,12 +315,10 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AmazonPlatformModel'.versions]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AmazonPlatformModel']", (path ? lpath_3 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AmazonPlatformModel']", (path ? lpath_3 : null)])
+        return false;
     }
     return true;
 }
@@ -351,6 +347,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$ArchLinuxPlatformModel'.name]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -378,12 +375,10 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$ArchLinuxPlatformModel'.versions]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$ArchLinuxPlatformModel']", (path ? lpath_4 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$ArchLinuxPlatformModel']", (path ? lpath_4 : null)])
+        return false;
     }
     return true;
 }
@@ -413,6 +408,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AstraLinuxPlatformModel'.name]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -440,12 +436,10 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AstraLinuxPlatformModel'.versions]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AstraLinuxPlatformModel']", (path ? lpath_5 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AstraLinuxPlatformModel']", (path ? lpath_5 : null)])
+        return false;
     }
     return true;
 }
@@ -474,6 +468,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$ClearLinuxPlatformModel'.name]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -501,12 +496,10 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$ClearLinuxPlatformModel'.versions]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$ClearLinuxPlatformModel']", (path ? lpath_6 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$ClearLinuxPlatformModel']", (path ? lpath_6 : null)])
+        return false;
     }
     return true;
 }
@@ -536,6 +529,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$CumulusPlatformModel'.name]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -563,12 +557,10 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$CumulusPlatformModel'.versions]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$CumulusPlatformModel']", (path ? lpath_7 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$CumulusPlatformModel']", (path ? lpath_7 : null)])
+        return false;
     }
     return true;
 }
@@ -598,6 +590,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DebianPlatformModel'.name]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -625,12 +618,10 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DebianPlatformModel'.versions]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$DebianPlatformModel']", (path ? lpath_8 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$DebianPlatformModel']", (path ? lpath_8 : null)])
+        return false;
     }
     return true;
 }
@@ -660,6 +651,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DellOSPlatformModel'.name]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -687,12 +679,10 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DellOSPlatformModel'.versions]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$DellOSPlatformModel']", (path ? lpath_9 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$DellOSPlatformModel']", (path ? lpath_9 : null)])
+        return false;
     }
     return true;
 }
@@ -722,6 +712,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DevuanPlatformModel'.name]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -749,12 +740,10 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DevuanPlatformModel'.versions]", (path ? lpath_10 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$DevuanPlatformModel']", (path ? lpath_10 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$DevuanPlatformModel']", (path ? lpath_10 : null)])
+        return false;
     }
     return true;
 }
@@ -784,6 +773,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DragonFlyBSDPlatformModel'.name]", (path ? lpath_11 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -811,12 +801,10 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$DragonFlyBSDPlatformModel'.versions]", (path ? lpath_11 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$DragonFlyBSDPlatformModel']", (path ? lpath_11 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$DragonFlyBSDPlatformModel']", (path ? lpath_11 : null)])
+        return false;
     }
     return true;
 }
@@ -846,6 +834,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$ELPlatformModel'.name]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -873,12 +862,10 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$ELPlatformModel'.versions]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$ELPlatformModel']", (path ? lpath_12 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$ELPlatformModel']", (path ? lpath_12 : null)])
+        return false;
     }
     return true;
 }
@@ -908,6 +895,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$FedoraPlatformModel'.name]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -935,12 +923,10 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$FedoraPlatformModel'.versions]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$FedoraPlatformModel']", (path ? lpath_13 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$FedoraPlatformModel']", (path ? lpath_13 : null)])
+        return false;
     }
     return true;
 }
@@ -970,6 +956,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$FreeBSDPlatformModel'.name]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -997,12 +984,10 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$FreeBSDPlatformModel'.versions]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$FreeBSDPlatformModel']", (path ? lpath_14 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$FreeBSDPlatformModel']", (path ? lpath_14 : null)])
+        return false;
     }
     return true;
 }
@@ -1031,6 +1016,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericBSDPlatformModel'.name]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1058,12 +1044,10 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericBSDPlatformModel'.versions]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GenericBSDPlatformModel']", (path ? lpath_15 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GenericBSDPlatformModel']", (path ? lpath_15 : null)])
+        return false;
     }
     return true;
 }
@@ -1092,6 +1076,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericLinuxPlatformModel'.name]", (path ? lpath_16 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1119,12 +1104,10 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericLinuxPlatformModel'.versions]", (path ? lpath_16 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GenericLinuxPlatformModel']", (path ? lpath_16 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GenericLinuxPlatformModel']", (path ? lpath_16 : null)])
+        return false;
     }
     return true;
 }
@@ -1153,6 +1136,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericUNIXPlatformModel'.name]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1180,12 +1164,10 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericUNIXPlatformModel'.versions]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GenericUNIXPlatformModel']", (path ? lpath_17 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GenericUNIXPlatformModel']", (path ? lpath_17 : null)])
+        return false;
     }
     return true;
 }
@@ -1214,6 +1196,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GentooPlatformModel'.name]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1241,12 +1224,10 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GentooPlatformModel'.versions]", (path ? lpath_18 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GentooPlatformModel']", (path ? lpath_18 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GentooPlatformModel']", (path ? lpath_18 : null)])
+        return false;
     }
     return true;
 }
@@ -1276,6 +1257,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$HardenedBSDPlatformModel'.name]", (path ? lpath_19 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1303,12 +1285,10 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$HardenedBSDPlatformModel'.versions]", (path ? lpath_19 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$HardenedBSDPlatformModel']", (path ? lpath_19 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$HardenedBSDPlatformModel']", (path ? lpath_19 : null)])
+        return false;
     }
     return true;
 }
@@ -1337,6 +1317,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$IOSPlatformModel'.name]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1364,12 +1345,10 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$IOSPlatformModel'.versions]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$IOSPlatformModel']", (path ? lpath_20 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$IOSPlatformModel']", (path ? lpath_20 : null)])
+        return false;
     }
     return true;
 }
@@ -1398,6 +1377,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$JunosPlatformModel'.name]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1425,12 +1405,10 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$JunosPlatformModel'.versions]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$JunosPlatformModel']", (path ? lpath_21 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$JunosPlatformModel']", (path ? lpath_21 : null)])
+        return false;
     }
     return true;
 }
@@ -1460,6 +1438,7 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$KaliPlatformModel'.name]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1487,12 +1466,10 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$KaliPlatformModel'.versions]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$KaliPlatformModel']", (path ? lpath_22 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$KaliPlatformModel']", (path ? lpath_22 : null)])
+        return false;
     }
     return true;
 }
@@ -1522,6 +1499,7 @@ function json_model_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$MacOSXPlatformModel'.name]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1549,12 +1527,10 @@ function json_model_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$MacOSXPlatformModel'.versions]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$MacOSXPlatformModel']", (path ? lpath_23 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$MacOSXPlatformModel']", (path ? lpath_23 : null)])
+        return false;
     }
     return true;
 }
@@ -1584,6 +1560,7 @@ function json_model_26(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$MageiaPlatformModel'.name]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1611,12 +1588,10 @@ function json_model_26(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$MageiaPlatformModel'.versions]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$MageiaPlatformModel']", (path ? lpath_24 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$MageiaPlatformModel']", (path ? lpath_24 : null)])
+        return false;
     }
     return true;
 }
@@ -1645,6 +1620,7 @@ function json_model_27(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$NXOSPlatformModel'.name]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1672,12 +1648,10 @@ function json_model_27(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$NXOSPlatformModel'.versions]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$NXOSPlatformModel']", (path ? lpath_25 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$NXOSPlatformModel']", (path ? lpath_25 : null)])
+        return false;
     }
     return true;
 }
@@ -1707,6 +1681,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$NetBSDPlatformModel'.name]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1734,12 +1709,10 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$NetBSDPlatformModel'.versions]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$NetBSDPlatformModel']", (path ? lpath_26 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$NetBSDPlatformModel']", (path ? lpath_26 : null)])
+        return false;
     }
     return true;
 }
@@ -1769,6 +1742,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OpenBSDPlatformModel'.name]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1796,12 +1770,10 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OpenBSDPlatformModel'.versions]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$OpenBSDPlatformModel']", (path ? lpath_27 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$OpenBSDPlatformModel']", (path ? lpath_27 : null)])
+        return false;
     }
     return true;
 }
@@ -1831,6 +1803,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OpenWrtPlatformModel'.name]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1858,12 +1831,10 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OpenWrtPlatformModel'.versions]", (path ? lpath_28 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$OpenWrtPlatformModel']", (path ? lpath_28 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$OpenWrtPlatformModel']", (path ? lpath_28 : null)])
+        return false;
     }
     return true;
 }
@@ -1893,6 +1864,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OracleLinuxPlatformModel'.name]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1920,12 +1892,10 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OracleLinuxPlatformModel'.versions]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$OracleLinuxPlatformModel']", (path ? lpath_29 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$OracleLinuxPlatformModel']", (path ? lpath_29 : null)])
+        return false;
     }
     return true;
 }
@@ -1955,6 +1925,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$PAN-OSPlatformModel'.name]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -1982,12 +1953,10 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$PAN-OSPlatformModel'.versions]", (path ? lpath_30 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$PAN-OSPlatformModel']", (path ? lpath_30 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$PAN-OSPlatformModel']", (path ? lpath_30 : null)])
+        return false;
     }
     return true;
 }
@@ -2017,6 +1986,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$RockyLinuxPlatformModel'.name]", (path ? lpath_31 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2044,12 +2014,10 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$RockyLinuxPlatformModel'.versions]", (path ? lpath_31 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$RockyLinuxPlatformModel']", (path ? lpath_31 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$RockyLinuxPlatformModel']", (path ? lpath_31 : null)])
+        return false;
     }
     return true;
 }
@@ -2079,6 +2047,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$SLESPlatformModel'.name]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2106,12 +2075,10 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$SLESPlatformModel'.versions]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$SLESPlatformModel']", (path ? lpath_32 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$SLESPlatformModel']", (path ? lpath_32 : null)])
+        return false;
     }
     return true;
 }
@@ -2140,6 +2107,7 @@ function json_model_35(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$SmartOSPlatformModel'.name]", (path ? lpath_33 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2167,12 +2135,10 @@ function json_model_35(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$SmartOSPlatformModel'.versions]", (path ? lpath_33 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$SmartOSPlatformModel']", (path ? lpath_33 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$SmartOSPlatformModel']", (path ? lpath_33 : null)])
+        return false;
     }
     return true;
 }
@@ -2202,6 +2168,7 @@ function json_model_36(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$SolarisPlatformModel'.name]", (path ? lpath_34 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2229,12 +2196,10 @@ function json_model_36(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$SolarisPlatformModel'.versions]", (path ? lpath_34 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$SolarisPlatformModel']", (path ? lpath_34 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$SolarisPlatformModel']", (path ? lpath_34 : null)])
+        return false;
     }
     return true;
 }
@@ -2264,6 +2229,7 @@ function json_model_37(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$SynologyPlatformModel'.name]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2291,12 +2257,10 @@ function json_model_37(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$SynologyPlatformModel'.versions]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$SynologyPlatformModel']", (path ? lpath_35 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$SynologyPlatformModel']", (path ? lpath_35 : null)])
+        return false;
     }
     return true;
 }
@@ -2326,6 +2290,7 @@ function json_model_38(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TMOSPlatformModel'.name]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2353,12 +2318,10 @@ function json_model_38(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TMOSPlatformModel'.versions]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TMOSPlatformModel']", (path ? lpath_36 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TMOSPlatformModel']", (path ? lpath_36 : null)])
+        return false;
     }
     return true;
 }
@@ -2388,6 +2351,7 @@ function json_model_39(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$UbuntuPlatformModel'.name]", (path ? lpath_37 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2415,12 +2379,10 @@ function json_model_39(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$UbuntuPlatformModel'.versions]", (path ? lpath_37 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$UbuntuPlatformModel']", (path ? lpath_37 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$UbuntuPlatformModel']", (path ? lpath_37 : null)])
+        return false;
     }
     return true;
 }
@@ -2449,6 +2411,7 @@ function json_model_40(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Void_LinuxPlatformModel'.name]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2476,12 +2439,10 @@ function json_model_40(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Void_LinuxPlatformModel'.versions]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Void_LinuxPlatformModel']", (path ? lpath_38 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Void_LinuxPlatformModel']", (path ? lpath_38 : null)])
+        return false;
     }
     return true;
 }
@@ -2511,6 +2472,7 @@ function json_model_41(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$WindowsPlatformModel'.name]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2538,12 +2500,10 @@ function json_model_41(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$WindowsPlatformModel'.versions]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$WindowsPlatformModel']", (path ? lpath_39 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$WindowsPlatformModel']", (path ? lpath_39 : null)])
+        return false;
     }
     return true;
 }
@@ -2572,6 +2532,7 @@ function json_model_42(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$aosPlatformModel'.name]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2599,12 +2560,10 @@ function json_model_42(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$aosPlatformModel'.versions]", (path ? lpath_40 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$aosPlatformModel']", (path ? lpath_40 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$aosPlatformModel']", (path ? lpath_40 : null)])
+        return false;
     }
     return true;
 }
@@ -2633,6 +2592,7 @@ function json_model_43(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$eosPlatformModel'.name]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2660,12 +2620,10 @@ function json_model_43(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$eosPlatformModel'.versions]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$eosPlatformModel']", (path ? lpath_41 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$eosPlatformModel']", (path ? lpath_41 : null)])
+        return false;
     }
     return true;
 }
@@ -2695,6 +2653,7 @@ function json_model_44(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$macOSPlatformModel'.name]", (path ? lpath_42 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2722,12 +2681,10 @@ function json_model_44(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$macOSPlatformModel'.versions]", (path ? lpath_42 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$macOSPlatformModel']", (path ? lpath_42 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$macOSPlatformModel']", (path ? lpath_42 : null)])
+        return false;
     }
     return true;
 }
@@ -2757,6 +2714,7 @@ function json_model_45(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$opensusePlatformModel'.name]", (path ? lpath_43 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2784,12 +2742,10 @@ function json_model_45(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$opensusePlatformModel'.versions]", (path ? lpath_43 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$opensusePlatformModel']", (path ? lpath_43 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$opensusePlatformModel']", (path ? lpath_43 : null)])
+        return false;
     }
     return true;
 }
@@ -2818,6 +2774,7 @@ function json_model_46(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$os10PlatformModel'.name]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2845,12 +2802,10 @@ function json_model_46(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$os10PlatformModel'.versions]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$os10PlatformModel']", (path ? lpath_44 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$os10PlatformModel']", (path ? lpath_44 : null)])
+        return false;
     }
     return true;
 }
@@ -2880,6 +2835,7 @@ function json_model_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$vCenterPlatformModel'.name]", (path ? lpath_45 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2907,12 +2863,10 @@ function json_model_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$vCenterPlatformModel'.versions]", (path ? lpath_45 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$vCenterPlatformModel']", (path ? lpath_45 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$vCenterPlatformModel']", (path ? lpath_45 : null)])
+        return false;
     }
     return true;
 }
@@ -2942,6 +2896,7 @@ function json_model_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$vSpherePlatformModel'.name]", (path ? lpath_46 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "versions")
         {
@@ -2969,12 +2924,10 @@ function json_model_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$vSpherePlatformModel'.versions]", (path ? lpath_46 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$vSpherePlatformModel']", (path ? lpath_46 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$vSpherePlatformModel']", (path ? lpath_46 : null)])
+        return false;
     }
     return true;
 }
@@ -6569,6 +6522,7 @@ function json_model_51(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "platforms")
         {
@@ -6581,6 +6535,7 @@ function json_model_51(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "role_name")
         {
@@ -6594,6 +6549,7 @@ function json_model_51(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "galaxy_tags")
         {
@@ -6621,6 +6577,7 @@ function json_model_51(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "video_links")
         {
@@ -6633,12 +6590,14 @@ function json_model_51(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "cloud_platforms")
         {
             // handle may cloud_platforms property
             // .'$GalaxyInfoModelCollection'.cloud_platforms
             res = true;
+            continue;
         }
         else if (prop == "min_ansible_version")
         {
@@ -6651,12 +6610,10 @@ function json_model_51(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModelCollection']", (path ? lpath_47 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModelCollection']", (path ? lpath_47 : null)])
+        return false;
     }
     return true;
 }
@@ -6688,8 +6645,9 @@ function json_model_52(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "author")
+        if (prop == "author")
         {
             // handle may author property
             // .'$GalaxyInfoModelLoose'.author
@@ -6700,6 +6658,7 @@ function json_model_52(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "company")
         {
@@ -6712,6 +6671,7 @@ function json_model_52(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "license")
         {
@@ -6724,6 +6684,7 @@ function json_model_52(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "github_branch")
         {
@@ -6736,6 +6697,7 @@ function json_model_52(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "issue_tracker_url")
         {
@@ -6748,6 +6710,7 @@ function json_model_52(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "min_ansible_container_version")
         {
@@ -6760,12 +6723,10 @@ function json_model_52(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? lpath_48 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModelLoose']", (path ? lpath_48 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModelLoose']", (path ? lpath_48 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -6807,6 +6768,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "license")
         {
@@ -6820,6 +6782,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "standalone")
         {
@@ -6833,6 +6796,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -6846,6 +6810,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "min_ansible_version")
         {
@@ -6859,8 +6824,9 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "company")
+        if (prop == "company")
         {
             // handle may company property
             // .'$GalaxyInfoModelStandalone'.company
@@ -6871,6 +6837,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "namespace")
         {
@@ -6884,6 +6851,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.namespace]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "platforms")
         {
@@ -6896,6 +6864,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.platforms]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "role_name")
         {
@@ -6909,6 +6878,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.role_name]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "galaxy_tags")
         {
@@ -6936,6 +6906,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "video_links")
         {
@@ -6948,6 +6919,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.video_links]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "github_branch")
         {
@@ -6960,12 +6932,14 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "cloud_platforms")
         {
             // handle may cloud_platforms property
             // .'$GalaxyInfoModelStandalone'.cloud_platforms
             res = true;
+            continue;
         }
         else if (prop == "issue_tracker_url")
         {
@@ -6978,6 +6952,7 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "min_ansible_container_version")
         {
@@ -6990,12 +6965,10 @@ function json_model_53(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModelStandalone']", (path ? lpath_49 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModelStandalone']", (path ? lpath_49 : null)])
+        return false;
     }
     if (must_count != 5)
     {
@@ -7052,6 +7025,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -7065,8 +7039,9 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "author")
+        if (prop == "author")
         {
             // handle may author property
             // .'$GalaxyInfoModel'.'|'.1.author
@@ -7077,6 +7052,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.author]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "company")
         {
@@ -7089,6 +7065,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.company]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "license")
         {
@@ -7101,6 +7078,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.license]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "namespace")
         {
@@ -7114,6 +7092,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.namespace]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "platforms")
         {
@@ -7126,6 +7105,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.platforms]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "role_name")
         {
@@ -7139,6 +7119,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.role_name]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "galaxy_tags")
         {
@@ -7166,6 +7147,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.galaxy_tags]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "video_links")
         {
@@ -7178,6 +7160,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.video_links]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "github_branch")
         {
@@ -7190,12 +7173,14 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "cloud_platforms")
         {
             // handle may cloud_platforms property
             // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
             res = true;
+            continue;
         }
         else if (prop == "issue_tracker_url")
         {
@@ -7208,6 +7193,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "min_ansible_version")
         {
@@ -7220,6 +7206,7 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "min_ansible_container_version")
         {
@@ -7232,12 +7219,10 @@ function _jm_obj_47(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModel'.'|'.1]", (path ? lpath_50 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModel'.'|'.1]", (path ? lpath_50 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -7282,8 +7267,9 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "author")
+        if (prop == "author")
         {
             // handle may author property
             // .'$GalaxyInfoModel'.'|'.2.author
@@ -7294,6 +7280,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.author]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "company")
         {
@@ -7306,6 +7293,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.company]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "license")
         {
@@ -7318,6 +7306,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.license]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "namespace")
         {
@@ -7331,6 +7320,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.namespace]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "platforms")
         {
@@ -7343,6 +7333,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.platforms]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "role_name")
         {
@@ -7356,6 +7347,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.role_name]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "galaxy_tags")
         {
@@ -7383,6 +7375,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "video_links")
         {
@@ -7395,6 +7388,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.video_links]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "github_branch")
         {
@@ -7407,12 +7401,14 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "cloud_platforms")
         {
             // handle may cloud_platforms property
             // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
             res = true;
+            continue;
         }
         else if (prop == "issue_tracker_url")
         {
@@ -7425,6 +7421,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "min_ansible_version")
         {
@@ -7437,6 +7434,7 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "min_ansible_container_version")
         {
@@ -7449,12 +7447,10 @@ function _jm_obj_48(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModel'.'|'.2]", (path ? lpath_51 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModel'.'|'.2]", (path ? lpath_51 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -7967,6 +7963,7 @@ function json_model_59(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "galaxy_info")
         {
@@ -7979,6 +7976,7 @@ function json_model_59(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "dependencies")
         {
@@ -8024,6 +8022,7 @@ function json_model_59(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allow_duplicates")
         {
@@ -8036,12 +8035,10 @@ function json_model_59(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AnsibleMetaObj']", (path ? lpath_52 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AnsibleMetaObj']", (path ? lpath_52 : null)])
+        return false;
     }
     return true;
 }

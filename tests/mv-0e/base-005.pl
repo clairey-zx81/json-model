@@ -38,8 +38,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'a')
+        if ($prop eq 'a')
         {
             # handle may a property
             # .a
@@ -48,11 +49,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }

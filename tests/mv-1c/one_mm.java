@@ -48,8 +48,9 @@ public class one_mm extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.must]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("may") == 0)
+            if (prop.compareTo("may") == 0)
             {
                 // handle may may property
                 // .may
@@ -60,12 +61,10 @@ public class one_mm extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.may]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
+            return false;
         }
         if (must_count != 1)
         {

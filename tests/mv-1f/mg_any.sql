@@ -36,6 +36,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'b' THEN
       -- handle must b property
       must_count := must_count + 1;
@@ -44,14 +45,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'c' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'c' THEN
       -- handle may c property
       -- .c
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF jm_is_valid_date(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF jm_is_valid_date(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$DATE'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;

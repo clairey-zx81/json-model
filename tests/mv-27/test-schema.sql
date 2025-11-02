@@ -44,6 +44,7 @@ BEGIN
       must_count := must_count + 1;
       -- .'$Test'.data
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'valid' THEN
       -- handle must valid property
       must_count := must_count + 1;
@@ -52,6 +53,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle must description property
       must_count := must_count + 1;
@@ -60,16 +62,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'comment' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'comment' THEN
       -- handle may comment property
       -- .'$Test'.comment
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -110,6 +114,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'perl5' THEN
       -- handle may perl5 property
       -- .'$Specification'.'@'.perl5
@@ -117,6 +122,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'quote' THEN
       -- handle may quote property
       -- .'$Specification'.'@'.quote
@@ -124,6 +130,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'ecma262' THEN
       -- handle may ecma262 property
       -- .'$Specification'.'@'.ecma262
@@ -131,6 +138,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'validation' THEN
       -- handle may validation property
       -- .'$Specification'.'@'.validation
@@ -138,7 +146,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$Specification'.'@'.'/^rfc\\d+$/'
       res := json_model_2(pval, NULL, NULL);
@@ -222,11 +232,13 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'schema' THEN
       -- handle must schema property
       must_count := must_count + 1;
       -- .'$TestCase'.schema
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle must description property
       must_count := must_count + 1;
@@ -235,13 +247,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'comment' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'comment' THEN
       -- handle may comment property
       -- .'$TestCase'.comment
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'specification' THEN
       -- handle may specification property
       -- .'$TestCase'.specification
@@ -264,9 +279,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;

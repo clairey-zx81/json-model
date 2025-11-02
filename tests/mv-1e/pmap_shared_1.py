@@ -41,6 +41,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$Oo0'.a]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo0'.a]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "b":
             # handle must b property
             must_count += 1
@@ -50,6 +51,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Oo0'.b]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo0'.b]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "c":
             # handle must c property
             must_count += 1
@@ -59,6 +61,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not null [.'$Oo0'.c]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo0'.c]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "d":
             # handle must d property
             must_count += 1
@@ -68,13 +71,13 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0.0 strict float [.'$Oo0'.d]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo0'.d]", lpath_0 if path is not None else None))
                 return False
-        else:
-            # handle other props
-            # .'$Oo0'.''
-            res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $DATE [.'$Oo0'.'']", lpath_0 if path is not None else None))
-                return False
+            continue
+        # handle other props
+        # .'$Oo0'.''
+        res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $DATE [.'$Oo0'.'']", lpath_0 if path is not None else None))
+            return False
     if must_count != 4:
         if rep is not None:
             if not "a" in val:
@@ -107,7 +110,8 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$Oo1'.z]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo1'.z]", lpath_1 if path is not None else None))
                 return False
-        elif prop == "a":
+            continue
+        if prop == "a":
             # handle may a property
             # .'$Oo1'.a
             res = isinstance(pval, bool)
@@ -115,6 +119,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$Oo1'.a]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Oo1'.a]", lpath_1 if path is not None else None))
                 return False
+            continue
         elif prop == "b":
             # handle may b property
             # .'$Oo1'.b
@@ -123,6 +128,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Oo1'.b]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Oo1'.b]", lpath_1 if path is not None else None))
                 return False
+            continue
         elif prop == "c":
             # handle may c property
             # .'$Oo1'.c
@@ -131,6 +137,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not null [.'$Oo1'.c]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Oo1'.c]", lpath_1 if path is not None else None))
                 return False
+            continue
         elif prop == "d":
             # handle may d property
             # .'$Oo1'.d
@@ -139,9 +146,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0.0 strict float [.'$Oo1'.d]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Oo1'.d]", lpath_1 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Oo1']", lpath_1 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Oo1']", lpath_1 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "z" in val:
@@ -168,6 +175,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$Oo2'.a]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo2'.a]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "b":
             # handle must b property
             must_count += 1
@@ -177,6 +185,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Oo2'.b]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo2'.b]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "c":
             # handle must c property
             must_count += 1
@@ -186,6 +195,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not null [.'$Oo2'.c]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo2'.c]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "d":
             # handle must d property
             must_count += 1
@@ -195,7 +205,8 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0.0 strict float [.'$Oo2'.d]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Oo2'.d]", lpath_2 if path is not None else None))
                 return False
-        elif prop == "y":
+            continue
+        if prop == "y":
             # handle may y property
             # .'$Oo2'.y
             res = isinstance(pval, bool)
@@ -203,9 +214,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$Oo2'.y]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Oo2'.y]", lpath_2 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Oo2']", lpath_2 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Oo2']", lpath_2 if path is not None else None))
+        return False
     if must_count != 4:
         if rep is not None:
             if not "a" in val:

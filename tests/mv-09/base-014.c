@@ -42,8 +42,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.nom]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x00656761)))
+        if (unlikely(jm_str_eq_4(prop, 0x00656761)))
         {
             // handle may age property
             // .age
@@ -54,17 +55,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.age]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else
+        // handle other props
+        // .''
+        res = json_is_string(pval);
+        if (unlikely(! res))
         {
-            // handle other props
-            // .''
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'']", (path ? &lpath_0 : NULL));
-                return false;
-            }
+            if (rep) jm_report_add_entry(rep, "unexpected string [.'']", (path ? &lpath_0 : NULL));
+            return false;
         }
     }
     if (unlikely(must_count != 1))

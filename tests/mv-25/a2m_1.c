@@ -34,10 +34,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may a property
             // .'$Oa'.a
             return json_is_integer(pval) && json_integer_value(pval) >= 0;
-        else
-        {
-            // accept any other props
-        }
+        // accept any other props
     }
     return true;
 }
@@ -57,10 +54,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may b property
             // .'$Ob'.b
             return json_is_integer(pval) && json_integer_value(pval) >= 0;
-        else
-        {
-            // accept any other props
-        }
+        // accept any other props
     }
     return true;
 }
@@ -83,6 +77,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (unlikely(jm_str_eq_2(prop, 0x00000062)))
         {
@@ -91,11 +86,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-        {
-            // accept any other props
-        }
+        // accept any other props
     }
     return true;
 }
@@ -119,9 +112,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 1;
 }

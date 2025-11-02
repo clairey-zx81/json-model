@@ -59,6 +59,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'name')
         {
@@ -69,6 +70,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'authors')
         {
@@ -92,6 +94,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'previous')
         {
@@ -102,11 +105,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -148,8 +149,9 @@ sub json_model_2($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'metadata')
+        if ($prop eq 'metadata')
         {
             # handle may metadata property
             # .'$Schema'.metadata
@@ -158,11 +160,9 @@ sub json_model_2($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -332,6 +332,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'baseType')
         {
@@ -343,19 +344,18 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_6_map{$prop}))
+        if (($pfun = $json_model_6_map{$prop}))
         {
             # handle 13 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }
@@ -384,8 +384,9 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'name')
+        if ($prop eq 'name')
         {
             # handle may name property
             # .'$Object'.name
@@ -394,6 +395,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'closed')
         {
@@ -404,6 +406,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'content')
         {
@@ -427,6 +430,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'baseType')
         {
@@ -437,11 +441,9 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -470,6 +472,7 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'type')
         {
@@ -481,8 +484,9 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'unique')
+        if ($prop eq 'unique')
         {
             # handle may unique property
             # .'$Fields'.unique
@@ -491,12 +495,14 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'default')
         {
             # handle may default property
             # .'$Fields'.default
             $res = 1;
+            next;
         }
         elsif ($prop eq 'required')
         {
@@ -507,11 +513,9 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }
@@ -541,8 +545,9 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'name')
+        if ($prop eq 'name')
         {
             # handle may name property
             # .'$Array'.name
@@ -551,6 +556,7 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'content')
         {
@@ -561,6 +567,7 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'baseType')
         {
@@ -571,6 +578,7 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'maxLength')
         {
@@ -581,6 +589,7 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'minLength')
         {
@@ -591,11 +600,9 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -625,6 +632,7 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'name')
         {
@@ -636,6 +644,7 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'content')
         {
@@ -660,8 +669,9 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'baseType')
+        if ($prop eq 'baseType')
         {
             # handle may baseType property
             # .'$Union'.baseType
@@ -670,11 +680,9 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 3;
 }

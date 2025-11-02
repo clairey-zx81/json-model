@@ -92,6 +92,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$id']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$id']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "$ref":
             # handle may $ref property
             # .'$core'.'$ref'
@@ -100,6 +101,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$ref']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$ref']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "$defs":
             # handle may $defs property
             # .'$core'.'$defs'
@@ -108,6 +110,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$core'.'$defs']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$defs']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "$anchor":
             # handle may $anchor property
             # .'$core'.'$anchor'
@@ -116,6 +119,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$anchor']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$anchor']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "$schema":
             # handle may $schema property
             # .'$core'.'$schema'
@@ -124,6 +128,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URI [.'$core'.'$schema']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$schema']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "$comment":
             # handle may $comment property
             # .'$core'.'$comment'
@@ -132,6 +137,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$core'.'$comment']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$comment']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "$dynamicRef":
             # handle may $dynamicRef property
             # .'$core'.'$dynamicRef'
@@ -140,6 +146,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$dynamicRef']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$dynamicRef']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "$vocabulary":
             # handle may $vocabulary property
             # .'$core'.'$vocabulary'
@@ -148,6 +155,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$core'.'$vocabulary']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$vocabulary']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "$dynamicAnchor":
             # handle may $dynamicAnchor property
             # .'$core'.'$dynamicAnchor'
@@ -156,9 +164,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URI-REFERENCE [.'$core'.'$dynamicAnchor']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$core'.'$dynamicAnchor']", lpath_0 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$core']", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$core']", lpath_0 if path is not None else None))
+        return False
     return True
 
 # check $meta (.'$meta')
@@ -178,10 +186,12 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$meta'.title]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$meta'.title]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "default":
             # handle may default property
             # .'$meta'.default
             res = True
+            continue
         elif prop == "examples":
             # handle may examples property
             # .'$meta'.examples
@@ -190,6 +200,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$meta'.examples]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$meta'.examples]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "readOnly":
             # handle may readOnly property
             # .'$meta'.readOnly
@@ -198,6 +209,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$meta'.readOnly]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$meta'.readOnly]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "writeOnly":
             # handle may writeOnly property
             # .'$meta'.writeOnly
@@ -206,6 +218,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$meta'.writeOnly]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$meta'.writeOnly]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "deprecated":
             # handle may deprecated property
             # .'$meta'.deprecated
@@ -214,6 +227,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$meta'.deprecated]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$meta'.deprecated]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "description":
             # handle may description property
             # .'$meta'.description
@@ -222,9 +236,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$meta'.description]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$meta'.description]", lpath_3 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$meta']", lpath_3 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$meta']", lpath_3 if path is not None else None))
+        return False
     return True
 
 # check $Null (.'$Null')
@@ -296,7 +310,8 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _number [.'$Number'.type]", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Number'.type]", lpath_4 if path is not None else None))
                 return False
-        elif prop == "maximum":
+            continue
+        if prop == "maximum":
             # handle may maximum property
             # .'$Number'.maximum
             # .'$Number'.maximum.'|'.0
@@ -314,6 +329,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.'$Number'.maximum.'|']", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Number'.maximum]", lpath_4 if path is not None else None))
                 return False
+            continue
         elif prop == "minimum":
             # handle may minimum property
             # .'$Number'.minimum
@@ -332,6 +348,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.'$Number'.minimum.'|']", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Number'.minimum]", lpath_4 if path is not None else None))
                 return False
+            continue
         elif prop == "multipleOf":
             # handle may multipleOf property
             # .'$Number'.multipleOf
@@ -350,6 +367,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.'$Number'.multipleOf.'|']", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Number'.multipleOf]", lpath_4 if path is not None else None))
                 return False
+            continue
         elif prop == "exclusiveMaximum":
             # handle may exclusiveMaximum property
             # .'$Number'.exclusiveMaximum
@@ -368,6 +386,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.'$Number'.exclusiveMaximum.'|']", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Number'.exclusiveMaximum]", lpath_4 if path is not None else None))
                 return False
+            continue
         elif prop == "exclusiveMinimum":
             # handle may exclusiveMinimum property
             # .'$Number'.exclusiveMinimum
@@ -386,9 +405,9 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.'$Number'.exclusiveMinimum.'|']", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Number'.exclusiveMinimum]", lpath_4 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Number']", lpath_4 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Number']", lpath_4 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -415,7 +434,8 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _integer [.'$Integer'.type]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Integer'.type]", lpath_5 if path is not None else None))
                 return False
-        elif prop == "maximum":
+            continue
+        if prop == "maximum":
             # handle may maximum property
             # .'$Integer'.maximum
             res = isinstance(pval, int) and not isinstance(pval, bool)
@@ -423,6 +443,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a -1 strict int [.'$Integer'.maximum]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Integer'.maximum]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "minimum":
             # handle may minimum property
             # .'$Integer'.minimum
@@ -431,6 +452,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a -1 strict int [.'$Integer'.minimum]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Integer'.minimum]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "multipleOf":
             # handle may multipleOf property
             # .'$Integer'.multipleOf
@@ -439,6 +461,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 1 strict int [.'$Integer'.multipleOf]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Integer'.multipleOf]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "exclusiveMaximum":
             # handle may exclusiveMaximum property
             # .'$Integer'.exclusiveMaximum
@@ -447,6 +470,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a -1 strict int [.'$Integer'.exclusiveMaximum]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Integer'.exclusiveMaximum]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "exclusiveMinimum":
             # handle may exclusiveMinimum property
             # .'$Integer'.exclusiveMinimum
@@ -455,9 +479,9 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a -1 strict int [.'$Integer'.exclusiveMinimum]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Integer'.exclusiveMinimum]", lpath_5 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Integer']", lpath_5 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Integer']", lpath_5 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -484,7 +508,8 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _string [.'$String'.type]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$String'.type]", lpath_6 if path is not None else None))
                 return False
-        elif prop == "format":
+            continue
+        if prop == "format":
             # handle may format property
             # .'$String'.format
             res = isinstance(pval, str)
@@ -492,6 +517,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$String'.format]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$String'.format]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "pattern":
             # handle may pattern property
             # .'$String'.pattern
@@ -500,6 +526,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $REGEX [.'$String'.pattern]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$String'.pattern]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "maxLength":
             # handle may maxLength property
             # .'$String'.maxLength
@@ -508,6 +535,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$String'.maxLength]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$String'.maxLength]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "minLength":
             # handle may minLength property
             # .'$String'.minLength
@@ -516,6 +544,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$String'.minLength]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$String'.minLength]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "contentSchema":
             # handle may contentSchema property
             # .'$String'.contentSchema
@@ -524,6 +553,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$String'.contentSchema]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$String'.contentSchema]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "contentEncoding":
             # handle may contentEncoding property
             # .'$String'.contentEncoding
@@ -532,6 +562,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$String'.contentEncoding]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$String'.contentEncoding]", lpath_6 if path is not None else None))
                 return False
+            continue
         elif prop == "contentMediaType":
             # handle may contentMediaType property
             # .'$String'.contentMediaType
@@ -540,9 +571,9 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$String'.contentMediaType]", lpath_6 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$String'.contentMediaType]", lpath_6 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$String']", lpath_6 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$String']", lpath_6 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -613,7 +644,8 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _array [.'$Array'.type]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Array'.type]", lpath_7 if path is not None else None))
                 return False
-        elif prop == "items":
+            continue
+        if prop == "items":
             # handle may items property
             # .'$Array'.items
             res = json_model_16(pval, lpath_7 if path is not None else None, rep)
@@ -621,6 +653,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Array'.items]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.items]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "contains":
             # handle may contains property
             # .'$Array'.contains
@@ -629,6 +662,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Array'.contains]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.contains]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "maxItems":
             # handle may maxItems property
             # .'$Array'.maxItems
@@ -637,6 +671,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Array'.maxItems]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.maxItems]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "minItems":
             # handle may minItems property
             # .'$Array'.minItems
@@ -645,6 +680,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Array'.minItems]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.minItems]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "maxContains":
             # handle may maxContains property
             # .'$Array'.maxContains
@@ -653,6 +689,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Array'.maxContains]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.maxContains]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "minContains":
             # handle may minContains property
             # .'$Array'.minContains
@@ -661,6 +698,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Array'.minContains]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.minContains]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "prefixItems":
             # handle may prefixItems property
             # .'$Array'.prefixItems
@@ -669,6 +707,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $schemaArray [.'$Array'.prefixItems]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.prefixItems]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "uniqueItems":
             # handle may uniqueItems property
             # .'$Array'.uniqueItems
@@ -677,6 +716,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a bool [.'$Array'.uniqueItems]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.uniqueItems]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "unevaluatedItems":
             # handle may unevaluatedItems property
             # .'$Array'.unevaluatedItems
@@ -685,9 +725,9 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Array'.unevaluatedItems]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Array'.unevaluatedItems]", lpath_7 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Array']", lpath_7 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Array']", lpath_7 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -782,7 +822,8 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _object [.'$Object'.type]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Object'.type]", lpath_8 if path is not None else None))
                 return False
-        elif prop == "required":
+            continue
+        if prop == "required":
             # handle may required property
             # .'$Object'.required
             res = json_model_10(pval, lpath_8 if path is not None else None, rep)
@@ -790,6 +831,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $stringArray [.'$Object'.required]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.required]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "properties":
             # handle may properties property
             # .'$Object'.properties
@@ -798,6 +840,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$Object'.properties]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.properties]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "maxProperties":
             # handle may maxProperties property
             # .'$Object'.maxProperties
@@ -806,6 +849,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Object'.maxProperties]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.maxProperties]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "minProperties":
             # handle may minProperties property
             # .'$Object'.minProperties
@@ -814,6 +858,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.'$Object'.minProperties]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.minProperties]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "propertyNames":
             # handle may propertyNames property
             # .'$Object'.propertyNames
@@ -822,6 +867,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Object'.propertyNames]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.propertyNames]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "dependentSchemas":
             # handle may dependentSchemas property
             # .'$Object'.dependentSchemas
@@ -830,6 +876,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$Object'.dependentSchemas]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.dependentSchemas]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "dependentRequired":
             # handle may dependentRequired property
             # .'$Object'.dependentRequired
@@ -838,6 +885,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$Object'.dependentRequired]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.dependentRequired]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "patternProperties":
             # handle may patternProperties property
             # .'$Object'.patternProperties
@@ -846,6 +894,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$Object'.patternProperties]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.patternProperties]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "additionalProperties":
             # handle may additionalProperties property
             # .'$Object'.additionalProperties
@@ -854,6 +903,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Object'.additionalProperties]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.additionalProperties]", lpath_8 if path is not None else None))
                 return False
+            continue
         elif prop == "unevaluatedProperties":
             # handle may unevaluatedProperties property
             # .'$Object'.unevaluatedProperties
@@ -862,9 +912,9 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Object'.unevaluatedProperties]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Object'.unevaluatedProperties]", lpath_8 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Object']", lpath_8 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Object']", lpath_8 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -889,6 +939,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Misc'.if]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Misc'.if]", lpath_13 if path is not None else None))
                 return False
+            continue
         elif prop == "not":
             # handle may not property
             # .'$Misc'.not
@@ -897,6 +948,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Misc'.not]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Misc'.not]", lpath_13 if path is not None else None))
                 return False
+            continue
         elif prop == "else":
             # handle may else property
             # .'$Misc'.else
@@ -905,6 +957,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Misc'.else]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Misc'.else]", lpath_13 if path is not None else None))
                 return False
+            continue
         elif prop == "enum":
             # handle may enum property
             # .'$Misc'.enum
@@ -913,6 +966,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$Misc'.enum]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Misc'.enum]", lpath_13 if path is not None else None))
                 return False
+            continue
         elif prop == "then":
             # handle may then property
             # .'$Misc'.then
@@ -921,6 +975,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$Misc'.then]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Misc'.then]", lpath_13 if path is not None else None))
                 return False
+            continue
         elif prop == "allOf":
             # handle may allOf property
             # .'$Misc'.allOf
@@ -929,6 +984,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $schemaArray [.'$Misc'.allOf]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Misc'.allOf]", lpath_13 if path is not None else None))
                 return False
+            continue
         elif prop == "anyOf":
             # handle may anyOf property
             # .'$Misc'.anyOf
@@ -937,10 +993,12 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $schemaArray [.'$Misc'.anyOf]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Misc'.anyOf]", lpath_13 if path is not None else None))
                 return False
+            continue
         elif prop == "const":
             # handle may const property
             # .'$Misc'.const
             res = True
+            continue
         elif prop == "oneOf":
             # handle may oneOf property
             # .'$Misc'.oneOf
@@ -949,9 +1007,9 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $schemaArray [.'$Misc'.oneOf]", lpath_13 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Misc'.oneOf]", lpath_13 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Misc']", lpath_13 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Misc']", lpath_13 if path is not None else None))
+        return False
     return True
 
 # check _jm_obj_6_map_$comment (.'$TightSchema'.'|'.0.'$comment')
@@ -1010,8 +1068,10 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_6_map_default (.'$TightSchema'.'|'.0.default)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.0.default
-    return True
+    res = True
+    return res
 
 # check _jm_obj_6_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1081,14 +1141,15 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _null [.'$TightSchema'.'|'.0.type]", lpath_14 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$TightSchema'.'|'.0.type]", lpath_14 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_6_map.get(prop):
+            continue
+        if pfun := _jm_obj_6_map.get(prop):
             # handle 16 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_14 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$TightSchema'.'|'.0]", lpath_14 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.0]", lpath_14 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.0]", lpath_14 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -1152,8 +1213,10 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_7_map_default (.'$TightSchema'.'|'.1.default)
 def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.1.default
-    return True
+    res = True
+    return res
 
 # check _jm_obj_7_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
 def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1223,14 +1286,15 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _boolean [.'$TightSchema'.'|'.1.type]", lpath_17 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$TightSchema'.'|'.1.type]", lpath_17 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_7_map.get(prop):
+            continue
+        if pfun := _jm_obj_7_map.get(prop):
             # handle 16 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_17 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$TightSchema'.'|'.1]", lpath_17 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.1]", lpath_17 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.1]", lpath_17 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -1294,8 +1358,10 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_8_map_default (.'$TightSchema'.'|'.2.default)
 def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.2.default
-    return True
+    res = True
+    return res
 
 # check _jm_obj_8_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
 def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1455,14 +1521,15 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _number [.'$TightSchema'.'|'.2.type]", lpath_20 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$TightSchema'.'|'.2.type]", lpath_20 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_8_map.get(prop):
+            continue
+        if pfun := _jm_obj_8_map.get(prop):
             # handle 21 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_20 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$TightSchema'.'|'.2]", lpath_20 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.2]", lpath_20 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.2]", lpath_20 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -1526,8 +1593,10 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_9_map_default (.'$TightSchema'.'|'.3.default)
 def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.3.default
-    return True
+    res = True
+    return res
 
 # check _jm_obj_9_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
 def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1637,14 +1706,15 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _integer [.'$TightSchema'.'|'.3.type]", lpath_23 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$TightSchema'.'|'.3.type]", lpath_23 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_9_map.get(prop):
+            continue
+        if pfun := _jm_obj_9_map.get(prop):
             # handle 21 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_23 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$TightSchema'.'|'.3]", lpath_23 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.3]", lpath_23 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.3]", lpath_23 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -1724,8 +1794,10 @@ def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_10_map_default (.'$TightSchema'.'|'.4.default)
 def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.4.default
-    return True
+    res = True
+    return res
 
 # check _jm_obj_10_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
 def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1827,14 +1899,15 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _string [.'$TightSchema'.'|'.4.type]", lpath_26 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$TightSchema'.'|'.4.type]", lpath_26 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_10_map.get(prop):
+            continue
+        if pfun := _jm_obj_10_map.get(prop):
             # handle 23 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_26 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$TightSchema'.'|'.4]", lpath_26 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.4]", lpath_26 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.4]", lpath_26 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -1898,8 +1971,10 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_11_map_default (.'$TightSchema'.'|'.5.default)
 def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.5.default
-    return True
+    res = True
+    return res
 
 # check _jm_obj_11_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
 def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2009,14 +2084,15 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _array [.'$TightSchema'.'|'.5.type]", lpath_29 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$TightSchema'.'|'.5.type]", lpath_29 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_11_map.get(prop):
+            continue
+        if pfun := _jm_obj_11_map.get(prop):
             # handle 25 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_29 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$TightSchema'.'|'.5]", lpath_29 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.5]", lpath_29 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.5]", lpath_29 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -2080,8 +2156,10 @@ def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_12_map_default (.'$TightSchema'.'|'.6.default)
 def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.6.default
-    return True
+    res = True
+    return res
 
 # check _jm_obj_12_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
 def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2239,14 +2317,15 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _object [.'$TightSchema'.'|'.6.type]", lpath_32 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$TightSchema'.'|'.6.type]", lpath_32 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_12_map.get(prop):
+            continue
+        if pfun := _jm_obj_12_map.get(prop):
             # handle 26 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_32 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$TightSchema'.'|'.6]", lpath_32 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.6]", lpath_32 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.6]", lpath_32 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "type" in val:
@@ -2310,13 +2389,17 @@ def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_13_map_const (.'$TightSchema'.'|'.7.const)
 def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.7.const
-    return True
+    res = True
+    return res
 
 # check _jm_obj_13_map_default (.'$TightSchema'.'|'.7.default)
 def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
     # .'$TightSchema'.'|'.7.default
-    return True
+    res = True
+    return res
 
 # check _jm_obj_13_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
 def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2388,9 +2471,9 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_39 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$TightSchema'.'|'.7]", lpath_39 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.7]", lpath_39 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$TightSchema'.'|'.7]", lpath_39 if path is not None else None))
+        return False
     return True
 
 

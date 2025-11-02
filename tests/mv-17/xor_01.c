@@ -42,12 +42,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'^'.1.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'^'.1]", (path ? &lpath_0 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'^'.1]", (path ? &lpath_0 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -77,8 +75,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (rep) jm_report_add_entry(rep, "unexpected element [.'^'.1]", path);
     }
+    res = ! is_0;
+    res = false;
     if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
-    return false;
+    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

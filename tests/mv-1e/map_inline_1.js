@@ -38,6 +38,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.mu1]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "mu2")
         {
@@ -51,6 +52,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.mu2]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "mu3")
         {
@@ -64,8 +66,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.mu3]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "ma1")
+        if (prop == "ma1")
         {
             // handle may ma1 property
             // .ma1
@@ -76,6 +79,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.ma1]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "ma2")
         {
@@ -88,6 +92,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.ma2]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "ma3")
         {
@@ -100,12 +105,10 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.ma3]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
+        return false;
     }
     if (must_count != 3)
     {

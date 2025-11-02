@@ -74,8 +74,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.foo]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x00616c62)))
+        if (unlikely(jm_str_eq_4(prop, 0x00616c62)))
         {
             // handle may bla property
             // .bla
@@ -86,8 +87,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.bla]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep)))
+        if (unlikely(jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep)))
         {
             // handle 1 key props
             // .'$Xxx'

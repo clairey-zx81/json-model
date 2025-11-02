@@ -152,6 +152,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'version')
         {
@@ -163,8 +164,9 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'docfile')
+        if ($prop eq 'docfile')
         {
             # handle may docfile property
             # .'$Provide'.docfile
@@ -173,6 +175,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'abstract')
         {
@@ -183,8 +186,9 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (_jm_re_1($prop, undef, undef))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Provide'.'/^[Xx]_/'
@@ -228,6 +232,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'mailto')
         {
@@ -238,8 +243,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (_jm_re_1($prop, undef, undef))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'$Resources'.bugtracker.'/^[Xx]_/'
@@ -274,6 +280,7 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'web')
         {
@@ -284,6 +291,7 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'type')
         {
@@ -295,11 +303,9 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -326,6 +332,7 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'bugtracker')
         {
@@ -336,6 +343,7 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'repository')
         {
@@ -346,11 +354,9 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -599,8 +605,9 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'url')
+        if ($prop eq 'url')
         {
             # handle may url property
             # .'meta-spec'.url
@@ -609,8 +616,9 @@ sub _jm_obj_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (_jm_re_1($prop, undef, undef))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'meta-spec'.'/^[Xx]_/'
@@ -645,6 +653,7 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'directory')
         {
@@ -655,11 +664,9 @@ sub _jm_obj_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -688,6 +695,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'license')
         {
@@ -702,6 +710,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'version')
         {
@@ -713,6 +722,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'abstract')
         {
@@ -724,6 +734,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'provides')
         {
@@ -735,6 +746,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'meta-spec')
         {
@@ -746,6 +758,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'maintainer')
         {
@@ -759,8 +772,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'url')
+        if ($prop eq 'url')
         {
             # handle may url property
             # .url
@@ -769,6 +783,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'tags')
         {
@@ -779,6 +794,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'prereqs')
         {
@@ -789,6 +805,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'no_index')
         {
@@ -799,6 +816,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'resources')
         {
@@ -809,6 +827,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'description')
         {
@@ -819,6 +838,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'generated_by')
         {
@@ -829,6 +849,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'release_status')
         {
@@ -839,8 +860,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (_jm_re_1($prop, undef, undef))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 1 re props
             # .'/^[Xx]_/'

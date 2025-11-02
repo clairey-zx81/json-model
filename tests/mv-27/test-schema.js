@@ -43,6 +43,7 @@ function json_model_3(val, path, rep)
             must_count += 1;
             // .'$Test'.data
             res = true;
+            continue;
         }
         else if (prop == "valid")
         {
@@ -54,6 +55,7 @@ function json_model_3(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -65,8 +67,9 @@ function json_model_3(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else if (prop == "comment")
+        if (prop == "comment")
         {
             // handle may comment property
             // .'$Test'.comment
@@ -75,11 +78,9 @@ function json_model_3(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     return must_count == 3;
 }
@@ -107,6 +108,7 @@ function _jm_obj_0(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "perl5")
         {
@@ -117,6 +119,7 @@ function _jm_obj_0(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "quote")
         {
@@ -127,6 +130,7 @@ function _jm_obj_0(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "ecma262")
         {
@@ -137,6 +141,7 @@ function _jm_obj_0(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "validation")
         {
@@ -147,8 +152,9 @@ function _jm_obj_0(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else if (_jm_re_1(prop, null, null))
+        if (_jm_re_1(prop, null, null))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
@@ -231,6 +237,7 @@ function json_model_5(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "schema")
         {
@@ -238,6 +245,7 @@ function json_model_5(val, path, rep)
             must_count += 1;
             // .'$TestCase'.schema
             res = true;
+            continue;
         }
         else if (prop == "description")
         {
@@ -249,8 +257,9 @@ function json_model_5(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else if (prop == "comment")
+        if (prop == "comment")
         {
             // handle may comment property
             // .'$TestCase'.comment
@@ -259,6 +268,7 @@ function json_model_5(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "specification")
         {
@@ -288,11 +298,9 @@ function json_model_5(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     return must_count == 3;
 }

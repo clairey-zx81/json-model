@@ -70,8 +70,9 @@ public class ex_09 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ex09'.'#']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (rt.is_valid_url(prop))
+            if (rt.is_valid_url(prop))
             {
                 // handle 1 key props
                 // .'$Ex09'.'$URL'

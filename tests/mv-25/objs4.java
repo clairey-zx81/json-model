@@ -102,6 +102,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f1") == 0)
             {
@@ -112,6 +113,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f2") == 0)
             {
@@ -122,6 +124,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f3") == 0)
             {
@@ -132,6 +135,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f4") == 0)
             {
@@ -142,6 +146,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f5") == 0)
             {
@@ -152,6 +157,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f6") == 0)
             {
@@ -162,6 +168,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f7") == 0)
             {
@@ -172,6 +179,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f8") == 0)
             {
@@ -182,6 +190,7 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("f9") == 0)
             {
@@ -192,11 +201,9 @@ public class objs4 extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         return true;
     }

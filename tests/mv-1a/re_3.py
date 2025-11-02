@@ -43,6 +43,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /./s [.nz]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.nz]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "all":
             # handle may all property
             # .all
@@ -52,6 +53,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /.*/ [.all]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.all]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "some":
             # handle may some property
             # .some
@@ -61,9 +63,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /./ [.some]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.some]", lpath_0 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
+        return False
     return True
 
 

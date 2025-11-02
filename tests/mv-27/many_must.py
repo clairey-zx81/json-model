@@ -148,8 +148,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 must_count += 1
                 if not pfun(pval, None, None):
                     return False
-        else:
-            return False
+                continue
+        return False
     return must_count == 22
 
 

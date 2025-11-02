@@ -150,6 +150,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Point'.type]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "coordinates")
         {
@@ -163,8 +164,9 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Point'.coordinates]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "bbox")
+        if (prop == "bbox")
         {
             // handle may bbox property
             // .'$Point'.bbox
@@ -190,12 +192,10 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Point'.bbox]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Point']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Point']", (path ? lpath_0 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -241,6 +241,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$MultiPoint'.type]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "coordinates")
         {
@@ -269,8 +270,9 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$MultiPoint'.coordinates]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "bbox")
+        if (prop == "bbox")
         {
             // handle may bbox property
             // .'$MultiPoint'.bbox
@@ -296,12 +298,10 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$MultiPoint'.bbox]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$MultiPoint']", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$MultiPoint']", (path ? lpath_1 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -347,6 +347,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$LineString'.type]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "coordinates")
         {
@@ -360,8 +361,9 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$LineString'.coordinates]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "bbox")
+        if (prop == "bbox")
         {
             // handle may bbox property
             // .'$LineString'.bbox
@@ -387,12 +389,10 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$LineString'.bbox]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$LineString']", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$LineString']", (path ? lpath_2 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -438,6 +438,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$MultiLineString'.type]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "coordinates")
         {
@@ -466,8 +467,9 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$MultiLineString'.coordinates]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "bbox")
+        if (prop == "bbox")
         {
             // handle may bbox property
             // .'$MultiLineString'.bbox
@@ -493,12 +495,10 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$MultiLineString'.bbox]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$MultiLineString']", (path ? lpath_3 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$MultiLineString']", (path ? lpath_3 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -544,6 +544,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Polygon'.type]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "coordinates")
         {
@@ -572,8 +573,9 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Polygon'.coordinates]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "bbox")
+        if (prop == "bbox")
         {
             // handle may bbox property
             // .'$Polygon'.bbox
@@ -599,12 +601,10 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Polygon'.bbox]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Polygon']", (path ? lpath_4 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Polygon']", (path ? lpath_4 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -650,6 +650,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$MultiPolygon'.type]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "coordinates")
         {
@@ -693,8 +694,9 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$MultiPolygon'.coordinates]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "bbox")
+        if (prop == "bbox")
         {
             // handle may bbox property
             // .'$MultiPolygon'.bbox
@@ -720,12 +722,10 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$MultiPolygon'.bbox]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$MultiPolygon']", (path ? lpath_5 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$MultiPolygon']", (path ? lpath_5 : null)])
+        return false;
     }
     if (must_count != 2)
     {

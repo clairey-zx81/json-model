@@ -43,7 +43,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF jm_is_valid_url(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF jm_is_valid_url(prop, NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Ex09'.'$URL'
       res := json_model_6(pval, NULL, NULL);

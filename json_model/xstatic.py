@@ -849,13 +849,9 @@ class CodeGenerator:
                                 self._gen_fail(
                                     f"invalid mandatory prop value [{json_path(mpath + [p])}]",
                                     lpath_ref),
-                                likely=False
-                            )
+                                likely=False) +
+                            gen.cont()
                         )
-
-                        # underpartitioning there is no global multi-if
-                        if partitioned:
-                            mu_code += gen.cont()
 
                         part_mif[part] += [(mu_expr, likely, mu_code)]
 
@@ -868,7 +864,7 @@ class CodeGenerator:
                     )
                 else:
                     # accumulate in global multi_if
-                    multi_if += part_mif[255]
+                    body_code += gen.mif_stmt(part_mif[255])
 
             else:  # generic code with a map above threshold
 
@@ -886,8 +882,8 @@ class CodeGenerator:
                     gen.inc_var(must_c) +
                     gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True)),
                         self._gen_fail(f"invalid mandatory prop value [{smpath}]", lpath_ref),
-                        likely=False
-                    )
+                        likely=False) +
+                    gen.cont()
                 )
 
                 # use map
@@ -905,7 +901,7 @@ class CodeGenerator:
                         mu_prop_code
                     )
 
-                multi_if += [(mu_expr, likely, mu_code)]
+                body_code += gen.mif_stmt([(mu_expr, likely, mu_code)])
 
         if may:
 
@@ -960,16 +956,16 @@ class CodeGenerator:
                                 self._gen_fail(
                                     f"invalid optional prop value [{json_path(mpath + [p])}]",
                                     lpath_ref),
-                                likely=False
-                            )
+                                likely=False)
                         )
 
                         # shortcut on expecting only one may prop and no other checks needed
                         if len(must) == 0 and len(may) == 1 and len(regs) == 0 and len(defs) == 0:
                             if oth == {"": "$ANY"}:
                                 ma_code += gen.ret(gen.const(True))
-
-                        if partitioned:
+                            else:
+                                ma_code += gen.cont()
+                        else:
                             ma_code += gen.cont()
 
                         part_mif[part] += [(ma_expr, likely, ma_code)]
@@ -985,7 +981,8 @@ class CodeGenerator:
                     )
                 else:
                     # accumulate in global multi_if
-                    multi_if += part_mif[255]
+                    # multi_if += part_mif[255]
+                    body_code += gen.mif_stmt(part_mif[255])
 
             else:  # generic code
 
@@ -1006,8 +1003,8 @@ class CodeGenerator:
                             gen.and_op(gen.is_def(pfun),
                                 gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True))),
                             self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref),
-                            likely=False
-                        )
+                            likely=False) +
+                        gen.cont()
                     )
                 else:
                     ma_expr = gen.has_prop_fun(prop, prop_may)
@@ -1017,11 +1014,12 @@ class CodeGenerator:
                         gen.if_stmt(
                             gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True)),
                             self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref),
-                            likely=False
-                        )
+                            likely=False) +
+                        gen.cont()
                     )
 
-                multi_if += [(ma_expr, likely, ma_code)]
+                # multi_if += [(ma_expr, likely, ma_code)]
+                body_code += gen.mif_stmt([(ma_expr, likely, ma_code)])
 
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.items():
@@ -1903,9 +1901,12 @@ def xstatic_compile(
     }
     if partition_threshold is None:
         partition_threshold = PARTITION_THRESHOLD.get(lang, 0)
+    if partition_threshold and lang not in PARTITION_THRESHOLD:
+        log.warning(f"partitioning not implemented for {lang}, ignoring")
+        partition_threshold = 0
 
-    log.warning(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
-                f"mo={must_only_threshold} pt={partition_threshold}")
+    log.info(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
+             f"mo={must_only_threshold} pt={partition_threshold}")
 
     # target language
     if lang == "py":

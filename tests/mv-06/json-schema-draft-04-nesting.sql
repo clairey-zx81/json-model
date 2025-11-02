@@ -375,13 +375,13 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- handle other props
-      -- .'$schema'.''
-      res := json_model_3(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      CONTINUE;
+    END IF;
+    -- handle other props
+    -- .'$schema'.''
+    res := json_model_3(pval, NULL, NULL);
+    IF NOT res THEN
+      RETURN FALSE;
     END IF;
   END LOOP;
   RETURN TRUE;

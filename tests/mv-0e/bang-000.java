@@ -48,6 +48,7 @@ public class bang_000 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'!']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("/") == 0)
             {
@@ -61,6 +62,7 @@ public class bang_000 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'/']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("?") == 0)
             {
@@ -74,6 +76,7 @@ public class bang_000 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'?']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("_") == 0)
             {
@@ -87,6 +90,7 @@ public class bang_000 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [._]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("a") == 0)
             {
@@ -100,8 +104,9 @@ public class bang_000 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("b") == 0)
+            if (prop.compareTo("b") == 0)
             {
                 // handle may b property
                 // .b
@@ -112,12 +117,10 @@ public class bang_000 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
+            return false;
         }
         if (must_count != 5)
         {

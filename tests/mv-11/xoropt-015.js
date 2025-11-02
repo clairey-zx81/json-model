@@ -138,8 +138,9 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ee'.'|'.1.Y]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "Z")
+        if (prop == "Z")
         {
             // handle may Z property
             // .'$Ee'.'|'.1.Z
@@ -150,12 +151,10 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ee'.'|'.1.Z]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Ee'.'|'.1]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Ee'.'|'.1]", (path ? lpath_0 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -196,8 +195,9 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ee'.'|'.0.X]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "Z")
+        if (prop == "Z")
         {
             // handle may Z property
             // .'$Ee'.'|'.0.Z
@@ -208,12 +208,10 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ee'.'|'.0.Z]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Ee'.'|'.0]", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Ee'.'|'.0]", (path ? lpath_1 : null)])
+        return false;
     }
     if (must_count != 1)
     {

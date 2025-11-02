@@ -118,6 +118,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AIXPlatformModel'.name]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -148,12 +149,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AIXPlatformModel'.versions]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AIXPlatformModel']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$AIXPlatformModel']", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }
@@ -185,6 +184,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AlpinePlatformModel'.name]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -215,12 +215,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AlpinePlatformModel'.versions]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AlpinePlatformModel']", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$AlpinePlatformModel']", (path != null ? lpath_1 : null));
+            return false;
         }
         return true;
     }
@@ -253,6 +251,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonLinuxPlatformModel'.name]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -283,12 +282,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonLinuxPlatformModel'.versions]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AmazonLinuxPlatformModel']", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$AmazonLinuxPlatformModel']", (path != null ? lpath_2 : null));
+            return false;
         }
         return true;
     }
@@ -321,6 +318,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonPlatformModel'.name]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -351,12 +349,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonPlatformModel'.versions]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AmazonPlatformModel']", (path != null ? lpath_3 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$AmazonPlatformModel']", (path != null ? lpath_3 : null));
+            return false;
         }
         return true;
     }
@@ -388,6 +384,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ArchLinuxPlatformModel'.name]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -418,12 +415,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ArchLinuxPlatformModel'.versions]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$ArchLinuxPlatformModel']", (path != null ? lpath_4 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$ArchLinuxPlatformModel']", (path != null ? lpath_4 : null));
+            return false;
         }
         return true;
     }
@@ -456,6 +451,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AstraLinuxPlatformModel'.name]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -486,12 +482,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AstraLinuxPlatformModel'.versions]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AstraLinuxPlatformModel']", (path != null ? lpath_5 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$AstraLinuxPlatformModel']", (path != null ? lpath_5 : null));
+            return false;
         }
         return true;
     }
@@ -523,6 +517,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ClearLinuxPlatformModel'.name]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -553,12 +548,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ClearLinuxPlatformModel'.versions]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$ClearLinuxPlatformModel']", (path != null ? lpath_6 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$ClearLinuxPlatformModel']", (path != null ? lpath_6 : null));
+            return false;
         }
         return true;
     }
@@ -591,6 +584,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$CumulusPlatformModel'.name]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -621,12 +615,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$CumulusPlatformModel'.versions]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$CumulusPlatformModel']", (path != null ? lpath_7 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$CumulusPlatformModel']", (path != null ? lpath_7 : null));
+            return false;
         }
         return true;
     }
@@ -659,6 +651,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DebianPlatformModel'.name]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -689,12 +682,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DebianPlatformModel'.versions]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$DebianPlatformModel']", (path != null ? lpath_8 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$DebianPlatformModel']", (path != null ? lpath_8 : null));
+            return false;
         }
         return true;
     }
@@ -727,6 +718,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DellOSPlatformModel'.name]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -757,12 +749,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DellOSPlatformModel'.versions]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$DellOSPlatformModel']", (path != null ? lpath_9 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$DellOSPlatformModel']", (path != null ? lpath_9 : null));
+            return false;
         }
         return true;
     }
@@ -795,6 +785,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DevuanPlatformModel'.name]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -825,12 +816,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DevuanPlatformModel'.versions]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$DevuanPlatformModel']", (path != null ? lpath_10 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$DevuanPlatformModel']", (path != null ? lpath_10 : null));
+            return false;
         }
         return true;
     }
@@ -863,6 +852,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DragonFlyBSDPlatformModel'.name]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -893,12 +883,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DragonFlyBSDPlatformModel'.versions]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$DragonFlyBSDPlatformModel']", (path != null ? lpath_11 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$DragonFlyBSDPlatformModel']", (path != null ? lpath_11 : null));
+            return false;
         }
         return true;
     }
@@ -931,6 +919,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ELPlatformModel'.name]", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -961,12 +950,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ELPlatformModel'.versions]", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$ELPlatformModel']", (path != null ? lpath_12 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$ELPlatformModel']", (path != null ? lpath_12 : null));
+            return false;
         }
         return true;
     }
@@ -999,6 +986,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FedoraPlatformModel'.name]", (path != null ? lpath_13 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1029,12 +1017,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FedoraPlatformModel'.versions]", (path != null ? lpath_13 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$FedoraPlatformModel']", (path != null ? lpath_13 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$FedoraPlatformModel']", (path != null ? lpath_13 : null));
+            return false;
         }
         return true;
     }
@@ -1067,6 +1053,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FreeBSDPlatformModel'.name]", (path != null ? lpath_14 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1097,12 +1084,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FreeBSDPlatformModel'.versions]", (path != null ? lpath_14 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$FreeBSDPlatformModel']", (path != null ? lpath_14 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$FreeBSDPlatformModel']", (path != null ? lpath_14 : null));
+            return false;
         }
         return true;
     }
@@ -1134,6 +1119,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericBSDPlatformModel'.name]", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1164,12 +1150,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericBSDPlatformModel'.versions]", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GenericBSDPlatformModel']", (path != null ? lpath_15 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GenericBSDPlatformModel']", (path != null ? lpath_15 : null));
+            return false;
         }
         return true;
     }
@@ -1201,6 +1185,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericLinuxPlatformModel'.name]", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1231,12 +1216,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericLinuxPlatformModel'.versions]", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GenericLinuxPlatformModel']", (path != null ? lpath_16 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GenericLinuxPlatformModel']", (path != null ? lpath_16 : null));
+            return false;
         }
         return true;
     }
@@ -1268,6 +1251,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericUNIXPlatformModel'.name]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1298,12 +1282,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericUNIXPlatformModel'.versions]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GenericUNIXPlatformModel']", (path != null ? lpath_17 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GenericUNIXPlatformModel']", (path != null ? lpath_17 : null));
+            return false;
         }
         return true;
     }
@@ -1335,6 +1317,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GentooPlatformModel'.name]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1365,12 +1348,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GentooPlatformModel'.versions]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GentooPlatformModel']", (path != null ? lpath_18 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GentooPlatformModel']", (path != null ? lpath_18 : null));
+            return false;
         }
         return true;
     }
@@ -1403,6 +1384,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$HardenedBSDPlatformModel'.name]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1433,12 +1415,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$HardenedBSDPlatformModel'.versions]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$HardenedBSDPlatformModel']", (path != null ? lpath_19 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$HardenedBSDPlatformModel']", (path != null ? lpath_19 : null));
+            return false;
         }
         return true;
     }
@@ -1470,6 +1450,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$IOSPlatformModel'.name]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1500,12 +1481,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$IOSPlatformModel'.versions]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$IOSPlatformModel']", (path != null ? lpath_20 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$IOSPlatformModel']", (path != null ? lpath_20 : null));
+            return false;
         }
         return true;
     }
@@ -1537,6 +1516,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$JunosPlatformModel'.name]", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1567,12 +1547,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$JunosPlatformModel'.versions]", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$JunosPlatformModel']", (path != null ? lpath_21 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$JunosPlatformModel']", (path != null ? lpath_21 : null));
+            return false;
         }
         return true;
     }
@@ -1605,6 +1583,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$KaliPlatformModel'.name]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1635,12 +1614,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$KaliPlatformModel'.versions]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$KaliPlatformModel']", (path != null ? lpath_22 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$KaliPlatformModel']", (path != null ? lpath_22 : null));
+            return false;
         }
         return true;
     }
@@ -1673,6 +1650,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MacOSXPlatformModel'.name]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1703,12 +1681,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MacOSXPlatformModel'.versions]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$MacOSXPlatformModel']", (path != null ? lpath_23 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$MacOSXPlatformModel']", (path != null ? lpath_23 : null));
+            return false;
         }
         return true;
     }
@@ -1741,6 +1717,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MageiaPlatformModel'.name]", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1771,12 +1748,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MageiaPlatformModel'.versions]", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$MageiaPlatformModel']", (path != null ? lpath_24 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$MageiaPlatformModel']", (path != null ? lpath_24 : null));
+            return false;
         }
         return true;
     }
@@ -1808,6 +1783,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NXOSPlatformModel'.name]", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1838,12 +1814,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NXOSPlatformModel'.versions]", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$NXOSPlatformModel']", (path != null ? lpath_25 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$NXOSPlatformModel']", (path != null ? lpath_25 : null));
+            return false;
         }
         return true;
     }
@@ -1876,6 +1850,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NetBSDPlatformModel'.name]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1906,12 +1881,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NetBSDPlatformModel'.versions]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$NetBSDPlatformModel']", (path != null ? lpath_26 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$NetBSDPlatformModel']", (path != null ? lpath_26 : null));
+            return false;
         }
         return true;
     }
@@ -1944,6 +1917,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenBSDPlatformModel'.name]", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -1974,12 +1948,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenBSDPlatformModel'.versions]", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$OpenBSDPlatformModel']", (path != null ? lpath_27 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$OpenBSDPlatformModel']", (path != null ? lpath_27 : null));
+            return false;
         }
         return true;
     }
@@ -2012,6 +1984,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenWrtPlatformModel'.name]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2042,12 +2015,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenWrtPlatformModel'.versions]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$OpenWrtPlatformModel']", (path != null ? lpath_28 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$OpenWrtPlatformModel']", (path != null ? lpath_28 : null));
+            return false;
         }
         return true;
     }
@@ -2080,6 +2051,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OracleLinuxPlatformModel'.name]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2110,12 +2082,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OracleLinuxPlatformModel'.versions]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$OracleLinuxPlatformModel']", (path != null ? lpath_29 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$OracleLinuxPlatformModel']", (path != null ? lpath_29 : null));
+            return false;
         }
         return true;
     }
@@ -2148,6 +2118,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$PAN-OSPlatformModel'.name]", (path != null ? lpath_30 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2178,12 +2149,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$PAN-OSPlatformModel'.versions]", (path != null ? lpath_30 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$PAN-OSPlatformModel']", (path != null ? lpath_30 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$PAN-OSPlatformModel']", (path != null ? lpath_30 : null));
+            return false;
         }
         return true;
     }
@@ -2216,6 +2185,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RockyLinuxPlatformModel'.name]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2246,12 +2216,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RockyLinuxPlatformModel'.versions]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$RockyLinuxPlatformModel']", (path != null ? lpath_31 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$RockyLinuxPlatformModel']", (path != null ? lpath_31 : null));
+            return false;
         }
         return true;
     }
@@ -2284,6 +2252,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SLESPlatformModel'.name]", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2314,12 +2283,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SLESPlatformModel'.versions]", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SLESPlatformModel']", (path != null ? lpath_32 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SLESPlatformModel']", (path != null ? lpath_32 : null));
+            return false;
         }
         return true;
     }
@@ -2351,6 +2318,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SmartOSPlatformModel'.name]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2381,12 +2349,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SmartOSPlatformModel'.versions]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SmartOSPlatformModel']", (path != null ? lpath_33 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SmartOSPlatformModel']", (path != null ? lpath_33 : null));
+            return false;
         }
         return true;
     }
@@ -2419,6 +2385,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SolarisPlatformModel'.name]", (path != null ? lpath_34 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2449,12 +2416,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SolarisPlatformModel'.versions]", (path != null ? lpath_34 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SolarisPlatformModel']", (path != null ? lpath_34 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SolarisPlatformModel']", (path != null ? lpath_34 : null));
+            return false;
         }
         return true;
     }
@@ -2487,6 +2452,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SynologyPlatformModel'.name]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2517,12 +2483,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SynologyPlatformModel'.versions]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SynologyPlatformModel']", (path != null ? lpath_35 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SynologyPlatformModel']", (path != null ? lpath_35 : null));
+            return false;
         }
         return true;
     }
@@ -2555,6 +2519,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$TMOSPlatformModel'.name]", (path != null ? lpath_36 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2585,12 +2550,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$TMOSPlatformModel'.versions]", (path != null ? lpath_36 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$TMOSPlatformModel']", (path != null ? lpath_36 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$TMOSPlatformModel']", (path != null ? lpath_36 : null));
+            return false;
         }
         return true;
     }
@@ -2623,6 +2586,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$UbuntuPlatformModel'.name]", (path != null ? lpath_37 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2653,12 +2617,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$UbuntuPlatformModel'.versions]", (path != null ? lpath_37 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$UbuntuPlatformModel']", (path != null ? lpath_37 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$UbuntuPlatformModel']", (path != null ? lpath_37 : null));
+            return false;
         }
         return true;
     }
@@ -2690,6 +2652,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Void_LinuxPlatformModel'.name]", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2720,12 +2683,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Void_LinuxPlatformModel'.versions]", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Void_LinuxPlatformModel']", (path != null ? lpath_38 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Void_LinuxPlatformModel']", (path != null ? lpath_38 : null));
+            return false;
         }
         return true;
     }
@@ -2758,6 +2719,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$WindowsPlatformModel'.name]", (path != null ? lpath_39 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2788,12 +2750,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$WindowsPlatformModel'.versions]", (path != null ? lpath_39 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$WindowsPlatformModel']", (path != null ? lpath_39 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$WindowsPlatformModel']", (path != null ? lpath_39 : null));
+            return false;
         }
         return true;
     }
@@ -2825,6 +2785,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$aosPlatformModel'.name]", (path != null ? lpath_40 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2855,12 +2816,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$aosPlatformModel'.versions]", (path != null ? lpath_40 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$aosPlatformModel']", (path != null ? lpath_40 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$aosPlatformModel']", (path != null ? lpath_40 : null));
+            return false;
         }
         return true;
     }
@@ -2892,6 +2851,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$eosPlatformModel'.name]", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2922,12 +2882,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$eosPlatformModel'.versions]", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$eosPlatformModel']", (path != null ? lpath_41 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$eosPlatformModel']", (path != null ? lpath_41 : null));
+            return false;
         }
         return true;
     }
@@ -2960,6 +2918,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$macOSPlatformModel'.name]", (path != null ? lpath_42 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -2990,12 +2949,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$macOSPlatformModel'.versions]", (path != null ? lpath_42 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$macOSPlatformModel']", (path != null ? lpath_42 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$macOSPlatformModel']", (path != null ? lpath_42 : null));
+            return false;
         }
         return true;
     }
@@ -3028,6 +2985,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$opensusePlatformModel'.name]", (path != null ? lpath_43 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -3058,12 +3016,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$opensusePlatformModel'.versions]", (path != null ? lpath_43 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$opensusePlatformModel']", (path != null ? lpath_43 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$opensusePlatformModel']", (path != null ? lpath_43 : null));
+            return false;
         }
         return true;
     }
@@ -3095,6 +3051,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$os10PlatformModel'.name]", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -3125,12 +3082,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$os10PlatformModel'.versions]", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$os10PlatformModel']", (path != null ? lpath_44 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$os10PlatformModel']", (path != null ? lpath_44 : null));
+            return false;
         }
         return true;
     }
@@ -3163,6 +3118,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vCenterPlatformModel'.name]", (path != null ? lpath_45 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -3193,12 +3149,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vCenterPlatformModel'.versions]", (path != null ? lpath_45 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$vCenterPlatformModel']", (path != null ? lpath_45 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$vCenterPlatformModel']", (path != null ? lpath_45 : null));
+            return false;
         }
         return true;
     }
@@ -3231,6 +3185,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vSpherePlatformModel'.name]", (path != null ? lpath_46 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("versions") == 0)
             {
@@ -3261,12 +3216,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vSpherePlatformModel'.versions]", (path != null ? lpath_46 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$vSpherePlatformModel']", (path != null ? lpath_46 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$vSpherePlatformModel']", (path != null ? lpath_46 : null));
+            return false;
         }
         return true;
     }
@@ -6920,6 +6873,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("platforms") == 0)
             {
@@ -6932,6 +6886,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("role_name") == 0)
             {
@@ -6945,6 +6900,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("galaxy_tags") == 0)
             {
@@ -6975,6 +6931,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("video_links") == 0)
             {
@@ -6987,12 +6944,14 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("cloud_platforms") == 0)
             {
                 // handle may cloud_platforms property
                 // .'$GalaxyInfoModelCollection'.cloud_platforms
                 res = true;
+                continue;
             }
             else if (prop.compareTo("min_ansible_version") == 0)
             {
@@ -7005,12 +6964,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelCollection']", (path != null ? lpath_47 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelCollection']", (path != null ? lpath_47 : null));
+            return false;
         }
         return true;
     }
@@ -7045,8 +7002,9 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("author") == 0)
+            if (prop.compareTo("author") == 0)
             {
                 // handle may author property
                 // .'$GalaxyInfoModelLoose'.author
@@ -7057,6 +7015,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("company") == 0)
             {
@@ -7069,6 +7028,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("license") == 0)
             {
@@ -7081,6 +7041,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("github_branch") == 0)
             {
@@ -7093,6 +7054,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("issue_tracker_url") == 0)
             {
@@ -7105,6 +7067,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("min_ansible_container_version") == 0)
             {
@@ -7117,12 +7080,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelLoose']", (path != null ? lpath_48 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelLoose']", (path != null ? lpath_48 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -7167,6 +7128,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("license") == 0)
             {
@@ -7180,6 +7142,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("standalone") == 0)
             {
@@ -7193,6 +7156,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -7206,6 +7170,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("min_ansible_version") == 0)
             {
@@ -7219,8 +7184,9 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("company") == 0)
+            if (prop.compareTo("company") == 0)
             {
                 // handle may company property
                 // .'$GalaxyInfoModelStandalone'.company
@@ -7231,6 +7197,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("namespace") == 0)
             {
@@ -7244,6 +7211,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.namespace]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("platforms") == 0)
             {
@@ -7256,6 +7224,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.platforms]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("role_name") == 0)
             {
@@ -7269,6 +7238,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.role_name]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("galaxy_tags") == 0)
             {
@@ -7299,6 +7269,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.galaxy_tags]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("video_links") == 0)
             {
@@ -7311,6 +7282,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.video_links]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("github_branch") == 0)
             {
@@ -7323,12 +7295,14 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("cloud_platforms") == 0)
             {
                 // handle may cloud_platforms property
                 // .'$GalaxyInfoModelStandalone'.cloud_platforms
                 res = true;
+                continue;
             }
             else if (prop.compareTo("issue_tracker_url") == 0)
             {
@@ -7341,6 +7315,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("min_ansible_container_version") == 0)
             {
@@ -7353,12 +7328,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelStandalone']", (path != null ? lpath_49 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelStandalone']", (path != null ? lpath_49 : null));
+            return false;
         }
         if (must_count != 5)
         {
@@ -7405,8 +7378,10 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-        return true;
+        res = true;
+        return res;
     }
 
     // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
@@ -7579,6 +7554,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_50 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -7592,8 +7568,9 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_50 : null));
                     return false;
                 }
+                continue;
             }
-            else if ((pfun = _jm_obj_47_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_obj_47_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_50 : null), rep)))
@@ -7601,12 +7578,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", (path != null ? lpath_50 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", (path != null ? lpath_50 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", (path != null ? lpath_50 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -7641,8 +7616,10 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-        return true;
+        res = true;
+        return res;
     }
 
     // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
@@ -7815,8 +7792,9 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_51 : null));
                     return false;
                 }
+                continue;
             }
-            else if ((pfun = _jm_obj_48_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_obj_48_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_51 : null), rep)))
@@ -7824,12 +7802,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.2]", (path != null ? lpath_51 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.2]", (path != null ? lpath_51 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.2]", (path != null ? lpath_51 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -8345,6 +8321,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("galaxy_info") == 0)
             {
@@ -8357,6 +8334,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("dependencies") == 0)
             {
@@ -8405,6 +8383,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allow_duplicates") == 0)
             {
@@ -8417,12 +8396,10 @@ public class ansiblelint_meta extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMetaObj']", (path != null ? lpath_52 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMetaObj']", (path != null ? lpath_52 : null));
+            return false;
         }
         return true;
     }

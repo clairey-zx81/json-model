@@ -520,12 +520,10 @@ public class json_schema_draft_04_mongodb extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$schema']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$schema']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$schema']", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }

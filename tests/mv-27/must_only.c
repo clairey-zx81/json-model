@@ -81,6 +81,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (jm_str_eq_4(prop, 0x00313370))
         {
@@ -90,6 +91,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_4(prop, 0x00323370)))
         {
@@ -99,9 +101,9 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 3;
 }
@@ -125,6 +127,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_0(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (unlikely(jm_str_eq_4(prop, 0x00316f6d)))
         {
@@ -134,6 +137,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_1(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (jm_str_eq_4(prop, 0x00326f6d))
         {
@@ -143,6 +147,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_2(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_4(prop, 0x00336f6d)))
         {
@@ -152,9 +157,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_3(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return true;
 }

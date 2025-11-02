@@ -55,9 +55,9 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Aa [.'$Rr'.a]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Rr'.a]", lpath_0 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Rr']", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Rr']", lpath_0 if path is not None else None))
+        return False
     return True
 
 # check $ (.)
@@ -79,7 +79,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Rr [.RA]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.RA]", lpath_1 if path is not None else None))
                 return False
-        elif prop == "a":
+            continue
+        if prop == "a":
             # handle may a property
             # .a
             res = json_model_7(pval, lpath_1 if path is not None else None, rep)
@@ -87,6 +88,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Rr#Aa [.a]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.a]", lpath_1 if path is not None else None))
                 return False
+            continue
         elif prop == "b":
             # handle may b property
             # .b
@@ -95,9 +97,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Bb [.b]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.b]", lpath_1 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.]", lpath_1 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.]", lpath_1 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "RA" in val:

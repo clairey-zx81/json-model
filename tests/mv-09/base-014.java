@@ -48,8 +48,9 @@ public class base_014 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.nom]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("age") == 0)
+            if (prop.compareTo("age") == 0)
             {
                 // handle may age property
                 // .age
@@ -60,17 +61,15 @@ public class base_014 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.age]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
+            // handle other props
+            // .''
+            res = json.isString(pval);
+            if (! res)
             {
-                // handle other props
-                // .''
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'']", (path != null ? lpath_0 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("unexpected string [.'']", (path != null ? lpath_0 : null));
+                return false;
             }
         }
         if (must_count != 1)

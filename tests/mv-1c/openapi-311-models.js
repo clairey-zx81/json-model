@@ -107,6 +107,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#OpenAPI'.info]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "openapi")
         {
@@ -121,8 +122,9 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#OpenAPI'.openapi]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "tags")
+        if (prop == "tags")
         {
             // handle may tags property
             // .'$openapi#OpenAPI'.tags
@@ -148,6 +150,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OpenAPI'.tags]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "paths")
         {
@@ -160,6 +163,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OpenAPI'.paths]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "servers")
         {
@@ -187,6 +191,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OpenAPI'.servers]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "security")
         {
@@ -214,6 +219,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OpenAPI'.security]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "webhooks")
         {
@@ -226,6 +232,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OpenAPI'.webhooks]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "components")
         {
@@ -238,6 +245,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OpenAPI'.components]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "externalDocs")
         {
@@ -250,6 +258,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OpenAPI'.externalDocs]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "jsonModelVersion")
         {
@@ -262,8 +271,9 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OpenAPI'.jsonModelVersion]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#OpenAPI'.'/^x-/'
@@ -319,6 +329,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Info'.title]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "version")
         {
@@ -332,8 +343,9 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Info'.version]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "contact")
+        if (prop == "contact")
         {
             // handle may contact property
             // .'$openapi#Info'.contact
@@ -344,6 +356,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Info'.contact]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "license")
         {
@@ -356,6 +369,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Info'.license]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "summary")
         {
@@ -368,6 +382,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Info'.summary]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -380,6 +395,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Info'.description]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "termsOfService")
         {
@@ -392,8 +408,9 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Info'.termsOfService]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Info'.'/^x-/'
@@ -447,6 +464,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Contact'.url]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "name")
         {
@@ -459,6 +477,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Contact'.name]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "email")
         {
@@ -471,8 +490,9 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Contact'.email]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Contact'.'/^x-/'
@@ -514,6 +534,7 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#License'.'|'.1.url]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "name")
         {
@@ -527,8 +548,9 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#License'.'|'.1.name]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else if (_jm_re_1(prop, path, rep))
+        if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#License'.'|'.1.'/^x\\-.*$/'
@@ -583,6 +605,7 @@ function _jm_obj_2(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#License'.'|'.0.name]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "identifier")
         {
@@ -596,8 +619,9 @@ function _jm_obj_2(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#License'.'|'.0.identifier]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else if (_jm_re_1(prop, path, rep))
+        if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#License'.'|'.0.'/^x\\-.*$/'
@@ -715,8 +739,9 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Server'.url]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "variables")
+        if (prop == "variables")
         {
             // handle may variables property
             // .'$openapi#Server'.variables
@@ -727,6 +752,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Server'.variables]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -739,8 +765,9 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Server'.description]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Server'.'/^x-/'
@@ -792,8 +819,9 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#ServerVariable'.default]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "enum")
+        if (prop == "enum")
         {
             // handle may enum property
             // .'$openapi#ServerVariable'.enum
@@ -819,6 +847,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#ServerVariable'.enum]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -831,8 +860,9 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#ServerVariable'.description]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#ServerVariable'.'/^x-/'
@@ -1284,6 +1314,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.links]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "models")
         {
@@ -1296,6 +1327,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.models]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "headers")
         {
@@ -1308,6 +1340,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.headers]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1320,6 +1353,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.examples]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "callbacks")
         {
@@ -1332,6 +1366,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.callbacks]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "pathItems")
         {
@@ -1344,6 +1379,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.pathItems]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "responses")
         {
@@ -1356,6 +1392,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.responses]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "parameters")
         {
@@ -1368,6 +1405,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.parameters]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "requestBodies")
         {
@@ -1380,6 +1418,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.requestBodies]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "securitySchemes")
         {
@@ -1392,8 +1431,9 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Components'.securitySchemes]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Components'.'/^x-/'
@@ -1471,6 +1511,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.get]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "put")
         {
@@ -1483,6 +1524,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.put]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -1495,6 +1537,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.'$ref']", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "head")
         {
@@ -1507,6 +1550,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.head]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "post")
         {
@@ -1519,6 +1563,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.post]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "patch")
         {
@@ -1531,6 +1576,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.patch]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "trace")
         {
@@ -1543,6 +1589,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.trace]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "delete")
         {
@@ -1555,6 +1602,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.delete]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "options")
         {
@@ -1567,6 +1615,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.options]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "servers")
         {
@@ -1594,6 +1643,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.servers]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "summary")
         {
@@ -1606,6 +1656,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.summary]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "parameters")
         {
@@ -1651,6 +1702,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.parameters]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1663,8 +1715,9 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#PathItem'.description]", (path ? lpath_21 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#PathItem'.'/^x-/'
@@ -1760,6 +1813,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.tags]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "servers")
         {
@@ -1787,6 +1841,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.servers]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "summary")
         {
@@ -1799,6 +1854,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.summary]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "security")
         {
@@ -1826,6 +1882,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.security]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "callbacks")
         {
@@ -1838,6 +1895,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.callbacks]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "responses")
         {
@@ -1850,6 +1908,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.responses]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -1862,6 +1921,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.deprecated]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "parameters")
         {
@@ -1907,6 +1967,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.parameters]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1919,6 +1980,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.description]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "operationId")
         {
@@ -1931,6 +1993,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.operationId]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "requestBody")
         {
@@ -1961,6 +2024,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.requestBody]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "externalDocs")
         {
@@ -1973,8 +2037,9 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Operation'.externalDocs]", (path ? lpath_22 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Operation'.'/^x-/'
@@ -2015,8 +2080,9 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#ExternalDocumentation'.url]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "description")
+        if (prop == "description")
         {
             // handle may description property
             // .'$openapi#ExternalDocumentation'.description
@@ -2027,8 +2093,9 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#ExternalDocumentation'.description]", (path ? lpath_24 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#ExternalDocumentation'.'/^x-/'
@@ -2104,6 +2171,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Parameter'.'|'.1.in]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "name")
         {
@@ -2117,8 +2185,9 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Parameter'.'|'.1.name]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "content")
+        if (prop == "content")
         {
             // handle may content property
             // .'$openapi#Parameter'.'|'.1.content
@@ -2129,6 +2198,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.1.content]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -2141,6 +2211,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.1.required]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -2153,6 +2224,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.1.deprecated]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2165,6 +2237,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.1.description]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allowEmptyValue")
         {
@@ -2177,8 +2250,9 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.1.allowEmptyValue]", (path ? lpath_25 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.1.'/^x-/'
@@ -2276,6 +2350,7 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.in]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "name")
         {
@@ -2289,8 +2364,9 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.name]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "model")
+        if (prop == "model")
         {
             // handle may model property
             // .'$openapi#Parameter'.'|'.0.model
@@ -2301,6 +2377,7 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.model]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "style")
         {
@@ -2313,12 +2390,14 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.style]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "example")
         {
             // handle may example property
             // .'$openapi#Parameter'.'|'.0.example
             res = true;
+            continue;
         }
         else if (prop == "explode")
         {
@@ -2331,6 +2410,7 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.explode]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2343,6 +2423,7 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.examples]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -2355,6 +2436,7 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.required]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -2367,6 +2449,7 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.deprecated]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2379,6 +2462,7 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.description]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allowReserved")
         {
@@ -2391,6 +2475,7 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.allowReserved]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allowEmptyValue")
         {
@@ -2403,8 +2488,9 @@ function _jm_obj_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Parameter'.'|'.0.allowEmptyValue]", (path ? lpath_27 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.0.'/^x-/'
@@ -2534,6 +2620,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#RequestBody'.content]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -2546,6 +2633,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#RequestBody'.required]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2558,8 +2646,9 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#RequestBody'.description]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#RequestBody'.'/^x-/'
@@ -2664,12 +2753,14 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#MediaType'.model]", (path ? lpath_31 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "example")
         {
             // handle may example property
             // .'$openapi#MediaType'.example
             res = true;
+            continue;
         }
         else if (prop == "encoding")
         {
@@ -2682,6 +2773,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#MediaType'.encoding]", (path ? lpath_31 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2694,8 +2786,9 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#MediaType'.examples]", (path ? lpath_31 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#MediaType'.'/^x-/'
@@ -2776,6 +2869,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Encoding'.style]", (path ? lpath_34 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "explode")
         {
@@ -2788,6 +2882,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Encoding'.explode]", (path ? lpath_34 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "headers")
         {
@@ -2800,6 +2895,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Encoding'.headers]", (path ? lpath_34 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contentType")
         {
@@ -2812,6 +2908,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Encoding'.contentType]", (path ? lpath_34 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allowReserved")
         {
@@ -2824,8 +2921,9 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Encoding'.allowReserved]", (path ? lpath_34 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Encoding'.'/^x-/'
@@ -2884,8 +2982,9 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Responses'.default]", (path ? lpath_36 : null)])
                 return false;
             }
+            continue;
         }
-        else if (_jm_re_2(prop, path, rep))
+        if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -3061,6 +3160,7 @@ function json_model_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Response'.links]", (path ? lpath_37 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "content")
         {
@@ -3073,6 +3173,7 @@ function json_model_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Response'.content]", (path ? lpath_37 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "headers")
         {
@@ -3085,6 +3186,7 @@ function json_model_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Response'.headers]", (path ? lpath_37 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3097,8 +3199,9 @@ function json_model_25(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Response'.description]", (path ? lpath_37 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Response'.'/^x-/'
@@ -3188,6 +3291,7 @@ function json_model_27(val, path, rep)
             // handle may value property
             // .'$openapi#Example'.value
             res = true;
+            continue;
         }
         else if (prop == "summary")
         {
@@ -3200,6 +3304,7 @@ function json_model_27(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Example'.summary]", (path ? lpath_42 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3212,6 +3317,7 @@ function json_model_27(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Example'.description]", (path ? lpath_42 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "externalValue")
         {
@@ -3224,8 +3330,9 @@ function json_model_27(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Example'.externalValue]", (path ? lpath_42 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Example'.'/^x-/'
@@ -3289,8 +3396,9 @@ function _jm_obj_26(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Link'.'|'.1.operationId]", (path ? lpath_43 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "server")
+        if (prop == "server")
         {
             // handle may server property
             // .'$openapi#Link'.'|'.1.server
@@ -3301,6 +3409,7 @@ function _jm_obj_26(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.1.server]", (path ? lpath_43 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "parameters")
         {
@@ -3313,6 +3422,7 @@ function _jm_obj_26(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.1.parameters]", (path ? lpath_43 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3325,14 +3435,16 @@ function _jm_obj_26(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.1.description]", (path ? lpath_43 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "requestBody")
         {
             // handle may requestBody property
             // .'$openapi#Link'.'|'.1.requestBody
             res = true;
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Link'.'|'.1.'/^x-/'
@@ -3395,8 +3507,9 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Link'.'|'.0.operationRef]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "server")
+        if (prop == "server")
         {
             // handle may server property
             // .'$openapi#Link'.'|'.0.server
@@ -3407,6 +3520,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.0.server]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "parameters")
         {
@@ -3419,6 +3533,7 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.0.parameters]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3431,14 +3546,16 @@ function _jm_obj_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.0.description]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "requestBody")
         {
             // handle may requestBody property
             // .'$openapi#Link'.'|'.0.requestBody
             res = true;
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Link'.'|'.0.'/^x-/'
@@ -3549,6 +3666,7 @@ function _jm_obj_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.1.content]", (path ? lpath_45 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -3561,6 +3679,7 @@ function _jm_obj_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.1.required]", (path ? lpath_45 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -3573,6 +3692,7 @@ function _jm_obj_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.1.deprecated]", (path ? lpath_45 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3585,6 +3705,7 @@ function _jm_obj_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.1.description]", (path ? lpath_45 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allowEmptyValue")
         {
@@ -3597,8 +3718,9 @@ function _jm_obj_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.1.allowEmptyValue]", (path ? lpath_45 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Header'.'|'.1.'/^x-/'
@@ -3678,6 +3800,7 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.model]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "style")
         {
@@ -3690,12 +3813,14 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.style]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "example")
         {
             // handle may example property
             // .'$openapi#Header'.'|'.0.example
             res = true;
+            continue;
         }
         else if (prop == "explode")
         {
@@ -3708,6 +3833,7 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.explode]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3720,6 +3846,7 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.examples]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -3732,6 +3859,7 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.required]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -3744,6 +3872,7 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.deprecated]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3756,6 +3885,7 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.description]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allowReserved")
         {
@@ -3768,6 +3898,7 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.allowReserved]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allowEmptyValue")
         {
@@ -3780,8 +3911,9 @@ function _jm_obj_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Header'.'|'.0.allowEmptyValue]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Header'.'|'.0.'/^x-/'
@@ -3861,8 +3993,9 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Tag'.name]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "description")
+        if (prop == "description")
         {
             // handle may description property
             // .'$openapi#Tag'.description
@@ -3873,6 +4006,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Tag'.description]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "externalDocs")
         {
@@ -3885,8 +4019,9 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Tag'.externalDocs]", (path ? lpath_49 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#Tag'.'/^x-/'
@@ -3938,8 +4073,9 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#Reference'.'$ref']", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "summary")
+        if (prop == "summary")
         {
             // handle may summary property
             // .'$openapi#Reference'.summary
@@ -3950,6 +4086,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Reference'.summary]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3962,12 +4099,10 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Reference'.description]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$openapi#Reference']", (path ? lpath_50 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$openapi#Reference']", (path ? lpath_50 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -4009,6 +4144,7 @@ function _jm_obj_34(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.in]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "name")
         {
@@ -4022,6 +4158,7 @@ function _jm_obj_34(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.name]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -4035,8 +4172,9 @@ function _jm_obj_34(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.type]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "description")
+        if (prop == "description")
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.0.description
@@ -4047,12 +4185,10 @@ function _jm_obj_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#SecurityScheme'.'|'.0.description]", (path ? lpath_51 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.0]", (path ? lpath_51 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.0]", (path ? lpath_51 : null)])
+        return false;
     }
     if (must_count != 3)
     {
@@ -4103,6 +4239,7 @@ function _jm_obj_35(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.1.type]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "scheme")
         {
@@ -4117,8 +4254,9 @@ function _jm_obj_35(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.1.scheme]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "description")
+        if (prop == "description")
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.1.description
@@ -4129,6 +4267,7 @@ function _jm_obj_35(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#SecurityScheme'.'|'.1.description]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "bearerFormat")
         {
@@ -4141,12 +4280,10 @@ function _jm_obj_35(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_52 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.1]", (path ? lpath_52 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.1]", (path ? lpath_52 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -4191,6 +4328,7 @@ function _jm_obj_36(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.2.type]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "scheme")
         {
@@ -4204,8 +4342,9 @@ function _jm_obj_36(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.2.scheme]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "description")
+        if (prop == "description")
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.2.description
@@ -4216,12 +4355,10 @@ function _jm_obj_36(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#SecurityScheme'.'|'.2.description]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.2]", (path ? lpath_53 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.2]", (path ? lpath_53 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -4266,6 +4403,7 @@ function _jm_obj_37(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.3.type]", (path ? lpath_54 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "flows")
         {
@@ -4279,8 +4417,9 @@ function _jm_obj_37(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.3.flows]", (path ? lpath_54 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "description")
+        if (prop == "description")
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.3.description
@@ -4291,12 +4430,10 @@ function _jm_obj_37(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#SecurityScheme'.'|'.3.description]", (path ? lpath_54 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.3]", (path ? lpath_54 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.3]", (path ? lpath_54 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -4341,6 +4478,7 @@ function _jm_obj_38(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.4.type]", (path ? lpath_55 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "openIdConnectUrl")
         {
@@ -4354,8 +4492,9 @@ function _jm_obj_38(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? lpath_55 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "description")
+        if (prop == "description")
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.4.description
@@ -4366,12 +4505,10 @@ function _jm_obj_38(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#SecurityScheme'.'|'.4.description]", (path ? lpath_55 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.4]", (path ? lpath_55 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$openapi#SecurityScheme'.'|'.4]", (path ? lpath_55 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -4414,8 +4551,9 @@ function _jm_obj_39(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#SecurityScheme'.'|'.5.description]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
@@ -4509,6 +4647,7 @@ function json_model_43(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OAuthFlows'.implicit]", (path ? lpath_57 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "password")
         {
@@ -4521,6 +4660,7 @@ function json_model_43(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OAuthFlows'.password]", (path ? lpath_57 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "authorizationCode")
         {
@@ -4533,6 +4673,7 @@ function json_model_43(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OAuthFlows'.authorizationCode]", (path ? lpath_57 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "clientCredentials")
         {
@@ -4545,8 +4686,9 @@ function json_model_43(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OAuthFlows'.clientCredentials]", (path ? lpath_57 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#OAuthFlows'.'/^x-/'
@@ -4611,6 +4753,7 @@ function json_model_44(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#OAuthFlow'.scopes]", (path ? lpath_58 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "tokenUrl")
         {
@@ -4624,6 +4767,7 @@ function json_model_44(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#OAuthFlow'.tokenUrl]", (path ? lpath_58 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "authorizationUrl")
         {
@@ -4637,8 +4781,9 @@ function json_model_44(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#OAuthFlow'.authorizationUrl]", (path ? lpath_58 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "refreshUrl")
+        if (prop == "refreshUrl")
         {
             // handle may refreshUrl property
             // .'$openapi#OAuthFlow'.refreshUrl
@@ -4649,8 +4794,9 @@ function json_model_44(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#OAuthFlow'.refreshUrl]", (path ? lpath_58 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("x-"))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
             // .'$openapi#OAuthFlow'.'/^x-/'
@@ -4868,8 +5014,9 @@ function _jm_obj_41(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.5.'#']", (path ? lpath_61 : null)])
                 return false;
             }
+            continue;
         }
-        else if (json_model_90(prop, (path ? lpath_61 : null), rep))
+        if (json_model_90(prop, (path ? lpath_61 : null), rep))
         {
             // handle 1 key props
             // .'$openapi#model#Element'.'|'.5.'$Prop'
@@ -4935,8 +5082,9 @@ function _jm_obj_42(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#model#Element'.'|'.4.'+']", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "#")
+        if (prop == "#")
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.4.'#'
@@ -4947,8 +5095,9 @@ function _jm_obj_42(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.4.'#']", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("#"))
+        if (prop.startsWith("#"))
         {
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.4.'/^#/'
@@ -5014,8 +5163,9 @@ function _jm_obj_43(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#model#Element'.'|'.3.'^']", (path ? lpath_63 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "#")
+        if (prop == "#")
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.3.'#'
@@ -5026,8 +5176,9 @@ function _jm_obj_43(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.3.'#']", (path ? lpath_63 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("#"))
+        if (prop.startsWith("#"))
         {
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.3.'/^#/'
@@ -5093,8 +5244,9 @@ function _jm_obj_44(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#model#Element'.'|'.2.'&']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "#")
+        if (prop == "#")
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.2.'#'
@@ -5105,8 +5257,9 @@ function _jm_obj_44(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.2.'#']", (path ? lpath_64 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("#"))
+        if (prop.startsWith("#"))
         {
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.2.'/^#/'
@@ -5172,8 +5325,9 @@ function _jm_obj_45(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#model#Element'.'|'.1.'|']", (path ? lpath_65 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "#")
+        if (prop == "#")
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.1.'#'
@@ -5184,8 +5338,9 @@ function _jm_obj_45(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.1.'#']", (path ? lpath_65 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("#"))
+        if (prop.startsWith("#"))
         {
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.1.'/^#/'
@@ -5240,8 +5395,9 @@ function _jm_obj_46(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$openapi#model#Element'.'|'.0.'@']", (path ? lpath_66 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "!")
+        if (prop == "!")
         {
             // handle may ! property
             // .'$openapi#model#Element'.'|'.0.'!'
@@ -5252,6 +5408,7 @@ function _jm_obj_46(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.0.'!']", (path ? lpath_66 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "#")
         {
@@ -5264,8 +5421,9 @@ function _jm_obj_46(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.0.'#']", (path ? lpath_66 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("#"))
+        if (prop.startsWith("#"))
         {
             // handle 3 re props
             // .'$openapi#model#Element'.'|'.0.'/^#/'

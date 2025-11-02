@@ -132,6 +132,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'version' THEN
       -- handle must version property
       must_count := must_count + 1;
@@ -140,13 +141,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'docfile' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'docfile' THEN
       -- handle may docfile property
       -- .'$Provide'.docfile
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'abstract' THEN
       -- handle may abstract property
       -- .'$Provide'.abstract
@@ -154,7 +158,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$Provide'.'/^[Xx]_/'
       res := TRUE;
@@ -203,6 +209,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'mailto' THEN
       -- handle may mailto property
       -- .'$Resources'.bugtracker.mailto
@@ -210,7 +217,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$Resources'.bugtracker.'/^[Xx]_/'
       res := TRUE;
@@ -241,6 +250,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'web' THEN
       -- handle may web property
       -- .'$Resources'.repository.web
@@ -248,6 +258,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle may type property
       -- .'$Resources'.repository.type
@@ -256,9 +267,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -284,6 +295,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'bugtracker' THEN
       -- handle may bugtracker property
       -- .'$Resources'.bugtracker
@@ -291,6 +303,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'repository' THEN
       -- handle may repository property
       -- .'$Resources'.repository
@@ -298,9 +311,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -564,14 +577,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'url' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'url' THEN
       -- handle may url property
       -- .'meta-spec'.url
       res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'meta-spec'.'/^[Xx]_/'
       res := TRUE;
@@ -602,6 +619,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'directory' THEN
       -- handle may directory property
       -- .no_index.directory
@@ -609,9 +627,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -640,6 +658,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'license' THEN
       -- handle must license property
       must_count := must_count + 1;
@@ -651,6 +670,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'version' THEN
       -- handle must version property
       must_count := must_count + 1;
@@ -659,6 +679,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'abstract' THEN
       -- handle must abstract property
       must_count := must_count + 1;
@@ -667,6 +688,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'provides' THEN
       -- handle must provides property
       must_count := must_count + 1;
@@ -675,6 +697,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'meta-spec' THEN
       -- handle must meta-spec property
       must_count := must_count + 1;
@@ -683,6 +706,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'maintainer' THEN
       -- handle must maintainer property
       must_count := must_count + 1;
@@ -693,13 +717,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'url' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'url' THEN
       -- handle may url property
       -- .url
       res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'tags' THEN
       -- handle may tags property
       -- .tags
@@ -707,6 +734,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'prereqs' THEN
       -- handle may prereqs property
       -- .prereqs
@@ -714,6 +742,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'no_index' THEN
       -- handle may no_index property
       -- .no_index
@@ -721,6 +750,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'resources' THEN
       -- handle may resources property
       -- .resources
@@ -728,6 +758,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .description
@@ -735,6 +766,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'generated_by' THEN
       -- handle may generated_by property
       -- .generated_by
@@ -742,6 +774,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'release_status' THEN
       -- handle may release_status property
       -- .release_status
@@ -749,7 +782,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'/^[Xx]_/'
       res := TRUE;

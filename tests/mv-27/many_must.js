@@ -33,6 +33,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "Moe")
         {
@@ -44,6 +45,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "aaa")
         {
@@ -55,6 +57,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "abc")
         {
@@ -66,6 +69,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "bcd")
         {
@@ -77,6 +81,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "def")
         {
@@ -88,6 +93,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "foo")
         {
@@ -99,6 +105,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "moe")
         {
@@ -110,6 +117,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "stu")
         {
@@ -121,6 +129,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "wtf")
         {
@@ -132,6 +141,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "zee")
         {
@@ -143,6 +153,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "zoo")
         {
@@ -154,6 +165,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "cdef")
         {
@@ -165,6 +177,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "Susie")
         {
@@ -176,6 +189,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "stuff")
         {
@@ -187,6 +201,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "susie")
         {
@@ -198,6 +213,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "Calvin")
         {
@@ -209,6 +225,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "Hobbes")
         {
@@ -220,6 +237,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "calvin")
         {
@@ -231,6 +249,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "hobbes")
         {
@@ -242,6 +261,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "Rosalyn")
         {
@@ -253,6 +273,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "surprise")
         {
@@ -264,11 +285,9 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     return must_count == 22;
 }

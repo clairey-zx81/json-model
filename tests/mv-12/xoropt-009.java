@@ -86,12 +86,10 @@ public class xoropt_009 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'^'.1.a]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'^'.1]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'^'.1]", (path != null ? lpath_1 : null));
+            return false;
         }
         return true;
     }

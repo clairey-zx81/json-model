@@ -35,6 +35,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_7(prop, 0x0000726f68747561LL)))
         {
@@ -44,9 +45,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }

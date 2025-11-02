@@ -104,8 +104,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'Z')
+        if ($prop eq 'Z')
         {
             # handle may Z property
             # .'$Ee'.'|'.1.Z
@@ -114,11 +115,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -146,8 +145,9 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'Z')
+        if ($prop eq 'Z')
         {
             # handle may Z property
             # .'$Ee'.'|'.0.Z
@@ -156,11 +156,9 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }

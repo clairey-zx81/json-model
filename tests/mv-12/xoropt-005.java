@@ -47,17 +47,15 @@ public class xoropt_005 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
+            // handle other props
+            // .'|'.1.''
+            res = json.isInteger(pval) && json.asLong(pval) >= 0;
+            if (! res)
             {
-                // handle other props
-                // .'|'.1.''
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.1.'']", (path != null ? lpath_0 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("not a 0 strict int [.'|'.1.'']", (path != null ? lpath_0 : null));
+                return false;
             }
         }
         if (must_count != 1)
@@ -102,17 +100,15 @@ public class xoropt_005 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.0.a]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
+            // handle other props
+            // .'|'.0.''
+            res = json.isInteger(pval) && json.asLong(pval) >= 0;
+            if (! res)
             {
-                // handle other props
-                // .'|'.0.''
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.0.'']", (path != null ? lpath_1 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("not a 0 strict int [.'|'.0.'']", (path != null ? lpath_1 : null));
+                return false;
             }
         }
         if (must_count != 1)

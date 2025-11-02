@@ -37,8 +37,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.b]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "a")
+        if (prop == "a")
         {
             // handle may a property
             // .a
@@ -49,12 +50,10 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
+        return false;
     }
     if (must_count != 1)
     {

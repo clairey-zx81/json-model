@@ -70,12 +70,10 @@ public class scp_01 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Rr'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Rr']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Rr']", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }
@@ -109,8 +107,9 @@ public class scp_01 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.RA]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("a") == 0)
+            if (prop.compareTo("a") == 0)
             {
                 // handle may a property
                 // .a
@@ -121,6 +120,7 @@ public class scp_01 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.a]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("b") == 0)
             {
@@ -133,12 +133,10 @@ public class scp_01 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_1 : null));
+            return false;
         }
         if (must_count != 1)
         {

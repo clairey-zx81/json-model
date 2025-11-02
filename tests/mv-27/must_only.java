@@ -103,6 +103,7 @@ public class must_only extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("p31") == 0)
             {
@@ -114,6 +115,7 @@ public class must_only extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("p32") == 0)
             {
@@ -125,11 +127,9 @@ public class must_only extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         return must_count == 3;
     }
@@ -158,6 +158,7 @@ public class must_only extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("mo1") == 0)
             {
@@ -169,6 +170,7 @@ public class must_only extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("mo2") == 0)
             {
@@ -180,6 +182,7 @@ public class must_only extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("mo3") == 0)
             {
@@ -191,11 +194,9 @@ public class must_only extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         return true;
     }

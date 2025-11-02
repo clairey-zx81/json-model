@@ -119,6 +119,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$Provide'.file]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Provide'.file]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "version":
             # handle must version property
             must_count += 1
@@ -128,7 +129,8 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Version [.'$Provide'.version]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Provide'.version]", lpath_0 if path is not None else None))
                 return False
-        elif prop == "docfile":
+            continue
+        if prop == "docfile":
             # handle may docfile property
             # .'$Provide'.docfile
             res = isinstance(pval, str)
@@ -136,6 +138,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$Provide'.docfile]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Provide'.docfile]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "abstract":
             # handle may abstract property
             # .'$Provide'.abstract
@@ -144,7 +147,8 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$Provide'.abstract]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Provide'.abstract]", lpath_0 if path is not None else None))
                 return False
-        elif _jm_re_1(prop, path, rep):
+            continue
+        if _jm_re_1(prop, path, rep):
             # handle 1 re props
             # .'$Provide'.'/^[Xx]_/'
             res = True
@@ -185,6 +189,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'$Resources'.bugtracker.web]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Resources'.bugtracker.web]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "mailto":
             # handle may mailto property
             # .'$Resources'.bugtracker.mailto
@@ -193,7 +198,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $EMAIL [.'$Resources'.bugtracker.mailto]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Resources'.bugtracker.mailto]", lpath_2 if path is not None else None))
                 return False
-        elif _jm_re_1(prop, path, rep):
+            continue
+        if _jm_re_1(prop, path, rep):
             # handle 1 re props
             # .'$Resources'.bugtracker.'/^[Xx]_/'
             res = True
@@ -218,6 +224,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'$Resources'.repository.url]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Resources'.repository.url]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "web":
             # handle may web property
             # .'$Resources'.repository.web
@@ -226,6 +233,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'$Resources'.repository.web]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Resources'.repository.web]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "type":
             # handle may type property
             # .'$Resources'.repository.type
@@ -235,9 +243,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected /./ [.'$Resources'.repository.type]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Resources'.repository.type]", lpath_3 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Resources'.repository]", lpath_3 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Resources'.repository]", lpath_3 if path is not None else None))
+        return False
     return True
 
 # check $Resources (.'$Resources')
@@ -257,6 +265,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'$Resources'.homepage]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Resources'.homepage]", lpath_1 if path is not None else None))
                 return False
+            continue
         elif prop == "bugtracker":
             # handle may bugtracker property
             # .'$Resources'.bugtracker
@@ -265,6 +274,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$Resources'.bugtracker]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Resources'.bugtracker]", lpath_1 if path is not None else None))
                 return False
+            continue
         elif prop == "repository":
             # handle may repository property
             # .'$Resources'.repository
@@ -273,9 +283,9 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$Resources'.repository]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Resources'.repository]", lpath_1 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Resources']", lpath_1 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Resources']", lpath_1 if path is not None else None))
+        return False
     return True
 
 
@@ -470,7 +480,8 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _1.0.0 [.'meta-spec'.version]", lpath_10 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'meta-spec'.version]", lpath_10 if path is not None else None))
                 return False
-        elif prop == "url":
+            continue
+        if prop == "url":
             # handle may url property
             # .'meta-spec'.url
             res = is_valid_url(pval, lpath_10 if path is not None else None, rep)
@@ -478,7 +489,8 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'meta-spec'.url]", lpath_10 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'meta-spec'.url]", lpath_10 if path is not None else None))
                 return False
-        elif _jm_re_1(prop, path, rep):
+            continue
+        if _jm_re_1(prop, path, rep):
             # handle 1 re props
             # .'meta-spec'.'/^[Xx]_/'
             res = True
@@ -508,6 +520,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $neStrList [.no_index.file]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.no_index.file]", lpath_11 if path is not None else None))
                 return False
+            continue
         elif prop == "directory":
             # handle may directory property
             # .no_index.directory
@@ -516,9 +529,9 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $neStrList [.no_index.directory]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.no_index.directory]", lpath_11 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.no_index]", lpath_11 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.no_index]", lpath_11 if path is not None else None))
+        return False
     return True
 
 # check $ (.)
@@ -540,6 +553,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $neStr [.name]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.name]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "license":
             # handle must license property
             must_count += 1
@@ -564,6 +578,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.license.'|']", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.license]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "version":
             # handle must version property
             must_count += 1
@@ -573,6 +588,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.version]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.version]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "abstract":
             # handle must abstract property
             must_count += 1
@@ -582,6 +598,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.abstract]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.abstract]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "provides":
             # handle must provides property
             must_count += 1
@@ -591,6 +608,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.provides]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.provides]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "meta-spec":
             # handle must meta-spec property
             must_count += 1
@@ -600,6 +618,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'meta-spec']", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'meta-spec']", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "maintainer":
             # handle must maintainer property
             must_count += 1
@@ -619,7 +638,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.maintainer.'|']", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.maintainer]", lpath_7 if path is not None else None))
                 return False
-        elif prop == "url":
+            continue
+        if prop == "url":
             # handle may url property
             # .url
             res = is_valid_url(pval, lpath_7 if path is not None else None, rep)
@@ -627,6 +647,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.url]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.url]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "tags":
             # handle may tags property
             # .tags
@@ -635,6 +656,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $neStrList [.tags]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.tags]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "prereqs":
             # handle may prereqs property
             # .prereqs
@@ -643,6 +665,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Prereqs [.prereqs]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.prereqs]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "no_index":
             # handle may no_index property
             # .no_index
@@ -651,6 +674,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.no_index]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.no_index]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "resources":
             # handle may resources property
             # .resources
@@ -659,6 +683,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Resources [.resources]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.resources]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "description":
             # handle may description property
             # .description
@@ -667,6 +692,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.description]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.description]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "generated_by":
             # handle may generated_by property
             # .generated_by
@@ -675,6 +701,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.generated_by]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.generated_by]", lpath_7 if path is not None else None))
                 return False
+            continue
         elif prop == "release_status":
             # handle may release_status property
             # .release_status
@@ -683,7 +710,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Status [.release_status]", lpath_7 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.release_status]", lpath_7 if path is not None else None))
                 return False
-        elif _jm_re_1(prop, path, rep):
+            continue
+        if _jm_re_1(prop, path, rep):
             # handle 1 re props
             # .'/^[Xx]_/'
             res = True

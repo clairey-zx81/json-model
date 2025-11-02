@@ -59,12 +59,10 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Rr'.a]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Rr']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Rr']", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }
@@ -95,8 +93,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.RA]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "a")
+        if (prop == "a")
         {
             // handle may a property
             // .a
@@ -107,6 +106,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "b")
         {
@@ -119,12 +119,10 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.b]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_1 : null)])
+        return false;
     }
     if (must_count != 1)
     {

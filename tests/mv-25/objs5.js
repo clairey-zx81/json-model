@@ -38,6 +38,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f1")
         {
@@ -48,6 +49,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f2")
         {
@@ -58,6 +60,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f3")
         {
@@ -68,6 +71,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f4")
         {
@@ -78,6 +82,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f5")
         {
@@ -88,6 +93,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f6")
         {
@@ -98,6 +104,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f7")
         {
@@ -108,6 +115,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f8")
         {
@@ -118,6 +126,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "f9")
         {
@@ -128,11 +137,9 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     return true;
 }

@@ -44,7 +44,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _$https://json-model.org/models/json-model [.'$'.Model]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$'.Model]", lpath_1 if path is not None else None))
                 return False
-        elif prop == "":
+            continue
+        if prop == "":
             # handle may  property
             # .'$'.''
             res = is_valid_url(pval, lpath_1 if path is not None else None, rep)
@@ -52,9 +53,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $URL [.'$'.'']", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$'.'']", lpath_1 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$']", lpath_1 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$']", lpath_1 if path is not None else None))
+        return False
     if must_count != 1:
         if rep is not None:
             if not "Model" in val:
@@ -112,6 +113,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'$']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "%":
             # handle must % property
             must_count += 1
@@ -122,6 +124,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected element [.'%']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'%']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "@":
             # handle must @ property
             must_count += 1
@@ -131,6 +134,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _$Model [.'@']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'@']", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "~":
             # handle must ~ property
             must_count += 1
@@ -140,7 +144,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _https://json-model.org/models/l10n [.'~']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'~']", lpath_0 if path is not None else None))
                 return False
-        elif prop.startswith("#"):
+            continue
+        if prop.startswith("#"):
             # handle 1 re props
             # .'/^#/'
             res = isinstance(pval, str)

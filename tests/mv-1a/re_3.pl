@@ -44,6 +44,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'all')
         {
@@ -55,6 +56,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'some')
         {
@@ -66,11 +68,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }

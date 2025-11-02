@@ -37,6 +37,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'!']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "/")
         {
@@ -50,6 +51,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'/']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "?")
         {
@@ -63,6 +65,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'?']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "_")
         {
@@ -76,6 +79,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [._]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "a")
         {
@@ -89,8 +93,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.a]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "b")
+        if (prop == "b")
         {
             // handle may b property
             // .b
@@ -101,12 +106,10 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.b]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
+        return false;
     }
     if (must_count != 5)
     {

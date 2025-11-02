@@ -95,6 +95,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$OpenAPI'.info]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("openapi") == 0)
             {
@@ -109,8 +110,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$OpenAPI'.openapi]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("tags") == 0)
+            if (prop.compareTo("tags") == 0)
             {
                 // handle may tags property
                 // .'$OpenAPI'.tags
@@ -139,6 +141,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenAPI'.tags]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("paths") == 0)
             {
@@ -151,6 +154,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenAPI'.paths]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("servers") == 0)
             {
@@ -181,6 +185,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenAPI'.servers]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("security") == 0)
             {
@@ -211,6 +216,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenAPI'.security]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("webhooks") == 0)
             {
@@ -223,6 +229,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenAPI'.webhooks]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("components") == 0)
             {
@@ -235,6 +242,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenAPI'.components]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("externalDocs") == 0)
             {
@@ -247,6 +255,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenAPI'.externalDocs]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("jsonSchemaDialect") == 0)
             {
@@ -259,8 +268,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenAPI'.jsonSchemaDialect]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$OpenAPI'.'/^x-/'
@@ -319,6 +329,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Info'.title]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("version") == 0)
             {
@@ -332,8 +343,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Info'.version]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("contact") == 0)
+            if (prop.compareTo("contact") == 0)
             {
                 // handle may contact property
                 // .'$Info'.contact
@@ -344,6 +356,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Info'.contact]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("license") == 0)
             {
@@ -356,6 +369,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Info'.license]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("summary") == 0)
             {
@@ -368,6 +382,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Info'.summary]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -380,6 +395,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Info'.description]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("termsOfService") == 0)
             {
@@ -392,8 +408,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Info'.termsOfService]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Info'.'/^x-/'
@@ -450,6 +467,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Contact'.url]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("name") == 0)
             {
@@ -462,6 +480,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Contact'.name]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("email") == 0)
             {
@@ -474,8 +493,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Contact'.email]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Contact'.'/^x-/'
@@ -523,6 +543,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$License'.'|'.1.url]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("name") == 0)
             {
@@ -536,8 +557,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$License'.'|'.1.name]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_1(prop, path, rep))
+            if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .'$License'.'|'.1.'/^x\\-.*$/'
@@ -595,6 +617,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$License'.'|'.0.name]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("identifier") == 0)
             {
@@ -608,8 +631,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$License'.'|'.0.identifier]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_1(prop, path, rep))
+            if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .'$License'.'|'.0.'/^x\\-.*$/'
@@ -733,8 +757,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Server'.url]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("variables") == 0)
+            if (prop.compareTo("variables") == 0)
             {
                 // handle may variables property
                 // .'$Server'.variables
@@ -745,6 +770,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Server'.variables]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -757,8 +783,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Server'.description]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Server'.'/^x-/'
@@ -813,8 +840,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ServerVariable'.default]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("enum") == 0)
+            if (prop.compareTo("enum") == 0)
             {
                 // handle may enum property
                 // .'$ServerVariable'.enum
@@ -843,6 +871,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ServerVariable'.enum]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -855,8 +884,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ServerVariable'.description]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$ServerVariable'.'/^x-/'
@@ -1341,6 +1371,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.links]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("headers") == 0)
             {
@@ -1353,6 +1384,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.headers]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("schemas") == 0)
             {
@@ -1365,6 +1397,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.schemas]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -1377,6 +1410,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.examples]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("callbacks") == 0)
             {
@@ -1389,6 +1423,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.callbacks]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("pathItems") == 0)
             {
@@ -1401,6 +1436,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.pathItems]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("responses") == 0)
             {
@@ -1413,6 +1449,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.responses]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("parameters") == 0)
             {
@@ -1425,6 +1462,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.parameters]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("requestBodies") == 0)
             {
@@ -1437,6 +1475,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.requestBodies]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("securitySchemes") == 0)
             {
@@ -1449,8 +1488,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Components'.securitySchemes]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Components'.'/^x-/'
@@ -1647,8 +1687,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$PathItem']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$PathItem'.'/^x-/'
@@ -1753,6 +1794,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.tags]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("servers") == 0)
             {
@@ -1783,6 +1825,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.servers]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("summary") == 0)
             {
@@ -1795,6 +1838,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.summary]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("security") == 0)
             {
@@ -1825,6 +1869,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.security]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("callbacks") == 0)
             {
@@ -1837,6 +1882,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.callbacks]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("responses") == 0)
             {
@@ -1849,6 +1895,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.responses]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("deprecated") == 0)
             {
@@ -1861,6 +1908,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.deprecated]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("parameters") == 0)
             {
@@ -1909,6 +1957,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.parameters]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -1921,6 +1970,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.description]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("operationId") == 0)
             {
@@ -1933,6 +1983,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.operationId]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("requestBody") == 0)
             {
@@ -1963,6 +2014,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.requestBody]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("externalDocs") == 0)
             {
@@ -1975,8 +2027,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Operation'.externalDocs]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Operation'.'/^x-/'
@@ -2020,8 +2073,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ExternalDocumentation'.url]", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("description") == 0)
+            if (prop.compareTo("description") == 0)
             {
                 // handle may description property
                 // .'$ExternalDocumentation'.description
@@ -2032,8 +2086,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ExternalDocumentation'.description]", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$ExternalDocumentation'.'/^x-/'
@@ -2086,6 +2141,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterShare'.required]", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("deprecated") == 0)
             {
@@ -2098,6 +2154,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterShare'.deprecated]", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2110,6 +2167,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterShare'.description]", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowEmptyValue") == 0)
             {
@@ -2122,8 +2180,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterShare'.allowEmptyValue]", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$parameterShare'.'/^x-/'
@@ -2168,6 +2227,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$commonParameter'.in]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("name") == 0)
             {
@@ -2181,8 +2241,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$commonParameter'.name]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("required") == 0)
+            if (prop.compareTo("required") == 0)
             {
                 // handle may required property
                 // .'$commonParameter'.required
@@ -2193,6 +2254,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$commonParameter'.required]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("deprecated") == 0)
             {
@@ -2205,6 +2267,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$commonParameter'.deprecated]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2217,6 +2280,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$commonParameter'.description]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowEmptyValue") == 0)
             {
@@ -2229,8 +2293,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$commonParameter'.allowEmptyValue]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$commonParameter'.'/^x-/'
@@ -2346,6 +2411,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterSchemaOnly'.style]", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("schema") == 0)
             {
@@ -2358,12 +2424,14 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterSchemaOnly'.schema]", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("example") == 0)
             {
                 // handle may example property
                 // .'$parameterSchemaOnly'.example
                 res = true;
+                continue;
             }
             else if (prop.compareTo("explode") == 0)
             {
@@ -2376,6 +2444,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterSchemaOnly'.explode]", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2388,6 +2457,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterSchemaOnly'.examples]", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowReserved") == 0)
             {
@@ -2400,12 +2470,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterSchemaOnly'.allowReserved]", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$parameterSchemaOnly']", (path != null ? lpath_27 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$parameterSchemaOnly']", (path != null ? lpath_27 : null));
+            return false;
         }
         return true;
     }
@@ -2464,12 +2532,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$parameterContentOnly'.content]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$parameterContentOnly']", (path != null ? lpath_29 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$parameterContentOnly']", (path != null ? lpath_29 : null));
+            return false;
         }
         return true;
     }
@@ -2530,6 +2596,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Parameter'.'|'.1.in]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("name") == 0)
             {
@@ -2543,8 +2610,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Parameter'.'|'.1.name]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("content") == 0)
+            if (prop.compareTo("content") == 0)
             {
                 // handle may content property
                 // .'$Parameter'.'|'.1.content
@@ -2555,6 +2623,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.1.content]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("required") == 0)
             {
@@ -2567,6 +2636,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.1.required]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("deprecated") == 0)
             {
@@ -2579,6 +2649,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.1.deprecated]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2591,6 +2662,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.1.description]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowEmptyValue") == 0)
             {
@@ -2603,8 +2675,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.1.allowEmptyValue]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Parameter'.'|'.1.'/^x-/'
@@ -2708,6 +2781,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Parameter'.'|'.0.in]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("name") == 0)
             {
@@ -2721,8 +2795,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Parameter'.'|'.0.name]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("style") == 0)
+            if (prop.compareTo("style") == 0)
             {
                 // handle may style property
                 // .'$Parameter'.'|'.0.style
@@ -2733,6 +2808,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.style]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("schema") == 0)
             {
@@ -2745,12 +2821,14 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.schema]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("example") == 0)
             {
                 // handle may example property
                 // .'$Parameter'.'|'.0.example
                 res = true;
+                continue;
             }
             else if (prop.compareTo("explode") == 0)
             {
@@ -2763,6 +2841,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.explode]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2775,6 +2854,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.examples]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("required") == 0)
             {
@@ -2787,6 +2867,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.required]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("deprecated") == 0)
             {
@@ -2799,6 +2880,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.deprecated]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2811,6 +2893,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.description]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowReserved") == 0)
             {
@@ -2823,6 +2906,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.allowReserved]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowEmptyValue") == 0)
             {
@@ -2835,8 +2919,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Parameter'.'|'.0.allowEmptyValue]", (path != null ? lpath_33 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Parameter'.'|'.0.'/^x-/'
@@ -2958,6 +3043,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RequestBody'.content]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("required") == 0)
             {
@@ -2970,6 +3056,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RequestBody'.required]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2982,8 +3069,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RequestBody'.description]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$RequestBody'.'/^x-/'
@@ -3097,12 +3185,14 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MediaType'.schema]", (path != null ? lpath_37 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("example") == 0)
             {
                 // handle may example property
                 // .'$MediaType'.example
                 res = true;
+                continue;
             }
             else if (prop.compareTo("encoding") == 0)
             {
@@ -3115,6 +3205,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MediaType'.encoding]", (path != null ? lpath_37 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -3127,8 +3218,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MediaType'.examples]", (path != null ? lpath_37 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$MediaType'.'/^x-/'
@@ -3215,6 +3307,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Encoding'.style]", (path != null ? lpath_40 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("explode") == 0)
             {
@@ -3227,6 +3320,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Encoding'.explode]", (path != null ? lpath_40 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("headers") == 0)
             {
@@ -3239,6 +3333,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Encoding'.headers]", (path != null ? lpath_40 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("contentType") == 0)
             {
@@ -3251,6 +3346,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Encoding'.contentType]", (path != null ? lpath_40 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowReserved") == 0)
             {
@@ -3263,8 +3359,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Encoding'.allowReserved]", (path != null ? lpath_40 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Encoding'.'/^x-/'
@@ -3329,8 +3426,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Responses'.default]", (path != null ? lpath_42 : null));
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_2(prop, path, rep))
+            if (_jm_re_2(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -3518,6 +3616,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Response'.links]", (path != null ? lpath_43 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("content") == 0)
             {
@@ -3530,6 +3629,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Response'.content]", (path != null ? lpath_43 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("headers") == 0)
             {
@@ -3542,6 +3642,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Response'.headers]", (path != null ? lpath_43 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -3554,8 +3655,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Response'.description]", (path != null ? lpath_43 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Response'.'/^x-/'
@@ -3651,6 +3753,7 @@ public class openapi_311 extends ModelChecker
                 // handle may value property
                 // .'$Example'.value
                 res = true;
+                continue;
             }
             else if (prop.compareTo("summary") == 0)
             {
@@ -3663,6 +3766,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Example'.summary]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -3675,6 +3779,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Example'.description]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("externalValue") == 0)
             {
@@ -3687,8 +3792,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Example'.externalValue]", (path != null ? lpath_48 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Example'.'/^x-/'
@@ -3755,8 +3861,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Link'.'|'.1.operationId]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("server") == 0)
+            if (prop.compareTo("server") == 0)
             {
                 // handle may server property
                 // .'$Link'.'|'.1.server
@@ -3767,6 +3874,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Link'.'|'.1.server]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("parameters") == 0)
             {
@@ -3779,6 +3887,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Link'.'|'.1.parameters]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -3791,14 +3900,16 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Link'.'|'.1.description]", (path != null ? lpath_49 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("requestBody") == 0)
             {
                 // handle may requestBody property
                 // .'$Link'.'|'.1.requestBody
                 res = true;
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Link'.'|'.1.'/^x-/'
@@ -3864,8 +3975,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Link'.'|'.0.operationRef]", (path != null ? lpath_50 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("server") == 0)
+            if (prop.compareTo("server") == 0)
             {
                 // handle may server property
                 // .'$Link'.'|'.0.server
@@ -3876,6 +3988,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Link'.'|'.0.server]", (path != null ? lpath_50 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("parameters") == 0)
             {
@@ -3888,6 +4001,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Link'.'|'.0.parameters]", (path != null ? lpath_50 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -3900,14 +4014,16 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Link'.'|'.0.description]", (path != null ? lpath_50 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("requestBody") == 0)
             {
                 // handle may requestBody property
                 // .'$Link'.'|'.0.requestBody
                 res = true;
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Link'.'|'.0.'/^x-/'
@@ -4024,6 +4140,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.1.content]", (path != null ? lpath_51 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("required") == 0)
             {
@@ -4036,6 +4153,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.1.required]", (path != null ? lpath_51 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("deprecated") == 0)
             {
@@ -4048,6 +4166,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.1.deprecated]", (path != null ? lpath_51 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -4060,6 +4179,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.1.description]", (path != null ? lpath_51 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowEmptyValue") == 0)
             {
@@ -4072,8 +4192,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.1.allowEmptyValue]", (path != null ? lpath_51 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Header'.'|'.1.'/^x-/'
@@ -4159,6 +4280,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.style]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("schema") == 0)
             {
@@ -4171,12 +4293,14 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.schema]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("example") == 0)
             {
                 // handle may example property
                 // .'$Header'.'|'.0.example
                 res = true;
+                continue;
             }
             else if (prop.compareTo("explode") == 0)
             {
@@ -4189,6 +4313,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.explode]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -4201,6 +4326,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.examples]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("required") == 0)
             {
@@ -4213,6 +4339,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.required]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("deprecated") == 0)
             {
@@ -4225,6 +4352,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.deprecated]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -4237,6 +4365,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.description]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowReserved") == 0)
             {
@@ -4249,6 +4378,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.allowReserved]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("allowEmptyValue") == 0)
             {
@@ -4261,8 +4391,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Header'.'|'.0.allowEmptyValue]", (path != null ? lpath_53 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Header'.'|'.0.'/^x-/'
@@ -4345,8 +4476,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Tag'.name]", (path != null ? lpath_55 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("description") == 0)
+            if (prop.compareTo("description") == 0)
             {
                 // handle may description property
                 // .'$Tag'.description
@@ -4357,6 +4489,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Tag'.description]", (path != null ? lpath_55 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("externalDocs") == 0)
             {
@@ -4369,8 +4502,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Tag'.externalDocs]", (path != null ? lpath_55 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Tag'.'/^x-/'
@@ -4425,8 +4559,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Reference'.'$ref']", (path != null ? lpath_56 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("summary") == 0)
+            if (prop.compareTo("summary") == 0)
             {
                 // handle may summary property
                 // .'$Reference'.summary
@@ -4437,6 +4572,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Reference'.summary]", (path != null ? lpath_56 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -4449,12 +4585,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Reference'.description]", (path != null ? lpath_56 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Reference']", (path != null ? lpath_56 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Reference']", (path != null ? lpath_56 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -4575,8 +4709,10 @@ public class openapi_311 extends ModelChecker
     // check json_model_32_map_const (.'$Schema'.const)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$Schema'.const
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_32_map_contentEncoding (.'$Schema'.contentEncoding)
@@ -4606,8 +4742,10 @@ public class openapi_311 extends ModelChecker
     // check json_model_32_map_default (.'$Schema'.default)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$Schema'.default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_32_map_dependentRequired (.'$Schema'.dependentRequired)
@@ -4705,8 +4843,10 @@ public class openapi_311 extends ModelChecker
     // check json_model_32_map_example (.'$Schema'.example)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$Schema'.example
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_32_map_examples (.'$Schema'.examples)
@@ -4972,12 +5112,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema']", (path != null ? lpath_57 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Schema']", (path != null ? lpath_57 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Schema']", (path != null ? lpath_57 : null));
+            return false;
         }
         return true;
     }
@@ -5038,8 +5176,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Discriminator'.propertyName]", (path != null ? lpath_64 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("mapping") == 0)
+            if (prop.compareTo("mapping") == 0)
             {
                 // handle may mapping property
                 // .'$Discriminator'.mapping
@@ -5050,8 +5189,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Discriminator'.mapping]", (path != null ? lpath_64 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$Discriminator'.'/^x-/'
@@ -5104,6 +5244,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.name]", (path != null ? lpath_66 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("prefix") == 0)
             {
@@ -5116,6 +5257,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.prefix]", (path != null ? lpath_66 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("wrapped") == 0)
             {
@@ -5128,6 +5270,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.wrapped]", (path != null ? lpath_66 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("attribute") == 0)
             {
@@ -5140,6 +5283,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.attribute]", (path != null ? lpath_66 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("namespace") == 0)
             {
@@ -5152,8 +5296,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.namespace]", (path != null ? lpath_66 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$xml'.'/^x-/'
@@ -5315,6 +5460,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SS-http-bearer'.type]", (path != null ? lpath_67 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("scheme") == 0)
             {
@@ -5329,8 +5475,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SS-http-bearer'.scheme]", (path != null ? lpath_67 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("bearerFormat") == 0)
+            if (prop.compareTo("bearerFormat") == 0)
             {
                 // handle may bearerFormat property
                 // .'$SS-http-bearer'.bearerFormat
@@ -5341,12 +5488,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SS-http-bearer'.bearerFormat]", (path != null ? lpath_67 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SS-http-bearer']", (path != null ? lpath_67 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SS-http-bearer']", (path != null ? lpath_67 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -5493,6 +5638,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.in]", (path != null ? lpath_68 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("name") == 0)
             {
@@ -5506,6 +5652,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.name]", (path != null ? lpath_68 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("type") == 0)
             {
@@ -5519,8 +5666,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.type]", (path != null ? lpath_68 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("description") == 0)
+            if (prop.compareTo("description") == 0)
             {
                 // handle may description property
                 // .'$SecurityScheme'.'|'.0.description
@@ -5531,12 +5679,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SecurityScheme'.'|'.0.description]", (path != null ? lpath_68 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.0]", (path != null ? lpath_68 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.0]", (path != null ? lpath_68 : null));
+            return false;
         }
         if (must_count != 3)
         {
@@ -5588,6 +5734,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.1.type]", (path != null ? lpath_69 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("scheme") == 0)
             {
@@ -5602,8 +5749,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.1.scheme]", (path != null ? lpath_69 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("description") == 0)
+            if (prop.compareTo("description") == 0)
             {
                 // handle may description property
                 // .'$SecurityScheme'.'|'.1.description
@@ -5614,6 +5762,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SecurityScheme'.'|'.1.description]", (path != null ? lpath_69 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("bearerFormat") == 0)
             {
@@ -5626,12 +5775,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SecurityScheme'.'|'.1.bearerFormat]", (path != null ? lpath_69 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.1]", (path != null ? lpath_69 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.1]", (path != null ? lpath_69 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -5679,6 +5826,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.2.type]", (path != null ? lpath_70 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("scheme") == 0)
             {
@@ -5692,8 +5840,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.2.scheme]", (path != null ? lpath_70 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("description") == 0)
+            if (prop.compareTo("description") == 0)
             {
                 // handle may description property
                 // .'$SecurityScheme'.'|'.2.description
@@ -5704,12 +5853,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SecurityScheme'.'|'.2.description]", (path != null ? lpath_70 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.2]", (path != null ? lpath_70 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.2]", (path != null ? lpath_70 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -5757,6 +5904,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.3.type]", (path != null ? lpath_71 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("flows") == 0)
             {
@@ -5770,8 +5918,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.3.flows]", (path != null ? lpath_71 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("description") == 0)
+            if (prop.compareTo("description") == 0)
             {
                 // handle may description property
                 // .'$SecurityScheme'.'|'.3.description
@@ -5782,12 +5931,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SecurityScheme'.'|'.3.description]", (path != null ? lpath_71 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.3]", (path != null ? lpath_71 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.3]", (path != null ? lpath_71 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -5835,6 +5982,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.4.type]", (path != null ? lpath_72 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("openIdConnectUrl") == 0)
             {
@@ -5848,8 +5996,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path != null ? lpath_72 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("description") == 0)
+            if (prop.compareTo("description") == 0)
             {
                 // handle may description property
                 // .'$SecurityScheme'.'|'.4.description
@@ -5860,12 +6009,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SecurityScheme'.'|'.4.description]", (path != null ? lpath_72 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.4]", (path != null ? lpath_72 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$SecurityScheme'.'|'.4]", (path != null ? lpath_72 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -5911,8 +6058,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SecurityScheme'.'|'.5.description]", (path != null ? lpath_73 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$SecurityScheme'.'|'.5.'/^x-/'
@@ -6009,6 +6157,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OAuthFlows'.implicit]", (path != null ? lpath_74 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("password") == 0)
             {
@@ -6021,6 +6170,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OAuthFlows'.password]", (path != null ? lpath_74 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("authorizationCode") == 0)
             {
@@ -6033,6 +6183,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OAuthFlows'.authorizationCode]", (path != null ? lpath_74 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("clientCredentials") == 0)
             {
@@ -6045,8 +6196,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OAuthFlows'.clientCredentials]", (path != null ? lpath_74 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$OAuthFlows'.'/^x-/'
@@ -6117,6 +6269,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$OAuthFlow'.scopes]", (path != null ? lpath_75 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("tokenUrl") == 0)
             {
@@ -6130,6 +6283,7 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$OAuthFlow'.tokenUrl]", (path != null ? lpath_75 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("authorizationUrl") == 0)
             {
@@ -6143,8 +6297,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$OAuthFlow'.authorizationUrl]", (path != null ? lpath_75 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("refreshUrl") == 0)
+            if (prop.compareTo("refreshUrl") == 0)
             {
                 // handle may refreshUrl property
                 // .'$OAuthFlow'.refreshUrl
@@ -6155,8 +6310,9 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OAuthFlow'.refreshUrl]", (path != null ? lpath_75 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("x-"))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
                 // .'$OAuthFlow'.'/^x-/'
@@ -6556,8 +6712,10 @@ public class openapi_311 extends ModelChecker
     // check json_model_59_map_const (.'$schema#ObjectSchema'.const)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$schema#ObjectSchema'.const
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_59_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -6587,8 +6745,10 @@ public class openapi_311 extends ModelChecker
     // check json_model_59_map_default (.'$schema#ObjectSchema'.default)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$schema#ObjectSchema'.default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_59_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)
@@ -6946,12 +7106,10 @@ public class openapi_311 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$schema#ObjectSchema']", (path != null ? lpath_79 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$schema#ObjectSchema']", (path != null ? lpath_79 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$schema#ObjectSchema']", (path != null ? lpath_79 : null));
+            return false;
         }
         return true;
     }

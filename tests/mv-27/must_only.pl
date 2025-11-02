@@ -107,6 +107,7 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'p31')
         {
@@ -118,6 +119,7 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'p32')
         {
@@ -129,11 +131,9 @@ sub _jm_obj_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 3;
 }
@@ -161,6 +161,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'mo1')
         {
@@ -172,6 +173,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'mo2')
         {
@@ -183,6 +185,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'mo3')
         {
@@ -194,11 +197,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }

@@ -40,24 +40,24 @@ public class str_eq extends ModelChecker
                 // handle may  property
                 // .''
                 res = true;
+                continue;
             }
             else if (prop.compareTo("hello") == 0)
             {
                 // handle may hello property
                 // .hello
                 res = true;
+                continue;
             }
             else if (prop.compareTo("quite-a-long-property-name") == 0)
             {
                 // handle may quite-a-long-property-name property
                 // .'quite-a-long-property-name'
                 res = true;
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }

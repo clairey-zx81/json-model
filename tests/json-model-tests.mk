@@ -13,9 +13,6 @@ JMC.cmd = \
 # JSON Schema Checker
 JSC = jsu-check --quiet
 
-# local makefile
--include local.mk
-
 # inputs, skip _*
 F.mjs   = $(wildcard [a-zA-Z]*.model.js)
 F.myaml = $(wildcard *.model.yaml)
@@ -151,6 +148,9 @@ else
 CPPFLAGS  += -I/usr/local/include -DREGEX_ENGINE_RE2
 LDFLAGS   = -L/usr/local/lib json-model.o -ljansson -lcre2 -lpthread -lre2 main.o -lm
 endif
+
+# local makefile
+-include local.mk
 
 json-model.o: $(RT.c)/json-model.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<

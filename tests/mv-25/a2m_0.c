@@ -34,6 +34,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (jm_str_eq_2(prop, 0x00000062))
         {
@@ -43,11 +44,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-        {
-            // accept any other props
-        }
+        // accept any other props
     }
     return must_count == 2;
 }

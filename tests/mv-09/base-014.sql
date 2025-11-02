@@ -28,20 +28,22 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'age' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'age' THEN
       -- handle may age property
       -- .age
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- handle other props
-      -- .''
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      CONTINUE;
+    END IF;
+    -- handle other props
+    -- .''
+    res := JSONB_TYPEOF(pval) = 'string';
+    IF NOT res THEN
+      RETURN FALSE;
     END IF;
   END LOOP;
   RETURN must_count = 1;

@@ -145,8 +145,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 22 may props
             if pfun != UNDEFINED and not pfun(pval, None, None):
                 return False
-        else:
-            return False
+            continue
+        return False
     return True
 
 

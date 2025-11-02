@@ -60,8 +60,10 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected element [.'^'.1]", path])
     }
+    res = ! is_0;
+    res = false;
     rep !== null && rep.push(["not one model match [.'^']", path])
-    return false;
+    return res;
 }
 
 

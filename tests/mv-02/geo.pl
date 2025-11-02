@@ -144,6 +144,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'coordinates')
         {
@@ -155,8 +156,9 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'bbox')
+        if ($prop eq 'bbox')
         {
             # handle may bbox property
             # .'$Point'.bbox
@@ -178,11 +180,9 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }
@@ -211,6 +211,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'coordinates')
         {
@@ -235,8 +236,9 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'bbox')
+        if ($prop eq 'bbox')
         {
             # handle may bbox property
             # .'$MultiPoint'.bbox
@@ -258,11 +260,9 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }
@@ -291,6 +291,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'coordinates')
         {
@@ -302,8 +303,9 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'bbox')
+        if ($prop eq 'bbox')
         {
             # handle may bbox property
             # .'$LineString'.bbox
@@ -325,11 +327,9 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }
@@ -358,6 +358,7 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'coordinates')
         {
@@ -382,8 +383,9 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'bbox')
+        if ($prop eq 'bbox')
         {
             # handle may bbox property
             # .'$MultiLineString'.bbox
@@ -405,11 +407,9 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }
@@ -438,6 +438,7 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'coordinates')
         {
@@ -462,8 +463,9 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'bbox')
+        if ($prop eq 'bbox')
         {
             # handle may bbox property
             # .'$Polygon'.bbox
@@ -485,11 +487,9 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }
@@ -518,6 +518,7 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'coordinates')
         {
@@ -555,8 +556,9 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'bbox')
+        if ($prop eq 'bbox')
         {
             # handle may bbox property
             # .'$MultiPolygon'.bbox
@@ -578,11 +580,9 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }

@@ -22,9 +22,11 @@ public class none_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
+        boolean res;
         // .
+        res = false;
         if (rep != null) rep.addEntry("unexpected $NONE [.]", path);
-        return false;
+        return res;
     }
 
 

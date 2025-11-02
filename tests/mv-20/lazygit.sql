@@ -178,9 +178,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -217,9 +217,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -247,6 +247,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -255,6 +256,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'title' THEN
       -- handle must title property
       must_count := must_count + 1;
@@ -263,7 +265,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'suggestions' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'suggestions' THEN
       -- handle may suggestions property
       -- .'$Prompts'.'|'.0.suggestions
       -- .'$Prompts'.'|'.0.suggestions.'|'.0
@@ -272,6 +276,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'initialValue' THEN
       -- handle may initialValue property
       -- .'$Prompts'.'|'.0.initialValue
@@ -279,9 +284,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -309,6 +314,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -317,6 +323,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'title' THEN
       -- handle must title property
       must_count := must_count + 1;
@@ -325,16 +332,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'body' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'body' THEN
       -- handle may body property
       -- .'$Prompts'.'|'.1.body
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -362,13 +371,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'name' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'name' THEN
       -- handle may name property
       -- .'$Prompts'.'|'.2.options.'@'.0.name
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Prompts'.'|'.2.options.'@'.0.description
@@ -376,9 +388,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -408,6 +420,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -416,6 +429,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'title' THEN
       -- handle must title property
       must_count := must_count + 1;
@@ -424,6 +438,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'options' THEN
       -- handle must options property
       must_count := must_count + 1;
@@ -446,9 +461,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 4;
 END;
@@ -476,6 +491,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -484,6 +500,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'title' THEN
       -- handle must title property
       must_count := must_count + 1;
@@ -492,6 +509,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'command' THEN
       -- handle must command property
       must_count := must_count + 1;
@@ -500,13 +518,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'filter' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'filter' THEN
       -- handle may filter property
       -- .'$Prompts'.'|'.3.filter
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'labelFormat' THEN
       -- handle may labelFormat property
       -- .'$Prompts'.'|'.3.labelFormat
@@ -514,6 +535,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'valueFormat' THEN
       -- handle may valueFormat property
       -- .'$Prompts'.'|'.3.valueFormat
@@ -521,9 +543,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 4;
 END;
@@ -594,9 +616,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -626,6 +648,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'command' THEN
       -- handle must command property
       must_count := must_count + 1;
@@ -634,6 +657,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'context' THEN
       -- handle must context property
       must_count := must_count + 1;
@@ -642,13 +666,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'after' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'after' THEN
       -- handle may after property
       -- .customCommands.'@'.0.after
       res := _jm_obj_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'stream' THEN
       -- handle may stream property
       -- .customCommands.'@'.0.stream
@@ -656,6 +683,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'prompts' THEN
       -- handle may prompts property
       -- .customCommands.'@'.0.prompts
@@ -673,6 +701,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'showOutput' THEN
       -- handle may showOutput property
       -- .customCommands.'@'.0.showOutput
@@ -680,6 +709,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'subprocess' THEN
       -- handle may subprocess property
       -- .customCommands.'@'.0.subprocess
@@ -687,6 +717,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .customCommands.'@'.0.description
@@ -694,6 +725,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'loadingText' THEN
       -- handle may loadingText property
       -- .customCommands.'@'.0.loadingText
@@ -701,9 +733,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -802,9 +834,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -840,6 +872,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'replace' THEN
       -- handle must replace property
       must_count := must_count + 1;
@@ -848,9 +881,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -949,6 +982,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'showGraph' THEN
       -- handle may showGraph property
       -- .git.log.showGraph
@@ -956,6 +990,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'showWholeGraph' THEN
       -- handle may showWholeGraph property
       -- .git.log.showWholeGraph
@@ -963,9 +998,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -991,6 +1026,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'manualCommit' THEN
       -- handle may manualCommit property
       -- .git.merging.manualCommit
@@ -998,9 +1034,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1050,6 +1086,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'colorArg' THEN
       -- handle may colorArg property
       -- .git.paging.colorArg
@@ -1057,6 +1094,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'useConfig' THEN
       -- handle may useConfig property
       -- .git.paging.useConfig
@@ -1064,9 +1102,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1118,9 +1156,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1238,9 +1276,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1490,9 +1528,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1553,9 +1591,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1589,9 +1627,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1617,9 +1655,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1653,9 +1691,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1689,9 +1727,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1717,6 +1755,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'toggleDragSelect' THEN
       -- handle may toggleDragSelect property
       -- .keybinding.main.toggleDragSelect
@@ -1724,6 +1763,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'toggleSelectHunk' THEN
       -- handle may toggleSelectHunk property
       -- .keybinding.main.toggleSelectHunk
@@ -1731,6 +1771,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'toggleDragSelect-alt' THEN
       -- handle may toggleDragSelect-alt property
       -- .keybinding.main.'toggleDragSelect-alt'
@@ -1738,9 +1779,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1766,6 +1807,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'renameStash' THEN
       -- handle may renameStash property
       -- .keybinding.stash.renameStash
@@ -1773,9 +1815,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1801,6 +1843,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'checkForUpdate' THEN
       -- handle may checkForUpdate property
       -- .keybinding.status.checkForUpdate
@@ -1808,9 +1851,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1836,6 +1879,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'update' THEN
       -- handle may update property
       -- .keybinding.submodules.update
@@ -1843,6 +1887,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'bulkMenu' THEN
       -- handle may bulkMenu property
       -- .keybinding.submodules.bulkMenu
@@ -1850,9 +1895,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1904,9 +1949,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1940,9 +1985,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1995,6 +2040,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'open' THEN
       -- handle may open property
       -- .os.open
@@ -2002,6 +2048,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'openLink' THEN
       -- handle may openLink property
       -- .os.openLink
@@ -2009,6 +2056,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'editAtLine' THEN
       -- handle may editAtLine property
       -- .os.editAtLine
@@ -2016,6 +2064,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'editPreset' THEN
       -- handle may editPreset property
       -- .os.editPreset
@@ -2023,6 +2072,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'editAtLineAndWait' THEN
       -- handle may editAtLineAndWait property
       -- .os.editAtLineAndWait
@@ -2030,6 +2080,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'copyToClipboardCmd' THEN
       -- handle may copyToClipboardCmd property
       -- .os.copyToClipboardCmd
@@ -2037,9 +2088,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -2083,6 +2134,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'refreshInterval' THEN
       -- handle may refreshInterval property
       -- .refresher.refreshInterval
@@ -2090,9 +2142,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -2164,6 +2216,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'method' THEN
       -- handle may method property
       -- .update.method
@@ -2171,9 +2224,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -2208,9 +2261,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;

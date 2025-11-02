@@ -87,6 +87,7 @@ public class more_comments extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.o.p]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("q") == 0)
             {
@@ -99,6 +100,7 @@ public class more_comments extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.o.q]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("t") == 0)
             {
@@ -131,12 +133,10 @@ public class more_comments extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.o.t]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.o]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.o]", (path != null ? lpath_1 : null));
+            return false;
         }
         return true;
     }
@@ -170,12 +170,10 @@ public class more_comments extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.o]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }

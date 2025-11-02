@@ -40,6 +40,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.a]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "b")
         {
@@ -53,8 +54,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.b]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "c")
+        if (prop == "c")
         {
             // handle may c property
             // .c
@@ -65,8 +67,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.c]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (runtime.jm_is_valid_date(prop, (path ? lpath_0 : null), rep))
+        if (runtime.jm_is_valid_date(prop, (path ? lpath_0 : null), rep))
         {
             // handle 1 key props
             // .'$DATE'

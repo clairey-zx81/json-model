@@ -45,10 +45,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -244,9 +244,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -450,15 +450,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_12_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_12_map(prop) IS NOT NULL THEN
       -- handle 14 may props
       pfun := json_model_12_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -655,15 +657,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_13_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_13_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := json_model_13_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -922,15 +926,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_14_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_14_map(prop) IS NOT NULL THEN
       -- handle 14 may props
       pfun := json_model_14_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1107,15 +1113,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_15_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_15_map(prop) IS NOT NULL THEN
       -- handle 12 may props
       pfun := json_model_15_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1292,15 +1300,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_16_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_16_map(prop) IS NOT NULL THEN
       -- handle 12 may props
       pfun := json_model_16_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1459,15 +1469,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_17_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_17_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_17_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1626,15 +1638,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_18_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_18_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_18_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1793,15 +1807,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_19_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_19_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_19_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1960,15 +1976,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_20_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_20_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_20_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2127,15 +2145,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_21_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_21_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_21_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2294,15 +2314,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_22_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_22_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_22_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2512,15 +2534,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_23_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_23_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_23_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2693,15 +2717,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_24_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_24_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_24_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2883,6 +2909,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -2891,15 +2918,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_28_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_28_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_28_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3070,6 +3099,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -3078,15 +3108,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_29_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_29_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_29_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3257,6 +3289,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -3265,15 +3298,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_30_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_30_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_30_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3432,6 +3467,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'const' THEN
       -- handle must const property
       must_count := must_count + 1;
@@ -3440,15 +3476,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_31_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_31_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_31_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3607,6 +3645,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'const' THEN
       -- handle must const property
       must_count := must_count + 1;
@@ -3615,15 +3654,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_32_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_32_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_32_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3782,6 +3823,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'const' THEN
       -- handle must const property
       must_count := must_count + 1;
@@ -3790,15 +3832,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_33_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_33_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_33_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3957,6 +4001,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'const' THEN
       -- handle must const property
       must_count := must_count + 1;
@@ -3965,15 +4010,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_34_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_34_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_34_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;

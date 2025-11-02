@@ -47,12 +47,10 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$a'.t]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$a']", (path ? &lpath_0 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$a']", (path ? &lpath_0 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -103,12 +101,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$bc'.t]", (path ? &lpath_1 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$bc']", (path ? &lpath_1 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$bc']", (path ? &lpath_1 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -149,7 +145,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             int64_t xc_0 = 0;
             // .'$Nabc'.t.'^'.0
             bool xr_0 = json_is_string(pval);
-            if (unlikely(xr_0))
+            if (likely(xr_0))
                 xc_0 += 1;
             else
             {
@@ -157,7 +153,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             // .'$Nabc'.t.'^'.1
             xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
-            if (unlikely(xr_0))
+            if (likely(xr_0))
                 xc_0 += 1;
             else
             {
@@ -167,7 +163,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // .'$Nabc'.t.'^'.2
                 xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000062);
-                if (unlikely(xr_0))
+                if (likely(xr_0))
                     xc_0 += 1;
                 else
                 {
@@ -178,7 +174,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // .'$Nabc'.t.'^'.3
                 xr_0 = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000063);
-                if (unlikely(xr_0))
+                if (likely(xr_0))
                     xc_0 += 1;
                 else
                 {
@@ -196,12 +192,10 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Nabc'.t]", (path ? &lpath_2 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Nabc']", (path ? &lpath_2 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Nabc']", (path ? &lpath_2 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {

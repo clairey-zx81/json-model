@@ -39,6 +39,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'mu2')
         {
@@ -50,6 +51,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'mu3')
         {
@@ -61,8 +63,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'ma1')
+        if ($prop eq 'ma1')
         {
             # handle may ma1 property
             # .ma1
@@ -71,6 +74,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'ma2')
         {
@@ -81,6 +85,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'ma3')
         {
@@ -91,11 +96,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 3;
 }

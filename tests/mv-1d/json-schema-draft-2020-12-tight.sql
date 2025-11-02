@@ -112,9 +112,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -140,10 +140,12 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'default' THEN
       -- handle may default property
       -- .'$meta'.default
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$meta'.examples
@@ -151,6 +153,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'readOnly' THEN
       -- handle may readOnly property
       -- .'$meta'.readOnly
@@ -158,6 +161,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'writeOnly' THEN
       -- handle may writeOnly property
       -- .'$meta'.writeOnly
@@ -165,6 +169,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'deprecated' THEN
       -- handle may deprecated property
       -- .'$meta'.deprecated
@@ -172,6 +177,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$meta'.description
@@ -179,9 +185,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -210,9 +216,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -241,9 +247,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -272,7 +278,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'maximum' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'maximum' THEN
       -- handle may maximum property
       -- .'$Number'.maximum
       -- .'$Number'.maximum.'|'.0
@@ -281,6 +289,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'minimum' THEN
       -- handle may minimum property
       -- .'$Number'.minimum
@@ -290,6 +299,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'multipleOf' THEN
       -- handle may multipleOf property
       -- .'$Number'.multipleOf
@@ -299,6 +309,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'exclusiveMaximum' THEN
       -- handle may exclusiveMaximum property
       -- .'$Number'.exclusiveMaximum
@@ -308,6 +319,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'exclusiveMinimum' THEN
       -- handle may exclusiveMinimum property
       -- .'$Number'.exclusiveMinimum
@@ -317,9 +329,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -348,13 +360,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'maximum' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'maximum' THEN
       -- handle may maximum property
       -- .'$Integer'.maximum
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'minimum' THEN
       -- handle may minimum property
       -- .'$Integer'.minimum
@@ -362,6 +377,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'multipleOf' THEN
       -- handle may multipleOf property
       -- .'$Integer'.multipleOf
@@ -369,6 +385,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'exclusiveMaximum' THEN
       -- handle may exclusiveMaximum property
       -- .'$Integer'.exclusiveMaximum
@@ -376,6 +393,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'exclusiveMinimum' THEN
       -- handle may exclusiveMinimum property
       -- .'$Integer'.exclusiveMinimum
@@ -383,9 +401,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -414,13 +432,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'format' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'format' THEN
       -- handle may format property
       -- .'$String'.format
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'pattern' THEN
       -- handle may pattern property
       -- .'$String'.pattern
@@ -428,6 +449,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'maxLength' THEN
       -- handle may maxLength property
       -- .'$String'.maxLength
@@ -435,6 +457,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'minLength' THEN
       -- handle may minLength property
       -- .'$String'.minLength
@@ -442,6 +465,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'contentSchema' THEN
       -- handle may contentSchema property
       -- .'$String'.contentSchema
@@ -449,6 +473,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'contentEncoding' THEN
       -- handle may contentEncoding property
       -- .'$String'.contentEncoding
@@ -456,6 +481,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'contentMediaType' THEN
       -- handle may contentMediaType property
       -- .'$String'.contentMediaType
@@ -463,9 +489,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -609,15 +635,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_12_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_12_map(prop) IS NOT NULL THEN
       -- handle 9 may props
       pfun := json_model_12_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -774,15 +802,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_13_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF json_model_13_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := json_model_13_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -834,9 +864,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1007,15 +1037,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_0_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_0_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := _jm_obj_0_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1186,15 +1218,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_1_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_1_map(prop) IS NOT NULL THEN
       -- handle 16 may props
       pfun := _jm_obj_1_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1420,15 +1454,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_2_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_2_map(prop) IS NOT NULL THEN
       -- handle 21 may props
       pfun := _jm_obj_2_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1644,15 +1680,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_3_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_3_map(prop) IS NOT NULL THEN
       -- handle 21 may props
       pfun := _jm_obj_3_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -1877,15 +1915,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_4_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_4_map(prop) IS NOT NULL THEN
       -- handle 23 may props
       pfun := _jm_obj_4_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2101,15 +2141,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_5_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_5_map(prop) IS NOT NULL THEN
       -- handle 25 may props
       pfun := _jm_obj_5_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2398,15 +2440,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_6_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_6_map(prop) IS NOT NULL THEN
       -- handle 26 may props
       pfun := _jm_obj_6_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2590,9 +2634,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;

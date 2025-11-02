@@ -56,6 +56,7 @@ sub json_model_3($$$)
             $must_count++;
             # .'$Test'.data
             $res = 1;
+            next;
         }
         elsif ($prop eq 'valid')
         {
@@ -67,6 +68,7 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'description')
         {
@@ -78,8 +80,9 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'comment')
+        if ($prop eq 'comment')
         {
             # handle may comment property
             # .'$Test'.comment
@@ -88,11 +91,9 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 3;
 }
@@ -132,6 +133,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'perl5')
         {
@@ -142,6 +144,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'quote')
         {
@@ -152,6 +155,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'ecma262')
         {
@@ -162,6 +166,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'validation')
         {
@@ -172,8 +177,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (_jm_re_1($prop, undef, undef))
+        if (_jm_re_1($prop, undef, undef))
         {
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
@@ -259,6 +265,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'schema')
         {
@@ -266,6 +273,7 @@ sub json_model_5($$$)
             $must_count++;
             # .'$TestCase'.schema
             $res = 1;
+            next;
         }
         elsif ($prop eq 'description')
         {
@@ -277,8 +285,9 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'comment')
+        if ($prop eq 'comment')
         {
             # handle may comment property
             # .'$TestCase'.comment
@@ -287,6 +296,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'specification')
         {
@@ -316,11 +326,9 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 3;
 }

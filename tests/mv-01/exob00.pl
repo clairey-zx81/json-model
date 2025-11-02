@@ -39,23 +39,21 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'a')
+        if ($prop eq 'a')
         {
             # handle may a property
             # .'|'.1.a
             $res = 0;
             return 0;
         }
-        else
+        # handle other props
+        # .'|'.1.''
+        $res = jm_is_integer($pval) && $pval >= 0;
+        if (! $res)
         {
-            # handle other props
-            # .'|'.1.''
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
     }
     return $must_count == 1;
@@ -84,23 +82,21 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'b')
+        if ($prop eq 'b')
         {
             # handle may b property
             # .'|'.0.b
             $res = 0;
             return 0;
         }
-        else
+        # handle other props
+        # .'|'.0.''
+        $res = jm_is_integer($pval) && $pval >= 0;
+        if (! $res)
         {
-            # handle other props
-            # .'|'.0.''
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
     }
     return $must_count == 1;

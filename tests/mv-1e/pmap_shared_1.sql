@@ -28,6 +28,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'b' THEN
       -- handle must b property
       must_count := must_count + 1;
@@ -36,6 +37,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'c' THEN
       -- handle must c property
       must_count := must_count + 1;
@@ -44,6 +46,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'd' THEN
       -- handle must d property
       must_count := must_count + 1;
@@ -52,13 +55,13 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- handle other props
-      -- .'$Oo0'.''
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      CONTINUE;
+    END IF;
+    -- handle other props
+    -- .'$Oo0'.''
+    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    IF NOT res THEN
+      RETURN FALSE;
     END IF;
   END LOOP;
   RETURN must_count = 4;
@@ -88,13 +91,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'a' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'a' THEN
       -- handle may a property
       -- .'$Oo1'.a
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'b' THEN
       -- handle may b property
       -- .'$Oo1'.b
@@ -102,6 +108,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'c' THEN
       -- handle may c property
       -- .'$Oo1'.c
@@ -109,6 +116,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'd' THEN
       -- handle may d property
       -- .'$Oo1'.d
@@ -116,9 +124,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -147,6 +155,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'b' THEN
       -- handle must b property
       must_count := must_count + 1;
@@ -155,6 +164,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'c' THEN
       -- handle must c property
       must_count := must_count + 1;
@@ -163,6 +173,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'd' THEN
       -- handle must d property
       must_count := must_count + 1;
@@ -171,16 +182,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'y' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'y' THEN
       -- handle may y property
       -- .'$Oo2'.y
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 4;
 END;

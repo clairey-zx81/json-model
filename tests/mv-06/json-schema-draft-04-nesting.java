@@ -108,8 +108,10 @@ public class json_schema_draft_04_nesting extends ModelChecker
     // check json_model_3_map_default (.'$schema'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$schema'.default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_3_map_definitions (.'$schema'.definitions)
@@ -555,17 +557,15 @@ public class json_schema_draft_04_nesting extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$schema']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
+            // handle other props
+            // .'$schema'.''
+            res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
+            if (! res)
             {
-                // handle other props
-                // .'$schema'.''
-                res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.'']", (path != null ? lpath_0 : null));
-                    return false;
-                }
+                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.'']", (path != null ? lpath_0 : null));
+                return false;
             }
         }
         return true;

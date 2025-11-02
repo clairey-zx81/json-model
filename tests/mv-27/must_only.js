@@ -95,6 +95,7 @@ function _jm_obj_3(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "p31")
         {
@@ -106,6 +107,7 @@ function _jm_obj_3(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "p32")
         {
@@ -117,11 +119,9 @@ function _jm_obj_3(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     return must_count == 3;
 }
@@ -147,6 +147,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "mo1")
         {
@@ -158,6 +159,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "mo2")
         {
@@ -169,6 +171,7 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
         else if (prop == "mo3")
         {
@@ -180,11 +183,9 @@ function json_model_1(val, path, rep)
             {
                 return false;
             }
+            continue;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     return true;
 }

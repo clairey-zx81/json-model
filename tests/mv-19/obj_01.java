@@ -69,8 +69,9 @@ public class obj_01 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.foo]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("bla") == 0)
+            if (prop.compareTo("bla") == 0)
             {
                 // handle may bla property
                 // .bla
@@ -81,8 +82,9 @@ public class obj_01 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.bla]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_2(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
+            if (json_model_2(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
             {
                 // handle 1 key props
                 // .'$Xxx'

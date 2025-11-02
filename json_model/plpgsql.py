@@ -219,6 +219,9 @@ class PLpgSQL(Language):
     def nope(self) -> Block:
         return [ "NULL;" ]
 
+    def cont(self) -> Block:
+        return [ "CONTINUE;" ]
+
     def _var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         code = []
         if tname:

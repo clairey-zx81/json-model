@@ -68,6 +68,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'q')
         {
@@ -78,6 +79,7 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 't')
         {
@@ -98,11 +100,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -131,11 +131,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }

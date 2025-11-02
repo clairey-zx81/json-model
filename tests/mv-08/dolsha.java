@@ -76,12 +76,10 @@ public class dolsha extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.prop]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }

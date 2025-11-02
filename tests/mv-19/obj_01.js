@@ -55,8 +55,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.foo]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "bla")
+        if (prop == "bla")
         {
             // handle may bla property
             // .bla
@@ -67,8 +68,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.bla]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (json_model_2(prop, (path ? lpath_0 : null), rep))
+        if (json_model_2(prop, (path ? lpath_0 : null), rep))
         {
             // handle 1 key props
             // .'$Xxx'

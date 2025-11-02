@@ -51,6 +51,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_2(prop, 0x00000062)))
         {
@@ -64,8 +65,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.b]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000063)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000063)))
         {
             // handle may c property
             // .c
@@ -76,8 +78,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.c]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_is_valid_date(prop, (path ? &lpath_0 : NULL), rep))
+        if (jm_is_valid_date(prop, (path ? &lpath_0 : NULL), rep))
         {
             // handle 1 key props
             // .'$DATE'

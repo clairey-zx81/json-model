@@ -192,19 +192,17 @@ def _simpleRet(op: Jsonable, reporting: bool) -> bool:
         resf: bool|None
         if ((rest := _returnCst(op["true"], reporting)) is not None) and \
            ((resf := _returnCst(op["false"], reporting)) is not None):
-            del op["true"]
-            del op["false"]
             if rest == resf:
                 # quite unlikely…
-                op["op"] = ["ret"]
-                op["res"] = {"o": "cst", "c": rest}
+                op.clear()
+                op.update(o="ret", res={"o": "cst", "c": rest})
             else:
                 cond = op["cond"]
                 while _isOp(cond, "not"):
                     cond = cond["e"]
                     rest, resf = resf, rest
-                op["o"] = "ret"
-                op["res"] = cond if rest else {"o": "not", "e": cond}
+                op.clear()
+                op.update(o="ret", res=cond if rest else {"o": "not", "e": cond})
             return True
     return False
 
@@ -353,10 +351,9 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
             if var in cum_value:
                 # drop if
-                op["o"] = "seq"
-                op["seq"] = op["true" if direct == cum_value[var] else "false"]
-                del op["true"]
-                del op["false"]
+                seq = op["true" if direct == cum_value[var] else "false"]
+                op.clear()
+                op.update(o="seq", seq=seq)
                 op["#"] = "IRO dropped constant if"
                 prev_var = None
                 # NOTE could update effects?!
@@ -425,9 +422,9 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
         # simplify "if (C) .../..."
         if _isOp(op, "if") and _isOp(op["cond"], "cst"):
-            nouv = {"o": "seq", "seq": op["true"] if op["cond"]["c"] else op["false"]}
+            seq = op["true"] if op["cond"]["c"] else op["false"]
             op.clear()
-            op.update(nouv)
+            op.update(o="seq", seq=seq)
 
         # TODO flatten seq in seq?
 
@@ -436,6 +433,8 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
         if _isOp(op, "if"):
             if _isOp(op["cond"], "not") and not _noOps(op["false"], reporting):
                 op["cond"], op["true"], op["false"] = op["cond"]["e"], op["false"], op["true"]
+                if isinstance(op["likely"], bool):
+                    op["likely"] = not op["likely"]
                 op["#"] = "IRO inverted not"
             elif (_isOp(op["cond"], "nc") or _isOp(op["cond"], "sc")) and \
                     _noOps(op["true"], reporting) and not _noOps(op["false"], reporting):
@@ -443,6 +442,8 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 op["#"] = "IRO inverted cmp"
                 op["true"], op["false"] = op["false"], op["true"]
                 op["cond"]["op"] = CMP_INV[op["cond"]["op"]]
+                if isinstance(op["likely"], bool):
+                    op["likely"] = not op["likely"]
 
         if _isOp(op, "if"):
             _simpleRet(op, reporting)         # simplify if/return/return
@@ -456,6 +457,8 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             else:
                 op["cond"] = {"o": "not", "e": op["cond"], "#": "IRO empty true branch removed"}
                 op["true"], op["false"] = op["false"], []
+                if isinstance(op["likely"], bool):
+                    op["likely"] = not op["likely"]
 
         # simplify "if (!? V) V = C
         if _isOp(op, "if") and (assign := _isBoolAssign(op["true"], reporting)) and \
@@ -516,7 +519,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             ifop = None
 
     # simplify X = E1; X = E2;
-    assign: Jsonbale|None = None
+    assign: Jsonable|None = None
     for op in seq:
         if _noOp(op, False):
             pass
@@ -881,6 +884,36 @@ def elimDeadCode(code: Jsonable, reporting: bool) -> int:
     recurseIR(code, lambda _c, _p: True, edcRwt)
     return changes
 
+def elimUnreachableCode(code: Jsonable) -> int:
+    """Remove unreachable code after a return."""
+    changes = 0
+
+    def hasRet(op: Jsonable) -> bool:
+        return isinstance(op, dict) and "o" in op and (
+            op["o"] == "ret" or
+            op["o"] == "seq" and any(map(hasRet, op["seq"])) or
+            op["o"] == "if" and any(map(hasRet, op["true"])) and any(map(hasRet, op["false"]))
+        )
+
+    def eucRwt(code: Jsonable, _: Path) -> Jsonable:
+        nonlocal changes
+        if isinstance(code, list):
+            returned = False
+            for op in code:
+                if _isOp(op, "co"):
+                    pass
+                elif returned:
+                    if not _isOp(op, {"no", "ign"}):
+                        changes += 1
+                        op.clear()
+                        op.update(o="ign")
+                elif hasRet(op):
+                    returned = True
+        return code
+
+    recurseIR(code, lambda _c, _p: True, eucRwt)
+    return changes
+
 def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool = True,
                if_optim: bool = True, reporting: bool = True) -> Jsonable:
     """Optimize IR code."""
@@ -910,6 +943,7 @@ def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool
             changed |= changes > 0
         changed |= elimCommonSub(ins) > 0
         changed |= elimDeadCode(ins, reporting) > 0
+        changed |= elimUnreachableCode(ins) > 0
         if changed:
             code[i] = json.dumps(ins)
 

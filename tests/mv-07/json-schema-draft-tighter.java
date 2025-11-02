@@ -229,6 +229,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.format]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("pattern") == 0)
             {
@@ -241,6 +242,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.pattern]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("maxLength") == 0)
             {
@@ -253,6 +255,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.maxLength]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("minLength") == 0)
             {
@@ -265,12 +268,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.minLength]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$stringKeywords']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$stringKeywords']", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }
@@ -321,6 +322,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.items]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("maxItems") == 0)
             {
@@ -333,6 +335,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.maxItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("minItems") == 0)
             {
@@ -345,6 +348,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.minItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("prefixItems") == 0)
             {
@@ -357,6 +361,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("uniqueItems") == 0)
             {
@@ -369,6 +374,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.uniqueItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("additionalItems") == 0)
             {
@@ -381,12 +387,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.additionalItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$arrayKeywords']", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$arrayKeywords']", (path != null ? lpath_1 : null));
+            return false;
         }
         return true;
     }
@@ -499,6 +503,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.required]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("properties") == 0)
             {
@@ -511,6 +516,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.properties]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("patternProperties") == 0)
             {
@@ -523,6 +529,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.patternProperties]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("additionalProperties") == 0)
             {
@@ -535,12 +542,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.additionalProperties]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$objectKeywords']", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$objectKeywords']", (path != null ? lpath_2 : null));
+            return false;
         }
         return true;
     }
@@ -573,6 +578,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$numberKeywords'.maximum]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("minimum") == 0)
             {
@@ -585,12 +591,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$numberKeywords'.minimum]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$numberKeywords']", (path != null ? lpath_5 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$numberKeywords']", (path != null ? lpath_5 : null));
+            return false;
         }
         return true;
     }
@@ -677,6 +681,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.id]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -689,6 +694,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$id']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -701,6 +707,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$defs']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -713,6 +720,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.title]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -725,12 +733,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$schema']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$metas'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -743,6 +753,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$comment']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -755,6 +766,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.examples]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -767,6 +779,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.definitions]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -779,12 +792,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.description]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$metas']", (path != null ? lpath_6 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$metas']", (path != null ? lpath_6 : null));
+            return false;
         }
         return true;
     }
@@ -856,8 +867,10 @@ public class json_schema_draft_tighter extends ModelChecker
     // check json_model_10_map_default (.'$String'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$String'.default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_10_map_definitions (.'$String'.definitions)
@@ -1016,8 +1029,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$String'.type]", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else if ((pfun = json_model_10_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_10_map_pmap.get(prop)) != null)
             {
                 // handle 14 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_9 : null), rep)))
@@ -1025,12 +1039,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$String']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$String']", (path != null ? lpath_9 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$String']", (path != null ? lpath_9 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -1113,8 +1125,10 @@ public class json_schema_draft_tighter extends ModelChecker
     // check json_model_11_map_default (.'$Array'.default)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$Array'.default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_11_map_definitions (.'$Array'.definitions)
@@ -1290,8 +1304,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Array'.type]", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
-            else if ((pfun = json_model_11_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_11_map_pmap.get(prop)) != null)
             {
                 // handle 16 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_12 : null), rep)))
@@ -1299,12 +1314,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array']", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Array']", (path != null ? lpath_12 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Array']", (path != null ? lpath_12 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -1387,8 +1400,10 @@ public class json_schema_draft_tighter extends ModelChecker
     // check json_model_12_map_default (.'$Object'.default)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$Object'.default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_12_map_definitions (.'$Object'.definitions)
@@ -1592,8 +1607,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Object'.type]", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
-            else if ((pfun = json_model_12_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_12_map_pmap.get(prop)) != null)
             {
                 // handle 14 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_15 : null), rep)))
@@ -1601,12 +1617,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object']", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Object']", (path != null ? lpath_15 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Object']", (path != null ? lpath_15 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -1705,8 +1719,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Integer'.type]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$Integer'.id
@@ -1717,6 +1732,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.id]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -1729,6 +1745,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$id']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -1741,6 +1758,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$defs']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -1753,6 +1771,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.title]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -1765,12 +1784,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$schema']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$Integer'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("maximum") == 0)
             {
@@ -1783,6 +1804,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.maximum]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("minimum") == 0)
             {
@@ -1795,6 +1817,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.minimum]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -1807,6 +1830,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$comment']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -1819,6 +1843,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.examples]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -1831,6 +1856,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.definitions]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -1843,12 +1869,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.description]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Integer']", (path != null ? lpath_20 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Integer']", (path != null ? lpath_20 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -1947,8 +1971,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Number'.type]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$Number'.id
@@ -1959,6 +1984,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.id]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -1971,6 +1997,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$id']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -1983,6 +2010,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$defs']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -1995,6 +2023,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.title]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -2007,12 +2036,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$schema']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$Number'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("maximum") == 0)
             {
@@ -2025,6 +2056,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.maximum]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("minimum") == 0)
             {
@@ -2037,6 +2069,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.minimum]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -2049,6 +2082,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$comment']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2061,6 +2095,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.examples]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -2073,6 +2108,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.definitions]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2085,12 +2121,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.description]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Number']", (path != null ? lpath_23 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Number']", (path != null ? lpath_23 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -2189,8 +2223,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Bool'.type]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$Bool'.id
@@ -2201,6 +2236,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.id]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -2213,6 +2249,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$id']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -2225,6 +2262,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$defs']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -2237,6 +2275,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.title]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -2249,12 +2288,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$schema']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$Bool'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -2267,6 +2308,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$comment']", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2279,6 +2321,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.examples]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -2291,6 +2334,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.definitions]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2303,12 +2347,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.description]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Bool']", (path != null ? lpath_26 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Bool']", (path != null ? lpath_26 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -2407,8 +2449,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Null'.type]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$Null'.id
@@ -2419,6 +2462,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.id]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -2431,6 +2475,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$id']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -2443,6 +2488,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$defs']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -2455,6 +2501,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.title]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -2467,12 +2514,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$schema']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$Null'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -2485,6 +2534,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$comment']", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2497,6 +2547,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.examples]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -2509,6 +2560,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.definitions]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2521,12 +2573,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.description]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Null']", (path != null ? lpath_29 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Null']", (path != null ? lpath_29 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -2625,8 +2675,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$AllOf'.allOf]", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$AllOf'.id
@@ -2637,6 +2688,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.id]", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -2649,6 +2701,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$id']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -2661,6 +2714,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$defs']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -2673,6 +2727,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.title]", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -2685,12 +2740,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$schema']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$AllOf'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -2703,6 +2760,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$comment']", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2715,6 +2773,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.examples]", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -2727,6 +2786,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.definitions]", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2739,12 +2799,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.description]", (path != null ? lpath_32 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AllOf']", (path != null ? lpath_32 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$AllOf']", (path != null ? lpath_32 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -2843,8 +2901,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$AnyOf'.anyOf]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$AnyOf'.id
@@ -2855,6 +2914,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.id]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -2867,6 +2927,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$id']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -2879,6 +2940,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$defs']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -2891,6 +2953,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.title]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -2903,12 +2966,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$schema']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$AnyOf'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -2921,6 +2986,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$comment']", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -2933,6 +2999,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.examples]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -2945,6 +3012,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.definitions]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -2957,12 +3025,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.description]", (path != null ? lpath_35 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AnyOf']", (path != null ? lpath_35 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$AnyOf']", (path != null ? lpath_35 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -3061,8 +3127,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$OneOf'.oneOf]", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$OneOf'.id
@@ -3073,6 +3140,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.id]", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -3085,6 +3153,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$id']", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -3097,6 +3166,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$defs']", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -3109,6 +3179,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.title]", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -3121,12 +3192,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$schema']", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$OneOf'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -3139,6 +3212,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$comment']", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -3151,6 +3225,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.examples]", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -3163,6 +3238,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.definitions]", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -3175,12 +3251,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.description]", (path != null ? lpath_38 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$OneOf']", (path != null ? lpath_38 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$OneOf']", (path != null ? lpath_38 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -3279,8 +3353,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Enum'.enum]", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$Enum'.id
@@ -3291,6 +3366,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.id]", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -3303,6 +3379,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$id']", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -3315,6 +3392,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$defs']", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -3327,6 +3405,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.title]", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -3339,12 +3418,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$schema']", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$Enum'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -3357,6 +3438,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$comment']", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -3369,6 +3451,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.examples]", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -3381,6 +3464,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.definitions]", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -3393,12 +3477,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.description]", (path != null ? lpath_41 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Enum']", (path != null ? lpath_41 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Enum']", (path != null ? lpath_41 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -3497,8 +3579,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Const'.const]", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$Const'.id
@@ -3509,6 +3592,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.id]", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -3521,6 +3605,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$id']", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -3533,6 +3618,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$defs']", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -3545,6 +3631,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.title]", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -3557,12 +3644,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$schema']", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$Const'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -3575,6 +3664,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$comment']", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -3587,6 +3677,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.examples]", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -3599,6 +3690,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.definitions]", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -3611,12 +3703,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.description]", (path != null ? lpath_44 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Const']", (path != null ? lpath_44 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Const']", (path != null ? lpath_44 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -3715,8 +3805,9 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ref'.'$ref']", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("id") == 0)
+            if (prop.compareTo("id") == 0)
             {
                 // handle may id property
                 // .'$Ref'.id
@@ -3727,6 +3818,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.id]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$id") == 0)
             {
@@ -3739,6 +3831,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$id']", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -3751,6 +3844,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$defs']", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -3763,6 +3857,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.title]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -3775,12 +3870,14 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$schema']", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$Ref'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -3793,6 +3890,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$comment']", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -3805,6 +3903,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.examples]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("definitions") == 0)
             {
@@ -3817,6 +3916,7 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.definitions]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -3829,12 +3929,10 @@ public class json_schema_draft_tighter extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.description]", (path != null ? lpath_47 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Ref']", (path != null ? lpath_47 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Ref']", (path != null ? lpath_47 : null));
+            return false;
         }
         if (must_count != 1)
         {

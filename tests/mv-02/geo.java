@@ -170,6 +170,7 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Point'.type]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("coordinates") == 0)
             {
@@ -183,8 +184,9 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Point'.coordinates]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("bbox") == 0)
+            if (prop.compareTo("bbox") == 0)
             {
                 // handle may bbox property
                 // .'$Point'.bbox
@@ -213,12 +215,10 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Point'.bbox]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Point']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Point']", (path != null ? lpath_0 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -267,6 +267,7 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPoint'.type]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("coordinates") == 0)
             {
@@ -298,8 +299,9 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPoint'.coordinates]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("bbox") == 0)
+            if (prop.compareTo("bbox") == 0)
             {
                 // handle may bbox property
                 // .'$MultiPoint'.bbox
@@ -328,12 +330,10 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MultiPoint'.bbox]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$MultiPoint']", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$MultiPoint']", (path != null ? lpath_1 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -382,6 +382,7 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$LineString'.type]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("coordinates") == 0)
             {
@@ -395,8 +396,9 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$LineString'.coordinates]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("bbox") == 0)
+            if (prop.compareTo("bbox") == 0)
             {
                 // handle may bbox property
                 // .'$LineString'.bbox
@@ -425,12 +427,10 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$LineString'.bbox]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$LineString']", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$LineString']", (path != null ? lpath_2 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -479,6 +479,7 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiLineString'.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("coordinates") == 0)
             {
@@ -510,8 +511,9 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiLineString'.coordinates]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("bbox") == 0)
+            if (prop.compareTo("bbox") == 0)
             {
                 // handle may bbox property
                 // .'$MultiLineString'.bbox
@@ -540,12 +542,10 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MultiLineString'.bbox]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$MultiLineString']", (path != null ? lpath_3 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$MultiLineString']", (path != null ? lpath_3 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -594,6 +594,7 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Polygon'.type]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("coordinates") == 0)
             {
@@ -625,8 +626,9 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Polygon'.coordinates]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("bbox") == 0)
+            if (prop.compareTo("bbox") == 0)
             {
                 // handle may bbox property
                 // .'$Polygon'.bbox
@@ -655,12 +657,10 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Polygon'.bbox]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Polygon']", (path != null ? lpath_4 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Polygon']", (path != null ? lpath_4 : null));
+            return false;
         }
         if (must_count != 2)
         {
@@ -709,6 +709,7 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPolygon'.type]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("coordinates") == 0)
             {
@@ -758,8 +759,9 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPolygon'.coordinates]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("bbox") == 0)
+            if (prop.compareTo("bbox") == 0)
             {
                 // handle may bbox property
                 // .'$MultiPolygon'.bbox
@@ -788,12 +790,10 @@ public class geo extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MultiPolygon'.bbox]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$MultiPolygon']", (path != null ? lpath_5 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$MultiPolygon']", (path != null ? lpath_5 : null));
+            return false;
         }
         if (must_count != 2)
         {

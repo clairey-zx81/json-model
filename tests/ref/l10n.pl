@@ -39,8 +39,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq '')
+        if ($prop eq '')
         {
             # handle may  property
             # .'$'.''
@@ -49,11 +50,9 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -138,6 +137,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '%')
         {
@@ -150,6 +150,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '@')
         {
@@ -161,6 +162,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '~')
         {
@@ -172,8 +174,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
             # .'/^#/'

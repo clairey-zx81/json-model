@@ -38,8 +38,9 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$'.Model]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "")
+        if (prop == "")
         {
             // handle may  property
             // .'$'.''
@@ -50,12 +51,10 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$'.'']", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$']", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$']", (path ? lpath_1 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -146,6 +145,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "%")
         {
@@ -160,6 +160,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'%']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "@")
         {
@@ -173,6 +174,7 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'@']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "~")
         {
@@ -186,8 +188,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'~']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop.startsWith("#"))
+        if (prop.startsWith("#"))
         {
             // handle 1 re props
             // .'/^#/'

@@ -54,8 +54,9 @@ public class dedup_002 extends ModelChecker
             }
             res = ! is_0;
         }
+        res = false;
         if (rep != null) rep.addEntry("not one model match [.'^']", path);
-        return false;
+        return res;
     }
 
 

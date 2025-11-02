@@ -124,6 +124,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$id']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$ref") == 0)
             {
@@ -136,6 +137,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$ref']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$defs") == 0)
             {
@@ -148,6 +150,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$defs']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$anchor") == 0)
             {
@@ -160,6 +163,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$anchor']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$schema") == 0)
             {
@@ -172,6 +176,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$schema']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$comment") == 0)
             {
@@ -184,6 +189,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$comment']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$dynamicRef") == 0)
             {
@@ -196,6 +202,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$dynamicRef']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$vocabulary") == 0)
             {
@@ -208,6 +215,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$vocabulary']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$dynamicAnchor") == 0)
             {
@@ -220,12 +228,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$dynamicAnchor']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$core']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$core']", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }
@@ -257,12 +263,14 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.title]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("default") == 0)
             {
                 // handle may default property
                 // .'$meta'.default
                 res = true;
+                continue;
             }
             else if (prop.compareTo("examples") == 0)
             {
@@ -275,6 +283,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.examples]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("readOnly") == 0)
             {
@@ -287,6 +296,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.readOnly]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("writeOnly") == 0)
             {
@@ -299,6 +309,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.writeOnly]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("deprecated") == 0)
             {
@@ -311,6 +322,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.deprecated]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -323,12 +335,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.description]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$meta']", (path != null ? lpath_3 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$meta']", (path != null ? lpath_3 : null));
+            return false;
         }
         return true;
     }
@@ -360,6 +370,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$content'.contentSchema]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("contentEncoding") == 0)
             {
@@ -372,6 +383,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$content'.contentEncoding]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("contentMediaType") == 0)
             {
@@ -384,12 +396,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$content'.contentMediaType]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$content']", (path != null ? lpath_4 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$content']", (path != null ? lpath_4 : null));
+            return false;
         }
         return true;
     }
@@ -421,6 +431,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$unevaluated'.unevaluatedItems]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("unevaluatedProperties") == 0)
             {
@@ -433,12 +444,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$unevaluated'.unevaluatedProperties]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$unevaluated']", (path != null ? lpath_5 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$unevaluated']", (path != null ? lpath_5 : null));
+            return false;
         }
         return true;
     }
@@ -470,12 +479,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$format'.format]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$format']", (path != null ? lpath_6 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$format']", (path != null ? lpath_6 : null));
+            return false;
         }
         return true;
     }
@@ -587,8 +594,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
     // check json_model_12_map_const (.'$validation'.const)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$validation'.const
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_12_map_dependentRequired (.'$validation'.dependentRequired)
@@ -770,12 +779,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$validation']", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$validation']", (path != null ? lpath_7 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$validation']", (path != null ? lpath_7 : null));
+            return false;
         }
         return true;
     }
@@ -937,12 +944,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$applicator']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$applicator']", (path != null ? lpath_9 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$applicator']", (path != null ? lpath_9 : null));
+            return false;
         }
         return true;
     }
@@ -1038,8 +1043,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
     // check json_model_15_map_const (.'$ObjectSchema'.const)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$ObjectSchema'.const
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_15_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -1069,8 +1076,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
     // check json_model_15_map_default (.'$ObjectSchema'.default)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$ObjectSchema'.default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_15_map_dependentRequired (.'$ObjectSchema'.dependentRequired)
@@ -1428,12 +1437,10 @@ public class json_schema_draft_2020_12 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ObjectSchema']", (path != null ? lpath_13 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$ObjectSchema']", (path != null ? lpath_13 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$ObjectSchema']", (path != null ? lpath_13 : null));
+            return false;
         }
         return true;
     }

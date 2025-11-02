@@ -35,14 +35,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- handle other props
-      -- .'^'.0.''
-      -- "/.../"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      CONTINUE;
+    END IF;
+    -- handle other props
+    -- .'^'.0.''
+    -- "/.../"
+    res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    IF NOT res THEN
+      RETURN FALSE;
     END IF;
   END LOOP;
   RETURN must_count = 1;
@@ -71,14 +71,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- handle other props
-      -- .'^'.1.''
-      -- "/.../"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
+      CONTINUE;
+    END IF;
+    -- handle other props
+    -- .'^'.1.''
+    -- "/.../"
+    res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    IF NOT res THEN
+      RETURN FALSE;
     END IF;
   END LOOP;
   RETURN must_count = 1;

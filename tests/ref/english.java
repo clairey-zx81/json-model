@@ -494,8 +494,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.5.'#']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_28(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
+            if (json_model_28(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Element'.'|'.5.'$Prop'
@@ -567,8 +568,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Element'.'|'.4.'+']", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Model#Element'.'|'.4.'#'
@@ -579,8 +581,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.4.'#']", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.4.'/^#/'
@@ -652,8 +655,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Element'.'|'.3.'^']", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Model#Element'.'|'.3.'#'
@@ -664,8 +668,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.3.'#']", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.3.'/^#/'
@@ -737,8 +742,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Element'.'|'.2.'&']", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Model#Element'.'|'.2.'#'
@@ -749,8 +755,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.2.'#']", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.2.'/^#/'
@@ -822,8 +829,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Element'.'|'.1.'|']", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Model#Element'.'|'.1.'#'
@@ -834,8 +842,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.1.'#']", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.1.'/^#/'
@@ -899,8 +908,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Element'.'|'.0.'@']", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("!") == 0)
+            if (prop.compareTo("!") == 0)
             {
                 // handle may ! property
                 // .'$Model#Element'.'|'.0.'!'
@@ -911,6 +921,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'!']", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -923,8 +934,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'#']", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 3 re props
                 // .'$Model#Element'.'|'.0.'/^#/'
@@ -1240,6 +1252,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'$'.'']", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -1252,8 +1265,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'$'.'#']", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_6(json.strToJSON(prop), (path != null ? lpath_7 : null), rep))
+            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_7 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'$'.'$Identifier'
@@ -1315,6 +1329,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'%'.'#']", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -1363,8 +1378,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'%'.'<']", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_13(json.strToJSON(prop), (path != null ? lpath_8 : null), rep))
+            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_8 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'%'.'$Name'
@@ -1428,6 +1444,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'#']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -1440,6 +1457,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'$']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -1452,6 +1470,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'%']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -1464,8 +1483,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'~']", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_28(json.strToJSON(prop), (path != null ? lpath_6 : null), rep))
+            if (json_model_28(json.strToJSON(prop), (path != null ? lpath_6 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'$Prop'
@@ -1517,6 +1537,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'']", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -1529,8 +1550,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'#']", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_6(json.strToJSON(prop), (path != null ? lpath_10 : null), rep))
+            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_10 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.4.'$'.'$Identifier'
@@ -1582,6 +1604,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'%'.'#']", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -1630,8 +1653,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'%'.'<']", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_13(json.strToJSON(prop), (path != null ? lpath_11 : null), rep))
+            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_11 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.4.'%'.'$Name'
@@ -1715,8 +1739,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Root'.'|'.4.'+']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Model#Root'.'|'.4.'#'
@@ -1727,6 +1752,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'#']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -1739,6 +1765,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'$']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -1751,6 +1778,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'%']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -1763,8 +1791,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'~']", (path != null ? lpath_9 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.4.'/^#/'
@@ -1816,6 +1845,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'']", (path != null ? lpath_13 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -1828,8 +1858,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'#']", (path != null ? lpath_13 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_6(json.strToJSON(prop), (path != null ? lpath_13 : null), rep))
+            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_13 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.3.'$'.'$Identifier'
@@ -1881,6 +1912,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'%'.'#']", (path != null ? lpath_14 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -1929,8 +1961,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'%'.'<']", (path != null ? lpath_14 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_13(json.strToJSON(prop), (path != null ? lpath_14 : null), rep))
+            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_14 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.3.'%'.'$Name'
@@ -2014,8 +2047,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Root'.'|'.3.'^']", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Model#Root'.'|'.3.'#'
@@ -2026,6 +2060,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'#']", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -2038,6 +2073,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'$']", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -2050,6 +2086,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'%']", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -2062,8 +2099,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'~']", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.3.'/^#/'
@@ -2115,6 +2153,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'']", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -2127,8 +2166,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'#']", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_6(json.strToJSON(prop), (path != null ? lpath_16 : null), rep))
+            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_16 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.2.'$'.'$Identifier'
@@ -2180,6 +2220,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'%'.'#']", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -2228,8 +2269,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'%'.'<']", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_13(json.strToJSON(prop), (path != null ? lpath_17 : null), rep))
+            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_17 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.2.'%'.'$Name'
@@ -2313,8 +2355,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Root'.'|'.2.'&']", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Model#Root'.'|'.2.'#'
@@ -2325,6 +2368,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'#']", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -2337,6 +2381,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'$']", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -2349,6 +2394,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'%']", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -2361,8 +2407,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'~']", (path != null ? lpath_15 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.2.'/^#/'
@@ -2414,6 +2461,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'']", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -2426,8 +2474,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'#']", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_6(json.strToJSON(prop), (path != null ? lpath_19 : null), rep))
+            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_19 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.1.'$'.'$Identifier'
@@ -2479,6 +2528,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'%'.'#']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -2527,8 +2577,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'%'.'<']", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_13(json.strToJSON(prop), (path != null ? lpath_20 : null), rep))
+            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_20 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.1.'%'.'$Name'
@@ -2612,8 +2663,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Root'.'|'.1.'|']", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("#") == 0)
+            if (prop.compareTo("#") == 0)
             {
                 // handle may # property
                 // .'$Model#Root'.'|'.1.'#'
@@ -2624,6 +2676,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'#']", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -2636,6 +2689,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'$']", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -2648,6 +2702,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'%']", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -2660,8 +2715,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'~']", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.1.'/^#/'
@@ -2713,6 +2769,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'']", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -2725,8 +2782,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'#']", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_6(json.strToJSON(prop), (path != null ? lpath_22 : null), rep))
+            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_22 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.0.'$'.'$Identifier'
@@ -2778,6 +2836,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'%'.'#']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("<") == 0)
             {
@@ -2826,8 +2885,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'%'.'<']", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
-            else if (json_model_13(json.strToJSON(prop), (path != null ? lpath_23 : null), rep))
+            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_23 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.0.'%'.'$Name'
@@ -2893,8 +2953,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Model#Root'.'|'.0.'@']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("!") == 0)
+            if (prop.compareTo("!") == 0)
             {
                 // handle may ! property
                 // .'$Model#Root'.'|'.0.'!'
@@ -2905,6 +2966,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'!']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("#") == 0)
             {
@@ -2917,6 +2979,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'#']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("$") == 0)
             {
@@ -2929,6 +2992,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'$']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("%") == 0)
             {
@@ -2941,6 +3005,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'%']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -2953,8 +3018,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'~']", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 3 re props
                 // .'$Model#Root'.'|'.0.'/^#/'
@@ -3193,12 +3259,14 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'#']", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("*") == 0)
             {
                 // handle may * property
                 // .'$Model#Transformation'.'|'.1.'*'
                 res = true;
+                continue;
             }
             else if (prop.compareTo("/") == 0)
             {
@@ -3229,6 +3297,7 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'/']", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("~") == 0)
             {
@@ -3241,8 +3310,9 @@ public class english extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'~']", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.startsWith("#"))
+            if (prop.startsWith("#"))
             {
                 // handle 1 re props
                 // .'$Model#Transformation'.'|'.1.'/^#/'

@@ -173,6 +173,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Provide'.file]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("version") == 0)
             {
@@ -186,8 +187,9 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Provide'.version]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("docfile") == 0)
+            if (prop.compareTo("docfile") == 0)
             {
                 // handle may docfile property
                 // .'$Provide'.docfile
@@ -198,6 +200,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("abstract") == 0)
             {
@@ -210,8 +213,9 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.abstract]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_1(prop, path, rep))
+            if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .'$Provide'.'/^[Xx]_/'
@@ -280,6 +284,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.bugtracker.web]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("mailto") == 0)
             {
@@ -292,8 +297,9 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.bugtracker.mailto]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_1(prop, path, rep))
+            if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .'$Resources'.bugtracker.'/^[Xx]_/'
@@ -334,6 +340,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.url]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("web") == 0)
             {
@@ -346,6 +353,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.web]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("type") == 0)
             {
@@ -359,12 +367,10 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Resources'.repository]", (path != null ? lpath_3 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Resources'.repository]", (path != null ? lpath_3 : null));
+            return false;
         }
         return true;
     }
@@ -396,6 +402,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.homepage]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("bugtracker") == 0)
             {
@@ -408,6 +415,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.bugtracker]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("repository") == 0)
             {
@@ -420,12 +428,10 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Resources']", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Resources']", (path != null ? lpath_1 : null));
+            return false;
         }
         return true;
     }
@@ -751,8 +757,9 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'meta-spec'.version]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("url") == 0)
+            if (prop.compareTo("url") == 0)
             {
                 // handle may url property
                 // .'meta-spec'.url
@@ -763,8 +770,9 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'meta-spec'.url]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_1(prop, path, rep))
+            if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .'meta-spec'.'/^[Xx]_/'
@@ -816,6 +824,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.no_index.file]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("directory") == 0)
             {
@@ -828,12 +837,10 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.no_index.directory]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.no_index]", (path != null ? lpath_11 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.no_index]", (path != null ? lpath_11 : null));
+            return false;
         }
         return true;
     }
@@ -867,6 +874,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.name]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("license") == 0)
             {
@@ -907,6 +915,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.license]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("version") == 0)
             {
@@ -920,6 +929,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.version]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("abstract") == 0)
             {
@@ -933,6 +943,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.abstract]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("provides") == 0)
             {
@@ -946,6 +957,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.provides]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("meta-spec") == 0)
             {
@@ -959,6 +971,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'meta-spec']", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("maintainer") == 0)
             {
@@ -990,8 +1003,9 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.maintainer]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("url") == 0)
+            if (prop.compareTo("url") == 0)
             {
                 // handle may url property
                 // .url
@@ -1002,6 +1016,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.url]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("tags") == 0)
             {
@@ -1014,6 +1029,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.tags]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("prereqs") == 0)
             {
@@ -1026,6 +1042,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.prereqs]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("no_index") == 0)
             {
@@ -1038,6 +1055,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.no_index]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("resources") == 0)
             {
@@ -1050,6 +1068,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.resources]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -1062,6 +1081,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.description]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("generated_by") == 0)
             {
@@ -1074,6 +1094,7 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.generated_by]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("release_status") == 0)
             {
@@ -1086,8 +1107,9 @@ public class pgxn extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.release_status]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else if (_jm_re_1(prop, path, rep))
+            if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .'/^[Xx]_/'

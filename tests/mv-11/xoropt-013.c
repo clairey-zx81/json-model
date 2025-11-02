@@ -52,18 +52,16 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'^'.0.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
+            continue;
         }
-        else
+        // handle other props
+        // .'^'.0.''
+        // "/.../"
+        res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
+        if (unlikely(! res))
         {
-            // handle other props
-            // .'^'.0.''
-            // "/.../"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected /.../ [.'^'.0.'']", (path ? &lpath_0 : NULL));
-                return false;
-            }
+            if (rep) jm_report_add_entry(rep, "unexpected /.../ [.'^'.0.'']", (path ? &lpath_0 : NULL));
+            return false;
         }
     }
     if (unlikely(must_count != 1))
@@ -107,18 +105,16 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'^'.1.b]", (path ? &lpath_1 : NULL));
                 return false;
             }
+            continue;
         }
-        else
+        // handle other props
+        // .'^'.1.''
+        // "/.../"
+        res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_1 : NULL), rep);
+        if (unlikely(! res))
         {
-            // handle other props
-            // .'^'.1.''
-            // "/.../"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_1 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected /.../ [.'^'.1.'']", (path ? &lpath_1 : NULL));
-                return false;
-            }
+            if (rep) jm_report_add_entry(rep, "unexpected /.../ [.'^'.1.'']", (path ? &lpath_1 : NULL));
+            return false;
         }
     }
     if (unlikely(must_count != 1))
@@ -145,7 +141,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     int64_t xc_0 = 0;
     // .'^'.0
     bool xr_0 = _jm_obj_0(val, path, rep);
-    if (unlikely(xr_0))
+    if (likely(xr_0))
         xc_0 += 1;
     else
     {
@@ -153,7 +149,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'^'.1
     xr_0 = _jm_obj_1(val, path, rep);
-    if (unlikely(xr_0))
+    if (likely(xr_0))
         xc_0 += 1;
     else
     {

@@ -22,10 +22,9 @@ BEGIN
       -- handle may hello property
       -- .hello
       RETURN JSONB_TYPEOF(pval) = 'string';
-    ELSE
-      -- accept any other props
-      NULL;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN TRUE;
 END;

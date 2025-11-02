@@ -213,6 +213,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.id]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -225,6 +226,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.'$id']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -237,6 +239,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.'$defs']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -249,6 +252,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.title]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -261,12 +265,14 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.'$schema']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#metas'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -279,6 +285,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.'$comment']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -291,6 +298,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.examples]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -303,6 +311,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.definitions]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -315,12 +324,10 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#metas'.description]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#metas']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#metas']", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }
@@ -400,8 +407,9 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#String'.type]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#String'.id
@@ -412,6 +420,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.id]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -424,6 +433,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.'$id']", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -436,6 +446,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.'$defs']", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -448,6 +459,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.title]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "format")
         {
@@ -460,6 +472,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.format]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -472,12 +485,14 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.'$schema']", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#String'.default
             res = true;
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -490,6 +505,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.pattern]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -502,6 +518,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.'$comment']", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -514,6 +531,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.examples]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -526,6 +544,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.maxLength]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -538,6 +557,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.minLength]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -550,6 +570,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.definitions]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -562,12 +583,10 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#String'.description]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#String']", (path ? lpath_3 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#String']", (path ? lpath_3 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -657,8 +676,9 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Array'.type]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Array'.id
@@ -669,6 +689,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.id]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -681,6 +702,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.'$id']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -693,6 +715,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.'$defs']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "items")
         {
@@ -723,6 +746,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.items]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -735,6 +759,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.title]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -747,12 +772,14 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.'$schema']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Array'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -765,6 +792,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.'$comment']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -777,6 +805,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.examples]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxItems")
         {
@@ -789,6 +818,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.maxItems]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minItems")
         {
@@ -801,6 +831,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.minItems]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -813,6 +844,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.definitions]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -825,6 +857,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.description]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "prefixItems")
         {
@@ -837,6 +870,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.prefixItems]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "uniqueItems")
         {
@@ -849,6 +883,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.uniqueItems]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalItems")
         {
@@ -861,12 +896,10 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Array'.additionalItems]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Array']", (path ? lpath_6 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Array']", (path ? lpath_6 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1039,8 +1072,9 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Object'.type]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Object'.id
@@ -1051,6 +1085,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.id]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1063,6 +1098,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.'$id']", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1075,6 +1111,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.'$defs']", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1087,6 +1124,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.title]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1099,12 +1137,14 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.'$schema']", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Object'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1117,6 +1157,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.'$comment']", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1129,6 +1170,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.examples]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -1156,6 +1198,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.required]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "properties")
         {
@@ -1168,6 +1211,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.properties]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1180,6 +1224,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.definitions]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1192,6 +1237,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.description]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "patternProperties")
         {
@@ -1204,6 +1250,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.patternProperties]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalProperties")
         {
@@ -1216,12 +1263,10 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Object'.additionalProperties]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Object']", (path ? lpath_9 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Object']", (path ? lpath_9 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1311,8 +1356,9 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Integer'.type]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Integer'.id
@@ -1323,6 +1369,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.id]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1335,6 +1382,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.'$id']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1347,6 +1395,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.'$defs']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1359,6 +1408,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.title]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1371,12 +1421,14 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.'$schema']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Integer'.default
             res = true;
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -1389,6 +1441,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.maximum]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -1401,6 +1454,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.minimum]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1413,6 +1467,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.'$comment']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1425,6 +1480,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.examples]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1437,6 +1493,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.definitions]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1449,12 +1506,10 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Integer'.description]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Integer']", (path ? lpath_14 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Integer']", (path ? lpath_14 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1544,8 +1599,9 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Number'.type]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Number'.id
@@ -1556,6 +1612,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.id]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1568,6 +1625,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.'$id']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1580,6 +1638,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.'$defs']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1592,6 +1651,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.title]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1604,12 +1664,14 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.'$schema']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Number'.default
             res = true;
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -1622,6 +1684,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.maximum]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -1634,6 +1697,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.minimum]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1646,6 +1710,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.'$comment']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1658,6 +1723,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.examples]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1670,6 +1736,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.definitions]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1682,12 +1749,10 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Number'.description]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Number']", (path ? lpath_17 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Number']", (path ? lpath_17 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1777,8 +1842,9 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Bool'.type]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Bool'.id
@@ -1789,6 +1855,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.id]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1801,6 +1868,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.'$id']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1813,6 +1881,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.'$defs']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1825,6 +1894,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.title]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1837,12 +1907,14 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.'$schema']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Bool'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1855,6 +1927,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.'$comment']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1867,6 +1940,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.examples]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1879,6 +1953,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.definitions]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1891,12 +1966,10 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Bool'.description]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Bool']", (path ? lpath_20 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Bool']", (path ? lpath_20 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1986,8 +2059,9 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Null'.type]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Null'.id
@@ -1998,6 +2072,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.id]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2010,6 +2085,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.'$id']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2022,6 +2098,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.'$defs']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2034,6 +2111,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.title]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2046,12 +2124,14 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.'$schema']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Null'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2064,6 +2144,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.'$comment']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2076,6 +2157,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.examples]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2088,6 +2170,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.definitions]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2100,12 +2183,10 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Null'.description]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Null']", (path ? lpath_23 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Null']", (path ? lpath_23 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2195,8 +2276,9 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#AllOf'.allOf]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#AllOf'.id
@@ -2207,6 +2289,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.id]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2219,6 +2302,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.'$id']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2231,6 +2315,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.'$defs']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2243,6 +2328,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.title]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2255,12 +2341,14 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.'$schema']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#AllOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2273,6 +2361,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.'$comment']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2285,6 +2374,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.examples]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2297,6 +2387,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.definitions]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2309,12 +2400,10 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AllOf'.description]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#AllOf']", (path ? lpath_26 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#AllOf']", (path ? lpath_26 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2404,8 +2493,9 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#AnyOf'.anyOf]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#AnyOf'.id
@@ -2416,6 +2506,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.id]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2428,6 +2519,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.'$id']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2440,6 +2532,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.'$defs']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2452,6 +2545,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.title]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2464,12 +2558,14 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.'$schema']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#AnyOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2482,6 +2578,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.'$comment']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2494,6 +2591,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.examples]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2506,6 +2604,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.definitions]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2518,12 +2617,10 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#AnyOf'.description]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#AnyOf']", (path ? lpath_29 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#AnyOf']", (path ? lpath_29 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2613,8 +2710,9 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#OneOf'.oneOf]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#OneOf'.id
@@ -2625,6 +2723,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.id]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2637,6 +2736,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.'$id']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2649,6 +2749,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.'$defs']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2661,6 +2762,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.title]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2673,12 +2775,14 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.'$schema']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#OneOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2691,6 +2795,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.'$comment']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2703,6 +2808,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.examples]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2715,6 +2821,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.definitions]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2727,12 +2834,10 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#OneOf'.description]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#OneOf']", (path ? lpath_32 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#OneOf']", (path ? lpath_32 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2822,8 +2927,9 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Enum'.enum]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Enum'.id
@@ -2834,6 +2940,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.id]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2846,6 +2953,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.'$id']", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2858,6 +2966,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.'$defs']", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2870,6 +2979,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.title]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2882,12 +2992,14 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.'$schema']", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Enum'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2900,6 +3012,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.'$comment']", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2912,6 +3025,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.examples]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2924,6 +3038,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.definitions]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2936,12 +3051,10 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Enum'.description]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Enum']", (path ? lpath_35 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Enum']", (path ? lpath_35 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3111,8 +3224,9 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Const'.const]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Const'.id
@@ -3123,6 +3237,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.id]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3135,6 +3250,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.'$id']", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3147,6 +3263,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.'$defs']", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3159,6 +3276,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.title]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3171,12 +3289,14 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.'$schema']", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Const'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3189,6 +3309,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.'$comment']", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3201,6 +3322,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.examples]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3213,6 +3335,7 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.definitions]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3225,12 +3348,10 @@ function json_model_23(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Const'.description]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Const']", (path ? lpath_38 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Const']", (path ? lpath_38 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3377,8 +3498,9 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Ref'.'$ref']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#Ref'.id
@@ -3389,6 +3511,7 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.id]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3401,6 +3524,7 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.'$id']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3413,6 +3537,7 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.'$defs']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3425,6 +3550,7 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.title]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3437,12 +3563,14 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.'$schema']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#Ref'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3455,6 +3583,7 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.'$comment']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3467,6 +3596,7 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.examples]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3479,6 +3609,7 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.definitions]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3491,12 +3622,10 @@ function json_model_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#Ref'.description]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#Ref']", (path ? lpath_41 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#Ref']", (path ? lpath_41 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3631,6 +3760,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumString'.enum]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -3644,8 +3774,9 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumString'.type]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#EnumString'.id
@@ -3656,6 +3787,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.id]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3668,6 +3800,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.'$id']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3680,6 +3813,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.'$defs']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3692,6 +3826,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.title]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3704,12 +3839,14 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.'$schema']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#EnumString'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3722,6 +3859,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.'$comment']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3734,6 +3872,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.examples]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3746,6 +3885,7 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.definitions]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3758,12 +3898,10 @@ function json_model_28(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumString'.description]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#EnumString']", (path ? lpath_44 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#EnumString']", (path ? lpath_44 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -3872,6 +4010,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumNum'.enum]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -3885,8 +4024,9 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumNum'.type]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#EnumNum'.id
@@ -3897,6 +4037,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.id]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3909,6 +4050,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.'$id']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3921,6 +4063,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.'$defs']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3933,6 +4076,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.title]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3945,12 +4089,14 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.'$schema']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#EnumNum'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3963,6 +4109,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.'$comment']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3975,6 +4122,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.examples]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3987,6 +4135,7 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.definitions]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3999,12 +4148,10 @@ function json_model_29(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumNum'.description]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#EnumNum']", (path ? lpath_47 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#EnumNum']", (path ? lpath_47 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -4113,6 +4260,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumInt'.enum]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -4126,8 +4274,9 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumInt'.type]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#EnumInt'.id
@@ -4138,6 +4287,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.id]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -4150,6 +4300,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.'$id']", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -4162,6 +4313,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.'$defs']", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -4174,6 +4326,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.title]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -4186,12 +4339,14 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.'$schema']", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#EnumInt'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -4204,6 +4359,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.'$comment']", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -4216,6 +4372,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.examples]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -4228,6 +4385,7 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.definitions]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4240,12 +4398,10 @@ function json_model_30(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#EnumInt'.description]", (path ? lpath_50 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#EnumInt']", (path ? lpath_50 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#EnumInt']", (path ? lpath_50 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -4339,6 +4495,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstString'.type]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "const")
         {
@@ -4352,8 +4509,9 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstString'.const]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#ConstString'.id
@@ -4364,6 +4522,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.id]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -4376,6 +4535,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.'$id']", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -4388,6 +4548,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.'$defs']", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -4400,6 +4561,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.title]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -4412,12 +4574,14 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.'$schema']", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#ConstString'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -4430,6 +4594,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.'$comment']", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -4442,6 +4607,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.examples]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -4454,6 +4620,7 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.definitions]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4466,12 +4633,10 @@ function json_model_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstString'.description]", (path ? lpath_53 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#ConstString']", (path ? lpath_53 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#ConstString']", (path ? lpath_53 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -4565,6 +4730,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstNum'.type]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "const")
         {
@@ -4578,8 +4744,9 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstNum'.const]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#ConstNum'.id
@@ -4590,6 +4757,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.id]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -4602,6 +4770,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.'$id']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -4614,6 +4783,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.'$defs']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -4626,6 +4796,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.title]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -4638,12 +4809,14 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.'$schema']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#ConstNum'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -4656,6 +4829,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.'$comment']", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -4668,6 +4842,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.examples]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -4680,6 +4855,7 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.definitions]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4692,12 +4868,10 @@ function json_model_32(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstNum'.description]", (path ? lpath_56 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#ConstNum']", (path ? lpath_56 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#ConstNum']", (path ? lpath_56 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -4791,6 +4965,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstInt'.type]", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "const")
         {
@@ -4804,8 +4979,9 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstInt'.const]", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#ConstInt'.id
@@ -4816,6 +4992,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.id]", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -4828,6 +5005,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.'$id']", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -4840,6 +5018,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.'$defs']", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -4852,6 +5031,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.title]", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -4864,12 +5044,14 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.'$schema']", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#ConstInt'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -4882,6 +5064,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.'$comment']", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -4894,6 +5077,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.examples]", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -4906,6 +5090,7 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.definitions]", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4918,12 +5103,10 @@ function json_model_33(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstInt'.description]", (path ? lpath_59 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#ConstInt']", (path ? lpath_59 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#ConstInt']", (path ? lpath_59 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -5017,6 +5200,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstBool'.type]", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "const")
         {
@@ -5030,8 +5214,9 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstBool'.const]", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$tight#ConstBool'.id
@@ -5042,6 +5227,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.id]", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -5054,6 +5240,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.'$id']", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -5066,6 +5253,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.'$defs']", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -5078,6 +5266,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.title]", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -5090,12 +5279,14 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.'$schema']", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$tight#ConstBool'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -5108,6 +5299,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.'$comment']", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -5120,6 +5312,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.examples]", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -5132,6 +5325,7 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.definitions]", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -5144,12 +5338,10 @@ function json_model_34(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$tight#ConstBool'.description]", (path ? lpath_62 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$tight#ConstBool']", (path ? lpath_62 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$tight#ConstBool']", (path ? lpath_62 : null)])
+        return false;
     }
     if (must_count != 2)
     {

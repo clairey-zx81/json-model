@@ -104,6 +104,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$id']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -116,6 +117,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$ref']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -128,6 +130,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$defs']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -140,6 +143,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$anchor']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -152,6 +156,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$schema']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -164,6 +169,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$comment']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -176,6 +182,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$dynamicRef']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -188,6 +195,7 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$vocabulary']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -200,12 +208,10 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$core'.'$dynamicAnchor']", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$core']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$core']", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }
@@ -234,12 +240,14 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$meta'.title]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$meta'.default
             res = true;
+            continue;
         }
         else if (prop == "examples")
         {
@@ -252,6 +260,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$meta'.examples]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -264,6 +273,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$meta'.readOnly]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -276,6 +286,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$meta'.writeOnly]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -288,6 +299,7 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$meta'.deprecated]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -300,12 +312,10 @@ function json_model_4(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$meta'.description]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$meta']", (path ? lpath_3 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$meta']", (path ? lpath_3 : null)])
+        return false;
     }
     return true;
 }
@@ -408,8 +418,9 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Number'.type]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "maximum")
+        if (prop == "maximum")
         {
             // handle may maximum property
             // .'$Number'.maximum
@@ -438,6 +449,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.maximum]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -468,6 +480,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.minimum]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "multipleOf")
         {
@@ -498,6 +511,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.multipleOf]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "exclusiveMaximum")
         {
@@ -528,6 +542,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.exclusiveMaximum]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "exclusiveMinimum")
         {
@@ -558,12 +573,10 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.exclusiveMinimum]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Number']", (path ? lpath_4 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Number']", (path ? lpath_4 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -605,8 +618,9 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Integer'.type]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "maximum")
+        if (prop == "maximum")
         {
             // handle may maximum property
             // .'$Integer'.maximum
@@ -617,6 +631,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.maximum]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -629,6 +644,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.minimum]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "multipleOf")
         {
@@ -641,6 +657,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.multipleOf]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "exclusiveMaximum")
         {
@@ -653,6 +670,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.exclusiveMaximum]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "exclusiveMinimum")
         {
@@ -665,12 +683,10 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.exclusiveMinimum]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Integer']", (path ? lpath_5 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Integer']", (path ? lpath_5 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -712,8 +728,9 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$String'.type]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "format")
+        if (prop == "format")
         {
             // handle may format property
             // .'$String'.format
@@ -724,6 +741,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.format]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -736,6 +754,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.pattern]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -748,6 +767,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.maxLength]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -760,6 +780,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.minLength]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contentSchema")
         {
@@ -772,6 +793,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.contentSchema]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contentEncoding")
         {
@@ -784,6 +806,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.contentEncoding]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contentMediaType")
         {
@@ -796,12 +819,10 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.contentMediaType]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$String']", (path ? lpath_6 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$String']", (path ? lpath_6 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -917,8 +938,9 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.type]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "items")
+        if (prop == "items")
         {
             // handle may items property
             // .'$Array'.items
@@ -929,6 +951,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.items]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contains")
         {
@@ -941,6 +964,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.contains]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxItems")
         {
@@ -953,6 +977,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.maxItems]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minItems")
         {
@@ -965,6 +990,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.minItems]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxContains")
         {
@@ -977,6 +1003,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.maxContains]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minContains")
         {
@@ -989,6 +1016,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.minContains]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "prefixItems")
         {
@@ -1001,6 +1029,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.prefixItems]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "uniqueItems")
         {
@@ -1013,6 +1042,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.uniqueItems]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unevaluatedItems")
         {
@@ -1025,12 +1055,10 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.unevaluatedItems]", (path ? lpath_7 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_7 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_7 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1176,8 +1204,9 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.type]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "required")
+        if (prop == "required")
         {
             // handle may required property
             // .'$Object'.required
@@ -1188,6 +1217,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.required]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "properties")
         {
@@ -1200,6 +1230,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.properties]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxProperties")
         {
@@ -1212,6 +1243,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.maxProperties]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minProperties")
         {
@@ -1224,6 +1256,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.minProperties]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "propertyNames")
         {
@@ -1236,6 +1269,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.propertyNames]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "dependentSchemas")
         {
@@ -1248,6 +1282,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.dependentSchemas]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "dependentRequired")
         {
@@ -1260,6 +1295,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.dependentRequired]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "patternProperties")
         {
@@ -1272,6 +1308,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.patternProperties]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalProperties")
         {
@@ -1284,6 +1321,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.additionalProperties]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unevaluatedProperties")
         {
@@ -1296,12 +1334,10 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.unevaluatedProperties]", (path ? lpath_8 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_8 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_8 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1341,6 +1377,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Misc'.if]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "not")
         {
@@ -1353,6 +1390,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Misc'.not]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "else")
         {
@@ -1365,6 +1403,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Misc'.else]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "enum")
         {
@@ -1377,6 +1416,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Misc'.enum]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "then")
         {
@@ -1389,6 +1429,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Misc'.then]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allOf")
         {
@@ -1401,6 +1442,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Misc'.allOf]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "anyOf")
         {
@@ -1413,12 +1455,14 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Misc'.anyOf]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "const")
         {
             // handle may const property
             // .'$Misc'.const
             res = true;
+            continue;
         }
         else if (prop == "oneOf")
         {
@@ -1431,12 +1475,10 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Misc'.oneOf]", (path ? lpath_13 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Misc']", (path ? lpath_13 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Misc']", (path ? lpath_13 : null)])
+        return false;
     }
     return true;
 }
@@ -1522,8 +1564,9 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.0.type]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "$id")
+        if (prop == "$id")
         {
             // handle may $id property
             // .'$TightSchema'.'|'.0.'$id'
@@ -1534,6 +1577,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$id']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -1546,6 +1590,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$ref']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1558,6 +1603,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$defs']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1570,6 +1616,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.title]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -1582,6 +1629,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$anchor']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1594,12 +1642,14 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$schema']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$TightSchema'.'|'.0.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1612,6 +1662,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$comment']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1624,6 +1675,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.examples]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -1636,6 +1688,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.readOnly]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -1648,6 +1701,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.writeOnly]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -1660,6 +1714,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.deprecated]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -1672,6 +1727,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$dynamicRef']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -1684,6 +1740,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$vocabulary']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1696,6 +1753,7 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.description]", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -1708,12 +1766,10 @@ function _jm_obj_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0.'$dynamicAnchor']", (path ? lpath_14 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.0]", (path ? lpath_14 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.0]", (path ? lpath_14 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1810,8 +1866,9 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.1.type]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "$id")
+        if (prop == "$id")
         {
             // handle may $id property
             // .'$TightSchema'.'|'.1.'$id'
@@ -1822,6 +1879,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$id']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -1834,6 +1892,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$ref']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1846,6 +1905,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$defs']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1858,6 +1918,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.title]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -1870,6 +1931,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$anchor']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1882,12 +1944,14 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$schema']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$TightSchema'.'|'.1.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1900,6 +1964,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$comment']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1912,6 +1977,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.examples]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -1924,6 +1990,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.readOnly]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -1936,6 +2003,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.writeOnly]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -1948,6 +2016,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.deprecated]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -1960,6 +2029,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$dynamicRef']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -1972,6 +2042,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$vocabulary']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1984,6 +2055,7 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.description]", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -1996,12 +2068,10 @@ function _jm_obj_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1.'$dynamicAnchor']", (path ? lpath_17 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.1]", (path ? lpath_17 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.1]", (path ? lpath_17 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2098,8 +2168,9 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.2.type]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "$id")
+        if (prop == "$id")
         {
             // handle may $id property
             // .'$TightSchema'.'|'.2.'$id'
@@ -2110,6 +2181,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$id']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -2122,6 +2194,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$ref']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2134,6 +2207,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$defs']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2146,6 +2220,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.title]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -2158,6 +2233,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$anchor']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2170,12 +2246,14 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$schema']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$TightSchema'.'|'.2.default
             res = true;
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -2206,6 +2284,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.maximum]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -2236,6 +2315,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.minimum]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2248,6 +2328,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$comment']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2260,6 +2341,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.examples]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -2272,6 +2354,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.readOnly]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -2284,6 +2367,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.writeOnly]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -2296,6 +2380,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.deprecated]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "multipleOf")
         {
@@ -2326,6 +2411,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.multipleOf]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -2338,6 +2424,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$dynamicRef']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -2350,6 +2437,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$vocabulary']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2362,6 +2450,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.description]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -2374,6 +2463,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.'$dynamicAnchor']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "exclusiveMaximum")
         {
@@ -2404,6 +2494,7 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.exclusiveMaximum]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "exclusiveMinimum")
         {
@@ -2434,12 +2525,10 @@ function _jm_obj_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2.exclusiveMinimum]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.2]", (path ? lpath_20 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.2]", (path ? lpath_20 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2536,8 +2625,9 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.3.type]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "$id")
+        if (prop == "$id")
         {
             // handle may $id property
             // .'$TightSchema'.'|'.3.'$id'
@@ -2548,6 +2638,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$id']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -2560,6 +2651,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$ref']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2572,6 +2664,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$defs']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2584,6 +2677,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.title]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -2596,6 +2690,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$anchor']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2608,12 +2703,14 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$schema']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$TightSchema'.'|'.3.default
             res = true;
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -2626,6 +2723,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.maximum]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -2638,6 +2736,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.minimum]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2650,6 +2749,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$comment']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2662,6 +2762,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.examples]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -2674,6 +2775,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.readOnly]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -2686,6 +2788,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.writeOnly]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -2698,6 +2801,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.deprecated]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "multipleOf")
         {
@@ -2710,6 +2814,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.multipleOf]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -2722,6 +2827,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$dynamicRef']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -2734,6 +2840,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$vocabulary']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2746,6 +2853,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.description]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -2758,6 +2866,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.'$dynamicAnchor']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "exclusiveMaximum")
         {
@@ -2770,6 +2879,7 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.exclusiveMaximum]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "exclusiveMinimum")
         {
@@ -2782,12 +2892,10 @@ function _jm_obj_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3.exclusiveMinimum]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.3]", (path ? lpath_23 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.3]", (path ? lpath_23 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2884,8 +2992,9 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.4.type]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "$id")
+        if (prop == "$id")
         {
             // handle may $id property
             // .'$TightSchema'.'|'.4.'$id'
@@ -2896,6 +3005,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$id']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -2908,6 +3018,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$ref']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2920,6 +3031,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$defs']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2932,6 +3044,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.title]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "format")
         {
@@ -2944,6 +3057,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.format]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -2956,6 +3070,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$anchor']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2968,12 +3083,14 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$schema']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$TightSchema'.'|'.4.default
             res = true;
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -2986,6 +3103,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.pattern]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2998,6 +3116,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$comment']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3010,6 +3129,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.examples]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -3022,6 +3142,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.readOnly]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -3034,6 +3155,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.maxLength]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -3046,6 +3168,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.minLength]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -3058,6 +3181,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.writeOnly]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -3070,6 +3194,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.deprecated]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -3082,6 +3207,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$dynamicRef']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -3094,6 +3220,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$vocabulary']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3106,6 +3233,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.description]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contentSchema")
         {
@@ -3118,6 +3246,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.contentSchema]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -3130,6 +3259,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.'$dynamicAnchor']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contentEncoding")
         {
@@ -3142,6 +3272,7 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.contentEncoding]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contentMediaType")
         {
@@ -3154,12 +3285,10 @@ function _jm_obj_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4.contentMediaType]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.4]", (path ? lpath_26 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.4]", (path ? lpath_26 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3256,8 +3385,9 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.5.type]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "$id")
+        if (prop == "$id")
         {
             // handle may $id property
             // .'$TightSchema'.'|'.5.'$id'
@@ -3268,6 +3398,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$id']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -3280,6 +3411,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$ref']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3292,6 +3424,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$defs']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "items")
         {
@@ -3304,6 +3437,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.items]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3316,6 +3450,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.title]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -3328,6 +3463,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$anchor']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3340,12 +3476,14 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$schema']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$TightSchema'.'|'.5.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3358,6 +3496,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$comment']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "contains")
         {
@@ -3370,6 +3509,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.contains]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3382,6 +3522,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.examples]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxItems")
         {
@@ -3394,6 +3535,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.maxItems]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minItems")
         {
@@ -3406,6 +3548,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.minItems]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -3418,6 +3561,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.readOnly]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -3430,6 +3574,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.writeOnly]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -3442,6 +3587,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.deprecated]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -3454,6 +3600,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$dynamicRef']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -3466,6 +3613,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$vocabulary']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3478,6 +3626,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.description]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxContains")
         {
@@ -3490,6 +3639,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.maxContains]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minContains")
         {
@@ -3502,6 +3652,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.minContains]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "prefixItems")
         {
@@ -3514,6 +3665,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.prefixItems]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "uniqueItems")
         {
@@ -3526,6 +3678,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.uniqueItems]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -3538,6 +3691,7 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.'$dynamicAnchor']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unevaluatedItems")
         {
@@ -3550,12 +3704,10 @@ function _jm_obj_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5.unevaluatedItems]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.5]", (path ? lpath_29 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.5]", (path ? lpath_29 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3756,8 +3908,9 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.6.type]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "$id")
+        if (prop == "$id")
         {
             // handle may $id property
             // .'$TightSchema'.'|'.6.'$id'
@@ -3768,6 +3921,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$id']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -3780,6 +3934,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$ref']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3792,6 +3947,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$defs']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3804,6 +3960,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.title]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -3816,6 +3973,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$anchor']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3828,12 +3986,14 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$schema']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$TightSchema'.'|'.6.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3846,6 +4006,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$comment']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3858,6 +4019,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.examples]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -3870,6 +4032,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.readOnly]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -3882,6 +4045,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.required]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -3894,6 +4058,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.writeOnly]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -3906,6 +4071,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.deprecated]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "properties")
         {
@@ -3918,6 +4084,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.properties]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -3930,6 +4097,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$dynamicRef']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -3942,6 +4110,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$vocabulary']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3954,6 +4123,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.description]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxProperties")
         {
@@ -3966,6 +4136,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.maxProperties]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minProperties")
         {
@@ -3978,6 +4149,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.minProperties]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "propertyNames")
         {
@@ -3990,6 +4162,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.propertyNames]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -4002,6 +4175,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.'$dynamicAnchor']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "dependentSchemas")
         {
@@ -4014,6 +4188,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.dependentSchemas]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "dependentRequired")
         {
@@ -4026,6 +4201,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.dependentRequired]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "patternProperties")
         {
@@ -4038,6 +4214,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.patternProperties]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalProperties")
         {
@@ -4050,6 +4227,7 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.additionalProperties]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "unevaluatedProperties")
         {
@@ -4062,12 +4240,10 @@ function _jm_obj_24(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6.unevaluatedProperties]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.6]", (path ? lpath_32 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.6]", (path ? lpath_32 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -4162,6 +4338,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.if]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -4174,6 +4351,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$id']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "not")
         {
@@ -4186,6 +4364,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.not]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$ref")
         {
@@ -4198,6 +4377,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$ref']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "else")
         {
@@ -4210,6 +4390,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.else]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "enum")
         {
@@ -4222,6 +4403,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.enum]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "then")
         {
@@ -4234,6 +4416,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.then]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -4246,6 +4429,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$defs']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "allOf")
         {
@@ -4258,6 +4442,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.allOf]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "anyOf")
         {
@@ -4270,12 +4455,14 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.anyOf]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "const")
         {
             // handle may const property
             // .'$TightSchema'.'|'.7.const
             res = true;
+            continue;
         }
         else if (prop == "oneOf")
         {
@@ -4288,6 +4475,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.oneOf]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -4300,6 +4488,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.title]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$anchor")
         {
@@ -4312,6 +4501,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$anchor']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -4324,12 +4514,14 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$schema']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$TightSchema'.'|'.7.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -4342,6 +4534,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$comment']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -4354,6 +4547,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.examples]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "readOnly")
         {
@@ -4366,6 +4560,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.readOnly]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "writeOnly")
         {
@@ -4378,6 +4573,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.writeOnly]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "deprecated")
         {
@@ -4390,6 +4586,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.deprecated]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicRef")
         {
@@ -4402,6 +4599,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$dynamicRef']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$vocabulary")
         {
@@ -4414,6 +4612,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$vocabulary']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -4426,6 +4625,7 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.description]", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$dynamicAnchor")
         {
@@ -4438,12 +4638,10 @@ function _jm_obj_31(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7.'$dynamicAnchor']", (path ? lpath_39 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.7]", (path ? lpath_39 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.7]", (path ? lpath_39 : null)])
+        return false;
     }
     return true;
 }

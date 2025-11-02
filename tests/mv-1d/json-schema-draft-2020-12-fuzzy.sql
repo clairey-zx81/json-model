@@ -112,9 +112,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -140,10 +140,12 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'default' THEN
       -- handle may default property
       -- .'$meta'.default
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$meta'.examples
@@ -151,6 +153,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'readOnly' THEN
       -- handle may readOnly property
       -- .'$meta'.readOnly
@@ -158,6 +161,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'writeOnly' THEN
       -- handle may writeOnly property
       -- .'$meta'.writeOnly
@@ -165,6 +169,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'deprecated' THEN
       -- handle may deprecated property
       -- .'$meta'.deprecated
@@ -172,6 +177,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$meta'.description
@@ -179,9 +185,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -207,6 +213,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'contentEncoding' THEN
       -- handle may contentEncoding property
       -- .'$content'.contentEncoding
@@ -214,6 +221,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'contentMediaType' THEN
       -- handle may contentMediaType property
       -- .'$content'.contentMediaType
@@ -221,9 +229,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -249,6 +257,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'unevaluatedProperties' THEN
       -- handle may unevaluatedProperties property
       -- .'$unevaluated'.unevaluatedProperties
@@ -256,9 +265,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -284,9 +293,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -521,9 +530,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -659,9 +668,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1111,10 +1120,10 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1199,6 +1208,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'dependencies' THEN
       -- handle may dependencies property
       -- .'$deprecated'.dependencies
@@ -1206,6 +1216,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '$recursiveRef' THEN
       -- handle may $recursiveRef property
       -- .'$deprecated'.'$recursiveRef'
@@ -1213,6 +1224,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '$recursiveAnchor' THEN
       -- handle may $recursiveAnchor property
       -- .'$deprecated'.'$recursiveAnchor'
@@ -1220,9 +1232,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;

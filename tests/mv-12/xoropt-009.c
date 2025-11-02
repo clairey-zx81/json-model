@@ -84,12 +84,10 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'^'.1.a]", (path ? &lpath_1 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'^'.1]", (path ? &lpath_1 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'^'.1]", (path ? &lpath_1 : NULL));
+        return false;
     }
     return true;
 }
@@ -104,7 +102,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     int64_t xc_0 = 0;
     // .'^'.0
     bool xr_0 = _jm_obj_0(val, path, rep);
-    if (unlikely(xr_0))
+    if (likely(xr_0))
         xc_0 += 1;
     else
     {
@@ -112,7 +110,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'^'.1
     xr_0 = _jm_obj_1(val, path, rep);
-    if (unlikely(xr_0))
+    if (likely(xr_0))
         xc_0 += 1;
     else
     {

@@ -147,8 +147,9 @@ public class xoropt_015 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ee'.'|'.1.Y]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("Z") == 0)
+            if (prop.compareTo("Z") == 0)
             {
                 // handle may Z property
                 // .'$Ee'.'|'.1.Z
@@ -159,12 +160,10 @@ public class xoropt_015 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ee'.'|'.1.Z]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Ee'.'|'.1]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Ee'.'|'.1]", (path != null ? lpath_0 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -208,8 +207,9 @@ public class xoropt_015 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ee'.'|'.0.X]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("Z") == 0)
+            if (prop.compareTo("Z") == 0)
             {
                 // handle may Z property
                 // .'$Ee'.'|'.0.Z
@@ -220,12 +220,10 @@ public class xoropt_015 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ee'.'|'.0.Z]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Ee'.'|'.0]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Ee'.'|'.0]", (path != null ? lpath_1 : null));
+            return false;
         }
         if (must_count != 1)
         {

@@ -100,7 +100,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$ObjectComment'.'/^#/'
       res := TRUE;
@@ -407,14 +409,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '!' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '!' THEN
       -- handle may ! property
       -- .'$Constraint'.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_7(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_7(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$Constraint'.'/^(<=|>=|<|>)$/'
       res := json_model_12(pval, NULL, NULL);
@@ -471,9 +477,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -514,9 +520,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -557,9 +563,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -600,9 +606,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -694,7 +700,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_26(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_26(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Element'.'|'.5.'$Prop'
       res := json_model_33(pval, NULL, NULL);
@@ -747,14 +755,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$Element'.'|'.4.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Element'.'|'.4.'/^#/'
       res := TRUE;
@@ -800,14 +812,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$Element'.'|'.3.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Element'.'|'.3.'/^#/'
       res := TRUE;
@@ -853,14 +869,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$Element'.'|'.2.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Element'.'|'.2.'/^#/'
       res := TRUE;
@@ -906,14 +926,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$Element'.'|'.1.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Element'.'|'.1.'/^#/'
       res := TRUE;
@@ -947,13 +971,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '!' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '!' THEN
       -- handle may ! property
       -- .'$Element'.'|'.0.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Element'.'|'.0.'#'
@@ -961,7 +988,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 3 re props
       -- .'$Element'.'|'.0.'/^#/'
       res := TRUE;
@@ -1043,6 +1072,7 @@ BEGIN
       -- handle may * property
       -- .'$Trafo'.'*'
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = '/' THEN
       -- handle may / property
       -- .'$Trafo'.'/'
@@ -1052,6 +1082,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Trafo'.'~'
@@ -1059,9 +1090,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1109,10 +1140,12 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '*' THEN
       -- handle may * property
       -- .'$Transformation'.'|'.1.'*'
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = '/' THEN
       -- handle may / property
       -- .'$Transformation'.'|'.1.'/'
@@ -1122,6 +1155,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Transformation'.'|'.1.'~'
@@ -1129,7 +1163,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Transformation'.'|'.1.'/^#/'
       res := TRUE;
@@ -1195,7 +1231,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Defs'.'$Identifier'
       res := json_model_33(pval, NULL, NULL);
@@ -1320,9 +1358,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1347,6 +1385,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$RootOnly'.'$'.'#'
@@ -1354,7 +1393,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$RootOnly'.'$'.'$Identifier'
       res := json_model_33(pval, NULL, NULL);
@@ -1394,6 +1435,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$RootOnly'.'%'.'<'
@@ -1416,7 +1458,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$RootOnly'.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
@@ -1464,6 +1508,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle may % property
       -- .'$RootOnly'.'%'
@@ -1471,6 +1516,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$RootOnly'.'~'
@@ -1478,9 +1524,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1505,6 +1551,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.5.'$'.'#'
@@ -1512,7 +1559,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.5.'$'.'$Identifier'
       res := json_model_33(pval, NULL, NULL);
@@ -1552,6 +1601,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Root'.'|'.5.'%'.'<'
@@ -1574,7 +1624,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.5.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
@@ -1620,6 +1672,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '$' THEN
       -- handle may $ property
       -- .'$Root'.'|'.5.'$'
@@ -1627,6 +1680,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle may % property
       -- .'$Root'.'|'.5.'%'
@@ -1634,6 +1688,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Root'.'|'.5.'~'
@@ -1641,7 +1696,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_26(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_26(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.5.'$Prop'
       res := json_model_33(pval, NULL, NULL);
@@ -1679,6 +1736,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.4.'$'.'#'
@@ -1686,7 +1744,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.4.'$'.'$Identifier'
       res := json_model_33(pval, NULL, NULL);
@@ -1726,6 +1786,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Root'.'|'.4.'%'.'<'
@@ -1748,7 +1809,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.4.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
@@ -1809,13 +1872,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.4.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '$' THEN
       -- handle may $ property
       -- .'$Root'.'|'.4.'$'
@@ -1823,6 +1889,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle may % property
       -- .'$Root'.'|'.4.'%'
@@ -1830,6 +1897,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Root'.'|'.4.'~'
@@ -1837,7 +1905,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Root'.'|'.4.'/^#/'
       res := TRUE;
@@ -1868,6 +1938,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.3.'$'.'#'
@@ -1875,7 +1946,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.3.'$'.'$Identifier'
       res := json_model_33(pval, NULL, NULL);
@@ -1915,6 +1988,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Root'.'|'.3.'%'.'<'
@@ -1937,7 +2011,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.3.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
@@ -1998,13 +2074,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.3.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '$' THEN
       -- handle may $ property
       -- .'$Root'.'|'.3.'$'
@@ -2012,6 +2091,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle may % property
       -- .'$Root'.'|'.3.'%'
@@ -2019,6 +2099,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Root'.'|'.3.'~'
@@ -2026,7 +2107,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Root'.'|'.3.'/^#/'
       res := TRUE;
@@ -2057,6 +2140,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.2.'$'.'#'
@@ -2064,7 +2148,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.2.'$'.'$Identifier'
       res := json_model_33(pval, NULL, NULL);
@@ -2104,6 +2190,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Root'.'|'.2.'%'.'<'
@@ -2126,7 +2213,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.2.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
@@ -2187,13 +2276,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.2.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '$' THEN
       -- handle may $ property
       -- .'$Root'.'|'.2.'$'
@@ -2201,6 +2293,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle may % property
       -- .'$Root'.'|'.2.'%'
@@ -2208,6 +2301,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Root'.'|'.2.'~'
@@ -2215,7 +2309,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Root'.'|'.2.'/^#/'
       res := TRUE;
@@ -2246,6 +2342,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.1.'$'.'#'
@@ -2253,7 +2350,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.1.'$'.'$Identifier'
       res := json_model_33(pval, NULL, NULL);
@@ -2293,6 +2392,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Root'.'|'.1.'%'.'<'
@@ -2315,7 +2415,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.1.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
@@ -2376,13 +2478,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.1.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '$' THEN
       -- handle may $ property
       -- .'$Root'.'|'.1.'$'
@@ -2390,6 +2495,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle may % property
       -- .'$Root'.'|'.1.'%'
@@ -2397,6 +2503,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Root'.'|'.1.'~'
@@ -2404,7 +2511,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$Root'.'|'.1.'/^#/'
       res := TRUE;
@@ -2435,6 +2544,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.0.'$'.'#'
@@ -2442,7 +2552,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_4(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.0.'$'.'$Identifier'
       res := json_model_33(pval, NULL, NULL);
@@ -2482,6 +2594,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Root'.'|'.0.'%'.'<'
@@ -2504,7 +2617,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_11(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.0.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
@@ -2553,13 +2668,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '!' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '!' THEN
       -- handle may ! property
       -- .'$Root'.'|'.0.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$Root'.'|'.0.'#'
@@ -2567,6 +2685,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '$' THEN
       -- handle may $ property
       -- .'$Root'.'|'.0.'$'
@@ -2574,6 +2693,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle may % property
       -- .'$Root'.'|'.0.'%'
@@ -2581,6 +2701,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Root'.'|'.0.'~'
@@ -2588,7 +2709,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 3 re props
       -- .'$Root'.'|'.0.'/^#/'
       res := TRUE;

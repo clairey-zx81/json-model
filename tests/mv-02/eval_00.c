@@ -19,23 +19,29 @@ const size_t check_model_map_size = 3;
 // check $false (.'$false')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    bool res;
     // .'$false'
+    res = false;
     if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$false']", path);
-    return false;
+    return res;
 }
 
 // check $true (.'$true')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    bool res;
     // .'$true'
-    return true;
+    res = true;
+    return res;
 }
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    bool res;
     // .
-    return true;
+    res = true;
+    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

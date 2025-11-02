@@ -29,10 +29,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may hello property
             // .hello
             return json_is_string(pval);
-        else
-        {
-            // accept any other props
-        }
+        // accept any other props
     }
     return true;
 }

@@ -29,6 +29,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'mu2' THEN
       -- handle must mu2 property
       must_count := must_count + 1;
@@ -37,6 +38,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'mu3' THEN
       -- handle must mu3 property
       must_count := must_count + 1;
@@ -45,13 +47,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'ma1' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'ma1' THEN
       -- handle may ma1 property
       -- .ma1
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 >= 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'ma2' THEN
       -- handle may ma2 property
       -- .ma2
@@ -59,6 +64,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'ma3' THEN
       -- handle may ma3 property
       -- .ma3
@@ -66,9 +72,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;

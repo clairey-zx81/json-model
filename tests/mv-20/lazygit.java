@@ -352,6 +352,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.0.key]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("type") == 0)
             {
@@ -365,6 +366,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.0.type]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -378,8 +380,9 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.0.title]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("suggestions") == 0)
+            if (prop.compareTo("suggestions") == 0)
             {
                 // handle may suggestions property
                 // .'$Prompts'.'|'.0.suggestions
@@ -419,6 +422,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.0.suggestions]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("initialValue") == 0)
             {
@@ -431,12 +435,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.0.initialValue]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.0]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.0]", (path != null ? lpath_0 : null));
+            return false;
         }
         if (must_count != 3)
         {
@@ -488,6 +490,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.key]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("type") == 0)
             {
@@ -501,6 +504,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.type]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -514,8 +518,9 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.title]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("body") == 0)
+            if (prop.compareTo("body") == 0)
             {
                 // handle may body property
                 // .'$Prompts'.'|'.1.body
@@ -526,12 +531,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.1.body]", (path != null ? lpath_1 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.1]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.1]", (path != null ? lpath_1 : null));
+            return false;
         }
         if (must_count != 3)
         {
@@ -583,8 +586,9 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.2.options.'@'.0.value]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("name") == 0)
+            if (prop.compareTo("name") == 0)
             {
                 // handle may name property
                 // .'$Prompts'.'|'.2.options.'@'.0.name
@@ -595,6 +599,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.name]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -607,12 +612,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.description]", (path != null ? lpath_2 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.2.options.'@'.0]", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.2.options.'@'.0]", (path != null ? lpath_2 : null));
+            return false;
         }
         if (must_count != 1)
         {
@@ -762,6 +765,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.key]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("type") == 0)
             {
@@ -775,6 +779,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("title") == 0)
             {
@@ -788,6 +793,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.title]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("command") == 0)
             {
@@ -801,8 +807,9 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.command]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("filter") == 0)
+            if (prop.compareTo("filter") == 0)
             {
                 // handle may filter property
                 // .'$Prompts'.'|'.3.filter
@@ -813,6 +820,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.filter]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("labelFormat") == 0)
             {
@@ -825,6 +833,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.labelFormat]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("valueFormat") == 0)
             {
@@ -837,12 +846,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.valueFormat]", (path != null ? lpath_3 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.3]", (path != null ? lpath_3 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.3]", (path != null ? lpath_3 : null));
+            return false;
         }
         if (must_count != 4)
         {
@@ -946,12 +953,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.after.checkForConflicts]", (path != null ? lpath_6 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.customCommands.'@'.0.after]", (path != null ? lpath_6 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.customCommands.'@'.0.after]", (path != null ? lpath_6 : null));
+            return false;
         }
         return true;
     }
@@ -984,6 +989,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.key]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("command") == 0)
             {
@@ -997,6 +1003,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.command]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("context") == 0)
             {
@@ -1010,8 +1017,9 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.context]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("after") == 0)
+            if (prop.compareTo("after") == 0)
             {
                 // handle may after property
                 // .customCommands.'@'.0.after
@@ -1022,6 +1030,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.after]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("stream") == 0)
             {
@@ -1034,6 +1043,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.stream]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("prompts") == 0)
             {
@@ -1064,6 +1074,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.prompts]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("showOutput") == 0)
             {
@@ -1076,6 +1087,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.showOutput]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("subprocess") == 0)
             {
@@ -1088,6 +1100,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.subprocess]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("description") == 0)
             {
@@ -1100,6 +1113,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.description]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("loadingText") == 0)
             {
@@ -1112,12 +1126,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.loadingText]", (path != null ? lpath_5 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.customCommands.'@'.0]", (path != null ? lpath_5 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.customCommands.'@'.0]", (path != null ? lpath_5 : null));
+            return false;
         }
         if (must_count != 3)
         {
@@ -1267,12 +1279,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.commit.signOff]", (path != null ? lpath_8 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.git.commit]", (path != null ? lpath_8 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.git.commit]", (path != null ? lpath_8 : null));
+            return false;
         }
         return true;
     }
@@ -1431,6 +1441,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.log.order]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("showGraph") == 0)
             {
@@ -1443,6 +1454,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.log.showGraph]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("showWholeGraph") == 0)
             {
@@ -1455,12 +1467,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.log.showWholeGraph]", (path != null ? lpath_10 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.git.log]", (path != null ? lpath_10 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.git.log]", (path != null ? lpath_10 : null));
+            return false;
         }
         return true;
     }
@@ -1492,6 +1502,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.merging.args]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("manualCommit") == 0)
             {
@@ -1504,12 +1515,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.merging.manualCommit]", (path != null ? lpath_11 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.git.merging]", (path != null ? lpath_11 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.git.merging]", (path != null ? lpath_11 : null));
+            return false;
         }
         return true;
     }
@@ -1567,6 +1576,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.pager]", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("colorArg") == 0)
             {
@@ -1579,6 +1589,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.colorArg]", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("useConfig") == 0)
             {
@@ -1591,12 +1602,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.useConfig]", (path != null ? lpath_12 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.git.paging]", (path != null ? lpath_12 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.git.paging]", (path != null ? lpath_12 : null));
+            return false;
         }
         return true;
     }
@@ -1650,12 +1659,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.git]", (path != null ? lpath_7 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.git]", (path != null ? lpath_7 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.git]", (path != null ? lpath_7 : null));
+            return false;
         }
         return true;
     }
@@ -1796,12 +1803,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.commitLength.show]", (path != null ? lpath_16 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.gui.commitLength]", (path != null ? lpath_16 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.gui.commitLength]", (path != null ? lpath_16 : null));
+            return false;
         }
         return true;
     }
@@ -2097,6 +2102,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.defaultFgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("optionsTextColor") == 0)
             {
@@ -2109,6 +2115,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.optionsTextColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("activeBorderColor") == 0)
             {
@@ -2121,6 +2128,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.activeBorderColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("inactiveBorderColor") == 0)
             {
@@ -2133,6 +2141,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.inactiveBorderColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("selectedLineBgColor") == 0)
             {
@@ -2145,6 +2154,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.selectedLineBgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("selectedRangeBgColor") == 0)
             {
@@ -2157,6 +2167,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("unstagedChangesColor") == 0)
             {
@@ -2169,6 +2180,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.unstagedChangesColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("cherryPickedCommitBgColor") == 0)
             {
@@ -2181,6 +2193,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("cherryPickedCommitFgColor") == 0)
             {
@@ -2193,6 +2206,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("searchingActiveBorderColor") == 0)
             {
@@ -2205,12 +2219,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.gui.theme]", (path != null ? lpath_17 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.gui.theme]", (path != null ? lpath_17 : null));
+            return false;
         }
         return true;
     }
@@ -2265,12 +2277,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui]", (path != null ? lpath_13 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.gui]", (path != null ? lpath_13 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.gui]", (path != null ? lpath_13 : null));
+            return false;
         }
         return true;
     }
@@ -2301,6 +2311,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.pickBothHunks]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("toggleDragSelect") == 0)
             {
@@ -2313,6 +2324,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleDragSelect]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("toggleSelectHunk") == 0)
             {
@@ -2325,6 +2337,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("toggleDragSelect-alt") == 0)
             {
@@ -2337,12 +2350,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_19 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.main]", (path != null ? lpath_19 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.main]", (path != null ? lpath_19 : null));
+            return false;
         }
         return true;
     }
@@ -2371,12 +2382,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.files]", (path != null ? lpath_20 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.files]", (path != null ? lpath_20 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.files]", (path != null ? lpath_20 : null));
+            return false;
         }
         return true;
     }
@@ -2407,6 +2416,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash.popStash]", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("renameStash") == 0)
             {
@@ -2419,12 +2429,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash.renameStash]", (path != null ? lpath_21 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.stash]", (path != null ? lpath_21 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.stash]", (path != null ? lpath_21 : null));
+            return false;
         }
         return true;
     }
@@ -2455,6 +2463,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.recentRepos]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("checkForUpdate") == 0)
             {
@@ -2467,12 +2476,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.checkForUpdate]", (path != null ? lpath_22 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.status]", (path != null ? lpath_22 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.status]", (path != null ? lpath_22 : null));
+            return false;
         }
         return true;
     }
@@ -2501,12 +2508,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commits]", (path != null ? lpath_23 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commits]", (path != null ? lpath_23 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.commits]", (path != null ? lpath_23 : null));
+            return false;
         }
         return true;
     }
@@ -2535,12 +2540,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.branches]", (path != null ? lpath_24 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.branches]", (path != null ? lpath_24 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.branches]", (path != null ? lpath_24 : null));
+            return false;
         }
         return true;
     }
@@ -2593,12 +2596,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.universal]", (path != null ? lpath_25 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.universal]", (path != null ? lpath_25 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.universal]", (path != null ? lpath_25 : null));
+            return false;
         }
         return true;
     }
@@ -2629,6 +2630,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.init]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("update") == 0)
             {
@@ -2641,6 +2643,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.update]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("bulkMenu") == 0)
             {
@@ -2653,12 +2656,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.bulkMenu]", (path != null ? lpath_26 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.submodules]", (path != null ? lpath_26 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.submodules]", (path != null ? lpath_26 : null));
+            return false;
         }
         return true;
     }
@@ -2689,12 +2690,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_27 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commitFiles]", (path != null ? lpath_27 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding.commitFiles]", (path != null ? lpath_27 : null));
+            return false;
         }
         return true;
     }
@@ -2726,6 +2725,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("files") == 0)
             {
@@ -2738,6 +2738,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.files]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("stash") == 0)
             {
@@ -2750,6 +2751,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("status") == 0)
             {
@@ -2762,6 +2764,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("commits") == 0)
             {
@@ -2774,6 +2777,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commits]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("branches") == 0)
             {
@@ -2786,6 +2790,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.branches]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("universal") == 0)
             {
@@ -2798,6 +2803,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.universal]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("submodules") == 0)
             {
@@ -2810,6 +2816,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("commitFiles") == 0)
             {
@@ -2822,12 +2829,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commitFiles]", (path != null ? lpath_18 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding]", (path != null ? lpath_18 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.keybinding]", (path != null ? lpath_18 : null));
+            return false;
         }
         return true;
     }
@@ -2873,6 +2878,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.edit]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("open") == 0)
             {
@@ -2885,6 +2891,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.open]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("openLink") == 0)
             {
@@ -2897,6 +2904,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.openLink]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("editAtLine") == 0)
             {
@@ -2909,6 +2917,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.editAtLine]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("editPreset") == 0)
             {
@@ -2946,6 +2955,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.editPreset]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("editAtLineAndWait") == 0)
             {
@@ -2958,6 +2968,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.editAtLineAndWait]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("copyToClipboardCmd") == 0)
             {
@@ -2970,12 +2981,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.copyToClipboardCmd]", (path != null ? lpath_28 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.os]", (path != null ? lpath_28 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.os]", (path != null ? lpath_28 : null));
+            return false;
         }
         return true;
     }
@@ -3031,6 +3040,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.refresher.fetchInterval]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("refreshInterval") == 0)
             {
@@ -3043,12 +3053,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.refresher.refreshInterval]", (path != null ? lpath_29 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.refresher]", (path != null ? lpath_29 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.refresher]", (path != null ? lpath_29 : null));
+            return false;
         }
         return true;
     }
@@ -3123,6 +3131,7 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.update.days]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("method") == 0)
             {
@@ -3135,12 +3144,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.update.method]", (path != null ? lpath_31 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.update]", (path != null ? lpath_31 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.update]", (path != null ? lpath_31 : null));
+            return false;
         }
         return true;
     }
@@ -3171,12 +3178,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.]", (path != null ? lpath_4 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_4 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_4 : null));
+            return false;
         }
         return true;
     }

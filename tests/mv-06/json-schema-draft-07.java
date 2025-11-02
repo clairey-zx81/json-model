@@ -153,8 +153,10 @@ public class json_schema_draft_07 extends ModelChecker
     // check json_model_6_map_const (.'$ObjectSchema'.const)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$ObjectSchema'.const
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_6_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -184,8 +186,10 @@ public class json_schema_draft_07 extends ModelChecker
     // check json_model_6_map_default (.'$ObjectSchema'.default)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
+        boolean res;
         // .'$ObjectSchema'.default
-        return true;
+        res = true;
+        return res;
     }
 
     // check json_model_6_map_definitions (.'$ObjectSchema'.definitions)
@@ -709,12 +713,10 @@ public class json_schema_draft_07 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ObjectSchema']", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$ObjectSchema']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$ObjectSchema']", (path != null ? lpath_0 : null));
+            return false;
         }
         return true;
     }

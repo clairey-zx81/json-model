@@ -35,17 +35,19 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may  property
             # .''
             res = True
+            continue
         elif prop == "hello":
             # handle may hello property
             # .hello
             res = True
+            continue
         elif prop == "quite-a-long-property-name":
             # handle may quite-a-long-property-name property
             # .'quite-a-long-property-name'
             res = True
-        else:
-            rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
+        return False
     return True
 
 

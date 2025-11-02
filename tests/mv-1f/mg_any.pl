@@ -45,6 +45,7 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b')
         {
@@ -56,8 +57,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'c')
+        if ($prop eq 'c')
         {
             # handle may c property
             # .c
@@ -66,8 +68,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (jm_is_string($prop) && jm_is_valid_date($prop, undef, undef))
+        if (jm_is_string($prop) && jm_is_valid_date($prop, undef, undef))
         {
             # handle 1 key props
             # .'$DATE'

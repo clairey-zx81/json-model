@@ -37,8 +37,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.nom]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "age")
+        if (prop == "age")
         {
             // handle may age property
             // .age
@@ -49,17 +50,15 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.age]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
+        // handle other props
+        // .''
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
         {
-            // handle other props
-            // .''
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'']", (path ? lpath_0 : null)])
-                return false;
-            }
+            rep !== null && rep.push(["unexpected string [.'']", (path ? lpath_0 : null)])
+            return false;
         }
     }
     if (must_count != 1)

@@ -65,6 +65,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'openapi' THEN
       -- handle must openapi property
       must_count := must_count + 1;
@@ -74,7 +75,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'tags' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'tags' THEN
       -- handle may tags property
       -- .'$OpenAPI'.tags
       res := JSONB_TYPEOF(pval) = 'array';
@@ -91,6 +94,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'paths' THEN
       -- handle may paths property
       -- .'$OpenAPI'.paths
@@ -98,6 +102,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'servers' THEN
       -- handle may servers property
       -- .'$OpenAPI'.servers
@@ -115,6 +120,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'security' THEN
       -- handle may security property
       -- .'$OpenAPI'.security
@@ -132,6 +138,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'webhooks' THEN
       -- handle may webhooks property
       -- .'$OpenAPI'.webhooks
@@ -139,6 +146,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'components' THEN
       -- handle may components property
       -- .'$OpenAPI'.components
@@ -146,6 +154,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'externalDocs' THEN
       -- handle may externalDocs property
       -- .'$OpenAPI'.externalDocs
@@ -153,6 +162,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'jsonSchemaDialect' THEN
       -- handle may jsonSchemaDialect property
       -- .'$OpenAPI'.jsonSchemaDialect
@@ -160,7 +170,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$OpenAPI'.'/^x-/'
       res := TRUE;
@@ -195,6 +207,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'version' THEN
       -- handle must version property
       must_count := must_count + 1;
@@ -203,13 +216,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'contact' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'contact' THEN
       -- handle may contact property
       -- .'$Info'.contact
       res := json_model_4(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'license' THEN
       -- handle may license property
       -- .'$Info'.license
@@ -217,6 +233,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'summary' THEN
       -- handle may summary property
       -- .'$Info'.summary
@@ -224,6 +241,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Info'.description
@@ -231,6 +249,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'termsOfService' THEN
       -- handle may termsOfService property
       -- .'$Info'.termsOfService
@@ -238,7 +257,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Info'.'/^x-/'
       res := TRUE;
@@ -270,6 +291,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle may name property
       -- .'$Contact'.name
@@ -277,6 +299,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'email' THEN
       -- handle may email property
       -- .'$Contact'.email
@@ -284,7 +307,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Contact'.'/^x-/'
       res := TRUE;
@@ -326,6 +351,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -334,7 +360,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$License'.'|'.1.'/^x\\-.*$/'
       res := TRUE;
@@ -368,6 +396,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'identifier' THEN
       -- handle must identifier property
       must_count := must_count + 1;
@@ -376,7 +405,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$License'.'|'.0.'/^x\\-.*$/'
       res := TRUE;
@@ -445,13 +476,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'variables' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'variables' THEN
       -- handle may variables property
       -- .'$Server'.variables
       res := _jm_obj_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Server'.description
@@ -459,7 +493,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Server'.'/^x-/'
       res := TRUE;
@@ -496,7 +532,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'enum' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'enum' THEN
       -- handle may enum property
       -- .'$ServerVariable'.enum
       res := JSONB_TYPEOF(pval) = 'array';
@@ -513,6 +551,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$ServerVariable'.description
@@ -520,7 +559,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$ServerVariable'.'/^x-/'
       res := TRUE;
@@ -819,7 +860,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Components'.'/^x-/'
       res := TRUE;
@@ -969,7 +1012,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$PathItem'.'/^x-/'
       res := TRUE;
@@ -1181,7 +1226,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Operation'.'/^x-/'
       res := TRUE;
@@ -1216,14 +1263,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$ExternalDocumentation'.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$ExternalDocumentation'.'/^x-/'
       res := TRUE;
@@ -1255,6 +1306,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'deprecated' THEN
       -- handle may deprecated property
       -- .'$parameterShare'.deprecated
@@ -1262,6 +1314,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$parameterShare'.description
@@ -1269,6 +1322,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowEmptyValue' THEN
       -- handle may allowEmptyValue property
       -- .'$parameterShare'.allowEmptyValue
@@ -1276,7 +1330,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$parameterShare'.'/^x-/'
       res := TRUE;
@@ -1320,6 +1376,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -1328,13 +1385,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'required' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'required' THEN
       -- handle may required property
       -- .'$commonParameter'.required
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'deprecated' THEN
       -- handle may deprecated property
       -- .'$commonParameter'.deprecated
@@ -1342,6 +1402,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$commonParameter'.description
@@ -1349,6 +1410,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowEmptyValue' THEN
       -- handle may allowEmptyValue property
       -- .'$commonParameter'.allowEmptyValue
@@ -1356,7 +1418,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$commonParameter'.'/^x-/'
       res := TRUE;
@@ -1432,6 +1496,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'schema' THEN
       -- handle may schema property
       -- .'$parameterSchemaOnly'.schema
@@ -1439,10 +1504,12 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'example' THEN
       -- handle may example property
       -- .'$parameterSchemaOnly'.example
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'explode' THEN
       -- handle may explode property
       -- .'$parameterSchemaOnly'.explode
@@ -1450,6 +1517,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$parameterSchemaOnly'.examples
@@ -1457,6 +1525,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowReserved' THEN
       -- handle may allowReserved property
       -- .'$parameterSchemaOnly'.allowReserved
@@ -1464,9 +1533,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1515,9 +1584,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1577,6 +1646,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -1585,13 +1655,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'content' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'content' THEN
       -- handle may content property
       -- .'$Parameter'.'|'.1.content
       res := _jm_obj_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$Parameter'.'|'.1.required
@@ -1599,6 +1672,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'deprecated' THEN
       -- handle may deprecated property
       -- .'$Parameter'.'|'.1.deprecated
@@ -1606,6 +1680,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Parameter'.'|'.1.description
@@ -1613,6 +1688,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowEmptyValue' THEN
       -- handle may allowEmptyValue property
       -- .'$Parameter'.'|'.1.allowEmptyValue
@@ -1620,7 +1696,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Parameter'.'|'.1.'/^x-/'
       res := TRUE;
@@ -1762,6 +1840,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -1770,13 +1849,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_8_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_8_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := _jm_obj_8_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Parameter'.'|'.0.'/^x-/'
       res := TRUE;
@@ -1842,6 +1925,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$RequestBody'.required
@@ -1849,6 +1933,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$RequestBody'.description
@@ -1856,7 +1941,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$RequestBody'.'/^x-/'
       res := TRUE;
@@ -1936,10 +2023,12 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'example' THEN
       -- handle may example property
       -- .'$MediaType'.example
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'encoding' THEN
       -- handle may encoding property
       -- .'$MediaType'.encoding
@@ -1947,6 +2036,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$MediaType'.examples
@@ -1954,7 +2044,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$MediaType'.'/^x-/'
       res := TRUE;
@@ -2011,6 +2103,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'explode' THEN
       -- handle may explode property
       -- .'$Encoding'.explode
@@ -2018,6 +2111,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'headers' THEN
       -- handle may headers property
       -- .'$Encoding'.headers
@@ -2025,6 +2119,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'contentType' THEN
       -- handle may contentType property
       -- .'$Encoding'.contentType
@@ -2032,6 +2127,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowReserved' THEN
       -- handle may allowReserved property
       -- .'$Encoding'.allowReserved
@@ -2039,7 +2135,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Encoding'.'/^x-/'
       res := TRUE;
@@ -2081,7 +2179,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_2(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_2(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
       -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
@@ -2195,6 +2295,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$Response'.content
@@ -2202,6 +2303,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'headers' THEN
       -- handle may headers property
       -- .'$Response'.headers
@@ -2209,6 +2311,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Response'.description
@@ -2216,7 +2319,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Response'.'/^x-/'
       res := TRUE;
@@ -2279,6 +2384,7 @@ BEGIN
       -- handle may value property
       -- .'$Example'.value
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'summary' THEN
       -- handle may summary property
       -- .'$Example'.summary
@@ -2286,6 +2392,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Example'.description
@@ -2293,6 +2400,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'externalValue' THEN
       -- handle may externalValue property
       -- .'$Example'.externalValue
@@ -2300,7 +2408,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Example'.'/^x-/'
       res := TRUE;
@@ -2352,13 +2462,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'server' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'server' THEN
       -- handle may server property
       -- .'$Link'.'|'.1.server
       res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$Link'.'|'.1.parameters
@@ -2366,6 +2479,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Link'.'|'.1.description
@@ -2373,11 +2487,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'requestBody' THEN
       -- handle may requestBody property
       -- .'$Link'.'|'.1.requestBody
       res := TRUE;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Link'.'|'.1.'/^x-/'
       res := TRUE;
@@ -2420,13 +2537,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'server' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'server' THEN
       -- handle may server property
       -- .'$Link'.'|'.0.server
       res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$Link'.'|'.0.parameters
@@ -2434,6 +2554,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Link'.'|'.0.description
@@ -2441,11 +2562,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'requestBody' THEN
       -- handle may requestBody property
       -- .'$Link'.'|'.0.requestBody
       res := TRUE;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Link'.'|'.0.'/^x-/'
       res := TRUE;
@@ -2510,6 +2634,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$Header'.'|'.1.required
@@ -2517,6 +2642,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'deprecated' THEN
       -- handle may deprecated property
       -- .'$Header'.'|'.1.deprecated
@@ -2524,6 +2650,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Header'.'|'.1.description
@@ -2531,6 +2658,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowEmptyValue' THEN
       -- handle may allowEmptyValue property
       -- .'$Header'.'|'.1.allowEmptyValue
@@ -2538,7 +2666,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Header'.'|'.1.'/^x-/'
       res := TRUE;
@@ -2667,7 +2797,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Header'.'|'.0.'/^x-/'
       res := TRUE;
@@ -2714,13 +2846,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$Tag'.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'externalDocs' THEN
       -- handle may externalDocs property
       -- .'$Tag'.externalDocs
@@ -2728,7 +2863,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Tag'.'/^x-/'
       res := TRUE;
@@ -2763,13 +2900,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'summary' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'summary' THEN
       -- handle may summary property
       -- .'$Reference'.summary
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$Reference'.description
@@ -2777,9 +2917,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -3185,9 +3325,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;
@@ -3239,14 +3379,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'mapping' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'mapping' THEN
       -- handle may mapping property
       -- .'$Discriminator'.mapping
       res := _jm_obj_23(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$Discriminator'.'/^x-/'
       res := TRUE;
@@ -3278,6 +3422,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'prefix' THEN
       -- handle may prefix property
       -- .'$xml'.prefix
@@ -3285,6 +3430,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'wrapped' THEN
       -- handle may wrapped property
       -- .'$xml'.wrapped
@@ -3292,6 +3438,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'attribute' THEN
       -- handle may attribute property
       -- .'$xml'.attribute
@@ -3299,6 +3446,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'namespace' THEN
       -- handle may namespace property
       -- .'$xml'.namespace
@@ -3306,7 +3454,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$xml'.'/^x-/'
       res := TRUE;
@@ -3350,6 +3500,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -3358,6 +3509,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -3366,9 +3518,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -3397,6 +3549,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'scheme' THEN
       -- handle must scheme property
       must_count := must_count + 1;
@@ -3405,9 +3558,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3444,6 +3597,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'scheme' THEN
       -- handle must scheme property
       must_count := must_count + 1;
@@ -3453,16 +3607,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bearerFormat' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bearerFormat' THEN
       -- handle may bearerFormat property
       -- .'$SS-http-bearer'.bearerFormat
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3491,6 +3647,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'flows' THEN
       -- handle must flows property
       must_count := must_count + 1;
@@ -3499,9 +3656,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3530,6 +3687,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'openIdConnectUrl' THEN
       -- handle must openIdConnectUrl property
       must_count := must_count + 1;
@@ -3538,9 +3696,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3577,6 +3735,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -3585,6 +3744,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -3593,16 +3753,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$SecurityScheme'.'|'.0.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -3630,6 +3792,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'scheme' THEN
       -- handle must scheme property
       must_count := must_count + 1;
@@ -3639,13 +3802,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$SecurityScheme'.'|'.1.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'bearerFormat' THEN
       -- handle may bearerFormat property
       -- .'$SecurityScheme'.'|'.1.bearerFormat
@@ -3653,9 +3819,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3683,6 +3849,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'scheme' THEN
       -- handle must scheme property
       must_count := must_count + 1;
@@ -3691,16 +3858,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$SecurityScheme'.'|'.2.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3728,6 +3897,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'flows' THEN
       -- handle must flows property
       must_count := must_count + 1;
@@ -3736,16 +3906,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$SecurityScheme'.'|'.3.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3773,6 +3945,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'openIdConnectUrl' THEN
       -- handle must openIdConnectUrl property
       must_count := must_count + 1;
@@ -3781,16 +3954,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$SecurityScheme'.'|'.4.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -3815,7 +3990,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$SecurityScheme'.'|'.5.'/^x-/'
       res := TRUE;
@@ -3877,6 +4054,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'password' THEN
       -- handle may password property
       -- .'$OAuthFlows'.password
@@ -3884,6 +4062,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'authorizationCode' THEN
       -- handle may authorizationCode property
       -- .'$OAuthFlows'.authorizationCode
@@ -3891,6 +4070,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'clientCredentials' THEN
       -- handle may clientCredentials property
       -- .'$OAuthFlows'.clientCredentials
@@ -3898,7 +4078,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$OAuthFlows'.'/^x-/'
       res := TRUE;
@@ -3956,6 +4138,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'tokenUrl' THEN
       -- handle must tokenUrl property
       must_count := must_count + 1;
@@ -3964,6 +4147,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'authorizationUrl' THEN
       -- handle must authorizationUrl property
       must_count := must_count + 1;
@@ -3972,14 +4156,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'refreshUrl' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'refreshUrl' THEN
       -- handle may refreshUrl property
       -- .'$OAuthFlow'.refreshUrl
       res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$OAuthFlow'.'/^x-/'
       res := TRUE;
@@ -4576,9 +4764,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN TRUE;
 END;

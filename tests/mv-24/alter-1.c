@@ -68,6 +68,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_2(prop, 0x00000074)))
         {
@@ -77,9 +78,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }
@@ -111,6 +112,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_3(prop, 0x00006665)))
         {
@@ -120,9 +122,9 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }
@@ -146,6 +148,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_2(prop, 0x00000074)))
         {
@@ -155,9 +158,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }
@@ -188,6 +191,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && _jm_cst_2_str_test(json_string_value(pval));
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_3(prop, 0x00006362)))
         {
@@ -197,9 +201,9 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }
@@ -223,6 +227,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_2(prop, 0x00000074)))
         {
@@ -232,9 +237,9 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000067);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }
@@ -258,6 +263,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_3(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_3(prop, 0x00006968)))
         {
@@ -267,9 +273,9 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }

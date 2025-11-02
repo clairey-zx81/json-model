@@ -28,21 +28,24 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'born' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'born' THEN
       -- handle may born property
       -- .born
       res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'useless' THEN
       -- handle may useless property
       -- .useless
       res := TRUE;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 1;
 END;

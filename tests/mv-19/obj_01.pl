@@ -57,8 +57,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'bla')
+        if ($prop eq 'bla')
         {
             # handle may bla property
             # .bla
@@ -67,8 +68,9 @@ sub json_model_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (json_model_2($prop, undef, undef))
+        if (json_model_2($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Xxx'

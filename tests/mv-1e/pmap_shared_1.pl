@@ -41,6 +41,7 @@ sub json_model_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b')
         {
@@ -52,6 +53,7 @@ sub json_model_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'c')
         {
@@ -63,6 +65,7 @@ sub json_model_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'd')
         {
@@ -74,16 +77,14 @@ sub json_model_2($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
+        # handle other props
+        # .'$Oo0'.''
+        $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
+        if (! $res)
         {
-            # handle other props
-            # .'$Oo0'.''
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
     }
     return $must_count == 4;
@@ -113,8 +114,9 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'a')
+        if ($prop eq 'a')
         {
             # handle may a property
             # .'$Oo1'.a
@@ -123,6 +125,7 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b')
         {
@@ -133,6 +136,7 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'c')
         {
@@ -143,6 +147,7 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'd')
         {
@@ -153,11 +158,9 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -186,6 +189,7 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'b')
         {
@@ -197,6 +201,7 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'c')
         {
@@ -208,6 +213,7 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'd')
         {
@@ -219,8 +225,9 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'y')
+        if ($prop eq 'y')
         {
             # handle may y property
             # .'$Oo2'.y
@@ -229,11 +236,9 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 4;
 }

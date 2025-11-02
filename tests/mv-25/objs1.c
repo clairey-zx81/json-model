@@ -51,9 +51,9 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 1;
 }
@@ -78,9 +78,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_3(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 1;
 }
@@ -133,6 +133,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000656c626174LL);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_5(prop, 0x000000007367656cLL)))
         {
@@ -142,9 +143,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }
@@ -169,6 +170,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007269616863LL);
             if (unlikely(! res))
                 return false;
+            continue;
         }
         else if (likely(jm_str_eq_6(prop, 0x000000726f6c6f63LL)))
         {
@@ -178,9 +180,9 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
                 return false;
+            continue;
         }
-        else
-            return false;
+        return false;
     }
     return must_count == 2;
 }

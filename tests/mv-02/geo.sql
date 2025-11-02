@@ -120,6 +120,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -128,7 +129,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$Point'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -145,9 +148,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -180,6 +183,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -198,7 +202,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$MultiPoint'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -215,9 +221,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -248,6 +254,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -256,7 +263,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$LineString'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -273,9 +282,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -308,6 +317,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -326,7 +336,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$MultiLineString'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -343,9 +355,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -378,6 +390,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -396,7 +409,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$Polygon'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -413,9 +428,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -450,6 +465,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -478,7 +494,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$MultiPolygon'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -495,9 +513,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -527,6 +545,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -535,7 +554,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$geometry'.'|'.0.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -552,10 +573,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -587,6 +608,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -605,7 +627,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$geometry'.'|'.1.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -622,10 +646,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -655,6 +679,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -663,7 +688,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$geometry'.'|'.2.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -680,10 +707,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -715,6 +742,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -733,7 +761,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$geometry'.'|'.3.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -750,10 +780,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -785,6 +815,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -803,7 +834,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$geometry'.'|'.4.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -820,10 +853,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -857,6 +890,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'coordinates' THEN
       -- handle must coordinates property
       must_count := must_count + 1;
@@ -885,7 +919,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$geometry'.'|'.5.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -902,10 +938,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -966,6 +1002,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'geometries' THEN
       -- handle must geometries property
       must_count := must_count + 1;
@@ -984,7 +1021,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$GeometryCollection'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -1001,10 +1040,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -1044,6 +1083,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'geometry' THEN
       -- handle must geometry property
       must_count := must_count + 1;
@@ -1055,6 +1095,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'properties' THEN
       -- handle must properties property
       must_count := must_count + 1;
@@ -1065,7 +1106,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'id' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'id' THEN
       -- handle may id property
       -- .'$Feature'.id
       -- .'$Feature'.id.'|'.0
@@ -1074,6 +1117,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$Feature'.bbox
@@ -1091,10 +1135,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -1127,6 +1171,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'features' THEN
       -- handle must features property
       must_count := must_count + 1;
@@ -1145,7 +1190,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'bbox' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'bbox' THEN
       -- handle may bbox property
       -- .'$FeatureCollection'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
@@ -1162,10 +1209,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN must_count = 2;
 END;

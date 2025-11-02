@@ -109,6 +109,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected Point [.'$Point'.type]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Point'.type]", lpath_0 if path is not None else None))
                 return False
+            continue
         elif prop == "coordinates":
             # handle must coordinates property
             must_count += 1
@@ -118,7 +119,8 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $position [.'$Point'.coordinates]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Point'.coordinates]", lpath_0 if path is not None else None))
                 return False
-        elif prop == "bbox":
+            continue
+        if prop == "bbox":
             # handle may bbox property
             # .'$Point'.bbox
             res = isinstance(pval, list)
@@ -134,9 +136,9 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$Point'.bbox]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Point'.bbox]", lpath_0 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Point']", lpath_0 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Point']", lpath_0 if path is not None else None))
+        return False
     if must_count != 2:
         if rep is not None:
             if not ("coordinates" in val):
@@ -165,6 +167,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected MultiPoint [.'$MultiPoint'.type]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$MultiPoint'.type]", lpath_1 if path is not None else None))
                 return False
+            continue
         elif prop == "coordinates":
             # handle must coordinates property
             must_count += 1
@@ -182,7 +185,8 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPoint'.coordinates]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$MultiPoint'.coordinates]", lpath_1 if path is not None else None))
                 return False
-        elif prop == "bbox":
+            continue
+        if prop == "bbox":
             # handle may bbox property
             # .'$MultiPoint'.bbox
             res = isinstance(pval, list)
@@ -198,9 +202,9 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPoint'.bbox]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$MultiPoint'.bbox]", lpath_1 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$MultiPoint']", lpath_1 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$MultiPoint']", lpath_1 if path is not None else None))
+        return False
     if must_count != 2:
         if rep is not None:
             if not ("coordinates" in val):
@@ -229,6 +233,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected LineString [.'$LineString'.type]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$LineString'.type]", lpath_2 if path is not None else None))
                 return False
+            continue
         elif prop == "coordinates":
             # handle must coordinates property
             must_count += 1
@@ -238,7 +243,8 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $coord_array [.'$LineString'.coordinates]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$LineString'.coordinates]", lpath_2 if path is not None else None))
                 return False
-        elif prop == "bbox":
+            continue
+        if prop == "bbox":
             # handle may bbox property
             # .'$LineString'.bbox
             res = isinstance(pval, list)
@@ -254,9 +260,9 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$LineString'.bbox]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$LineString'.bbox]", lpath_2 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$LineString']", lpath_2 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$LineString']", lpath_2 if path is not None else None))
+        return False
     if must_count != 2:
         if rep is not None:
             if not ("coordinates" in val):
@@ -285,6 +291,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected MultiLineString [.'$MultiLineString'.type]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$MultiLineString'.type]", lpath_3 if path is not None else None))
                 return False
+            continue
         elif prop == "coordinates":
             # handle must coordinates property
             must_count += 1
@@ -302,7 +309,8 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiLineString'.coordinates]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$MultiLineString'.coordinates]", lpath_3 if path is not None else None))
                 return False
-        elif prop == "bbox":
+            continue
+        if prop == "bbox":
             # handle may bbox property
             # .'$MultiLineString'.bbox
             res = isinstance(pval, list)
@@ -318,9 +326,9 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiLineString'.bbox]", lpath_3 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$MultiLineString'.bbox]", lpath_3 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$MultiLineString']", lpath_3 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$MultiLineString']", lpath_3 if path is not None else None))
+        return False
     if must_count != 2:
         if rep is not None:
             if not ("coordinates" in val):
@@ -349,6 +357,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected Polygon [.'$Polygon'.type]", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Polygon'.type]", lpath_4 if path is not None else None))
                 return False
+            continue
         elif prop == "coordinates":
             # handle must coordinates property
             must_count += 1
@@ -366,7 +375,8 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$Polygon'.coordinates]", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Polygon'.coordinates]", lpath_4 if path is not None else None))
                 return False
-        elif prop == "bbox":
+            continue
+        if prop == "bbox":
             # handle may bbox property
             # .'$Polygon'.bbox
             res = isinstance(pval, list)
@@ -382,9 +392,9 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$Polygon'.bbox]", lpath_4 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Polygon'.bbox]", lpath_4 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Polygon']", lpath_4 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$Polygon']", lpath_4 if path is not None else None))
+        return False
     if must_count != 2:
         if rep is not None:
             if not ("coordinates" in val):
@@ -413,6 +423,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected MultiPolygon [.'$MultiPolygon'.type]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$MultiPolygon'.type]", lpath_5 if path is not None else None))
                 return False
+            continue
         elif prop == "coordinates":
             # handle must coordinates property
             must_count += 1
@@ -438,7 +449,8 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPolygon'.coordinates]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$MultiPolygon'.coordinates]", lpath_5 if path is not None else None))
                 return False
-        elif prop == "bbox":
+            continue
+        if prop == "bbox":
             # handle may bbox property
             # .'$MultiPolygon'.bbox
             res = isinstance(pval, list)
@@ -454,9 +466,9 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPolygon'.bbox]", lpath_5 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$MultiPolygon'.bbox]", lpath_5 if path is not None else None))
                 return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$MultiPolygon']", lpath_5 if path is not None else None))
-            return False
+            continue
+        rep is None or rep.append(("unexpected prop [.'$MultiPolygon']", lpath_5 if path is not None else None))
+        return False
     if must_count != 2:
         if rep is not None:
             if not ("coordinates" in val):

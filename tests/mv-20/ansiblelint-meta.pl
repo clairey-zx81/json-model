@@ -251,6 +251,7 @@ sub json_model_2($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -274,11 +275,9 @@ sub json_model_2($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -305,6 +304,7 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -328,11 +328,9 @@ sub json_model_3($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -360,6 +358,7 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -383,11 +382,9 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -415,6 +412,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -438,11 +436,9 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -469,6 +465,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -492,11 +489,9 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -524,6 +519,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -547,11 +543,9 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -578,6 +572,7 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -601,11 +596,9 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -633,6 +626,7 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -656,11 +650,9 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -688,6 +680,7 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -711,11 +704,9 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -743,6 +734,7 @@ sub json_model_11($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -766,11 +758,9 @@ sub json_model_11($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -798,6 +788,7 @@ sub json_model_12($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -821,11 +812,9 @@ sub json_model_12($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -853,6 +842,7 @@ sub json_model_13($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -876,11 +866,9 @@ sub json_model_13($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -908,6 +896,7 @@ sub json_model_14($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -931,11 +920,9 @@ sub json_model_14($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -963,6 +950,7 @@ sub json_model_15($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -986,11 +974,9 @@ sub json_model_15($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1018,6 +1004,7 @@ sub json_model_16($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1041,11 +1028,9 @@ sub json_model_16($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1072,6 +1057,7 @@ sub json_model_17($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1095,11 +1081,9 @@ sub json_model_17($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1126,6 +1110,7 @@ sub json_model_18($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1149,11 +1134,9 @@ sub json_model_18($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1180,6 +1163,7 @@ sub json_model_19($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1203,11 +1187,9 @@ sub json_model_19($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1234,6 +1216,7 @@ sub json_model_20($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1257,11 +1240,9 @@ sub json_model_20($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1289,6 +1270,7 @@ sub json_model_21($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1312,11 +1294,9 @@ sub json_model_21($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1343,6 +1323,7 @@ sub json_model_22($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1366,11 +1347,9 @@ sub json_model_22($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1397,6 +1376,7 @@ sub json_model_23($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1420,11 +1400,9 @@ sub json_model_23($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1452,6 +1430,7 @@ sub json_model_24($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1475,11 +1454,9 @@ sub json_model_24($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1507,6 +1484,7 @@ sub json_model_25($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1530,11 +1508,9 @@ sub json_model_25($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1562,6 +1538,7 @@ sub json_model_26($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1585,11 +1562,9 @@ sub json_model_26($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1616,6 +1591,7 @@ sub json_model_27($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1639,11 +1615,9 @@ sub json_model_27($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1671,6 +1645,7 @@ sub json_model_28($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1694,11 +1669,9 @@ sub json_model_28($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1726,6 +1699,7 @@ sub json_model_29($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1749,11 +1723,9 @@ sub json_model_29($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1781,6 +1753,7 @@ sub json_model_30($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1804,11 +1777,9 @@ sub json_model_30($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1836,6 +1807,7 @@ sub json_model_31($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1859,11 +1831,9 @@ sub json_model_31($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1891,6 +1861,7 @@ sub json_model_32($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1914,11 +1885,9 @@ sub json_model_32($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1946,6 +1915,7 @@ sub json_model_33($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -1969,11 +1939,9 @@ sub json_model_33($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2001,6 +1969,7 @@ sub json_model_34($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2024,11 +1993,9 @@ sub json_model_34($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2055,6 +2022,7 @@ sub json_model_35($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2078,11 +2046,9 @@ sub json_model_35($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2110,6 +2076,7 @@ sub json_model_36($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2133,11 +2100,9 @@ sub json_model_36($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2165,6 +2130,7 @@ sub json_model_37($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2188,11 +2154,9 @@ sub json_model_37($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2220,6 +2184,7 @@ sub json_model_38($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2243,11 +2208,9 @@ sub json_model_38($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2275,6 +2238,7 @@ sub json_model_39($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2298,11 +2262,9 @@ sub json_model_39($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2329,6 +2291,7 @@ sub json_model_40($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2352,11 +2315,9 @@ sub json_model_40($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2384,6 +2345,7 @@ sub json_model_41($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2407,11 +2369,9 @@ sub json_model_41($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2438,6 +2398,7 @@ sub json_model_42($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2461,11 +2422,9 @@ sub json_model_42($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2492,6 +2451,7 @@ sub json_model_43($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2515,11 +2475,9 @@ sub json_model_43($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2547,6 +2505,7 @@ sub json_model_44($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2570,11 +2529,9 @@ sub json_model_44($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2602,6 +2559,7 @@ sub json_model_45($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2625,11 +2583,9 @@ sub json_model_45($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2656,6 +2612,7 @@ sub json_model_46($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2679,11 +2636,9 @@ sub json_model_46($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2711,6 +2666,7 @@ sub json_model_47($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2734,11 +2690,9 @@ sub json_model_47($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -2766,6 +2720,7 @@ sub json_model_48($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'versions')
         {
@@ -2789,11 +2744,9 @@ sub json_model_48($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -5201,6 +5154,7 @@ sub json_model_51($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'platforms')
         {
@@ -5211,6 +5165,7 @@ sub json_model_51($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'role_name')
         {
@@ -5222,6 +5177,7 @@ sub json_model_51($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'galaxy_tags')
         {
@@ -5245,6 +5201,7 @@ sub json_model_51($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'video_links')
         {
@@ -5255,12 +5212,14 @@ sub json_model_51($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'cloud_platforms')
         {
             # handle may cloud_platforms property
             # .'$GalaxyInfoModelCollection'.cloud_platforms
             $res = 1;
+            next;
         }
         elsif ($prop eq 'min_ansible_version')
         {
@@ -5271,11 +5230,9 @@ sub json_model_51($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -5305,8 +5262,9 @@ sub json_model_52($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif ($prop eq 'author')
+        if ($prop eq 'author')
         {
             # handle may author property
             # .'$GalaxyInfoModelLoose'.author
@@ -5315,6 +5273,7 @@ sub json_model_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'company')
         {
@@ -5325,6 +5284,7 @@ sub json_model_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'license')
         {
@@ -5335,6 +5295,7 @@ sub json_model_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'github_branch')
         {
@@ -5345,6 +5306,7 @@ sub json_model_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'issue_tracker_url')
         {
@@ -5355,6 +5317,7 @@ sub json_model_52($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'min_ansible_container_version')
         {
@@ -5365,11 +5328,9 @@ sub json_model_52($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -5488,6 +5449,7 @@ sub json_model_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'license')
         {
@@ -5499,6 +5461,7 @@ sub json_model_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'standalone')
         {
@@ -5510,6 +5473,7 @@ sub json_model_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'description')
         {
@@ -5521,6 +5485,7 @@ sub json_model_53($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'min_ansible_version')
         {
@@ -5532,19 +5497,18 @@ sub json_model_53($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_53_map{$prop}))
+        if (($pfun = $json_model_53_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 5;
 }
@@ -5686,6 +5650,7 @@ sub _jm_obj_47($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'description')
         {
@@ -5697,19 +5662,18 @@ sub _jm_obj_47($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $_jm_obj_47_map{$prop}))
+        if (($pfun = $_jm_obj_47_map{$prop}))
         {
             # handle 13 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 2;
 }
@@ -5851,19 +5815,18 @@ sub _jm_obj_48($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $_jm_obj_48_map{$prop}))
+        if (($pfun = $_jm_obj_48_map{$prop}))
         {
             # handle 13 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -6194,6 +6157,7 @@ sub json_model_59($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'galaxy_info')
         {
@@ -6204,6 +6168,7 @@ sub json_model_59($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'dependencies')
         {
@@ -6229,6 +6194,7 @@ sub json_model_59($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'allow_duplicates')
         {
@@ -6239,11 +6205,9 @@ sub json_model_59($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }

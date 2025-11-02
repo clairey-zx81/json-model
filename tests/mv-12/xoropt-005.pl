@@ -39,16 +39,14 @@ sub _jm_obj_0($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
+        # handle other props
+        # .'|'.1.''
+        $res = jm_is_integer($pval) && $pval >= 0;
+        if (! $res)
         {
-            # handle other props
-            # .'|'.1.''
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
     }
     return $must_count == 1;
@@ -77,16 +75,14 @@ sub _jm_obj_1($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
+        # handle other props
+        # .'|'.0.''
+        $res = jm_is_integer($pval) && $pval >= 0;
+        if (! $res)
         {
-            # handle other props
-            # .'|'.0.''
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0;
         }
     }
     return $must_count == 1;

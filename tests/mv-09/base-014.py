@@ -41,7 +41,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.nom]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.nom]", lpath_0 if path is not None else None))
                 return False
-        elif prop == "age":
+            continue
+        if prop == "age":
             # handle may age property
             # .age
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
@@ -49,13 +50,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not a 0 strict int [.age]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.age]", lpath_0 if path is not None else None))
                 return False
-        else:
-            # handle other props
-            # .''
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'']", lpath_0 if path is not None else None))
-                return False
+            continue
+        # handle other props
+        # .''
+        res = isinstance(pval, str)
+        if not res:
+            rep is None or rep.append(("unexpected string [.'']", lpath_0 if path is not None else None))
+            return False
     if must_count != 1:
         if rep is not None:
             if not "nom" in val:

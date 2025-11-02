@@ -49,6 +49,7 @@ public class map_inline_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.mu1]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("mu2") == 0)
             {
@@ -62,6 +63,7 @@ public class map_inline_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.mu2]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("mu3") == 0)
             {
@@ -75,8 +77,9 @@ public class map_inline_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.mu3]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else if (prop.compareTo("ma1") == 0)
+            if (prop.compareTo("ma1") == 0)
             {
                 // handle may ma1 property
                 // .ma1
@@ -87,6 +90,7 @@ public class map_inline_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.ma1]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("ma2") == 0)
             {
@@ -99,6 +103,7 @@ public class map_inline_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.ma2]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
             else if (prop.compareTo("ma3") == 0)
             {
@@ -111,12 +116,10 @@ public class map_inline_1 extends ModelChecker
                     if (rep != null) rep.addEntry("invalid optional prop value [.ma3]", (path != null ? lpath_0 : null));
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
+            return false;
         }
         if (must_count != 3)
         {

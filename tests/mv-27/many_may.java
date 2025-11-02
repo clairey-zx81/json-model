@@ -196,11 +196,9 @@ public class many_may extends ModelChecker
                 {
                     return false;
                 }
+                continue;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         return true;
     }

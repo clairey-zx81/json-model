@@ -37,6 +37,7 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.date]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "name")
         {
@@ -49,6 +50,7 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.name]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "authors")
         {
@@ -76,6 +78,7 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.authors]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "previous")
         {
@@ -88,12 +91,10 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.previous]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Schema'.metadata]", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Schema'.metadata]", (path ? lpath_1 : null)])
+        return false;
     }
     return true;
 }
@@ -139,8 +140,9 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Schema'.types]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "metadata")
+        if (prop == "metadata")
         {
             // handle may metadata property
             // .'$Schema'.metadata
@@ -151,12 +153,10 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Schema']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Schema']", (path ? lpath_0 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -307,6 +307,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.kind]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "baseType")
         {
@@ -320,8 +321,9 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.baseType]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "name")
+        if (prop == "name")
         {
             // handle may name property
             // .'$Atomic'.name
@@ -332,6 +334,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.name]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "length")
         {
@@ -344,6 +347,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.length]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -356,6 +360,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -368,6 +373,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxLength]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -380,6 +386,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minLength]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "enumeration")
         {
@@ -407,6 +414,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.enumeration]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "totalDigits")
         {
@@ -419,6 +427,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.totalDigits]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxExclusive")
         {
@@ -431,6 +440,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxExclusive]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxInclusive")
         {
@@ -443,6 +453,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxInclusive]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minExclusive")
         {
@@ -455,6 +466,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minExclusive]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minInclusive")
         {
@@ -467,6 +479,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minInclusive]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "fractionDigits")
         {
@@ -479,6 +492,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.fractionDigits]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "explicitTypeZone")
         {
@@ -491,12 +505,10 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.explicitTypeZone]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Atomic']", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Atomic']", (path ? lpath_2 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -542,8 +554,9 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.kind]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "name")
+        if (prop == "name")
         {
             // handle may name property
             // .'$Object'.name
@@ -554,6 +567,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.name]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "closed")
         {
@@ -566,6 +580,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.closed]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "content")
         {
@@ -593,6 +608,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.content]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "baseType")
         {
@@ -605,12 +621,10 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.baseType]", (path ? lpath_3 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_3 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_3 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -652,6 +666,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.name]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "type")
         {
@@ -665,8 +680,9 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.type]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "unique")
+        if (prop == "unique")
         {
             // handle may unique property
             // .'$Fields'.unique
@@ -677,12 +693,14 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Fields'.unique]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Fields'.default
             res = true;
+            continue;
         }
         else if (prop == "required")
         {
@@ -695,12 +713,10 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Fields'.required]", (path ? lpath_4 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Fields']", (path ? lpath_4 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Fields']", (path ? lpath_4 : null)])
+        return false;
     }
     if (must_count != 2)
     {
@@ -747,8 +763,9 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.kind]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "name")
+        if (prop == "name")
         {
             // handle may name property
             // .'$Array'.name
@@ -759,6 +776,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.name]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "content")
         {
@@ -771,6 +789,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.content]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "baseType")
         {
@@ -783,6 +802,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.baseType]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -795,6 +815,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.maxLength]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -807,12 +828,10 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.minLength]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_5 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_5 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -855,6 +874,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.kind]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "name")
         {
@@ -868,6 +888,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.name]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "content")
         {
@@ -896,8 +917,9 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.content]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "baseType")
+        if (prop == "baseType")
         {
             // handle may baseType property
             // .'$Union'.baseType
@@ -908,12 +930,10 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Union'.baseType]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Union']", (path ? lpath_6 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Union']", (path ? lpath_6 : null)])
+        return false;
     }
     if (must_count != 3)
     {

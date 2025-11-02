@@ -322,6 +322,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'pattern')
         {
@@ -332,6 +333,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'maxLength')
         {
@@ -342,6 +344,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'minLength')
         {
@@ -352,11 +355,9 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -386,6 +387,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'maxItems')
         {
@@ -396,6 +398,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'minItems')
         {
@@ -406,6 +409,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'prefixItems')
         {
@@ -416,6 +420,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'uniqueItems')
         {
@@ -426,6 +431,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'additionalItems')
         {
@@ -436,11 +442,9 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -534,6 +538,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'properties')
         {
@@ -544,6 +549,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'patternProperties')
         {
@@ -554,6 +560,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'additionalProperties')
         {
@@ -564,11 +571,9 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -596,6 +601,7 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'minimum')
         {
@@ -606,11 +612,9 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -749,11 +753,9 @@ sub json_model_9($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -929,19 +931,18 @@ sub json_model_10($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_10_map{$prop}))
+        if (($pfun = $json_model_10_map{$prop}))
         {
             # handle 14 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -1118,19 +1119,18 @@ sub json_model_11($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_11_map{$prop}))
+        if (($pfun = $json_model_11_map{$prop}))
         {
             # handle 16 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -1350,19 +1350,18 @@ sub json_model_12($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_12_map{$prop}))
+        if (($pfun = $json_model_12_map{$prop}))
         {
             # handle 14 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -1521,19 +1520,18 @@ sub json_model_13($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_13_map{$prop}))
+        if (($pfun = $json_model_13_map{$prop}))
         {
             # handle 12 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -1692,19 +1690,18 @@ sub json_model_14($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_14_map{$prop}))
+        if (($pfun = $json_model_14_map{$prop}))
         {
             # handle 12 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -1847,19 +1844,18 @@ sub json_model_15($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_15_map{$prop}))
+        if (($pfun = $json_model_15_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -2002,19 +1998,18 @@ sub json_model_16($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_16_map{$prop}))
+        if (($pfun = $json_model_16_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -2157,19 +2152,18 @@ sub json_model_17($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_17_map{$prop}))
+        if (($pfun = $json_model_17_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -2312,19 +2306,18 @@ sub json_model_18($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_18_map{$prop}))
+        if (($pfun = $json_model_18_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -2467,19 +2460,18 @@ sub json_model_19($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_19_map{$prop}))
+        if (($pfun = $json_model_19_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -2622,19 +2614,18 @@ sub json_model_20($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_20_map{$prop}))
+        if (($pfun = $json_model_20_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -2777,19 +2768,18 @@ sub json_model_21($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_21_map{$prop}))
+        if (($pfun = $json_model_21_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }
@@ -2932,19 +2922,18 @@ sub json_model_22($$$)
             {
                 return 0;
             }
+            next;
         }
-        elsif (($pfun = $json_model_22_map{$prop}))
+        if (($pfun = $json_model_22_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return $must_count == 1;
 }

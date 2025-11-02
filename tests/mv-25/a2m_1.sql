@@ -22,10 +22,9 @@ BEGIN
       -- handle may a property
       -- .'$Oa'.a
       RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-    ELSE
-      -- accept any other props
-      NULL;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN TRUE;
 END;
@@ -48,10 +47,9 @@ BEGIN
       -- handle may b property
       -- .'$Ob'.b
       RETURN JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-    ELSE
-      -- accept any other props
-      NULL;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN TRUE;
 END;
@@ -77,6 +75,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'b' THEN
       -- handle may b property
       -- .'$merge'.b
@@ -84,10 +83,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
+      CONTINUE;
     END IF;
+    -- accept any other props
+    NULL;
   END LOOP;
   RETURN TRUE;
 END;
@@ -115,9 +114,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;

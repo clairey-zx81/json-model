@@ -230,6 +230,35 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_5(prop, 0x000000006f666e69LL)))
+        {
+            // handle must info property
+            must_count += 1;
+            // .'$openapi#OpenAPI'.info
+            res = json_model_5(pval, (path ? &lpath_0 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Info [.'$openapi#OpenAPI'.info]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#OpenAPI'.info]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_8(prop, 0x006970616e65706fLL)))
+        {
+            // handle must openapi property
+            must_count += 1;
+            // .'$openapi#OpenAPI'.openapi
+            // "/^3\\.1\\.\\d+(-.+)?$/"
+            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$openapi#OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_0 = *((uint32_t *) (prop));
         if (hash_0 <= 0x6e6f736a)
         {
@@ -389,34 +418,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_5(prop, 0x000000006f666e69LL)))
-        {
-            // handle must info property
-            must_count += 1;
-            // .'$openapi#OpenAPI'.info
-            res = json_model_5(pval, (path ? &lpath_0 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Info [.'$openapi#OpenAPI'.info]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#OpenAPI'.info]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x006970616e65706fLL)))
-        {
-            // handle must openapi property
-            must_count += 1;
-            // .'$openapi#OpenAPI'.openapi
-            // "/^3\\.1\\.\\d+(-.+)?$/"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$openapi#OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#OpenAPI'.'/^x-/'
             res = true;
@@ -472,6 +474,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Info'.title]", (path ? &lpath_2 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x006e6f6973726576LL)))
         {
@@ -485,8 +488,9 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Info'.version]", (path ? &lpath_2 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746361746e6f63LL)))
+        if (unlikely(jm_str_eq_8(prop, 0x00746361746e6f63LL)))
         {
             // handle may contact property
             // .'$openapi#Info'.contact
@@ -497,6 +501,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Info'.contact]", (path ? &lpath_2 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x0065736e6563696cLL)))
         {
@@ -509,6 +514,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Info'.license]", (path ? &lpath_2 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x007972616d6d7573LL)))
         {
@@ -521,6 +527,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Info'.summary]", (path ? &lpath_2 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
@@ -533,6 +540,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Info'.description]", (path ? &lpath_2 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x53664f736d726574LL) && jm_str_eq_7(prop + 8, 0x0000656369767265LL))
         {
@@ -545,8 +553,9 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Info'.termsOfService]", (path ? &lpath_2 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Info'.'/^x-/'
             res = true;
@@ -600,6 +609,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Contact'.url]", (path ? &lpath_3 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
         {
@@ -612,6 +622,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Contact'.name]", (path ? &lpath_3 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_6(prop, 0x0000006c69616d65LL))
         {
@@ -624,8 +635,9 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Contact'.email]", (path ? &lpath_3 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Contact'.'/^x-/'
             res = true;
@@ -671,6 +683,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#License'.'|'.1.url]", (path ? &lpath_4 : NULL));
                 return false;
             }
+            continue;
         }
         else if (likely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
         {
@@ -684,8 +697,9 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#License'.'|'.1.name]", (path ? &lpath_4 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(_jm_re_1(prop, path, rep)))
+        if (likely(_jm_re_1(prop, path, rep)))
             // handle 1 re props
             // .'$openapi#License'.'|'.1.'/^x\\-.*$/'
             res = true;
@@ -740,6 +754,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#License'.'|'.0.name]", (path ? &lpath_5 : NULL));
                 return false;
             }
+            continue;
         }
         else if (likely(jm_str_eq_8(prop, 0x696669746e656469LL) && jm_str_eq_3(prop + 8, 0x00007265)))
         {
@@ -753,8 +768,9 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#License'.'|'.0.identifier]", (path ? &lpath_5 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(_jm_re_1(prop, path, rep)))
+        if (likely(_jm_re_1(prop, path, rep)))
             // handle 1 re props
             // .'$openapi#License'.'|'.0.'/^x\\-.*$/'
             res = true;
@@ -874,8 +890,9 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Server'.url]", (path ? &lpath_6 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x656c626169726176LL) && jm_str_eq_2(prop + 8, 0x00000073)))
+        if (unlikely(jm_str_eq_8(prop, 0x656c626169726176LL) && jm_str_eq_2(prop + 8, 0x00000073)))
         {
             // handle may variables property
             // .'$openapi#Server'.variables
@@ -886,6 +903,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Server'.variables]", (path ? &lpath_6 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
@@ -898,8 +916,9 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Server'.description]", (path ? &lpath_6 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Server'.'/^x-/'
             res = true;
@@ -951,8 +970,9 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#ServerVariable'.default]", (path ? &lpath_8 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
+        if (unlikely(jm_str_eq_5(prop, 0x000000006d756e65LL)))
         {
             // handle may enum property
             // .'$openapi#ServerVariable'.enum
@@ -979,6 +999,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#ServerVariable'.enum]", (path ? &lpath_8 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
@@ -991,8 +1012,9 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#ServerVariable'.description]", (path ? &lpath_8 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#ServerVariable'.'/^x-/'
             res = true;
@@ -2259,8 +2281,9 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#ExternalDocumentation'.url]", (path ? &lpath_24 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+        if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
             // handle may description property
             // .'$openapi#ExternalDocumentation'.description
@@ -2271,8 +2294,9 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#ExternalDocumentation'.description]", (path ? &lpath_24 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#ExternalDocumentation'.'/^x-/'
             res = true;
@@ -2358,6 +2382,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Parameter'.'|'.1.in]", (path ? &lpath_25 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
         {
@@ -2371,8 +2396,9 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Parameter'.'|'.1.name]", (path ? &lpath_25 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00746e65746e6f63LL)))
+        if (unlikely(jm_str_eq_8(prop, 0x00746e65746e6f63LL)))
         {
             // handle may content property
             // .'$openapi#Parameter'.'|'.1.content
@@ -2383,6 +2409,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Parameter'.'|'.1.content]", (path ? &lpath_25 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
@@ -2395,6 +2422,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Parameter'.'|'.1.required]", (path ? &lpath_25 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
         {
@@ -2407,6 +2435,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Parameter'.'|'.1.deprecated]", (path ? &lpath_25 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
@@ -2419,6 +2448,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Parameter'.'|'.1.description]", (path ? &lpath_25 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x706d45776f6c6c61LL) && jm_str_eq_8(prop + 8, 0x0065756c61567974LL))
         {
@@ -2431,8 +2461,9 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Parameter'.'|'.1.allowEmptyValue]", (path ? &lpath_25 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.1.'/^x-/'
             res = true;
@@ -2528,6 +2559,34 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_3(prop, 0x00006e69)))
+        {
+            // handle must in property
+            must_count += 1;
+            // .'$openapi#Parameter'.'|'.0.in
+            res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#Parameter'.'|'.0.in.'|']", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.in]", (path ? &lpath_27 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
+        {
+            // handle must name property
+            must_count += 1;
+            // .'$openapi#Parameter'.'|'.0.name
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$openapi#Parameter'.'|'.0.name]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.name]", (path ? &lpath_27 : NULL));
+                return false;
+            }
+            continue;
+        }
         uint32_t hash_4 = *((uint32_t *) (prop));
         if (hash_4 <= 0x6c797473)
         {
@@ -2659,33 +2718,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 continue;
             }
         }
-        if (unlikely(jm_str_eq_3(prop, 0x00006e69)))
-        {
-            // handle must in property
-            must_count += 1;
-            // .'$openapi#Parameter'.'|'.0.in
-            res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#Parameter'.'|'.0.in.'|']", (path ? &lpath_27 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.in]", (path ? &lpath_27 : NULL));
-                return false;
-            }
-        }
-        else if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
-        {
-            // handle must name property
-            must_count += 1;
-            // .'$openapi#Parameter'.'|'.0.name
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$openapi#Parameter'.'|'.0.name]", (path ? &lpath_27 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Parameter'.'|'.0.name]", (path ? &lpath_27 : NULL));
-                return false;
-            }
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.0.'/^x-/'
             res = true;
@@ -2828,6 +2861,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#RequestBody'.content]", (path ? &lpath_29 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
@@ -2840,6 +2874,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#RequestBody'.required]", (path ? &lpath_29 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
@@ -2852,8 +2887,9 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#RequestBody'.description]", (path ? &lpath_29 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#RequestBody'.'/^x-/'
             res = true;
@@ -2962,11 +2998,15 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#MediaType'.model]", (path ? &lpath_31 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x00656c706d617865LL)))
+        {
             // handle may example property
             // .'$openapi#MediaType'.example
             res = true;
+            continue;
+        }
         else if (unlikely(jm_str_eq_8(prop, 0x676e69646f636e65LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may encoding property
@@ -2978,6 +3018,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#MediaType'.encoding]", (path ? &lpath_31 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x73656c706d617865LL) && jm_str_eq_0(prop + 8))
         {
@@ -2990,8 +3031,9 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#MediaType'.examples]", (path ? &lpath_31 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#MediaType'.'/^x-/'
             res = true;
@@ -3074,6 +3116,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Encoding'.style]", (path ? &lpath_34 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x0065646f6c707865LL)))
         {
@@ -3086,6 +3129,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Encoding'.explode]", (path ? &lpath_34 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x0073726564616568LL)))
         {
@@ -3098,6 +3142,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Encoding'.headers]", (path ? &lpath_34 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x54746e65746e6f63LL) && jm_str_eq_4(prop + 8, 0x00657079)))
         {
@@ -3110,6 +3155,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Encoding'.contentType]", (path ? &lpath_34 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x736552776f6c6c61LL) && jm_str_eq_6(prop + 8, 0x0000006465767265LL))
         {
@@ -3122,8 +3168,9 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Encoding'.allowReserved]", (path ? &lpath_34 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Encoding'.'/^x-/'
             res = true;
@@ -3186,8 +3233,9 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Responses'.default]", (path ? &lpath_36 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (_jm_re_2(prop, path, rep))
+        if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -3369,6 +3417,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Response'.links]", (path ? &lpath_37 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x00746e65746e6f63LL)))
         {
@@ -3381,6 +3430,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Response'.content]", (path ? &lpath_37 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x0073726564616568LL)))
         {
@@ -3393,6 +3443,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Response'.headers]", (path ? &lpath_37 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
@@ -3405,8 +3456,9 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Response'.description]", (path ? &lpath_37 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Response'.'/^x-/'
             res = true;
@@ -3492,9 +3544,12 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
         if (unlikely(jm_str_eq_6(prop, 0x00000065756c6176LL)))
+        {
             // handle may value property
             // .'$openapi#Example'.value
             res = true;
+            continue;
+        }
         else if (unlikely(jm_str_eq_8(prop, 0x007972616d6d7573LL)))
         {
             // handle may summary property
@@ -3506,6 +3561,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Example'.summary]", (path ? &lpath_42 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
@@ -3518,6 +3574,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Example'.description]", (path ? &lpath_42 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x6c616e7265747865LL) && jm_str_eq_6(prop + 8, 0x00000065756c6156LL))
         {
@@ -3530,8 +3587,9 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Example'.externalValue]", (path ? &lpath_42 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Example'.'/^x-/'
             res = true;
@@ -3595,8 +3653,9 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Link'.'|'.1.operationId]", (path ? &lpath_43 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_7(prop, 0x0000726576726573LL)))
+        if (unlikely(jm_str_eq_7(prop, 0x0000726576726573LL)))
         {
             // handle may server property
             // .'$openapi#Link'.'|'.1.server
@@ -3607,6 +3666,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Link'.'|'.1.server]", (path ? &lpath_43 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x6574656d61726170LL) && jm_str_eq_3(prop + 8, 0x00007372)))
         {
@@ -3619,6 +3679,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Link'.'|'.1.parameters]", (path ? &lpath_43 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
@@ -3631,12 +3692,16 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Link'.'|'.1.description]", (path ? &lpath_43 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x4274736575716572LL) && jm_str_eq_4(prop + 8, 0x0079646f))
+        {
             // handle may requestBody property
             // .'$openapi#Link'.'|'.1.requestBody
             res = true;
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+            continue;
+        }
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Link'.'|'.1.'/^x-/'
             res = true;
@@ -3699,8 +3764,9 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Link'.'|'.0.operationRef]", (path ? &lpath_44 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_7(prop, 0x0000726576726573LL)))
+        if (unlikely(jm_str_eq_7(prop, 0x0000726576726573LL)))
         {
             // handle may server property
             // .'$openapi#Link'.'|'.0.server
@@ -3711,6 +3777,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Link'.'|'.0.server]", (path ? &lpath_44 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x6574656d61726170LL) && jm_str_eq_3(prop + 8, 0x00007372)))
         {
@@ -3723,6 +3790,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Link'.'|'.0.parameters]", (path ? &lpath_44 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
@@ -3735,12 +3803,16 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Link'.'|'.0.description]", (path ? &lpath_44 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x4274736575716572LL) && jm_str_eq_4(prop + 8, 0x0079646f))
+        {
             // handle may requestBody property
             // .'$openapi#Link'.'|'.0.requestBody
             res = true;
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+            continue;
+        }
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Link'.'|'.0.'/^x-/'
             res = true;
@@ -3853,6 +3925,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Header'.'|'.1.content]", (path ? &lpath_45 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x6465726975716572LL) && jm_str_eq_0(prop + 8)))
         {
@@ -3865,6 +3938,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Header'.'|'.1.required]", (path ? &lpath_45 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7461636572706564LL) && jm_str_eq_3(prop + 8, 0x00006465)))
         {
@@ -3877,6 +3951,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Header'.'|'.1.deprecated]", (path ? &lpath_45 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
@@ -3889,6 +3964,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Header'.'|'.1.description]", (path ? &lpath_45 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x706d45776f6c6c61LL) && jm_str_eq_8(prop + 8, 0x0065756c61567974LL))
         {
@@ -3901,8 +3977,9 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Header'.'|'.1.allowEmptyValue]", (path ? &lpath_45 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Header'.'|'.1.'/^x-/'
             res = true;
@@ -4184,8 +4261,9 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Tag'.name]", (path ? &lpath_49 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
+        if (unlikely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
             // handle may description property
             // .'$openapi#Tag'.description
@@ -4196,6 +4274,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Tag'.description]", (path ? &lpath_49 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x6c616e7265747865LL) && jm_str_eq_5(prop + 8, 0x0000000073636f44LL))
         {
@@ -4208,8 +4287,9 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Tag'.externalDocs]", (path ? &lpath_49 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#Tag'.'/^x-/'
             res = true;
@@ -4261,8 +4341,9 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#Reference'.'$ref']", (path ? &lpath_50 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_str_eq_8(prop, 0x007972616d6d7573LL))
+        if (jm_str_eq_8(prop, 0x007972616d6d7573LL))
         {
             // handle may summary property
             // .'$openapi#Reference'.summary
@@ -4273,6 +4354,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Reference'.summary]", (path ? &lpath_50 : NULL));
                 return false;
             }
+            continue;
         }
         else if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
@@ -4285,12 +4367,10 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#Reference'.description]", (path ? &lpath_50 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Reference']", (path ? &lpath_50 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Reference']", (path ? &lpath_50 : NULL));
+        return false;
     }
     if (unlikely(must_count != 1))
     {
@@ -4341,6 +4421,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.in]", (path ? &lpath_51 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
         {
@@ -4354,6 +4435,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.name]", (path ? &lpath_51 : NULL));
                 return false;
             }
+            continue;
         }
         else if (likely(jm_str_eq_5(prop, 0x0000000065707974LL)))
         {
@@ -4367,8 +4449,9 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.0.type]", (path ? &lpath_51 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
+        if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.0.description
@@ -4379,12 +4462,10 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#SecurityScheme'.'|'.0.description]", (path ? &lpath_51 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.0]", (path ? &lpath_51 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.0]", (path ? &lpath_51 : NULL));
+        return false;
     }
     if (unlikely(must_count != 3))
     {
@@ -4441,6 +4522,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.1.type]", (path ? &lpath_52 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_7(prop, 0x0000656d65686373LL))
         {
@@ -4455,8 +4537,9 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.1.scheme]", (path ? &lpath_52 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+        if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.1.description
@@ -4467,6 +4550,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#SecurityScheme'.'|'.1.description]", (path ? &lpath_52 : NULL));
                 return false;
             }
+            continue;
         }
         else if (likely(jm_str_eq_8(prop, 0x6f46726572616562LL) && jm_str_eq_5(prop + 8, 0x0000000074616d72LL)))
         {
@@ -4479,12 +4563,10 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#SecurityScheme'.'|'.1.bearerFormat]", (path ? &lpath_52 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.1]", (path ? &lpath_52 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.1]", (path ? &lpath_52 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -4531,6 +4613,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.2.type]", (path ? &lpath_53 : NULL));
                 return false;
             }
+            continue;
         }
         else if (likely(jm_str_eq_7(prop, 0x0000656d65686373LL)))
         {
@@ -4544,8 +4627,9 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.2.scheme]", (path ? &lpath_53 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
+        if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.2.description
@@ -4556,12 +4640,10 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#SecurityScheme'.'|'.2.description]", (path ? &lpath_53 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.2]", (path ? &lpath_53 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.2]", (path ? &lpath_53 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -4608,6 +4690,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.3.type]", (path ? &lpath_54 : NULL));
                 return false;
             }
+            continue;
         }
         else if (likely(jm_str_eq_6(prop, 0x00000073776f6c66LL)))
         {
@@ -4621,8 +4704,9 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.3.flows]", (path ? &lpath_54 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
+        if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.3.description
@@ -4633,12 +4717,10 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#SecurityScheme'.'|'.3.description]", (path ? &lpath_54 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.3]", (path ? &lpath_54 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.3]", (path ? &lpath_54 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -4685,6 +4767,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.4.type]", (path ? &lpath_55 : NULL));
                 return false;
             }
+            continue;
         }
         else if (likely(jm_str_eq_8(prop, 0x6f4364496e65706fLL) && jm_str_eq_8(prop + 8, 0x6c72557463656e6eLL) && jm_str_eq_0(prop + 16)))
         {
@@ -4698,8 +4781,9 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? &lpath_55 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
+        if (likely(jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69)))
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.4.description
@@ -4710,12 +4794,10 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#SecurityScheme'.'|'.4.description]", (path ? &lpath_55 : NULL));
                 return false;
             }
+            continue;
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.4]", (path ? &lpath_55 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme'.'|'.4]", (path ? &lpath_55 : NULL));
+        return false;
     }
     if (unlikely(must_count != 2))
     {
@@ -4760,8 +4842,9 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#SecurityScheme'.'|'.5.description]", (path ? &lpath_56 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
             res = true;
@@ -4859,6 +4942,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#OAuthFlows'.implicit]", (path ? &lpath_57 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x64726f7773736170LL) && jm_str_eq_0(prop + 8)))
         {
@@ -4871,6 +4955,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#OAuthFlows'.password]", (path ? &lpath_57 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x7a69726f68747561LL) && jm_str_eq_8(prop + 8, 0x646f436e6f697461LL) && jm_str_eq_2(prop + 16, 0x00000065)))
         {
@@ -4883,6 +4968,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#OAuthFlows'.authorizationCode]", (path ? &lpath_57 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x7243746e65696c63LL) && jm_str_eq_8(prop + 8, 0x6c6169746e656465LL) && jm_str_eq_2(prop + 16, 0x00000073))
         {
@@ -4895,8 +4981,9 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#OAuthFlows'.clientCredentials]", (path ? &lpath_57 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#OAuthFlows'.'/^x-/'
             res = true;
@@ -4963,6 +5050,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#OAuthFlow'.scopes]", (path ? &lpath_58 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x6c72556e656b6f74LL) && jm_str_eq_0(prop + 8)))
         {
@@ -4976,6 +5064,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#OAuthFlow'.tokenUrl]", (path ? &lpath_58 : NULL));
                 return false;
             }
+            continue;
         }
         else if (jm_str_eq_8(prop, 0x7a69726f68747561LL) && jm_str_eq_8(prop + 8, 0x6c72556e6f697461LL) && jm_str_eq_0(prop + 16))
         {
@@ -4989,8 +5078,9 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#OAuthFlow'.authorizationUrl]", (path ? &lpath_58 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_str_eq_8(prop, 0x5568736572666572LL) && jm_str_eq_3(prop + 8, 0x00006c72))
+        if (jm_str_eq_8(prop, 0x5568736572666572LL) && jm_str_eq_3(prop + 8, 0x00006c72))
         {
             // handle may refreshUrl property
             // .'$openapi#OAuthFlow'.refreshUrl
@@ -5001,8 +5091,9 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#OAuthFlow'.refreshUrl]", (path ? &lpath_58 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00002d78)))
+        if (likely(jm_str_eq_2(prop, 0x00002d78)))
             // handle 1 re props
             // .'$openapi#OAuthFlow'.'/^x-/'
             res = true;
@@ -5224,8 +5315,9 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.5.'#']", (path ? &lpath_61 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_check_fun_string(json_model_90, prop, (path ? &lpath_61 : NULL), rep))
+        if (jm_check_fun_string(json_model_90, prop, (path ? &lpath_61 : NULL), rep))
         {
             // handle 1 key props
             // .'$openapi#model#Element'.'|'.5.'$Prop'
@@ -5292,8 +5384,9 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#model#Element'.'|'.4.'+']", (path ? &lpath_62 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000023))
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.4.'#'
@@ -5304,8 +5397,9 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.4.'#']", (path ? &lpath_62 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_1(prop, 0x23)))
+        if (likely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.4.'/^#/'
             res = true;
@@ -5372,8 +5466,9 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#model#Element'.'|'.3.'^']", (path ? &lpath_63 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000023))
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.3.'#'
@@ -5384,8 +5479,9 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.3.'#']", (path ? &lpath_63 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_1(prop, 0x23)))
+        if (likely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.3.'/^#/'
             res = true;
@@ -5452,8 +5548,9 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#model#Element'.'|'.2.'&']", (path ? &lpath_64 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000023))
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.2.'#'
@@ -5464,8 +5561,9 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.2.'#']", (path ? &lpath_64 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_1(prop, 0x23)))
+        if (likely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.2.'/^#/'
             res = true;
@@ -5532,8 +5630,9 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#model#Element'.'|'.1.'|']", (path ? &lpath_65 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000023))
+        if (jm_str_eq_2(prop, 0x00000023))
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.1.'#'
@@ -5544,8 +5643,9 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.1.'#']", (path ? &lpath_65 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (likely(jm_str_eq_1(prop, 0x23)))
+        if (likely(jm_str_eq_1(prop, 0x23)))
             // handle 1 re props
             // .'$openapi#model#Element'.'|'.1.'/^#/'
             res = true;
@@ -5608,8 +5708,9 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$openapi#model#Element'.'|'.0.'@']", (path ? &lpath_66 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000021)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000021)))
         {
             // handle may ! property
             // .'$openapi#model#Element'.'|'.0.'!'
@@ -5620,6 +5721,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.0.'!']", (path ? &lpath_66 : NULL));
                 return false;
             }
+            continue;
         }
         else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
@@ -5632,8 +5734,9 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.0.'#']", (path ? &lpath_66 : NULL));
                 return false;
             }
+            continue;
         }
-        else if (unlikely(jm_str_eq_1(prop, 0x23)))
+        if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 3 re props
             // .'$openapi#model#Element'.'|'.0.'/^#/'
             res = true;

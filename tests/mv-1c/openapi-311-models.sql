@@ -83,6 +83,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'openapi' THEN
       -- handle must openapi property
       must_count := must_count + 1;
@@ -92,7 +93,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'tags' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'tags' THEN
       -- handle may tags property
       -- .'$openapi#OpenAPI'.tags
       res := JSONB_TYPEOF(pval) = 'array';
@@ -109,6 +112,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'paths' THEN
       -- handle may paths property
       -- .'$openapi#OpenAPI'.paths
@@ -116,6 +120,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'servers' THEN
       -- handle may servers property
       -- .'$openapi#OpenAPI'.servers
@@ -133,6 +138,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'security' THEN
       -- handle may security property
       -- .'$openapi#OpenAPI'.security
@@ -150,6 +156,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'webhooks' THEN
       -- handle may webhooks property
       -- .'$openapi#OpenAPI'.webhooks
@@ -157,6 +164,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'components' THEN
       -- handle may components property
       -- .'$openapi#OpenAPI'.components
@@ -164,6 +172,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'externalDocs' THEN
       -- handle may externalDocs property
       -- .'$openapi#OpenAPI'.externalDocs
@@ -171,6 +180,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'jsonModelVersion' THEN
       -- handle may jsonModelVersion property
       -- .'$openapi#OpenAPI'.jsonModelVersion
@@ -178,7 +188,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#OpenAPI'.'/^x-/'
       res := TRUE;
@@ -213,6 +225,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'version' THEN
       -- handle must version property
       must_count := must_count + 1;
@@ -221,13 +234,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'contact' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'contact' THEN
       -- handle may contact property
       -- .'$openapi#Info'.contact
       res := json_model_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'license' THEN
       -- handle may license property
       -- .'$openapi#Info'.license
@@ -235,6 +251,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'summary' THEN
       -- handle may summary property
       -- .'$openapi#Info'.summary
@@ -242,6 +259,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Info'.description
@@ -249,6 +267,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'termsOfService' THEN
       -- handle may termsOfService property
       -- .'$openapi#Info'.termsOfService
@@ -256,7 +275,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Info'.'/^x-/'
       res := TRUE;
@@ -288,6 +309,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle may name property
       -- .'$openapi#Contact'.name
@@ -295,6 +317,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'email' THEN
       -- handle may email property
       -- .'$openapi#Contact'.email
@@ -302,7 +325,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Contact'.'/^x-/'
       res := TRUE;
@@ -344,6 +369,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -352,7 +378,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$openapi#License'.'|'.1.'/^x\\-.*$/'
       res := TRUE;
@@ -386,6 +414,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'identifier' THEN
       -- handle must identifier property
       must_count := must_count + 1;
@@ -394,7 +423,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 1 re props
       -- .'$openapi#License'.'|'.0.'/^x\\-.*$/'
       res := TRUE;
@@ -463,13 +494,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'variables' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'variables' THEN
       -- handle may variables property
       -- .'$openapi#Server'.variables
       res := _jm_obj_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Server'.description
@@ -477,7 +511,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Server'.'/^x-/'
       res := TRUE;
@@ -514,7 +550,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'enum' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'enum' THEN
       -- handle may enum property
       -- .'$openapi#ServerVariable'.enum
       res := JSONB_TYPEOF(pval) = 'array';
@@ -531,6 +569,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#ServerVariable'.description
@@ -538,7 +577,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#ServerVariable'.'/^x-/'
       res := TRUE;
@@ -837,7 +878,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Components'.'/^x-/'
       res := TRUE;
@@ -987,7 +1030,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#PathItem'.'/^x-/'
       res := TRUE;
@@ -1199,7 +1244,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Operation'.'/^x-/'
       res := TRUE;
@@ -1234,14 +1281,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#ExternalDocumentation'.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#ExternalDocumentation'.'/^x-/'
       res := TRUE;
@@ -1307,6 +1358,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -1315,13 +1367,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'content' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#Parameter'.'|'.1.content
       res := _jm_obj_5(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$openapi#Parameter'.'|'.1.required
@@ -1329,6 +1384,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'deprecated' THEN
       -- handle may deprecated property
       -- .'$openapi#Parameter'.'|'.1.deprecated
@@ -1336,6 +1392,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Parameter'.'|'.1.description
@@ -1343,6 +1400,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowEmptyValue' THEN
       -- handle may allowEmptyValue property
       -- .'$openapi#Parameter'.'|'.1.allowEmptyValue
@@ -1350,7 +1408,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Parameter'.'|'.1.'/^x-/'
       res := TRUE;
@@ -1492,6 +1552,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -1500,13 +1561,17 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_6_map(prop) IS NOT NULL THEN
+      CONTINUE;
+    END IF;
+    IF _jm_obj_6_map(prop) IS NOT NULL THEN
       -- handle 10 may props
       pfun := _jm_obj_6_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Parameter'.'|'.0.'/^x-/'
       res := TRUE;
@@ -1591,6 +1656,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$openapi#RequestBody'.required
@@ -1598,6 +1664,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#RequestBody'.description
@@ -1605,7 +1672,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#RequestBody'.'/^x-/'
       res := TRUE;
@@ -1685,10 +1754,12 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'example' THEN
       -- handle may example property
       -- .'$openapi#MediaType'.example
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'encoding' THEN
       -- handle may encoding property
       -- .'$openapi#MediaType'.encoding
@@ -1696,6 +1767,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$openapi#MediaType'.examples
@@ -1703,7 +1775,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#MediaType'.'/^x-/'
       res := TRUE;
@@ -1760,6 +1834,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'explode' THEN
       -- handle may explode property
       -- .'$openapi#Encoding'.explode
@@ -1767,6 +1842,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'headers' THEN
       -- handle may headers property
       -- .'$openapi#Encoding'.headers
@@ -1774,6 +1850,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'contentType' THEN
       -- handle may contentType property
       -- .'$openapi#Encoding'.contentType
@@ -1781,6 +1858,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowReserved' THEN
       -- handle may allowReserved property
       -- .'$openapi#Encoding'.allowReserved
@@ -1788,7 +1866,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Encoding'.'/^x-/'
       res := TRUE;
@@ -1830,7 +1910,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_2(prop, NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF _jm_re_2(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
       -- .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
@@ -1944,6 +2026,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#Response'.content
@@ -1951,6 +2034,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'headers' THEN
       -- handle may headers property
       -- .'$openapi#Response'.headers
@@ -1958,6 +2042,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Response'.description
@@ -1965,7 +2050,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Response'.'/^x-/'
       res := TRUE;
@@ -2028,6 +2115,7 @@ BEGIN
       -- handle may value property
       -- .'$openapi#Example'.value
       res := TRUE;
+      CONTINUE;
     ELSEIF prop = 'summary' THEN
       -- handle may summary property
       -- .'$openapi#Example'.summary
@@ -2035,6 +2123,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Example'.description
@@ -2042,6 +2131,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'externalValue' THEN
       -- handle may externalValue property
       -- .'$openapi#Example'.externalValue
@@ -2049,7 +2139,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Example'.'/^x-/'
       res := TRUE;
@@ -2101,13 +2193,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'server' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'server' THEN
       -- handle may server property
       -- .'$openapi#Link'.'|'.1.server
       res := json_model_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$openapi#Link'.'|'.1.parameters
@@ -2115,6 +2210,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Link'.'|'.1.description
@@ -2122,11 +2218,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'requestBody' THEN
       -- handle may requestBody property
       -- .'$openapi#Link'.'|'.1.requestBody
       res := TRUE;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Link'.'|'.1.'/^x-/'
       res := TRUE;
@@ -2169,13 +2268,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'server' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'server' THEN
       -- handle may server property
       -- .'$openapi#Link'.'|'.0.server
       res := json_model_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$openapi#Link'.'|'.0.parameters
@@ -2183,6 +2285,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Link'.'|'.0.description
@@ -2190,11 +2293,14 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'requestBody' THEN
       -- handle may requestBody property
       -- .'$openapi#Link'.'|'.0.requestBody
       res := TRUE;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Link'.'|'.0.'/^x-/'
       res := TRUE;
@@ -2259,6 +2365,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$openapi#Header'.'|'.1.required
@@ -2266,6 +2373,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'deprecated' THEN
       -- handle may deprecated property
       -- .'$openapi#Header'.'|'.1.deprecated
@@ -2273,6 +2381,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Header'.'|'.1.description
@@ -2280,6 +2389,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'allowEmptyValue' THEN
       -- handle may allowEmptyValue property
       -- .'$openapi#Header'.'|'.1.allowEmptyValue
@@ -2287,7 +2397,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Header'.'|'.1.'/^x-/'
       res := TRUE;
@@ -2416,7 +2528,9 @@ BEGIN
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Header'.'|'.0.'/^x-/'
       res := TRUE;
@@ -2463,13 +2577,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Tag'.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'externalDocs' THEN
       -- handle may externalDocs property
       -- .'$openapi#Tag'.externalDocs
@@ -2477,7 +2594,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#Tag'.'/^x-/'
       res := TRUE;
@@ -2512,13 +2631,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'summary' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'summary' THEN
       -- handle may summary property
       -- .'$openapi#Reference'.summary
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#Reference'.description
@@ -2526,9 +2648,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
 END;
@@ -2565,6 +2687,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
@@ -2573,6 +2696,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'type' THEN
       -- handle must type property
       must_count := must_count + 1;
@@ -2581,16 +2705,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#SecurityScheme'.'|'.0.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 3;
 END;
@@ -2626,6 +2752,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'scheme' THEN
       -- handle must scheme property
       must_count := must_count + 1;
@@ -2635,13 +2762,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#SecurityScheme'.'|'.1.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'bearerFormat' THEN
       -- handle may bearerFormat property
       -- .'$openapi#SecurityScheme'.'|'.1.bearerFormat
@@ -2649,9 +2779,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -2679,6 +2809,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'scheme' THEN
       -- handle must scheme property
       must_count := must_count + 1;
@@ -2687,16 +2818,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#SecurityScheme'.'|'.2.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -2724,6 +2857,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'flows' THEN
       -- handle must flows property
       must_count := must_count + 1;
@@ -2732,16 +2866,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#SecurityScheme'.'|'.3.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -2769,6 +2905,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'openIdConnectUrl' THEN
       -- handle must openIdConnectUrl property
       must_count := must_count + 1;
@@ -2777,16 +2914,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'description' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'description' THEN
       -- handle may description property
       -- .'$openapi#SecurityScheme'.'|'.4.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      RETURN FALSE;
+      CONTINUE;
     END IF;
+    RETURN FALSE;
   END LOOP;
   RETURN must_count = 2;
 END;
@@ -2811,7 +2950,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
       res := TRUE;
@@ -2873,6 +3014,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'password' THEN
       -- handle may password property
       -- .'$openapi#OAuthFlows'.password
@@ -2880,6 +3022,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'authorizationCode' THEN
       -- handle may authorizationCode property
       -- .'$openapi#OAuthFlows'.authorizationCode
@@ -2887,6 +3030,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'clientCredentials' THEN
       -- handle may clientCredentials property
       -- .'$openapi#OAuthFlows'.clientCredentials
@@ -2894,7 +3038,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#OAuthFlows'.'/^x-/'
       res := TRUE;
@@ -2952,6 +3098,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'tokenUrl' THEN
       -- handle must tokenUrl property
       must_count := must_count + 1;
@@ -2960,6 +3107,7 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = 'authorizationUrl' THEN
       -- handle must authorizationUrl property
       must_count := must_count + 1;
@@ -2968,14 +3116,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'refreshUrl' THEN
+      CONTINUE;
+    END IF;
+    IF prop = 'refreshUrl' THEN
       -- handle may refreshUrl property
       -- .'$openapi#OAuthFlow'.refreshUrl
       res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, 'x-') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
       -- .'$openapi#OAuthFlow'.'/^x-/'
       res := TRUE;
@@ -3108,7 +3260,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_90(TO_JSONB(prop), NULL, NULL) THEN
+      CONTINUE;
+    END IF;
+    IF json_model_90(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$openapi#model#Element'.'|'.5.'$Prop'
       res := json_model_97(pval, NULL, NULL);
@@ -3161,14 +3315,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$openapi#model#Element'.'|'.4.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.4.'/^#/'
       res := TRUE;
@@ -3214,14 +3372,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$openapi#model#Element'.'|'.3.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.3.'/^#/'
       res := TRUE;
@@ -3267,14 +3429,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$openapi#model#Element'.'|'.2.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.2.'/^#/'
       res := TRUE;
@@ -3320,14 +3486,18 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '#' THEN
       -- handle may # property
       -- .'$openapi#model#Element'.'|'.1.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
       -- .'$openapi#model#Element'.'|'.1.'/^#/'
       res := TRUE;
@@ -3377,13 +3547,16 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '!' THEN
+      CONTINUE;
+    END IF;
+    IF prop = '!' THEN
       -- handle may ! property
       -- .'$openapi#model#Element'.'|'.0.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
     ELSEIF prop = '#' THEN
       -- handle may # property
       -- .'$openapi#model#Element'.'|'.0.'#'
@@ -3391,7 +3564,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF STARTS_WITH(prop, '#') THEN
+      CONTINUE;
+    END IF;
+    IF STARTS_WITH(prop, '#') THEN
       -- handle 3 re props
       -- .'$openapi#model#Element'.'|'.0.'/^#/'
       res := TRUE;

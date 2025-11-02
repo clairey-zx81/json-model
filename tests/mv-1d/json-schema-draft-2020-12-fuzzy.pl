@@ -163,11 +163,9 @@ sub json_model_4($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -194,12 +192,14 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'default')
         {
             # handle may default property
             # .'$meta'.default
             $res = 1;
+            next;
         }
         elsif ($prop eq 'examples')
         {
@@ -210,6 +210,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'readOnly')
         {
@@ -220,6 +221,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'writeOnly')
         {
@@ -230,6 +232,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'deprecated')
         {
@@ -240,6 +243,7 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'description')
         {
@@ -250,11 +254,9 @@ sub json_model_5($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -281,6 +283,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'contentEncoding')
         {
@@ -291,6 +294,7 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'contentMediaType')
         {
@@ -301,11 +305,9 @@ sub json_model_6($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -332,6 +334,7 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'unevaluatedProperties')
         {
@@ -342,11 +345,9 @@ sub json_model_7($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -373,11 +374,9 @@ sub json_model_8($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -581,11 +580,9 @@ sub json_model_13($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -711,11 +708,9 @@ sub json_model_15($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }
@@ -1602,6 +1597,7 @@ sub json_model_18($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq 'dependencies')
         {
@@ -1612,6 +1608,7 @@ sub json_model_18($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '$recursiveRef')
         {
@@ -1622,6 +1619,7 @@ sub json_model_18($$$)
             {
                 return 0;
             }
+            next;
         }
         elsif ($prop eq '$recursiveAnchor')
         {
@@ -1632,11 +1630,9 @@ sub json_model_18($$$)
             {
                 return 0;
             }
+            next;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
     return 1;
 }

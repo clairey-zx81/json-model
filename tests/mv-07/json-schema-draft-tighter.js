@@ -203,6 +203,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.format]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -215,6 +216,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.pattern]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -227,6 +229,7 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.maxLength]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -239,12 +242,10 @@ function json_model_5(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.minLength]", (path ? lpath_0 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$stringKeywords']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$stringKeywords']", (path ? lpath_0 : null)])
+        return false;
     }
     return true;
 }
@@ -292,6 +293,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.items]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxItems")
         {
@@ -304,6 +306,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.maxItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minItems")
         {
@@ -316,6 +319,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.minItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "prefixItems")
         {
@@ -328,6 +332,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.prefixItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "uniqueItems")
         {
@@ -340,6 +345,7 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.uniqueItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalItems")
         {
@@ -352,12 +358,10 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$arrayKeywords'.additionalItems]", (path ? lpath_1 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$arrayKeywords']", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$arrayKeywords']", (path ? lpath_1 : null)])
+        return false;
     }
     return true;
 }
@@ -458,6 +462,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.required]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "properties")
         {
@@ -470,6 +475,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.properties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "patternProperties")
         {
@@ -482,6 +488,7 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.patternProperties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalProperties")
         {
@@ -494,12 +501,10 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.additionalProperties]", (path ? lpath_2 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$objectKeywords']", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$objectKeywords']", (path ? lpath_2 : null)])
+        return false;
     }
     return true;
 }
@@ -529,6 +534,7 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$numberKeywords'.maximum]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -541,12 +547,10 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$numberKeywords'.minimum]", (path ? lpath_5 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$numberKeywords']", (path ? lpath_5 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$numberKeywords']", (path ? lpath_5 : null)])
+        return false;
     }
     return true;
 }
@@ -624,6 +628,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.id]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -636,6 +641,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$id']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -648,6 +654,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$defs']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -660,6 +667,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.title]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -672,12 +680,14 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$schema']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$metas'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -690,6 +700,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.'$comment']", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -702,6 +713,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.examples]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -714,6 +726,7 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.definitions]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -726,12 +739,10 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$metas'.description]", (path ? lpath_6 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$metas']", (path ? lpath_6 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$metas']", (path ? lpath_6 : null)])
+        return false;
     }
     return true;
 }
@@ -811,8 +822,9 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$String'.type]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$String'.id
@@ -823,6 +835,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.id]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -835,6 +848,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$id']", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -847,6 +861,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$defs']", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -859,6 +874,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.title]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "format")
         {
@@ -871,6 +887,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.format]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -883,12 +900,14 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$schema']", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$String'.default
             res = true;
+            continue;
         }
         else if (prop == "pattern")
         {
@@ -901,6 +920,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.pattern]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -913,6 +933,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.'$comment']", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -925,6 +946,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.examples]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxLength")
         {
@@ -937,6 +959,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.maxLength]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minLength")
         {
@@ -949,6 +972,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.minLength]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -961,6 +985,7 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.definitions]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -973,12 +998,10 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$String'.description]", (path ? lpath_9 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$String']", (path ? lpath_9 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$String']", (path ? lpath_9 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1068,8 +1091,9 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.type]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Array'.id
@@ -1080,6 +1104,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.id]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1092,6 +1117,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$id']", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1104,6 +1130,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$defs']", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "items")
         {
@@ -1134,6 +1161,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.items]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1146,6 +1174,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.title]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1158,12 +1187,14 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$schema']", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Array'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1176,6 +1207,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.'$comment']", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1188,6 +1220,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.examples]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "maxItems")
         {
@@ -1200,6 +1233,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.maxItems]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minItems")
         {
@@ -1212,6 +1246,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.minItems]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1224,6 +1259,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.definitions]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1236,6 +1272,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.description]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "prefixItems")
         {
@@ -1248,6 +1285,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.prefixItems]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "uniqueItems")
         {
@@ -1260,6 +1298,7 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.uniqueItems]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalItems")
         {
@@ -1272,12 +1311,10 @@ function json_model_11(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.additionalItems]", (path ? lpath_12 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_12 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_12 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1423,8 +1460,9 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.type]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Object'.id
@@ -1435,6 +1473,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.id]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1447,6 +1486,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$id']", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1459,6 +1499,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$defs']", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1471,6 +1512,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.title]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1483,12 +1525,14 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$schema']", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Object'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1501,6 +1545,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.'$comment']", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1513,6 +1558,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.examples]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "required")
         {
@@ -1540,6 +1586,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.required]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "properties")
         {
@@ -1552,6 +1599,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.properties]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1564,6 +1612,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.definitions]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1576,6 +1625,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.description]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "patternProperties")
         {
@@ -1588,6 +1638,7 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.patternProperties]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "additionalProperties")
         {
@@ -1600,12 +1651,10 @@ function json_model_12(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.additionalProperties]", (path ? lpath_15 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_15 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_15 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1695,8 +1744,9 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Integer'.type]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Integer'.id
@@ -1707,6 +1757,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.id]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1719,6 +1770,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$id']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1731,6 +1783,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$defs']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1743,6 +1796,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.title]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1755,12 +1809,14 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$schema']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Integer'.default
             res = true;
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -1773,6 +1829,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.maximum]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -1785,6 +1842,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.minimum]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -1797,6 +1855,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.'$comment']", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -1809,6 +1868,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.examples]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -1821,6 +1881,7 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.definitions]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -1833,12 +1894,10 @@ function json_model_13(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Integer'.description]", (path ? lpath_20 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Integer']", (path ? lpath_20 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Integer']", (path ? lpath_20 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -1928,8 +1987,9 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Number'.type]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Number'.id
@@ -1940,6 +2000,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.id]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -1952,6 +2013,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$id']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -1964,6 +2026,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$defs']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -1976,6 +2039,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.title]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -1988,12 +2052,14 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$schema']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Number'.default
             res = true;
+            continue;
         }
         else if (prop == "maximum")
         {
@@ -2006,6 +2072,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.maximum]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "minimum")
         {
@@ -2018,6 +2085,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.minimum]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2030,6 +2098,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.'$comment']", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2042,6 +2111,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.examples]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2054,6 +2124,7 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.definitions]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2066,12 +2137,10 @@ function json_model_14(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Number'.description]", (path ? lpath_23 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Number']", (path ? lpath_23 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Number']", (path ? lpath_23 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2161,8 +2230,9 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Bool'.type]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Bool'.id
@@ -2173,6 +2243,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.id]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2185,6 +2256,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$id']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2197,6 +2269,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$defs']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2209,6 +2282,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.title]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2221,12 +2295,14 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$schema']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Bool'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2239,6 +2315,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.'$comment']", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2251,6 +2328,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.examples]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2263,6 +2341,7 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.definitions]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2275,12 +2354,10 @@ function json_model_15(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Bool'.description]", (path ? lpath_26 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Bool']", (path ? lpath_26 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Bool']", (path ? lpath_26 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2370,8 +2447,9 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Null'.type]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Null'.id
@@ -2382,6 +2460,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.id]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2394,6 +2473,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$id']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2406,6 +2486,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$defs']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2418,6 +2499,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.title]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2430,12 +2512,14 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$schema']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Null'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2448,6 +2532,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.'$comment']", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2460,6 +2545,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.examples]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2472,6 +2558,7 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.definitions]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2484,12 +2571,10 @@ function json_model_16(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Null'.description]", (path ? lpath_29 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Null']", (path ? lpath_29 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Null']", (path ? lpath_29 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2579,8 +2664,9 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$AllOf'.allOf]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$AllOf'.id
@@ -2591,6 +2677,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.id]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2603,6 +2690,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$id']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2615,6 +2703,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$defs']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2627,6 +2716,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.title]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2639,12 +2729,14 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$schema']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$AllOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2657,6 +2749,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.'$comment']", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2669,6 +2762,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.examples]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2681,6 +2775,7 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.definitions]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2693,12 +2788,10 @@ function json_model_17(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AllOf'.description]", (path ? lpath_32 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AllOf']", (path ? lpath_32 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AllOf']", (path ? lpath_32 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2788,8 +2881,9 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$AnyOf'.anyOf]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$AnyOf'.id
@@ -2800,6 +2894,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.id]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -2812,6 +2907,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$id']", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -2824,6 +2920,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$defs']", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -2836,6 +2933,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.title]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -2848,12 +2946,14 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$schema']", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$AnyOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -2866,6 +2966,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.'$comment']", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -2878,6 +2979,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.examples]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -2890,6 +2992,7 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.definitions]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -2902,12 +3005,10 @@ function json_model_18(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$AnyOf'.description]", (path ? lpath_35 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$AnyOf']", (path ? lpath_35 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$AnyOf']", (path ? lpath_35 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -2997,8 +3098,9 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$OneOf'.oneOf]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$OneOf'.id
@@ -3009,6 +3111,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.id]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3021,6 +3124,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$id']", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3033,6 +3137,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$defs']", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3045,6 +3150,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.title]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3057,12 +3163,14 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$schema']", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$OneOf'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3075,6 +3183,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.'$comment']", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3087,6 +3196,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.examples]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3099,6 +3209,7 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.definitions]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3111,12 +3222,10 @@ function json_model_19(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$OneOf'.description]", (path ? lpath_38 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$OneOf']", (path ? lpath_38 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$OneOf']", (path ? lpath_38 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3206,8 +3315,9 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Enum'.enum]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Enum'.id
@@ -3218,6 +3328,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.id]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3230,6 +3341,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$id']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3242,6 +3354,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$defs']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3254,6 +3367,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.title]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3266,12 +3380,14 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$schema']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Enum'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3284,6 +3400,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.'$comment']", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3296,6 +3413,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.examples]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3308,6 +3426,7 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.definitions]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3320,12 +3439,10 @@ function json_model_20(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Enum'.description]", (path ? lpath_41 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Enum']", (path ? lpath_41 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Enum']", (path ? lpath_41 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3415,8 +3532,9 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Const'.const]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Const'.id
@@ -3427,6 +3545,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.id]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3439,6 +3558,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$id']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3451,6 +3571,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$defs']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3463,6 +3584,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.title]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3475,12 +3597,14 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$schema']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Const'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3493,6 +3617,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.'$comment']", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3505,6 +3630,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.examples]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3517,6 +3643,7 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.definitions]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3529,12 +3656,10 @@ function json_model_21(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Const'.description]", (path ? lpath_44 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Const']", (path ? lpath_44 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Const']", (path ? lpath_44 : null)])
+        return false;
     }
     if (must_count != 1)
     {
@@ -3624,8 +3749,9 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ref'.'$ref']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
-        else if (prop == "id")
+        if (prop == "id")
         {
             // handle may id property
             // .'$Ref'.id
@@ -3636,6 +3762,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.id]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$id")
         {
@@ -3648,6 +3775,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$id']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$defs")
         {
@@ -3660,6 +3788,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$defs']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "title")
         {
@@ -3672,6 +3801,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.title]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "$schema")
         {
@@ -3684,12 +3814,14 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$schema']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Ref'.default
             res = true;
+            continue;
         }
         else if (prop == "$comment")
         {
@@ -3702,6 +3834,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.'$comment']", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "examples")
         {
@@ -3714,6 +3847,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.examples]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "definitions")
         {
@@ -3726,6 +3860,7 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.definitions]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
         else if (prop == "description")
         {
@@ -3738,12 +3873,10 @@ function json_model_22(val, path, rep)
                 rep !== null && rep.push(["invalid optional prop value [.'$Ref'.description]", (path ? lpath_47 : null)])
                 return false;
             }
+            continue;
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Ref']", (path ? lpath_47 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["unexpected prop [.'$Ref']", (path ? lpath_47 : null)])
+        return false;
     }
     if (must_count != 1)
     {
