@@ -225,6 +225,10 @@ EXPECT: dict[str, int] = {
     "mv-27:cmp-opts": {"strcmp": True, "report": False, "must_only_threshold": 2},
     "mv-27:models": 7,
     "mv-27:values": 105,
+    # mv-28
+    "mv-28:cmp-opts": {"strcmp": True, "report": False, "strcmp_cset_partition_threshold": 32},
+    "mv-28:models": 1,
+    "mv-28:values": 15,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 311,
@@ -273,6 +277,7 @@ def has_exec(program: str) -> bool:
         "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d",
         "./mv-1e", "./mv-1f", "./mv-20", "./mv-21", "./mv-22",
         "./mv-23", "./mv-24", "./mv-25", "./mv-26", "./mv-27",
+        "./mv-28",
     ]
 )
 def directory(request):

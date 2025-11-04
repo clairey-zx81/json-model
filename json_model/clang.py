@@ -3,7 +3,7 @@ import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
-from .utils import log
+from .utils import log, partition
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
@@ -71,11 +71,12 @@ class CLangJansson(Language):
     """
 
     def __init__(self, *,
-                 debug: bool = False,
-                 with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-                 with_predef: bool = True, strcmp_opt: bool = True, byte_order: str = "le",
-                 inline: bool = True, with_hints: bool = True, max_strcmp_cset: int = 64,
-                 relib: str = "pcre2", int_t: str = "int64_t"):
+             debug: bool = False,
+             with_path: bool = True, with_report: bool = True, with_comment: bool = True,
+             with_predef: bool = True, strcmp_opt: bool = True, byte_order: str = "le",
+             inline: bool = True, with_hints: bool = True, max_strcmp_cset: int = 64,
+             partition_threshold: int = 32, relib: str = "pcre2", int_t: str = "int64_t"
+        ):
 
         super().__init__(
             "C",
@@ -96,6 +97,8 @@ class CLangJansson(Language):
         self._inline = "INLINE " if inline else ""
         self._strcmp_opt = strcmp_opt
         self._max_strcmp_cset = max_strcmp_cset
+        # NOTE not necessary equal to the one in CodeGenerator
+        self._partition_threshold = partition_threshold
         self._byte_order = byte_order
 
     #
@@ -584,21 +587,50 @@ class CLangJansson(Language):
     def _def_str_cset(self, name: str, constants: ConstList) -> Block:
         return [ f"static {self._inline}bool {name}_str_test(const char *);" ]
 
+    def _part_expr(self, var: Var, part_code: dict[int, str]) -> str:
+        nparts = len(part_code)
+        if nparts == 1:
+            return list(part_code.values())[0]
+        elif nparts == 2:
+            first, second = min(part_code.keys()), max(part_code.keys())
+            return (f"({self.num_cmp(var, '<=', first, True)}) "
+                    f"? (\n           {part_code[first]}        ) : (\n           {part_code[second]}        )")
+        else:
+            limit = list(sorted(part_code.keys()))[nparts // 2 - 1]
+            return (
+                f"({self.num_cmp(var, '<=', limit, True)})"
+                f" ? (\n        {self._part_expr(var, {p: s for p, s in part_code.items() if p <= limit})})"
+                f" : (\n        {self._part_expr(var, {p: s for p, s in part_code.items() if p > limit})})"
+            )
+
     def _sub_str_cset(self, name: str, constants: ConstList) -> Block:
-        # sort str constants
         code = [
             f"static {self._inline}bool {name}_str_test(const char *s)",
             "{",
         ]
-        first = True
-        for s in sorted(constants, key=lambda s: (len(s), s)):
-            code += [
-                ("    return " if first else "        || ") +
-                _str_cmp("s", json.dumps(s), self._byte_order, True) +
-                f"  // {self.esc(s)}"
-            ]
-            first = False
-        code += [ "    ;", "}" ]
+
+        names = set(constants)
+        partitioning = partition(names, self._partition_threshold, self._byte_order)
+        if partitioning is not None:
+            hash_size, partitions = partitioning
+            code.append(self._indent +
+                        self.hash_var("hash", self.str_hash("s", hash_size), declare=True)[0])
+        else:
+            hash_size, partitions = 0, {0: names}
+
+        part_code = {
+            p: "        || ".join(
+                (_str_cmp("s", json.dumps(s), self._byte_order, True) + f"  // {self.esc(s)}\n")
+                    for s in sorted(strs, key=lambda s: (len(s), s)))
+                        for p, strs in partitions.items()
+        }
+
+        code += [
+            "    return ",
+            "        " + self._part_expr("hash", part_code),
+            "    ;",
+            "}"
+        ]
         return code
 
     def _in_str_cset(self, name: str, var: str, constants: ConstList) -> BoolExpr:

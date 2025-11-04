@@ -1819,6 +1819,7 @@ def xstatic_compile(
         sort_must: bool = True,
         sort_may: bool = True,
         partition_threshold: int = None,
+        strcmp_cset_partition_threshold: int = 32,  # or 64
         execute: bool = True,
         debug: bool = False,
         report: bool = True,
@@ -1843,7 +1844,8 @@ def xstatic_compile(
     - must_only_threshold: must-only scheme if below threshold mandatory props
     - sort_must: whether to sort must properties
     - sort_may: whether to sort may properties
-    - partition_threshold: partition if over this threshold, 0 for no partitioning
+    - partition_threshold: property test partition if over this threshold, 0 for no partitioning
+    - strcmp_cset_partition_threshold: string set partitioning target chunk size, 0 for no partitioning
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
@@ -1918,7 +1920,9 @@ def xstatic_compile(
         language = CLangJansson(debug=debug, with_report=report, with_path=report,
                                 with_predef=predef, relib=relib or "re2",
                                 inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
-                                max_strcmp_cset=max_strcmp_cset)
+                                max_strcmp_cset=max_strcmp_cset,
+                                partition_threshold=strcmp_cset_partition_threshold
+        )
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report, with_path=report,

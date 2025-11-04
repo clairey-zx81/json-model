@@ -6,10 +6,10 @@
 - [x] static: use more bytes for str hashing depending on min len
 - [x] static: generate hexa constants for partition limits tests
 - [x] static: use `continue` instead of long multi-if statements
+- [x] c-backend: partition inlined str cset
 - [ ] static: take into account str _byte_ len when partitioning
 - [ ] static: possibly use up to 8 bytes when hashing?
 - [ ] static: fix hash size to depends on byte encoding, not str len
-- [ ] c-backend: partition inlined str cset
 - [ ] perf: test partitioning for js, java, perl, python…
 - [ ] static: merge may/must property handling, or not?
 - [ ] perf: investigate best settings for js, java and python
