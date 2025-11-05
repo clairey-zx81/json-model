@@ -16,11 +16,11 @@ FROM ShowPerfSummary ORDER BY ordre;
 .print ## Tool Performance Per Case
 .print
 .print For each case: number and name, number of test cases, best cumulated median performance (µs),
-.print performance slowdown ratio for blaze and jmc variants (java 1 is gson, 2 is jackson,
+.print best tool, performance slowdown ratio for blaze and jmc variants (java 1 is gson, 2 is jackson,
 .print 3 is jsonp/johnzon), the lower the better, **1.0** is best.
 .print
-.print RLRRRRRRRRR
-.width -2 16 -5 -7 -6 -6 -6 -6 -6 -6 -6
+.print RLRRCRRRRRRR
+.width -2 16 -5 -7 7 -6 -6 -6 -6 -6 -6 -6
 SELECT * FROM ShowPerfPerCase ORDER BY 1;
 
 .print

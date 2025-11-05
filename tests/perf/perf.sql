@@ -183,6 +183,15 @@ CREATE TABLE RelativeComparison AS
     name,
     cases,
     best,
+    CASE best
+      WHEN blaze THEN 'blaze'
+      WHEN c THEN 'jmc-c'
+      WHEN js THEN 'jmc-js'
+      WHEN jv1 THEN 'jmc-jv1'
+      WHEN jv2 THEN 'jmc-jv2'
+      WHEN jv3 THEN 'jmc-jv3'
+      WHEN py THEN 'jmc-py'
+    END as tool,
     blaze / best AS blaze,
     c / best AS c,
     js / best AS js,
@@ -280,6 +289,7 @@ CREATE TABLE ShowPerfPerCase AS
     name,
     cases AS "cases",
     ROUND(best, 1) AS "best µs",
+    tool AS ":1st_place_medal:",
     FORMAT('%.02f', blaze) AS blaze,
     FORMAT('%.02f', c) AS c,
     FORMAT('%.02f', js) AS js,
