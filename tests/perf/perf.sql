@@ -185,12 +185,12 @@ CREATE TABLE RelativeComparison AS
     best,
     CASE best
       WHEN blaze THEN 'blaze'
-      WHEN c THEN 'jmc-c'
-      WHEN js THEN 'jmc-js'
-      WHEN jv1 THEN 'jmc-jv1'
-      WHEN jv2 THEN 'jmc-jv2'
-      WHEN jv3 THEN 'jmc-jv3'
-      WHEN py THEN 'jmc-py'
+      WHEN c THEN 'c'
+      WHEN js THEN 'js'
+      WHEN jv1 THEN 'jv1'
+      WHEN jv2 THEN 'jv2'
+      WHEN jv3 THEN 'jv3'
+      WHEN py THEN 'py'
     END as tool,
     blaze / best AS blaze,
     c / best AS c,
