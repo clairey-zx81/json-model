@@ -203,10 +203,12 @@ const size_t check_model_map_size = 60;
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00312e36)  // "6.1"
+    return
+           jm_str_eq_4(s, 0x00312e36)  // "6.1"
         || jm_str_eq_4(s, 0x00312e37)  // "7.1"
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -338,10 +340,12 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_1_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000031)  // "1"
+    return
+           jm_str_eq_2(s, 0x00000031)  // "1"
         || jm_str_eq_2(s, 0x00000032)  // "2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
+
     ;
 }
 
@@ -410,7 +414,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_2_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_8(s, 0x0033302e33313032LL)  // "2013.03"
         || jm_str_eq_8(s, 0x0039302e33313032LL)  // "2013.09"
         || jm_str_eq_8(s, 0x0033302e34313032LL)  // "2014.03"
@@ -424,6 +429,7 @@ static INLINE bool _jm_cst_2_str_test(const char *s)
         || jm_str_eq_8(s, 0x0032312e37313032LL)  // "2017.12"
         || jm_str_eq_8(s, 0x0033302e38313032LL)  // "2018.03"
         || jm_str_eq_8(s, 0x74616469646e6143LL) && jm_str_eq_2(s + 8, 0x00000065)  // "Candidate"
+
     ;
 }
 
@@ -555,11 +561,13 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_3_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00362e31)  // "1.6"
+    return
+           jm_str_eq_4(s, 0x00362e31)  // "1.6"
         || jm_str_eq_4(s, 0x00372e31)  // "1.7"
         || jm_str_eq_4(s, 0x00382e31)  // "1.8"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000032312e32LL)  // "2.12"
+
     ;
 }
 
@@ -691,7 +699,8 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_4_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00352e32)  // "2.5"
+    return
+           jm_str_eq_4(s, 0x00352e32)  // "2.5"
         || jm_str_eq_4(s, 0x00302e33)  // "3.0"
         || jm_str_eq_4(s, 0x00312e33)  // "3.1"
         || jm_str_eq_4(s, 0x00322e33)  // "3.2"
@@ -699,6 +708,7 @@ static INLINE bool _jm_cst_4_str_test(const char *s)
         || jm_str_eq_4(s, 0x00342e33)  // "3.4"
         || jm_str_eq_4(s, 0x00352e33)  // "3.5"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -767,7 +777,8 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_5_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_4(s, 0x00646973)  // "sid"
         || jm_str_eq_5(s, 0x0000000068637465LL)  // "etch"
         || jm_str_eq_6(s, 0x000000796e6e656cLL)  // "lenny"
@@ -779,6 +790,7 @@ static INLINE bool _jm_cst_5_str_test(const char *s)
         || jm_str_eq_8(s, 0x0068637465727473LL)  // "stretch"
         || jm_str_eq_8(s, 0x6d726f776b6f6f62LL) && jm_str_eq_0(s + 8)  // "bookworm"
         || jm_str_eq_8(s, 0x657965736c6c7562LL) && jm_str_eq_0(s + 8)  // "bullseye"
+
     ;
 }
 
@@ -847,10 +859,12 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_6_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000036)  // "6"
+    return
+           jm_str_eq_2(s, 0x00000036)  // "6"
         || jm_str_eq_2(s, 0x00000039)  // "9"
         || jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -919,12 +933,14 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_7_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_6(s, 0x0000006969637361LL)  // "ascii"
         || jm_str_eq_7(s, 0x000065697373656aLL)  // "jessie"
         || jm_str_eq_8(s, 0x00666c75776f6562LL)  // "beowulf"
         || jm_str_eq_8(s, 0x617265616d696863LL) && jm_str_eq_0(s + 8)  // "chimaera"
         || jm_str_eq_8(s, 0x73756c6164656164LL) && jm_str_eq_0(s + 8)  // "daedalus"
+
     ;
 }
 
@@ -993,7 +1009,8 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_8_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00322e35)  // "5.2"
+    return
+           jm_str_eq_4(s, 0x00322e35)  // "5.2"
         || jm_str_eq_4(s, 0x00342e35)  // "5.4"
         || jm_str_eq_4(s, 0x00362e35)  // "5.6"
         || jm_str_eq_4(s, 0x00382e35)  // "5.8"
@@ -1001,6 +1018,7 @@ static INLINE bool _jm_cst_8_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e36)  // "6.2"
         || jm_str_eq_4(s, 0x00342e36)  // "6.4"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -1069,13 +1087,15 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_9_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000035)  // "5"
+    return
+           jm_str_eq_2(s, 0x00000035)  // "5"
         || jm_str_eq_2(s, 0x00000036)  // "6"
         || jm_str_eq_2(s, 0x00000037)  // "7"
         || jm_str_eq_2(s, 0x00000038)  // "8"
         || jm_str_eq_2(s, 0x00000039)  // "9"
         || jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -1144,7 +1164,8 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_10_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00003631)  // "16"
+    return
+           jm_str_eq_3(s, 0x00003631)  // "16"
         || jm_str_eq_3(s, 0x00003731)  // "17"
         || jm_str_eq_3(s, 0x00003831)  // "18"
         || jm_str_eq_3(s, 0x00003931)  // "19"
@@ -1172,6 +1193,7 @@ static INLINE bool _jm_cst_10_str_test(const char *s)
         || jm_str_eq_3(s, 0x00003134)  // "41"
         || jm_str_eq_3(s, 0x00003234)  // "42"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -1240,7 +1262,8 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_11_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+    return
+           jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00322e38)  // "8.2"
         || jm_str_eq_4(s, 0x00332e38)  // "8.3"
@@ -1267,6 +1290,7 @@ static INLINE bool _jm_cst_11_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
         || jm_str_eq_5(s, 0x00000000322e3331LL)  // "13.2"
         || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
+
     ;
 }
 
@@ -1587,9 +1611,11 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_12_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00003031)  // "10"
+    return
+           jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_3(s, 0x00003131)  // "11"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -1784,7 +1810,8 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_13_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e32)  // "2.0"
+    return
+           jm_str_eq_4(s, 0x00302e32)  // "2.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000036313032LL)  // "2016"
         || jm_str_eq_5(s, 0x0000000037313032LL)  // "2017"
@@ -1794,6 +1821,7 @@ static INLINE bool _jm_cst_13_str_test(const char *s)
         || jm_str_eq_5(s, 0x0000000031323032LL)  // "2021"
         || jm_str_eq_5(s, 0x0000000032323032LL)  // "2022"
         || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
+
     ;
 }
 
@@ -1862,7 +1890,8 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_14_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000372e3031LL)  // "10.7"
         || jm_str_eq_5(s, 0x00000000382e3031LL)  // "10.8"
         || jm_str_eq_5(s, 0x00000000392e3031LL)  // "10.9"
@@ -1872,6 +1901,7 @@ static INLINE bool _jm_cst_14_str_test(const char *s)
         || jm_str_eq_6(s, 0x00000033312e3031LL)  // "10.13"
         || jm_str_eq_6(s, 0x00000034312e3031LL)  // "10.14"
         || jm_str_eq_6(s, 0x00000035312e3031LL)  // "10.15"
+
     ;
 }
 
@@ -1940,9 +1970,11 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_15_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000037)  // "7"
+    return
+           jm_str_eq_2(s, 0x00000037)  // "7"
         || jm_str_eq_2(s, 0x00000038)  // "8"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -2074,7 +2106,8 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_16_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+    return
+           jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00322e38)  // "8.2"
         || jm_str_eq_4(s, 0x00302e39)  // "9.0"
@@ -2083,6 +2116,7 @@ static INLINE bool _jm_cst_16_str_test(const char *s)
         || jm_str_eq_4(s, 0x00332e39)  // "9.3"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000302e3031LL)  // "10.0"
+
     ;
 }
 
@@ -2151,7 +2185,8 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_17_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00362e35)  // "5.6"
+    return
+           jm_str_eq_4(s, 0x00362e35)  // "5.6"
         || jm_str_eq_4(s, 0x00372e35)  // "5.7"
         || jm_str_eq_4(s, 0x00382e35)  // "5.8"
         || jm_str_eq_4(s, 0x00392e35)  // "5.9"
@@ -2170,6 +2205,7 @@ static INLINE bool _jm_cst_17_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x00332e37)  // "7.3"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -2238,7 +2274,8 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_18_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_6(s, 0x00000031302e3731LL)  // "17.01"
         || jm_str_eq_6(s, 0x00000036302e3831LL)  // "18.06"
         || jm_str_eq_6(s, 0x00000037302e3931LL)  // "19.07"
@@ -2246,6 +2283,7 @@ static INLINE bool _jm_cst_18_str_test(const char *s)
         || jm_str_eq_6(s, 0x00000033302e3232LL)  // "22.03"
         || jm_str_eq_6(s, 0x00000035302e3332LL)  // "23.05"
         || jm_str_eq_6(s, 0x00000030312e3432LL)  // "24.10"
+
     ;
 }
 
@@ -2314,7 +2352,8 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_19_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e37)  // "7.0"
+    return
+           jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00312e37)  // "7.1"
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x00332e37)  // "7.3"
@@ -2341,6 +2380,7 @@ static INLINE bool _jm_cst_19_str_test(const char *s)
         || jm_str_eq_4(s, 0x00342e39)  // "9.4"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000030312e38LL)  // "8.10"
+
     ;
 }
 
@@ -2409,11 +2449,13 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_20_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00312e37)  // "7.1"
+    return
+           jm_str_eq_4(s, 0x00312e37)  // "7.1"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00302e39)  // "9.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -2482,7 +2524,8 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_21_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+    return
+           jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00322e38)  // "8.2"
         || jm_str_eq_4(s, 0x00332e38)  // "8.3"
@@ -2495,6 +2538,7 @@ static INLINE bool _jm_cst_21_str_test(const char *s)
         || jm_str_eq_4(s, 0x00312e39)  // "9.1"
         || jm_str_eq_4(s, 0x00322e39)  // "9.2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -2563,7 +2607,8 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_22_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00003131)  // "11"
+    return
+           jm_str_eq_3(s, 0x00003131)  // "11"
         || jm_str_eq_3(s, 0x00003231)  // "12"
         || jm_str_eq_3(s, 0x00003531)  // "15"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
@@ -2584,6 +2629,7 @@ static INLINE bool _jm_cst_22_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000003450533531LL)  // "15SP4"
         || jm_str_eq_6(s, 0x0000003550533531LL)  // "15SP5"
         || jm_str_eq_6(s, 0x0000003650533531LL)  // "15SP6"
+
     ;
 }
 
@@ -2715,13 +2761,15 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_23_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00003031)  // "10"
+    return
+           jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000302e3131LL)  // "11.0"
         || jm_str_eq_5(s, 0x00000000312e3131LL)  // "11.1"
         || jm_str_eq_5(s, 0x00000000322e3131LL)  // "11.2"
         || jm_str_eq_5(s, 0x00000000332e3131LL)  // "11.3"
         || jm_str_eq_5(s, 0x00000000342e3131LL)  // "11.4"
+
     ;
 }
 
@@ -2790,11 +2838,13 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_24_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e36)  // "6.0"
+    return
+           jm_str_eq_4(s, 0x00302e36)  // "6.0"
         || jm_str_eq_4(s, 0x00312e36)  // "6.1"
         || jm_str_eq_4(s, 0x00322e36)  // "6.2"
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -2863,11 +2913,13 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_25_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
         || jm_str_eq_5(s, 0x00000000302e3331LL)  // "13.0"
         || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
         || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
+
     ;
 }
 
@@ -2936,38 +2988,43 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_26_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
-        || jm_str_eq_5(s, 0x000000006e616f65LL)  // "eoan"
-        || jm_str_eq_5(s, 0x00000000796c6977LL)  // "wily"
+    uint32_t hash = *((uint32_t *) (s));
+    return
+           (hash <= 0x69726172) ? (
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_6(s, 0x0000006f63736964LL)  // "disco"
         || jm_str_eq_6(s, 0x0000006c61636f66LL)  // "focal"
-        || jm_str_eq_6(s, 0x000000796d6d616aLL)  // "jammy"
         || jm_str_eq_6(s, 0x000000646963756cLL)  // "lucid"
         || jm_str_eq_6(s, 0x00000072616e756cLL)  // "lunar"
-        || jm_str_eq_6(s, 0x000000797474616eLL)  // "natty"
-        || jm_str_eq_6(s, 0x000000656c626f6eLL)  // "noble"
         || jm_str_eq_6(s, 0x0000007963756173LL)  // "saucy"
-        || jm_str_eq_6(s, 0x0000006469766976LL)  // "vivid"
-        || jm_str_eq_6(s, 0x000000797473657aLL)  // "zesty"
         || jm_str_eq_7(s, 0x00006c7566747261LL)  // "artful"
-        || jm_str_eq_7(s, 0x000063696e6f6962LL)  // "bionic"
-        || jm_str_eq_7(s, 0x000063696d736f63LL)  // "cosmic"
-        || jm_str_eq_7(s, 0x000079766f6f7267LL)  // "groovy"
         || jm_str_eq_7(s, 0x0000687369706d69LL)  // "impish"
-        || jm_str_eq_7(s, 0x00006369746e616dLL)  // "mantic"
         || jm_str_eq_7(s, 0x0000796b63756c70LL)  // "plucky"
         || jm_str_eq_7(s, 0x0000676e69726172LL)  // "raring"
-        || jm_str_eq_7(s, 0x0000797473757274LL)  // "trusty"
-        || jm_str_eq_7(s, 0x00006369706f7475LL)  // "utopic"
         || jm_str_eq_7(s, 0x00006c61696e6578LL)  // "xenial"
-        || jm_str_eq_8(s, 0x0065747573726968LL)  // "hirsute"
         || jm_str_eq_8(s, 0x00636974656e696bLL)  // "kinetic"
         || jm_str_eq_8(s, 0x0063697269656e6fLL)  // "oneiric"
         || jm_str_eq_8(s, 0x0065736963657270LL)  // "precise"
-        || jm_str_eq_8(s, 0x006c61746e617571LL)  // "quantal"
-        || jm_str_eq_8(s, 0x007974656b6b6179LL)  // "yakkety"
         || jm_str_eq_8(s, 0x6b6369726576616dLL) && jm_str_eq_0(s + 8)  // "maverick"
         || jm_str_eq_8(s, 0x72616c756361726fLL) && jm_str_eq_0(s + 8)  // "oracular"
+        ) : (
+           jm_str_eq_5(s, 0x000000006e616f65LL)  // "eoan"
+        || jm_str_eq_5(s, 0x00000000796c6977LL)  // "wily"
+        || jm_str_eq_6(s, 0x000000796d6d616aLL)  // "jammy"
+        || jm_str_eq_6(s, 0x000000797474616eLL)  // "natty"
+        || jm_str_eq_6(s, 0x000000656c626f6eLL)  // "noble"
+        || jm_str_eq_6(s, 0x0000006469766976LL)  // "vivid"
+        || jm_str_eq_6(s, 0x000000797473657aLL)  // "zesty"
+        || jm_str_eq_7(s, 0x000063696e6f6962LL)  // "bionic"
+        || jm_str_eq_7(s, 0x000063696d736f63LL)  // "cosmic"
+        || jm_str_eq_7(s, 0x000079766f6f7267LL)  // "groovy"
+        || jm_str_eq_7(s, 0x00006369746e616dLL)  // "mantic"
+        || jm_str_eq_7(s, 0x0000797473757274LL)  // "trusty"
+        || jm_str_eq_7(s, 0x00006369706f7475LL)  // "utopic"
+        || jm_str_eq_8(s, 0x0065747573726968LL)  // "hirsute"
+        || jm_str_eq_8(s, 0x006c61746e617571LL)  // "quantal"
+        || jm_str_eq_8(s, 0x007974656b6b6179LL)  // "yakkety"
+        )
     ;
 }
 
@@ -3099,7 +3156,8 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_27_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000032313032LL)  // "2012"
         || jm_str_eq_5(s, 0x0000000036313032LL)  // "2016"
         || jm_str_eq_5(s, 0x0000000039313032LL)  // "2019"
@@ -3109,6 +3167,7 @@ static INLINE bool _jm_cst_27_str_test(const char *s)
         || jm_str_eq_7(s, 0x0000325232313032LL)  // "2012R2"
         || jm_str_eq_8(s, 0x0034367838303032LL)  // "2008x64"
         || jm_str_eq_8(s, 0x0036387838303032LL)  // "2008x86"
+
     ;
 }
 
@@ -3303,7 +3362,8 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_28_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_7(s, 0x00006576616a6f4dLL)  // "Mojave"
         || jm_str_eq_7(s, 0x0000617272656953LL)  // "Sierra"
         || jm_str_eq_7(s, 0x0000616d6f6e6f53LL)  // "Sonoma"
@@ -3312,6 +3372,7 @@ static INLINE bool _jm_cst_28_str_test(const char *s)
         || jm_str_eq_8(s, 0x616e696c61746143LL) && jm_str_eq_0(s + 8)  // "Catalina"
         || jm_str_eq_8(s, 0x79657265746e6f4dLL) && jm_str_eq_0(s + 8)  // "Monterey"
         || jm_str_eq_8(s, 0x6569532d68676948LL) && jm_str_eq_4(s + 8, 0x00617272)  // "High-Sierra"
+
     ;
 }
 
@@ -3380,7 +3441,8 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_29_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
         || jm_str_eq_5(s, 0x00000000322e3231LL)  // "12.2"
         || jm_str_eq_5(s, 0x00000000332e3231LL)  // "12.3"
@@ -3395,6 +3457,7 @@ static INLINE bool _jm_cst_29_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000312e3234LL)  // "42.1"
         || jm_str_eq_5(s, 0x00000000322e3234LL)  // "42.2"
         || jm_str_eq_5(s, 0x00000000332e3234LL)  // "42.3"
+
     ;
 }
 
@@ -3526,13 +3589,15 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_30_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00352e35)  // "5.5"
+    return
+           jm_str_eq_4(s, 0x00352e35)  // "5.5"
         || jm_str_eq_4(s, 0x00302e36)  // "6.0"
         || jm_str_eq_4(s, 0x00352e36)  // "6.5"
         || jm_str_eq_4(s, 0x00372e36)  // "6.7"
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -3601,13 +3666,15 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_31_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00352e35)  // "5.5"
+    return
+           jm_str_eq_4(s, 0x00352e35)  // "5.5"
         || jm_str_eq_4(s, 0x00302e36)  // "6.0"
         || jm_str_eq_4(s, 0x00352e36)  // "6.5"
         || jm_str_eq_4(s, 0x00372e36)  // "6.7"
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -4112,7 +4179,8 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_32_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000032313032LL)  // "2012"
         || jm_str_eq_5(s, 0x0000000036313032LL)  // "2016"
         || jm_str_eq_5(s, 0x0000000039313032LL)  // "2019"
@@ -4122,6 +4190,7 @@ static INLINE bool _jm_cst_32_str_test(const char *s)
         || jm_str_eq_7(s, 0x0000325232313032LL)  // "2012R2"
         || jm_str_eq_8(s, 0x0034367838303032LL)  // "2008x64"
         || jm_str_eq_8(s, 0x0036387838303032LL)  // "2008x86"
+
     ;
 }
 
@@ -4188,13 +4257,15 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_33_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00352e35)  // "5.5"
+    return
+           jm_str_eq_4(s, 0x00352e35)  // "5.5"
         || jm_str_eq_4(s, 0x00302e36)  // "6.0"
         || jm_str_eq_4(s, 0x00352e36)  // "6.5"
         || jm_str_eq_4(s, 0x00372e36)  // "6.7"
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -4322,13 +4393,15 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_34_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00352e35)  // "5.5"
+    return
+           jm_str_eq_4(s, 0x00352e35)  // "5.5"
         || jm_str_eq_4(s, 0x00302e36)  // "6.0"
         || jm_str_eq_4(s, 0x00352e36)  // "6.5"
         || jm_str_eq_4(s, 0x00372e36)  // "6.7"
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -4395,38 +4468,43 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_35_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
-        || jm_str_eq_5(s, 0x000000006e616f65LL)  // "eoan"
-        || jm_str_eq_5(s, 0x00000000796c6977LL)  // "wily"
+    uint32_t hash = *((uint32_t *) (s));
+    return
+           (hash <= 0x69726172) ? (
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_6(s, 0x0000006f63736964LL)  // "disco"
         || jm_str_eq_6(s, 0x0000006c61636f66LL)  // "focal"
-        || jm_str_eq_6(s, 0x000000796d6d616aLL)  // "jammy"
         || jm_str_eq_6(s, 0x000000646963756cLL)  // "lucid"
         || jm_str_eq_6(s, 0x00000072616e756cLL)  // "lunar"
-        || jm_str_eq_6(s, 0x000000797474616eLL)  // "natty"
-        || jm_str_eq_6(s, 0x000000656c626f6eLL)  // "noble"
         || jm_str_eq_6(s, 0x0000007963756173LL)  // "saucy"
-        || jm_str_eq_6(s, 0x0000006469766976LL)  // "vivid"
-        || jm_str_eq_6(s, 0x000000797473657aLL)  // "zesty"
         || jm_str_eq_7(s, 0x00006c7566747261LL)  // "artful"
-        || jm_str_eq_7(s, 0x000063696e6f6962LL)  // "bionic"
-        || jm_str_eq_7(s, 0x000063696d736f63LL)  // "cosmic"
-        || jm_str_eq_7(s, 0x000079766f6f7267LL)  // "groovy"
         || jm_str_eq_7(s, 0x0000687369706d69LL)  // "impish"
-        || jm_str_eq_7(s, 0x00006369746e616dLL)  // "mantic"
         || jm_str_eq_7(s, 0x0000796b63756c70LL)  // "plucky"
         || jm_str_eq_7(s, 0x0000676e69726172LL)  // "raring"
-        || jm_str_eq_7(s, 0x0000797473757274LL)  // "trusty"
-        || jm_str_eq_7(s, 0x00006369706f7475LL)  // "utopic"
         || jm_str_eq_7(s, 0x00006c61696e6578LL)  // "xenial"
-        || jm_str_eq_8(s, 0x0065747573726968LL)  // "hirsute"
         || jm_str_eq_8(s, 0x00636974656e696bLL)  // "kinetic"
         || jm_str_eq_8(s, 0x0063697269656e6fLL)  // "oneiric"
         || jm_str_eq_8(s, 0x0065736963657270LL)  // "precise"
-        || jm_str_eq_8(s, 0x006c61746e617571LL)  // "quantal"
-        || jm_str_eq_8(s, 0x007974656b6b6179LL)  // "yakkety"
         || jm_str_eq_8(s, 0x6b6369726576616dLL) && jm_str_eq_0(s + 8)  // "maverick"
         || jm_str_eq_8(s, 0x72616c756361726fLL) && jm_str_eq_0(s + 8)  // "oracular"
+        ) : (
+           jm_str_eq_5(s, 0x000000006e616f65LL)  // "eoan"
+        || jm_str_eq_5(s, 0x00000000796c6977LL)  // "wily"
+        || jm_str_eq_6(s, 0x000000796d6d616aLL)  // "jammy"
+        || jm_str_eq_6(s, 0x000000797474616eLL)  // "natty"
+        || jm_str_eq_6(s, 0x000000656c626f6eLL)  // "noble"
+        || jm_str_eq_6(s, 0x0000006469766976LL)  // "vivid"
+        || jm_str_eq_6(s, 0x000000797473657aLL)  // "zesty"
+        || jm_str_eq_7(s, 0x000063696e6f6962LL)  // "bionic"
+        || jm_str_eq_7(s, 0x000063696d736f63LL)  // "cosmic"
+        || jm_str_eq_7(s, 0x000079766f6f7267LL)  // "groovy"
+        || jm_str_eq_7(s, 0x00006369746e616dLL)  // "mantic"
+        || jm_str_eq_7(s, 0x0000797473757274LL)  // "trusty"
+        || jm_str_eq_7(s, 0x00006369706f7475LL)  // "utopic"
+        || jm_str_eq_8(s, 0x0065747573726968LL)  // "hirsute"
+        || jm_str_eq_8(s, 0x006c61746e617571LL)  // "quantal"
+        || jm_str_eq_8(s, 0x007974656b6b6179LL)  // "yakkety"
+        )
     ;
 }
 
@@ -4493,11 +4571,13 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_36_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
         || jm_str_eq_5(s, 0x00000000302e3331LL)  // "13.0"
         || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
         || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
+
     ;
 }
 
@@ -4564,11 +4644,13 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_37_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e36)  // "6.0"
+    return
+           jm_str_eq_4(s, 0x00302e36)  // "6.0"
         || jm_str_eq_4(s, 0x00312e36)  // "6.1"
         || jm_str_eq_4(s, 0x00322e36)  // "6.2"
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -4635,13 +4717,15 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_38_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00003031)  // "10"
+    return
+           jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000302e3131LL)  // "11.0"
         || jm_str_eq_5(s, 0x00000000312e3131LL)  // "11.1"
         || jm_str_eq_5(s, 0x00000000322e3131LL)  // "11.2"
         || jm_str_eq_5(s, 0x00000000332e3131LL)  // "11.3"
         || jm_str_eq_5(s, 0x00000000342e3131LL)  // "11.4"
+
     ;
 }
 
@@ -4769,7 +4853,8 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_39_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00003131)  // "11"
+    return
+           jm_str_eq_3(s, 0x00003131)  // "11"
         || jm_str_eq_3(s, 0x00003231)  // "12"
         || jm_str_eq_3(s, 0x00003531)  // "15"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
@@ -4790,6 +4875,7 @@ static INLINE bool _jm_cst_39_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000003450533531LL)  // "15SP4"
         || jm_str_eq_6(s, 0x0000003550533531LL)  // "15SP5"
         || jm_str_eq_6(s, 0x0000003650533531LL)  // "15SP6"
+
     ;
 }
 
@@ -4856,7 +4942,8 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_40_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+    return
+           jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00322e38)  // "8.2"
         || jm_str_eq_4(s, 0x00332e38)  // "8.3"
@@ -4869,6 +4956,7 @@ static INLINE bool _jm_cst_40_str_test(const char *s)
         || jm_str_eq_4(s, 0x00312e39)  // "9.1"
         || jm_str_eq_4(s, 0x00322e39)  // "9.2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -4935,11 +5023,13 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_41_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00312e37)  // "7.1"
+    return
+           jm_str_eq_4(s, 0x00312e37)  // "7.1"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00302e39)  // "9.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -5067,7 +5157,8 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_42_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e37)  // "7.0"
+    return
+           jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00312e37)  // "7.1"
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x00332e37)  // "7.3"
@@ -5094,6 +5185,7 @@ static INLINE bool _jm_cst_42_str_test(const char *s)
         || jm_str_eq_4(s, 0x00342e39)  // "9.4"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000030312e38LL)  // "8.10"
+
     ;
 }
 
@@ -5160,7 +5252,8 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_43_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_6(s, 0x00000031302e3731LL)  // "17.01"
         || jm_str_eq_6(s, 0x00000036302e3831LL)  // "18.06"
         || jm_str_eq_6(s, 0x00000037302e3931LL)  // "19.07"
@@ -5168,6 +5261,7 @@ static INLINE bool _jm_cst_43_str_test(const char *s)
         || jm_str_eq_6(s, 0x00000033302e3232LL)  // "22.03"
         || jm_str_eq_6(s, 0x00000035302e3332LL)  // "23.05"
         || jm_str_eq_6(s, 0x00000030312e3432LL)  // "24.10"
+
     ;
 }
 
@@ -5234,7 +5328,8 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_44_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000312e3231LL)  // "12.1"
         || jm_str_eq_5(s, 0x00000000322e3231LL)  // "12.2"
         || jm_str_eq_5(s, 0x00000000332e3231LL)  // "12.3"
@@ -5249,6 +5344,7 @@ static INLINE bool _jm_cst_44_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000312e3234LL)  // "42.1"
         || jm_str_eq_5(s, 0x00000000322e3234LL)  // "42.2"
         || jm_str_eq_5(s, 0x00000000332e3234LL)  // "42.3"
+
     ;
 }
 
@@ -5315,7 +5411,8 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_45_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00362e35)  // "5.6"
+    return
+           jm_str_eq_4(s, 0x00362e35)  // "5.6"
         || jm_str_eq_4(s, 0x00372e35)  // "5.7"
         || jm_str_eq_4(s, 0x00382e35)  // "5.8"
         || jm_str_eq_4(s, 0x00392e35)  // "5.9"
@@ -5334,6 +5431,7 @@ static INLINE bool _jm_cst_45_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x00332e37)  // "7.3"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -5461,9 +5559,11 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_46_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000037)  // "7"
+    return
+           jm_str_eq_2(s, 0x00000037)  // "7"
         || jm_str_eq_2(s, 0x00000038)  // "8"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -5530,7 +5630,8 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_47_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000372e3031LL)  // "10.7"
         || jm_str_eq_5(s, 0x00000000382e3031LL)  // "10.8"
         || jm_str_eq_5(s, 0x00000000392e3031LL)  // "10.9"
@@ -5540,6 +5641,7 @@ static INLINE bool _jm_cst_47_str_test(const char *s)
         || jm_str_eq_6(s, 0x00000033312e3031LL)  // "10.13"
         || jm_str_eq_6(s, 0x00000034312e3031LL)  // "10.14"
         || jm_str_eq_6(s, 0x00000035312e3031LL)  // "10.15"
+
     ;
 }
 
@@ -5606,7 +5708,8 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_48_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_7(s, 0x00006576616a6f4dLL)  // "Mojave"
         || jm_str_eq_7(s, 0x0000617272656953LL)  // "Sierra"
         || jm_str_eq_7(s, 0x0000616d6f6e6f53LL)  // "Sonoma"
@@ -5615,6 +5718,7 @@ static INLINE bool _jm_cst_48_str_test(const char *s)
         || jm_str_eq_8(s, 0x616e696c61746143LL) && jm_str_eq_0(s + 8)  // "Catalina"
         || jm_str_eq_8(s, 0x79657265746e6f4dLL) && jm_str_eq_0(s + 8)  // "Monterey"
         || jm_str_eq_8(s, 0x6569532d68676948LL) && jm_str_eq_4(s + 8, 0x00617272)  // "High-Sierra"
+
     ;
 }
 
@@ -5681,7 +5785,8 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_49_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e32)  // "2.0"
+    return
+           jm_str_eq_4(s, 0x00302e32)  // "2.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000036313032LL)  // "2016"
         || jm_str_eq_5(s, 0x0000000037313032LL)  // "2017"
@@ -5691,6 +5796,7 @@ static INLINE bool _jm_cst_49_str_test(const char *s)
         || jm_str_eq_5(s, 0x0000000031323032LL)  // "2021"
         || jm_str_eq_5(s, 0x0000000032323032LL)  // "2022"
         || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
+
     ;
 }
 
@@ -5879,9 +5985,11 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_50_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00003031)  // "10"
+    return
+           jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_3(s, 0x00003131)  // "11"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -6192,7 +6300,8 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_51_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+    return
+           jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00322e38)  // "8.2"
         || jm_str_eq_4(s, 0x00332e38)  // "8.3"
@@ -6219,6 +6328,7 @@ static INLINE bool _jm_cst_51_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
         || jm_str_eq_5(s, 0x00000000322e3331LL)  // "13.2"
         || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
+
     ;
 }
 
@@ -6285,7 +6395,8 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_52_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00003631)  // "16"
+    return
+           jm_str_eq_3(s, 0x00003631)  // "16"
         || jm_str_eq_3(s, 0x00003731)  // "17"
         || jm_str_eq_3(s, 0x00003831)  // "18"
         || jm_str_eq_3(s, 0x00003931)  // "19"
@@ -6313,6 +6424,7 @@ static INLINE bool _jm_cst_52_str_test(const char *s)
         || jm_str_eq_3(s, 0x00003134)  // "41"
         || jm_str_eq_3(s, 0x00003234)  // "42"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -6440,13 +6552,15 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_53_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000035)  // "5"
+    return
+           jm_str_eq_2(s, 0x00000035)  // "5"
         || jm_str_eq_2(s, 0x00000036)  // "6"
         || jm_str_eq_2(s, 0x00000037)  // "7"
         || jm_str_eq_2(s, 0x00000038)  // "8"
         || jm_str_eq_2(s, 0x00000039)  // "9"
         || jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -6513,7 +6627,8 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_54_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00322e35)  // "5.2"
+    return
+           jm_str_eq_4(s, 0x00322e35)  // "5.2"
         || jm_str_eq_4(s, 0x00342e35)  // "5.4"
         || jm_str_eq_4(s, 0x00362e35)  // "5.6"
         || jm_str_eq_4(s, 0x00382e35)  // "5.8"
@@ -6521,6 +6636,7 @@ static INLINE bool _jm_cst_54_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e36)  // "6.2"
         || jm_str_eq_4(s, 0x00342e36)  // "6.4"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -6587,12 +6703,14 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_55_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_6(s, 0x0000006969637361LL)  // "ascii"
         || jm_str_eq_7(s, 0x000065697373656aLL)  // "jessie"
         || jm_str_eq_8(s, 0x00666c75776f6562LL)  // "beowulf"
         || jm_str_eq_8(s, 0x617265616d696863LL) && jm_str_eq_0(s + 8)  // "chimaera"
         || jm_str_eq_8(s, 0x73756c6164656164LL) && jm_str_eq_0(s + 8)  // "daedalus"
+
     ;
 }
 
@@ -6659,10 +6777,12 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_56_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000036)  // "6"
+    return
+           jm_str_eq_2(s, 0x00000036)  // "6"
         || jm_str_eq_2(s, 0x00000039)  // "9"
         || jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -6729,7 +6849,8 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_57_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_4(s, 0x00646973)  // "sid"
         || jm_str_eq_5(s, 0x0000000068637465LL)  // "etch"
         || jm_str_eq_6(s, 0x000000796e6e656cLL)  // "lenny"
@@ -6741,6 +6862,7 @@ static INLINE bool _jm_cst_57_str_test(const char *s)
         || jm_str_eq_8(s, 0x0068637465727473LL)  // "stretch"
         || jm_str_eq_8(s, 0x6d726f776b6f6f62LL) && jm_str_eq_0(s + 8)  // "bookworm"
         || jm_str_eq_8(s, 0x657965736c6c7562LL) && jm_str_eq_0(s + 8)  // "bullseye"
+
     ;
 }
 
@@ -6807,7 +6929,8 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_58_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00302e38)  // "8.0"
+    return
+           jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00322e38)  // "8.2"
         || jm_str_eq_4(s, 0x00302e39)  // "9.0"
@@ -6816,6 +6939,7 @@ static INLINE bool _jm_cst_58_str_test(const char *s)
         || jm_str_eq_4(s, 0x00332e39)  // "9.3"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000302e3031LL)  // "10.0"
+
     ;
 }
 
@@ -6882,7 +7006,8 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_59_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00352e32)  // "2.5"
+    return
+           jm_str_eq_4(s, 0x00352e32)  // "2.5"
         || jm_str_eq_4(s, 0x00302e33)  // "3.0"
         || jm_str_eq_4(s, 0x00312e33)  // "3.1"
         || jm_str_eq_4(s, 0x00322e33)  // "3.2"
@@ -6890,6 +7015,7 @@ static INLINE bool _jm_cst_59_str_test(const char *s)
         || jm_str_eq_4(s, 0x00342e33)  // "3.4"
         || jm_str_eq_4(s, 0x00352e33)  // "3.5"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -7017,11 +7143,13 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_60_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00362e31)  // "1.6"
+    return
+           jm_str_eq_4(s, 0x00362e31)  // "1.6"
         || jm_str_eq_4(s, 0x00372e31)  // "1.7"
         || jm_str_eq_4(s, 0x00382e31)  // "1.8"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000032312e32LL)  // "2.12"
+
     ;
 }
 
@@ -7210,10 +7338,12 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_61_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000031)  // "1"
+    return
+           jm_str_eq_2(s, 0x00000031)  // "1"
         || jm_str_eq_2(s, 0x00000032)  // "2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
+
     ;
 }
 
@@ -7280,7 +7410,8 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_62_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x006c6c61)  // "all"
+    return
+           jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_8(s, 0x0033302e33313032LL)  // "2013.03"
         || jm_str_eq_8(s, 0x0039302e33313032LL)  // "2013.09"
         || jm_str_eq_8(s, 0x0033302e34313032LL)  // "2014.03"
@@ -7294,6 +7425,7 @@ static INLINE bool _jm_cst_62_str_test(const char *s)
         || jm_str_eq_8(s, 0x0032312e37313032LL)  // "2017.12"
         || jm_str_eq_8(s, 0x0033302e38313032LL)  // "2018.03"
         || jm_str_eq_8(s, 0x74616469646e6143LL) && jm_str_eq_2(s + 8, 0x00000065)  // "Candidate"
+
     ;
 }
 
@@ -7421,10 +7553,12 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_63_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00312e36)  // "6.1"
+    return
+           jm_str_eq_4(s, 0x00312e36)  // "6.1"
         || jm_str_eq_4(s, 0x00312e37)  // "7.1"
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
+
     ;
 }
 
@@ -9108,8 +9242,10 @@ static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_64_str_test(const char *s)
 {
-    return jm_str_eq_3(s, 0x00006768)  // "hg"
+    return
+           jm_str_eq_3(s, 0x00006768)  // "hg"
         || jm_str_eq_4(s, 0x00746967)  // "git"
+
     ;
 }
 

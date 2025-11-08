@@ -120,11 +120,18 @@ public class dst_03 extends ModelChecker
             }
             if (! res)
             {
-                // .'|'.1
-                res = _jm_obj_0(val, path, rep);
-                if (! res)
+                if (json.objectHasProp(val, "c"))
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'|'.1]", path);
+                    // .'|'.1
+                    res = _jm_obj_0(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected element [.'|'.1]", path);
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
             }
             if (res)

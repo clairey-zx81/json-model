@@ -369,19 +369,29 @@ function _jm_obj_0(val, path, rep)
             }
             if (res)
             {
-                // .'$Prompts'.'|'.0.suggestions.'|'.0
-                res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
-                if (! res)
+                if (pval.hasOwnProperty("preset"))
                 {
-                    rep !== null && rep.push(["unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.0]", (path ? lpath_0 : null)])
-                }
-                if (! res)
-                {
-                    // .'$Prompts'.'|'.0.suggestions.'|'.1
-                    res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
+                    // .'$Prompts'.'|'.0.suggestions.'|'.0
+                    res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path ? lpath_0 : null)])
+                        rep !== null && rep.push(["unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.0]", (path ? lpath_0 : null)])
+                    }
+                }
+                else
+                {
+                    if (pval.hasOwnProperty("command"))
+                    {
+                        // .'$Prompts'.'|'.0.suggestions.'|'.1
+                        res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path ? lpath_0 : null)])
+                        }
+                    }
+                    else
+                    {
+                        res = false;
                     }
                 }
                 if (res)

@@ -1,8 +1,8 @@
 notag.values.json[0]: PASS
 notag.values.json[1]: PASS
-notag.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .t: unexpected value for mandatory prop <t> [.'|'.1]; .t: unexpected A [.'|'.1.t]; .: unexpected element [.'|'.0]; .t: unexpected value for mandatory prop <t> [.'|'.0]; .t: unexpected A [.'|'.0.t])
-notag.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
-notag.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+notag.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .t: unexpected value for mandatory prop <t> [.'|'.1]; .t: unexpected A [.'|'.1.t])
+notag.values.json[3]: FAIL (.: no model matched [.'|'])
+notag.values.json[4]: FAIL (.: no model matched [.'|'])
 notag.values.json[5]: FAIL (.: unexpected type [.'|'])
 notag.values.json[6]: FAIL (.: unexpected type [.'|'])
 notag.values.json[7]: FAIL (.: unexpected type [.'|'])

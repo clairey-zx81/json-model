@@ -1731,19 +1731,29 @@ function _jm_obj_10(val, path, rep)
             }
             if (res)
             {
-                // .merge.m1.'|'.0
-                res = _jm_obj_13(pval, (path ? lpath_10 : null), rep);
-                if (! res)
+                if (pval.hasOwnProperty("b"))
                 {
-                    rep !== null && rep.push(["unexpected element [.merge.m1.'|'.0]", (path ? lpath_10 : null)])
-                }
-                if (! res)
-                {
-                    // .merge.m1.'|'.1
-                    res = _jm_obj_12(pval, (path ? lpath_10 : null), rep);
+                    // .merge.m1.'|'.0
+                    res = _jm_obj_13(pval, (path ? lpath_10 : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected element [.merge.m1.'|'.1]", (path ? lpath_10 : null)])
+                        rep !== null && rep.push(["unexpected element [.merge.m1.'|'.0]", (path ? lpath_10 : null)])
+                    }
+                }
+                else
+                {
+                    if (pval.hasOwnProperty("c"))
+                    {
+                        // .merge.m1.'|'.1
+                        res = _jm_obj_12(pval, (path ? lpath_10 : null), rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected element [.merge.m1.'|'.1]", (path ? lpath_10 : null)])
+                        }
+                    }
+                    else
+                    {
+                        res = false;
                     }
                 }
                 if (res)
@@ -1773,19 +1783,29 @@ function _jm_obj_10(val, path, rep)
             }
             if (res)
             {
-                // .merge.m2.'|'.0
-                res = _jm_obj_15(pval, (path ? lpath_10 : null), rep);
-                if (! res)
+                if (pval.hasOwnProperty("b"))
                 {
-                    rep !== null && rep.push(["unexpected element [.merge.m2.'|'.0]", (path ? lpath_10 : null)])
-                }
-                if (! res)
-                {
-                    // .merge.m2.'|'.1
-                    res = _jm_obj_14(pval, (path ? lpath_10 : null), rep);
+                    // .merge.m2.'|'.0
+                    res = _jm_obj_15(pval, (path ? lpath_10 : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected element [.merge.m2.'|'.1]", (path ? lpath_10 : null)])
+                        rep !== null && rep.push(["unexpected element [.merge.m2.'|'.0]", (path ? lpath_10 : null)])
+                    }
+                }
+                else
+                {
+                    if (pval.hasOwnProperty("c"))
+                    {
+                        // .merge.m2.'|'.1
+                        res = _jm_obj_14(pval, (path ? lpath_10 : null), rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected element [.merge.m2.'|'.1]", (path ? lpath_10 : null)])
+                        }
+                    }
+                    else
+                    {
+                        res = false;
                     }
                 }
                 if (res)
@@ -1815,35 +1835,63 @@ function _jm_obj_10(val, path, rep)
             }
             if (res)
             {
-                // .merge.m3.'|'.0
-                res = _jm_obj_19(pval, (path ? lpath_10 : null), rep);
-                if (! res)
+                if (pval.hasOwnProperty("a"))
                 {
-                    rep !== null && rep.push(["unexpected element [.merge.m3.'|'.0]", (path ? lpath_10 : null)])
+                    // .merge.m3.'|'.0
+                    res = _jm_obj_19(pval, (path ? lpath_10 : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected element [.merge.m3.'|'.0]", (path ? lpath_10 : null)])
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
                 if (! res)
                 {
-                    // .merge.m3.'|'.1
-                    res = _jm_obj_18(pval, (path ? lpath_10 : null), rep);
-                    if (! res)
+                    if (pval.hasOwnProperty("a"))
                     {
-                        rep !== null && rep.push(["unexpected element [.merge.m3.'|'.1]", (path ? lpath_10 : null)])
+                        // .merge.m3.'|'.1
+                        res = _jm_obj_18(pval, (path ? lpath_10 : null), rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected element [.merge.m3.'|'.1]", (path ? lpath_10 : null)])
+                        }
+                    }
+                    else
+                    {
+                        res = false;
                     }
                     if (! res)
                     {
-                        // .merge.m3.'|'.2
-                        res = _jm_obj_17(pval, (path ? lpath_10 : null), rep);
-                        if (! res)
+                        if (pval.hasOwnProperty("b"))
                         {
-                            rep !== null && rep.push(["unexpected element [.merge.m3.'|'.2]", (path ? lpath_10 : null)])
+                            // .merge.m3.'|'.2
+                            res = _jm_obj_17(pval, (path ? lpath_10 : null), rep);
+                            if (! res)
+                            {
+                                rep !== null && rep.push(["unexpected element [.merge.m3.'|'.2]", (path ? lpath_10 : null)])
+                            }
+                        }
+                        else
+                        {
+                            res = false;
                         }
                         if (! res)
                         {
-                            // .merge.m3.'|'.3
-                            res = _jm_obj_16(pval, (path ? lpath_10 : null), rep);
-                            if (! res)
+                            if (pval.hasOwnProperty("b"))
                             {
-                                rep !== null && rep.push(["unexpected element [.merge.m3.'|'.3]", (path ? lpath_10 : null)])
+                                // .merge.m3.'|'.3
+                                res = _jm_obj_16(pval, (path ? lpath_10 : null), rep);
+                                if (! res)
+                                {
+                                    rep !== null && rep.push(["unexpected element [.merge.m3.'|'.3]", (path ? lpath_10 : null)])
+                                }
+                            }
+                            else
+                            {
+                                res = false;
                             }
                         }
                     }

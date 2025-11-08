@@ -152,19 +152,33 @@ public class xoropt_006 extends ModelChecker
         }
         if (res)
         {
-            // .'|'.0
-            res = _jm_obj_2(val, path, rep);
-            if (! res)
+            if (json.objectHasProp(val, "a"))
             {
-                if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
+                // .'|'.0
+                res = _jm_obj_2(val, path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
+                }
+            }
+            else
+            {
+                res = false;
             }
             if (! res)
             {
-                // .'|'.1
-                res = _jm_obj_1(val, path, rep);
-                if (! res)
+                if (json.objectHasProp(val, "b"))
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'|'.1]", path);
+                    // .'|'.1
+                    res = _jm_obj_1(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected element [.'|'.1]", path);
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
                 if (! res)
                 {

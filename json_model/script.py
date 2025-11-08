@@ -390,9 +390,12 @@ def jmc_script():
         help="mmo scheme if number of optional props below threshold, target-dependent default")
     arg("--must-only-threshold", "-mot", default=None, type=int,
         help="must-only scheme if number of mandatory props below threshold,"
-              " target-dependent default, 0 to disable")
+             " target-dependent default, 0 to disable")
     arg("--partition-threshold", "-pt", default=None, type=int,
         help="threshold to trigger unrolled string search partitioning")
+    arg("--or-must-prop", "-omp", default=None, type=int,
+        help="or length threshold for mandatory property discrimination,"
+             " target-dependent default, 0 to disable")
     arg("--sort-must", "-smu", default=True, action="store_true",
         help="sort must props (default)")
     arg("--no-sort-must", "-nsmu", action="store_false",
@@ -679,6 +682,7 @@ def jmc_script():
             may_must_open_threshold=args.may_must_open_threshold,
             must_only_threshold=args.must_only_threshold,
             partition_threshold=args.partition_threshold,
+            or_must_prop=args.or_must_prop,
             sort_must=args.sort_must, sort_may=args.sort_may,
             max_strcmp_cset=args.max_strcmp_cset,
         )

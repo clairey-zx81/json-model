@@ -235,7 +235,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_5(s, 0x0000000065746164LL)  // "date"
+    return
+           jm_str_eq_5(s, 0x0000000065746164LL)  // "date"
         || jm_str_eq_5(s, 0x000000006c6c756eLL)  // "null"
         || jm_str_eq_5(s, 0x00000000656d6974LL)  // "time"
         || jm_str_eq_7(s, 0x0000495255796e61LL)  // "anyURI"
@@ -249,6 +250,7 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_8(s, 0x72616e6942786568LL) && jm_str_eq_2(s + 8, 0x00000079)  // "hexBinary"
         || jm_str_eq_8(s, 0x6942343665736162LL) && jm_str_eq_5(s + 8, 0x000000007972616eLL)  // "base64Binary"
         || jm_str_eq_8(s, 0x656d695465746164LL) && jm_str_eq_6(s + 8, 0x000000706d617453LL)  // "dateTimeStamp"
+
     ;
 }
 
@@ -323,9 +325,11 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_1_str_test(const char *s)
 {
-    return jm_str_eq_8(s, 0x6c616e6f6974706fLL) && jm_str_eq_0(s + 8)  // "optional"
+    return
+           jm_str_eq_8(s, 0x6c616e6f6974706fLL) && jm_str_eq_0(s + 8)  // "optional"
         || jm_str_eq_8(s, 0x6465726975716572LL) && jm_str_eq_0(s + 8)  // "required"
         || jm_str_eq_8(s, 0x74696269686f7270LL) && jm_str_eq_3(s + 8, 0x00006465)  // "prohibited"
+
     ;
 }
 

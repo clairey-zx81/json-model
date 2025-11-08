@@ -2,11 +2,11 @@ xor_ob02.values.json[0]: PASS
 xor_ob02.values.json[1]: PASS
 xor_ob02.values.json[2]: PASS
 xor_ob02.values.json[3]: PASS
-xor_ob02.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
-xor_ob02.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
-xor_ob02.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
-xor_ob02.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
-xor_ob02.values.json[8]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob02.values.json[4]: FAIL (.: no model matched [.'|'])
+xor_ob02.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob02.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3])
+xor_ob02.values.json[7]: FAIL (.: no model matched [.'|'])
+xor_ob02.values.json[8]: FAIL (.: no model matched [.'|'])
 xor_ob02.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .b: unexpected value for mandatory prop <b> [.'|'.3]; .b: not a 0 strict int [.'|'.3.b]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: unexpected element [.'|'.0]; .b: unexpected value for mandatory prop <b> [.'|'.0]; .b: not a 0 strict int [.'|'.0.b])
 xor_ob02.values.json[10]: FAIL (.: unexpected type [.'|'])
 xor_ob02.values.json[11]: FAIL (.: unexpected type [.'|'])

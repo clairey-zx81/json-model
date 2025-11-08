@@ -1426,15 +1426,19 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected type [.merge.m1.'|']", lpath_8 if path is not None else None))
             if res:
-                # .merge.m1.'|'.0
-                res = _jm_obj_5(pval, lpath_8 if path is not None else None, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected element [.merge.m1.'|'.0]", lpath_8 if path is not None else None))
-                if not res:
-                    # .merge.m1.'|'.1
-                    res = _jm_obj_4(pval, lpath_8 if path is not None else None, rep)
+                if "b" in pval:
+                    # .merge.m1.'|'.0
+                    res = _jm_obj_5(pval, lpath_8 if path is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected element [.merge.m1.'|'.1]", lpath_8 if path is not None else None))
+                        rep is None or rep.append(("unexpected element [.merge.m1.'|'.0]", lpath_8 if path is not None else None))
+                else:
+                    if "c" in pval:
+                        # .merge.m1.'|'.1
+                        res = _jm_obj_4(pval, lpath_8 if path is not None else None, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected element [.merge.m1.'|'.1]", lpath_8 if path is not None else None))
+                    else:
+                        res = False
                 if res:
                     rep is None or rep.clear()
                 else:
@@ -1450,15 +1454,19 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected type [.merge.m2.'|']", lpath_8 if path is not None else None))
             if res:
-                # .merge.m2.'|'.0
-                res = _jm_obj_7(pval, lpath_8 if path is not None else None, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected element [.merge.m2.'|'.0]", lpath_8 if path is not None else None))
-                if not res:
-                    # .merge.m2.'|'.1
-                    res = _jm_obj_6(pval, lpath_8 if path is not None else None, rep)
+                if "b" in pval:
+                    # .merge.m2.'|'.0
+                    res = _jm_obj_7(pval, lpath_8 if path is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected element [.merge.m2.'|'.1]", lpath_8 if path is not None else None))
+                        rep is None or rep.append(("unexpected element [.merge.m2.'|'.0]", lpath_8 if path is not None else None))
+                else:
+                    if "c" in pval:
+                        # .merge.m2.'|'.1
+                        res = _jm_obj_6(pval, lpath_8 if path is not None else None, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected element [.merge.m2.'|'.1]", lpath_8 if path is not None else None))
+                    else:
+                        res = False
                 if res:
                     rep is None or rep.clear()
                 else:
@@ -1474,25 +1482,37 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected type [.merge.m3.'|']", lpath_8 if path is not None else None))
             if res:
-                # .merge.m3.'|'.0
-                res = _jm_obj_11(pval, lpath_8 if path is not None else None, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected element [.merge.m3.'|'.0]", lpath_8 if path is not None else None))
-                if not res:
-                    # .merge.m3.'|'.1
-                    res = _jm_obj_10(pval, lpath_8 if path is not None else None, rep)
+                if "a" in pval:
+                    # .merge.m3.'|'.0
+                    res = _jm_obj_11(pval, lpath_8 if path is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected element [.merge.m3.'|'.1]", lpath_8 if path is not None else None))
+                        rep is None or rep.append(("unexpected element [.merge.m3.'|'.0]", lpath_8 if path is not None else None))
+                else:
+                    res = False
+                if not res:
+                    if "a" in pval:
+                        # .merge.m3.'|'.1
+                        res = _jm_obj_10(pval, lpath_8 if path is not None else None, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected element [.merge.m3.'|'.1]", lpath_8 if path is not None else None))
+                    else:
+                        res = False
                     if not res:
-                        # .merge.m3.'|'.2
-                        res = _jm_obj_9(pval, lpath_8 if path is not None else None, rep)
-                        if not res:
-                            rep is None or rep.append(("unexpected element [.merge.m3.'|'.2]", lpath_8 if path is not None else None))
-                        if not res:
-                            # .merge.m3.'|'.3
-                            res = _jm_obj_8(pval, lpath_8 if path is not None else None, rep)
+                        if "b" in pval:
+                            # .merge.m3.'|'.2
+                            res = _jm_obj_9(pval, lpath_8 if path is not None else None, rep)
                             if not res:
-                                rep is None or rep.append(("unexpected element [.merge.m3.'|'.3]", lpath_8 if path is not None else None))
+                                rep is None or rep.append(("unexpected element [.merge.m3.'|'.2]", lpath_8 if path is not None else None))
+                        else:
+                            res = False
+                        if not res:
+                            if "b" in pval:
+                                # .merge.m3.'|'.3
+                                res = _jm_obj_8(pval, lpath_8 if path is not None else None, rep)
+                                if not res:
+                                    rep is None or rep.append(("unexpected element [.merge.m3.'|'.3]", lpath_8 if path is not None else None))
+                            else:
+                                res = False
                 if res:
                     rep is None or rep.clear()
                 else:

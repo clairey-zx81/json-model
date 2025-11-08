@@ -8,7 +8,7 @@ from .mtypes import Jsonable, Number, JsonScalar
 from .utils import split_object, model_in_models, all_model_type, constant_value, is_a_simple_object
 from .utils import log, tname, MODEL_PREDEFS, partition
 from .runtime.support import _path as json_path
-from .analyze import ultimate_type, disjunct_analyse
+from .analyze import ultimate_type, disjunct_analyse, distinct_prop_objects
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr, PathExpr, PropMap, JsonExpr, StrExpr, Var
 from .irep import IRep, optimizeIR, evaluate
@@ -38,6 +38,7 @@ class CodeGenerator:
     - may_must_open_threshold: max number of optional props to mmop scheme, default 5
     - must_only_threshold: max number of mandatory props for must-only scheme, default 5
     - partition_threshold: max number of strings without search partitioning, 0 for no partitioning
+    - or_must_prop: threshold to try or-list shortcut based on mandatory properties
     - sort_must: whether to sort must properties, default True
     - sort_may: whether to sort may properties, default True
     - report: whether to report rejection reasons.
@@ -49,6 +50,7 @@ class CodeGenerator:
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
                  may_must_open_threshold: int = 5, must_only_threshold: int = 5,
                  sort_must: bool = True, sort_may: bool = True, partition_threshold: int = 0,
+                 or_must_prop: int = 0,
                  execute: bool = True, report: bool = True, path: bool = True,
                  package: str|None = None, debug: bool = False):
 
@@ -64,6 +66,7 @@ class CodeGenerator:
         self._sort_may = sort_may
         self._partition_threshold = partition_threshold
         self._map_share = map_share
+        self._or_must_prop = or_must_prop
         self._report = report
         self._path = path
         self._package = package
@@ -1098,12 +1101,15 @@ class CodeGenerator:
         smpath = json_path(mpath)
 
         # direct empty list
-        # NOTE in practice this case is optimized out so should not come here
         if not models:
+            # NOTE in practice this case is optimized out so should not come here
             if self._report:
                 code += [ gen.report(f"empty or [{smpath}]", vpath) ]
             code += gen.bool_var(res, gen.false())
             return code
+        elif len(models) == 1:
+            # NOTE idem, should not come here
+            return self._compileModel(jm, models[0], mpath + [0], res, val, vpath, known)
 
         # partial/full list of constants optimization
         # TODO constant_values
@@ -1159,13 +1165,50 @@ class CodeGenerator:
             or_code += gen.bool_var(res, type_test)
             or_code += self._gen_report(res, f"unexpected type [{smpath}]", vpath)
 
+        # TODO reorder models? by type?
+        # CSE should remove some repetitions, but not all?
+
+        # mandatory property discrimination, which may be full or partial
+        # TODO same is too restrictive
+        mandatory_props: list[tuple[str, bool]|None] = (
+            distinct_prop_objects(jm, models)
+                if same and expected is dict and self._or_must_prop and len(models) >= self._or_must_prop else
+            [ None ] * len(models)
+        )
+
+        # TODO on partial, merge common property tests if any?
+        if False:  # self._reorder_models:
+            commons: dict[str, list[int]]  = {}
+            for i, prop, full in enumerate(mandatory_props):
+                if not full:
+                    if prop in commons:
+                        commons[prop].append(i)
+                    else:
+                        commons[prop] = [i]
+            # TODO
+
+        # build code sequence in reverse order
         icode = []
         for i, m in reversed(list(enumerate(models))):
-            body = self._compileModel(jm, m, mpath + [i], res, val, vpath, or_known) + icode
-            if i > 0:
-                icode = gen.if_stmt(gen.not_op(res), body)
+            # add a test if needed before the next check
+            if icode and not (mandatory_props[i] and mandatory_props[i][1]):
+                icode = gen.if_stmt(gen.not_op(res), icode)
+            # current model code
+            m_code = self._compileModel(jm, m, mpath + [i], res, val, vpath, or_known)
+            # use the mandatory property test to reduce object checks
+            if mandatory_props[i]:
+                pname, full = mandatory_props[i]
+                cond = gen.has_prop(val, pname)
+                if full:
+                    # full discriminant, only one test is required
+                    icode = gen.if_stmt(cond, m_code, icode if icode else gen.bool_var(res, gen.false()), likely=len(icode)==0)
+                else:
+                    # partial, we still have to test others
+                    m_code = gen.if_stmt(cond, m_code, gen.bool_var(res, gen.false()))
+                    icode = m_code + icode
             else:
-                icode =  body
+                # like partial, but without test
+                icode = m_code + icode
 
         icode += self._gen_report(res, f"no model matched [{smpath}]", vpath, True)
 
@@ -1812,13 +1855,14 @@ def xstatic_compile(
         lang: str = "py",
         prefix: str = "_jm_",
         relib: str|None = None,
-        map_threshold: int = None,
+        map_threshold: int|None = None,
         map_share: bool = False,
-        may_must_open_threshold: int = None,
-        must_only_threshold: int = None,
+        may_must_open_threshold: int|None = None,
+        must_only_threshold: int|None = None,
         sort_must: bool = True,
         sort_may: bool = True,
-        partition_threshold: int = None,
+        partition_threshold: int|None = None,
+        or_must_prop: int|None = None,
         strcmp_cset_partition_threshold: int = 32,  # or 64
         execute: bool = True,
         debug: bool = False,
@@ -1845,6 +1889,7 @@ def xstatic_compile(
     - sort_must: whether to sort must properties
     - sort_may: whether to sort may properties
     - partition_threshold: property test partition if over this threshold, 0 for no partitioning
+    - or_must_prop: length threshold for or-list shortcut based on mandatory properties
     - strcmp_cset_partition_threshold: string set partitioning target chunk size, 0 for no partitioning
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
@@ -1907,8 +1952,22 @@ def xstatic_compile(
         log.warning(f"partitioning not implemented for {lang}, ignoring")
         partition_threshold = 0
 
+    # length threshold about whether to shortcut or-list based on mandatory properties
+    OR_MUST_PROP: dict[str, bool] = {
+        "c": 4,
+        "js": 2,
+        "py": 2,
+        "java": 2,
+        "pl": 3,
+        # UNTESTED
+        "sql": 0,
+        "plpgsql": 0,
+    }
+    if or_must_prop is None:
+        or_must_prop = OR_MUST_PROP.get(lang, 0)
+
     log.info(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
-             f"mo={must_only_threshold} pt={partition_threshold}")
+             f"mo={must_only_threshold} pt={partition_threshold} omp={or_must_prop}")
 
     # target language
     if lang == "py":
@@ -1961,12 +2020,14 @@ def xstatic_compile(
     # source code generator
     gen = CodeGenerator(
         model._globs, target, fname, prefix=prefix,  # type: ignore
-        execute=execute, map_threshold=map_threshold, map_share=map_share,
+        map_share=map_share,
+        map_threshold=map_threshold,
         may_must_open_threshold=may_must_open_threshold,
         must_only_threshold=must_only_threshold,
         partition_threshold=partition_threshold,
+        or_must_prop=or_must_prop,
         sort_must=sort_must, sort_may=sort_may,
-        debug=debug, report=report, package=package
+        execute=execute, debug=debug, report=report, package=package
     )
 
     # generate IR or final code

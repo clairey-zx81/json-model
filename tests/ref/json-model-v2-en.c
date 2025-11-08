@@ -361,7 +361,8 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_1_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00384924)  // "$I8"
+    return
+           jm_str_eq_4(s, 0x00384924)  // "$I8"
         || jm_str_eq_4(s, 0x00385524)  // "$U8"
         || jm_str_eq_5(s, 0x00000000594e4124LL)  // "$ANY"
         || jm_str_eq_5(s, 0x0000000036314624LL)  // "$F16"
@@ -390,6 +391,7 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_8(s, 0x00474e4952545324LL)  // "$STRING"
         || jm_str_eq_8(s, 0x52454745544e4924LL) && jm_str_eq_0(s + 8)  // "$INTEGER"
         || jm_str_eq_8(s, 0x4d49544554414424LL) && jm_str_eq_2(s + 8, 0x00000045)  // "$DATETIME"
+
     ;
 }
 

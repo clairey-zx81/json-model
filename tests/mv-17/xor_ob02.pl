@@ -358,11 +358,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # props: a/b a/c b/c
     # .
-    # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    # .'|'.3
-    return jm_is_object($val) && (_jm_obj_9($val, undef, undef) || _jm_obj_8($val, undef, undef) || _jm_obj_7($val, undef, undef) || _jm_obj_6($val, undef, undef));
+    return jm_is_object($val) && (exists $$val{'a'} && (_jm_obj_9($val, undef, undef) || _jm_obj_8($val, undef, undef) || _jm_obj_7($val, undef, undef)) || exists $$val{'b'} && _jm_obj_6($val, undef, undef));
 }
 
 

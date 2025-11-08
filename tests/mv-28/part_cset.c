@@ -18,8 +18,8 @@ const size_t check_model_map_size = 1;
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
     uint32_t hash = (*((uint32_t *) (s))) & 0xffffff;
-    return 
-        (hash <= 0x3737) ? (
+    return
+           (hash <= 0x3737) ? (
         (hash <= 0x3337) ? (
            jm_str_eq_3(s, 0x00003030)  // "00"
         || jm_str_eq_3(s, 0x00003130)  // "01"

@@ -1630,11 +1630,7 @@ sub _jm_f_52($$$)
         {
             # handle may m3 property
             # .merge.m3
-            # .merge.m3.'|'.0
-            # .merge.m3.'|'.1
-            # .merge.m3.'|'.2
-            # .merge.m3.'|'.3
-            $res = jm_is_object($pval) && (_jm_obj_11($pval, undef, undef) || _jm_obj_10($pval, undef, undef) || _jm_obj_9($pval, undef, undef) || _jm_obj_8($pval, undef, undef));
+            $res = jm_is_object($pval) && (exists $$pval{'a'} && (_jm_obj_11($pval, undef, undef) || _jm_obj_10($pval, undef, undef)) || exists $$pval{'b'} && _jm_obj_9($pval, undef, undef) || exists $$pval{'b'} && _jm_obj_8($pval, undef, undef));
             if (! $res)
             {
                 return 0;

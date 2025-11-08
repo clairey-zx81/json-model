@@ -2489,9 +2489,11 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_3_str_test(const char *s)
 {
-    return jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
+    return
+           jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
         || jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
         || jm_str_eq_7(s, 0x0000736562626f48LL)  // "Hobbes"
+
     ;
 }
 
@@ -3516,36 +3518,56 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             if (res)
             {
-                // .merge.m3.'|'.0
-                res = _jm_obj_32(pval, (path ? &lpath_20 : NULL), rep);
-                if (unlikely(! res))
+                if (json_object_get(pval, "a") != NULL)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.0]", (path ? &lpath_20 : NULL));
-                }
-                if (! res)
-                {
-                    // .merge.m3.'|'.1
-                    res = _jm_obj_31(pval, (path ? &lpath_20 : NULL), rep);
+                    // .merge.m3.'|'.0
+                    res = _jm_obj_32(pval, (path ? &lpath_20 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.1]", (path ? &lpath_20 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.0]", (path ? &lpath_20 : NULL));
                     }
-                    if (! res)
+                }
+                else
+                    res = false;
+                if (! res)
+                {
+                    if (json_object_get(pval, "a") != NULL)
                     {
-                        // .merge.m3.'|'.2
-                        res = _jm_obj_30(pval, (path ? &lpath_20 : NULL), rep);
+                        // .merge.m3.'|'.1
+                        res = _jm_obj_31(pval, (path ? &lpath_20 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.2]", (path ? &lpath_20 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.1]", (path ? &lpath_20 : NULL));
                         }
-                        if (! res)
+                    }
+                    else
+                        res = false;
+                    if (! res)
+                    {
+                        if (json_object_get(pval, "b") != NULL)
                         {
-                            // .merge.m3.'|'.3
-                            res = _jm_obj_29(pval, (path ? &lpath_20 : NULL), rep);
+                            // .merge.m3.'|'.2
+                            res = _jm_obj_30(pval, (path ? &lpath_20 : NULL), rep);
                             if (unlikely(! res))
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.3]", (path ? &lpath_20 : NULL));
+                                if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.2]", (path ? &lpath_20 : NULL));
                             }
+                        }
+                        else
+                            res = false;
+                        if (! res)
+                        {
+                            if (json_object_get(pval, "b") != NULL)
+                            {
+                                // .merge.m3.'|'.3
+                                res = _jm_obj_29(pval, (path ? &lpath_20 : NULL), rep);
+                                if (unlikely(! res))
+                                {
+                                    if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.3]", (path ? &lpath_20 : NULL));
+                                }
+                            }
+                            else
+                                res = false;
                         }
                     }
                 }

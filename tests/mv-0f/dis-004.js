@@ -92,19 +92,29 @@ function json_model_2(val, path, rep)
     }
     if (res)
     {
-        // .'$Aa'.'|'.0
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
+        if (val.hasOwnProperty("a"))
         {
-            rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'$Aa'.'|'.1
-            res = _jm_obj_0(val, path, rep);
+            // .'$Aa'.'|'.0
+            res = _jm_obj_1(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.1]", path])
+                rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.0]", path])
+            }
+        }
+        else
+        {
+            if (val.hasOwnProperty("b"))
+            {
+                // .'$Aa'.'|'.1
+                res = _jm_obj_0(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.1]", path])
+                }
+            }
+            else
+            {
+                res = false;
             }
         }
         if (res)

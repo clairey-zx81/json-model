@@ -112,13 +112,16 @@ public class dis_005 extends ModelChecker
         }
         if (res)
         {
-            // .'|'.0
-            res = _jm_obj_1(val, path, rep);
-            if (! res)
+            if (json.objectHasProp(val, "b"))
             {
-                if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
+                // .'|'.0
+                res = _jm_obj_1(val, path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
+                }
             }
-            if (! res)
+            else
             {
                 // .'|'.1
                 res = _jm_obj_0(val, path, rep);

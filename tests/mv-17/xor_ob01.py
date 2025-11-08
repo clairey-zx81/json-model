@@ -77,15 +77,19 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("unexpected type [.'$Bb'.'|']", path))
     if res:
-        # .'$Bb'.'|'.0
-        res = _jm_obj_1(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'$Bb'.'|'.0]", path))
-        if not res:
-            # .'$Bb'.'|'.1
-            res = _jm_obj_0(val, path, rep)
+        if "a" in val:
+            # .'$Bb'.'|'.0
+            res = _jm_obj_1(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$Bb'.'|'.1]", path))
+                rep is None or rep.append(("unexpected element [.'$Bb'.'|'.0]", path))
+        else:
+            if "b" in val:
+                # .'$Bb'.'|'.1
+                res = _jm_obj_0(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected element [.'$Bb'.'|'.1]", path))
+            else:
+                res = False
         if res:
             rep is None or rep.clear()
         else:
@@ -147,15 +151,19 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("unexpected type [.'$Cc'.'|']", path))
     if res:
-        # .'$Cc'.'|'.0
-        res = _jm_obj_3(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'$Cc'.'|'.0]", path))
-        if not res:
-            # .'$Cc'.'|'.1
-            res = _jm_obj_2(val, path, rep)
+        if "a" in val:
+            # .'$Cc'.'|'.0
+            res = _jm_obj_3(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$Cc'.'|'.1]", path))
+                rep is None or rep.append(("unexpected element [.'$Cc'.'|'.0]", path))
+        else:
+            if "c" in val:
+                # .'$Cc'.'|'.1
+                res = _jm_obj_2(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected element [.'$Cc'.'|'.1]", path))
+            else:
+                res = False
         if res:
             rep is None or rep.clear()
         else:
@@ -296,25 +304,37 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("unexpected type [.'|']", path))
     if res:
-        # .'|'.0
-        res = _jm_obj_7(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'|'.0]", path))
-        if not res:
-            # .'|'.1
-            res = _jm_obj_6(val, path, rep)
+        if "a" in val:
+            # .'|'.0
+            res = _jm_obj_7(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'|'.1]", path))
+                rep is None or rep.append(("unexpected element [.'|'.0]", path))
+        else:
+            res = False
+        if not res:
+            if "c" in val:
+                # .'|'.1
+                res = _jm_obj_6(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected element [.'|'.1]", path))
+            else:
+                res = False
             if not res:
-                # .'|'.2
-                res = _jm_obj_5(val, path, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected element [.'|'.2]", path))
-                if not res:
-                    # .'|'.3
-                    res = _jm_obj_4(val, path, rep)
+                if "b" in val:
+                    # .'|'.2
+                    res = _jm_obj_5(val, path, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected element [.'|'.3]", path))
+                        rep is None or rep.append(("unexpected element [.'|'.2]", path))
+                else:
+                    res = False
+                if not res:
+                    if "b" in val:
+                        # .'|'.3
+                        res = _jm_obj_4(val, path, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected element [.'|'.3]", path))
+                    else:
+                        res = False
         if res:
             rep is None or rep.clear()
         else:

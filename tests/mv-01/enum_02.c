@@ -20,11 +20,13 @@ const size_t check_model_map_size = 3;
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00646142)  // "Bad"
+    return
+           jm_str_eq_4(s, 0x00646142)  // "Bad"
         || jm_str_eq_4(s, 0x00656f4d)  // "Moe"
         || jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
         || jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
         || jm_str_eq_7(s, 0x0000736562626f48LL)  // "Hobbes"
+
     ;
 }
 
@@ -42,11 +44,13 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_1_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00646142)  // "Bad"
+    return
+           jm_str_eq_4(s, 0x00646142)  // "Bad"
         || jm_str_eq_6(s, 0x000000756f6c694dLL)  // "Milou"
         || jm_str_eq_7(s, 0x00006e69746e6954LL)  // "Tintin"
         || jm_str_eq_8(s, 0x006b636f64646148LL)  // "Haddock"
         || jm_str_eq_8(s, 0x6f69666174736143LL) && jm_str_eq_3(s + 8, 0x00006572)  // "Castafiore"
+
     ;
 }
 

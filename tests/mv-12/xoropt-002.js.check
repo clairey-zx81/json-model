@@ -1,8 +1,8 @@
 xoropt-002.values.json[0]: PASS
 xoropt-002.values.json[1]: PASS
 xoropt-002.values.json[2]: PASS
-xoropt-002.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
-xoropt-002.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xoropt-002.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xoropt-002.values.json[4]: FAIL (.: no model matched [.'|'])
 xoropt-002.values.json[5]: FAIL (.: unexpected type [.'|'])
 xoropt-002.values.json[6]: FAIL (.: unexpected type [.'|'])
 xoropt-002.values.json[7]: FAIL (.: unexpected type [.'|'])
@@ -11,4 +11,4 @@ xoropt-002.values.json[9]: FAIL (.: unexpected type [.'|'])
 xoropt-002.values.json[10]: FAIL (.: unexpected type [.'|'])
 xoropt-002.values.json[11]: FAIL (.: unexpected type [.'|'])
 xoropt-002.values.json[12]: FAIL (.: unexpected type [.'|'])
-xoropt-002.values.json[13]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: missing mandatory prop <c> [.'|'.2]; .: unexpected element [.'|'.1]; .: missing mandatory prop <b> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+xoropt-002.values.json[13]: FAIL (.: no model matched [.'|'])

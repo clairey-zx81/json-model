@@ -1,10 +1,10 @@
 dis-005.values.json[0]: PASS
 dis-005.values.json[1]: PASS
-dis-005.values.json[2]: FAIL (: missing mandatory prop <b> [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dis-005.values.json[3]: FAIL (: missing mandatory prop <a> [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dis-005.values.json[4]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dis-005.values.json[5]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dis-005.values.json[6]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : missing mandatory prop <a> [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
+dis-005.values.json[2]: FAIL (: bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
+dis-005.values.json[3]: FAIL (: missing mandatory prop <a> [.'|'.0]; : unexpected element [.'|'.0]; : no model matched [.'|'])
+dis-005.values.json[4]: FAIL (: bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
+dis-005.values.json[5]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : no model matched [.'|'])
+dis-005.values.json[6]: FAIL (: missing mandatory prop <a> [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
 dis-005.values.json[7]: FAIL (: unexpected type [.'|'])
 dis-005.values.json[8]: FAIL (: unexpected type [.'|'])
 dis-005.values.json[9]: FAIL (: unexpected type [.'|'])

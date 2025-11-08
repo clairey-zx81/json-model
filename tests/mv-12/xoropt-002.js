@@ -128,27 +128,40 @@ function json_model_1(val, path, rep)
     }
     if (res)
     {
-        // .'|'.0
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
+        if (val.hasOwnProperty("a"))
         {
-            rep !== null && rep.push(["unexpected element [.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'|'.1
-            res = _jm_obj_1(val, path, rep);
+            // .'|'.0
+            res = _jm_obj_2(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'|'.1]", path])
+                rep !== null && rep.push(["unexpected element [.'|'.0]", path])
             }
-            if (! res)
+        }
+        else
+        {
+            if (val.hasOwnProperty("b"))
             {
-                // .'|'.2
-                res = _jm_obj_0(val, path, rep);
+                // .'|'.1
+                res = _jm_obj_1(val, path, rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected element [.'|'.2]", path])
+                    rep !== null && rep.push(["unexpected element [.'|'.1]", path])
+                }
+            }
+            else
+            {
+                if (val.hasOwnProperty("c"))
+                {
+                    // .'|'.2
+                    res = _jm_obj_0(val, path, rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected element [.'|'.2]", path])
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
             }
         }

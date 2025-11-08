@@ -393,19 +393,29 @@ public class lazygit extends ModelChecker
                 }
                 if (res)
                 {
-                    // .'$Prompts'.'|'.0.suggestions.'|'.0
-                    res = _jm_obj_2(pval, (path != null ? lpath_0 : null), rep);
-                    if (! res)
+                    if (json.objectHasProp(pval, "preset"))
                     {
-                        if (rep != null) rep.addEntry("unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.0]", (path != null ? lpath_0 : null));
-                    }
-                    if (! res)
-                    {
-                        // .'$Prompts'.'|'.0.suggestions.'|'.1
-                        res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
+                        // .'$Prompts'.'|'.0.suggestions.'|'.0
+                        res = _jm_obj_2(pval, (path != null ? lpath_0 : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path != null ? lpath_0 : null));
+                            if (rep != null) rep.addEntry("unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.0]", (path != null ? lpath_0 : null));
+                        }
+                    }
+                    else
+                    {
+                        if (json.objectHasProp(pval, "command"))
+                        {
+                            // .'$Prompts'.'|'.0.suggestions.'|'.1
+                            res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path != null ? lpath_0 : null));
+                            }
+                        }
+                        else
+                        {
+                            res = false;
                         }
                     }
                     if (res)

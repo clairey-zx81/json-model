@@ -626,8 +626,8 @@ class CLangJansson(Language):
         }
 
         code += [
-            "    return ",
-            "        " + self._part_expr("hash", part_code),
+            "    return",
+            "           " + self._part_expr("hash", part_code),
             "    ;",
             "}"
         ]

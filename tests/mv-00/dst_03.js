@@ -115,11 +115,18 @@ function json_model_1(val, path, rep)
         }
         if (! res)
         {
-            // .'|'.1
-            res = _jm_obj_0(val, path, rep);
-            if (! res)
+            if (val.hasOwnProperty("c"))
             {
-                rep !== null && rep.push(["unexpected element [.'|'.1]", path])
+                // .'|'.1
+                res = _jm_obj_0(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected element [.'|'.1]", path])
+                }
+            }
+            else
+            {
+                res = false;
             }
         }
         if (res)

@@ -43,8 +43,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_8(s, 0x2e2f2f3a656c6966LL) && jm_str_eq_8(s + 8, 0x6f6f6c5f6c72752fLL) && jm_str_eq_8(s + 16, 0x646f6d2e676e696bLL) && jm_str_eq_8(s + 24, 0x006e6f736a2e6c65LL)  // "file://./url_looking.model.json"
+    return
+           jm_str_eq_8(s, 0x2e2f2f3a656c6966LL) && jm_str_eq_8(s + 8, 0x6f6f6c5f6c72752fLL) && jm_str_eq_8(s + 16, 0x646f6d2e676e696bLL) && jm_str_eq_8(s + 24, 0x006e6f736a2e6c65LL)  // "file://./url_looking.model.json"
         || jm_str_eq_8(s, 0x2f2f3a7370747468LL) && jm_str_eq_8(s + 8, 0x646f6d2d6e6f736aLL) && jm_str_eq_8(s + 16, 0x6d2f67726f2e6c65LL) && jm_str_eq_8(s + 24, 0x736a2f736c65646fLL) && jm_str_eq_8(s + 32, 0x6c65646f6d2d6e6fLL) && jm_str_eq_0(s + 40)  // "https://json-model.org/models/json-model"
+
     ;
 }
 

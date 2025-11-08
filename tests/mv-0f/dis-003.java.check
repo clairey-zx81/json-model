@@ -1,11 +1,11 @@
 dis-003.values.json[0]: PASS
 dis-003.values.json[1]: PASS
 dis-003.values.json[2]: PASS
-dis-003.values.json[3]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : bad property count [.'|'.2]; : unexpected element [.'|'.2]; : no model matched [.'|'])
-dis-003.values.json[4]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : bad property count [.'|'.2]; : unexpected element [.'|'.2]; : no model matched [.'|'])
-dis-003.values.json[5]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : bad property count [.'|'.2]; : unexpected element [.'|'.2]; : no model matched [.'|'])
-dis-003.values.json[6]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : bad property count [.'|'.2]; : unexpected element [.'|'.2]; : no model matched [.'|'])
-dis-003.values.json[7]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : bad property count [.'|'.2]; : unexpected element [.'|'.2]; : no model matched [.'|'])
+dis-003.values.json[3]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : no model matched [.'|'])
+dis-003.values.json[4]: FAIL (: no model matched [.'|'])
+dis-003.values.json[5]: FAIL (: no model matched [.'|'])
+dis-003.values.json[6]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : no model matched [.'|'])
+dis-003.values.json[7]: FAIL (: no model matched [.'|'])
 dis-003.values.json[8]: FAIL (: unexpected type [.'|'])
 dis-003.values.json[9]: FAIL (: unexpected type [.'|'])
 dis-003.values.json[10]: FAIL (: unexpected type [.'|'])

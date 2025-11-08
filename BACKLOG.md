@@ -7,17 +7,21 @@
 - [x] static: generate hexa constants for partition limits tests
 - [x] static: use `continue` instead of long multi-if statements
 - [x] c-backend: partition inlined str cset
+- [x] static: or acceleration based on distinct mandatory props
+- [ ] static: set default C partition threshold to _6_
+- [ ] backend: improve if patterns, see `mv-00/dst_00.py` line 97
+- [ ] static: merge partial mandatory prop discriminants
+- [ ] static: merge may/must property handling, or not?
 - [ ] static: take into account str _byte_ len when partitioning
 - [ ] static: possibly use up to 8 bytes when hashing?
 - [ ] static: fix hash size to depends on byte encoding, not str len
 - [ ] perf: test partitioning for js, java, perl, python…
-- [ ] static: merge may/must property handling, or not?
 - [ ] perf: investigate best settings for js, java and python
 - [ ] perf: allow to run with any docker image
 - [ ] pr: add explicit winner column to per case perf
+- [ ] model: simplify `{"": "$NONE"}`
 - [ ] model: avoid dead code in `mv-0f/dedup-002`
 - [ ] static: maybe skip must checks if all must props already seen
-- [ ] static: or acceleration based on distinct mandatory props
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`
 - [ ] backend: fix `unused but set variable` warning and remove `-Wno-…` (dead code)
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`

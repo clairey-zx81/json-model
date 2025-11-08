@@ -21,9 +21,11 @@ const size_t check_model_map_size = 2;
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000058)  // "X"
+    return
+           jm_str_eq_2(s, 0x00000058)  // "X"
         || jm_str_eq_3(s, 0x00005858)  // "XX"
         || jm_str_eq_4(s, 0x00585858)  // "XXX"
+
     ;
 }
 

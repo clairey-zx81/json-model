@@ -275,11 +275,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # CAUTION ba is currently valid…
     # .
-    # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    # .'|'.3
-    return jm_is_object($val) && (_jm_obj_7($val, undef, undef) || _jm_obj_6($val, undef, undef) || _jm_obj_5($val, undef, undef) || _jm_obj_4($val, undef, undef));
+    return jm_is_object($val) && (exists $$val{'a'} && _jm_obj_7($val, undef, undef) || exists $$val{'c'} && _jm_obj_6($val, undef, undef) || exists $$val{'b'} && _jm_obj_5($val, undef, undef) || exists $$val{'b'} && _jm_obj_4($val, undef, undef));
 }
 
 

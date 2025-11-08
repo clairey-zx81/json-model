@@ -402,51 +402,93 @@ public class dst_01 extends ModelChecker
         }
         if (res)
         {
-            // .'|'.0
-            res = _jm_obj_5(val, path, rep);
-            if (! res)
+            if (json.objectHasProp(val, "d"))
             {
-                if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
+                // .'|'.0
+                res = _jm_obj_5(val, path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
+                }
+            }
+            else
+            {
+                res = false;
             }
             if (! res)
             {
-                // .'|'.1
-                res = _jm_obj_4(val, path, rep);
-                if (! res)
+                if (json.objectHasProp(val, "e"))
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'|'.1]", path);
+                    // .'|'.1
+                    res = _jm_obj_4(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected element [.'|'.1]", path);
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
                 if (! res)
                 {
-                    // .'|'.2
-                    res = _jm_obj_3(val, path, rep);
-                    if (! res)
+                    if (json.objectHasProp(val, "f"))
                     {
-                        if (rep != null) rep.addEntry("unexpected element [.'|'.2]", path);
+                        // .'|'.2
+                        res = _jm_obj_3(val, path, rep);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected element [.'|'.2]", path);
+                        }
+                    }
+                    else
+                    {
+                        res = false;
                     }
                     if (! res)
                     {
-                        // .'|'.3
-                        res = _jm_obj_2(val, path, rep);
-                        if (! res)
+                        if (json.objectHasProp(val, "d"))
                         {
-                            if (rep != null) rep.addEntry("unexpected element [.'|'.3]", path);
+                            // .'|'.3
+                            res = _jm_obj_2(val, path, rep);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected element [.'|'.3]", path);
+                            }
+                        }
+                        else
+                        {
+                            res = false;
                         }
                         if (! res)
                         {
-                            // .'|'.4
-                            res = _jm_obj_1(val, path, rep);
-                            if (! res)
+                            if (json.objectHasProp(val, "e"))
                             {
-                                if (rep != null) rep.addEntry("unexpected element [.'|'.4]", path);
+                                // .'|'.4
+                                res = _jm_obj_1(val, path, rep);
+                                if (! res)
+                                {
+                                    if (rep != null) rep.addEntry("unexpected element [.'|'.4]", path);
+                                }
+                            }
+                            else
+                            {
+                                res = false;
                             }
                             if (! res)
                             {
-                                // .'|'.5
-                                res = _jm_obj_0(val, path, rep);
-                                if (! res)
+                                if (json.objectHasProp(val, "f"))
                                 {
-                                    if (rep != null) rep.addEntry("unexpected element [.'|'.5]", path);
+                                    // .'|'.5
+                                    res = _jm_obj_0(val, path, rep);
+                                    if (! res)
+                                    {
+                                        if (rep != null) rep.addEntry("unexpected element [.'|'.5]", path);
+                                    }
+                                }
+                                else
+                                {
+                                    res = false;
                                 }
                             }
                         }

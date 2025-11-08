@@ -1,8 +1,8 @@
 dis-004.values.json[0]: PASS
 dis-004.values.json[1]: PASS
 dis-004.values.json[2]: PASS
-dis-004.values.json[3]: FAIL (.: no model matched [.'$Bb'.'|']; .: unexpected $Aa [.'$Bb'.'|'.1]; .: no model matched [.'$Aa'.'|']; .: unexpected element [.'$Aa'.'|'.1]; .: bad property count [.'$Aa'.'|'.1]; .: unexpected element [.'$Aa'.'|'.0]; .: bad property count [.'$Aa'.'|'.0]; .: unexpected element [.'$Bb'.'|'.0]; .: bad property count [.'$Bb'.'|'.0])
-dis-004.values.json[4]: FAIL (.: no model matched [.'$Bb'.'|']; .: unexpected $Aa [.'$Bb'.'|'.1]; .: no model matched [.'$Aa'.'|']; .: unexpected element [.'$Aa'.'|'.1]; .: bad property count [.'$Aa'.'|'.1]; .: unexpected element [.'$Aa'.'|'.0]; .: bad property count [.'$Aa'.'|'.0]; .: unexpected element [.'$Bb'.'|'.0]; .: bad property count [.'$Bb'.'|'.0])
+dis-004.values.json[3]: FAIL (.: no model matched [.'$Bb'.'|']; .: unexpected $Aa [.'$Bb'.'|'.1]; .: no model matched [.'$Aa'.'|']; .: unexpected element [.'$Aa'.'|'.0]; .: bad property count [.'$Aa'.'|'.0]; .: unexpected element [.'$Bb'.'|'.0]; .: bad property count [.'$Bb'.'|'.0])
+dis-004.values.json[4]: FAIL (.: no model matched [.'$Bb'.'|']; .: unexpected $Aa [.'$Bb'.'|'.1]; .: no model matched [.'$Aa'.'|']; .: unexpected element [.'$Bb'.'|'.0]; .: bad property count [.'$Bb'.'|'.0])
 dis-004.values.json[5]: FAIL (.: no model matched [.'$Bb'.'|']; .: unexpected $Aa [.'$Bb'.'|'.1]; .: unexpected type [.'$Aa'.'|']; .: unexpected element [.'$Bb'.'|'.0]; .: not an object [.'$Bb'.'|'.0])
 dis-004.values.json[6]: FAIL (.: no model matched [.'$Bb'.'|']; .: unexpected $Aa [.'$Bb'.'|'.1]; .: unexpected type [.'$Aa'.'|']; .: unexpected element [.'$Bb'.'|'.0]; .: not an object [.'$Bb'.'|'.0])
 dis-004.values.json[7]: FAIL (.: no model matched [.'$Bb'.'|']; .: unexpected $Aa [.'$Bb'.'|'.1]; .: unexpected type [.'$Aa'.'|']; .: unexpected element [.'$Bb'.'|'.0]; .: not an object [.'$Bb'.'|'.0])

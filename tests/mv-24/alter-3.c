@@ -95,8 +95,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000062)  // "b"
+    return
+           jm_str_eq_2(s, 0x00000062)  // "b"
         || jm_str_eq_2(s, 0x00000063)  // "c"
+
     ;
 }
 

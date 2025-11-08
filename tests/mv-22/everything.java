@@ -2060,19 +2060,29 @@ public class everything extends ModelChecker
                 }
                 if (res)
                 {
-                    // .merge.m1.'|'.0
-                    res = _jm_obj_5(pval, (path != null ? lpath_8 : null), rep);
-                    if (! res)
+                    if (json.objectHasProp(pval, "b"))
                     {
-                        if (rep != null) rep.addEntry("unexpected element [.merge.m1.'|'.0]", (path != null ? lpath_8 : null));
-                    }
-                    if (! res)
-                    {
-                        // .merge.m1.'|'.1
-                        res = _jm_obj_4(pval, (path != null ? lpath_8 : null), rep);
+                        // .merge.m1.'|'.0
+                        res = _jm_obj_5(pval, (path != null ? lpath_8 : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected element [.merge.m1.'|'.1]", (path != null ? lpath_8 : null));
+                            if (rep != null) rep.addEntry("unexpected element [.merge.m1.'|'.0]", (path != null ? lpath_8 : null));
+                        }
+                    }
+                    else
+                    {
+                        if (json.objectHasProp(pval, "c"))
+                        {
+                            // .merge.m1.'|'.1
+                            res = _jm_obj_4(pval, (path != null ? lpath_8 : null), rep);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected element [.merge.m1.'|'.1]", (path != null ? lpath_8 : null));
+                            }
+                        }
+                        else
+                        {
+                            res = false;
                         }
                     }
                     if (res)
@@ -2102,19 +2112,29 @@ public class everything extends ModelChecker
                 }
                 if (res)
                 {
-                    // .merge.m2.'|'.0
-                    res = _jm_obj_7(pval, (path != null ? lpath_8 : null), rep);
-                    if (! res)
+                    if (json.objectHasProp(pval, "b"))
                     {
-                        if (rep != null) rep.addEntry("unexpected element [.merge.m2.'|'.0]", (path != null ? lpath_8 : null));
-                    }
-                    if (! res)
-                    {
-                        // .merge.m2.'|'.1
-                        res = _jm_obj_6(pval, (path != null ? lpath_8 : null), rep);
+                        // .merge.m2.'|'.0
+                        res = _jm_obj_7(pval, (path != null ? lpath_8 : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected element [.merge.m2.'|'.1]", (path != null ? lpath_8 : null));
+                            if (rep != null) rep.addEntry("unexpected element [.merge.m2.'|'.0]", (path != null ? lpath_8 : null));
+                        }
+                    }
+                    else
+                    {
+                        if (json.objectHasProp(pval, "c"))
+                        {
+                            // .merge.m2.'|'.1
+                            res = _jm_obj_6(pval, (path != null ? lpath_8 : null), rep);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected element [.merge.m2.'|'.1]", (path != null ? lpath_8 : null));
+                            }
+                        }
+                        else
+                        {
+                            res = false;
                         }
                     }
                     if (res)
@@ -2144,35 +2164,63 @@ public class everything extends ModelChecker
                 }
                 if (res)
                 {
-                    // .merge.m3.'|'.0
-                    res = _jm_obj_11(pval, (path != null ? lpath_8 : null), rep);
-                    if (! res)
+                    if (json.objectHasProp(pval, "a"))
                     {
-                        if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.0]", (path != null ? lpath_8 : null));
+                        // .merge.m3.'|'.0
+                        res = _jm_obj_11(pval, (path != null ? lpath_8 : null), rep);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.0]", (path != null ? lpath_8 : null));
+                        }
+                    }
+                    else
+                    {
+                        res = false;
                     }
                     if (! res)
                     {
-                        // .merge.m3.'|'.1
-                        res = _jm_obj_10(pval, (path != null ? lpath_8 : null), rep);
-                        if (! res)
+                        if (json.objectHasProp(pval, "a"))
                         {
-                            if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.1]", (path != null ? lpath_8 : null));
+                            // .merge.m3.'|'.1
+                            res = _jm_obj_10(pval, (path != null ? lpath_8 : null), rep);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.1]", (path != null ? lpath_8 : null));
+                            }
+                        }
+                        else
+                        {
+                            res = false;
                         }
                         if (! res)
                         {
-                            // .merge.m3.'|'.2
-                            res = _jm_obj_9(pval, (path != null ? lpath_8 : null), rep);
-                            if (! res)
+                            if (json.objectHasProp(pval, "b"))
                             {
-                                if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.2]", (path != null ? lpath_8 : null));
+                                // .merge.m3.'|'.2
+                                res = _jm_obj_9(pval, (path != null ? lpath_8 : null), rep);
+                                if (! res)
+                                {
+                                    if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.2]", (path != null ? lpath_8 : null));
+                                }
+                            }
+                            else
+                            {
+                                res = false;
                             }
                             if (! res)
                             {
-                                // .merge.m3.'|'.3
-                                res = _jm_obj_8(pval, (path != null ? lpath_8 : null), rep);
-                                if (! res)
+                                if (json.objectHasProp(pval, "b"))
                                 {
-                                    if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.3]", (path != null ? lpath_8 : null));
+                                    // .merge.m3.'|'.3
+                                    res = _jm_obj_8(pval, (path != null ? lpath_8 : null), rep);
+                                    if (! res)
+                                    {
+                                        if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.3]", (path != null ? lpath_8 : null));
+                                    }
+                                }
+                                else
+                                {
+                                    res = false;
                                 }
                             }
                         }

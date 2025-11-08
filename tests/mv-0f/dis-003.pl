@@ -127,10 +127,28 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    return jm_is_object($val) && (_jm_obj_2($val, undef, undef) || _jm_obj_1($val, undef, undef) || _jm_obj_0($val, undef, undef));
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        if (exists $$val{'b'})
+        {
+            # .'|'.0
+            $res = _jm_obj_2($val, undef, undef);
+        }
+        else
+        {
+            if (exists $$val{'c'})
+            {
+                # .'|'.1
+                $res = _jm_obj_1($val, undef, undef);
+            }
+            else
+            {
+                $res = exists $$val{'d'} && _jm_obj_0($val, undef, undef);
+            }
+        }
+    }
+    return $res;
 }
 
 

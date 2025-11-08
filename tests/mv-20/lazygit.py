@@ -270,15 +270,19 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected type [.'$Prompts'.'|'.0.suggestions.'|']", lpath_0 if path is not None else None))
             if res:
-                # .'$Prompts'.'|'.0.suggestions.'|'.0
-                res = _jm_obj_2(pval, lpath_0 if path is not None else None, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.0]", lpath_0 if path is not None else None))
-                if not res:
-                    # .'$Prompts'.'|'.0.suggestions.'|'.1
-                    res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
+                if "preset" in pval:
+                    # .'$Prompts'.'|'.0.suggestions.'|'.0
+                    res = _jm_obj_2(pval, lpath_0 if path is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.1]", lpath_0 if path is not None else None))
+                        rep is None or rep.append(("unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.0]", lpath_0 if path is not None else None))
+                else:
+                    if "command" in pval:
+                        # .'$Prompts'.'|'.0.suggestions.'|'.1
+                        res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.1]", lpath_0 if path is not None else None))
+                    else:
+                        res = False
                 if res:
                     rep is None or rep.clear()
                 else:

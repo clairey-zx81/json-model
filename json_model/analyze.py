@@ -4,8 +4,8 @@
 import functools
 import re
 
-from .mtypes import UnknownModel, ModelPath, ModelType, ModelFilter
-from .utils import log, CONST_RE, is_regex
+from .mtypes import UnknownModel, ModelPath, ModelType, ModelFilter, ModelObject, ModelArray
+from .utils import log, CONST_RE, is_regex, is_a_simple_object
 from .recurse import recModel, allFlt, noRwt
 from .model import JsonModel
 from .runtime import ConstSet
@@ -512,3 +512,59 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath, lists: b
         disjuncts.append((prop, ctype, lmi))
     # final result
     return disjuncts, all_const_props, list(rejected)
+
+def incompatible_prop(prop: str, obj: ModelObject) -> bool:
+    """Is this property incompatible with the object model?"""
+    for p, m in obj.items():
+        if p == "":
+            if m != "$NONE":  # default object
+                return False
+        elif p[0] == "#":
+            pass
+        elif p[0] in ("_", "!", "?"):
+            if p[1:] == prop:
+                return False
+        elif p[0] == "/":
+            # TODO check regex!
+            return False
+        elif p[0] == "$":
+            # TODO check reference?
+            return False
+        elif p == prop:
+            return False
+        else:
+            pass
+    return True
+
+# TODO partial: not all objets? shared prop names?
+def distinct_prop_objects(jm, models: ModelArray) -> list[str|None]:
+    """Return distinct mandatory props to shorten/split or/xor object checks."""
+    if len(models) <= 1:
+        return [None] * len(models)
+    objs = [ultimate_model(jm, m) for m in models]
+    counts: list[dict[str, int]] = []
+    for idx, obj in enumerate(objs):
+        counts.append({})
+        if is_a_simple_object(obj):
+            for prop in obj.keys():
+                if not prop or prop[0] in "#?/$":
+                    continue
+                # else mandatory property name
+                pname = prop[1:] if prop[0] in "!_" else prop
+                counts[idx][pname] = 0
+                for i, o in enumerate(objs):
+                    if i != idx and incompatible_prop(pname, o):
+                        counts[idx][pname] += 1
+    # keep the most selective property on each model
+    distinct_prop: list[str|None] = []
+    for uses in counts:
+        best = max(uses.values()) if uses else None
+        if best:
+            for prop, count in uses.items():
+                if count == best:
+                    distinct_prop.append((prop, best == len(models) - 1))
+                    break
+        else:
+            distinct_prop.append(None)
+    assert len(distinct_prop) == len(models)
+    return distinct_prop

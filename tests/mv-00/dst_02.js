@@ -412,51 +412,93 @@ function json_model_1(val, path, rep)
     }
     if (res)
     {
-        // .'|'.0
-        res = _jm_obj_5(val, path, rep);
-        if (! res)
+        if (val.hasOwnProperty("d"))
         {
-            rep !== null && rep.push(["unexpected element [.'|'.0]", path])
+            // .'|'.0
+            res = _jm_obj_5(val, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'|'.0]", path])
+            }
+        }
+        else
+        {
+            res = false;
         }
         if (! res)
         {
-            // .'|'.1
-            res = _jm_obj_4(val, path, rep);
-            if (! res)
+            if (val.hasOwnProperty("e"))
             {
-                rep !== null && rep.push(["unexpected element [.'|'.1]", path])
+                // .'|'.1
+                res = _jm_obj_4(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected element [.'|'.1]", path])
+                }
+            }
+            else
+            {
+                res = false;
             }
             if (! res)
             {
-                // .'|'.2
-                res = _jm_obj_3(val, path, rep);
-                if (! res)
+                if (val.hasOwnProperty("f"))
                 {
-                    rep !== null && rep.push(["unexpected element [.'|'.2]", path])
+                    // .'|'.2
+                    res = _jm_obj_3(val, path, rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected element [.'|'.2]", path])
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
                 if (! res)
                 {
-                    // .'|'.3
-                    res = _jm_obj_2(val, path, rep);
-                    if (! res)
+                    if (val.hasOwnProperty("d"))
                     {
-                        rep !== null && rep.push(["unexpected element [.'|'.3]", path])
+                        // .'|'.3
+                        res = _jm_obj_2(val, path, rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected element [.'|'.3]", path])
+                        }
+                    }
+                    else
+                    {
+                        res = false;
                     }
                     if (! res)
                     {
-                        // .'|'.4
-                        res = _jm_obj_1(val, path, rep);
-                        if (! res)
+                        if (val.hasOwnProperty("e"))
                         {
-                            rep !== null && rep.push(["unexpected element [.'|'.4]", path])
+                            // .'|'.4
+                            res = _jm_obj_1(val, path, rep);
+                            if (! res)
+                            {
+                                rep !== null && rep.push(["unexpected element [.'|'.4]", path])
+                            }
+                        }
+                        else
+                        {
+                            res = false;
                         }
                         if (! res)
                         {
-                            // .'|'.5
-                            res = _jm_obj_0(val, path, rep);
-                            if (! res)
+                            if (val.hasOwnProperty("f"))
                             {
-                                rep !== null && rep.push(["unexpected element [.'|'.5]", path])
+                                // .'|'.5
+                                res = _jm_obj_0(val, path, rep);
+                                if (! res)
+                                {
+                                    rep !== null && rep.push(["unexpected element [.'|'.5]", path])
+                                }
+                            }
+                            else
+                            {
+                                res = false;
                             }
                         }
                     }

@@ -36,8 +36,10 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000068)  // "h"
+    return
+           jm_str_eq_2(s, 0x00000068)  // "h"
         || jm_str_eq_2(s, 0x00000069)  // "i"
+
     ;
 }
 
@@ -87,8 +89,10 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_1_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000065)  // "e"
+    return
+           jm_str_eq_2(s, 0x00000065)  // "e"
         || jm_str_eq_2(s, 0x00000066)  // "f"
+
     ;
 }
 
@@ -167,8 +171,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 
 static INLINE bool _jm_cst_2_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000062)  // "b"
+    return
+           jm_str_eq_2(s, 0x00000062)  // "b"
         || jm_str_eq_2(s, 0x00000063)  // "c"
+
     ;
 }
 

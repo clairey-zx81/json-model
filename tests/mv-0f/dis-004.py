@@ -77,15 +77,19 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("unexpected type [.'$Aa'.'|']", path))
     if res:
-        # .'$Aa'.'|'.0
-        res = _jm_obj_1(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'$Aa'.'|'.0]", path))
-        if not res:
-            # .'$Aa'.'|'.1
-            res = _jm_obj_0(val, path, rep)
+        if "a" in val:
+            # .'$Aa'.'|'.0
+            res = _jm_obj_1(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$Aa'.'|'.1]", path))
+                rep is None or rep.append(("unexpected element [.'$Aa'.'|'.0]", path))
+        else:
+            if "b" in val:
+                # .'$Aa'.'|'.1
+                res = _jm_obj_0(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected element [.'$Aa'.'|'.1]", path))
+            else:
+                res = False
         if res:
             rep is None or rep.clear()
         else:

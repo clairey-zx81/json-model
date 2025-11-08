@@ -2322,10 +2322,12 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_5(s, 0x0000000068746170LL)  // "path"
+    return
+           jm_str_eq_5(s, 0x0000000068746170LL)  // "path"
         || jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
+
     ;
 }
 
@@ -2493,10 +2495,12 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_cst_1_str_test(const char *s)
 {
-    return jm_str_eq_5(s, 0x0000000068746170LL)  // "path"
+    return
+           jm_str_eq_5(s, 0x0000000068746170LL)  // "path"
         || jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
+
     ;
 }
 
@@ -2786,13 +2790,15 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_2_str_test(const char *s)
 {
-    return jm_str_eq_5(s, 0x000000006d726f66LL)  // "form"
+    return
+           jm_str_eq_5(s, 0x000000006d726f66LL)  // "form"
         || jm_str_eq_6(s, 0x0000006c6562616cLL)  // "label"
         || jm_str_eq_7(s, 0x000078697274616dLL)  // "matrix"
         || jm_str_eq_7(s, 0x0000656c706d6973LL)  // "simple"
         || jm_str_eq_8(s, 0x656a624f70656564LL) && jm_str_eq_3(s + 8, 0x00007463)  // "deepObject"
         || jm_str_eq_8(s, 0x696c654465706970LL) && jm_str_eq_6(s + 8, 0x000000646574696dLL)  // "pipeDelimited"
         || jm_str_eq_8(s, 0x6c65446563617073LL) && jm_str_eq_7(s + 8, 0x0000646574696d69LL)  // "spaceDelimited"
+
     ;
 }
 
@@ -4388,9 +4394,11 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_3_str_test(const char *s)
 {
-    return jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
+    return
+           jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
+
     ;
 }
 
@@ -6267,7 +6275,8 @@ static bool json_model_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_cst_5_str_test(const char *s)
 {
-    return jm_str_eq_4(s, 0x00384924)  // "$I8"
+    return
+           jm_str_eq_4(s, 0x00384924)  // "$I8"
         || jm_str_eq_4(s, 0x00385524)  // "$U8"
         || jm_str_eq_5(s, 0x00000000594e4124LL)  // "$ANY"
         || jm_str_eq_5(s, 0x0000000036314624LL)  // "$F16"
@@ -6296,6 +6305,7 @@ static INLINE bool _jm_cst_5_str_test(const char *s)
         || jm_str_eq_8(s, 0x00474e4952545324LL)  // "$STRING"
         || jm_str_eq_8(s, 0x52454745544e4924LL) && jm_str_eq_0(s + 8)  // "$INTEGER"
         || jm_str_eq_8(s, 0x4d49544554414424LL) && jm_str_eq_2(s + 8, 0x00000045)  // "$DATETIME"
+
     ;
 }
 

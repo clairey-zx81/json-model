@@ -98,19 +98,29 @@ public class dis_004 extends ModelChecker
         }
         if (res)
         {
-            // .'$Aa'.'|'.0
-            res = _jm_obj_1(val, path, rep);
-            if (! res)
+            if (json.objectHasProp(val, "a"))
             {
-                if (rep != null) rep.addEntry("unexpected element [.'$Aa'.'|'.0]", path);
-            }
-            if (! res)
-            {
-                // .'$Aa'.'|'.1
-                res = _jm_obj_0(val, path, rep);
+                // .'$Aa'.'|'.0
+                res = _jm_obj_1(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Aa'.'|'.1]", path);
+                    if (rep != null) rep.addEntry("unexpected element [.'$Aa'.'|'.0]", path);
+                }
+            }
+            else
+            {
+                if (json.objectHasProp(val, "b"))
+                {
+                    // .'$Aa'.'|'.1
+                    res = _jm_obj_0(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected element [.'$Aa'.'|'.1]", path);
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
             }
             if (res)

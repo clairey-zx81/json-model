@@ -1,0 +1,141 @@
+{
+  "description": "objects with full (b) and partial (c d e) incompatible mandatory properties",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "b": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "z": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "w": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "c": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "v": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "z": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "a",
+        "c"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "d": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "u": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "x": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "a",
+        "d"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "e": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "s": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "q": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "a",
+        "e"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "c": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "d": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "e": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "r": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "a",
+        "c",
+        "d",
+        "e"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

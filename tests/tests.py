@@ -227,8 +227,8 @@ EXPECT: dict[str, int] = {
     "mv-27:values": 105,
     # mv-28
     "mv-28:cmp-opts": {"strcmp": True, "report": False, "strcmp_cset_partition_threshold": 32},
-    "mv-28:models": 1,
-    "mv-28:values": 15,
+    "mv-28:models": 5,
+    "mv-28:values": 133,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 311,

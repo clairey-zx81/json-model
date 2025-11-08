@@ -111,15 +111,21 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("unexpected type [.'|']", path))
     if res:
-        # .'|'.0
-        res = _jm_obj_2(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'|'.0]", path))
-        if not res:
-            # .'|'.1
-            res = _jm_obj_1(val, path, rep)
+        if "a" in val:
+            # .'|'.0
+            res = _jm_obj_2(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'|'.1]", path))
+                rep is None or rep.append(("unexpected element [.'|'.0]", path))
+        else:
+            res = False
+        if not res:
+            if "b" in val:
+                # .'|'.1
+                res = _jm_obj_1(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected element [.'|'.1]", path))
+            else:
+                res = False
             if not res:
                 # .'|'.2
                 res = _jm_obj_0(val, path, rep)

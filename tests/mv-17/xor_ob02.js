@@ -92,19 +92,29 @@ function json_model_2(val, path, rep)
     }
     if (res)
     {
-        // .'$Aa'.'|'.0
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
+        if (val.hasOwnProperty("a"))
         {
-            rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'$Aa'.'|'.1
-            res = _jm_obj_0(val, path, rep);
+            // .'$Aa'.'|'.0
+            res = _jm_obj_1(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.1]", path])
+                rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.0]", path])
+            }
+        }
+        else
+        {
+            if (val.hasOwnProperty("b"))
+            {
+                // .'$Aa'.'|'.1
+                res = _jm_obj_0(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.1]", path])
+                }
+            }
+            else
+            {
+                res = false;
             }
         }
         if (res)
@@ -200,19 +210,29 @@ function json_model_3(val, path, rep)
     }
     if (res)
     {
-        // .'$Bb'.'|'.0
-        res = _jm_obj_3(val, path, rep);
-        if (! res)
+        if (val.hasOwnProperty("a"))
         {
-            rep !== null && rep.push(["unexpected element [.'$Bb'.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'$Bb'.'|'.1
-            res = _jm_obj_2(val, path, rep);
+            // .'$Bb'.'|'.0
+            res = _jm_obj_3(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Bb'.'|'.1]", path])
+                rep !== null && rep.push(["unexpected element [.'$Bb'.'|'.0]", path])
+            }
+        }
+        else
+        {
+            if (val.hasOwnProperty("c"))
+            {
+                // .'$Bb'.'|'.1
+                res = _jm_obj_2(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected element [.'$Bb'.'|'.1]", path])
+                }
+            }
+            else
+            {
+                res = false;
             }
         }
         if (res)
@@ -308,19 +328,29 @@ function json_model_4(val, path, rep)
     }
     if (res)
     {
-        // .'$Cc'.'|'.0
-        res = _jm_obj_5(val, path, rep);
-        if (! res)
+        if (val.hasOwnProperty("b"))
         {
-            rep !== null && rep.push(["unexpected element [.'$Cc'.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'$Cc'.'|'.1
-            res = _jm_obj_4(val, path, rep);
+            // .'$Cc'.'|'.0
+            res = _jm_obj_5(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Cc'.'|'.1]", path])
+                rep !== null && rep.push(["unexpected element [.'$Cc'.'|'.0]", path])
+            }
+        }
+        else
+        {
+            if (val.hasOwnProperty("c"))
+            {
+                // .'$Cc'.'|'.1
+                res = _jm_obj_4(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected element [.'$Cc'.'|'.1]", path])
+                }
+            }
+            else
+            {
+                res = false;
             }
         }
         if (res)
@@ -562,35 +592,63 @@ function json_model_1(val, path, rep)
     }
     if (res)
     {
-        // .'|'.0
-        res = _jm_obj_9(val, path, rep);
-        if (! res)
+        if (val.hasOwnProperty("a"))
         {
-            rep !== null && rep.push(["unexpected element [.'|'.0]", path])
+            // .'|'.0
+            res = _jm_obj_9(val, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'|'.0]", path])
+            }
+        }
+        else
+        {
+            res = false;
         }
         if (! res)
         {
-            // .'|'.1
-            res = _jm_obj_8(val, path, rep);
-            if (! res)
+            if (val.hasOwnProperty("a"))
             {
-                rep !== null && rep.push(["unexpected element [.'|'.1]", path])
+                // .'|'.1
+                res = _jm_obj_8(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected element [.'|'.1]", path])
+                }
+            }
+            else
+            {
+                res = false;
             }
             if (! res)
             {
-                // .'|'.2
-                res = _jm_obj_7(val, path, rep);
-                if (! res)
+                if (val.hasOwnProperty("a"))
                 {
-                    rep !== null && rep.push(["unexpected element [.'|'.2]", path])
+                    // .'|'.2
+                    res = _jm_obj_7(val, path, rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected element [.'|'.2]", path])
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
                 if (! res)
                 {
-                    // .'|'.3
-                    res = _jm_obj_6(val, path, rep);
-                    if (! res)
+                    if (val.hasOwnProperty("b"))
                     {
-                        rep !== null && rep.push(["unexpected element [.'|'.3]", path])
+                        // .'|'.3
+                        res = _jm_obj_6(val, path, rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected element [.'|'.3]", path])
+                        }
+                    }
+                    else
+                    {
+                        res = false;
                     }
                 }
             }

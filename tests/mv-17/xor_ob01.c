@@ -534,36 +534,56 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        // .'|'.0
-        res = _jm_obj_7(val, path, rep);
-        if (unlikely(! res))
+        if (json_object_get(val, "a") != NULL)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // .'|'.1
-            res = _jm_obj_6(val, path, rep);
+            // .'|'.0
+            res = _jm_obj_7(val, path, rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.0]", path);
             }
-            if (! res)
+        }
+        else
+            res = false;
+        if (! res)
+        {
+            if (json_object_get(val, "c") != NULL)
             {
-                // .'|'.2
-                res = _jm_obj_5(val, path, rep);
+                // .'|'.1
+                res = _jm_obj_6(val, path, rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.2]", path);
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.1]", path);
                 }
-                if (! res)
+            }
+            else
+                res = false;
+            if (! res)
+            {
+                if (json_object_get(val, "b") != NULL)
                 {
-                    // .'|'.3
-                    res = _jm_obj_4(val, path, rep);
+                    // .'|'.2
+                    res = _jm_obj_5(val, path, rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.3]", path);
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.2]", path);
                     }
+                }
+                else
+                    res = false;
+                if (! res)
+                {
+                    if (json_object_get(val, "b") != NULL)
+                    {
+                        // .'|'.3
+                        res = _jm_obj_4(val, path, rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.3]", path);
+                        }
+                    }
+                    else
+                        res = false;
                 }
             }
         }

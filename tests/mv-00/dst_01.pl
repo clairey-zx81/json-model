@@ -301,13 +301,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    # .'|'.3
-    # .'|'.4
-    # .'|'.5
-    return jm_is_object($val) && (_jm_obj_5($val, undef, undef) || _jm_obj_4($val, undef, undef) || _jm_obj_3($val, undef, undef) || _jm_obj_2($val, undef, undef) || _jm_obj_1($val, undef, undef) || _jm_obj_0($val, undef, undef));
+    return jm_is_object($val) && (exists $$val{'d'} && _jm_obj_5($val, undef, undef) || exists $$val{'e'} && _jm_obj_4($val, undef, undef) || exists $$val{'f'} && _jm_obj_3($val, undef, undef) || exists $$val{'d'} && _jm_obj_2($val, undef, undef) || exists $$val{'e'} && _jm_obj_1($val, undef, undef) || exists $$val{'f'} && _jm_obj_0($val, undef, undef));
 }
 
 

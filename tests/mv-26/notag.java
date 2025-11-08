@@ -126,19 +126,29 @@ public class notag extends ModelChecker
         }
         if (res)
         {
-            // .'|'.0
-            res = _jm_obj_1(val, path, rep);
-            if (! res)
+            if (json.objectHasProp(val, "foo"))
             {
-                if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
-            }
-            if (! res)
-            {
-                // .'|'.1
-                res = _jm_obj_0(val, path, rep);
+                // .'|'.0
+                res = _jm_obj_1(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'|'.1]", path);
+                    if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
+                }
+            }
+            else
+            {
+                if (json.objectHasProp(val, "bla"))
+                {
+                    // .'|'.1
+                    res = _jm_obj_0(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected element [.'|'.1]", path);
+                    }
+                }
+                else
+                {
+                    res = false;
                 }
             }
             if (res)

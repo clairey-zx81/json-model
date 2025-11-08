@@ -17,8 +17,10 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
-    return jm_str_eq_2(s, 0x00000021)  // "!"
+    return
+           jm_str_eq_2(s, 0x00000021)  // "!"
         || jm_str_eq_6(s, 0x000000646c726f77LL)  // "world"
+
     ;
 }
 
