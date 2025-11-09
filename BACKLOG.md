@@ -7,7 +7,8 @@
 - [x] static: generate hexa constants for partition limits tests
 - [x] static: use `continue` instead of long multi-if statements
 - [x] c-backend: partition inlined str cset
-- [x] static: or acceleration based on distinct mandatory props
+- [x] static: or acceleration based on full or partial distinct mandatory props
+- [ ] static: xor acceleration based on distinct mandatory props
 - [ ] static: set default C partition threshold to _6_
 - [ ] backend: improve if patterns, see `mv-00/dst_00.py` line 97
 - [ ] static: merge partial mandatory prop discriminants
