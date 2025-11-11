@@ -127,7 +127,7 @@ See the [benchmark page](BENCH.md) for artifacts which compare various
 [JSON Model Compiler](https://github.com/clairey-zx81/json-model) runs (C, JS, Java, Python) with
 [Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) as a baseline using test cases
 from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark).
-Overall, JMC-C implementation fares over 50% faster than Blaze C++ and comes ahead 80% of the time
+Overall, JMC-C implementation fares over 50% faster than Blaze C++ and comes ahead 70% of the time
 on the latest benchmarks tests, and JMC-JS and JMC-Java/GSON native implementations are on average
 about 40% slower than Blaze C++, which given the intrinsic language capabilities is honorable.
 
