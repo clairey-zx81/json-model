@@ -8110,108 +8110,115 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_94 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_8(prop, 0x63617073656d616eLL) && jm_str_eq_2(prop + 8, 0x00000065)))
+        uint32_t hash_0 = *((uint32_t *) (prop));
+        if (hash_0 <= 0x65646976)
         {
-            // handle may namespace property
-            // .'$GalaxyInfoModelCollection'.namespace
-            // "/^[a-z][-a-z0-9_]+$/"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_94 : NULL), rep);
-            if (unlikely(! res))
+            if (jm_str_eq_8(prop, 0x745f7978616c6167LL) && jm_str_eq_4(prop + 8, 0x00736761))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", (path ? &lpath_94 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", (path ? &lpath_94 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d726f6674616c70LL) && jm_str_eq_2(prop + 8, 0x00000073)))
-        {
-            // handle may platforms property
-            // .'$GalaxyInfoModelCollection'.platforms
-            res = json_model_50(pval, (path ? &lpath_94 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", (path ? &lpath_94 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", (path ? &lpath_94 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x6d616e5f656c6f72LL) && jm_str_eq_2(prop + 8, 0x00000065)))
-        {
-            // handle may role_name property
-            // .'$GalaxyInfoModelCollection'.role_name
-            // "/^[a-z][a-z0-9_]+$/"
-            res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_94 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", (path ? &lpath_94 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", (path ? &lpath_94 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x745f7978616c6167LL) && jm_str_eq_4(prop + 8, 0x00736761)))
-        {
-            // handle may galaxy_tags property
-            // .'$GalaxyInfoModelCollection'.galaxy_tags
-            res = json_is_array(pval);
-            if (likely(res))
-            {
-                size_t arr_95_idx;
-                json_t *arr_95_item;
-                json_array_foreach(pval, arr_95_idx, arr_95_item)
+                // handle may galaxy_tags property
+                // .'$GalaxyInfoModelCollection'.galaxy_tags
+                res = json_is_array(pval);
+                if (likely(res))
                 {
-                    jm_path_t arr_95_lpath = (jm_path_t) { NULL, arr_95_idx, (path ? &lpath_94 : NULL), NULL };
-                    // .'$GalaxyInfoModelCollection'.galaxy_tags.0
-                    res = json_is_string(arr_95_item);
-                    if (unlikely(! res))
+                    size_t arr_95_idx;
+                    json_t *arr_95_item;
+                    json_array_foreach(pval, arr_95_idx, arr_95_item)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? &lpath_94 : NULL) ? &arr_95_lpath : NULL));
-                        break;
+                        jm_path_t arr_95_lpath = (jm_path_t) { NULL, arr_95_idx, (path ? &lpath_94 : NULL), NULL };
+                        // .'$GalaxyInfoModelCollection'.galaxy_tags.0
+                        res = json_is_string(arr_95_item);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? &lpath_94 : NULL) ? &arr_95_lpath : NULL));
+                            break;
+                        }
                     }
                 }
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? &lpath_94 : NULL));
+                    return false;
+                }
+                continue;
             }
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x696c5f6f65646976LL) && jm_str_eq_4(prop + 8, 0x00736b6e))
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? &lpath_94 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.galaxy_tags]", (path ? &lpath_94 : NULL));
-                return false;
+                // handle may video_links property
+                // .'$GalaxyInfoModelCollection'.video_links
+                res = json_is_array(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", (path ? &lpath_94 : NULL));
+                    return false;
+                }
+                continue;
             }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x696c5f6f65646976LL) && jm_str_eq_4(prop + 8, 0x00736b6e)))
-        {
-            // handle may video_links property
-            // .'$GalaxyInfoModelCollection'.video_links
-            res = json_is_array(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x69736e615f6e696dLL) && jm_str_eq_8(prop + 8, 0x737265765f656c62LL) && jm_str_eq_4(prop + 16, 0x006e6f69))
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", (path ? &lpath_94 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.video_links]", (path ? &lpath_94 : NULL));
-                return false;
+                // handle may min_ansible_version property
+                // .'$GalaxyInfoModelCollection'.min_ansible_version
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? &lpath_94 : NULL));
+                    return false;
+                }
+                continue;
             }
-            continue;
         }
-        else if (jm_str_eq_8(prop, 0x6c705f64756f6c63LL) && jm_str_eq_8(prop + 8, 0x00736d726f667461LL))
+        else
         {
-            // handle may cloud_platforms property
-            // .'$GalaxyInfoModelCollection'.cloud_platforms
-            res = true;
-            continue;
-        }
-        else if (likely(jm_str_eq_8(prop, 0x69736e615f6e696dLL) && jm_str_eq_8(prop + 8, 0x737265765f656c62LL) && jm_str_eq_4(prop + 16, 0x006e6f69)))
-        {
-            // handle may min_ansible_version property
-            // .'$GalaxyInfoModelCollection'.min_ansible_version
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            if (jm_str_eq_8(prop, 0x63617073656d616eLL) && jm_str_eq_2(prop + 8, 0x00000065))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? &lpath_94 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? &lpath_94 : NULL));
-                return false;
+                // handle may namespace property
+                // .'$GalaxyInfoModelCollection'.namespace
+                // "/^[a-z][-a-z0-9_]+$/"
+                res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_94 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", (path ? &lpath_94 : NULL));
+                    return false;
+                }
+                continue;
             }
-            continue;
+            else if (jm_str_eq_8(prop, 0x6d726f6674616c70LL) && jm_str_eq_2(prop + 8, 0x00000073))
+            {
+                // handle may platforms property
+                // .'$GalaxyInfoModelCollection'.platforms
+                res = json_model_50(pval, (path ? &lpath_94 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", (path ? &lpath_94 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6d616e5f656c6f72LL) && jm_str_eq_2(prop + 8, 0x00000065))
+            {
+                // handle may role_name property
+                // .'$GalaxyInfoModelCollection'.role_name
+                // "/^[a-z][a-z0-9_]+$/"
+                res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_94 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", (path ? &lpath_94 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x6c705f64756f6c63LL) && jm_str_eq_8(prop + 8, 0x00736d726f667461LL))
+            {
+                // handle may cloud_platforms property
+                // .'$GalaxyInfoModelCollection'.cloud_platforms
+                res = true;
+                continue;
+            }
         }
         if (rep) jm_report_add_entry(rep, "unexpected prop [.'$GalaxyInfoModelCollection']", (path ? &lpath_94 : NULL));
         return false;
@@ -8250,83 +8257,90 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             continue;
         }
-        if (unlikely(jm_str_eq_7(prop, 0x0000726f68747561LL)))
+        uint32_t hash_1 = *((uint32_t *) (prop));
+        if (hash_1 <= 0x68746967)
         {
-            // handle may author property
-            // .'$GalaxyInfoModelLoose'.author
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            if (jm_str_eq_8(prop, 0x0065736e6563696cLL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.author]", (path ? &lpath_95 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", (path ? &lpath_95 : NULL));
-                return false;
+                // handle may license property
+                // .'$GalaxyInfoModelLoose'.license
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.license]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path ? &lpath_95 : NULL));
+                    return false;
+                }
+                continue;
             }
-            continue;
+            else if (jm_str_eq_8(prop, 0x625f627568746967LL) && jm_str_eq_6(prop + 8, 0x00000068636e6172LL))
+            {
+                // handle may github_branch property
+                // .'$GalaxyInfoModelLoose'.github_branch
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", (path ? &lpath_95 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x69736e615f6e696dLL) && jm_str_eq_8(prop + 8, 0x746e6f635f656c62LL) && jm_str_eq_8(prop + 16, 0x65765f72656e6961LL) && jm_str_eq_6(prop + 24, 0x0000006e6f697372LL))
+            {
+                // handle may min_ansible_container_version property
+                // .'$GalaxyInfoModelLoose'.min_ansible_container_version
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? &lpath_95 : NULL));
+                    return false;
+                }
+                continue;
+            }
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x00796e61706d6f63LL)))
+        else
         {
-            // handle may company property
-            // .'$GalaxyInfoModelLoose'.company
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            if (jm_str_eq_7(prop, 0x0000726f68747561LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.company]", (path ? &lpath_95 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", (path ? &lpath_95 : NULL));
-                return false;
+                // handle may author property
+                // .'$GalaxyInfoModelLoose'.author
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.author]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", (path ? &lpath_95 : NULL));
+                    return false;
+                }
+                continue;
             }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x0065736e6563696cLL)))
-        {
-            // handle may license property
-            // .'$GalaxyInfoModelLoose'.license
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x00796e61706d6f63LL))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.license]", (path ? &lpath_95 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path ? &lpath_95 : NULL));
-                return false;
+                // handle may company property
+                // .'$GalaxyInfoModelLoose'.company
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.company]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", (path ? &lpath_95 : NULL));
+                    return false;
+                }
+                continue;
             }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_8(prop, 0x625f627568746967LL) && jm_str_eq_6(prop + 8, 0x00000068636e6172LL)))
-        {
-            // handle may github_branch property
-            // .'$GalaxyInfoModelLoose'.github_branch
-            res = json_is_string(pval);
-            if (unlikely(! res))
+            else if (jm_str_eq_8(prop, 0x72745f6575737369LL) && jm_str_eq_8(prop + 8, 0x72755f72656b6361LL) && jm_str_eq_2(prop + 16, 0x0000006c))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", (path ? &lpath_95 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", (path ? &lpath_95 : NULL));
-                return false;
+                // handle may issue_tracker_url property
+                // .'$GalaxyInfoModelLoose'.issue_tracker_url
+                res = json_is_string(pval);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? &lpath_95 : NULL));
+                    return false;
+                }
+                continue;
             }
-            continue;
-        }
-        else if (jm_str_eq_8(prop, 0x72745f6575737369LL) && jm_str_eq_8(prop + 8, 0x72755f72656b6361LL) && jm_str_eq_2(prop + 16, 0x0000006c))
-        {
-            // handle may issue_tracker_url property
-            // .'$GalaxyInfoModelLoose'.issue_tracker_url
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? &lpath_95 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? &lpath_95 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (likely(jm_str_eq_8(prop, 0x69736e615f6e696dLL) && jm_str_eq_8(prop + 8, 0x746e6f635f656c62LL) && jm_str_eq_8(prop + 16, 0x65765f72656e6961LL) && jm_str_eq_6(prop + 24, 0x0000006e6f697372LL)))
-        {
-            // handle may min_ansible_container_version property
-            // .'$GalaxyInfoModelLoose'.min_ansible_container_version
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? &lpath_95 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? &lpath_95 : NULL));
-                return false;
-            }
-            continue;
         }
         if (rep) jm_report_add_entry(rep, "unexpected prop [.'$GalaxyInfoModelLoose']", (path ? &lpath_95 : NULL));
         return false;
@@ -8431,8 +8445,8 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             continue;
         }
-        uint32_t hash_0 = *((uint32_t *) (prop));
-        if (hash_0 <= 0x656d616e)
+        uint32_t hash_2 = *((uint32_t *) (prop));
+        if (hash_2 <= 0x656d616e)
         {
             if (jm_str_eq_8(prop, 0x63617073656d616eLL) && jm_str_eq_2(prop + 8, 0x00000065))
             {
@@ -8656,8 +8670,8 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        uint32_t hash_1 = *((uint32_t *) (prop));
-        if (hash_1 <= 0x68746967)
+        uint32_t hash_3 = *((uint32_t *) (prop));
+        if (hash_3 <= 0x68746967)
         {
             if (jm_str_eq_8(prop, 0x0065736e6563696cLL))
             {
@@ -8894,8 +8908,8 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        uint32_t hash_2 = *((uint32_t *) (prop));
-        if (hash_2 <= 0x68746967)
+        uint32_t hash_4 = *((uint32_t *) (prop));
+        if (hash_4 <= 0x68746967)
         {
             if (jm_str_eq_8(prop, 0x0065736e6563696cLL))
             {
@@ -9279,8 +9293,8 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_99 = (jm_path_t) { prop, 0, path, NULL };
-        uint32_t hash_3 = *((uint32_t *) (prop));
-        if (hash_3 <= 0x656d616e)
+        uint32_t hash_5 = *((uint32_t *) (prop));
+        if (hash_5 <= 0x656d616e)
         {
             if (jm_str_eq_4(prop, 0x006d6373))
             {

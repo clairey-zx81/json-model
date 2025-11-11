@@ -8,8 +8,8 @@
 - [x] static: use `continue` instead of long multi-if statements
 - [x] c-backend: partition inlined str cset
 - [x] static: or acceleration based on full or partial distinct mandatory props
+- [x] static: set default C partition threshold to _6_
 - [ ] static: xor acceleration based on distinct mandatory props
-- [ ] static: set default C partition threshold to _6_
 - [ ] backend: improve if patterns, see `mv-00/dst_00.py` line 97
 - [ ] static: merge partial mandatory prop discriminants
 - [ ] static: merge may/must property handling, or not?

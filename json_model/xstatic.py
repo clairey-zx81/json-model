@@ -1943,7 +1943,7 @@ def xstatic_compile(
 
     # partition threshold to generate a dichotomy on unrolled tests
     PARTITION_THRESHOLD: dict[str, int] = {
-        "c": 8,
+        "c": 6,
         # TODO other languages once tested
     }
     if partition_threshold is None:
