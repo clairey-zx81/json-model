@@ -59,13 +59,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $neStr [.'$neStrList'.'@'.0]", arr_0_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$neStrList'.'@']", path))
     if res:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$neStrList']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$neStrList'.'@']", path))
     return res
 
 
@@ -90,13 +90,13 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $License [.'$LicenseList'.'@'.0]", arr_1_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$LicenseList'.'@']", path))
     if res:
         ival_1: int = len(val)
         res = is_unique_array(val, path, rep) and ival_1 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$LicenseList']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$LicenseList'.'@']", path))
     return res
 
 
@@ -305,7 +305,6 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_9(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $SemVer [.'$Version'.'|'.0]", path))
-    if not res:
         # .'$Version'.'|'.1
         res = isinstance(val, int) and not isinstance(val, bool) and val == 0
         if not res:
@@ -369,7 +368,6 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_10(pval, lpath_4 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Version [.'$Prereq'.''.'|'.0]", lpath_4 if path is not None else None))
-        if not res:
             # .'$Prereq'.''.'|'.1
             res = json_model_12(pval, lpath_4 if path is not None else None, rep)
             if not res:
@@ -562,12 +560,10 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_4(pval, lpath_7 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $License [.license.'|'.0]", lpath_7 if path is not None else None))
-            if not res:
                 # .license.'|'.1
                 res = json_model_5(pval, lpath_7 if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $LicenseList [.license.'|'.1]", lpath_7 if path is not None else None))
-                if not res:
                     # .license.'|'.2
                     res = _jm_obj_3(pval, lpath_7 if path is not None else None, rep)
                     if not res:
@@ -627,7 +623,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_2(pval, lpath_7 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $neStr [.maintainer.'|'.0]", lpath_7 if path is not None else None))
-            if not res:
                 # .maintainer.'|'.1
                 res = json_model_3(pval, lpath_7 if path is not None else None, rep)
                 if not res:

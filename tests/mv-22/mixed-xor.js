@@ -291,9 +291,6 @@ function json_model_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'|'.2]", path])
-        }
-        if (! res)
-        {
             res = json_model_2(val, path, rep);
         }
     }

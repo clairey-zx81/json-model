@@ -44,9 +44,6 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex05a [.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (! res)

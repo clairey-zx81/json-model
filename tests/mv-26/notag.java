@@ -120,10 +120,6 @@ public class notag extends ModelChecker
     {
         // .
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "foo"))
@@ -159,6 +155,10 @@ public class notag extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
         }
         return res;
     }

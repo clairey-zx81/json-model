@@ -39,22 +39,18 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$const'.'|'.0]", path))
-    if not res:
         # .'$const'.'|'.1
         res = isinstance(val, bool)
         if not res:
             rep is None or rep.append(("not a bool [.'$const'.'|'.1]", path))
-        if not res:
             # .'$const'.'|'.2
             res = isinstance(val, int) and not isinstance(val, bool)
             if not res:
                 rep is None or rep.append(("not a -1 strict int [.'$const'.'|'.2]", path))
-            if not res:
                 # .'$const'.'|'.3
                 res = isinstance(val, float)
                 if not res:
                     rep is None or rep.append(("not a -1.0 strict float [.'$const'.'|'.3]", path))
-                if not res:
                     # .'$const'.'|'.4
                     res = isinstance(val, str)
                     if not res:
@@ -69,8 +65,6 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$enum'
     res: bool = isinstance(val, list)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'$enum'.'|']", path))
     if res:
         # .'$enum'.'|'.0
         for arr_2_idx, arr_2_item in enumerate(val):
@@ -82,7 +76,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$enum'.'|'.0]", path))
-        if not res:
             # .'$enum'.'|'.1
             for arr_1_idx, arr_1_item in enumerate(val):
                 arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
@@ -93,7 +86,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                     break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$enum'.'|'.1]", path))
-            if not res:
                 # .'$enum'.'|'.2
                 for arr_0_idx, arr_0_item in enumerate(val):
                     arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
@@ -108,6 +100,8 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'$enum'.'|']", path))
+    else:
+        rep is None or rep.append(("unexpected type [.'$enum'.'|']", path))
     return res
 
 # check $schemaArray (.'$schemaArray')
@@ -193,7 +187,6 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_24(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$arrayKeywords'.items.'|'.0]", lpath_1 if path is not None else None))
-            if not res:
                 # .'$arrayKeywords'.items.'|'.1
                 res = json_model_4(pval, lpath_1 if path is not None else None, rep)
                 if not res:
@@ -786,7 +779,6 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_24(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$Array'.items.'|'.0]", path))
-    if not res:
         # .'$Array'.items.'|'.1
         res = json_model_4(val, path, rep)
         if not res:
@@ -2621,7 +2613,6 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$Schema'.'|'.0]", path))
-    if not res:
         # .'$Schema'.'|'.1
         res = json_model_23(val, path, rep)
         if not res:
@@ -2661,13 +2652,13 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # .'$RootSchema'.'&'.0
         res = _jm_obj_20(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'$RootSchema'.'&'.0]", path))
         if res:
             # .'$RootSchema'.'&'.1
             res = json_model_23(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $ObjectSchema [.'$RootSchema'.'&'.1]", path))
+        else:
+            rep is None or rep.append(("unexpected element [.'$RootSchema'.'&'.0]", path))
     if res:
         rep is None or rep.clear()
     else:

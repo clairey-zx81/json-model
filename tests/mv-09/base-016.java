@@ -28,17 +28,11 @@ public class base_016 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             res = json.isString(val);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'|'.2
                 res = json.isBoolean(val);
                 if (! res)

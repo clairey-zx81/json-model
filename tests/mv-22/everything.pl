@@ -875,6 +875,8 @@ sub _jm_f_28($$$)
     my ($val, $path, $rep) = @_;
     # .constraints.cua0
     # .constraints.cua0.'@'
+    # accept any array
+    ;
     return jm_is_array($val) && jm_is_unique_array($val, undef, undef);
 }
 

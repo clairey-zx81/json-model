@@ -106,10 +106,6 @@ public class dis_005 extends ModelChecker
     {
         // .
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "b"))
@@ -138,6 +134,10 @@ public class dis_005 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
         }
         return res;
     }

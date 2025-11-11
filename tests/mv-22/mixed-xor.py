@@ -209,7 +209,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         res = isinstance(val, bool)
         if not res:
             rep is None or rep.append(("not a bool [.'|'.2]", path))
-        if not res:
             res = json_model_2(val, path, rep)
     return res
 

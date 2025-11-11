@@ -57,10 +57,6 @@ public class json_schema_draft_07 extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$schemaArray'.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -69,6 +65,10 @@ public class json_schema_draft_07 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$schemaArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$schemaArray'.'@']", path);
         }
         return res;
     }
@@ -110,10 +110,6 @@ public class json_schema_draft_07 extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$arrayTypes'.'@']", path);
-        }
         if (res)
         {
             long ival_1 = json.arrayLength(val);
@@ -122,6 +118,10 @@ public class json_schema_draft_07 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$arrayTypes']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$arrayTypes'.'@']", path);
         }
         return res;
     }
@@ -243,9 +243,6 @@ public class json_schema_draft_07 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$ObjectSchema'.dependencies.''.'|'.0]", (path != null ? lpath_2 : null));
-            }
-            if (! res)
-            {
                 // .'$ObjectSchema'.dependencies.''.'|'.1
                 res = json.isArray(pval);
                 if (res)
@@ -302,18 +299,19 @@ public class json_schema_draft_07 extends ModelChecker
         // .'$ObjectSchema'.enum
         // .'$ObjectSchema'.enum.'@'
         boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$ObjectSchema'.enum.'@']", path);
-        }
         if (res)
         {
+            // accept any array
             long ival_2 = json.arrayLength(val);
             res = rt.array_is_unique(val, path, rep) && ival_2 >= 1;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$ObjectSchema'.enum]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$ObjectSchema'.enum.'@']", path);
         }
         return res;
     }
@@ -375,9 +373,6 @@ public class json_schema_draft_07 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$ObjectSchema'.items.'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
@@ -643,9 +638,6 @@ public class json_schema_draft_07 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$ObjectSchema'.type.'|'.1
             res = json_model_5(val, path, rep);
             if (! res)
@@ -730,9 +722,6 @@ public class json_schema_draft_07 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Schema'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Schema'.'|'.1
             res = json_model_6(val, path, rep);
             if (! res)

@@ -291,9 +291,6 @@ public class mixed_xor extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a bool [.'|'.2]", path);
-            }
-            if (! res)
-            {
                 res = json_model_2(val, path, rep);
             }
         }

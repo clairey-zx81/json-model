@@ -20,10 +20,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // .'@'
     bool res = json_is_integer(val) && json_integer_value(val) >= 1;
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'@']", path);
-    }
     if (likely(res))
     {
         int64_t ival_0 = json_integer_value(val);
@@ -32,6 +28,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'@']", path);
     }
     return res;
 }

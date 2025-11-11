@@ -77,10 +77,6 @@ public class or_10 extends ModelChecker
     {
         // .
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
-        }
         if (res)
         {
             // .'|'.0
@@ -88,9 +84,6 @@ public class or_10 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
-            }
-            if (! res)
-            {
                 if (json.objectHasProp(val, "name"))
                 {
                     // .'|'.1
@@ -113,6 +106,10 @@ public class or_10 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
         }
         return res;
     }

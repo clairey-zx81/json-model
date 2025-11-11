@@ -517,11 +517,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     bool res = json_is_object(val);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);
-    }
-    if (res)
+    if (likely(res))
     {
         if (json_object_get(val, "d") != NULL)
         {
@@ -612,6 +608,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "no model matched [.'|']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);
     }
     return res;
 }

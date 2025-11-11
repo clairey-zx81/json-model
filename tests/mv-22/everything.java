@@ -176,10 +176,6 @@ public class everything extends ModelChecker
                 {
                     // .and.a0.'&'.0
                     res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected $DATE [.and.a0.'&'.0]", (path != null ? lpath_1 : null));
-                    }
                     if (res)
                     {
                         // .and.a0.'&'.1
@@ -189,6 +185,10 @@ public class everything extends ModelChecker
                         {
                             if (rep != null) rep.addEntry("unexpected /^2020-/ [.and.a0.'&'.1]", (path != null ? lpath_1 : null));
                         }
+                    }
+                    else
+                    {
+                        if (rep != null) rep.addEntry("unexpected $DATE [.and.a0.'&'.0]", (path != null ? lpath_1 : null));
                     }
                 }
                 if (res)
@@ -495,10 +495,6 @@ public class everything extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cia0.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -507,6 +503,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cia0]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cia0.'@']", path);
         }
         return res;
     }
@@ -535,10 +535,6 @@ public class everything extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cia1.'@']", path);
-        }
         if (res)
         {
             long ival_1 = json.arrayLength(val);
@@ -547,6 +543,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cia1]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cia1.'@']", path);
         }
         return res;
     }
@@ -575,10 +575,6 @@ public class everything extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cia2.'@']", path);
-        }
         if (res)
         {
             long ival_2 = json.arrayLength(val);
@@ -587,6 +583,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cia2]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cia2.'@']", path);
         }
         return res;
     }
@@ -609,10 +609,6 @@ public class everything extends ModelChecker
         // .constraints.cii1
         // .constraints.cii1.'@'
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cii1.'@']", path);
-        }
         if (res)
         {
             long ival_3 = json.asLong(val);
@@ -621,6 +617,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cii1]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cii1.'@']", path);
         }
         return res;
     }
@@ -631,10 +631,6 @@ public class everything extends ModelChecker
         // .constraints.cii2
         // .constraints.cii2.'@'
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cii2.'@']", path);
-        }
         if (res)
         {
             long ival_4 = json.asLong(val);
@@ -643,6 +639,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cii2]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cii2.'@']", path);
         }
         return res;
     }
@@ -653,10 +653,6 @@ public class everything extends ModelChecker
         // .constraints.cin0
         // .constraints.cin0.'@'
         boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cin0.'@']", path);
-        }
         if (res)
         {
             double fval_0 = json.asDouble(val);
@@ -665,6 +661,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cin0]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cin0.'@']", path);
         }
         return res;
     }
@@ -675,10 +675,6 @@ public class everything extends ModelChecker
         // .constraints.cin1
         // .constraints.cin1.'@'
         boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cin1.'@']", path);
-        }
         if (res)
         {
             double fval_1 = json.asDouble(val);
@@ -687,6 +683,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cin1]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cin1.'@']", path);
         }
         return res;
     }
@@ -697,10 +697,6 @@ public class everything extends ModelChecker
         // .constraints.cin2
         // .constraints.cin2.'@'
         boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cin2.'@']", path);
-        }
         if (res)
         {
             double fval_2 = json.asDouble(val);
@@ -709,6 +705,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cin2]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cin2.'@']", path);
         }
         return res;
     }
@@ -731,10 +731,6 @@ public class everything extends ModelChecker
         // .constraints.cio0
         // .constraints.cio0.'@'
         boolean res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.constraints.cio0.'@']", path);
-        }
         if (res)
         {
             long ival_5 = json.objectSize(val);
@@ -743,6 +739,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cio0]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected element [.constraints.cio0.'@']", path);
         }
         return res;
     }
@@ -765,10 +765,6 @@ public class everything extends ModelChecker
         // .constraints.cio1
         // .constraints.cio1.'@'
         boolean res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.constraints.cio1.'@']", path);
-        }
         if (res)
         {
             long ival_6 = json.objectSize(val);
@@ -777,6 +773,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cio1]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected element [.constraints.cio1.'@']", path);
         }
         return res;
     }
@@ -799,10 +799,6 @@ public class everything extends ModelChecker
         // .constraints.cio2
         // .constraints.cio2.'@'
         boolean res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.constraints.cio2.'@']", path);
-        }
         if (res)
         {
             long ival_7 = json.objectSize(val);
@@ -811,6 +807,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cio2]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected element [.constraints.cio2.'@']", path);
         }
         return res;
     }
@@ -821,10 +821,6 @@ public class everything extends ModelChecker
         // .constraints.cis0
         // .constraints.cis0.'@'
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.cis0.'@']", path);
-        }
         if (res)
         {
             long ival_8 = json.asString(val).length();
@@ -833,6 +829,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cis0]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected string [.constraints.cis0.'@']", path);
         }
         return res;
     }
@@ -843,10 +843,6 @@ public class everything extends ModelChecker
         // .constraints.cis1
         // .constraints.cis1.'@'
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.cis1.'@']", path);
-        }
         if (res)
         {
             long ival_9 = json.asString(val).length();
@@ -855,6 +851,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cis1]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected string [.constraints.cis1.'@']", path);
         }
         return res;
     }
@@ -865,10 +865,6 @@ public class everything extends ModelChecker
         // .constraints.cis2
         // .constraints.cis2.'@'
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.cis2.'@']", path);
-        }
         if (res)
         {
             long ival_10 = json.asString(val).length();
@@ -877,6 +873,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cis2]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected string [.constraints.cis2.'@']", path);
         }
         return res;
     }
@@ -899,10 +899,6 @@ public class everything extends ModelChecker
         // .constraints.cni1
         // .constraints.cni1.'@'
         boolean res = json.isInteger(val) && json.asLong(val) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.constraints.cni1.'@']", path);
-        }
         if (res)
         {
             long ival_11 = json.asLong(val);
@@ -912,6 +908,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cni1]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 1 strict int [.constraints.cni1.'@']", path);
         }
         return res;
     }
@@ -934,10 +934,6 @@ public class everything extends ModelChecker
         // .constraints.cnn0
         // .constraints.cnn0.'@'
         boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cnn0.'@']", path);
-        }
         if (res)
         {
             double fval_4 = json.asDouble(val);
@@ -946,6 +942,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cnn0]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cnn0.'@']", path);
         }
         return res;
     }
@@ -956,10 +956,6 @@ public class everything extends ModelChecker
         // .constraints.cnn1
         // .constraints.cnn1.'@'
         boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cnn1.'@']", path);
-        }
         if (res)
         {
             double fval_5 = json.asDouble(val);
@@ -968,6 +964,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cnn1]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cnn1.'@']", path);
         }
         return res;
     }
@@ -978,10 +978,6 @@ public class everything extends ModelChecker
         // .constraints.cnn2
         // .constraints.cnn2.'@'
         boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cnn2.'@']", path);
-        }
         if (res)
         {
             double fval_6 = json.asDouble(val);
@@ -990,6 +986,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cnn2]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0.0 strict float [.constraints.cnn2.'@']", path);
         }
         return res;
     }
@@ -1000,10 +1000,6 @@ public class everything extends ModelChecker
         // .constraints.css0
         // .constraints.css0.'@'
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.css0.'@']", path);
-        }
         if (res)
         {
             String sval_0 = json.asString(val);
@@ -1012,6 +1008,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.css0]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected string [.constraints.css0.'@']", path);
         }
         return res;
     }
@@ -1022,10 +1022,6 @@ public class everything extends ModelChecker
         // .constraints.css1
         // .constraints.css1.'@'
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.css1.'@']", path);
-        }
         if (res)
         {
             String sval_1 = json.asString(val);
@@ -1034,6 +1030,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.css1]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected string [.constraints.css1.'@']", path);
         }
         return res;
     }
@@ -1044,10 +1044,6 @@ public class everything extends ModelChecker
         // .constraints.css2
         // .constraints.css2.'@'
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.css2.'@']", path);
-        }
         if (res)
         {
             String sval_2 = json.asString(val);
@@ -1056,6 +1052,10 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.css2]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected string [.constraints.css2.'@']", path);
         }
         return res;
     }
@@ -1066,17 +1066,18 @@ public class everything extends ModelChecker
         // .constraints.cua0
         // .constraints.cua0.'@'
         boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cua0.'@']", path);
-        }
         if (res)
         {
+            // accept any array
             res = rt.array_is_unique(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cua0]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cua0.'@']", path);
         }
         return res;
     }
@@ -2054,10 +2055,6 @@ public class everything extends ModelChecker
                 // handle may m1 property
                 // .merge.m1
                 res = json.isObject(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected type [.merge.m1.'|']", (path != null ? lpath_8 : null));
-                }
                 if (res)
                 {
                     if (json.objectHasProp(pval, "b"))
@@ -2094,6 +2091,10 @@ public class everything extends ModelChecker
                         if (rep != null) rep.addEntry("no model matched [.merge.m1.'|']", (path != null ? lpath_8 : null));
                     }
                 }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected type [.merge.m1.'|']", (path != null ? lpath_8 : null));
+                }
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m1]", (path != null ? lpath_8 : null));
@@ -2106,10 +2107,6 @@ public class everything extends ModelChecker
                 // handle may m2 property
                 // .merge.m2
                 res = json.isObject(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected type [.merge.m2.'|']", (path != null ? lpath_8 : null));
-                }
                 if (res)
                 {
                     if (json.objectHasProp(pval, "b"))
@@ -2146,6 +2143,10 @@ public class everything extends ModelChecker
                         if (rep != null) rep.addEntry("no model matched [.merge.m2.'|']", (path != null ? lpath_8 : null));
                     }
                 }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected type [.merge.m2.'|']", (path != null ? lpath_8 : null));
+                }
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m2]", (path != null ? lpath_8 : null));
@@ -2158,10 +2159,6 @@ public class everything extends ModelChecker
                 // handle may m3 property
                 // .merge.m3
                 res = json.isObject(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected type [.merge.m3.'|']", (path != null ? lpath_8 : null));
-                }
                 if (res)
                 {
                     if (json.objectHasProp(pval, "a"))
@@ -2233,6 +2230,10 @@ public class everything extends ModelChecker
                     {
                         if (rep != null) rep.addEntry("no model matched [.merge.m3.'|']", (path != null ? lpath_8 : null));
                     }
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected type [.merge.m3.'|']", (path != null ? lpath_8 : null));
                 }
                 if (! res)
                 {
@@ -2698,9 +2699,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.or.o0.'|'.0]", (path != null ? lpath_16 : null));
-                }
-                if (! res)
-                {
                     // .or.o0.'|'.1
                     res = json.isInteger(pval);
                     if (! res)
@@ -2729,9 +2727,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $DATE [.or.o1.'|'.0]", (path != null ? lpath_16 : null));
-                }
-                if (! res)
-                {
                     // .or.o1.'|'.1
                     res = json.isString(pval) && rt.is_valid_time(json.asString(pval));
                     if (! res)
@@ -2760,25 +2755,16 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.or.o2.'|'.0]", (path != null ? lpath_16 : null));
-                }
-                if (! res)
-                {
                     // .or.o2.'|'.1
                     res = json.isString(pval) && rt.is_valid_uuid(json.asString(pval));
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $UUID [.or.o2.'|'.1]", (path != null ? lpath_16 : null));
-                    }
-                    if (! res)
-                    {
                         // .or.o2.'|'.2
                         res = json.isArray(pval);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not array or unexpected array [.or.o2.'|'.2]", (path != null ? lpath_16 : null));
-                        }
-                        if (! res)
-                        {
                             // .or.o2.'|'.3
                             res = _jm_obj_20(pval, (path != null ? lpath_16 : null), rep);
                             if (! res)
@@ -3295,10 +3281,6 @@ public class everything extends ModelChecker
                         }
                     }
                 }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.tuple.t1.'@']", (path != null ? lpath_19 : null));
-                }
                 if (res)
                 {
                     long ival_12 = json.arrayLength(pval);
@@ -3307,6 +3289,10 @@ public class everything extends ModelChecker
                     {
                         if (rep != null) rep.addEntry("constraints failed [.tuple.t1]", (path != null ? lpath_19 : null));
                     }
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.tuple.t1.'@']", (path != null ? lpath_19 : null));
                 }
                 if (! res)
                 {
@@ -3325,10 +3311,6 @@ public class everything extends ModelChecker
                     Path lpath_20 = new Path(0, (path != null ? lpath_19 : null));
                     // .tuple.t2.0
                     res = json.isInteger(json.arrayItem(pval, 0)) && json.asLong(json.arrayItem(pval, 0)) >= 0;
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a 0 strict int [.tuple.t2.0]", ((path != null ? lpath_19 : null) != null ? lpath_20 : null));
-                    }
                     if (res)
                     {
                         lpath_20 = new Path(1, (path != null ? lpath_19 : null));
@@ -3338,6 +3320,10 @@ public class everything extends ModelChecker
                         {
                             if (rep != null) rep.addEntry("not a 0 strict int [.tuple.t2.1]", ((path != null ? lpath_19 : null) != null ? lpath_20 : null));
                         }
+                    }
+                    else
+                    {
+                        if (rep != null) rep.addEntry("not a 0 strict int [.tuple.t2.0]", ((path != null ? lpath_19 : null) != null ? lpath_20 : null));
                     }
                 }
                 if (! res)
@@ -3358,19 +3344,11 @@ public class everything extends ModelChecker
                     Path lpath_21 = new Path(0, (path != null ? lpath_19 : null));
                     // .tuple.t3.0
                     res = json.isBoolean(json.arrayItem(pval, 0));
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a bool [.tuple.t3.0]", ((path != null ? lpath_19 : null) != null ? lpath_21 : null));
-                    }
                     if (res)
                     {
                         lpath_21 = new Path(1, (path != null ? lpath_19 : null));
                         // .tuple.t3.1
                         res = json.isInteger(json.arrayItem(pval, 1)) && json.asLong(json.arrayItem(pval, 1)) >= 0;
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("not a 0 strict int [.tuple.t3.1]", ((path != null ? lpath_19 : null) != null ? lpath_21 : null));
-                        }
                         if (res)
                         {
                             lpath_21 = new Path(2, (path != null ? lpath_19 : null));
@@ -3381,6 +3359,14 @@ public class everything extends ModelChecker
                                 if (rep != null) rep.addEntry("unexpected string [.tuple.t3.2]", ((path != null ? lpath_19 : null) != null ? lpath_21 : null));
                             }
                         }
+                        else
+                        {
+                            if (rep != null) rep.addEntry("not a 0 strict int [.tuple.t3.1]", ((path != null ? lpath_19 : null) != null ? lpath_21 : null));
+                        }
+                    }
+                    else
+                    {
+                        if (rep != null) rep.addEntry("not a bool [.tuple.t3.0]", ((path != null ? lpath_19 : null) != null ? lpath_21 : null));
                     }
                 }
                 if (! res)
@@ -3426,10 +3412,6 @@ public class everything extends ModelChecker
                         }
                     }
                 }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.tuple.t4.'@']", (path != null ? lpath_19 : null));
-                }
                 if (res)
                 {
                     long ival_13 = json.arrayLength(pval);
@@ -3438,6 +3420,10 @@ public class everything extends ModelChecker
                     {
                         if (rep != null) rep.addEntry("constraints failed [.tuple.t4]", (path != null ? lpath_19 : null));
                     }
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.tuple.t4.'@']", (path != null ? lpath_19 : null));
                 }
                 if (! res)
                 {
@@ -3478,9 +3464,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.xor.x0.'|'.0]", (path != null ? lpath_23 : null));
-                }
-                if (! res)
-                {
                     // .xor.x0.'|'.1
                     res = json.isInteger(pval);
                     if (! res)

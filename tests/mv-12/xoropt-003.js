@@ -23,25 +23,16 @@ function json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Aa'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Aa'.'|'.1
         res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
         if (! res)
         {
             rep !== null && rep.push(["not a 1 strict int [.'$Aa'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$Aa'.'|'.2
             res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.'$Aa'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$Aa'.'|'.3
                 // "/[a-z]/"
                 res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);

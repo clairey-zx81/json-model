@@ -20,25 +20,16 @@ function json_model_3(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $li0 [.'$foo'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$foo'.'|'.1
         res = json_model_5(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $ls0 [.'$foo'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$foo'.'|'.2
             res = json_model_6(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $lb0 [.'$foo'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$foo'.'|'.3
                 res = json_model_7(val, path, rep);
                 if (! res)

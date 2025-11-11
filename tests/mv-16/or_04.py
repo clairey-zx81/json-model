@@ -37,17 +37,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'|']", path))
-    if not res:
         res = isinstance(val, str)
-        if not res:
-            rep is None or rep.append(("unexpected type [.'|']", path))
         if res:
             # .'|'.0
             # "/[0-9]/"
             res = _jm_re_1(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected /[0-9]/ [.'|'.0]", path))
-            if not res:
                 # .'|'.1
                 # "/[a-z]/"
                 res = _jm_re_0(val, path, rep)
@@ -57,6 +53,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.clear()
             else:
                 rep is None or rep.append(("no model matched [.'|']", path))
+        else:
+            rep is None or rep.append(("unexpected type [.'|']", path))
     return res
 
 

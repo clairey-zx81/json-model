@@ -20,19 +20,11 @@ function json_model_1(val, path, rep)
     {
         // .'&'.0
         res = true;
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'&'.0]", path])
-        }
         if (res)
         {
             // .'&'.1
             // .'&'.1.'@'
             res = (typeof val === 'string' || val instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'&'.1.'@']", path])
-            }
             if (res)
             {
                 let ival_0 = val.length;
@@ -42,6 +34,14 @@ function json_model_1(val, path, rep)
                     rep !== null && rep.push(["constraints failed [.'&'.1]", path])
                 }
             }
+            else
+            {
+                rep !== null && rep.push(["unexpected string [.'&'.1.'@']", path])
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected string [.'&'.0]", path])
         }
     }
     if (res)

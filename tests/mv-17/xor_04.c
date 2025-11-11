@@ -33,9 +33,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'|'.1
         // "/^[a-z]+$/i"
         res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);

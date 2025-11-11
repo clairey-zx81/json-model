@@ -33,7 +33,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, float) and val >= 0.0
     if not res:
         rep is None or rep.append(("not a 0.0 strict float [.'|'.0]", path))
-    if not res:
         # .'|'.1
         # "/^[a-z]+$/i"
         res = isinstance(val, str) and _jm_re_0(val, path, rep)

@@ -27,9 +27,6 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex05a [.'$ex5'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$ex5'.'|'.1
         res = json_model_6(val, path, rep);
         if (unlikely(! res))
@@ -70,19 +67,11 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
         // .0
         res = json_model_5(json_array_get(val, 0), (path ? &lpath_0 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $ex5#Ex05a [.0]", (path ? &lpath_0 : NULL));
-        }
         if (likely(res))
         {
             lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
             // .1
             res = json_model_6(json_array_get(val, 1), (path ? &lpath_0 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $ex5#Ex05b [.1]", (path ? &lpath_0 : NULL));
-            }
             if (likely(res))
             {
                 lpath_0 = (jm_path_t) { NULL, 2, path, NULL };
@@ -93,6 +82,14 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     if (rep) jm_report_add_entry(rep, "unexpected $Ex06 [.2]", (path ? &lpath_0 : NULL));
                 }
             }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $ex5#Ex05b [.1]", (path ? &lpath_0 : NULL));
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $ex5#Ex05a [.0]", (path ? &lpath_0 : NULL));
         }
     }
     if (unlikely(! res))

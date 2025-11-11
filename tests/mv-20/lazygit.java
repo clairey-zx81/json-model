@@ -60,14 +60,7 @@ public class lazygit extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$color'.'|']", path);
-        }
-        if (! res)
-        {
             res = json.isString(val);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected type [.'$color'.'|']", path);
-            }
             if (res)
             {
                 // .'$color'.'|'.0
@@ -82,6 +75,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("unexpected /^#[0-9a-fA-F]{6}$/ [.'$color'.'|'.0]", path);
                     if (rep != null) rep.addEntry("no model matched [.'$color'.'|']", path);
                 }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected type [.'$color'.'|']", path);
             }
         }
         return res;
@@ -111,10 +108,6 @@ public class lazygit extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$colorArray'.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -123,6 +116,10 @@ public class lazygit extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$colorArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$colorArray'.'@']", path);
         }
         return res;
     }
@@ -136,9 +133,6 @@ public class lazygit extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$keybinding'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$keybinding'.'|'.1
             res = json.isString(val);
             if (! res)
@@ -200,10 +194,6 @@ public class lazygit extends ModelChecker
         // .'$neString'
         // .'$neString'.'@'
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$neString'.'@']", path);
-        }
         if (res)
         {
             String sval_0 = json.asString(val);
@@ -212,6 +202,10 @@ public class lazygit extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$neString']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$neString'.'@']", path);
         }
         return res;
     }
@@ -240,10 +234,6 @@ public class lazygit extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
-        }
         if (res)
         {
             res = rt.array_is_unique(val, path, rep);
@@ -251,6 +241,10 @@ public class lazygit extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$stringArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
         }
         return res;
     }
@@ -387,10 +381,6 @@ public class lazygit extends ModelChecker
                 // handle may suggestions property
                 // .'$Prompts'.'|'.0.suggestions
                 res = json.isObject(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected type [.'$Prompts'.'|'.0.suggestions.'|']", (path != null ? lpath_0 : null));
-                }
                 if (res)
                 {
                     if (json.objectHasProp(pval, "preset"))
@@ -426,6 +416,10 @@ public class lazygit extends ModelChecker
                     {
                         if (rep != null) rep.addEntry("no model matched [.'$Prompts'.'|'.0.suggestions.'|']", (path != null ? lpath_0 : null));
                     }
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected type [.'$Prompts'.'|'.0.suggestions.'|']", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
@@ -727,10 +721,6 @@ public class lazygit extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", (path != null ? lpath : null));
-        }
         if (res)
         {
             res = rt.array_is_unique(pval, (path != null ? lpath : null), rep);
@@ -738,6 +728,10 @@ public class lazygit extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$Prompts'.'|'.2.options]", (path != null ? lpath : null));
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", (path != null ? lpath : null));
         }
         if (! res)
         {
@@ -1187,10 +1181,6 @@ public class lazygit extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.customCommands.'@']", path);
-        }
         if (res)
         {
             res = rt.array_is_unique(val, path, rep);
@@ -1198,6 +1188,10 @@ public class lazygit extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.customCommands]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.customCommands.'@']", path);
         }
         return res;
     }
@@ -1568,10 +1562,6 @@ public class lazygit extends ModelChecker
                 // .git.paging.pager
                 // .git.paging.pager.'@'
                 res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.git.paging.pager.'@']", (path != null ? lpath_12 : null));
-                }
                 if (res)
                 {
                     String sval_1 = json.asString(pval);
@@ -1580,6 +1570,10 @@ public class lazygit extends ModelChecker
                     {
                         if (rep != null) rep.addEntry("constraints failed [.git.paging.pager]", (path != null ? lpath_12 : null));
                     }
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.git.paging.pager.'@']", (path != null ? lpath_12 : null));
                 }
                 if (! res)
                 {
@@ -1880,14 +1874,7 @@ public class lazygit extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.gui.nerdFontsVersion.'|']", path);
-        }
-        if (! res)
-        {
             res = json.isString(val);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected type [.gui.nerdFontsVersion.'|']", path);
-            }
             if (res)
             {
                 // .gui.nerdFontsVersion.'|'.0
@@ -1901,6 +1888,10 @@ public class lazygit extends ModelChecker
                     if (rep != null) rep.addEntry("unexpected string [.gui.nerdFontsVersion.'|'.0]", path);
                     if (rep != null) rep.addEntry("no model matched [.gui.nerdFontsVersion.'|']", path);
                 }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected type [.gui.nerdFontsVersion.'|']", path);
             }
         }
         return res;
@@ -2020,10 +2011,6 @@ public class lazygit extends ModelChecker
         // .gui.sidePanelWidth
         // .gui.sidePanelWidth.'@'
         boolean res = json.isDouble(val) && json.asDouble(val) >= 0.0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 0.0 strict float [.gui.sidePanelWidth.'@']", path);
-        }
         if (res)
         {
             double fval_0 = json.asDouble(val);
@@ -2032,6 +2019,10 @@ public class lazygit extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.gui.sidePanelWidth]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 0.0 strict float [.gui.sidePanelWidth.'@']", path);
         }
         return res;
     }
@@ -2937,14 +2928,7 @@ public class lazygit extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("value not in enum [.os.editPreset.'|']", (path != null ? lpath_28 : null));
-                }
-                if (! res)
-                {
                     res = json.isString(pval);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected type [.os.editPreset.'|']", (path != null ? lpath_28 : null));
-                    }
                     if (res)
                     {
                         // .os.editPreset.'|'.0
@@ -2958,6 +2942,10 @@ public class lazygit extends ModelChecker
                             if (rep != null) rep.addEntry("unexpected string [.os.editPreset.'|'.0]", (path != null ? lpath_28 : null));
                             if (rep != null) rep.addEntry("no model matched [.os.editPreset.'|']", (path != null ? lpath_28 : null));
                         }
+                    }
+                    else
+                    {
+                        if (rep != null) rep.addEntry("unexpected type [.os.editPreset.'|']", (path != null ? lpath_28 : null));
                     }
                 }
                 if (! res)

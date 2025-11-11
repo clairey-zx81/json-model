@@ -318,7 +318,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a -1 strict int [.'$Number'.maximum.'|'.0]", lpath_4 if path is not None else None))
-            if not res:
                 # .'$Number'.maximum.'|'.1
                 res = isinstance(pval, float)
                 if not res:
@@ -337,7 +336,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a -1 strict int [.'$Number'.minimum.'|'.0]", lpath_4 if path is not None else None))
-            if not res:
                 # .'$Number'.minimum.'|'.1
                 res = isinstance(pval, float)
                 if not res:
@@ -356,7 +354,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
             if not res:
                 rep is None or rep.append(("not a 1 strict int [.'$Number'.multipleOf.'|'.0]", lpath_4 if path is not None else None))
-            if not res:
                 # .'$Number'.multipleOf.'|'.1
                 res = isinstance(pval, float) and pval > 0.0
                 if not res:
@@ -375,7 +372,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a -1 strict int [.'$Number'.exclusiveMaximum.'|'.0]", lpath_4 if path is not None else None))
-            if not res:
                 # .'$Number'.exclusiveMaximum.'|'.1
                 res = isinstance(pval, float)
                 if not res:
@@ -394,7 +390,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a -1 strict int [.'$Number'.exclusiveMinimum.'|'.0]", lpath_4 if path is not None else None))
-            if not res:
                 # .'$Number'.exclusiveMinimum.'|'.1
                 res = isinstance(pval, float)
                 if not res:
@@ -594,13 +589,13 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$stringArray'.'@'.0]", arr_0_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$stringArray'.'@']", path))
     if res:
         ival_0: int = len(val)
         res = ival_0 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$stringArray']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$stringArray'.'@']", path))
     return res
 
 # check $schemaArray (.'$schemaArray')
@@ -616,13 +611,13 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$schemaArray'.'@'.0]", arr_1_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$schemaArray'.'@']", path))
     if res:
         ival_1: int = len(val)
         res = ival_1 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$schemaArray']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$schemaArray'.'@']", path))
     return res
 
 # check $Array (.'$Array')
@@ -1394,7 +1389,6 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1 strict int [.'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0]", path))
-    if not res:
         # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
         res = isinstance(val, float)
         if not res:
@@ -1412,7 +1406,6 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1 strict int [.'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0]", path))
-    if not res:
         # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
         res = isinstance(val, float)
         if not res:
@@ -1430,7 +1423,6 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1 strict int [.'$TightSchema'.'|'.2.maximum.'|'.0]", path))
-    if not res:
         # .'$TightSchema'.'|'.2.maximum.'|'.1
         res = isinstance(val, float)
         if not res:
@@ -1448,7 +1440,6 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1 strict int [.'$TightSchema'.'|'.2.minimum.'|'.0]", path))
-    if not res:
         # .'$TightSchema'.'|'.2.minimum.'|'.1
         res = isinstance(val, float)
         if not res:
@@ -1466,7 +1457,6 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 1
     if not res:
         rep is None or rep.append(("not a 1 strict int [.'$TightSchema'.'|'.2.multipleOf.'|'.0]", path))
-    if not res:
         # .'$TightSchema'.'|'.2.multipleOf.'|'.1
         res = isinstance(val, float) and val > 0.0
         if not res:
@@ -2511,7 +2501,6 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$Schema'.'|'.0]", path))
-    if not res:
         # .'$Schema'.'|'.1
         res = json_model_15(val, path, rep)
         if not res:

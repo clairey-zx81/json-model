@@ -39,7 +39,6 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$schema'.additionalProperties.'|'.0]", path))
-    if not res:
         # .'$schema'.additionalProperties.'|'.1
         res = json_model_3(val, path, rep)
         if not res:
@@ -80,7 +79,6 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.disallow.'|'.0]", path))
-    if not res:
         # .'$schema'.disallow.'|'.1
         res = json_model_5(val, path, rep)
         if not res:
@@ -104,13 +102,15 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.enum
     # .'$schema'.enum.'@'
     res: bool = isinstance(val, list)
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$schema'.enum.'@']", path))
     if res:
+        # accept any array
+        pass
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$schema'.enum]", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$schema'.enum.'@']", path))
     return res
 
 # check json_model_3_map_extends (.'$schema'.extends)
@@ -120,7 +120,6 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$schema'.extends.'|'.0]", path))
-    if not res:
         # .'$schema'.extends.'|'.1
         res = isinstance(val, list)
         if res:
@@ -162,7 +161,6 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$schema'.items.'|'.0]", path))
-    if not res:
         # .'$schema'.items.'|'.1
         res = isinstance(val, list)
         if res:
@@ -285,7 +283,6 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$schema'.requires.'|'.0]", path))
-    if not res:
         # .'$schema'.requires.'|'.1
         res = json_model_3(val, path, rep)
         if not res:
@@ -311,7 +308,6 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $allTypes [.'$schema'.type.'|'.0]", path))
-    if not res:
         # .'$schema'.type.'|'.1
         res = isinstance(val, list)
         if res:
@@ -322,7 +318,6 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = isinstance(arr_2_item, str)
                 if not res:
                     rep is None or rep.append(("unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", arr_2_lpath if path is not None else None))
-                if not res:
                     # .'$schema'.type.'|'.1.0.'|'.1
                     res = json_model_3(arr_2_item, arr_2_lpath if path is not None else None, rep)
                     if not res:
@@ -404,12 +399,12 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$schema#distinctStringArray'.'@'.0]", arr_3_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$schema#distinctStringArray'.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
         if not res:
             rep is None or rep.append(("constraints failed [.'$schema#distinctStringArray']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$schema#distinctStringArray'.'@']", path))
     return res
 
 

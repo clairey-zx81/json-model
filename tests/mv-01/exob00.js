@@ -135,10 +135,6 @@ function json_model_1(val, path, rep)
     // exclusive properties: a ^ b
     // .
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'|']", path])
-    }
     if (res)
     {
         // .'|'.0
@@ -146,9 +142,6 @@ function json_model_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'|'.0]", path])
-        }
-        if (! res)
-        {
             // .'|'.1
             res = _jm_obj_0(val, path, rep);
             if (! res)
@@ -164,6 +157,10 @@ function json_model_1(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'|']", path])
     }
     return res;
 }

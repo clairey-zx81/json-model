@@ -124,6 +124,8 @@ BEGIN
   -- .'$schema'.enum.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
+    -- accept any array
+    NULL;
     ival_0 := JSONB_ARRAY_LENGTH(val);
     res := jm_array_is_unique(val, NULL, NULL) AND ival_0 >= 1;
   END IF;

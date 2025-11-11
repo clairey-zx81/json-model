@@ -60,10 +60,6 @@ function json_model_1(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'@']", path])
-    }
     if (res)
     {
         let ival_0 = val.length;
@@ -72,6 +68,10 @@ function json_model_1(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
     return res;
 }

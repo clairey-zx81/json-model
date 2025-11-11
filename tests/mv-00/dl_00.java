@@ -55,9 +55,6 @@ public class dl_00 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$rec'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$rec'.'|'.1
             res = _jm_obj_0(val, path, rep);
             if (! res)

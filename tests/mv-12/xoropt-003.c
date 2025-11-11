@@ -33,25 +33,16 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$Aa'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$Aa'.'|'.1
         res = json_is_integer(val) && json_integer_value(val) >= 1;
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$Aa'.'|'.1]", path);
-        }
-        if (! res)
-        {
             // .'$Aa'.'|'.2
             res = json_is_real(val) && json_real_value(val) > 0.0;
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a 1.0 strict float [.'$Aa'.'|'.2]", path);
-            }
-            if (! res)
-            {
                 // .'$Aa'.'|'.3
                 // "/[a-z]/"
                 res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);

@@ -28,9 +28,6 @@ function json_model_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.0.'|'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 // .0.'|'.1
                 res = Array.isArray(arr_0_item) && arr_0_item.length == 2;
                 if (res)
@@ -38,23 +35,20 @@ function json_model_1(val, path, rep)
                     let lpath_1 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([0]) : null;
                     // .0.'|'.1.0
                     res = (typeof arr_0_item[0] === 'boolean' || arr_0_item[0] instanceof Boolean);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a bool [.0.'|'.1.0]", ((path ? arr_0_lpath : null) ? lpath_1 : null)])
-                    }
                     if (res)
                     {
                         lpath_1 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null;
                         // .0.'|'.1.1
                         res = true;
                     }
+                    else
+                    {
+                        rep !== null && rep.push(["not a bool [.0.'|'.1.0]", ((path ? arr_0_lpath : null) ? lpath_1 : null)])
+                    }
                 }
                 if (! res)
                 {
                     rep !== null && rep.push(["not array or unexpected array [.0.'|'.1]", (path ? arr_0_lpath : null)])
-                }
-                if (! res)
-                {
                     // .0.'|'.2
                     res = Array.isArray(arr_0_item) && arr_0_item.length == 3;
                     if (res)
@@ -62,25 +56,25 @@ function json_model_1(val, path, rep)
                         let lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([0]) : null;
                         // .0.'|'.2.0
                         res = (typeof arr_0_item[0] === 'boolean' || arr_0_item[0] instanceof Boolean);
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["not a bool [.0.'|'.2.0]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
-                        }
                         if (res)
                         {
                             lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null;
                             // .0.'|'.2.1
                             res = (typeof arr_0_item[1] === 'string' || arr_0_item[1] instanceof String);
-                            if (! res)
-                            {
-                                rep !== null && rep.push(["unexpected string [.0.'|'.2.1]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
-                            }
                             if (res)
                             {
                                 lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([2]) : null;
                                 // .0.'|'.2.2
                                 res = true;
                             }
+                            else
+                            {
+                                rep !== null && rep.push(["unexpected string [.0.'|'.2.1]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
+                            }
+                        }
+                        else
+                        {
+                            rep !== null && rep.push(["not a bool [.0.'|'.2.0]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
                         }
                     }
                     if (! res)

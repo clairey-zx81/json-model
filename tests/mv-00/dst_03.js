@@ -101,10 +101,6 @@ function json_model_1(val, path, rep)
 {
     // .
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'|']", path])
-    }
     if (res)
     {
         // .'|'.0
@@ -112,9 +108,6 @@ function json_model_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'|'.0]", path])
-        }
-        if (! res)
-        {
             if (val.hasOwnProperty("c"))
             {
                 // .'|'.1
@@ -137,6 +130,10 @@ function json_model_1(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'|']", path])
     }
     return res;
 }

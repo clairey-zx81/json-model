@@ -20,9 +20,6 @@ function json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$Vv'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Vv'.'|'.1
         res = (typeof val === 'string' || val instanceof String);
         if (! res)
@@ -232,10 +229,6 @@ function json_model_5(val, path, rep)
 {
     // .'$Ee'
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$Ee'.'|']", path])
-    }
     if (res)
     {
         if (val.hasOwnProperty("X"))
@@ -272,6 +265,10 @@ function json_model_5(val, path, rep)
             rep !== null && rep.push(["no model matched [.'$Ee'.'|']", path])
         }
     }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$Ee'.'|']", path])
+    }
     return res;
 }
 
@@ -284,9 +281,6 @@ function json_model_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Vv [.'$Mm'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Mm'.'|'.1
         res = json_model_5(val, path, rep);
         if (! res)

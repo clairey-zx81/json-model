@@ -24,14 +24,7 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|']", path])
-    }
-    if (! res)
-    {
         res = (typeof val === 'string' || val instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected type [.'|']", path])
-        }
         if (res)
         {
             // .'|'.0
@@ -46,6 +39,10 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["unexpected /[0-9]/ [.'|'.0]", path])
                 rep !== null && rep.push(["no model matched [.'|']", path])
             }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected type [.'|']", path])
         }
     }
     return res;

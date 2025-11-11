@@ -146,49 +146,31 @@ public class xoropt_001 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$Any'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Any'.'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Bb [.'$Any'.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'$Any'.'|'.2
                 res = json_model_4(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Ii [.'$Any'.'|'.2]", path);
-                }
-                if (! res)
-                {
                     // .'$Any'.'|'.3
                     res = json_model_5(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Ff [.'$Any'.'|'.3]", path);
-                    }
-                    if (! res)
-                    {
                         // .'$Any'.'|'.4
                         res = json_model_6(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $Ss [.'$Any'.'|'.4]", path);
-                        }
-                        if (! res)
-                        {
                             // .'$Any'.'|'.5
                             res = json_model_7(val, path, rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected $Aa [.'$Any'.'|'.5]", path);
-                            }
-                            if (! res)
-                            {
                                 // .'$Any'.'|'.6
                                 res = json_model_8(val, path, rep);
                                 if (! res)

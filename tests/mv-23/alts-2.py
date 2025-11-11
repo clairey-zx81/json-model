@@ -48,7 +48,6 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_3(pval, lpath_0 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $r [.'$a'.''.'|'.0]", lpath_0 if path is not None else None))
-        if not res:
             # .'$a'.''.'|'.1
             res = _jm_obj_0(pval, lpath_0 if path is not None else None, rep)
             if not res:
@@ -78,7 +77,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $a [.'$r'.'|'.0]", path))
-    if not res:
         # .'$r'.'|'.1
         res = _jm_obj_1(val, path, rep)
         if not res:

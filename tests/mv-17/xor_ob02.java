@@ -92,10 +92,6 @@ public class xor_ob02 extends ModelChecker
     {
         // .'$Aa'
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$Aa'.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "a"))
@@ -131,6 +127,10 @@ public class xor_ob02 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'$Aa'.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$Aa'.'|']", path);
         }
         return res;
     }
@@ -208,10 +208,6 @@ public class xor_ob02 extends ModelChecker
     {
         // .'$Bb'
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$Bb'.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "a"))
@@ -247,6 +243,10 @@ public class xor_ob02 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'$Bb'.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$Bb'.'|']", path);
         }
         return res;
     }
@@ -324,10 +324,6 @@ public class xor_ob02 extends ModelChecker
     {
         // .'$Cc'
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$Cc'.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "b"))
@@ -363,6 +359,10 @@ public class xor_ob02 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'$Cc'.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$Cc'.'|']", path);
         }
         return res;
     }
@@ -579,10 +579,6 @@ public class xor_ob02 extends ModelChecker
         // props: a/b a/c b/c
         // .
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "a"))
@@ -654,6 +650,10 @@ public class xor_ob02 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
         }
         return res;
     }

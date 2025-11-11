@@ -28,14 +28,14 @@ public class andopt_001 extends ModelChecker
         {
             // .'&'.0
             res = json.isInteger(val) && json.asLong(val) >= 0;
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("not a 0 strict int [.'&'.0]", path);
-            }
             if (res)
             {
                 // .'&'.1
                 res = true;
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("not a 0 strict int [.'&'.0]", path);
             }
         }
         if (res)

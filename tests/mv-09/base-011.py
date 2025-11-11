@@ -27,13 +27,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     # .'@'
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 1
-    if not res:
-        rep is None or rep.append(("not a 1 strict int [.'@']", path))
     if res:
         ival_0: int = val
         res = ival_0 <= 10
         if not res:
             rep is None or rep.append(("constraints failed [.]", path))
+    else:
+        rep is None or rep.append(("not a 1 strict int [.'@']", path))
     return res
 
 

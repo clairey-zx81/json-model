@@ -39,9 +39,6 @@ public class jm_tests extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.0.'|'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     // .0.'|'.1
                     res = json.isArray(arr_0_item) && json.arrayLength(arr_0_item) == 2;
                     if (res)
@@ -49,23 +46,20 @@ public class jm_tests extends ModelChecker
                         Path lpath_1 = new Path(0, (path != null ? arr_0_lpath : null));
                         // .0.'|'.1.0
                         res = json.isBoolean(json.arrayItem(arr_0_item, 0));
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("not a bool [.0.'|'.1.0]", ((path != null ? arr_0_lpath : null) != null ? lpath_1 : null));
-                        }
                         if (res)
                         {
                             lpath_1 = new Path(1, (path != null ? arr_0_lpath : null));
                             // .0.'|'.1.1
                             res = true;
                         }
+                        else
+                        {
+                            if (rep != null) rep.addEntry("not a bool [.0.'|'.1.0]", ((path != null ? arr_0_lpath : null) != null ? lpath_1 : null));
+                        }
                     }
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not array or unexpected array [.0.'|'.1]", (path != null ? arr_0_lpath : null));
-                    }
-                    if (! res)
-                    {
                         // .0.'|'.2
                         res = json.isArray(arr_0_item) && json.arrayLength(arr_0_item) == 3;
                         if (res)
@@ -73,25 +67,25 @@ public class jm_tests extends ModelChecker
                             Path lpath_0 = new Path(0, (path != null ? arr_0_lpath : null));
                             // .0.'|'.2.0
                             res = json.isBoolean(json.arrayItem(arr_0_item, 0));
-                            if (! res)
-                            {
-                                if (rep != null) rep.addEntry("not a bool [.0.'|'.2.0]", ((path != null ? arr_0_lpath : null) != null ? lpath_0 : null));
-                            }
                             if (res)
                             {
                                 lpath_0 = new Path(1, (path != null ? arr_0_lpath : null));
                                 // .0.'|'.2.1
                                 res = json.isString(json.arrayItem(arr_0_item, 1));
-                                if (! res)
-                                {
-                                    if (rep != null) rep.addEntry("unexpected string [.0.'|'.2.1]", ((path != null ? arr_0_lpath : null) != null ? lpath_0 : null));
-                                }
                                 if (res)
                                 {
                                     lpath_0 = new Path(2, (path != null ? arr_0_lpath : null));
                                     // .0.'|'.2.2
                                     res = true;
                                 }
+                                else
+                                {
+                                    if (rep != null) rep.addEntry("unexpected string [.0.'|'.2.1]", ((path != null ? arr_0_lpath : null) != null ? lpath_0 : null));
+                                }
+                            }
+                            else
+                            {
+                                if (rep != null) rep.addEntry("not a bool [.0.'|'.2.0]", ((path != null ? arr_0_lpath : null) != null ? lpath_0 : null));
                             }
                         }
                         if (! res)

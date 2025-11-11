@@ -35,14 +35,7 @@ public class or_01 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'|']", path);
-        }
-        if (! res)
-        {
             res = json.isString(val);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected type [.'|']", path);
-            }
             if (res)
             {
                 // .'|'.0
@@ -57,6 +50,10 @@ public class or_01 extends ModelChecker
                     if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'|'.0]", path);
                     if (rep != null) rep.addEntry("no model matched [.'|']", path);
                 }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected type [.'|']", path);
             }
         }
         return res;

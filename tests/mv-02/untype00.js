@@ -22,9 +22,6 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'@'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'@'.'|'.1
         res = (typeof val === 'string' || val instanceof String);
         if (! res)
@@ -35,18 +32,15 @@ function json_model_1(val, path, rep)
     if (res)
     {
         if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'@'.'|']", path])
-    }
-    if (res)
-    {
         res = runtime.jm_check_constraint(val, ">=", 10, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["no model matched [.'@'.'|']", path])
     }
     return res;
 }

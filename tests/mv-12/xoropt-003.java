@@ -34,25 +34,16 @@ public class xoropt_003 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Aa'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Aa'.'|'.1
             res = json.isInteger(val) && json.asLong(val) >= 1;
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 1 strict int [.'$Aa'.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'$Aa'.'|'.2
                 res = json.isDouble(val) && json.asDouble(val) > 0.0;
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Aa'.'|'.2]", path);
-                }
-                if (! res)
-                {
                     // .'$Aa'.'|'.3
                     // "/[a-z]/"
                     res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);

@@ -28,17 +28,11 @@ public class or_07 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             res = json.isInteger(val);
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a -1 strict int [.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'|'.2
                 res = json.isString(val);
                 if (! res)

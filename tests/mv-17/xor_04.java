@@ -35,9 +35,6 @@ public class xor_04 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0.0 strict float [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             // "/^[a-z]+$/i"
             res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);

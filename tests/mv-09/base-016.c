@@ -23,17 +23,11 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not null [.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'|'.1
         res = json_is_string(val);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected string [.'|'.1]", path);
-        }
-        if (! res)
-        {
             // .'|'.2
             res = json_is_boolean(val);
             if (unlikely(! res))

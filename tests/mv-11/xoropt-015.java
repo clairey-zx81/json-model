@@ -28,9 +28,6 @@ public class xoropt_015 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$Vv'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Vv'.'|'.1
             res = json.isString(val);
             if (! res)
@@ -244,10 +241,6 @@ public class xoropt_015 extends ModelChecker
     {
         // .'$Ee'
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$Ee'.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "X"))
@@ -284,6 +277,10 @@ public class xoropt_015 extends ModelChecker
                 if (rep != null) rep.addEntry("no model matched [.'$Ee'.'|']", path);
             }
         }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$Ee'.'|']", path);
+        }
         return res;
     }
 
@@ -296,9 +293,6 @@ public class xoropt_015 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Vv [.'$Mm'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Mm'.'|'.1
             res = json_model_5(val, path, rep);
             if (! res)

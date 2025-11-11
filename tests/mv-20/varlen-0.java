@@ -68,10 +68,6 @@ public class varlen_0 extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -80,6 +76,10 @@ public class varlen_0 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
         }
         return res;
     }

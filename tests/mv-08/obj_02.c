@@ -139,25 +139,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $li0 [.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $ls0 [.'|'.1]", path);
-        }
-        if (! res)
-        {
             // .'|'.2
             res = json_model_4(val, path, rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $lb0 [.'|'.2]", path);
-            }
-            if (! res)
-            {
                 // .'|'.3
                 res = json_model_5(val, path, rep);
                 if (unlikely(! res))

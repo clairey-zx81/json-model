@@ -31,10 +31,6 @@ public class scope_1 extends ModelChecker
             Path lpath_0 = new Path(0, path);
             // .'$r'.0
             res = json_model_5(json.arrayItem(val, 0), (path != null ? lpath_0 : null), rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $s [.'$r'.0]", (path != null ? lpath_0 : null));
-            }
             if (res)
             {
                 lpath_0 = new Path(1, path);
@@ -44,6 +40,10 @@ public class scope_1 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected $s [.'$r'.1]", (path != null ? lpath_0 : null));
                 }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected $s [.'$r'.0]", (path != null ? lpath_0 : null));
             }
         }
         if (! res)
@@ -81,9 +81,6 @@ public class scope_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $s [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             res = json_model_5(val, path, rep);
             if (! res)

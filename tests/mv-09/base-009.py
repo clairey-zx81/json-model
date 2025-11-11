@@ -29,7 +29,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'|'.0]", path))
-    if not res:
         # .'|'.1
         res = val is None
         if not res:

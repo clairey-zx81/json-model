@@ -9,7 +9,163 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
+var json_model_1_map = new Map()
 var check_model_map = new Map()
+
+// check json_model_1_map_Calvin (.Calvin)
+function _jm_f_0(val, path, rep)
+{
+    // .Calvin
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_Hobbes (.Hobbes)
+function _jm_f_1(val, path, rep)
+{
+    // .Hobbes
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_Moe (.Moe)
+function _jm_f_2(val, path, rep)
+{
+    // .Moe
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_Rosalyn (.Rosalyn)
+function _jm_f_3(val, path, rep)
+{
+    // .Rosalyn
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_Susie (.Susie)
+function _jm_f_4(val, path, rep)
+{
+    // .Susie
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_a (.a)
+function _jm_f_5(val, path, rep)
+{
+    // .a
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_aaa (.aaa)
+function _jm_f_6(val, path, rep)
+{
+    // .aaa
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_abc (.abc)
+function _jm_f_7(val, path, rep)
+{
+    // .abc
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_bcd (.bcd)
+function _jm_f_8(val, path, rep)
+{
+    // .bcd
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_calvin (.calvin)
+function _jm_f_9(val, path, rep)
+{
+    // .calvin
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_cdef (.cdef)
+function _jm_f_10(val, path, rep)
+{
+    // .cdef
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_def (.def)
+function _jm_f_11(val, path, rep)
+{
+    // .def
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_foo (.foo)
+function _jm_f_12(val, path, rep)
+{
+    // .foo
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_hobbes (.hobbes)
+function _jm_f_13(val, path, rep)
+{
+    // .hobbes
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_moe (.moe)
+function _jm_f_14(val, path, rep)
+{
+    // .moe
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_saxo (.saxo)
+function _jm_f_15(val, path, rep)
+{
+    // .saxo
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_stuff (.stuff)
+function _jm_f_16(val, path, rep)
+{
+    // .stuff
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_susie (.susie)
+function _jm_f_17(val, path, rep)
+{
+    // .susie
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_swap (.swap)
+function _jm_f_18(val, path, rep)
+{
+    // .swap
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_wtf (.wtf)
+function _jm_f_19(val, path, rep)
+{
+    // .wtf
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_zee (.zee)
+function _jm_f_20(val, path, rep)
+{
+    // .zee
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_map_zoo (.zoo)
+function _jm_f_21(val, path, rep)
+{
+    // .zoo
+    return (typeof val === 'string' || val instanceof String);
+}
+
 
 // check $ (.)
 function json_model_1(val, path, rep)
@@ -19,246 +175,13 @@ function json_model_1(val, path, rep)
     {
         return false;
     }
-    let res;
+    let pfun;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "a")
+        if ((pfun = json_model_1_map.get(prop)))
         {
-            // handle may a property
-            // .a
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Moe")
-        {
-            // handle may Moe property
-            // .Moe
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "aaa")
-        {
-            // handle may aaa property
-            // .aaa
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "abc")
-        {
-            // handle may abc property
-            // .abc
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "bcd")
-        {
-            // handle may bcd property
-            // .bcd
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "def")
-        {
-            // handle may def property
-            // .def
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "foo")
-        {
-            // handle may foo property
-            // .foo
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "moe")
-        {
-            // handle may moe property
-            // .moe
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "wtf")
-        {
-            // handle may wtf property
-            // .wtf
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "zee")
-        {
-            // handle may zee property
-            // .zee
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "zoo")
-        {
-            // handle may zoo property
-            // .zoo
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cdef")
-        {
-            // handle may cdef property
-            // .cdef
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "saxo")
-        {
-            // handle may saxo property
-            // .saxo
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "swap")
-        {
-            // handle may swap property
-            // .swap
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Susie")
-        {
-            // handle may Susie property
-            // .Susie
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "stuff")
-        {
-            // handle may stuff property
-            // .stuff
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "susie")
-        {
-            // handle may susie property
-            // .susie
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Calvin")
-        {
-            // handle may Calvin property
-            // .Calvin
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Hobbes")
-        {
-            // handle may Hobbes property
-            // .Hobbes
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "calvin")
-        {
-            // handle may calvin property
-            // .calvin
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "hobbes")
-        {
-            // handle may hobbes property
-            // .hobbes
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Rosalyn")
-        {
-            // handle may Rosalyn property
-            // .Rosalyn
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
+            // handle 22 may props
+            if (pfun !== undefined && ! pfun(pval, null, null))
             {
                 return false;
             }
@@ -279,6 +202,28 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        json_model_1_map.set("Calvin", _jm_f_0)
+        json_model_1_map.set("Hobbes", _jm_f_1)
+        json_model_1_map.set("Moe", _jm_f_2)
+        json_model_1_map.set("Rosalyn", _jm_f_3)
+        json_model_1_map.set("Susie", _jm_f_4)
+        json_model_1_map.set("a", _jm_f_5)
+        json_model_1_map.set("aaa", _jm_f_6)
+        json_model_1_map.set("abc", _jm_f_7)
+        json_model_1_map.set("bcd", _jm_f_8)
+        json_model_1_map.set("calvin", _jm_f_9)
+        json_model_1_map.set("cdef", _jm_f_10)
+        json_model_1_map.set("def", _jm_f_11)
+        json_model_1_map.set("foo", _jm_f_12)
+        json_model_1_map.set("hobbes", _jm_f_13)
+        json_model_1_map.set("moe", _jm_f_14)
+        json_model_1_map.set("saxo", _jm_f_15)
+        json_model_1_map.set("stuff", _jm_f_16)
+        json_model_1_map.set("susie", _jm_f_17)
+        json_model_1_map.set("swap", _jm_f_18)
+        json_model_1_map.set("wtf", _jm_f_19)
+        json_model_1_map.set("zee", _jm_f_20)
+        json_model_1_map.set("zoo", _jm_f_21)
         check_model_map.set("", json_model_1)
     }
 }

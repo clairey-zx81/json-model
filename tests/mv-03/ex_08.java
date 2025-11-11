@@ -88,17 +88,11 @@ public class ex_08 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $map [.'$Ex08'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Ex08'.'|'.1
             res = json.isString(val) && rt.is_valid_url(json.asString(val));
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $URL [.'$Ex08'.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'$Ex08'.'|'.2
                 res = json_model_2(val, path, rep);
                 if (! res)

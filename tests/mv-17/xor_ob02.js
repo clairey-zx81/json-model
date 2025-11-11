@@ -86,10 +86,6 @@ function json_model_2(val, path, rep)
 {
     // .'$Aa'
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$Aa'.'|']", path])
-    }
     if (res)
     {
         if (val.hasOwnProperty("a"))
@@ -125,6 +121,10 @@ function json_model_2(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'$Aa'.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$Aa'.'|']", path])
     }
     return res;
 }
@@ -204,10 +204,6 @@ function json_model_3(val, path, rep)
 {
     // .'$Bb'
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$Bb'.'|']", path])
-    }
     if (res)
     {
         if (val.hasOwnProperty("a"))
@@ -243,6 +239,10 @@ function json_model_3(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'$Bb'.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$Bb'.'|']", path])
     }
     return res;
 }
@@ -322,10 +322,6 @@ function json_model_4(val, path, rep)
 {
     // .'$Cc'
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$Cc'.'|']", path])
-    }
     if (res)
     {
         if (val.hasOwnProperty("b"))
@@ -361,6 +357,10 @@ function json_model_4(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'$Cc'.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$Cc'.'|']", path])
     }
     return res;
 }
@@ -586,10 +586,6 @@ function json_model_1(val, path, rep)
     // props: a/b a/c b/c
     // .
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'|']", path])
-    }
     if (res)
     {
         if (val.hasOwnProperty("a"))
@@ -661,6 +657,10 @@ function json_model_1(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'|']", path])
     }
     return res;
 }

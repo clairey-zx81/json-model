@@ -92,10 +92,6 @@ public class dis_004 extends ModelChecker
     {
         // .'$Aa'
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$Aa'.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "a"))
@@ -131,6 +127,10 @@ public class dis_004 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'$Aa'.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$Aa'.'|']", path);
         }
         return res;
     }
@@ -178,9 +178,6 @@ public class dis_004 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$Bb'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Bb'.'|'.1
             res = json_model_2(val, path, rep);
             if (! res)

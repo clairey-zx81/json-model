@@ -92,10 +92,6 @@ public class xor_ob00 extends ModelChecker
     {
         // .'$Aa'
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$Aa'.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "a"))
@@ -131,6 +127,10 @@ public class xor_ob00 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'$Aa'.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$Aa'.'|']", path);
         }
         return res;
     }
@@ -208,10 +208,6 @@ public class xor_ob00 extends ModelChecker
     {
         // .'$Bb'
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$Bb'.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "c"))
@@ -247,6 +243,10 @@ public class xor_ob00 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'$Bb'.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$Bb'.'|']", path);
         }
         return res;
     }
@@ -449,10 +449,6 @@ public class xor_ob00 extends ModelChecker
         // 4 property combinations: ac ad bc bd
         // .
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
-        }
         if (res)
         {
             if (json.objectHasProp(val, "a"))
@@ -524,6 +520,10 @@ public class xor_ob00 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
         }
         return res;
     }

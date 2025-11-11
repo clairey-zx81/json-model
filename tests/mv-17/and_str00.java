@@ -41,10 +41,6 @@ public class and_str00 extends ModelChecker
             // .'&'.0
             // "/[a-z]/"
             res = _jm_re_1(json.asString(val), path, rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'&'.0]", path);
-            }
             if (res)
             {
                 // .'&'.1
@@ -54,6 +50,10 @@ public class and_str00 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'&'.1]", path);
                 }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'&'.0]", path);
             }
         }
         if (res)

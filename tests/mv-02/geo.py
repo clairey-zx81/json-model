@@ -37,13 +37,13 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a -1.0 loose float [.'$position'.'@'.0]", arr_0_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$position'.'@']", path))
     if res:
         ival_0: int = len(val)
         res = ival_0 <= 3 and ival_0 >= 2
         if not res:
             rep is None or rep.append(("constraints failed [.'$position']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$position'.'@']", path))
     return res
 
 # check $coord_array (.'$coord_array')
@@ -59,13 +59,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $position [.'$coord_array'.'@'.0]", arr_1_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$coord_array'.'@']", path))
     if res:
         ival_1: int = len(val)
         res = ival_1 >= 2
         if not res:
             rep is None or rep.append(("constraints failed [.'$coord_array']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$coord_array'.'@']", path))
     return res
 
 # check $linear_ring (.'$linear_ring')
@@ -81,13 +81,13 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $position [.'$linear_ring'.'@'.0]", arr_2_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$linear_ring'.'@']", path))
     if res:
         ival_2: int = len(val)
         res = ival_2 >= 4
         if not res:
             rep is None or rep.append(("constraints failed [.'$linear_ring']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$linear_ring'.'@']", path))
     return res
 
 # check $Point (.'$Point')
@@ -916,12 +916,10 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res = pval is None
     if not res:
         rep is None or rep.append(("not null [.'$Feature'.geometry.'|'.0]", lpath if path is not None else None))
-    if not res:
         # .'$Feature'.geometry.'|'.1
         res = json_model_11(pval, lpath if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $geometry [.'$Feature'.geometry.'|'.1]", lpath if path is not None else None))
-        if not res:
             # .'$Feature'.geometry.'|'.2
             res = json_model_12(pval, lpath if path is not None else None, rep)
             if not res:
@@ -941,7 +939,6 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res = pval is None
     if not res:
         rep is None or rep.append(("not null [.'$Feature'.properties.'|'.0]", lpath if path is not None else None))
-    if not res:
         # .'$Feature'.properties.'|'.1
         res = _jm_obj_6(pval, lpath if path is not None else None, rep)
         if not res:
@@ -959,7 +956,6 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
         res = isinstance(pval, str)
         if not res:
             rep is None or rep.append(("unexpected string [.'$Feature'.id.'|'.0]", lpath if path is not None else None))
-        if not res:
             # .'$Feature'.id.'|'.1
             res = isinstance(pval, (int, float)) and not isinstance(pval, bool)
             if not res:

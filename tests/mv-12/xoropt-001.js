@@ -132,49 +132,31 @@ function json_model_9(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Any'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Any'.'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Bb [.'$Any'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$Any'.'|'.2
             res = json_model_4(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ii [.'$Any'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$Any'.'|'.3
                 res = json_model_5(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Ff [.'$Any'.'|'.3]", path])
-                }
-                if (! res)
-                {
                     // .'$Any'.'|'.4
                     res = json_model_6(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Ss [.'$Any'.'|'.4]", path])
-                    }
-                    if (! res)
-                    {
                         // .'$Any'.'|'.5
                         res = json_model_7(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected $Aa [.'$Any'.'|'.5]", path])
-                        }
-                        if (! res)
-                        {
                             // .'$Any'.'|'.6
                             res = json_model_8(val, path, rep);
                             if (! res)

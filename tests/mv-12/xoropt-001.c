@@ -146,49 +146,31 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not null [.'$Any'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$Any'.'|'.1
         res = json_model_3(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Bb [.'$Any'.'|'.1]", path);
-        }
-        if (! res)
-        {
             // .'$Any'.'|'.2
             res = json_model_4(val, path, rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Ii [.'$Any'.'|'.2]", path);
-            }
-            if (! res)
-            {
                 // .'$Any'.'|'.3
                 res = json_model_5(val, path, rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Ff [.'$Any'.'|'.3]", path);
-                }
-                if (! res)
-                {
                     // .'$Any'.'|'.4
                     res = json_model_6(val, path, rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Ss [.'$Any'.'|'.4]", path);
-                    }
-                    if (! res)
-                    {
                         // .'$Any'.'|'.5
                         res = json_model_7(val, path, rep);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected $Aa [.'$Any'.'|'.5]", path);
-                        }
-                        if (! res)
-                        {
                             // .'$Any'.'|'.6
                             res = json_model_8(val, path, rep);
                             if (unlikely(! res))

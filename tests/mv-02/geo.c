@@ -58,10 +58,6 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$position'.'@']", path);
-    }
     if (likely(res))
     {
         int64_t ival_0 = json_array_size(val);
@@ -70,6 +66,10 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$position']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$position'.'@']", path);
     }
     return res;
 }
@@ -96,10 +96,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$coord_array'.'@']", path);
-    }
     if (likely(res))
     {
         int64_t ival_1 = json_array_size(val);
@@ -108,6 +104,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$coord_array']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$coord_array'.'@']", path);
     }
     return res;
 }
@@ -134,10 +134,6 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$linear_ring'.'@']", path);
-    }
     if (likely(res))
     {
         int64_t ival_2 = json_array_size(val);
@@ -146,6 +142,10 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$linear_ring']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$linear_ring'.'@']", path);
     }
     return res;
 }
@@ -1628,17 +1628,11 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not null [.'$Feature'.geometry.'|'.0]", (path ? &lpath_13 : NULL));
-            }
-            if (! res)
-            {
                 // .'$Feature'.geometry.'|'.1
                 res = json_model_11(pval, (path ? &lpath_13 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $geometry [.'$Feature'.geometry.'|'.1]", (path ? &lpath_13 : NULL));
-                }
-                if (! res)
-                {
                     // .'$Feature'.geometry.'|'.2
                     res = json_model_12(pval, (path ? &lpath_13 : NULL), rep);
                     if (unlikely(! res))
@@ -1669,9 +1663,6 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not null [.'$Feature'.properties.'|'.0]", (path ? &lpath_13 : NULL));
-            }
-            if (! res)
-            {
                 // .'$Feature'.properties.'|'.1
                 res = _jm_obj_6(pval, (path ? &lpath_13 : NULL), rep);
                 if (unlikely(! res))
@@ -1700,9 +1691,6 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Feature'.id.'|'.0]", (path ? &lpath_13 : NULL));
-            }
-            if (! res)
-            {
                 // .'$Feature'.id.'|'.1
                 res = json_is_number(pval);
                 if (unlikely(! res))

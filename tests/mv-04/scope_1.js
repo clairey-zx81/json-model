@@ -23,10 +23,6 @@ function json_model_4(val, path, rep)
         let lpath_0 = path ? path.concat([0]) : null;
         // .'$r'.0
         res = json_model_5(val[0], (path ? lpath_0 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $s [.'$r'.0]", (path ? lpath_0 : null)])
-        }
         if (res)
         {
             lpath_0 = path ? path.concat([1]) : null;
@@ -36,6 +32,10 @@ function json_model_4(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $s [.'$r'.1]", (path ? lpath_0 : null)])
             }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected $s [.'$r'.0]", (path ? lpath_0 : null)])
         }
     }
     if (! res)
@@ -70,9 +70,6 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $s [.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'|'.1
         res = json_model_5(val, path, rep);
         if (! res)

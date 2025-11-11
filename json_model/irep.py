@@ -337,13 +337,14 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                     del cum_value[v]
 
         # skip comments and nope
-        if _isOp(op, "co") or _isOp(op, "no"):
+        if _isOps(op, {"co", "no", "ign"}):
             continue
 
         cur_var, cur_idx, cur_direct = None, 0, True
 
-        if prev_var and prev_var in write:
-            prev_var = None
+        # NOT IN A IF
+        # if prev_var and prev_var in write:
+        #     prev_var = None
 
         if test := _boolIf(op, bool_vars):
 
@@ -361,35 +362,40 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
             if prev_var is None:
                 if var not in write:
-                    prev_var, prev_direct = var, direct
-                    prev_idx = i
-                # else nothing
+                    prev_var, prev_direct, prev_idx = var, direct, i
+                continue
+
+            # possibly merge
+            cur_var, cur_direct, cur_idx = var, direct, i
+            if prev_var == cur_var:  # merge!
+                assert prev_idx != cur_idx
+                # update sequence
+                if cur_direct == prev_direct:
+                    seq[prev_idx]["true"] += seq[cur_idx]["true"]
+                    seq[prev_idx]["false"] += seq[cur_idx]["false"]
+                else:
+                    seq[prev_idx]["true"] += seq[cur_idx]["false"]
+                    seq[prev_idx]["false"] += seq[cur_idx]["true"]
+                # update corresponding effects
+                effects[prev_idx][2].update(effects[cur_idx][2])
+                effects[prev_idx] = (
+                    effects[prev_idx][0] | effects[cur_idx][0],
+                    effects[prev_idx][1] | effects[cur_idx][1],
+                    # FIXME empty instead?
+                    effects[prev_idx][2]
+                )
+                # stop merge on this if variable is written
+                if prev_var in effects[prev_idx][1]:
+                    prev_var = None
+                # cleanup current instruction with a comment
+                seq[cur_idx] = {"o": "no", "#": f"IRO if merged on {prev_idx}"}
+                effects[cur_idx] = (set(), set(), {})
+
+            elif var not in write:
+                prev_var, prev_direct, prev_idx = var, direct, i
             else:
-                cur_var, cur_direct = var, direct
-                cur_idx = i
-                if prev_var == cur_var:  # merge!
-                    assert prev_idx != cur_idx
-                    # update sequence
-                    if cur_direct == prev_direct:
-                        seq[prev_idx]["true"] += seq[cur_idx]["true"]
-                        seq[prev_idx]["false"] += seq[cur_idx]["false"]
-                    else:
-                        seq[prev_idx]["true"] += seq[cur_idx]["false"]
-                        seq[prev_idx]["false"] += seq[cur_idx]["true"]
-                    # update corresponding effects
-                    effects[prev_idx][2].update(effects[cur_idx][2])
-                    effects[prev_idx] = (
-                        effects[prev_idx][0] | effects[cur_idx][0],
-                        effects[prev_idx][1] | effects[cur_idx][1],
-                        # FIXME empty instead?
-                        effects[prev_idx][2]
-                    )
-                    # stop merge on this if variable is written
-                    if prev_var in effects[prev_idx][1]:
-                        prev_var = None
-                    # cleanup current instruction with a comment
-                    seq[cur_idx] = {"o": "no", "#": f"IRO if merged on {prev_idx}"}
-                    effects[cur_idx] = (set(), set(), {})
+                prev_var = None
+
         else:  # whatever else is bad news for merging
             prev_var = None
 
@@ -729,7 +735,6 @@ def partialEval(code: Jsonable, reporting: bool) -> int:
                 changes += 1
         if _isOp(code, "&"):
             ands = code["exprs"]
-            # log.warning(f"&: {ands}")
             assert isinstance(ands, list)
             if len(ands) < 2:
                 pass

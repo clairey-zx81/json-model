@@ -35,12 +35,12 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 1 strict int [.'@'.0]", arr_0_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
         if not res:
             rep is None or rep.append(("constraints failed [.]", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'@']", path))
     return res
 
 

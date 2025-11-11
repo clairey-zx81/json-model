@@ -25,10 +25,6 @@ public class simp_cons_0 extends ModelChecker
         // .
         // .'@'
         boolean res = json.isDouble(val) && json.asDouble(val) > 0.0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1.0 strict float [.'@']", path);
-        }
         if (res)
         {
             double fval_0 = json.asDouble(val);
@@ -37,6 +33,10 @@ public class simp_cons_0 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 1.0 strict float [.'@']", path);
         }
         return res;
     }

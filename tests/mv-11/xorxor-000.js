@@ -20,25 +20,16 @@ function json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Xx'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Xx'.'|'.1
         res = (typeof val === 'boolean' || val instanceof Boolean);
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$Xx'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$Xx'.'|'.2
             res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'$Xx'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$Xx'.'|'.3
                 res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
                 if (! res)
@@ -68,9 +59,6 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Xx [.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'|'.1
         res = Array.isArray(val);
         if (res)

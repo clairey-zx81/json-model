@@ -21,10 +21,6 @@ function json_model_1(val, path, rep)
         let lpath_0 = path ? path.concat([0]) : null;
         // .0
         res = (typeof val[0] === 'boolean' || val[0] instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.0]", (path ? lpath_0 : null)])
-        }
         if (res)
         {
             lpath_0 = path ? path.concat([1]) : null;
@@ -34,6 +30,10 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["not a 0 strict int [.1]", (path ? lpath_0 : null)])
             }
+        }
+        else
+        {
+            rep !== null && rep.push(["not a bool [.0]", (path ? lpath_0 : null)])
         }
     }
     if (! res)

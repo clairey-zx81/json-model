@@ -524,10 +524,6 @@ public class json_schema_draft_next extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$simpleTypesArray'.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -536,6 +532,10 @@ public class json_schema_draft_next extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$simpleTypesArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$simpleTypesArray'.'@']", path);
         }
         return res;
     }
@@ -564,10 +564,6 @@ public class json_schema_draft_next extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
-        }
         if (res)
         {
             res = rt.array_is_unique(val, path, rep);
@@ -575,6 +571,10 @@ public class json_schema_draft_next extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$stringArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
         }
         return res;
     }
@@ -721,9 +721,6 @@ public class json_schema_draft_next extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$validation'.type.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$validation'.type.'|'.1
             res = json_model_9(val, path, rep);
             if (! res)
@@ -811,10 +808,6 @@ public class json_schema_draft_next extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$schemaArray'.'@']", path);
-        }
         if (res)
         {
             long ival_1 = json.arrayLength(val);
@@ -823,6 +816,10 @@ public class json_schema_draft_next extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$schemaArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$schemaArray'.'@']", path);
         }
         return res;
     }
@@ -1477,9 +1474,6 @@ public class json_schema_draft_next extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$ObjectSchema'.type.'|'.1
             res = json_model_9(val, path, rep);
             if (! res)
@@ -1564,9 +1558,6 @@ public class json_schema_draft_next extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Schema'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Schema'.'|'.1
             res = json_model_15(val, path, rep);
             if (! res)

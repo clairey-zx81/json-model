@@ -9,7 +9,163 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
+var json_model_1_mup = new Map()
 var check_model_map = new Map()
+
+// check json_model_1_mup_ (.'')
+function _jm_f_0(val, path, rep)
+{
+    // .''
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_Calvin (.Calvin)
+function _jm_f_1(val, path, rep)
+{
+    // .Calvin
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_Hobbes (.Hobbes)
+function _jm_f_2(val, path, rep)
+{
+    // .Hobbes
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_Moe (.Moe)
+function _jm_f_3(val, path, rep)
+{
+    // .Moe
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_Rosalyn (.Rosalyn)
+function _jm_f_4(val, path, rep)
+{
+    // .Rosalyn
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_Susie (.Susie)
+function _jm_f_5(val, path, rep)
+{
+    // .Susie
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_aaa (.aaa)
+function _jm_f_6(val, path, rep)
+{
+    // .aaa
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_abc (.abc)
+function _jm_f_7(val, path, rep)
+{
+    // .abc
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_bcd (.bcd)
+function _jm_f_8(val, path, rep)
+{
+    // .bcd
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_calvin (.calvin)
+function _jm_f_9(val, path, rep)
+{
+    // .calvin
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_cdef (.cdef)
+function _jm_f_10(val, path, rep)
+{
+    // .cdef
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_def (.def)
+function _jm_f_11(val, path, rep)
+{
+    // .def
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_foo (.foo)
+function _jm_f_12(val, path, rep)
+{
+    // .foo
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_hobbes (.hobbes)
+function _jm_f_13(val, path, rep)
+{
+    // .hobbes
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_moe (.moe)
+function _jm_f_14(val, path, rep)
+{
+    // .moe
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_stu (.stu)
+function _jm_f_15(val, path, rep)
+{
+    // .stu
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_stuff (.stuff)
+function _jm_f_16(val, path, rep)
+{
+    // .stuff
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_surprise (.surprise)
+function _jm_f_17(val, path, rep)
+{
+    // .surprise
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_susie (.susie)
+function _jm_f_18(val, path, rep)
+{
+    // .susie
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_wtf (.wtf)
+function _jm_f_19(val, path, rep)
+{
+    // .wtf
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_zee (.zee)
+function _jm_f_20(val, path, rep)
+{
+    // .zee
+    return (typeof val === 'string' || val instanceof String);
+}
+
+// check json_model_1_mup_zoo (.zoo)
+function _jm_f_21(val, path, rep)
+{
+    // .zoo
+    return (typeof val === 'string' || val instanceof String);
+}
+
 
 // check $ (.)
 function json_model_1(val, path, rep)
@@ -19,273 +175,22 @@ function json_model_1(val, path, rep)
     {
         return false;
     }
-    let res;
+    let pfun;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "")
+        if ((pfun = json_model_1_mup.get(prop)))
         {
-            // handle must  property
-            must_count += 1;
-            // .''
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
+            // handle 22 mandatory props
+            if (pfun !== undefined)
             {
-                return false;
+                must_count += 1;
+                if (! pfun(pval, null, null))
+                {
+                    return false;
+                }
+                continue;
             }
-            continue;
-        }
-        else if (prop == "Moe")
-        {
-            // handle must Moe property
-            must_count += 1;
-            // .Moe
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "aaa")
-        {
-            // handle must aaa property
-            must_count += 1;
-            // .aaa
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "abc")
-        {
-            // handle must abc property
-            must_count += 1;
-            // .abc
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "bcd")
-        {
-            // handle must bcd property
-            must_count += 1;
-            // .bcd
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "def")
-        {
-            // handle must def property
-            must_count += 1;
-            // .def
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "foo")
-        {
-            // handle must foo property
-            must_count += 1;
-            // .foo
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "moe")
-        {
-            // handle must moe property
-            must_count += 1;
-            // .moe
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "stu")
-        {
-            // handle must stu property
-            must_count += 1;
-            // .stu
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "wtf")
-        {
-            // handle must wtf property
-            must_count += 1;
-            // .wtf
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "zee")
-        {
-            // handle must zee property
-            must_count += 1;
-            // .zee
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "zoo")
-        {
-            // handle must zoo property
-            must_count += 1;
-            // .zoo
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cdef")
-        {
-            // handle must cdef property
-            must_count += 1;
-            // .cdef
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Susie")
-        {
-            // handle must Susie property
-            must_count += 1;
-            // .Susie
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "stuff")
-        {
-            // handle must stuff property
-            must_count += 1;
-            // .stuff
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "susie")
-        {
-            // handle must susie property
-            must_count += 1;
-            // .susie
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Calvin")
-        {
-            // handle must Calvin property
-            must_count += 1;
-            // .Calvin
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Hobbes")
-        {
-            // handle must Hobbes property
-            must_count += 1;
-            // .Hobbes
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "calvin")
-        {
-            // handle must calvin property
-            must_count += 1;
-            // .calvin
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "hobbes")
-        {
-            // handle must hobbes property
-            must_count += 1;
-            // .hobbes
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "Rosalyn")
-        {
-            // handle must Rosalyn property
-            must_count += 1;
-            // .Rosalyn
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "surprise")
-        {
-            // handle must surprise property
-            must_count += 1;
-            // .surprise
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
         }
         return false;
     }
@@ -302,6 +207,28 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        json_model_1_mup.set("", _jm_f_0)
+        json_model_1_mup.set("Calvin", _jm_f_1)
+        json_model_1_mup.set("Hobbes", _jm_f_2)
+        json_model_1_mup.set("Moe", _jm_f_3)
+        json_model_1_mup.set("Rosalyn", _jm_f_4)
+        json_model_1_mup.set("Susie", _jm_f_5)
+        json_model_1_mup.set("aaa", _jm_f_6)
+        json_model_1_mup.set("abc", _jm_f_7)
+        json_model_1_mup.set("bcd", _jm_f_8)
+        json_model_1_mup.set("calvin", _jm_f_9)
+        json_model_1_mup.set("cdef", _jm_f_10)
+        json_model_1_mup.set("def", _jm_f_11)
+        json_model_1_mup.set("foo", _jm_f_12)
+        json_model_1_mup.set("hobbes", _jm_f_13)
+        json_model_1_mup.set("moe", _jm_f_14)
+        json_model_1_mup.set("stu", _jm_f_15)
+        json_model_1_mup.set("stuff", _jm_f_16)
+        json_model_1_mup.set("surprise", _jm_f_17)
+        json_model_1_mup.set("susie", _jm_f_18)
+        json_model_1_mup.set("wtf", _jm_f_19)
+        json_model_1_mup.set("zee", _jm_f_20)
+        json_model_1_mup.set("zoo", _jm_f_21)
         check_model_map.set("", json_model_1)
     }
 }

@@ -96,10 +96,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$neStrList'.'@']", path);
-    }
     if (likely(res))
     {
         int64_t ival_0 = json_array_size(val);
@@ -108,6 +104,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$neStrList']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$neStrList'.'@']", path);
     }
     return res;
 }
@@ -181,10 +181,6 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$LicenseList'.'@']", path);
-    }
     if (likely(res))
     {
         int64_t ival_1 = json_array_size(val);
@@ -193,6 +189,10 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$LicenseList']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$LicenseList'.'@']", path);
     }
     return res;
 }
@@ -524,9 +524,6 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $SemVer [.'$Version'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$Version'.'|'.1
         res = json_is_integer(val) && json_integer_value(val) == 0;
         if (unlikely(! res))
@@ -652,9 +649,6 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Version [.'$Prereq'.''.'|'.0]", (path ? &lpath_4 : NULL));
-        }
-        if (! res)
-        {
             // .'$Prereq'.''.'|'.1
             res = json_model_12(pval, (path ? &lpath_4 : NULL), rep);
             if (unlikely(! res))
@@ -959,17 +953,11 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $License [.license.'|'.0]", (path ? &lpath_7 : NULL));
-                }
-                if (! res)
-                {
                     // .license.'|'.1
                     res = json_model_5(pval, (path ? &lpath_7 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $LicenseList [.license.'|'.1]", (path ? &lpath_7 : NULL));
-                    }
-                    if (! res)
-                    {
                         // .license.'|'.2
                         res = _jm_obj_3(pval, (path ? &lpath_7 : NULL), rep);
                         if (unlikely(! res))
@@ -1059,9 +1047,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $neStr [.maintainer.'|'.0]", (path ? &lpath_7 : NULL));
-                }
-                if (! res)
-                {
                     // .maintainer.'|'.1
                     res = json_model_3(pval, (path ? &lpath_7 : NULL), rep);
                     if (unlikely(! res))

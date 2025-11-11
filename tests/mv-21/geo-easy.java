@@ -45,10 +45,6 @@ public class geo_easy extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$position'.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -57,6 +53,10 @@ public class geo_easy extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$position']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$position'.'@']", path);
         }
         return res;
     }
@@ -85,10 +85,6 @@ public class geo_easy extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$coord_array'.'@']", path);
-        }
         if (res)
         {
             long ival_1 = json.arrayLength(val);
@@ -97,6 +93,10 @@ public class geo_easy extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$coord_array']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$coord_array'.'@']", path);
         }
         return res;
     }
@@ -125,10 +125,6 @@ public class geo_easy extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$linear_ring'.'@']", path);
-        }
         if (res)
         {
             long ival_2 = json.arrayLength(val);
@@ -137,6 +133,10 @@ public class geo_easy extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$linear_ring']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$linear_ring'.'@']", path);
         }
         return res;
     }
@@ -855,17 +855,11 @@ public class geo_easy extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$Feature'.geometry.'|'.0]", (path != null ? lpath : null));
-        }
-        if (! res)
-        {
             // .'$Feature'.geometry.'|'.1
             res = json_model_11(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $geometry [.'$Feature'.geometry.'|'.1]", (path != null ? lpath : null));
-            }
-            if (! res)
-            {
                 // .'$Feature'.geometry.'|'.2
                 res = json_model_12(pval, (path != null ? lpath : null), rep);
                 if (! res)
@@ -896,9 +890,6 @@ public class geo_easy extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$Feature'.properties.'|'.0]", (path != null ? lpath : null));
-        }
-        if (! res)
-        {
             // .'$Feature'.properties.'|'.1
             res = _jm_obj_0(pval, (path != null ? lpath : null), rep);
             if (! res)
@@ -925,9 +916,6 @@ public class geo_easy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$Feature'.id.'|'.0]", (path != null ? lpath : null));
-            }
-            if (! res)
-            {
                 // .'$Feature'.id.'|'.1
                 res = json.isNumber(pval);
                 if (! res)

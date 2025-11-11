@@ -38,13 +38,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'@'.0]", lpath_0 if path is not None else None))
         # no array tail value checks needed
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'@']", path))
     if res:
         ival_0: int = len(val)
         res = ival_0 >= 3
         if not res:
             rep is None or rep.append(("constraints failed [.]", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'@']", path))
     return res
 
 

@@ -10,8 +10,8 @@
 - [x] static: or acceleration based on full or partial distinct mandatory props
 - [x] static: set default C partition threshold to _6_
 - [x] c-backend: replace `strcmp` with `memcmp` in runtime
+- [x] backend: improve if patterns in some cases
 - [ ] static: xor acceleration based on distinct mandatory props
-- [ ] backend: improve if patterns, see `mv-00/dst_00.py` line 97
 - [ ] static: merge partial mandatory prop discriminants
 - [ ] static: merge may/must property handling, or not?
 - [ ] static: take into account str _byte_ len when partitioning

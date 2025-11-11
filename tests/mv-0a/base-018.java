@@ -25,17 +25,18 @@ public class base_018 extends ModelChecker
         // .
         // .'@'
         boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
-        }
         if (res)
         {
+            // accept any array
             res = rt.array_is_unique(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
         }
         return res;
     }

@@ -121,20 +121,13 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Aa'
     bool res = json_is_object(val);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected type [.'$Aa'.'|']", path);
-    }
-    if (res)
+    if (likely(res))
     {
         // .'$Aa'.'|'.0
         res = _jm_obj_1(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$Aa'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Aa'.'|'.1
             res = _jm_obj_0(val, path, rep);
             if (unlikely(! res))
@@ -150,6 +143,10 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "no model matched [.'$Aa'.'|']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'$Aa'.'|']", path);
     }
     return res;
 }
@@ -251,20 +248,13 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Bb'
     bool res = json_is_object(val);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected type [.'$Bb'.'|']", path);
-    }
-    if (res)
+    if (likely(res))
     {
         // .'$Bb'.'|'.0
         res = _jm_obj_3(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bb'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Bb'.'|'.1
             res = _jm_obj_2(val, path, rep);
             if (unlikely(! res))
@@ -280,6 +270,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "no model matched [.'$Bb'.'|']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'$Bb'.'|']", path);
     }
     return res;
 }
@@ -546,11 +540,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // 4 property combinations: ac ad bc bd
     // .
     bool res = json_is_object(val);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);
-    }
-    if (res)
+    if (likely(res))
     {
         if (json_object_get(val, "a") != NULL)
         {
@@ -613,6 +603,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "no model matched [.'|']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);
     }
     return res;
 }

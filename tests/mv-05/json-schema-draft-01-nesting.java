@@ -42,9 +42,6 @@ public class json_schema_draft_01_nesting extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$schema'.additionalProperties.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$schema'.additionalProperties.'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
@@ -105,9 +102,6 @@ public class json_schema_draft_01_nesting extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.disallow.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$schema'.disallow.'|'.1
             res = json.isArray(val);
             if (res)
@@ -150,18 +144,19 @@ public class json_schema_draft_01_nesting extends ModelChecker
         // .'$schema'.enum
         // .'$schema'.enum.'@'
         boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.enum.'@']", path);
-        }
         if (res)
         {
+            // accept any array
             long ival_0 = json.arrayLength(val);
             res = ival_0 >= 1;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$schema'.enum]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.enum.'@']", path);
         }
         return res;
     }
@@ -175,9 +170,6 @@ public class json_schema_draft_01_nesting extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.extends.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$schema'.extends.'|'.1
             res = json.isArray(val);
             if (res)
@@ -247,9 +239,6 @@ public class json_schema_draft_01_nesting extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.items.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$schema'.items.'|'.1
             res = json.isArray(val);
             if (res)
@@ -455,9 +444,6 @@ public class json_schema_draft_01_nesting extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$schema'.requires.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$schema'.requires.'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
@@ -497,9 +483,6 @@ public class json_schema_draft_01_nesting extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $allTypes [.'$schema'.type.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$schema'.type.'|'.1
             res = json.isArray(val);
             if (res)
@@ -517,9 +500,6 @@ public class json_schema_draft_01_nesting extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", (path != null ? arr_3_lpath : null));
-                    }
-                    if (! res)
-                    {
                         // .'$schema'.type.'|'.1.0.'|'.1
                         res = json_model_3(arr_3_item, (path != null ? arr_3_lpath : null), rep);
                         if (! res)

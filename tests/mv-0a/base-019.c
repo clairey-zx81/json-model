@@ -20,10 +20,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // .'@'
     bool res = json_is_real(val) && json_real_value(val) >= 0.0;
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'@']", path);
-    }
     if (likely(res))
     {
         double fval_0 = json_real_value(val);
@@ -32,6 +28,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'@']", path);
     }
     return res;
 }

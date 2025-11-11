@@ -21,28 +21,16 @@ function json_model_1(val, path, rep)
         let lpath_0 = path ? path.concat([0]) : null;
         // .0
         res = (typeof val[0] === 'boolean' || val[0] instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.0]", (path ? lpath_0 : null)])
-        }
         if (res)
         {
             lpath_0 = path ? path.concat([1]) : null;
             // .1
             res = ((typeof val[1] === 'number' || val[1] instanceof Number) && Number.isInteger(val[1])) && val[1] >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.1]", (path ? lpath_0 : null)])
-            }
             if (res)
             {
                 lpath_0 = path ? path.concat([2]) : null;
                 // .2
                 res = ((typeof val[2] === 'number' || val[2] instanceof Number)) && val[2] >= 0.0;
-                if (! res)
-                {
-                    rep !== null && rep.push(["not a 0.0 strict float [.2]", (path ? lpath_0 : null)])
-                }
                 if (res)
                 {
                     lpath_0 = path ? path.concat([3]) : null;
@@ -53,7 +41,19 @@ function json_model_1(val, path, rep)
                         rep !== null && rep.push(["unexpected string [.3]", (path ? lpath_0 : null)])
                     }
                 }
+                else
+                {
+                    rep !== null && rep.push(["not a 0.0 strict float [.2]", (path ? lpath_0 : null)])
+                }
             }
+            else
+            {
+                rep !== null && rep.push(["not a 0 strict int [.1]", (path ? lpath_0 : null)])
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["not a bool [.0]", (path ? lpath_0 : null)])
         }
     }
     if (! res)

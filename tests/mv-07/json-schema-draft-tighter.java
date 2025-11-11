@@ -34,33 +34,21 @@ public class json_schema_draft_tighter extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$const'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$const'.'|'.1
             res = json.isBoolean(val);
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a bool [.'$const'.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'$const'.'|'.2
                 res = json.isInteger(val);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$const'.'|'.2]", path);
-                }
-                if (! res)
-                {
                     // .'$const'.'|'.3
                     res = json.isDouble(val);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 strict float [.'$const'.'|'.3]", path);
-                    }
-                    if (! res)
-                    {
                         // .'$const'.'|'.4
                         res = json.isString(val);
                         if (! res)
@@ -87,10 +75,6 @@ public class json_schema_draft_tighter extends ModelChecker
     {
         // .'$enum'
         boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$enum'.'|']", path);
-        }
         if (res)
         {
             // .'$enum'.'|'.0
@@ -112,9 +96,6 @@ public class json_schema_draft_tighter extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$enum'.'|'.0]", path);
-            }
-            if (! res)
-            {
                 // .'$enum'.'|'.1
                 int arr_1_idx = -1;
                 Iterator<Object> arr_1_item_loop = json.arrayIterator(val);
@@ -134,9 +115,6 @@ public class json_schema_draft_tighter extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$enum'.'|'.1]", path);
-                }
-                if (! res)
-                {
                     // .'$enum'.'|'.2
                     int arr_0_idx = -1;
                     Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
@@ -167,6 +145,10 @@ public class json_schema_draft_tighter extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'$enum'.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$enum'.'|']", path);
         }
         return res;
     }
@@ -302,9 +284,6 @@ public class json_schema_draft_tighter extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$arrayKeywords'.items.'|'.0]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     // .'$arrayKeywords'.items.'|'.1
                     res = json_model_4(pval, (path != null ? lpath_1 : null), rep);
                     if (! res)
@@ -1204,9 +1183,6 @@ public class json_schema_draft_tighter extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$Array'.items.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Array'.items.'|'.1
             res = json_model_4(val, path, rep);
             if (! res)
@@ -3995,9 +3971,6 @@ public class json_schema_draft_tighter extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Schema'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Schema'.'|'.1
             res = json_model_23(val, path, rep);
             if (! res)
@@ -4055,10 +4028,6 @@ public class json_schema_draft_tighter extends ModelChecker
         {
             // .'$RootSchema'.'&'.0
             res = _jm_obj_24(val, path, rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected element [.'$RootSchema'.'&'.0]", path);
-            }
             if (res)
             {
                 // .'$RootSchema'.'&'.1
@@ -4067,6 +4036,10 @@ public class json_schema_draft_tighter extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$RootSchema'.'&'.1]", path);
                 }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected element [.'$RootSchema'.'&'.0]", path);
             }
         }
         if (res)

@@ -29,7 +29,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'|'.0]", path))
-    if not res:
         # .'|'.1
         res = isinstance(val, str)
         if not res:

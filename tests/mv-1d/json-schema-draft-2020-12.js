@@ -490,10 +490,6 @@ function json_model_9(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$simpleTypesArray'.'@']", path])
-    }
     if (res)
     {
         let ival_0 = val.length;
@@ -502,6 +498,10 @@ function json_model_9(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.'$simpleTypesArray']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$simpleTypesArray'.'@']", path])
     }
     return res;
 }
@@ -527,10 +527,6 @@ function json_model_10(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$stringArray'.'@']", path])
-    }
     if (res)
     {
         res = runtime.jm_array_is_unique(val, path, rep);
@@ -538,6 +534,10 @@ function json_model_10(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.'$stringArray']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$stringArray'.'@']", path])
     }
     return res;
 }
@@ -613,9 +613,6 @@ function json_model_12(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $simpleTypes [.'$validation'.type.'|'.0]", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
                 // .'$validation'.type.'|'.1
                 res = json_model_9(pval, (path ? lpath_7 : null), rep);
                 if (! res)
@@ -890,10 +887,6 @@ function json_model_13(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$schemaArray'.'@']", path])
-    }
     if (res)
     {
         let ival_1 = val.length;
@@ -902,6 +895,10 @@ function json_model_13(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.'$schemaArray']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$schemaArray'.'@']", path])
     }
     return res;
 }
@@ -1597,9 +1594,6 @@ function _jm_f_25(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$ObjectSchema'.type.'|'.1
         res = json_model_9(val, path, rep);
         if (! res)
@@ -1681,9 +1675,6 @@ function json_model_16(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Schema'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Schema'.'|'.1
         res = json_model_15(val, path, rep);
         if (! res)

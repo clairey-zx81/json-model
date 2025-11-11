@@ -29,10 +29,6 @@ public class arr_2 extends ModelChecker
             Path lpath_0 = new Path(0, path);
             // .0
             res = json.isBoolean(json.arrayItem(val, 0));
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("not a bool [.0]", (path != null ? lpath_0 : null));
-            }
             if (res)
             {
                 lpath_0 = new Path(1, path);
@@ -42,6 +38,10 @@ public class arr_2 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.1]", (path != null ? lpath_0 : null));
                 }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("not a bool [.0]", (path != null ? lpath_0 : null));
             }
         }
         if (! res)

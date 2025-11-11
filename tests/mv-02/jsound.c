@@ -275,33 +275,21 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not null [.'$atomic'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$atomic'.'|'.1
         res = json_is_boolean(val);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "not a bool [.'$atomic'.'|'.1]", path);
-        }
-        if (! res)
-        {
             // .'$atomic'.'|'.2
             res = json_is_integer(val);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$atomic'.'|'.2]", path);
-            }
-            if (! res)
-            {
                 // .'$atomic'.'|'.3
                 res = json_is_real(val);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$atomic'.'|'.3]", path);
-                }
-                if (! res)
-                {
                     // .'$atomic'.'|'.4
                     res = json_is_string(val);
                     if (unlikely(! res))
@@ -1039,9 +1027,6 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$type-or-ref'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$type-or-ref'.'|'.1
         res = json_model_3(val, path, rep);
         if (unlikely(! res))

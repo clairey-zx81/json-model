@@ -231,6 +231,8 @@ BEGIN
   -- .'$ObjectSchema'.enum.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
+    -- accept any array
+    NULL;
     ival_2 := JSONB_ARRAY_LENGTH(val);
     res := jm_array_is_unique(val, NULL, NULL) AND ival_2 >= 1;
   END IF;

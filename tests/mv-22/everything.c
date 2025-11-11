@@ -252,9 +252,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.or.o0.'|'.0]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 // .or.o0.'|'.1
                 res = json_is_integer(pval);
                 if (unlikely(! res))
@@ -283,9 +280,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $DATE [.or.o1.'|'.0]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 // .or.o1.'|'.1
                 res = jm_is_valid_time(json_string_value(pval), (path ? &lpath_3 : NULL), rep);
                 if (unlikely(! res))
@@ -314,25 +308,16 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.or.o2.'|'.0]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 // .or.o2.'|'.1
                 res = jm_is_valid_uuid(json_string_value(pval), (path ? &lpath_3 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $UUID [.or.o2.'|'.1]", (path ? &lpath_3 : NULL));
-                }
-                if (! res)
-                {
                     // .or.o2.'|'.2
                     res = json_is_array(pval);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.or.o2.'|'.2]", (path ? &lpath_3 : NULL));
-                    }
-                    if (! res)
-                    {
                         // .or.o2.'|'.3
                         res = _jm_obj_1(pval, (path ? &lpath_3 : NULL), rep);
                         if (unlikely(! res))
@@ -383,11 +368,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // .and.a0.'&'.0
                 res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_4 : NULL), rep);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected $DATE [.and.a0.'&'.0]", (path ? &lpath_4 : NULL));
-                }
-                if (res)
+                if (likely(res))
                 {
                     // .and.a0.'&'.1
                     // "/^2020-/"
@@ -396,6 +377,10 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected /^2020-/ [.and.a0.'&'.1]", (path ? &lpath_4 : NULL));
                     }
+                }
+                else
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $DATE [.and.a0.'&'.0]", (path ? &lpath_4 : NULL));
                 }
             }
             if (likely(res))
@@ -1419,10 +1404,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                             }
                         }
                     }
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cia0.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_0 = json_array_size(pval);
@@ -1431,6 +1412,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cia0]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cia0.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1458,10 +1443,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cin0
                     // .constraints.cin0.'@'
                     res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cin0.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         double fval_0 = json_real_value(pval);
@@ -1470,6 +1451,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cin0]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cin0.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1497,10 +1482,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cnn0
                     // .constraints.cnn0.'@'
                     res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cnn0.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         double fval_1 = json_real_value(pval);
@@ -1509,6 +1490,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cnn0]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cnn0.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1523,17 +1508,18 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cua0
                     // .constraints.cua0.'@'
                     res = json_is_array(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cua0.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
+                        // accept any array
                         res = jm_array_is_unique(pval, (path ? &lpath_14 : NULL), rep);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cua0]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cua0.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1567,10 +1553,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                             }
                         }
                     }
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cia1.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_3 = json_array_size(pval);
@@ -1579,6 +1561,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cia1]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cia1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1593,10 +1579,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cii1
                     // .constraints.cii1.'@'
                     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cii1.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_4 = json_integer_value(pval);
@@ -1605,6 +1587,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cii1]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cii1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1619,10 +1605,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cio0
                     // .constraints.cio0.'@'
                     res = _jm_obj_16(pval, (path ? &lpath_14 : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio0.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_5 = json_object_size(pval);
@@ -1631,6 +1613,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cio0]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio0.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1645,10 +1631,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cis0
                     // .constraints.cis0.'@'
                     res = json_is_string(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.cis0.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_6 = jm_str_len(json_string_value(pval));
@@ -1657,6 +1639,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cis0]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.cis0.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1671,10 +1657,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cni1
                     // .constraints.cni1.'@'
                     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 1 strict int [.constraints.cni1.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_7 = json_integer_value(pval);
@@ -1684,6 +1666,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cni1]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 1 strict int [.constraints.cni1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1698,10 +1684,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.css0
                     // .constraints.css0.'@'
                     res = json_is_string(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.css0.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         const char * sval_1 = json_string_value(pval);
@@ -1710,6 +1692,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.css0]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.css0.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1746,10 +1732,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                             }
                         }
                     }
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cia2.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_8 = json_array_size(pval);
@@ -1758,6 +1740,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cia2]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.constraints.cia2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1772,10 +1758,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cii2
                     // .constraints.cii2.'@'
                     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cii2.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_9 = json_integer_value(pval);
@@ -1784,6 +1766,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cii2]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cii2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1798,10 +1784,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cin1
                     // .constraints.cin1.'@'
                     res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cin1.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         double fval_5 = json_real_value(pval);
@@ -1810,6 +1792,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cin1]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cin1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1824,10 +1810,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cio1
                     // .constraints.cio1.'@'
                     res = _jm_obj_17(pval, (path ? &lpath_14 : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio1.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_10 = json_object_size(pval);
@@ -1836,6 +1818,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cio1]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1850,10 +1836,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cis1
                     // .constraints.cis1.'@'
                     res = json_is_string(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.cis1.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_11 = jm_str_len(json_string_value(pval));
@@ -1862,6 +1844,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cis1]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.cis1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1876,10 +1862,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cnn1
                     // .constraints.cnn1.'@'
                     res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cnn1.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         double fval_6 = json_real_value(pval);
@@ -1888,6 +1870,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cnn1]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cnn1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1902,10 +1888,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.css1
                     // .constraints.css1.'@'
                     res = json_is_string(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.css1.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         const char * sval_2 = json_string_value(pval);
@@ -1914,6 +1896,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.css1]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.css1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1931,10 +1917,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cin2
                     // .constraints.cin2.'@'
                     res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cin2.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         double fval_2 = json_real_value(pval);
@@ -1943,6 +1925,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cin2]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cin2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1957,10 +1943,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cio2
                     // .constraints.cio2.'@'
                     res = _jm_obj_15(pval, (path ? &lpath_14 : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio2.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_1 = json_object_size(pval);
@@ -1969,6 +1951,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cio2]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1983,10 +1969,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cis2
                     // .constraints.cis2.'@'
                     res = json_is_string(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.cis2.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         int64_t ival_2 = jm_str_len(json_string_value(pval));
@@ -1995,6 +1977,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cis2]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.cis2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -2022,10 +2008,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.cnn2
                     // .constraints.cnn2.'@'
                     res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cnn2.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         double fval_3 = json_real_value(pval);
@@ -2034,6 +2016,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cnn2]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.constraints.cnn2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -2048,10 +2034,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // .constraints.css2
                     // .constraints.css2.'@'
                     res = json_is_string(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.css2.'@']", (path ? &lpath_14 : NULL));
-                    }
                     if (likely(res))
                     {
                         const char * sval_0 = json_string_value(pval);
@@ -2060,6 +2042,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.css2]", (path ? &lpath_14 : NULL));
                         }
+                    }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.constraints.css2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -2269,9 +2255,6 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.xor.x0.'|'.0]", (path ? &lpath_16 : NULL));
-            }
-            if (! res)
-            {
                 // .xor.x0.'|'.1
                 res = json_is_integer(pval);
                 if (unlikely(! res))
@@ -3442,20 +3425,13 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may m1 property
             // .merge.m1
             res = json_is_object(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected type [.merge.m1.'|']", (path ? &lpath_20 : NULL));
-            }
-            if (res)
+            if (likely(res))
             {
                 // .merge.m1.'|'.0
                 res = _jm_obj_26(pval, (path ? &lpath_20 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m1.'|'.0]", (path ? &lpath_20 : NULL));
-                }
-                if (! res)
-                {
                     // .merge.m1.'|'.1
                     res = _jm_obj_25(pval, (path ? &lpath_20 : NULL), rep);
                     if (unlikely(! res))
@@ -3472,6 +3448,10 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                     if (rep) jm_report_add_entry(rep, "no model matched [.merge.m1.'|']", (path ? &lpath_20 : NULL));
                 }
             }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected type [.merge.m1.'|']", (path ? &lpath_20 : NULL));
+            }
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.merge.m1]", (path ? &lpath_20 : NULL));
@@ -3484,20 +3464,13 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may m2 property
             // .merge.m2
             res = json_is_object(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected type [.merge.m2.'|']", (path ? &lpath_20 : NULL));
-            }
-            if (res)
+            if (likely(res))
             {
                 // .merge.m2.'|'.0
                 res = _jm_obj_28(pval, (path ? &lpath_20 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m2.'|'.0]", (path ? &lpath_20 : NULL));
-                }
-                if (! res)
-                {
                     // .merge.m2.'|'.1
                     res = _jm_obj_27(pval, (path ? &lpath_20 : NULL), rep);
                     if (unlikely(! res))
@@ -3514,6 +3487,10 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                     if (rep) jm_report_add_entry(rep, "no model matched [.merge.m2.'|']", (path ? &lpath_20 : NULL));
                 }
             }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected type [.merge.m2.'|']", (path ? &lpath_20 : NULL));
+            }
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.merge.m2]", (path ? &lpath_20 : NULL));
@@ -3526,11 +3503,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may m3 property
             // .merge.m3
             res = json_is_object(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected type [.merge.m3.'|']", (path ? &lpath_20 : NULL));
-            }
-            if (res)
+            if (likely(res))
             {
                 if (json_object_get(pval, "a") != NULL)
                 {
@@ -3593,6 +3566,10 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     if (rep) jm_report_add_entry(rep, "no model matched [.merge.m3.'|']", (path ? &lpath_20 : NULL));
                 }
+            }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected type [.merge.m3.'|']", (path ? &lpath_20 : NULL));
             }
             if (unlikely(! res))
             {
@@ -3669,10 +3646,6 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                 }
             }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.tuple.t1.'@']", (path ? &lpath_31 : NULL));
-            }
             if (likely(res))
             {
                 int64_t ival_12 = json_array_size(pval);
@@ -3681,6 +3654,10 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     if (rep) jm_report_add_entry(rep, "constraints failed [.tuple.t1]", (path ? &lpath_31 : NULL));
                 }
+            }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.tuple.t1.'@']", (path ? &lpath_31 : NULL));
             }
             if (unlikely(! res))
             {
@@ -3699,10 +3676,6 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 jm_path_t lpath_32 = (jm_path_t) { NULL, 0, (path ? &lpath_31 : NULL), NULL };
                 // .tuple.t2.0
                 res = json_is_integer(json_array_get(pval, 0)) && json_integer_value(json_array_get(pval, 0)) >= 0;
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.tuple.t2.0]", ((path ? &lpath_31 : NULL) ? &lpath_32 : NULL));
-                }
                 if (likely(res))
                 {
                     lpath_32 = (jm_path_t) { NULL, 1, (path ? &lpath_31 : NULL), NULL };
@@ -3712,6 +3685,10 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                     {
                         if (rep) jm_report_add_entry(rep, "not a 0 strict int [.tuple.t2.1]", ((path ? &lpath_31 : NULL) ? &lpath_32 : NULL));
                     }
+                }
+                else
+                {
+                    if (rep) jm_report_add_entry(rep, "not a 0 strict int [.tuple.t2.0]", ((path ? &lpath_31 : NULL) ? &lpath_32 : NULL));
                 }
             }
             if (unlikely(! res))
@@ -3732,19 +3709,11 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 jm_path_t lpath_33 = (jm_path_t) { NULL, 0, (path ? &lpath_31 : NULL), NULL };
                 // .tuple.t3.0
                 res = json_is_boolean(json_array_get(pval, 0));
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "not a bool [.tuple.t3.0]", ((path ? &lpath_31 : NULL) ? &lpath_33 : NULL));
-                }
                 if (likely(res))
                 {
                     lpath_33 = (jm_path_t) { NULL, 1, (path ? &lpath_31 : NULL), NULL };
                     // .tuple.t3.1
                     res = json_is_integer(json_array_get(pval, 1)) && json_integer_value(json_array_get(pval, 1)) >= 0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.tuple.t3.1]", ((path ? &lpath_31 : NULL) ? &lpath_33 : NULL));
-                    }
                     if (likely(res))
                     {
                         lpath_33 = (jm_path_t) { NULL, 2, (path ? &lpath_31 : NULL), NULL };
@@ -3755,6 +3724,14 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                             if (rep) jm_report_add_entry(rep, "unexpected string [.tuple.t3.2]", ((path ? &lpath_31 : NULL) ? &lpath_33 : NULL));
                         }
                     }
+                    else
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.tuple.t3.1]", ((path ? &lpath_31 : NULL) ? &lpath_33 : NULL));
+                    }
+                }
+                else
+                {
+                    if (rep) jm_report_add_entry(rep, "not a bool [.tuple.t3.0]", ((path ? &lpath_31 : NULL) ? &lpath_33 : NULL));
                 }
             }
             if (unlikely(! res))
@@ -3800,10 +3777,6 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                 }
             }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.tuple.t4.'@']", (path ? &lpath_31 : NULL));
-            }
             if (likely(res))
             {
                 int64_t ival_13 = json_array_size(pval);
@@ -3812,6 +3785,10 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     if (rep) jm_report_add_entry(rep, "constraints failed [.tuple.t4]", (path ? &lpath_31 : NULL));
                 }
+            }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.tuple.t4.'@']", (path ? &lpath_31 : NULL));
             }
             if (unlikely(! res))
             {

@@ -43,10 +43,6 @@ public class uniq_0 extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
-        }
         if (res)
         {
             res = rt.array_is_unique(val, path, rep);
@@ -54,6 +50,10 @@ public class uniq_0 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
         }
         return res;
     }

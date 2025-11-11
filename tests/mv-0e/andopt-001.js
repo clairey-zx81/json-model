@@ -20,14 +20,14 @@ function json_model_1(val, path, rep)
     {
         // .'&'.0
         res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-        if (! res)
-        {
-            rep !== null && rep.push(["not a 0 strict int [.'&'.0]", path])
-        }
         if (res)
         {
             // .'&'.1
             res = true;
+        }
+        else
+        {
+            rep !== null && rep.push(["not a 0 strict int [.'&'.0]", path])
         }
     }
     if (res)

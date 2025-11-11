@@ -69,10 +69,6 @@ function json_model_4(val, path, rep)
         // .'$Identifier'.'&'.0
         // "/^\\w(\\w|-)*$/"
         res = _jm_re_2(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected /^\\w(\\w|-)*$/ [.'$Identifier'.'&'.0]", path])
-        }
         if (res)
         {
             // .'$Identifier'.'&'.1
@@ -82,6 +78,10 @@ function json_model_4(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected /[^A-Z0-9]/ [.'$Identifier'.'&'.1]", path])
             }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected /^\\w(\\w|-)*$/ [.'$Identifier'.'&'.0]", path])
         }
     }
     if (res)
@@ -235,10 +235,6 @@ function json_model_10(val, path, rep)
 {
     // .'$Regex'
     let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$Regex'.'|']", path])
-    }
     if (res)
     {
         // .'$Regex'.'|'.0
@@ -247,9 +243,6 @@ function json_model_10(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected /^/($EXREG)/[a-z]*X[a-z]*$/X [.'$Regex'.'|'.0]", path])
-        }
-        if (! res)
-        {
             // .'$Regex'.'|'.1
             // "/^/($REGEX)/[a-z]*$/X"
             res = _jm_xre_0(val, path, rep);
@@ -266,6 +259,10 @@ function json_model_10(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'$Regex'.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$Regex'.'|']", path])
     }
     return res;
 }
@@ -294,17 +291,11 @@ function json_model_12(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$CmpValue'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$CmpValue'.'|'.1
         res = (typeof val === 'number' || val instanceof Number);
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 strict float [.'$CmpValue'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$CmpValue'.'|'.2
             res = (typeof val === 'string' || val instanceof String);
             if (! res)
@@ -333,17 +324,11 @@ function json_model_13(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$EqValue'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$EqValue'.'|'.1
         res = (typeof val === 'boolean' || val instanceof Boolean);
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$EqValue'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$EqValue'.'|'.2
             res = json_model_12(val, path, rep);
             if (! res)
@@ -385,41 +370,26 @@ function json_model_15(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $StrConst [.'$StrModel'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$StrModel'.'|'.1
         res = json_model_8(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $ValConst [.'$StrModel'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$StrModel'.'|'.2
             res = json_model_10(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Regex [.'$StrModel'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$StrModel'.'|'.3
                 res = json_model_3(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $PreDef [.'$StrModel'.'|'.3]", path])
-                }
-                if (! res)
-                {
                     // .'$StrModel'.'|'.4
                     res = json_model_7(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Ref [.'$StrModel'.'|'.4]", path])
-                    }
-                    if (! res)
-                    {
                         // .'$StrModel'.'|'.5
                         res = ((typeof val === 'string' || val instanceof String)) && val == "";
                         if (! res)
@@ -470,9 +440,6 @@ function json_model_18(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Model [.'$CModel'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$CModel'.'|'.1
         res = json_model_5(val, path, rep);
         if (! res)
@@ -833,41 +800,26 @@ function json_model_26(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[?!]/ [.'$Prop'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Prop'.'|'.1
         res = json_model_9(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $StrConst [.'$Prop'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$Prop'.'|'.2
             res = json_model_10(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Regex [.'$Prop'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$Prop'.'|'.3
                 res = json_model_7(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Ref [.'$Prop'.'|'.3]", path])
-                }
-                if (! res)
-                {
                     // .'$Prop'.'|'.4
                     res = json_model_11(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Name [.'$Prop'.'|'.4]", path])
-                    }
-                    if (! res)
-                    {
                         // .'$Prop'.'|'.5
                         res = ((typeof val === 'string' || val instanceof String)) && val == "";
                         if (! res)
@@ -932,41 +884,26 @@ function json_model_28(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Constraint [.'$Elem'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Elem'.'|'.1
         res = json_model_22(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Or [.'$Elem'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$Elem'.'|'.2
             res = json_model_23(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $And [.'$Elem'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$Elem'.'|'.3
                 res = json_model_24(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Xor [.'$Elem'.'|'.3]", path])
-                }
-                if (! res)
-                {
                     // .'$Elem'.'|'.4
                     res = json_model_25(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Add [.'$Elem'.'|'.4]", path])
-                    }
-                    if (! res)
-                    {
                         // .'$Elem'.'|'.5
                         res = json_model_27(val, path, rep);
                         if (! res)
@@ -1470,10 +1407,6 @@ function json_model_29(val, path, rep)
 {
     // .'$Element'
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$Element'.'|']", path])
-    }
     if (res)
     {
         // .'$Element'.'|'.0
@@ -1481,41 +1414,26 @@ function json_model_29(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Element'.'|'.0]", path])
-        }
-        if (! res)
-        {
             // .'$Element'.'|'.1
             res = _jm_obj_4(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Element'.'|'.1]", path])
-            }
-            if (! res)
-            {
                 // .'$Element'.'|'.2
                 res = _jm_obj_3(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$Element'.'|'.2]", path])
-                }
-                if (! res)
-                {
                     // .'$Element'.'|'.3
                     res = _jm_obj_2(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$Element'.'|'.3]", path])
-                    }
-                    if (! res)
-                    {
                         // .'$Element'.'|'.4
                         res = _jm_obj_1(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$Element'.'|'.4]", path])
-                        }
-                        if (! res)
-                        {
                             // .'$Element'.'|'.5
                             res = _jm_obj_0(val, path, rep);
                             if (! res)
@@ -1535,6 +1453,10 @@ function json_model_29(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'$Element'.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$Element'.'|']", path])
     }
     return res;
 }
@@ -1593,9 +1515,6 @@ function json_model_30(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $EqValue [.'$Trafo'.'/'.'|'.0]", (path ? lpath_9 : null)])
-            }
-            if (! res)
-            {
                 // .'$Trafo'.'/'.'|'.1
                 res = Array.isArray(pval);
                 if (! res)
@@ -1699,9 +1618,6 @@ function _jm_obj_7(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $EqValue [.'$Transformation'.'|'.1.'/'.'|'.0]", (path ? lpath_11 : null)])
-            }
-            if (! res)
-            {
                 // .'$Transformation'.'|'.1.'/'.'|'.1
                 res = Array.isArray(pval);
                 if (! res)
@@ -1758,9 +1674,6 @@ function json_model_31(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Model [.'$Transformation'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Transformation'.'|'.1
         res = _jm_obj_7(val, path, rep);
         if (! res)
@@ -1788,9 +1701,6 @@ function json_model_32(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ValModel [.'$ScalarModel'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$ScalarModel'.'|'.1
         res = json_model_15(val, path, rep);
         if (! res)
@@ -1818,17 +1728,11 @@ function json_model_33(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ScalarModel [.'$Model'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Model'.'|'.1
         res = json_model_19(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Array [.'$Model'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$Model'.'|'.2
             res = json_model_29(val, path, rep);
             if (! res)
@@ -1987,9 +1891,6 @@ function json_model_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ref [.'$Import'.'<'.'|'.0]", (path ? lpath_16 : null)])
-            }
-            if (! res)
-            {
                 // .'$Import'.'<'.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -2128,9 +2029,6 @@ function _jm_obj_10(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ref [.'$RootOnly'.'%'.'<'.'|'.0]", (path ? lpath_19 : null)])
-            }
-            if (! res)
-            {
                 // .'$RootOnly'.'%'.'<'.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -2360,9 +2258,6 @@ function _jm_obj_13(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ref [.'$Root'.'|'.5.'%'.'<'.'|'.0]", (path ? lpath_22 : null)])
-            }
-            if (! res)
-            {
                 // .'$Root'.'|'.5.'%'.'<'.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -2623,9 +2518,6 @@ function _jm_obj_16(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ref [.'$Root'.'|'.4.'%'.'<'.'|'.0]", (path ? lpath_25 : null)])
-            }
-            if (! res)
-            {
                 // .'$Root'.'|'.4.'%'.'<'.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -2916,9 +2808,6 @@ function _jm_obj_19(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ref [.'$Root'.'|'.3.'%'.'<'.'|'.0]", (path ? lpath_28 : null)])
-            }
-            if (! res)
-            {
                 // .'$Root'.'|'.3.'%'.'<'.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -3209,9 +3098,6 @@ function _jm_obj_22(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ref [.'$Root'.'|'.2.'%'.'<'.'|'.0]", (path ? lpath_31 : null)])
-            }
-            if (! res)
-            {
                 // .'$Root'.'|'.2.'%'.'<'.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -3502,9 +3388,6 @@ function _jm_obj_25(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ref [.'$Root'.'|'.1.'%'.'<'.'|'.0]", (path ? lpath_34 : null)])
-            }
-            if (! res)
-            {
                 // .'$Root'.'|'.1.'%'.'<'.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -3795,9 +3678,6 @@ function _jm_obj_28(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Ref [.'$Root'.'|'.0.'%'.'<'.'|'.0]", (path ? lpath_37 : null)])
-            }
-            if (! res)
-            {
                 // .'$Root'.'|'.0.'%'.'<'.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -4015,10 +3895,6 @@ function json_model_39(val, path, rep)
 {
     // .'$Root'
     let res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$Root'.'|']", path])
-    }
     if (res)
     {
         // .'$Root'.'|'.0
@@ -4026,41 +3902,26 @@ function json_model_39(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Root'.'|'.0]", path])
-        }
-        if (! res)
-        {
             // .'$Root'.'|'.1
             res = _jm_obj_23(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.1]", path])
-            }
-            if (! res)
-            {
                 // .'$Root'.'|'.2
                 res = _jm_obj_20(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$Root'.'|'.2]", path])
-                }
-                if (! res)
-                {
                     // .'$Root'.'|'.3
                     res = _jm_obj_17(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$Root'.'|'.3]", path])
-                    }
-                    if (! res)
-                    {
                         // .'$Root'.'|'.4
                         res = _jm_obj_14(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$Root'.'|'.4]", path])
-                        }
-                        if (! res)
-                        {
                             // .'$Root'.'|'.5
                             res = _jm_obj_11(val, path, rep);
                             if (! res)
@@ -4081,6 +3942,10 @@ function json_model_39(val, path, rep)
             rep !== null && rep.push(["no model matched [.'$Root'.'|']", path])
         }
     }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$Root'.'|']", path])
+    }
     return res;
 }
 
@@ -4093,17 +3958,11 @@ function json_model_40(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ScalarModel [.'$RootModel'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$RootModel'.'|'.1
         res = json_model_19(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Array [.'$RootModel'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$RootModel'.'|'.2
             res = json_model_39(val, path, rep);
             if (! res)

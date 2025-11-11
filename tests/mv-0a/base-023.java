@@ -28,19 +28,11 @@ public class base_023 extends ModelChecker
         {
             // .'&'.0
             res = true;
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected string [.'&'.0]", path);
-            }
             if (res)
             {
                 // .'&'.1
                 // .'&'.1.'@'
                 res = json.isString(val);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'&'.1.'@']", path);
-                }
                 if (res)
                 {
                     long ival_0 = json.asString(val).length();
@@ -50,6 +42,14 @@ public class base_023 extends ModelChecker
                         if (rep != null) rep.addEntry("constraints failed [.'&'.1]", path);
                     }
                 }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'&'.1.'@']", path);
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected string [.'&'.0]", path);
             }
         }
         if (res)

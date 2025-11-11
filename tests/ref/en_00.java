@@ -28,9 +28,6 @@ public class en_00 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             res = json.isDouble(val) && json.asDouble(val) >= 0.0;
             if (! res)

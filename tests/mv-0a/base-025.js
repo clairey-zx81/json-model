@@ -29,10 +29,6 @@ function json_model_1(val, path, rep)
     // .
     // .'@'
     let res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'@']", path])
-    }
     if (res)
     {
         let ival_0 = Object.keys(val).length;
@@ -41,6 +37,10 @@ function json_model_1(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected element [.'@']", path])
     }
     return res;
 }

@@ -56,10 +56,6 @@ function json_model_3(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$neStrList'.'@']", path])
-    }
     if (res)
     {
         let ival_0 = val.length;
@@ -68,6 +64,10 @@ function json_model_3(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.'$neStrList']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$neStrList'.'@']", path])
     }
     return res;
 }
@@ -106,10 +106,6 @@ function json_model_5(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$LicenseList'.'@']", path])
-    }
     if (res)
     {
         let ival_1 = val.length;
@@ -118,6 +114,10 @@ function json_model_5(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.'$LicenseList']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$LicenseList'.'@']", path])
     }
     return res;
 }
@@ -428,9 +428,6 @@ function json_model_10(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $SemVer [.'$Version'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Version'.'|'.1
         res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 0;
         if (! res)
@@ -525,9 +522,6 @@ function json_model_15(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Version [.'$Prereq'.''.'|'.0]", (path ? lpath_4 : null)])
-        }
-        if (! res)
-        {
             // .'$Prereq'.''.'|'.1
             res = json_model_12(pval, (path ? lpath_4 : null), rep);
             if (! res)
@@ -821,17 +815,11 @@ function json_model_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $License [.license.'|'.0]", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
                 // .license.'|'.1
                 res = json_model_5(pval, (path ? lpath_7 : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $LicenseList [.license.'|'.1]", (path ? lpath_7 : null)])
-                }
-                if (! res)
-                {
                     // .license.'|'.2
                     res = _jm_obj_3(pval, (path ? lpath_7 : null), rep);
                     if (! res)
@@ -918,9 +906,6 @@ function json_model_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $neStr [.maintainer.'|'.0]", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
                 // .maintainer.'|'.1
                 res = json_model_3(pval, (path ? lpath_7 : null), rep);
                 if (! res)

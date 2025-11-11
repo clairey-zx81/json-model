@@ -66,12 +66,10 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $map [.'$Ex08'.'|'.0]", path))
-    if not res:
         # .'$Ex08'.'|'.1
         res = is_valid_url(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $URL [.'$Ex08'.'|'.1]", path))
-        if not res:
             # .'$Ex08'.'|'.2
             res = json_model_2(val, path, rep)
             if not res:

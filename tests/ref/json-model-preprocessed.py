@@ -74,12 +74,10 @@ def json_model_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_34(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $ScalarModel [.'$Model#RootModel'.'|'.0]", path))
-    if not res:
         # .'$Model#RootModel'.'|'.1
         res = json_model_21(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $Array [.'$Model#RootModel'.'|'.1]", path))
-        if not res:
             # .'$Model#RootModel'.'|'.2
             res = json_model_41(val, path, rep)
             if not res:
@@ -113,7 +111,6 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_35(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Model [.'$Model#CModel'.'|'.0]", path))
-    if not res:
         # .'$Model#CModel'.'|'.1
         res = json_model_7(val, path, rep)
         if not res:
@@ -140,7 +137,6 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_16(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $ValModel [.'$Model#ScalarModel'.'|'.0]", path))
-    if not res:
         # .'$Model#ScalarModel'.'|'.1
         res = json_model_17(val, path, rep)
         if not res:
@@ -158,37 +154,30 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$Model#ValModel'.'|'.0]", path))
-    if not res:
         # .'$Model#ValModel'.'|'.1
         res = isinstance(val, bool) and val == True
         if not res:
             rep is None or rep.append(("unexpected =true [.'$Model#ValModel'.'|'.1]", path))
-        if not res:
             # .'$Model#ValModel'.'|'.2
             res = isinstance(val, int) and not isinstance(val, bool) and val == 0
             if not res:
                 rep is None or rep.append(("unexpected =0 [.'$Model#ValModel'.'|'.2]", path))
-            if not res:
                 # .'$Model#ValModel'.'|'.3
                 res = isinstance(val, int) and not isinstance(val, bool) and val == 1
                 if not res:
                     rep is None or rep.append(("unexpected =1 [.'$Model#ValModel'.'|'.3]", path))
-                if not res:
                     # .'$Model#ValModel'.'|'.4
                     res = isinstance(val, int) and not isinstance(val, bool) and val == -1
                     if not res:
                         rep is None or rep.append(("unexpected =-1 [.'$Model#ValModel'.'|'.4]", path))
-                    if not res:
                         # .'$Model#ValModel'.'|'.5
                         res = isinstance(val, float) and val == 0.0
                         if not res:
                             rep is None or rep.append(("unexpected =0.0 [.'$Model#ValModel'.'|'.5]", path))
-                        if not res:
                             # .'$Model#ValModel'.'|'.6
                             res = isinstance(val, float) and val == 1.0
                             if not res:
                                 rep is None or rep.append(("unexpected =1.0 [.'$Model#ValModel'.'|'.6]", path))
-                            if not res:
                                 # .'$Model#ValModel'.'|'.7
                                 res = isinstance(val, float) and val == -1.0
                                 if not res:
@@ -206,27 +195,22 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_11(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $StrConst [.'$Model#StrModel'.'|'.0]", path))
-    if not res:
         # .'$Model#StrModel'.'|'.1
         res = json_model_10(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $ValConst [.'$Model#StrModel'.'|'.1]", path))
-        if not res:
             # .'$Model#StrModel'.'|'.2
             res = json_model_12(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Regex [.'$Model#StrModel'.'|'.2]", path))
-            if not res:
                 # .'$Model#StrModel'.'|'.3
                 res = json_model_5(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $PreDef [.'$Model#StrModel'.'|'.3]", path))
-                if not res:
                     # .'$Model#StrModel'.'|'.4
                     res = json_model_9(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $Ref [.'$Model#StrModel'.'|'.4]", path))
-                    if not res:
                         # .'$Model#StrModel'.'|'.5
                         res = isinstance(val, str) and val == ""
                         if not res:
@@ -302,15 +286,12 @@ def _jm_xre_1(val: str, path: Path, rep: Report) -> bool:
 def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Regex'
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'$Model#Regex'.'|']", path))
     if res:
         # .'$Model#Regex'.'|'.0
         # "/^/($EXREG)/[a-z]*X[a-z]*$/X"
         res = _jm_xre_1(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected /^/($EXREG)/[a-z]*X[a-z]*$/X [.'$Model#Regex'.'|'.0]", path))
-        if not res:
             # .'$Model#Regex'.'|'.1
             # "/^/($REGEX)/[a-z]*$/X"
             res = _jm_xre_0(val, path, rep)
@@ -320,6 +301,8 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'$Model#Regex'.'|']", path))
+    else:
+        rep is None or rep.append(("unexpected type [.'$Model#Regex'.'|']", path))
     return res
 
 # check $Model#Model (.'$Model#Model')
@@ -329,12 +312,10 @@ def json_model_35(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_34(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $ScalarModel [.'$Model#Model'.'|'.0]", path))
-    if not res:
         # .'$Model#Model'.'|'.1
         res = json_model_21(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $Array [.'$Model#Model'.'|'.1]", path))
-        if not res:
             # .'$Model#Model'.'|'.2
             res = json_model_31(val, path, rep)
             if not res:
@@ -599,29 +580,23 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Element'
     res: bool = isinstance(val, dict)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'$Model#Element'.'|']", path))
     if res:
         # .'$Model#Element'.'|'.0
         res = _jm_obj_4(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected element [.'$Model#Element'.'|'.0]", path))
-        if not res:
             # .'$Model#Element'.'|'.1
             res = _jm_obj_3(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$Model#Element'.'|'.1]", path))
-            if not res:
                 # .'$Model#Element'.'|'.2
                 res = _jm_obj_2(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected element [.'$Model#Element'.'|'.2]", path))
-                if not res:
                     # .'$Model#Element'.'|'.3
                     res = _jm_obj_1(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected element [.'$Model#Element'.'|'.3]", path))
-                    if not res:
                         # .'$Model#Element'.'|'.4
                         res = _jm_obj_0(val, path, rep)
                         if not res:
@@ -630,6 +605,8 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'$Model#Element'.'|']", path))
+    else:
+        rep is None or rep.append(("unexpected type [.'$Model#Element'.'|']", path))
     return res
 
 # check $Model#CmpValue (.'$Model#CmpValue')
@@ -639,12 +616,10 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a -1 strict int [.'$Model#CmpValue'.'|'.0]", path))
-    if not res:
         # .'$Model#CmpValue'.'|'.1
         res = isinstance(val, float)
         if not res:
             rep is None or rep.append(("not a -1.0 strict float [.'$Model#CmpValue'.'|'.1]", path))
-        if not res:
             # .'$Model#CmpValue'.'|'.2
             res = isinstance(val, str)
             if not res:
@@ -662,12 +637,10 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$Model#EqValue'.'|'.0]", path))
-    if not res:
         # .'$Model#EqValue'.'|'.1
         res = isinstance(val, bool)
         if not res:
             rep is None or rep.append(("not a bool [.'$Model#EqValue'.'|'.1]", path))
-        if not res:
             # .'$Model#EqValue'.'|'.2
             res = json_model_14(val, path, rep)
             if not res:
@@ -687,27 +660,22 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, str) and _jm_re_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /^[?!]/ [.'$Model#Prop'.'|'.0]", path))
-    if not res:
         # .'$Model#Prop'.'|'.1
         res = json_model_11(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $StrConst [.'$Model#Prop'.'|'.1]", path))
-        if not res:
             # .'$Model#Prop'.'|'.2
             res = json_model_12(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Regex [.'$Model#Prop'.'|'.2]", path))
-            if not res:
                 # .'$Model#Prop'.'|'.3
                 res = json_model_9(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $Ref [.'$Model#Prop'.'|'.3]", path))
-                if not res:
                     # .'$Model#Prop'.'|'.4
                     res = json_model_13(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $Name [.'$Model#Prop'.'|'.4]", path))
-                    if not res:
                         # .'$Model#Prop'.'|'.5
                         res = isinstance(val, str) and val == ""
                         if not res:
@@ -795,7 +763,6 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_9(pval, lpath_7 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Ref [.'$Model#Root'.'|'.4.'%'.'<'.'|'.0]", lpath_7 if path is not None else None))
-            if not res:
                 # .'$Model#Root'.'|'.4.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
@@ -958,7 +925,6 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_9(pval, lpath_10 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Ref [.'$Model#Root'.'|'.3.'%'.'<'.'|'.0]", lpath_10 if path is not None else None))
-            if not res:
                 # .'$Model#Root'.'|'.3.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
@@ -1138,7 +1104,6 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_9(pval, lpath_13 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Ref [.'$Model#Root'.'|'.2.'%'.'<'.'|'.0]", lpath_13 if path is not None else None))
-            if not res:
                 # .'$Model#Root'.'|'.2.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
@@ -1318,7 +1283,6 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_9(pval, lpath_16 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Ref [.'$Model#Root'.'|'.1.'%'.'<'.'|'.0]", lpath_16 if path is not None else None))
-            if not res:
                 # .'$Model#Root'.'|'.1.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
@@ -1498,7 +1462,6 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_9(pval, lpath_19 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Ref [.'$Model#Root'.'|'.0.'%'.'<'.'|'.0]", lpath_19 if path is not None else None))
-            if not res:
                 # .'$Model#Root'.'|'.0.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
@@ -1631,29 +1594,23 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_41(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'
     res: bool = isinstance(val, dict)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'$Model#Root'.'|']", path))
     if res:
         # .'$Model#Root'.'|'.0
         res = _jm_obj_17(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected element [.'$Model#Root'.'|'.0]", path))
-        if not res:
             # .'$Model#Root'.'|'.1
             res = _jm_obj_14(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$Model#Root'.'|'.1]", path))
-            if not res:
                 # .'$Model#Root'.'|'.2
                 res = _jm_obj_11(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected element [.'$Model#Root'.'|'.2]", path))
-                if not res:
                     # .'$Model#Root'.'|'.3
                     res = _jm_obj_8(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected element [.'$Model#Root'.'|'.3]", path))
-                    if not res:
                         # .'$Model#Root'.'|'.4
                         res = _jm_obj_5(val, path, rep)
                         if not res:
@@ -1662,6 +1619,8 @@ def json_model_41(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'$Model#Root'.'|']", path))
+    else:
+        rep is None or rep.append(("unexpected type [.'$Model#Root'.'|']", path))
     return res
 
 
@@ -1684,14 +1643,14 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$Model#Identifier'.'&'.0
         # "/^\\w(\\w|-)*$/"
         res = _jm_re_10(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected /^\\w(\\w|-)*$/ [.'$Model#Identifier'.'&'.0]", path))
         if res:
             # .'$Model#Identifier'.'&'.1
             # "/[^A-Z0-9]/"
             res = _jm_re_9(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected /[^A-Z0-9]/ [.'$Model#Identifier'.'&'.1]", path))
+        else:
+            rep is None or rep.append(("unexpected /^\\w(\\w|-)*$/ [.'$Model#Identifier'.'&'.0]", path))
     if res:
         rep is None or rep.clear()
     else:

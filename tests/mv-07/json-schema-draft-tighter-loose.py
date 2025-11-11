@@ -74,13 +74,13 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # .'$tight#RootSchema'.'&'.0
         res = _jm_obj_0(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'$tight#RootSchema'.'&'.0]", path))
         if res:
             # .'$tight#RootSchema'.'&'.1
             res = json_model_25(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $ObjectSchema [.'$tight#RootSchema'.'&'.1]", path))
+        else:
+            rep is None or rep.append(("unexpected element [.'$tight#RootSchema'.'&'.0]", path))
     if res:
         rep is None or rep.clear()
     else:
@@ -506,7 +506,6 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_26(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$tight#Array'.items.'|'.0]", path))
-    if not res:
         # .'$tight#Array'.items.'|'.1
         res = json_model_6(val, path, rep)
         if not res:
@@ -1976,8 +1975,6 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#enum'
     res: bool = isinstance(val, list)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'$tight#enum'.'|']", path))
     if res:
         # .'$tight#enum'.'|'.0
         for arr_4_idx, arr_4_item in enumerate(val):
@@ -1989,7 +1986,6 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$tight#enum'.'|'.0]", path))
-        if not res:
             # .'$tight#enum'.'|'.1
             for arr_3_idx, arr_3_item in enumerate(val):
                 arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
@@ -2000,7 +1996,6 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
                     break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$tight#enum'.'|'.1]", path))
-            if not res:
                 # .'$tight#enum'.'|'.2
                 for arr_2_idx, arr_2_item in enumerate(val):
                     arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
@@ -2015,6 +2010,8 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'$tight#enum'.'|']", path))
+    else:
+        rep is None or rep.append(("unexpected type [.'$tight#enum'.'|']", path))
     return res
 
 # object .'$tight#Const'.'$defs'
@@ -2171,22 +2168,18 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$tight#const'.'|'.0]", path))
-    if not res:
         # .'$tight#const'.'|'.1
         res = isinstance(val, bool)
         if not res:
             rep is None or rep.append(("not a bool [.'$tight#const'.'|'.1]", path))
-        if not res:
             # .'$tight#const'.'|'.2
             res = isinstance(val, int) and not isinstance(val, bool)
             if not res:
                 rep is None or rep.append(("not a -1 strict int [.'$tight#const'.'|'.2]", path))
-            if not res:
                 # .'$tight#const'.'|'.3
                 res = isinstance(val, float)
                 if not res:
                     rep is None or rep.append(("not a -1.0 strict float [.'$tight#const'.'|'.3]", path))
-                if not res:
                     # .'$tight#const'.'|'.4
                     res = isinstance(val, str)
                     if not res:
@@ -2351,7 +2344,6 @@ def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$tight#Schema'.'|'.0]", path))
-    if not res:
         # .'$tight#Schema'.'|'.1
         res = json_model_25(val, path, rep)
         if not res:

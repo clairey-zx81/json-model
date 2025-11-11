@@ -86,17 +86,11 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $map [.'$Ex08'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$Ex08'.'|'.1
         res = jm_is_valid_url(json_string_value(val), path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$Ex08'.'|'.1]", path);
-        }
-        if (! res)
-        {
             // .'$Ex08'.'|'.2
             res = json_model_2(val, path, rep);
             if (unlikely(! res))

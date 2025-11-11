@@ -28,9 +28,6 @@ public class ex_06 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex05a [.'$ex5'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$ex5'.'|'.1
             res = json_model_6(val, path, rep);
             if (! res)
@@ -71,19 +68,11 @@ public class ex_06 extends ModelChecker
             Path lpath_0 = new Path(0, path);
             // .0
             res = json_model_5(json.arrayItem(val, 0), (path != null ? lpath_0 : null), rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $ex5#Ex05a [.0]", (path != null ? lpath_0 : null));
-            }
             if (res)
             {
                 lpath_0 = new Path(1, path);
                 // .1
                 res = json_model_6(json.arrayItem(val, 1), (path != null ? lpath_0 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $ex5#Ex05b [.1]", (path != null ? lpath_0 : null));
-                }
                 if (res)
                 {
                     lpath_0 = new Path(2, path);
@@ -94,6 +83,14 @@ public class ex_06 extends ModelChecker
                         if (rep != null) rep.addEntry("unexpected $Ex06 [.2]", (path != null ? lpath_0 : null));
                     }
                 }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected $ex5#Ex05b [.1]", (path != null ? lpath_0 : null));
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected $ex5#Ex05a [.0]", (path != null ? lpath_0 : null));
             }
         }
         if (! res)

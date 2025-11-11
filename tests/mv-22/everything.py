@@ -133,14 +133,14 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if res:
                 # .and.a0.'&'.0
                 res = is_valid_date(pval, lpath_1 if path is not None else None, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected $DATE [.and.a0.'&'.0]", lpath_1 if path is not None else None))
                 if res:
                     # .and.a0.'&'.1
                     # "/^2020-/"
                     res = isinstance(pval, str) and pval.startswith("2020-")
                     if not res:
                         rep is None or rep.append(("unexpected /^2020-/ [.and.a0.'&'.1]", lpath_1 if path is not None else None))
+                else:
+                    rep is None or rep.append(("unexpected $DATE [.and.a0.'&'.0]", lpath_1 if path is not None else None))
             if res:
                 rep is None or rep.clear()
             else:
@@ -302,14 +302,11 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may b5 property
             # .bool.b5
             res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("unexpected type [.bool.b5.'|']", lpath_3 if path is not None else None))
             if res:
                 # .bool.b5.'|'.0
                 res = pval == False
                 if not res:
                     rep is None or rep.append(("unexpected =false [.bool.b5.'|'.0]", lpath_3 if path is not None else None))
-                if not res:
                     # .bool.b5.'|'.1
                     res = pval == True
                     if not res:
@@ -318,6 +315,8 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.bool.b5.'|']", lpath_3 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected type [.bool.b5.'|']", lpath_3 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.bool.b5]", lpath_3 if path is not None else None))
                 return False
@@ -339,13 +338,13 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.constraints.cia0.'@'.0]", arr_4_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.constraints.cia0.'@']", path))
     if res:
         ival_0: int = len(val)
         res = ival_0 == 3
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cia0]", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.constraints.cia0.'@']", path))
     return res
 
 # check _jm_f_3_map_cia1 (.constraints.cia1)
@@ -361,13 +360,13 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.constraints.cia1.'@'.0]", arr_5_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.constraints.cia1.'@']", path))
     if res:
         ival_1: int = len(val)
         res = ival_1 != 4 and ival_1 <= 5 and ival_1 >= 2
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cia1]", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.constraints.cia1.'@']", path))
     return res
 
 # check _jm_f_3_map_cia2 (.constraints.cia2)
@@ -383,13 +382,13 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.constraints.cia2.'@'.0]", arr_6_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.constraints.cia2.'@']", path))
     if res:
         ival_2: int = len(val)
         res = ival_2 <= 4 and ival_2 >= 3
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cia2]", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.constraints.cia2.'@']", path))
     return res
 
 # check _jm_f_3_map_cii0 (.constraints.cii0)
@@ -405,13 +404,13 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cii1
     # .constraints.cii1.'@'
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [.constraints.cii1.'@']", path))
     if res:
         ival_3: int = val
         res = ival_3 != 10 and ival_3 <= 12 and ival_3 >= 8
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cii1]", path))
+    else:
+        rep is None or rep.append(("not a 0 strict int [.constraints.cii1.'@']", path))
     return res
 
 # check _jm_f_3_map_cii2 (.constraints.cii2)
@@ -419,13 +418,13 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cii2
     # .constraints.cii2.'@'
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [.constraints.cii2.'@']", path))
     if res:
         ival_4: int = val
         res = ival_4 <= 9 and ival_4 >= 8
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cii2]", path))
+    else:
+        rep is None or rep.append(("not a 0 strict int [.constraints.cii2.'@']", path))
     return res
 
 # check _jm_f_3_map_cin0 (.constraints.cin0)
@@ -433,13 +432,13 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cin0
     # .constraints.cin0.'@'
     res: bool = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.constraints.cin0.'@']", path))
     if res:
         fval_0: float = val
         res = fval_0 == 10
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cin0]", path))
+    else:
+        rep is None or rep.append(("not a 0.0 strict float [.constraints.cin0.'@']", path))
     return res
 
 # check _jm_f_3_map_cin1 (.constraints.cin1)
@@ -447,13 +446,13 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cin1
     # .constraints.cin1.'@'
     res: bool = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.constraints.cin1.'@']", path))
     if res:
         fval_1: float = val
         res = fval_1 != 10 and fval_1 <= 12 and fval_1 >= 8
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cin1]", path))
+    else:
+        rep is None or rep.append(("not a 0.0 strict float [.constraints.cin1.'@']", path))
     return res
 
 # check _jm_f_3_map_cin2 (.constraints.cin2)
@@ -461,13 +460,13 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cin2
     # .constraints.cin2.'@'
     res: bool = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.constraints.cin2.'@']", path))
     if res:
         fval_2: float = val
         res = fval_2 < 10 and fval_2 > 7
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cin2]", path))
+    else:
+        rep is None or rep.append(("not a 0.0 strict float [.constraints.cin2.'@']", path))
     return res
 
 # object .constraints.cio0.'@'
@@ -483,13 +482,13 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio0
     # .constraints.cio0.'@'
     res: bool = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.constraints.cio0.'@']", path))
     if res:
         ival_5: int = len(val)
         res = ival_5 == 2
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cio0]", path))
+    else:
+        rep is None or rep.append(("unexpected element [.constraints.cio0.'@']", path))
     return res
 
 # object .constraints.cio1.'@'
@@ -505,13 +504,13 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio1
     # .constraints.cio1.'@'
     res: bool = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.constraints.cio1.'@']", path))
     if res:
         ival_6: int = len(val)
         res = ival_6 != 2 and ival_6 <= 3 and ival_6 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cio1]", path))
+    else:
+        rep is None or rep.append(("unexpected element [.constraints.cio1.'@']", path))
     return res
 
 # object .constraints.cio2.'@'
@@ -527,13 +526,13 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio2
     # .constraints.cio2.'@'
     res: bool = _jm_obj_2(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.constraints.cio2.'@']", path))
     if res:
         ival_7: int = len(val)
         res = ival_7 <= 4 and ival_7 >= 3
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cio2]", path))
+    else:
+        rep is None or rep.append(("unexpected element [.constraints.cio2.'@']", path))
     return res
 
 # check _jm_f_3_map_cis0 (.constraints.cis0)
@@ -541,13 +540,13 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cis0
     # .constraints.cis0.'@'
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.constraints.cis0.'@']", path))
     if res:
         ival_8: int = len(val)
         res = ival_8 == 10
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cis0]", path))
+    else:
+        rep is None or rep.append(("unexpected string [.constraints.cis0.'@']", path))
     return res
 
 # check _jm_f_3_map_cis1 (.constraints.cis1)
@@ -555,13 +554,13 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cis1
     # .constraints.cis1.'@'
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.constraints.cis1.'@']", path))
     if res:
         ival_9: int = len(val)
         res = ival_9 != 10 and ival_9 <= 12 and ival_9 >= 8
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cis1]", path))
+    else:
+        rep is None or rep.append(("unexpected string [.constraints.cis1.'@']", path))
     return res
 
 # check _jm_f_3_map_cis2 (.constraints.cis2)
@@ -569,13 +568,13 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cis2
     # .constraints.cis2.'@'
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.constraints.cis2.'@']", path))
     if res:
         ival_10: int = len(val)
         res = ival_10 <= 9 and ival_10 >= 8
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cis2]", path))
+    else:
+        rep is None or rep.append(("unexpected string [.constraints.cis2.'@']", path))
     return res
 
 # check _jm_f_3_map_cni0 (.constraints.cni0)
@@ -591,14 +590,14 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cni1
     # .constraints.cni1.'@'
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 1
-    if not res:
-        rep is None or rep.append(("not a 1 strict int [.constraints.cni1.'@']", path))
     if res:
         ival_11: int = val
         fval_3: float = val
         res = fval_3 != 42.0 and ival_11 <= 99
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cni1]", path))
+    else:
+        rep is None or rep.append(("not a 1 strict int [.constraints.cni1.'@']", path))
     return res
 
 # check _jm_f_3_map_cni2 (.constraints.cni2)
@@ -614,13 +613,13 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cnn0
     # .constraints.cnn0.'@'
     res: bool = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn0.'@']", path))
     if res:
         fval_4: float = val
         res = fval_4 == 42.1
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cnn0]", path))
+    else:
+        rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn0.'@']", path))
     return res
 
 # check _jm_f_3_map_cnn1 (.constraints.cnn1)
@@ -628,13 +627,13 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cnn1
     # .constraints.cnn1.'@'
     res: bool = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn1.'@']", path))
     if res:
         fval_5: float = val
         res = fval_5 != 42.5 and fval_5 <= 43.0 and fval_5 >= 42.0
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cnn1]", path))
+    else:
+        rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn1.'@']", path))
     return res
 
 # check _jm_f_3_map_cnn2 (.constraints.cnn2)
@@ -642,13 +641,13 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cnn2
     # .constraints.cnn2.'@'
     res: bool = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn2.'@']", path))
     if res:
         fval_6: float = val
         res = fval_6 < 43.0 and fval_6 > 42.0
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cnn2]", path))
+    else:
+        rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn2.'@']", path))
     return res
 
 # check _jm_f_3_map_css0 (.constraints.css0)
@@ -656,13 +655,13 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.css0
     # .constraints.css0.'@'
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.constraints.css0.'@']", path))
     if res:
         sval_0: str = val
         res = sval_0 == "Susie"
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.css0]", path))
+    else:
+        rep is None or rep.append(("unexpected string [.constraints.css0.'@']", path))
     return res
 
 # check _jm_f_3_map_css1 (.constraints.css1)
@@ -670,13 +669,13 @@ def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.css1
     # .constraints.css1.'@'
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.constraints.css1.'@']", path))
     if res:
         sval_1: str = val
         res = sval_1 != "Hobbes" and sval_1 <= "Z" and sval_1 >= "A"
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.css1]", path))
+    else:
+        rep is None or rep.append(("unexpected string [.constraints.css1.'@']", path))
     return res
 
 # check _jm_f_3_map_css2 (.constraints.css2)
@@ -684,13 +683,13 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.css2
     # .constraints.css2.'@'
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.constraints.css2.'@']", path))
     if res:
         sval_2: str = val
         res = sval_2 < "Z" and sval_2 > "A"
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.css2]", path))
+    else:
+        rep is None or rep.append(("unexpected string [.constraints.css2.'@']", path))
     return res
 
 # check _jm_f_3_map_cua0 (.constraints.cua0)
@@ -698,12 +697,14 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cua0
     # .constraints.cua0.'@'
     res: bool = isinstance(val, list)
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.constraints.cua0.'@']", path))
     if res:
+        # accept any array
+        pass
         res = is_unique_array(val, path, rep)
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cua0]", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.constraints.cua0.'@']", path))
     return res
 
 
@@ -742,14 +743,11 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may e0 property
             # .enum.e0
             res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("unexpected type [.enum.e0.'|']", lpath_5 if path is not None else None))
             if res:
                 # .enum.e0.'|'.0
                 res = pval == True
                 if not res:
                     rep is None or rep.append(("unexpected =true [.enum.e0.'|'.0]", lpath_5 if path is not None else None))
-                if not res:
                     # .enum.e0.'|'.1
                     res = pval == False
                     if not res:
@@ -758,6 +756,8 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.enum.e0.'|']", lpath_5 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected type [.enum.e0.'|']", lpath_5 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.enum.e0]", lpath_5 if path is not None else None))
                 return False
@@ -766,19 +766,15 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may e1 property
             # .enum.e1
             res = isinstance(pval, int) and not isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("unexpected type [.enum.e1.'|']", lpath_5 if path is not None else None))
             if res:
                 # .enum.e1.'|'.0
                 res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 200
                 if not res:
                     rep is None or rep.append(("unexpected =200 [.enum.e1.'|'.0]", lpath_5 if path is not None else None))
-                if not res:
                     # .enum.e1.'|'.1
                     res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 201
                     if not res:
                         rep is None or rep.append(("unexpected =201 [.enum.e1.'|'.1]", lpath_5 if path is not None else None))
-                    if not res:
                         # .enum.e1.'|'.2
                         res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 204
                         if not res:
@@ -787,6 +783,8 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.enum.e1.'|']", lpath_5 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected type [.enum.e1.'|']", lpath_5 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.enum.e1]", lpath_5 if path is not None else None))
                 return False
@@ -806,17 +804,14 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
             res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_1
             if not res:
                 rep is None or rep.append(("value not in enum [.enum.e3.'|']", lpath_5 if path is not None else None))
-            if not res:
                 # .enum.e3.'|'.0
                 res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 42
                 if not res:
                     rep is None or rep.append(("unexpected =42 [.enum.e3.'|'.0]", lpath_5 if path is not None else None))
-                if not res:
                     # .enum.e3.'|'.1
                     res = isinstance(pval, bool) and pval == True
                     if not res:
                         rep is None or rep.append(("unexpected =true [.enum.e3.'|'.1]", lpath_5 if path is not None else None))
-                    if not res:
                         # .enum.e3.'|'.2
                         res = pval is None
                         if not res:
@@ -1423,8 +1418,6 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may m1 property
             # .merge.m1
             res = isinstance(pval, dict)
-            if not res:
-                rep is None or rep.append(("unexpected type [.merge.m1.'|']", lpath_8 if path is not None else None))
             if res:
                 if "b" in pval:
                     # .merge.m1.'|'.0
@@ -1443,6 +1436,8 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.merge.m1.'|']", lpath_8 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected type [.merge.m1.'|']", lpath_8 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.merge.m1]", lpath_8 if path is not None else None))
                 return False
@@ -1451,8 +1446,6 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may m2 property
             # .merge.m2
             res = isinstance(pval, dict)
-            if not res:
-                rep is None or rep.append(("unexpected type [.merge.m2.'|']", lpath_8 if path is not None else None))
             if res:
                 if "b" in pval:
                     # .merge.m2.'|'.0
@@ -1471,6 +1464,8 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.merge.m2.'|']", lpath_8 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected type [.merge.m2.'|']", lpath_8 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.merge.m2]", lpath_8 if path is not None else None))
                 return False
@@ -1479,8 +1474,6 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may m3 property
             # .merge.m3
             res = isinstance(pval, dict)
-            if not res:
-                rep is None or rep.append(("unexpected type [.merge.m3.'|']", lpath_8 if path is not None else None))
             if res:
                 if "a" in pval:
                     # .merge.m3.'|'.0
@@ -1517,6 +1510,8 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.merge.m3.'|']", lpath_8 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected type [.merge.m3.'|']", lpath_8 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.merge.m3]", lpath_8 if path is not None else None))
                 return False
@@ -1817,7 +1812,6 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a bool [.or.o0.'|'.0]", lpath_16 if path is not None else None))
-            if not res:
                 # .or.o0.'|'.1
                 res = isinstance(pval, int) and not isinstance(pval, bool)
                 if not res:
@@ -1836,7 +1830,6 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
             res = is_valid_date(pval, lpath_16 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $DATE [.or.o1.'|'.0]", lpath_16 if path is not None else None))
-            if not res:
                 # .or.o1.'|'.1
                 res = is_valid_time(pval, lpath_16 if path is not None else None, rep)
                 if not res:
@@ -1855,17 +1848,14 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.or.o2.'|'.0]", lpath_16 if path is not None else None))
-            if not res:
                 # .or.o2.'|'.1
                 res = is_valid_uuid(pval, lpath_16 if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $UUID [.or.o2.'|'.1]", lpath_16 if path is not None else None))
-                if not res:
                     # .or.o2.'|'.2
                     res = isinstance(pval, list)
                     if not res:
                         rep is None or rep.append(("not array or unexpected array [.or.o2.'|'.2]", lpath_16 if path is not None else None))
-                    if not res:
                         # .or.o2.'|'.3
                         res = _jm_obj_20(pval, lpath_16 if path is not None else None, rep)
                         if not res:
@@ -2202,13 +2192,13 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
                     if not res:
                         rep is None or rep.append(("not a 0 strict int [.tuple.t1.'@'.0]", arr_7_lpath if (lpath_19 if path is not None else None) is not None else None))
                         break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.tuple.t1.'@']", lpath_19 if path is not None else None))
             if res:
                 ival_12: int = len(pval)
                 res = ival_12 == 1
                 if not res:
                     rep is None or rep.append(("constraints failed [.tuple.t1]", lpath_19 if path is not None else None))
+            else:
+                rep is None or rep.append(("not array or unexpected array [.tuple.t1.'@']", lpath_19 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.tuple.t1]", lpath_19 if path is not None else None))
                 return False
@@ -2221,14 +2211,14 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
                 lpath_20: Path = ((lpath_19 if path is not None else None) + [ 0 ]) if (lpath_19 if path is not None else None) is not None else None
                 # .tuple.t2.0
                 res = isinstance(pval[0], int) and not isinstance(pval[0], bool) and pval[0] >= 0
-                if not res:
-                    rep is None or rep.append(("not a 0 strict int [.tuple.t2.0]", lpath_20 if (lpath_19 if path is not None else None) is not None else None))
                 if res:
                     lpath_20 = ((lpath_19 if path is not None else None) + [ 1 ]) if (lpath_19 if path is not None else None) is not None else None
                     # .tuple.t2.1
                     res = isinstance(pval[1], int) and not isinstance(pval[1], bool) and pval[1] >= 0
                     if not res:
                         rep is None or rep.append(("not a 0 strict int [.tuple.t2.1]", lpath_20 if (lpath_19 if path is not None else None) is not None else None))
+                else:
+                    rep is None or rep.append(("not a 0 strict int [.tuple.t2.0]", lpath_20 if (lpath_19 if path is not None else None) is not None else None))
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.tuple.t2]", lpath_19 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.tuple.t2]", lpath_19 if path is not None else None))
@@ -2242,20 +2232,20 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
                 lpath_21: Path = ((lpath_19 if path is not None else None) + [ 0 ]) if (lpath_19 if path is not None else None) is not None else None
                 # .tuple.t3.0
                 res = isinstance(pval[0], bool)
-                if not res:
-                    rep is None or rep.append(("not a bool [.tuple.t3.0]", lpath_21 if (lpath_19 if path is not None else None) is not None else None))
                 if res:
                     lpath_21 = ((lpath_19 if path is not None else None) + [ 1 ]) if (lpath_19 if path is not None else None) is not None else None
                     # .tuple.t3.1
                     res = isinstance(pval[1], int) and not isinstance(pval[1], bool) and pval[1] >= 0
-                    if not res:
-                        rep is None or rep.append(("not a 0 strict int [.tuple.t3.1]", lpath_21 if (lpath_19 if path is not None else None) is not None else None))
                     if res:
                         lpath_21 = ((lpath_19 if path is not None else None) + [ 2 ]) if (lpath_19 if path is not None else None) is not None else None
                         # .tuple.t3.2
                         res = isinstance(pval[2], str)
                         if not res:
                             rep is None or rep.append(("unexpected string [.tuple.t3.2]", lpath_21 if (lpath_19 if path is not None else None) is not None else None))
+                    else:
+                        rep is None or rep.append(("not a 0 strict int [.tuple.t3.1]", lpath_21 if (lpath_19 if path is not None else None) is not None else None))
+                else:
+                    rep is None or rep.append(("not a bool [.tuple.t3.0]", lpath_21 if (lpath_19 if path is not None else None) is not None else None))
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.tuple.t3]", lpath_19 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.tuple.t3]", lpath_19 if path is not None else None))
@@ -2283,13 +2273,13 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
                         if not res:
                             rep is None or rep.append(("not a 0 strict int [.tuple.t4.'@'.1]", lpath_22 if (lpath_19 if path is not None else None) is not None else None))
                             break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.tuple.t4.'@']", lpath_19 if path is not None else None))
             if res:
                 ival_13: int = len(pval)
                 res = ival_13 >= 2
                 if not res:
                     rep is None or rep.append(("constraints failed [.tuple.t4]", lpath_19 if path is not None else None))
+            else:
+                rep is None or rep.append(("not array or unexpected array [.tuple.t4.'@']", lpath_19 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.tuple.t4]", lpath_19 if path is not None else None))
                 return False
@@ -2315,7 +2305,6 @@ def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a bool [.xor.x0.'|'.0]", lpath_23 if path is not None else None))
-            if not res:
                 # .xor.x0.'|'.1
                 res = isinstance(pval, int) and not isinstance(pval, bool)
                 if not res:

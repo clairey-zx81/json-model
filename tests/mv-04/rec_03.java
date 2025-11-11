@@ -45,9 +45,6 @@ public class rec_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $root [.foo.'|'.0]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     // .foo.'|'.1
                     res = json.isArray(pval);
                     if (res)

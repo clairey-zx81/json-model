@@ -20,9 +20,6 @@ function json_model_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex05a [.'$ex5'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$ex5'.'|'.1
         res = json_model_6(val, path, rep);
         if (! res)
@@ -63,19 +60,11 @@ function json_model_1(val, path, rep)
         let lpath_0 = path ? path.concat([0]) : null;
         // .0
         res = json_model_5(val[0], (path ? lpath_0 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $ex5#Ex05a [.0]", (path ? lpath_0 : null)])
-        }
         if (res)
         {
             lpath_0 = path ? path.concat([1]) : null;
             // .1
             res = json_model_6(val[1], (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $ex5#Ex05b [.1]", (path ? lpath_0 : null)])
-            }
             if (res)
             {
                 lpath_0 = path ? path.concat([2]) : null;
@@ -86,6 +75,14 @@ function json_model_1(val, path, rep)
                     rep !== null && rep.push(["unexpected $Ex06 [.2]", (path ? lpath_0 : null)])
                 }
             }
+            else
+            {
+                rep !== null && rep.push(["unexpected $ex5#Ex05b [.1]", (path ? lpath_0 : null)])
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected $ex5#Ex05a [.0]", (path ? lpath_0 : null)])
         }
     }
     if (! res)

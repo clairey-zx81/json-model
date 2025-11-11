@@ -458,9 +458,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$Number'.maximum.'|'.0]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     // .'$Number'.maximum.'|'.1
                     res = json.isDouble(pval);
                     if (! res)
@@ -489,9 +486,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$Number'.minimum.'|'.0]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     // .'$Number'.minimum.'|'.1
                     res = json.isDouble(pval);
                     if (! res)
@@ -520,9 +514,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$Number'.multipleOf.'|'.0]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     // .'$Number'.multipleOf.'|'.1
                     res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
                     if (! res)
@@ -551,9 +542,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$Number'.exclusiveMaximum.'|'.0]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     // .'$Number'.exclusiveMaximum.'|'.1
                     res = json.isDouble(pval);
                     if (! res)
@@ -582,9 +570,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$Number'.exclusiveMinimum.'|'.0]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     // .'$Number'.exclusiveMinimum.'|'.1
                     res = json.isDouble(pval);
                     if (! res)
@@ -897,10 +882,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -909,6 +890,10 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$stringArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
         }
         return res;
     }
@@ -937,10 +922,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$schemaArray'.'@']", path);
-        }
         if (res)
         {
             long ival_1 = json.arrayLength(val);
@@ -949,6 +930,10 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$schemaArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$schemaArray'.'@']", path);
         }
         return res;
     }
@@ -2143,9 +2128,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
             res = json.isDouble(val);
             if (! res)
@@ -2173,9 +2155,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
             res = json.isDouble(val);
             if (! res)
@@ -2203,9 +2182,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.2.maximum.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$TightSchema'.'|'.2.maximum.'|'.1
             res = json.isDouble(val);
             if (! res)
@@ -2233,9 +2209,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 strict int [.'$TightSchema'.'|'.2.minimum.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$TightSchema'.'|'.2.minimum.'|'.1
             res = json.isDouble(val);
             if (! res)
@@ -2263,9 +2236,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$TightSchema'.'|'.2.multipleOf.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$TightSchema'.'|'.2.multipleOf.'|'.1
             res = json.isDouble(val) && json.asDouble(val) > 0.0;
             if (! res)
@@ -3904,9 +3874,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'$Schema'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Schema'.'|'.1
             res = json_model_15(val, path, rep);
             if (! res)

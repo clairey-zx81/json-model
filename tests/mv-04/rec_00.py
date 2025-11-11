@@ -46,7 +46,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$rec'.'|'.0]", path))
-    if not res:
         # .'$rec'.'|'.1
         res = json_model_2(val, path, rep)
         if not res:

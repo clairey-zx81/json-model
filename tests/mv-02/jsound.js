@@ -231,33 +231,21 @@ function json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$atomic'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$atomic'.'|'.1
         res = (typeof val === 'boolean' || val instanceof Boolean);
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$atomic'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$atomic'.'|'.2
             res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'$atomic'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$atomic'.'|'.3
                 res = (typeof val === 'number' || val instanceof Number);
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 strict float [.'$atomic'.'|'.3]", path])
-                }
-                if (! res)
-                {
                     // .'$atomic'.'|'.4
                     res = (typeof val === 'string' || val instanceof String);
                     if (! res)
@@ -966,9 +954,6 @@ function json_model_11(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$type-or-ref'.'|'.1
         res = json_model_3(val, path, rep);
         if (! res)

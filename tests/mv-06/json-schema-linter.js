@@ -24,33 +24,21 @@ function json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$const'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$const'.'|'.1
         res = (typeof val === 'boolean' || val instanceof Boolean);
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$const'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$const'.'|'.2
             res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'$const'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$const'.'|'.3
                 res = (typeof val === 'number' || val instanceof Number);
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 strict float [.'$const'.'|'.3]", path])
-                }
-                if (! res)
-                {
                     // .'$const'.'|'.4
                     res = (typeof val === 'string' || val instanceof String);
                     if (! res)
@@ -77,10 +65,6 @@ function json_model_3(val, path, rep)
 {
     // .'$enum'
     let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$enum'.'|']", path])
-    }
     if (res)
     {
         // .'$enum'.'|'.0
@@ -99,9 +83,6 @@ function json_model_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$enum'.'|'.0]", path])
-        }
-        if (! res)
-        {
             // .'$enum'.'|'.1
             for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
             {
@@ -118,9 +99,6 @@ function json_model_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$enum'.'|'.1]", path])
-            }
-            if (! res)
-            {
                 // .'$enum'.'|'.2
                 for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
                 {
@@ -148,6 +126,10 @@ function json_model_3(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'$enum'.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$enum'.'|']", path])
     }
     return res;
 }
@@ -274,9 +256,6 @@ function json_model_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$arrayKeywords'.items.'|'.0]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 // .'$arrayKeywords'.items.'|'.1
                 res = json_model_4(pval, (path ? lpath_1 : null), rep);
                 if (! res)
@@ -1162,9 +1141,6 @@ function json_model_11(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$Array'.items.'|'.0]", (path ? lpath_12 : null)])
-            }
-            if (! res)
-            {
                 // .'$Array'.items.'|'.1
                 res = json_model_4(pval, (path ? lpath_12 : null), rep);
                 if (! res)
@@ -4068,9 +4044,6 @@ function json_model_24(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Schema'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Schema'.'|'.1
         res = json_model_23(val, path, rep);
         if (! res)
@@ -4129,10 +4102,6 @@ function json_model_25(val, path, rep)
     {
         // .'$RootSchema'.'&'.0
         res = _jm_obj_32(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$RootSchema'.'&'.0]", path])
-        }
         if (res)
         {
             // .'$RootSchema'.'&'.1
@@ -4141,6 +4110,10 @@ function json_model_25(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $ObjectSchema [.'$RootSchema'.'&'.1]", path])
             }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected element [.'$RootSchema'.'&'.0]", path])
         }
     }
     if (res)

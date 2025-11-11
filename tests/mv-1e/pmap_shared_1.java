@@ -351,17 +351,11 @@ public class pmap_shared_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Oo0 [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Oo1 [.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'|'.2
                 res = json_model_4(val, path, rep);
                 if (! res)

@@ -30,9 +30,6 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$Vv'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$Vv'.'|'.1
         res = json_is_string(val);
         if (unlikely(! res))
@@ -268,20 +265,13 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Ee'
     bool res = json_is_object(val);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected type [.'$Ee'.'|']", path);
-    }
-    if (res)
+    if (likely(res))
     {
         // .'$Ee'.'|'.0
         res = _jm_obj_1(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ee'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Ee'.'|'.1
             res = _jm_obj_0(val, path, rep);
             if (unlikely(! res))
@@ -298,6 +288,10 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (rep) jm_report_add_entry(rep, "no model matched [.'$Ee'.'|']", path);
         }
     }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'$Ee'.'|']", path);
+    }
     return res;
 }
 
@@ -310,9 +304,6 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Vv [.'$Mm'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$Mm'.'|'.1
         res = json_model_5(val, path, rep);
         if (unlikely(! res))

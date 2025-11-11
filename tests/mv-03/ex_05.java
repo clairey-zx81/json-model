@@ -52,9 +52,6 @@ public class ex_05 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex05a [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             res = json_model_3(val, path, rep);
             if (! res)

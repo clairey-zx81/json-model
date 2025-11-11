@@ -102,32 +102,26 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$Any'.'|'.0]", path))
-    if not res:
         # .'$Any'.'|'.1
         res = json_model_3(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $Bb [.'$Any'.'|'.1]", path))
-        if not res:
             # .'$Any'.'|'.2
             res = json_model_4(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Ii [.'$Any'.'|'.2]", path))
-            if not res:
                 # .'$Any'.'|'.3
                 res = json_model_5(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $Ff [.'$Any'.'|'.3]", path))
-                if not res:
                     # .'$Any'.'|'.4
                     res = json_model_6(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $Ss [.'$Any'.'|'.4]", path))
-                    if not res:
                         # .'$Any'.'|'.5
                         res = json_model_7(val, path, rep)
                         if not res:
                             rep is None or rep.append(("unexpected $Aa [.'$Any'.'|'.5]", path))
-                        if not res:
                             # .'$Any'.'|'.6
                             res = json_model_8(val, path, rep)
                             if not res:

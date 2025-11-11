@@ -76,28 +76,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
         // .0
         res = json_is_string(json_array_get(val, 0)) && jm_str_eq_6(json_string_value(json_array_get(val, 0)), 0x0000006569737553LL);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected _Susie [.0]", (path ? &lpath_0 : NULL));
-        }
         if (likely(res))
         {
             lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
             // .1
             res = json_is_string(json_array_get(val, 1)) && jm_str_eq_6(json_string_value(json_array_get(val, 1)), 0x0000006569737553LL);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected _Susie [.1]", (path ? &lpath_0 : NULL));
-            }
             if (likely(res))
             {
                 lpath_0 = (jm_path_t) { NULL, 2, path, NULL };
                 // .2
                 res = json_is_string(json_array_get(val, 2)) && jm_str_eq_6(json_string_value(json_array_get(val, 2)), 0x0000006569737553LL);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected _Susie [.2]", (path ? &lpath_0 : NULL));
-                }
                 if (likely(res))
                 {
                     lpath_0 = (jm_path_t) { NULL, 3, path, NULL };
@@ -108,7 +96,19 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         if (rep) jm_report_add_entry(rep, "unexpected _Susie [.3]", (path ? &lpath_0 : NULL));
                     }
                 }
+                else
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected _Susie [.2]", (path ? &lpath_0 : NULL));
+                }
             }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected _Susie [.1]", (path ? &lpath_0 : NULL));
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected _Susie [.0]", (path ? &lpath_0 : NULL));
         }
     }
     if (unlikely(! res))

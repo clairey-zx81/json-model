@@ -80,14 +80,14 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 lpath_2: Path = ((lpath_1 if path is not None else None) + [ 0 ]) if (lpath_1 if path is not None else None) is not None else None
                 # .o.t.0
                 res = isinstance(pval[0], bool)
-                if not res:
-                    rep is None or rep.append(("not a bool [.o.t.0]", lpath_2 if (lpath_1 if path is not None else None) is not None else None))
                 if res:
                     lpath_2 = ((lpath_1 if path is not None else None) + [ 1 ]) if (lpath_1 if path is not None else None) is not None else None
                     # .o.t.1
                     res = isinstance(pval[1], int) and not isinstance(pval[1], bool) and pval[1] >= 0
                     if not res:
                         rep is None or rep.append(("not a 0 strict int [.o.t.1]", lpath_2 if (lpath_1 if path is not None else None) is not None else None))
+                else:
+                    rep is None or rep.append(("not a bool [.o.t.0]", lpath_2 if (lpath_1 if path is not None else None) is not None else None))
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.o.t]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.o.t]", lpath_1 if path is not None else None))

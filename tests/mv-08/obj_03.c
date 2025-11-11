@@ -28,25 +28,16 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $li0 [.'$foo'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$foo'.'|'.1
         res = json_model_5(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected $ls0 [.'$foo'.'|'.1]", path);
-        }
-        if (! res)
-        {
             // .'$foo'.'|'.2
             res = json_model_6(val, path, rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $lb0 [.'$foo'.'|'.2]", path);
-            }
-            if (! res)
-            {
                 // .'$foo'.'|'.3
                 res = json_model_7(val, path, rep);
                 if (unlikely(! res))

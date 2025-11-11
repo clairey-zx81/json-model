@@ -253,6 +253,8 @@ sub _jm_f_8($$$)
     my $res = jm_is_array($val);
     if ($res)
     {
+        # accept any array
+        ;
         my $ival_3 = scalar @$val;
         $res = jm_is_unique_array($val, undef, undef) && $ival_3 >= 1;
     }

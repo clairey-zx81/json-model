@@ -252,33 +252,21 @@ public class jsound extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$atomic'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$atomic'.'|'.1
             res = json.isBoolean(val);
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a bool [.'$atomic'.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'$atomic'.'|'.2
                 res = json.isInteger(val);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$atomic'.'|'.2]", path);
-                }
-                if (! res)
-                {
                     // .'$atomic'.'|'.3
                     res = json.isDouble(val);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 strict float [.'$atomic'.'|'.3]", path);
-                    }
-                    if (! res)
-                    {
                         // .'$atomic'.'|'.4
                         res = json.isString(val);
                         if (! res)
@@ -962,9 +950,6 @@ public class jsound extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$type-or-ref'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$type-or-ref'.'|'.1
             res = json_model_3(val, path, rep);
             if (! res)

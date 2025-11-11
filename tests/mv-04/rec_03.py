@@ -39,7 +39,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $root [.foo.'|'.0]", lpath_0 if path is not None else None))
-            if not res:
                 # .foo.'|'.1
                 res = isinstance(pval, list)
                 if res:

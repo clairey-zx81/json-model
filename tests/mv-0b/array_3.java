@@ -29,28 +29,16 @@ public class array_3 extends ModelChecker
             Path lpath_0 = new Path(0, path);
             // .0
             res = json.isBoolean(json.arrayItem(val, 0));
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("not a bool [.0]", (path != null ? lpath_0 : null));
-            }
             if (res)
             {
                 lpath_0 = new Path(1, path);
                 // .1
                 res = json.isInteger(json.arrayItem(val, 1)) && json.asLong(json.arrayItem(val, 1)) >= 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.1]", (path != null ? lpath_0 : null));
-                }
                 if (res)
                 {
                     lpath_0 = new Path(2, path);
                     // .2
                     res = json.isDouble(json.arrayItem(val, 2)) && json.asDouble(json.arrayItem(val, 2)) >= 0.0;
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a 0.0 strict float [.2]", (path != null ? lpath_0 : null));
-                    }
                     if (res)
                     {
                         lpath_0 = new Path(3, path);
@@ -61,7 +49,19 @@ public class array_3 extends ModelChecker
                             if (rep != null) rep.addEntry("unexpected string [.3]", (path != null ? lpath_0 : null));
                         }
                     }
+                    else
+                    {
+                        if (rep != null) rep.addEntry("not a 0.0 strict float [.2]", (path != null ? lpath_0 : null));
+                    }
                 }
+                else
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.1]", (path != null ? lpath_0 : null));
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("not a bool [.0]", (path != null ? lpath_0 : null));
             }
         }
         if (! res)

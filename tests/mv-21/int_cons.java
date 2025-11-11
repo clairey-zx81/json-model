@@ -25,10 +25,6 @@ public class int_cons extends ModelChecker
         // .
         // .'@'
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.asString(val).length();
@@ -37,6 +33,10 @@ public class int_cons extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'@']", path);
         }
         return res;
     }

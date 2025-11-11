@@ -98,10 +98,6 @@ function _jm_obj_0(val, path, rep)
                 let lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([0]) : null;
                 // .o.t.0
                 res = (typeof pval[0] === 'boolean' || pval[0] instanceof Boolean);
-                if (! res)
-                {
-                    rep !== null && rep.push(["not a bool [.o.t.0]", ((path ? lpath_1 : null) ? lpath_2 : null)])
-                }
                 if (res)
                 {
                     lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([1]) : null;
@@ -111,6 +107,10 @@ function _jm_obj_0(val, path, rep)
                     {
                         rep !== null && rep.push(["not a 0 strict int [.o.t.1]", ((path ? lpath_1 : null) ? lpath_2 : null)])
                     }
+                }
+                else
+                {
+                    rep !== null && rep.push(["not a bool [.o.t.0]", ((path ? lpath_1 : null) ? lpath_2 : null)])
                 }
             }
             if (! res)

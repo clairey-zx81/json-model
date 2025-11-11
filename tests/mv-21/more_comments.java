@@ -112,10 +112,6 @@ public class more_comments extends ModelChecker
                     Path lpath_2 = new Path(0, (path != null ? lpath_1 : null));
                     // .o.t.0
                     res = json.isBoolean(json.arrayItem(pval, 0));
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a bool [.o.t.0]", ((path != null ? lpath_1 : null) != null ? lpath_2 : null));
-                    }
                     if (res)
                     {
                         lpath_2 = new Path(1, (path != null ? lpath_1 : null));
@@ -125,6 +121,10 @@ public class more_comments extends ModelChecker
                         {
                             if (rep != null) rep.addEntry("not a 0 strict int [.o.t.1]", ((path != null ? lpath_1 : null) != null ? lpath_2 : null));
                         }
+                    }
+                    else
+                    {
+                        if (rep != null) rep.addEntry("not a bool [.o.t.0]", ((path != null ? lpath_1 : null) != null ? lpath_2 : null));
                     }
                 }
                 if (! res)

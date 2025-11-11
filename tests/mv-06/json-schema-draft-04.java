@@ -45,10 +45,6 @@ public class json_schema_draft_04 extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$schemaArray'.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -57,6 +53,10 @@ public class json_schema_draft_04 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$schemaArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$schemaArray'.'@']", path);
         }
         return res;
     }
@@ -98,10 +98,6 @@ public class json_schema_draft_04 extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
-        }
         if (res)
         {
             long ival_1 = json.arrayLength(val);
@@ -110,6 +106,10 @@ public class json_schema_draft_04 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$stringArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
         }
         return res;
     }
@@ -138,10 +138,6 @@ public class json_schema_draft_04 extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$typeArray'.'@']", path);
-        }
         if (res)
         {
             long ival_2 = json.arrayLength(val);
@@ -150,6 +146,10 @@ public class json_schema_draft_04 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$typeArray']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$typeArray'.'@']", path);
         }
         return res;
     }
@@ -187,9 +187,6 @@ public class json_schema_draft_04 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.additionalItems.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .additionalItems.'|'.1
             res = json_model_1(val, path, rep);
             if (! res)
@@ -217,9 +214,6 @@ public class json_schema_draft_04 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.additionalProperties.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .additionalProperties.'|'.1
             res = json_model_1(val, path, rep);
             if (! res)
@@ -298,9 +292,6 @@ public class json_schema_draft_04 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.dependencies.''.'|'.0]", (path != null ? lpath_2 : null));
-            }
-            if (! res)
-            {
                 // .dependencies.''.'|'.1
                 res = json_model_4(pval, (path != null ? lpath_2 : null), rep);
                 if (! res)
@@ -339,18 +330,19 @@ public class json_schema_draft_04 extends ModelChecker
         // .enum
         // .enum.'@'
         boolean res = json.isArray(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.enum.'@']", path);
-        }
         if (res)
         {
+            // accept any array
             long ival_3 = json.arrayLength(val);
             res = rt.array_is_unique(val, path, rep) && ival_3 >= 1;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.enum]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.enum.'@']", path);
         }
         return res;
     }
@@ -412,9 +404,6 @@ public class json_schema_draft_04 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.items.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .items.'|'.1
             res = json_model_2(val, path, rep);
             if (! res)
@@ -630,9 +619,6 @@ public class json_schema_draft_04 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $simpleTypes [.type.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .type.'|'.1
             res = json_model_5(val, path, rep);
             if (! res)

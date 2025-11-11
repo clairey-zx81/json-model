@@ -75,24 +75,19 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath = (path + [ "t" ]) if path is not None else None
     # .'|'.1.t
     res = isinstance(pval, int) and not isinstance(pval, bool)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'|'.1.t.'|']", lpath if path is not None else None))
     if res:
         # .'|'.1.t.'|'.0
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 2
         if not res:
             rep is None or rep.append(("unexpected =2 [.'|'.1.t.'|'.0]", lpath if path is not None else None))
-        if not res:
             # .'|'.1.t.'|'.1
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 4
             if not res:
                 rep is None or rep.append(("unexpected =4 [.'|'.1.t.'|'.1]", lpath if path is not None else None))
-            if not res:
                 # .'|'.1.t.'|'.2
                 res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 6
                 if not res:
                     rep is None or rep.append(("unexpected =6 [.'|'.1.t.'|'.2]", lpath if path is not None else None))
-                if not res:
                     # .'|'.1.t.'|'.3
                     res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 8
                     if not res:
@@ -101,6 +96,8 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'|'.1.t.'|']", lpath if path is not None else None))
+    else:
+        rep is None or rep.append(("unexpected type [.'|'.1.t.'|']", lpath if path is not None else None))
     if not res:
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.'|'.1]", lpath if path is not None else None))
         return False
@@ -134,29 +131,23 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath = (path + [ "t" ]) if path is not None else None
     # .'|'.2.t
     res = isinstance(pval, int) and not isinstance(pval, bool)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'|'.2.t.'|']", lpath if path is not None else None))
     if res:
         # .'|'.2.t.'|'.0
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1
         if not res:
             rep is None or rep.append(("unexpected =1 [.'|'.2.t.'|'.0]", lpath if path is not None else None))
-        if not res:
             # .'|'.2.t.'|'.1
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 3
             if not res:
                 rep is None or rep.append(("unexpected =3 [.'|'.2.t.'|'.1]", lpath if path is not None else None))
-            if not res:
                 # .'|'.2.t.'|'.2
                 res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 5
                 if not res:
                     rep is None or rep.append(("unexpected =5 [.'|'.2.t.'|'.2]", lpath if path is not None else None))
-                if not res:
                     # .'|'.2.t.'|'.3
                     res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 7
                     if not res:
                         rep is None or rep.append(("unexpected =7 [.'|'.2.t.'|'.3]", lpath if path is not None else None))
-                    if not res:
                         # .'|'.2.t.'|'.4
                         res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 9
                         if not res:
@@ -165,6 +156,8 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'|'.2.t.'|']", lpath if path is not None else None))
+    else:
+        rep is None or rep.append(("unexpected type [.'|'.2.t.'|']", lpath if path is not None else None))
     if not res:
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.'|'.2]", lpath if path is not None else None))
         return False

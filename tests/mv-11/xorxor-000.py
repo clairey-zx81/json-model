@@ -29,17 +29,14 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$Xx'.'|'.0]", path))
-    if not res:
         # .'$Xx'.'|'.1
         res = isinstance(val, bool)
         if not res:
             rep is None or rep.append(("not a bool [.'$Xx'.'|'.1]", path))
-        if not res:
             # .'$Xx'.'|'.2
             res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
             if not res:
                 rep is None or rep.append(("not a 1 strict int [.'$Xx'.'|'.2]", path))
-            if not res:
                 # .'$Xx'.'|'.3
                 res = isinstance(val, float) and val > 0.0
                 if not res:
@@ -57,7 +54,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Xx [.'|'.0]", path))
-    if not res:
         # .'|'.1
         res = isinstance(val, list)
         if res:

@@ -77,10 +77,6 @@ function json_model_27(val, path, rep)
     {
         // .'$tight#RootSchema'.'&'.0
         res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$tight#RootSchema'.'&'.0]", path])
-        }
         if (res)
         {
             // .'$tight#RootSchema'.'&'.1
@@ -89,6 +85,10 @@ function json_model_27(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected $ObjectSchema [.'$tight#RootSchema'.'&'.1]", path])
             }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected element [.'$tight#RootSchema'.'&'.0]", path])
         }
     }
     if (res)
@@ -726,9 +726,6 @@ function json_model_13(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$tight#Array'.items.'|'.0]", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 // .'$tight#Array'.items.'|'.1
                 res = json_model_6(pval, (path ? lpath_6 : null), rep);
                 if (! res)
@@ -3075,10 +3072,6 @@ function json_model_5(val, path, rep)
 {
     // .'$tight#enum'
     let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$tight#enum'.'|']", path])
-    }
     if (res)
     {
         // .'$tight#enum'.'|'.0
@@ -3097,9 +3090,6 @@ function json_model_5(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$tight#enum'.'|'.0]", path])
-        }
-        if (! res)
-        {
             // .'$tight#enum'.'|'.1
             for (let arr_3_idx = 0; arr_3_idx < val.length; arr_3_idx++)
             {
@@ -3116,9 +3106,6 @@ function json_model_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$tight#enum'.'|'.1]", path])
-            }
-            if (! res)
-            {
                 // .'$tight#enum'.'|'.2
                 for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
                 {
@@ -3146,6 +3133,10 @@ function json_model_5(val, path, rep)
         {
             rep !== null && rep.push(["no model matched [.'$tight#enum'.'|']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected type [.'$tight#enum'.'|']", path])
     }
     return res;
 }
@@ -3376,33 +3367,21 @@ function json_model_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$tight#const'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$tight#const'.'|'.1
         res = (typeof val === 'boolean' || val instanceof Boolean);
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$tight#const'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$tight#const'.'|'.2
             res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'$tight#const'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$tight#const'.'|'.3
                 res = (typeof val === 'number' || val instanceof Number);
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 strict float [.'$tight#const'.'|'.3]", path])
-                }
-                if (! res)
-                {
                     // .'$tight#const'.'|'.4
                     res = (typeof val === 'string' || val instanceof String);
                     if (! res)
@@ -3650,9 +3629,6 @@ function json_model_26(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$tight#Schema'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$tight#Schema'.'|'.1
         res = json_model_25(val, path, rep);
         if (! res)

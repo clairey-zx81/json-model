@@ -114,17 +114,11 @@ function json_model_9(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $map [.'$ex08#Ex08'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$ex08#Ex08'.'|'.1
         res = runtime.jm_is_valid_url(val);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $URL [.'$ex08#Ex08'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$ex08#Ex08'.'|'.2
             res = json_model_6(val, path, rep);
             if (! res)

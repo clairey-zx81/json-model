@@ -15,6 +15,8 @@ let _jm_cst_2 = new Set()
 let _jm_cst_3 = new Set()
 let _jm_cst_4 = new Set()
 const _jm_re_0_re = new runtime.RX("^(Calvin|Susie)$", "")
+var _jm_obj_31_map = new Map()
+var _jm_obj_32_map = new Map()
 var check_model_map = new Map()
 
 // check $a (.'$a')
@@ -176,9 +178,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.or.o0.'|'.0]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 // .or.o0.'|'.1
                 res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
                 if (! res)
@@ -207,9 +206,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $DATE [.or.o1.'|'.0]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 // .or.o1.'|'.1
                 res = runtime.jm_is_valid_time(pval, (path ? lpath_1 : null), rep);
                 if (! res)
@@ -238,25 +234,16 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.or.o2.'|'.0]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 // .or.o2.'|'.1
                 res = runtime.jm_is_valid_uuid(pval);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $UUID [.or.o2.'|'.1]", (path ? lpath_1 : null)])
-                }
-                if (! res)
-                {
                     // .or.o2.'|'.2
                     res = Array.isArray(pval);
                     if (! res)
                     {
                         rep !== null && rep.push(["not array or unexpected array [.or.o2.'|'.2]", (path ? lpath_1 : null)])
-                    }
-                    if (! res)
-                    {
                         // .or.o2.'|'.3
                         res = _jm_obj_1(pval, (path ? lpath_1 : null), rep);
                         if (! res)
@@ -305,10 +292,6 @@ function _jm_obj_2(val, path, rep)
             {
                 // .and.a0.'&'.0
                 res = runtime.jm_is_valid_date(pval, (path ? lpath_2 : null), rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected $DATE [.and.a0.'&'.0]", (path ? lpath_2 : null)])
-                }
                 if (res)
                 {
                     // .and.a0.'&'.1
@@ -318,6 +301,10 @@ function _jm_obj_2(val, path, rep)
                     {
                         rep !== null && rep.push(["unexpected /^2020-/ [.and.a0.'&'.1]", (path ? lpath_2 : null)])
                     }
+                }
+                else
+                {
+                    rep !== null && rep.push(["unexpected $DATE [.and.a0.'&'.0]", (path ? lpath_2 : null)])
                 }
             }
             if (res)
@@ -520,9 +507,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.xor.x0.'|'.0]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 // .xor.x0.'|'.1
                 res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
                 if (! res)
@@ -1725,10 +1709,6 @@ function _jm_obj_10(val, path, rep)
             // handle may m1 property
             // .merge.m1
             res = Object.prototype.toString.call(pval) === '[object Object]';
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected type [.merge.m1.'|']", (path ? lpath_10 : null)])
-            }
             if (res)
             {
                 if (pval.hasOwnProperty("b"))
@@ -1765,6 +1745,10 @@ function _jm_obj_10(val, path, rep)
                     rep !== null && rep.push(["no model matched [.merge.m1.'|']", (path ? lpath_10 : null)])
                 }
             }
+            else
+            {
+                rep !== null && rep.push(["unexpected type [.merge.m1.'|']", (path ? lpath_10 : null)])
+            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.merge.m1]", (path ? lpath_10 : null)])
@@ -1777,10 +1761,6 @@ function _jm_obj_10(val, path, rep)
             // handle may m2 property
             // .merge.m2
             res = Object.prototype.toString.call(pval) === '[object Object]';
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected type [.merge.m2.'|']", (path ? lpath_10 : null)])
-            }
             if (res)
             {
                 if (pval.hasOwnProperty("b"))
@@ -1817,6 +1797,10 @@ function _jm_obj_10(val, path, rep)
                     rep !== null && rep.push(["no model matched [.merge.m2.'|']", (path ? lpath_10 : null)])
                 }
             }
+            else
+            {
+                rep !== null && rep.push(["unexpected type [.merge.m2.'|']", (path ? lpath_10 : null)])
+            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.merge.m2]", (path ? lpath_10 : null)])
@@ -1829,10 +1813,6 @@ function _jm_obj_10(val, path, rep)
             // handle may m3 property
             // .merge.m3
             res = Object.prototype.toString.call(pval) === '[object Object]';
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected type [.merge.m3.'|']", (path ? lpath_10 : null)])
-            }
             if (res)
             {
                 if (pval.hasOwnProperty("a"))
@@ -1904,6 +1884,10 @@ function _jm_obj_10(val, path, rep)
                 {
                     rep !== null && rep.push(["no model matched [.merge.m3.'|']", (path ? lpath_10 : null)])
                 }
+            }
+            else
+            {
+                rep !== null && rep.push(["unexpected type [.merge.m3.'|']", (path ? lpath_10 : null)])
             }
             if (! res)
             {
@@ -1977,10 +1961,6 @@ function _jm_obj_21(val, path, rep)
                     }
                 }
             }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.tuple.t1.'@']", (path ? lpath_12 : null)])
-            }
             if (res)
             {
                 let ival_0 = pval.length;
@@ -1989,6 +1969,10 @@ function _jm_obj_21(val, path, rep)
                 {
                     rep !== null && rep.push(["constraints failed [.tuple.t1]", (path ? lpath_12 : null)])
                 }
+            }
+            else
+            {
+                rep !== null && rep.push(["not array or unexpected array [.tuple.t1.'@']", (path ? lpath_12 : null)])
             }
             if (! res)
             {
@@ -2007,10 +1991,6 @@ function _jm_obj_21(val, path, rep)
                 let lpath_13 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([0]) : null;
                 // .tuple.t2.0
                 res = ((typeof pval[0] === 'number' || pval[0] instanceof Number) && Number.isInteger(pval[0])) && pval[0] >= 0;
-                if (! res)
-                {
-                    rep !== null && rep.push(["not a 0 strict int [.tuple.t2.0]", ((path ? lpath_12 : null) ? lpath_13 : null)])
-                }
                 if (res)
                 {
                     lpath_13 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([1]) : null;
@@ -2020,6 +2000,10 @@ function _jm_obj_21(val, path, rep)
                     {
                         rep !== null && rep.push(["not a 0 strict int [.tuple.t2.1]", ((path ? lpath_12 : null) ? lpath_13 : null)])
                     }
+                }
+                else
+                {
+                    rep !== null && rep.push(["not a 0 strict int [.tuple.t2.0]", ((path ? lpath_12 : null) ? lpath_13 : null)])
                 }
             }
             if (! res)
@@ -2040,19 +2024,11 @@ function _jm_obj_21(val, path, rep)
                 let lpath_14 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([0]) : null;
                 // .tuple.t3.0
                 res = (typeof pval[0] === 'boolean' || pval[0] instanceof Boolean);
-                if (! res)
-                {
-                    rep !== null && rep.push(["not a bool [.tuple.t3.0]", ((path ? lpath_12 : null) ? lpath_14 : null)])
-                }
                 if (res)
                 {
                     lpath_14 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([1]) : null;
                     // .tuple.t3.1
                     res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0;
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a 0 strict int [.tuple.t3.1]", ((path ? lpath_12 : null) ? lpath_14 : null)])
-                    }
                     if (res)
                     {
                         lpath_14 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([2]) : null;
@@ -2063,6 +2039,14 @@ function _jm_obj_21(val, path, rep)
                             rep !== null && rep.push(["unexpected string [.tuple.t3.2]", ((path ? lpath_12 : null) ? lpath_14 : null)])
                         }
                     }
+                    else
+                    {
+                        rep !== null && rep.push(["not a 0 strict int [.tuple.t3.1]", ((path ? lpath_12 : null) ? lpath_14 : null)])
+                    }
+                }
+                else
+                {
+                    rep !== null && rep.push(["not a bool [.tuple.t3.0]", ((path ? lpath_12 : null) ? lpath_14 : null)])
                 }
             }
             if (! res)
@@ -2108,10 +2092,6 @@ function _jm_obj_21(val, path, rep)
                     }
                 }
             }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.tuple.t4.'@']", (path ? lpath_12 : null)])
-            }
             if (res)
             {
                 let ival_1 = pval.length;
@@ -2120,6 +2100,10 @@ function _jm_obj_21(val, path, rep)
                 {
                     rep !== null && rep.push(["constraints failed [.tuple.t4]", (path ? lpath_12 : null)])
                 }
+            }
+            else
+            {
+                rep !== null && rep.push(["not array or unexpected array [.tuple.t4.'@']", (path ? lpath_12 : null)])
             }
             if (! res)
             {
@@ -2544,6 +2528,314 @@ function _jm_obj_30(val, path, rep)
     return true;
 }
 
+// check _jm_obj_31_map_ANY (.predefs.ANY)
+function _jm_f_0(val, path, rep)
+{
+    let res;
+    // .predefs.ANY
+    res = true;
+    return res;
+}
+
+// check _jm_obj_31_map_BOOL (.predefs.BOOL)
+function _jm_f_1(val, path, rep)
+{
+    // .predefs.BOOL
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $BOOL [.predefs.BOOL]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_BOOLEAN (.predefs.BOOLEAN)
+function _jm_f_2(val, path, rep)
+{
+    // .predefs.BOOLEAN
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $BOOLEAN [.predefs.BOOLEAN]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_DATE (.predefs.DATE)
+function _jm_f_3(val, path, rep)
+{
+    // .predefs.DATE
+    let res = runtime.jm_is_valid_date(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $DATE [.predefs.DATE]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_DATETIME (.predefs.DATETIME)
+function _jm_f_4(val, path, rep)
+{
+    // .predefs.DATETIME
+    let res = runtime.jm_is_valid_datetime(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $DATETIME [.predefs.DATETIME]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_EMAIL (.predefs.EMAIL)
+function _jm_f_5(val, path, rep)
+{
+    // .predefs.EMAIL
+    let res = runtime.jm_is_valid_email(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $EMAIL [.predefs.EMAIL]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_EXREG (.predefs.EXREG)
+function _jm_f_6(val, path, rep)
+{
+    // .predefs.EXREG
+    let res = runtime.jm_is_valid_regex(val, true);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $EXREG [.predefs.EXREG]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_F32 (.predefs.F32)
+function _jm_f_7(val, path, rep)
+{
+    // .predefs.F32
+    let res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $F32 [.predefs.F32]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_F64 (.predefs.F64)
+function _jm_f_8(val, path, rep)
+{
+    // .predefs.F64
+    let res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $F64 [.predefs.F64]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_FLOAT (.predefs.FLOAT)
+function _jm_f_9(val, path, rep)
+{
+    // .predefs.FLOAT
+    let res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $FLOAT [.predefs.FLOAT]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_I32 (.predefs.I32)
+function _jm_f_10(val, path, rep)
+{
+    // .predefs.I32
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $I32 [.predefs.I32]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_I64 (.predefs.I64)
+function _jm_f_11(val, path, rep)
+{
+    // .predefs.I64
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $I64 [.predefs.I64]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_INT (.predefs.INT)
+function _jm_f_12(val, path, rep)
+{
+    // .predefs.INT
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $INT [.predefs.INT]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_INTEGER (.predefs.INTEGER)
+function _jm_f_13(val, path, rep)
+{
+    // .predefs.INTEGER
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $INTEGER [.predefs.INTEGER]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_JSON (.predefs.JSON)
+function _jm_f_14(val, path, rep)
+{
+    // .predefs.JSON
+    let res = runtime.jm_is_valid_json(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $JSON [.predefs.JSON]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_NONE (.predefs.NONE)
+function _jm_f_15(val, path, rep)
+{
+    let res;
+    // .predefs.NONE
+    res = false;
+    rep !== null && rep.push(["unexpected $NONE [.predefs.NONE]", path])
+    return res;
+}
+
+// check _jm_obj_31_map_NULL (.predefs.NULL)
+function _jm_f_16(val, path, rep)
+{
+    // .predefs.NULL
+    let res = val === null;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $NULL [.predefs.NULL]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_NUMBER (.predefs.NUMBER)
+function _jm_f_17(val, path, rep)
+{
+    // .predefs.NUMBER
+    let res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $NUMBER [.predefs.NUMBER]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_REGEX (.predefs.REGEX)
+function _jm_f_18(val, path, rep)
+{
+    // .predefs.REGEX
+    let res = runtime.jm_is_valid_regex(val, false);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $REGEX [.predefs.REGEX]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_STRING (.predefs.STRING)
+function _jm_f_19(val, path, rep)
+{
+    // .predefs.STRING
+    let res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $STRING [.predefs.STRING]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_TIME (.predefs.TIME)
+function _jm_f_20(val, path, rep)
+{
+    // .predefs.TIME
+    let res = runtime.jm_is_valid_time(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $TIME [.predefs.TIME]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_U32 (.predefs.U32)
+function _jm_f_21(val, path, rep)
+{
+    // .predefs.U32
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $U32 [.predefs.U32]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_U64 (.predefs.U64)
+function _jm_f_22(val, path, rep)
+{
+    // .predefs.U64
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $U64 [.predefs.U64]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_URI (.predefs.URI)
+function _jm_f_23(val, path, rep)
+{
+    // .predefs.URI
+    let res = runtime.jm_is_valid_url(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI [.predefs.URI]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_URL (.predefs.URL)
+function _jm_f_24(val, path, rep)
+{
+    // .predefs.URL
+    let res = runtime.jm_is_valid_url(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URL [.predefs.URL]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_UUID (.predefs.UUID)
+function _jm_f_25(val, path, rep)
+{
+    // .predefs.UUID
+    let res = runtime.jm_is_valid_uuid(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $UUID [.predefs.UUID]", path])
+    }
+    return res;
+}
+
+
 // object .predefs
 function _jm_obj_31(val, path, rep)
 {
@@ -2552,334 +2844,16 @@ function _jm_obj_31(val, path, rep)
         rep !== null && rep.push(["not an object [.predefs]", path])
         return false;
     }
-    let res;
+    let pfun;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_22 = path ? path.concat([prop]) : null;
-        if (prop == "ANY")
+        if ((pfun = _jm_obj_31_map.get(prop)))
         {
-            // handle may ANY property
-            // .predefs.ANY
-            res = true;
-            continue;
-        }
-        else if (prop == "F32")
-        {
-            // handle may F32 property
-            // .predefs.F32
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
+            // handle 26 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_22 : null), rep))
             {
-                rep !== null && rep.push(["unexpected $F32 [.predefs.F32]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.F32]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "F64")
-        {
-            // handle may F64 property
-            // .predefs.F64
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $F64 [.predefs.F64]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.F64]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "I32")
-        {
-            // handle may I32 property
-            // .predefs.I32
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $I32 [.predefs.I32]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.I32]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "I64")
-        {
-            // handle may I64 property
-            // .predefs.I64
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $I64 [.predefs.I64]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.I64]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "INT")
-        {
-            // handle may INT property
-            // .predefs.INT
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $INT [.predefs.INT]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.INT]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "U32")
-        {
-            // handle may U32 property
-            // .predefs.U32
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $U32 [.predefs.U32]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.U32]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "U64")
-        {
-            // handle may U64 property
-            // .predefs.U64
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $U64 [.predefs.U64]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.U64]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "URI")
-        {
-            // handle may URI property
-            // .predefs.URI
-            res = runtime.jm_is_valid_url(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $URI [.predefs.URI]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.URI]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "URL")
-        {
-            // handle may URL property
-            // .predefs.URL
-            res = runtime.jm_is_valid_url(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $URL [.predefs.URL]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.URL]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "BOOL")
-        {
-            // handle may BOOL property
-            // .predefs.BOOL
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $BOOL [.predefs.BOOL]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.BOOL]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "DATE")
-        {
-            // handle may DATE property
-            // .predefs.DATE
-            res = runtime.jm_is_valid_date(pval, (path ? lpath_22 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $DATE [.predefs.DATE]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.DATE]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "JSON")
-        {
-            // handle may JSON property
-            // .predefs.JSON
-            res = runtime.jm_is_valid_json(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $JSON [.predefs.JSON]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.JSON]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "NONE")
-        {
-            // handle may NONE property
-            // .predefs.NONE
-            res = false;
-            rep !== null && rep.push(["unexpected $NONE [.predefs.NONE]", (path ? lpath_22 : null)])
-            rep !== null && rep.push(["invalid optional prop value [.predefs.NONE]", (path ? lpath_22 : null)])
-            return false;
-        }
-        else if (prop == "NULL")
-        {
-            // handle may NULL property
-            // .predefs.NULL
-            res = pval === null;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $NULL [.predefs.NULL]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.NULL]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "TIME")
-        {
-            // handle may TIME property
-            // .predefs.TIME
-            res = runtime.jm_is_valid_time(pval, (path ? lpath_22 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $TIME [.predefs.TIME]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.TIME]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "UUID")
-        {
-            // handle may UUID property
-            // .predefs.UUID
-            res = runtime.jm_is_valid_uuid(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $UUID [.predefs.UUID]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.UUID]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "EMAIL")
-        {
-            // handle may EMAIL property
-            // .predefs.EMAIL
-            res = runtime.jm_is_valid_email(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $EMAIL [.predefs.EMAIL]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.EMAIL]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "EXREG")
-        {
-            // handle may EXREG property
-            // .predefs.EXREG
-            res = runtime.jm_is_valid_regex(pval, true);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $EXREG [.predefs.EXREG]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.EXREG]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "FLOAT")
-        {
-            // handle may FLOAT property
-            // .predefs.FLOAT
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $FLOAT [.predefs.FLOAT]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.FLOAT]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "REGEX")
-        {
-            // handle may REGEX property
-            // .predefs.REGEX
-            res = runtime.jm_is_valid_regex(pval, false);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $REGEX [.predefs.REGEX]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.REGEX]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "NUMBER")
-        {
-            // handle may NUMBER property
-            // .predefs.NUMBER
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $NUMBER [.predefs.NUMBER]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.NUMBER]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "STRING")
-        {
-            // handle may STRING property
-            // .predefs.STRING
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $STRING [.predefs.STRING]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.STRING]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "BOOLEAN")
-        {
-            // handle may BOOLEAN property
-            // .predefs.BOOLEAN
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $BOOLEAN [.predefs.BOOLEAN]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.BOOLEAN]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "INTEGER")
-        {
-            // handle may INTEGER property
-            // .predefs.INTEGER
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $INTEGER [.predefs.INTEGER]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.INTEGER]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "DATETIME")
-        {
-            // handle may DATETIME property
-            // .predefs.DATETIME
-            res = runtime.jm_is_valid_datetime(pval, (path ? lpath_22 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $DATETIME [.predefs.DATETIME]", (path ? lpath_22 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs.DATETIME]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.predefs]", (path ? lpath_22 : null)])
                 return false;
             }
             continue;
@@ -2888,6 +2862,239 @@ function _jm_obj_31(val, path, rep)
         return false;
     }
     return true;
+}
+
+// check _jm_obj_32_map_cia0 (.constraints.cia0)
+function _jm_f_26(val, path, rep)
+{
+    // .constraints.cia0
+    // .constraints.cia0.'@'
+    let res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_5_idx = 0; arr_5_idx < val.length; arr_5_idx++)
+        {
+            let arr_5_item = val[arr_5_idx]
+            let arr_5_lpath = path ? path.concat([arr_5_idx]) : null;
+            // .constraints.cia0.'@'.0
+            res = ((typeof arr_5_item === 'number' || arr_5_item instanceof Number) && Number.isInteger(arr_5_item)) && arr_5_item >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.constraints.cia0.'@'.0]", (path ? arr_5_lpath : null)])
+                break;
+            }
+        }
+    }
+    if (res)
+    {
+        let ival_2 = val.length;
+        res = ival_2 == 3;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cia0]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.constraints.cia0.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cia1 (.constraints.cia1)
+function _jm_f_27(val, path, rep)
+{
+    // .constraints.cia1
+    // .constraints.cia1.'@'
+    let res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_6_idx = 0; arr_6_idx < val.length; arr_6_idx++)
+        {
+            let arr_6_item = val[arr_6_idx]
+            let arr_6_lpath = path ? path.concat([arr_6_idx]) : null;
+            // .constraints.cia1.'@'.0
+            res = ((typeof arr_6_item === 'number' || arr_6_item instanceof Number) && Number.isInteger(arr_6_item)) && arr_6_item >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.constraints.cia1.'@'.0]", (path ? arr_6_lpath : null)])
+                break;
+            }
+        }
+    }
+    if (res)
+    {
+        let ival_3 = val.length;
+        res = ival_3 != 4 && ival_3 <= 5 && ival_3 >= 2;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cia1]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.constraints.cia1.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cia2 (.constraints.cia2)
+function _jm_f_28(val, path, rep)
+{
+    // .constraints.cia2
+    // .constraints.cia2.'@'
+    let res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_7_idx = 0; arr_7_idx < val.length; arr_7_idx++)
+        {
+            let arr_7_item = val[arr_7_idx]
+            let arr_7_lpath = path ? path.concat([arr_7_idx]) : null;
+            // .constraints.cia2.'@'.0
+            res = ((typeof arr_7_item === 'number' || arr_7_item instanceof Number) && Number.isInteger(arr_7_item)) && arr_7_item >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.constraints.cia2.'@'.0]", (path ? arr_7_lpath : null)])
+                break;
+            }
+        }
+    }
+    if (res)
+    {
+        let ival_4 = val.length;
+        res = ival_4 <= 4 && ival_4 >= 3;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cia2]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.constraints.cia2.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cii0 (.constraints.cii0)
+function _jm_f_29(val, path, rep)
+{
+    // .constraints.cii0
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 10;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected =10 [.constraints.cii0]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cii1 (.constraints.cii1)
+function _jm_f_30(val, path, rep)
+{
+    // .constraints.cii1
+    // .constraints.cii1.'@'
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (res)
+    {
+        let ival_5 = val;
+        res = ival_5 != 10 && ival_5 <= 12 && ival_5 >= 8;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cii1]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 0 strict int [.constraints.cii1.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cii2 (.constraints.cii2)
+function _jm_f_31(val, path, rep)
+{
+    // .constraints.cii2
+    // .constraints.cii2.'@'
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (res)
+    {
+        let ival_6 = val;
+        res = ival_6 <= 9 && ival_6 >= 8;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cii2]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 0 strict int [.constraints.cii2.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cin0 (.constraints.cin0)
+function _jm_f_32(val, path, rep)
+{
+    // .constraints.cin0
+    // .constraints.cin0.'@'
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    if (res)
+    {
+        let fval_0 = val;
+        res = fval_0 == 10;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cin0]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin0.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cin1 (.constraints.cin1)
+function _jm_f_33(val, path, rep)
+{
+    // .constraints.cin1
+    // .constraints.cin1.'@'
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    if (res)
+    {
+        let fval_1 = val;
+        res = fval_1 != 10 && fval_1 <= 12 && fval_1 >= 8;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cin1]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin1.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cin2 (.constraints.cin2)
+function _jm_f_34(val, path, rep)
+{
+    // .constraints.cin2
+    // .constraints.cin2.'@'
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    if (res)
+    {
+        let fval_2 = val;
+        res = fval_2 < 10 && fval_2 > 7;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cin2]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin2.'@']", path])
+    }
+    return res;
 }
 
 // object .constraints.cio0.'@'
@@ -2902,6 +3109,28 @@ function _jm_obj_33(val, path, rep)
     return true;
 }
 
+// check _jm_obj_32_map_cio0 (.constraints.cio0)
+function _jm_f_35(val, path, rep)
+{
+    // .constraints.cio0
+    // .constraints.cio0.'@'
+    let res = _jm_obj_33(val, path, rep);
+    if (res)
+    {
+        let ival_7 = Object.keys(val).length;
+        res = ival_7 == 2;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cio0]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected element [.constraints.cio0.'@']", path])
+    }
+    return res;
+}
+
 // object .constraints.cio1.'@'
 function _jm_obj_34(val, path, rep)
 {
@@ -2912,6 +3141,28 @@ function _jm_obj_34(val, path, rep)
     }
     // accept any object
     return true;
+}
+
+// check _jm_obj_32_map_cio1 (.constraints.cio1)
+function _jm_f_36(val, path, rep)
+{
+    // .constraints.cio1
+    // .constraints.cio1.'@'
+    let res = _jm_obj_34(val, path, rep);
+    if (res)
+    {
+        let ival_8 = Object.keys(val).length;
+        res = ival_8 != 2 && ival_8 <= 3 && ival_8 >= 1;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cio1]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected element [.constraints.cio1.'@']", path])
+    }
+    return res;
 }
 
 // object .constraints.cio2.'@'
@@ -2926,6 +3177,296 @@ function _jm_obj_35(val, path, rep)
     return true;
 }
 
+// check _jm_obj_32_map_cio2 (.constraints.cio2)
+function _jm_f_37(val, path, rep)
+{
+    // .constraints.cio2
+    // .constraints.cio2.'@'
+    let res = _jm_obj_35(val, path, rep);
+    if (res)
+    {
+        let ival_9 = Object.keys(val).length;
+        res = ival_9 <= 4 && ival_9 >= 3;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cio2]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected element [.constraints.cio2.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cis0 (.constraints.cis0)
+function _jm_f_38(val, path, rep)
+{
+    // .constraints.cis0
+    // .constraints.cis0.'@'
+    let res = (typeof val === 'string' || val instanceof String);
+    if (res)
+    {
+        let ival_10 = val.length;
+        res = ival_10 == 10;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cis0]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected string [.constraints.cis0.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cis1 (.constraints.cis1)
+function _jm_f_39(val, path, rep)
+{
+    // .constraints.cis1
+    // .constraints.cis1.'@'
+    let res = (typeof val === 'string' || val instanceof String);
+    if (res)
+    {
+        let ival_11 = val.length;
+        res = ival_11 != 10 && ival_11 <= 12 && ival_11 >= 8;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cis1]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected string [.constraints.cis1.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cis2 (.constraints.cis2)
+function _jm_f_40(val, path, rep)
+{
+    // .constraints.cis2
+    // .constraints.cis2.'@'
+    let res = (typeof val === 'string' || val instanceof String);
+    if (res)
+    {
+        let ival_12 = val.length;
+        res = ival_12 <= 9 && ival_12 >= 8;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cis2]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected string [.constraints.cis2.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cni0 (.constraints.cni0)
+function _jm_f_41(val, path, rep)
+{
+    // .constraints.cni0
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected =42 [.constraints.cni0]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cni1 (.constraints.cni1)
+function _jm_f_42(val, path, rep)
+{
+    // .constraints.cni1
+    // .constraints.cni1.'@'
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+    if (res)
+    {
+        let ival_13 = val;
+        let fval_3 = val;
+        res = fval_3 != 42.0 && ival_13 <= 99;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cni1]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 1 strict int [.constraints.cni1.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cni2 (.constraints.cni2)
+function _jm_f_43(val, path, rep)
+{
+    // .constraints.cni2
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected =42 [.constraints.cni2]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cnn0 (.constraints.cnn0)
+function _jm_f_44(val, path, rep)
+{
+    // .constraints.cnn0
+    // .constraints.cnn0.'@'
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    if (res)
+    {
+        let fval_4 = val;
+        res = fval_4 == 42.1;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cnn0]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn0.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cnn1 (.constraints.cnn1)
+function _jm_f_45(val, path, rep)
+{
+    // .constraints.cnn1
+    // .constraints.cnn1.'@'
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    if (res)
+    {
+        let fval_5 = val;
+        res = fval_5 != 42.5 && fval_5 <= 43.0 && fval_5 >= 42.0;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cnn1]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn1.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cnn2 (.constraints.cnn2)
+function _jm_f_46(val, path, rep)
+{
+    // .constraints.cnn2
+    // .constraints.cnn2.'@'
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    if (res)
+    {
+        let fval_6 = val;
+        res = fval_6 < 43.0 && fval_6 > 42.0;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cnn2]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn2.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_css0 (.constraints.css0)
+function _jm_f_47(val, path, rep)
+{
+    // .constraints.css0
+    // .constraints.css0.'@'
+    let res = (typeof val === 'string' || val instanceof String);
+    if (res)
+    {
+        let sval_0 = val;
+        res = sval_0 == "Susie";
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.css0]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected string [.constraints.css0.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_css1 (.constraints.css1)
+function _jm_f_48(val, path, rep)
+{
+    // .constraints.css1
+    // .constraints.css1.'@'
+    let res = (typeof val === 'string' || val instanceof String);
+    if (res)
+    {
+        let sval_1 = val;
+        res = sval_1 != "Hobbes" && sval_1 <= "Z" && sval_1 >= "A";
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.css1]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected string [.constraints.css1.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_css2 (.constraints.css2)
+function _jm_f_49(val, path, rep)
+{
+    // .constraints.css2
+    // .constraints.css2.'@'
+    let res = (typeof val === 'string' || val instanceof String);
+    if (res)
+    {
+        let sval_2 = val;
+        res = sval_2 < "Z" && sval_2 > "A";
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.css2]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected string [.constraints.css2.'@']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_32_map_cua0 (.constraints.cua0)
+function _jm_f_50(val, path, rep)
+{
+    // .constraints.cua0
+    // .constraints.cua0.'@'
+    let res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+        res = runtime.jm_array_is_unique(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.constraints.cua0]", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.constraints.cua0.'@']", path])
+    }
+    return res;
+}
+
+
 // object .constraints
 function _jm_obj_32(val, path, rep)
 {
@@ -2934,662 +3475,16 @@ function _jm_obj_32(val, path, rep)
         rep !== null && rep.push(["not an object [.constraints]", path])
         return false;
     }
-    let res;
+    let pfun;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_23 = path ? path.concat([prop]) : null;
-        if (prop == "cia0")
+        if ((pfun = _jm_obj_32_map.get(prop)))
         {
-            // handle may cia0 property
-            // .constraints.cia0
-            // .constraints.cia0.'@'
-            res = Array.isArray(pval);
-            if (res)
+            // handle 25 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_23 : null), rep))
             {
-                for (let arr_5_idx = 0; arr_5_idx < pval.length; arr_5_idx++)
-                {
-                    let arr_5_item = pval[arr_5_idx]
-                    let arr_5_lpath = (path ? lpath_23 : null) ? (path ? lpath_23 : null).concat([arr_5_idx]) : null;
-                    // .constraints.cia0.'@'.0
-                    res = ((typeof arr_5_item === 'number' || arr_5_item instanceof Number) && Number.isInteger(arr_5_item)) && arr_5_item >= 0;
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a 0 strict int [.constraints.cia0.'@'.0]", ((path ? lpath_23 : null) ? arr_5_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.constraints.cia0.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_2 = pval.length;
-                res = ival_2 == 3;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cia0]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cia0]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cia1")
-        {
-            // handle may cia1 property
-            // .constraints.cia1
-            // .constraints.cia1.'@'
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_6_idx = 0; arr_6_idx < pval.length; arr_6_idx++)
-                {
-                    let arr_6_item = pval[arr_6_idx]
-                    let arr_6_lpath = (path ? lpath_23 : null) ? (path ? lpath_23 : null).concat([arr_6_idx]) : null;
-                    // .constraints.cia1.'@'.0
-                    res = ((typeof arr_6_item === 'number' || arr_6_item instanceof Number) && Number.isInteger(arr_6_item)) && arr_6_item >= 0;
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a 0 strict int [.constraints.cia1.'@'.0]", ((path ? lpath_23 : null) ? arr_6_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.constraints.cia1.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_3 = pval.length;
-                res = ival_3 != 4 && ival_3 <= 5 && ival_3 >= 2;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cia1]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cia1]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cia2")
-        {
-            // handle may cia2 property
-            // .constraints.cia2
-            // .constraints.cia2.'@'
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_7_idx = 0; arr_7_idx < pval.length; arr_7_idx++)
-                {
-                    let arr_7_item = pval[arr_7_idx]
-                    let arr_7_lpath = (path ? lpath_23 : null) ? (path ? lpath_23 : null).concat([arr_7_idx]) : null;
-                    // .constraints.cia2.'@'.0
-                    res = ((typeof arr_7_item === 'number' || arr_7_item instanceof Number) && Number.isInteger(arr_7_item)) && arr_7_item >= 0;
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a 0 strict int [.constraints.cia2.'@'.0]", ((path ? lpath_23 : null) ? arr_7_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.constraints.cia2.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_4 = pval.length;
-                res = ival_4 <= 4 && ival_4 >= 3;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cia2]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cia2]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cii0")
-        {
-            // handle may cii0 property
-            // .constraints.cii0
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 10;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected =10 [.constraints.cii0]", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cii0]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cii1")
-        {
-            // handle may cii1 property
-            // .constraints.cii1
-            // .constraints.cii1.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.constraints.cii1.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_5 = pval;
-                res = ival_5 != 10 && ival_5 <= 12 && ival_5 >= 8;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cii1]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cii1]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cii2")
-        {
-            // handle may cii2 property
-            // .constraints.cii2
-            // .constraints.cii2.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.constraints.cii2.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_6 = pval;
-                res = ival_6 <= 9 && ival_6 >= 8;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cii2]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cii2]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cin0")
-        {
-            // handle may cin0 property
-            // .constraints.cin0
-            // .constraints.cin0.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin0.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let fval_0 = pval;
-                res = fval_0 == 10;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cin0]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cin0]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cin1")
-        {
-            // handle may cin1 property
-            // .constraints.cin1
-            // .constraints.cin1.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin1.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let fval_1 = pval;
-                res = fval_1 != 10 && fval_1 <= 12 && fval_1 >= 8;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cin1]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cin1]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cin2")
-        {
-            // handle may cin2 property
-            // .constraints.cin2
-            // .constraints.cin2.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin2.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let fval_2 = pval;
-                res = fval_2 < 10 && fval_2 > 7;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cin2]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cin2]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cio0")
-        {
-            // handle may cio0 property
-            // .constraints.cio0
-            // .constraints.cio0.'@'
-            res = _jm_obj_33(pval, (path ? lpath_23 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.constraints.cio0.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_7 = Object.keys(pval).length;
-                res = ival_7 == 2;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cio0]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cio0]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cio1")
-        {
-            // handle may cio1 property
-            // .constraints.cio1
-            // .constraints.cio1.'@'
-            res = _jm_obj_34(pval, (path ? lpath_23 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.constraints.cio1.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_8 = Object.keys(pval).length;
-                res = ival_8 != 2 && ival_8 <= 3 && ival_8 >= 1;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cio1]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cio1]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cio2")
-        {
-            // handle may cio2 property
-            // .constraints.cio2
-            // .constraints.cio2.'@'
-            res = _jm_obj_35(pval, (path ? lpath_23 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.constraints.cio2.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_9 = Object.keys(pval).length;
-                res = ival_9 <= 4 && ival_9 >= 3;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cio2]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cio2]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cis0")
-        {
-            // handle may cis0 property
-            // .constraints.cis0
-            // .constraints.cis0.'@'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.constraints.cis0.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_10 = pval.length;
-                res = ival_10 == 10;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cis0]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cis0]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cis1")
-        {
-            // handle may cis1 property
-            // .constraints.cis1
-            // .constraints.cis1.'@'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.constraints.cis1.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_11 = pval.length;
-                res = ival_11 != 10 && ival_11 <= 12 && ival_11 >= 8;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cis1]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cis1]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cis2")
-        {
-            // handle may cis2 property
-            // .constraints.cis2
-            // .constraints.cis2.'@'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.constraints.cis2.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_12 = pval.length;
-                res = ival_12 <= 9 && ival_12 >= 8;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cis2]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cis2]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cni0")
-        {
-            // handle may cni0 property
-            // .constraints.cni0
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 42;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected =42 [.constraints.cni0]", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cni0]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cni1")
-        {
-            // handle may cni1 property
-            // .constraints.cni1
-            // .constraints.cni1.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1 strict int [.constraints.cni1.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let ival_13 = pval;
-                let fval_3 = pval;
-                res = fval_3 != 42.0 && ival_13 <= 99;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cni1]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cni1]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cni2")
-        {
-            // handle may cni2 property
-            // .constraints.cni2
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 42;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected =42 [.constraints.cni2]", (path ? lpath_23 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cni2]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cnn0")
-        {
-            // handle may cnn0 property
-            // .constraints.cnn0
-            // .constraints.cnn0.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn0.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let fval_4 = pval;
-                res = fval_4 == 42.1;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cnn0]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cnn0]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cnn1")
-        {
-            // handle may cnn1 property
-            // .constraints.cnn1
-            // .constraints.cnn1.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn1.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let fval_5 = pval;
-                res = fval_5 != 42.5 && fval_5 <= 43.0 && fval_5 >= 42.0;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cnn1]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cnn1]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cnn2")
-        {
-            // handle may cnn2 property
-            // .constraints.cnn2
-            // .constraints.cnn2.'@'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn2.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let fval_6 = pval;
-                res = fval_6 < 43.0 && fval_6 > 42.0;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cnn2]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cnn2]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "css0")
-        {
-            // handle may css0 property
-            // .constraints.css0
-            // .constraints.css0.'@'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.constraints.css0.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let sval_0 = pval;
-                res = sval_0 == "Susie";
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.css0]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.css0]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "css1")
-        {
-            // handle may css1 property
-            // .constraints.css1
-            // .constraints.css1.'@'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.constraints.css1.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let sval_1 = pval;
-                res = sval_1 != "Hobbes" && sval_1 <= "Z" && sval_1 >= "A";
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.css1]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.css1]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "css2")
-        {
-            // handle may css2 property
-            // .constraints.css2
-            // .constraints.css2.'@'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.constraints.css2.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                let sval_2 = pval;
-                res = sval_2 < "Z" && sval_2 > "A";
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.css2]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.css2]", (path ? lpath_23 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "cua0")
-        {
-            // handle may cua0 property
-            // .constraints.cua0
-            // .constraints.cua0.'@'
-            res = Array.isArray(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.constraints.cua0.'@']", (path ? lpath_23 : null)])
-            }
-            if (res)
-            {
-                res = runtime.jm_array_is_unique(pval, (path ? lpath_23 : null), rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.constraints.cua0]", (path ? lpath_23 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.constraints.cua0]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.constraints]", (path ? lpath_23 : null)])
                 return false;
             }
             continue;
@@ -3853,6 +3748,57 @@ export function check_model_init()
         _jm_cst_4.add(42)
         _jm_cst_4.add(true)
         _jm_cst_4.add(null)
+        _jm_obj_31_map.set("ANY", _jm_f_0)
+        _jm_obj_31_map.set("BOOL", _jm_f_1)
+        _jm_obj_31_map.set("BOOLEAN", _jm_f_2)
+        _jm_obj_31_map.set("DATE", _jm_f_3)
+        _jm_obj_31_map.set("DATETIME", _jm_f_4)
+        _jm_obj_31_map.set("EMAIL", _jm_f_5)
+        _jm_obj_31_map.set("EXREG", _jm_f_6)
+        _jm_obj_31_map.set("F32", _jm_f_7)
+        _jm_obj_31_map.set("F64", _jm_f_8)
+        _jm_obj_31_map.set("FLOAT", _jm_f_9)
+        _jm_obj_31_map.set("I32", _jm_f_10)
+        _jm_obj_31_map.set("I64", _jm_f_11)
+        _jm_obj_31_map.set("INT", _jm_f_12)
+        _jm_obj_31_map.set("INTEGER", _jm_f_13)
+        _jm_obj_31_map.set("JSON", _jm_f_14)
+        _jm_obj_31_map.set("NONE", _jm_f_15)
+        _jm_obj_31_map.set("NULL", _jm_f_16)
+        _jm_obj_31_map.set("NUMBER", _jm_f_17)
+        _jm_obj_31_map.set("REGEX", _jm_f_18)
+        _jm_obj_31_map.set("STRING", _jm_f_19)
+        _jm_obj_31_map.set("TIME", _jm_f_20)
+        _jm_obj_31_map.set("U32", _jm_f_21)
+        _jm_obj_31_map.set("U64", _jm_f_22)
+        _jm_obj_31_map.set("URI", _jm_f_23)
+        _jm_obj_31_map.set("URL", _jm_f_24)
+        _jm_obj_31_map.set("UUID", _jm_f_25)
+        _jm_obj_32_map.set("cia0", _jm_f_26)
+        _jm_obj_32_map.set("cia1", _jm_f_27)
+        _jm_obj_32_map.set("cia2", _jm_f_28)
+        _jm_obj_32_map.set("cii0", _jm_f_29)
+        _jm_obj_32_map.set("cii1", _jm_f_30)
+        _jm_obj_32_map.set("cii2", _jm_f_31)
+        _jm_obj_32_map.set("cin0", _jm_f_32)
+        _jm_obj_32_map.set("cin1", _jm_f_33)
+        _jm_obj_32_map.set("cin2", _jm_f_34)
+        _jm_obj_32_map.set("cio0", _jm_f_35)
+        _jm_obj_32_map.set("cio1", _jm_f_36)
+        _jm_obj_32_map.set("cio2", _jm_f_37)
+        _jm_obj_32_map.set("cis0", _jm_f_38)
+        _jm_obj_32_map.set("cis1", _jm_f_39)
+        _jm_obj_32_map.set("cis2", _jm_f_40)
+        _jm_obj_32_map.set("cni0", _jm_f_41)
+        _jm_obj_32_map.set("cni1", _jm_f_42)
+        _jm_obj_32_map.set("cni2", _jm_f_43)
+        _jm_obj_32_map.set("cnn0", _jm_f_44)
+        _jm_obj_32_map.set("cnn1", _jm_f_45)
+        _jm_obj_32_map.set("cnn2", _jm_f_46)
+        _jm_obj_32_map.set("css0", _jm_f_47)
+        _jm_obj_32_map.set("css1", _jm_f_48)
+        _jm_obj_32_map.set("css2", _jm_f_49)
+        _jm_obj_32_map.set("cua0", _jm_f_50)
         check_model_map.set("", json_model_1)
         check_model_map.set("a", json_model_2)
         check_model_map.set("b", json_model_3)

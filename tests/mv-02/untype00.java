@@ -30,9 +30,6 @@ public class untype00 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'@'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'@'.'|'.1
             res = json.isString(val);
             if (! res)
@@ -43,18 +40,15 @@ public class untype00 extends ModelChecker
         if (res)
         {
             if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'@'.'|']", path);
-        }
-        if (res)
-        {
             res = rt.check_constraint(val, json_model.Runtime.Operator.GE, json.safeJSON("10"), path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("no model matched [.'@'.'|']", path);
         }
         return res;
     }

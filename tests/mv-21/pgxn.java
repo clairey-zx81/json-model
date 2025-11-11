@@ -70,10 +70,6 @@ public class pgxn extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$neStrList'.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.arrayLength(val);
@@ -82,6 +78,10 @@ public class pgxn extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$neStrList']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$neStrList'.'@']", path);
         }
         return res;
     }
@@ -123,10 +123,6 @@ public class pgxn extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$LicenseList'.'@']", path);
-        }
         if (res)
         {
             long ival_1 = json.arrayLength(val);
@@ -135,6 +131,10 @@ public class pgxn extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$LicenseList']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$LicenseList'.'@']", path);
         }
         return res;
     }
@@ -463,9 +463,6 @@ public class pgxn extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $SemVer [.'$Version'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Version'.'|'.1
             res = json.isInteger(val) && json.asLong(val) == 0;
             if (! res)
@@ -569,9 +566,6 @@ public class pgxn extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Version [.'$Prereq'.''.'|'.0]", (path != null ? lpath_4 : null));
-            }
-            if (! res)
-            {
                 // .'$Prereq'.''.'|'.1
                 res = json_model_12(pval, (path != null ? lpath_4 : null), rep);
                 if (! res)
@@ -886,17 +880,11 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $License [.license.'|'.0]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     // .license.'|'.1
                     res = json_model_5(pval, (path != null ? lpath_7 : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $LicenseList [.license.'|'.1]", (path != null ? lpath_7 : null));
-                    }
-                    if (! res)
-                    {
                         // .license.'|'.2
                         res = _jm_obj_3(pval, (path != null ? lpath_7 : null), rep);
                         if (! res)
@@ -983,9 +971,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $neStr [.maintainer.'|'.0]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     // .maintainer.'|'.1
                     res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
                     if (! res)

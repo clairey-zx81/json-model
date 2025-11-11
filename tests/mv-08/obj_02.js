@@ -128,25 +128,16 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $li0 [.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $ls0 [.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'|'.2
             res = json_model_4(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $lb0 [.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'|'.3
                 res = json_model_5(val, path, rep);
                 if (! res)

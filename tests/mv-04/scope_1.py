@@ -34,14 +34,14 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # .'$r'.0
         res = json_model_5(val[0], lpath_0 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $s [.'$r'.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0 = (path + [ 1 ]) if path is not None else None
             # .'$r'.1
             res = json_model_5(val[1], lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $s [.'$r'.1]", lpath_0 if path is not None else None))
+        else:
+            rep is None or rep.append(("unexpected $s [.'$r'.0]", lpath_0 if path is not None else None))
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$r']", path))
     return res
@@ -64,7 +64,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $s [.'|'.0]", path))
-    if not res:
         # .'|'.1
         res = json_model_5(val, path, rep)
         if not res:

@@ -2942,369 +2942,231 @@ function json_model_49(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$any_platform'.'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$any_platform'.'|'.2
             res = json_model_5(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path])
-            }
-            if (! res)
-            {
                 // .'$any_platform'.'|'.3
                 res = json_model_4(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path])
-                }
-                if (! res)
-                {
                     // .'$any_platform'.'|'.4
                     res = json_model_42(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path])
-                    }
-                    if (! res)
-                    {
                         // .'$any_platform'.'|'.5
                         res = json_model_6(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path])
-                        }
-                        if (! res)
-                        {
                             // .'$any_platform'.'|'.6
                             res = json_model_7(val, path, rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path])
-                            }
-                            if (! res)
-                            {
                                 // .'$any_platform'.'|'.7
                                 res = json_model_8(val, path, rep);
                                 if (! res)
                                 {
                                     rep !== null && rep.push(["unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path])
-                                }
-                                if (! res)
-                                {
                                     // .'$any_platform'.'|'.8
                                     res = json_model_9(val, path, rep);
                                     if (! res)
                                     {
                                         rep !== null && rep.push(["unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path])
-                                    }
-                                    if (! res)
-                                    {
                                         // .'$any_platform'.'|'.9
                                         res = json_model_28(val, path, rep);
                                         if (! res)
                                         {
                                             rep !== null && rep.push(["unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path])
-                                        }
-                                        if (! res)
-                                        {
                                             // .'$any_platform'.'|'.10
                                             res = json_model_10(val, path, rep);
                                             if (! res)
                                             {
                                                 rep !== null && rep.push(["unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path])
-                                            }
-                                            if (! res)
-                                            {
                                                 // .'$any_platform'.'|'.11
                                                 res = json_model_11(val, path, rep);
                                                 if (! res)
                                                 {
                                                     rep !== null && rep.push(["unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path])
-                                                }
-                                                if (! res)
-                                                {
                                                     // .'$any_platform'.'|'.12
                                                     res = json_model_12(val, path, rep);
                                                     if (! res)
                                                     {
                                                         rep !== null && rep.push(["unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path])
-                                                    }
-                                                    if (! res)
-                                                    {
                                                         // .'$any_platform'.'|'.13
                                                         res = json_model_13(val, path, rep);
                                                         if (! res)
                                                         {
                                                             rep !== null && rep.push(["unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path])
-                                                        }
-                                                        if (! res)
-                                                        {
                                                             // .'$any_platform'.'|'.14
                                                             res = json_model_14(val, path, rep);
                                                             if (! res)
                                                             {
                                                                 rep !== null && rep.push(["unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path])
-                                                            }
-                                                            if (! res)
-                                                            {
                                                                 // .'$any_platform'.'|'.15
                                                                 res = json_model_43(val, path, rep);
                                                                 if (! res)
                                                                 {
                                                                     rep !== null && rep.push(["unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path])
-                                                                }
-                                                                if (! res)
-                                                                {
                                                                     // .'$any_platform'.'|'.16
                                                                     res = json_model_15(val, path, rep);
                                                                     if (! res)
                                                                     {
                                                                         rep !== null && rep.push(["unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path])
-                                                                    }
-                                                                    if (! res)
-                                                                    {
                                                                         // .'$any_platform'.'|'.17
                                                                         res = json_model_16(val, path, rep);
                                                                         if (! res)
                                                                         {
                                                                             rep !== null && rep.push(["unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path])
-                                                                        }
-                                                                        if (! res)
-                                                                        {
                                                                             // .'$any_platform'.'|'.18
                                                                             res = json_model_17(val, path, rep);
                                                                             if (! res)
                                                                             {
                                                                                 rep !== null && rep.push(["unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path])
-                                                                            }
-                                                                            if (! res)
-                                                                            {
                                                                                 // .'$any_platform'.'|'.19
                                                                                 res = json_model_18(val, path, rep);
                                                                                 if (! res)
                                                                                 {
                                                                                     rep !== null && rep.push(["unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path])
-                                                                                }
-                                                                                if (! res)
-                                                                                {
                                                                                     // .'$any_platform'.'|'.20
                                                                                     res = json_model_19(val, path, rep);
                                                                                     if (! res)
                                                                                     {
                                                                                         rep !== null && rep.push(["unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path])
-                                                                                    }
-                                                                                    if (! res)
-                                                                                    {
                                                                                         // .'$any_platform'.'|'.21
                                                                                         res = json_model_20(val, path, rep);
                                                                                         if (! res)
                                                                                         {
                                                                                             rep !== null && rep.push(["unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path])
-                                                                                        }
-                                                                                        if (! res)
-                                                                                        {
                                                                                             // .'$any_platform'.'|'.22
                                                                                             res = json_model_21(val, path, rep);
                                                                                             if (! res)
                                                                                             {
                                                                                                 rep !== null && rep.push(["unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path])
-                                                                                            }
-                                                                                            if (! res)
-                                                                                            {
                                                                                                 // .'$any_platform'.'|'.23
                                                                                                 res = json_model_22(val, path, rep);
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     rep !== null && rep.push(["unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path])
-                                                                                                }
-                                                                                                if (! res)
-                                                                                                {
                                                                                                     // .'$any_platform'.'|'.24
                                                                                                     res = json_model_23(val, path, rep);
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         rep !== null && rep.push(["unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path])
-                                                                                                    }
-                                                                                                    if (! res)
-                                                                                                    {
                                                                                                         // .'$any_platform'.'|'.25
                                                                                                         res = json_model_24(val, path, rep);
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             rep !== null && rep.push(["unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path])
-                                                                                                        }
-                                                                                                        if (! res)
-                                                                                                        {
                                                                                                             // .'$any_platform'.'|'.26
                                                                                                             res = json_model_44(val, path, rep);
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 rep !== null && rep.push(["unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path])
-                                                                                                            }
-                                                                                                            if (! res)
-                                                                                                            {
                                                                                                                 // .'$any_platform'.'|'.27
                                                                                                                 res = json_model_25(val, path, rep);
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     rep !== null && rep.push(["unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path])
-                                                                                                                }
-                                                                                                                if (! res)
-                                                                                                                {
                                                                                                                     // .'$any_platform'.'|'.28
                                                                                                                     res = json_model_26(val, path, rep);
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         rep !== null && rep.push(["unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path])
-                                                                                                                    }
-                                                                                                                    if (! res)
-                                                                                                                    {
                                                                                                                         // .'$any_platform'.'|'.29
                                                                                                                         res = json_model_27(val, path, rep);
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             rep !== null && rep.push(["unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path])
-                                                                                                                        }
-                                                                                                                        if (! res)
-                                                                                                                        {
                                                                                                                             // .'$any_platform'.'|'.30
                                                                                                                             res = json_model_29(val, path, rep);
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 rep !== null && rep.push(["unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path])
-                                                                                                                            }
-                                                                                                                            if (! res)
-                                                                                                                            {
                                                                                                                                 // .'$any_platform'.'|'.31
                                                                                                                                 res = json_model_45(val, path, rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     rep !== null && rep.push(["unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path])
-                                                                                                                                }
-                                                                                                                                if (! res)
-                                                                                                                                {
                                                                                                                                     // .'$any_platform'.'|'.32
                                                                                                                                     res = json_model_30(val, path, rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         rep !== null && rep.push(["unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path])
-                                                                                                                                    }
-                                                                                                                                    if (! res)
-                                                                                                                                    {
                                                                                                                                         // .'$any_platform'.'|'.33
                                                                                                                                         res = json_model_31(val, path, rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             rep !== null && rep.push(["unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path])
-                                                                                                                                        }
-                                                                                                                                        if (! res)
-                                                                                                                                        {
                                                                                                                                             // .'$any_platform'.'|'.34
                                                                                                                                             res = json_model_46(val, path, rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 rep !== null && rep.push(["unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path])
-                                                                                                                                            }
-                                                                                                                                            if (! res)
-                                                                                                                                            {
                                                                                                                                                 // .'$any_platform'.'|'.35
                                                                                                                                                 res = json_model_32(val, path, rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     rep !== null && rep.push(["unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path])
-                                                                                                                                                }
-                                                                                                                                                if (! res)
-                                                                                                                                                {
                                                                                                                                                     // .'$any_platform'.'|'.36
                                                                                                                                                     res = json_model_33(val, path, rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         rep !== null && rep.push(["unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path])
-                                                                                                                                                    }
-                                                                                                                                                    if (! res)
-                                                                                                                                                    {
                                                                                                                                                         // .'$any_platform'.'|'.37
                                                                                                                                                         res = json_model_34(val, path, rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             rep !== null && rep.push(["unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path])
-                                                                                                                                                        }
-                                                                                                                                                        if (! res)
-                                                                                                                                                        {
                                                                                                                                                             // .'$any_platform'.'|'.38
                                                                                                                                                             res = json_model_35(val, path, rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 rep !== null && rep.push(["unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path])
-                                                                                                                                                            }
-                                                                                                                                                            if (! res)
-                                                                                                                                                            {
                                                                                                                                                                 // .'$any_platform'.'|'.39
                                                                                                                                                                 res = json_model_36(val, path, rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     rep !== null && rep.push(["unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path])
-                                                                                                                                                                }
-                                                                                                                                                                if (! res)
-                                                                                                                                                                {
                                                                                                                                                                     // .'$any_platform'.'|'.40
                                                                                                                                                                     res = json_model_37(val, path, rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         rep !== null && rep.push(["unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path])
-                                                                                                                                                                    }
-                                                                                                                                                                    if (! res)
-                                                                                                                                                                    {
                                                                                                                                                                         // .'$any_platform'.'|'.41
                                                                                                                                                                         res = json_model_38(val, path, rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             rep !== null && rep.push(["unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path])
-                                                                                                                                                                        }
-                                                                                                                                                                        if (! res)
-                                                                                                                                                                        {
                                                                                                                                                                             // .'$any_platform'.'|'.42
                                                                                                                                                                             res = json_model_39(val, path, rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 rep !== null && rep.push(["unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path])
-                                                                                                                                                                            }
-                                                                                                                                                                            if (! res)
-                                                                                                                                                                            {
                                                                                                                                                                                 // .'$any_platform'.'|'.43
                                                                                                                                                                                 res = json_model_47(val, path, rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     rep !== null && rep.push(["unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path])
-                                                                                                                                                                                }
-                                                                                                                                                                                if (! res)
-                                                                                                                                                                                {
                                                                                                                                                                                     // .'$any_platform'.'|'.44
                                                                                                                                                                                     res = json_model_40(val, path, rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         rep !== null && rep.push(["unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path])
-                                                                                                                                                                                    }
-                                                                                                                                                                                    if (! res)
-                                                                                                                                                                                    {
                                                                                                                                                                                         // .'$any_platform'.'|'.45
                                                                                                                                                                                         res = json_model_48(val, path, rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             rep !== null && rep.push(["unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path])
-                                                                                                                                                                                        }
-                                                                                                                                                                                        if (! res)
-                                                                                                                                                                                        {
                                                                                                                                                                                             // .'$any_platform'.'|'.46
                                                                                                                                                                                             res = json_model_41(val, path, rep);
                                                                                                                                                                                             if (! res)
@@ -6045,10 +5907,6 @@ function json_model_50(val, path, rep)
             let arr_47_lpath = path ? path.concat([arr_47_idx]) : null;
             // .'$platforms'.0
             res = Object.prototype.toString.call(arr_47_item) === '[object Object]';
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected type [.'$platforms'.0.'|']", (path ? arr_47_lpath : null)])
-            }
             if (res)
             {
                 // .'$platforms'.0.'|'.0
@@ -6056,369 +5914,231 @@ function json_model_50(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.0]", (path ? arr_47_lpath : null)])
-                }
-                if (! res)
-                {
                     // .'$platforms'.0.'|'.1
                     res = _jm_obj_45(arr_47_item, (path ? arr_47_lpath : null), rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.1]", (path ? arr_47_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         // .'$platforms'.0.'|'.2
                         res = _jm_obj_44(arr_47_item, (path ? arr_47_lpath : null), rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.2]", (path ? arr_47_lpath : null)])
-                        }
-                        if (! res)
-                        {
                             // .'$platforms'.0.'|'.3
                             res = _jm_obj_43(arr_47_item, (path ? arr_47_lpath : null), rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.3]", (path ? arr_47_lpath : null)])
-                            }
-                            if (! res)
-                            {
                                 // .'$platforms'.0.'|'.4
                                 res = _jm_obj_42(arr_47_item, (path ? arr_47_lpath : null), rep);
                                 if (! res)
                                 {
                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.4]", (path ? arr_47_lpath : null)])
-                                }
-                                if (! res)
-                                {
                                     // .'$platforms'.0.'|'.5
                                     res = _jm_obj_41(arr_47_item, (path ? arr_47_lpath : null), rep);
                                     if (! res)
                                     {
                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.5]", (path ? arr_47_lpath : null)])
-                                    }
-                                    if (! res)
-                                    {
                                         // .'$platforms'.0.'|'.6
                                         res = _jm_obj_40(arr_47_item, (path ? arr_47_lpath : null), rep);
                                         if (! res)
                                         {
                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.6]", (path ? arr_47_lpath : null)])
-                                        }
-                                        if (! res)
-                                        {
                                             // .'$platforms'.0.'|'.7
                                             res = _jm_obj_39(arr_47_item, (path ? arr_47_lpath : null), rep);
                                             if (! res)
                                             {
                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.7]", (path ? arr_47_lpath : null)])
-                                            }
-                                            if (! res)
-                                            {
                                                 // .'$platforms'.0.'|'.8
                                                 res = _jm_obj_38(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                 if (! res)
                                                 {
                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.8]", (path ? arr_47_lpath : null)])
-                                                }
-                                                if (! res)
-                                                {
                                                     // .'$platforms'.0.'|'.9
                                                     res = _jm_obj_37(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                     if (! res)
                                                     {
                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.9]", (path ? arr_47_lpath : null)])
-                                                    }
-                                                    if (! res)
-                                                    {
                                                         // .'$platforms'.0.'|'.10
                                                         res = _jm_obj_36(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                         if (! res)
                                                         {
                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.10]", (path ? arr_47_lpath : null)])
-                                                        }
-                                                        if (! res)
-                                                        {
                                                             // .'$platforms'.0.'|'.11
                                                             res = _jm_obj_35(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                             if (! res)
                                                             {
                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.11]", (path ? arr_47_lpath : null)])
-                                                            }
-                                                            if (! res)
-                                                            {
                                                                 // .'$platforms'.0.'|'.12
                                                                 res = _jm_obj_34(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                 if (! res)
                                                                 {
                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.12]", (path ? arr_47_lpath : null)])
-                                                                }
-                                                                if (! res)
-                                                                {
                                                                     // .'$platforms'.0.'|'.13
                                                                     res = _jm_obj_33(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                     if (! res)
                                                                     {
                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.13]", (path ? arr_47_lpath : null)])
-                                                                    }
-                                                                    if (! res)
-                                                                    {
                                                                         // .'$platforms'.0.'|'.14
                                                                         res = _jm_obj_32(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                         if (! res)
                                                                         {
                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.14]", (path ? arr_47_lpath : null)])
-                                                                        }
-                                                                        if (! res)
-                                                                        {
                                                                             // .'$platforms'.0.'|'.15
                                                                             res = _jm_obj_31(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                             if (! res)
                                                                             {
                                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.15]", (path ? arr_47_lpath : null)])
-                                                                            }
-                                                                            if (! res)
-                                                                            {
                                                                                 // .'$platforms'.0.'|'.16
                                                                                 res = _jm_obj_30(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                 if (! res)
                                                                                 {
                                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.16]", (path ? arr_47_lpath : null)])
-                                                                                }
-                                                                                if (! res)
-                                                                                {
                                                                                     // .'$platforms'.0.'|'.17
                                                                                     res = _jm_obj_29(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                     if (! res)
                                                                                     {
                                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.17]", (path ? arr_47_lpath : null)])
-                                                                                    }
-                                                                                    if (! res)
-                                                                                    {
                                                                                         // .'$platforms'.0.'|'.18
                                                                                         res = _jm_obj_28(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                         if (! res)
                                                                                         {
                                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.18]", (path ? arr_47_lpath : null)])
-                                                                                        }
-                                                                                        if (! res)
-                                                                                        {
                                                                                             // .'$platforms'.0.'|'.19
                                                                                             res = _jm_obj_27(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                             if (! res)
                                                                                             {
                                                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.19]", (path ? arr_47_lpath : null)])
-                                                                                            }
-                                                                                            if (! res)
-                                                                                            {
                                                                                                 // .'$platforms'.0.'|'.20
                                                                                                 res = _jm_obj_26(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.20]", (path ? arr_47_lpath : null)])
-                                                                                                }
-                                                                                                if (! res)
-                                                                                                {
                                                                                                     // .'$platforms'.0.'|'.21
                                                                                                     res = _jm_obj_25(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.21]", (path ? arr_47_lpath : null)])
-                                                                                                    }
-                                                                                                    if (! res)
-                                                                                                    {
                                                                                                         // .'$platforms'.0.'|'.22
                                                                                                         res = _jm_obj_24(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.22]", (path ? arr_47_lpath : null)])
-                                                                                                        }
-                                                                                                        if (! res)
-                                                                                                        {
                                                                                                             // .'$platforms'.0.'|'.23
                                                                                                             res = _jm_obj_23(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.23]", (path ? arr_47_lpath : null)])
-                                                                                                            }
-                                                                                                            if (! res)
-                                                                                                            {
                                                                                                                 // .'$platforms'.0.'|'.24
                                                                                                                 res = _jm_obj_22(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.24]", (path ? arr_47_lpath : null)])
-                                                                                                                }
-                                                                                                                if (! res)
-                                                                                                                {
                                                                                                                     // .'$platforms'.0.'|'.25
                                                                                                                     res = _jm_obj_21(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.25]", (path ? arr_47_lpath : null)])
-                                                                                                                    }
-                                                                                                                    if (! res)
-                                                                                                                    {
                                                                                                                         // .'$platforms'.0.'|'.26
                                                                                                                         res = _jm_obj_20(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.26]", (path ? arr_47_lpath : null)])
-                                                                                                                        }
-                                                                                                                        if (! res)
-                                                                                                                        {
                                                                                                                             // .'$platforms'.0.'|'.27
                                                                                                                             res = _jm_obj_19(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.27]", (path ? arr_47_lpath : null)])
-                                                                                                                            }
-                                                                                                                            if (! res)
-                                                                                                                            {
                                                                                                                                 // .'$platforms'.0.'|'.28
                                                                                                                                 res = _jm_obj_18(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.28]", (path ? arr_47_lpath : null)])
-                                                                                                                                }
-                                                                                                                                if (! res)
-                                                                                                                                {
                                                                                                                                     // .'$platforms'.0.'|'.29
                                                                                                                                     res = _jm_obj_17(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.29]", (path ? arr_47_lpath : null)])
-                                                                                                                                    }
-                                                                                                                                    if (! res)
-                                                                                                                                    {
                                                                                                                                         // .'$platforms'.0.'|'.30
                                                                                                                                         res = _jm_obj_16(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.30]", (path ? arr_47_lpath : null)])
-                                                                                                                                        }
-                                                                                                                                        if (! res)
-                                                                                                                                        {
                                                                                                                                             // .'$platforms'.0.'|'.31
                                                                                                                                             res = _jm_obj_15(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.31]", (path ? arr_47_lpath : null)])
-                                                                                                                                            }
-                                                                                                                                            if (! res)
-                                                                                                                                            {
                                                                                                                                                 // .'$platforms'.0.'|'.32
                                                                                                                                                 res = _jm_obj_14(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.32]", (path ? arr_47_lpath : null)])
-                                                                                                                                                }
-                                                                                                                                                if (! res)
-                                                                                                                                                {
                                                                                                                                                     // .'$platforms'.0.'|'.33
                                                                                                                                                     res = _jm_obj_13(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.33]", (path ? arr_47_lpath : null)])
-                                                                                                                                                    }
-                                                                                                                                                    if (! res)
-                                                                                                                                                    {
                                                                                                                                                         // .'$platforms'.0.'|'.34
                                                                                                                                                         res = _jm_obj_12(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.34]", (path ? arr_47_lpath : null)])
-                                                                                                                                                        }
-                                                                                                                                                        if (! res)
-                                                                                                                                                        {
                                                                                                                                                             // .'$platforms'.0.'|'.35
                                                                                                                                                             res = _jm_obj_11(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.35]", (path ? arr_47_lpath : null)])
-                                                                                                                                                            }
-                                                                                                                                                            if (! res)
-                                                                                                                                                            {
                                                                                                                                                                 // .'$platforms'.0.'|'.36
                                                                                                                                                                 res = _jm_obj_10(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.36]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                }
-                                                                                                                                                                if (! res)
-                                                                                                                                                                {
                                                                                                                                                                     // .'$platforms'.0.'|'.37
                                                                                                                                                                     res = _jm_obj_9(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.37]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                    }
-                                                                                                                                                                    if (! res)
-                                                                                                                                                                    {
                                                                                                                                                                         // .'$platforms'.0.'|'.38
                                                                                                                                                                         res = _jm_obj_8(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.38]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                        }
-                                                                                                                                                                        if (! res)
-                                                                                                                                                                        {
                                                                                                                                                                             // .'$platforms'.0.'|'.39
                                                                                                                                                                             res = _jm_obj_7(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.39]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                            }
-                                                                                                                                                                            if (! res)
-                                                                                                                                                                            {
                                                                                                                                                                                 // .'$platforms'.0.'|'.40
                                                                                                                                                                                 res = _jm_obj_6(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.40]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                                }
-                                                                                                                                                                                if (! res)
-                                                                                                                                                                                {
                                                                                                                                                                                     // .'$platforms'.0.'|'.41
                                                                                                                                                                                     res = _jm_obj_5(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.41]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                                    }
-                                                                                                                                                                                    if (! res)
-                                                                                                                                                                                    {
                                                                                                                                                                                         // .'$platforms'.0.'|'.42
                                                                                                                                                                                         res = _jm_obj_4(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.42]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                                        }
-                                                                                                                                                                                        if (! res)
-                                                                                                                                                                                        {
                                                                                                                                                                                             // .'$platforms'.0.'|'.43
                                                                                                                                                                                             res = _jm_obj_3(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
                                                                                                                                                                                                 rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.43]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                                            }
-                                                                                                                                                                                            if (! res)
-                                                                                                                                                                                            {
                                                                                                                                                                                                 // .'$platforms'.0.'|'.44
                                                                                                                                                                                                 res = _jm_obj_2(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                                                 if (! res)
                                                                                                                                                                                                 {
                                                                                                                                                                                                     rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.44]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                                                }
-                                                                                                                                                                                                if (! res)
-                                                                                                                                                                                                {
                                                                                                                                                                                                     // .'$platforms'.0.'|'.45
                                                                                                                                                                                                     res = _jm_obj_1(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                                                     if (! res)
                                                                                                                                                                                                     {
                                                                                                                                                                                                         rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.45]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                                                    }
-                                                                                                                                                                                                    if (! res)
-                                                                                                                                                                                                    {
                                                                                                                                                                                                         // .'$platforms'.0.'|'.46
                                                                                                                                                                                                         res = _jm_obj_0(arr_47_item, (path ? arr_47_lpath : null), rep);
                                                                                                                                                                                                         if (! res)
@@ -6479,6 +6199,10 @@ function json_model_50(val, path, rep)
                 {
                     rep !== null && rep.push(["no model matched [.'$platforms'.0.'|']", (path ? arr_47_lpath : null)])
                 }
+            }
+            else
+            {
+                rep !== null && rep.push(["unexpected type [.'$platforms'.0.'|']", (path ? arr_47_lpath : null)])
             }
             if (! res)
             {
@@ -7552,17 +7276,11 @@ function json_model_56(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$complex_conditional'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$complex_conditional'.'|'.1
         res = (typeof val === 'string' || val instanceof String);
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$complex_conditional'.'|'.1]", path])
-        }
-        if (! res)
-        {
             // .'$complex_conditional'.'|'.2
             res = Array.isArray(val);
             if (res)
@@ -7701,9 +7419,6 @@ function json_model_57(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path ? lpath : null)])
-        }
-        if (! res)
-        {
             // .'$DependencyModelLoose'.tags.'|'.1
             res = Array.isArray(pval);
             if (res)
@@ -7879,18 +7594,10 @@ function json_model_58(val, path, rep)
     {
         // .'$DependencyModel'.'&'.0
         res = json_model_57(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path])
-        }
         if (res)
         {
             // .'$DependencyModel'.'&'.1
             res = Object.prototype.toString.call(val) === '[object Object]';
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected type [.'$DependencyModel'.'&'.1.'|']", path])
-            }
             if (res)
             {
                 // .'$DependencyModel'.'&'.1.'|'.0
@@ -7898,17 +7605,11 @@ function json_model_58(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path])
-                }
-                if (! res)
-                {
                     // .'$DependencyModel'.'&'.1.'|'.1
                     res = _jm_obj_51(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path])
-                    }
-                    if (! res)
-                    {
                         // .'$DependencyModel'.'&'.1.'|'.2
                         res = _jm_obj_50(val, path, rep);
                         if (! res)
@@ -7926,6 +7627,14 @@ function json_model_58(val, path, rep)
                     rep !== null && rep.push(["no model matched [.'$DependencyModel'.'&'.1.'|']", path])
                 }
             }
+            else
+            {
+                rep !== null && rep.push(["unexpected type [.'$DependencyModel'.'&'.1.'|']", path])
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path])
         }
     }
     if (res)
@@ -7995,9 +7704,6 @@ function json_model_59(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.1
                         res = json_model_58(arr_102_item, ((path ? lpath_52 : null) ? arr_102_lpath : null), rep);
                         if (! res)
@@ -8053,9 +7759,6 @@ function json_model_60(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$AnsibleMeta'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$AnsibleMeta'.'|'.1
         res = json_model_59(val, path, rep);
         if (! res)

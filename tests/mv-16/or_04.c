@@ -51,15 +51,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'|']", path);
-    }
-    if (! res)
-    {
         res = json_is_string(val);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);
-        }
-        if (res)
+        if (likely(res))
         {
             // .'|'.0
             // "/[0-9]/"
@@ -67,9 +60,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /[0-9]/ [.'|'.0]", path);
-            }
-            if (! res)
-            {
                 // .'|'.1
                 // "/[a-z]/"
                 res = _jm_re_0(json_string_value(val), path, rep);
@@ -86,6 +76,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "no model matched [.'|']", path);
             }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);
         }
     }
     return res;

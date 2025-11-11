@@ -62,26 +62,26 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # .0
         res = isinstance(val[0], str) and val[0] == "Susie"
-        if not res:
-            rep is None or rep.append(("unexpected _Susie [.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0 = (path + [ 1 ]) if path is not None else None
             # .1
             res = isinstance(val[1], str) and val[1] == "Susie"
-            if not res:
-                rep is None or rep.append(("unexpected _Susie [.1]", lpath_0 if path is not None else None))
             if res:
                 lpath_0 = (path + [ 2 ]) if path is not None else None
                 # .2
                 res = isinstance(val[2], str) and val[2] == "Susie"
-                if not res:
-                    rep is None or rep.append(("unexpected _Susie [.2]", lpath_0 if path is not None else None))
                 if res:
                     lpath_0 = (path + [ 3 ]) if path is not None else None
                     # .3
                     res = isinstance(val[3], str) and val[3] == "Susie"
                     if not res:
                         rep is None or rep.append(("unexpected _Susie [.3]", lpath_0 if path is not None else None))
+                else:
+                    rep is None or rep.append(("unexpected _Susie [.2]", lpath_0 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected _Susie [.1]", lpath_0 if path is not None else None))
+        else:
+            rep is None or rep.append(("unexpected _Susie [.0]", lpath_0 if path is not None else None))
     if not res:
         rep is None or rep.append(("not array or unexpected array [.]", path))
     return res

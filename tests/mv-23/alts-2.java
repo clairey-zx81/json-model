@@ -61,9 +61,6 @@ public class alts_2 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $r [.'$a'.''.'|'.0]", (path != null ? lpath_0 : null));
-            }
-            if (! res)
-            {
                 // .'$a'.''.'|'.1
                 res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
@@ -112,9 +109,6 @@ public class alts_2 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $a [.'$r'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$r'.'|'.1
             res = _jm_obj_1(val, path, rep);
             if (! res)

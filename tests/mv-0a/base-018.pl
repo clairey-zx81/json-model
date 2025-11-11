@@ -20,6 +20,8 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'@'
+    # accept any array
+    ;
     return jm_is_array($val) && jm_is_unique_array($val, undef, undef);
 }
 

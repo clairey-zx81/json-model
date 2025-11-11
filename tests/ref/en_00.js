@@ -20,9 +20,6 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'|'.1
         res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
         if (! res)

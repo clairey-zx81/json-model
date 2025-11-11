@@ -60,10 +60,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$color'.'|']", path))
-    if not res:
         res = isinstance(val, str)
-        if not res:
-            rep is None or rep.append(("unexpected type [.'$color'.'|']", path))
         if res:
             # .'$color'.'|'.0
             # "/^#[0-9a-fA-F]{6}$/"
@@ -73,6 +70,8 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             else:
                 rep is None or rep.append(("unexpected /^#[0-9a-fA-F]{6}$/ [.'$color'.'|'.0]", path))
                 rep is None or rep.append(("no model matched [.'$color'.'|']", path))
+        else:
+            rep is None or rep.append(("unexpected type [.'$color'.'|']", path))
     return res
 
 # check $colorArray (.'$colorArray')
@@ -88,13 +87,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $color [.'$colorArray'.'@'.0]", arr_0_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$colorArray'.'@']", path))
     if res:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$colorArray']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$colorArray'.'@']", path))
     return res
 
 # check $keybinding (.'$keybinding')
@@ -104,7 +103,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$keybinding'.'|'.0]", path))
-    if not res:
         # .'$keybinding'.'|'.1
         res = isinstance(val, str)
         if not res:
@@ -145,13 +143,13 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$neString'
     # .'$neString'.'@'
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$neString'.'@']", path))
     if res:
         sval_0: str = val
         res = sval_0 != ""
         if not res:
             rep is None or rep.append(("constraints failed [.'$neString']", path))
+    else:
+        rep is None or rep.append(("unexpected string [.'$neString'.'@']", path))
     return res
 
 # check $stringArray (.'$stringArray')
@@ -167,12 +165,12 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $neString [.'$stringArray'.'@'.0]", arr_1_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$stringArray'.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
         if not res:
             rep is None or rep.append(("constraints failed [.'$stringArray']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$stringArray'.'@']", path))
     return res
 
 # object .'$Prompts'.'|'.0.suggestions.'|'.1
@@ -267,8 +265,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may suggestions property
             # .'$Prompts'.'|'.0.suggestions
             res = isinstance(pval, dict)
-            if not res:
-                rep is None or rep.append(("unexpected type [.'$Prompts'.'|'.0.suggestions.'|']", lpath_0 if path is not None else None))
             if res:
                 if "preset" in pval:
                     # .'$Prompts'.'|'.0.suggestions.'|'.0
@@ -287,6 +283,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.'$Prompts'.'|'.0.suggestions.'|']", lpath_0 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected type [.'$Prompts'.'|'.0.suggestions.'|']", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$Prompts'.'|'.0.suggestions]", lpath_0 if path is not None else None))
                 return False
@@ -477,12 +475,12 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.'$Prompts'.'|'.2.options.'@'.0]", arr_2_lpath if (lpath if path is not None else None) is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", lpath if path is not None else None))
     if res:
         res = is_unique_array(pval, lpath if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("constraints failed [.'$Prompts'.'|'.2.options]", lpath if path is not None else None))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", lpath if path is not None else None))
     if not res:
         rep is None or rep.append(("unexpected value for mandatory prop <options> [.'$Prompts'.'|'.2]", lpath if path is not None else None))
         return False
@@ -768,12 +766,12 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected element [.customCommands.'@'.0]", arr_3_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.customCommands.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
         if not res:
             rep is None or rep.append(("constraints failed [.customCommands]", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.customCommands.'@']", path))
     return res
 
 # check json_model_1_map_disableStartupPopups (.disableStartupPopups)
@@ -1014,13 +1012,13 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
             # .git.paging.pager
             # .git.paging.pager.'@'
             res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.git.paging.pager.'@']", lpath_12 if path is not None else None))
             if res:
                 sval_1: str = pval
                 res = sval_1 != ""
                 if not res:
                     rep is None or rep.append(("constraints failed [.git.paging.pager]", lpath_12 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected string [.git.paging.pager.'@']", lpath_12 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.git.paging.pager]", lpath_12 if path is not None else None))
                 return False
@@ -1213,10 +1211,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_10
     if not res:
         rep is None or rep.append(("value not in enum [.gui.nerdFontsVersion.'|']", path))
-    if not res:
         res = isinstance(val, str)
-        if not res:
-            rep is None or rep.append(("unexpected type [.gui.nerdFontsVersion.'|']", path))
         if res:
             # .gui.nerdFontsVersion.'|'.0
             res = True
@@ -1225,6 +1220,8 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
             else:
                 rep is None or rep.append(("unexpected string [.gui.nerdFontsVersion.'|'.0]", path))
                 rep is None or rep.append(("no model matched [.gui.nerdFontsVersion.'|']", path))
+        else:
+            rep is None or rep.append(("unexpected type [.gui.nerdFontsVersion.'|']", path))
     return res
 
 # check _jm_f_19_map_scrollHeight (.gui.scrollHeight)
@@ -1304,13 +1301,13 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.sidePanelWidth
     # .gui.sidePanelWidth.'@'
     res: bool = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.gui.sidePanelWidth.'@']", path))
     if res:
         fval_0: float = val
         res = fval_0 <= 1.0
         if not res:
             rep is None or rep.append(("constraints failed [.gui.sidePanelWidth]", path))
+    else:
+        rep is None or rep.append(("not a 0.0 strict float [.gui.sidePanelWidth.'@']", path))
     return res
 
 # check _jm_f_19_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
@@ -1901,10 +1898,7 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
             res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_14
             if not res:
                 rep is None or rep.append(("value not in enum [.os.editPreset.'|']", lpath_28 if path is not None else None))
-            if not res:
                 res = isinstance(pval, str)
-                if not res:
-                    rep is None or rep.append(("unexpected type [.os.editPreset.'|']", lpath_28 if path is not None else None))
                 if res:
                     # .os.editPreset.'|'.0
                     res = True
@@ -1913,6 +1907,8 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
                     else:
                         rep is None or rep.append(("unexpected string [.os.editPreset.'|'.0]", lpath_28 if path is not None else None))
                         rep is None or rep.append(("no model matched [.os.editPreset.'|']", lpath_28 if path is not None else None))
+                else:
+                    rep is None or rep.append(("unexpected type [.os.editPreset.'|']", lpath_28 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.os.editPreset]", lpath_28 if path is not None else None))
                 return False

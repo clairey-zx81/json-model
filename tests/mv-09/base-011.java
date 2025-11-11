@@ -25,10 +25,6 @@ public class base_011 extends ModelChecker
         // .
         // .'@'
         boolean res = json.isInteger(val) && json.asLong(val) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.asLong(val);
@@ -37,6 +33,10 @@ public class base_011 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not a 1 strict int [.'@']", path);
         }
         return res;
     }

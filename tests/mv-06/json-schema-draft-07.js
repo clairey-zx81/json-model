@@ -46,10 +46,6 @@ function json_model_3(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$schemaArray'.'@']", path])
-    }
     if (res)
     {
         let ival_0 = val.length;
@@ -58,6 +54,10 @@ function json_model_3(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.'$schemaArray']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$schemaArray'.'@']", path])
     }
     return res;
 }
@@ -96,10 +96,6 @@ function json_model_5(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$arrayTypes'.'@']", path])
-    }
     if (res)
     {
         let ival_1 = val.length;
@@ -108,6 +104,10 @@ function json_model_5(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.'$arrayTypes']", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$arrayTypes'.'@']", path])
     }
     return res;
 }
@@ -223,9 +223,6 @@ function _jm_f_7(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.dependencies.''.'|'.0]", (path ? lpath_2 : null)])
-        }
-        if (! res)
-        {
             // .'$ObjectSchema'.dependencies.''.'|'.1
             res = Array.isArray(pval);
             if (res)
@@ -279,18 +276,19 @@ function _jm_f_9(val, path, rep)
     // .'$ObjectSchema'.enum
     // .'$ObjectSchema'.enum.'@'
     let res = Array.isArray(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.enum.'@']", path])
-    }
     if (res)
     {
+        // accept any array
         let ival_2 = val.length;
         res = runtime.jm_array_is_unique(val, path, rep) && ival_2 >= 1;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.'$ObjectSchema'.enum]", path])
         }
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.enum.'@']", path])
     }
     return res;
 }
@@ -352,9 +350,6 @@ function _jm_f_14(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$ObjectSchema'.items.'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
@@ -611,9 +606,6 @@ function _jm_f_30(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$ObjectSchema'.type.'|'.1
         res = json_model_5(val, path, rep);
         if (! res)
@@ -695,9 +687,6 @@ function json_model_7(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Schema'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$Schema'.'|'.1
         res = json_model_6(val, path, rep);
         if (! res)

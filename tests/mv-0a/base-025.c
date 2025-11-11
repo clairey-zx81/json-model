@@ -33,10 +33,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .
     // .'@'
     bool res = _jm_obj_0(val, path, rep);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'@']", path);
-    }
     if (likely(res))
     {
         int64_t ival_0 = json_object_size(val);
@@ -45,6 +41,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'@']", path);
     }
     return res;
 }

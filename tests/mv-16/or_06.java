@@ -30,10 +30,6 @@ public class or_06 extends ModelChecker
     {
         // .
         boolean res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
-        }
         if (res)
         {
             // .'|'.0
@@ -41,9 +37,6 @@ public class or_06 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Susie [.'|'.0]", path);
-            }
-            if (! res)
-            {
                 // .'|'.1
                 // "/^[a-z]+$/"
                 res = _jm_re_0(json.asString(val), path, rep);
@@ -60,6 +53,10 @@ public class or_06 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
         }
         return res;
     }

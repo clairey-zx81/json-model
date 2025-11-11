@@ -29,17 +29,14 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $li0 [.'$foo'.'|'.0]", path))
-    if not res:
         # .'$foo'.'|'.1
         res = json_model_5(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $ls0 [.'$foo'.'|'.1]", path))
-        if not res:
             # .'$foo'.'|'.2
             res = json_model_6(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $lb0 [.'$foo'.'|'.2]", path))
-            if not res:
                 # .'$foo'.'|'.3
                 res = json_model_7(val, path, rep)
                 if not res:

@@ -35,21 +35,17 @@ check_model_map: PropMap
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res: bool = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'|']", path))
     if res:
         # .'|'.0
         # "/[0-9]/"
         res = _jm_re_2(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected /[0-9]/ [.'|'.0]", path))
-        if not res:
             # .'|'.1
             # "/[a-z]/"
             res = _jm_re_1(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected /[a-z]/ [.'|'.1]", path))
-            if not res:
                 # .'|'.2
                 # "/[A-Z]/"
                 res = _jm_re_0(val, path, rep)
@@ -59,6 +55,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'|']", path))
+    else:
+        rep is None or rep.append(("unexpected type [.'|']", path))
     return res
 
 

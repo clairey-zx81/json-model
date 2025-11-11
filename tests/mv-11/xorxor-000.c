@@ -24,25 +24,16 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not null [.'$Xx'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$Xx'.'|'.1
         res = json_is_boolean(val);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "not a bool [.'$Xx'.'|'.1]", path);
-        }
-        if (! res)
-        {
             // .'$Xx'.'|'.2
             res = json_is_integer(val) && json_integer_value(val) >= 1;
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$Xx'.'|'.2]", path);
-            }
-            if (! res)
-            {
                 // .'$Xx'.'|'.3
                 res = json_is_real(val) && json_real_value(val) > 0.0;
                 if (unlikely(! res))
@@ -72,9 +63,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'|'.1
         res = json_is_array(val);
         if (likely(res))

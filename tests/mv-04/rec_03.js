@@ -34,9 +34,6 @@ function json_model_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $root [.foo.'|'.0]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 // .foo.'|'.1
                 res = Array.isArray(pval);
                 if (res)

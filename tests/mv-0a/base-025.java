@@ -37,10 +37,6 @@ public class base_025 extends ModelChecker
         // .
         // .'@'
         boolean res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'@']", path);
-        }
         if (res)
         {
             long ival_0 = json.objectSize(val);
@@ -49,6 +45,10 @@ public class base_025 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected element [.'@']", path);
         }
         return res;
     }

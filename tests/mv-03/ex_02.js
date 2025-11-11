@@ -69,28 +69,16 @@ function json_model_1(val, path, rep)
         let lpath_0 = path ? path.concat([0]) : null;
         // .0
         res = ((typeof val[0] === 'string' || val[0] instanceof String)) && val[0] == "Susie";
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected _Susie [.0]", (path ? lpath_0 : null)])
-        }
         if (res)
         {
             lpath_0 = path ? path.concat([1]) : null;
             // .1
             res = ((typeof val[1] === 'string' || val[1] instanceof String)) && val[1] == "Susie";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _Susie [.1]", (path ? lpath_0 : null)])
-            }
             if (res)
             {
                 lpath_0 = path ? path.concat([2]) : null;
                 // .2
                 res = ((typeof val[2] === 'string' || val[2] instanceof String)) && val[2] == "Susie";
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected _Susie [.2]", (path ? lpath_0 : null)])
-                }
                 if (res)
                 {
                     lpath_0 = path ? path.concat([3]) : null;
@@ -101,7 +89,19 @@ function json_model_1(val, path, rep)
                         rep !== null && rep.push(["unexpected _Susie [.3]", (path ? lpath_0 : null)])
                     }
                 }
+                else
+                {
+                    rep !== null && rep.push(["unexpected _Susie [.2]", (path ? lpath_0 : null)])
+                }
             }
+            else
+            {
+                rep !== null && rep.push(["unexpected _Susie [.1]", (path ? lpath_0 : null)])
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected _Susie [.0]", (path ? lpath_0 : null)])
         }
     }
     if (! res)

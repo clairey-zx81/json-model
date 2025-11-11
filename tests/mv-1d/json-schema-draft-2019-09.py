@@ -328,13 +328,13 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $simpleTypes [.'$simpleTypesArray'.'@'.0]", arr_0_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$simpleTypesArray'.'@']", path))
     if res:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$simpleTypesArray']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$simpleTypesArray'.'@']", path))
     return res
 
 # check $stringArray (.'$stringArray')
@@ -350,12 +350,12 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$stringArray'.'@'.0]", arr_1_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$stringArray'.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
         if not res:
             rep is None or rep.append(("constraints failed [.'$stringArray']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$stringArray'.'@']", path))
     return res
 
 # check $nonNegativeInteger (.'$nonNegativeInteger')
@@ -453,7 +453,6 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $simpleTypes [.'$validation'.type.'|'.0]", path))
-    if not res:
         # .'$validation'.type.'|'.1
         res = json_model_9(val, path, rep)
         if not res:
@@ -505,13 +504,13 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$schemaArray'.'@'.0]", arr_2_lpath if path is not None else None))
                 break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$schemaArray'.'@']", path))
     if res:
         ival_1: int = len(val)
         res = ival_1 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$schemaArray']", path))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'$schemaArray'.'@']", path))
     return res
 
 # check json_model_14_map_dependentSchemas (.'$applicator'.dependentSchemas)
@@ -538,7 +537,6 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_16(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$applicator'.items.'|'.0]", path))
-    if not res:
         # .'$applicator'.items.'|'.1
         res = json_model_13(val, path, rep)
         if not res:
@@ -796,7 +794,6 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_16(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path))
-    if not res:
         # .'$ObjectSchema'.items.'|'.1
         res = json_model_13(val, path, rep)
         if not res:
@@ -900,7 +897,6 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path))
-    if not res:
         # .'$ObjectSchema'.type.'|'.1
         res = json_model_9(val, path, rep)
         if not res:
@@ -954,7 +950,6 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$Schema'.'|'.0]", path))
-    if not res:
         # .'$Schema'.'|'.1
         res = json_model_15(val, path, rep)
         if not res:

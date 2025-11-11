@@ -148,25 +148,16 @@ public class obj_02 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $li0 [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $ls0 [.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'|'.2
                 res = json_model_4(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $lb0 [.'|'.2]", path);
-                }
-                if (! res)
-                {
                     // .'|'.3
                     res = json_model_5(val, path, rep);
                     if (! res)

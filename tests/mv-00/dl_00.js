@@ -44,9 +44,6 @@ function json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$rec'.'|'.0]", path])
-    }
-    if (! res)
-    {
         // .'$rec'.'|'.1
         res = _jm_obj_0(val, path, rep);
         if (! res)

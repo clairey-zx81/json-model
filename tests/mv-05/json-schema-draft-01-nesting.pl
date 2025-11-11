@@ -123,6 +123,8 @@ sub _jm_f_6($$$)
     my $res = jm_is_array($val);
     if ($res)
     {
+        # accept any array
+        ;
         my $ival_0 = scalar @$val;
         $res = $ival_0 >= 1;
     }

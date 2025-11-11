@@ -51,9 +51,6 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a bool [.'$rec'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'$rec'.'|'.1
         res = _jm_obj_0(val, path, rep);
         if (unlikely(! res))

@@ -28,25 +28,16 @@ public class xorxor_000 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not null [.'$Xx'.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'$Xx'.'|'.1
             res = json.isBoolean(val);
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a bool [.'$Xx'.'|'.1]", path);
-            }
-            if (! res)
-            {
                 // .'$Xx'.'|'.2
                 res = json.isInteger(val) && json.asLong(val) >= 1;
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$Xx'.'|'.2]", path);
-                }
-                if (! res)
-                {
                     // .'$Xx'.'|'.3
                     res = json.isDouble(val) && json.asDouble(val) > 0.0;
                     if (! res)
@@ -76,9 +67,6 @@ public class xorxor_000 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Xx [.'|'.0]", path);
-        }
-        if (! res)
-        {
             // .'|'.1
             res = json.isArray(val);
             if (res)

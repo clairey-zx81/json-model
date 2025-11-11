@@ -25,9 +25,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'@'.'|'.0]", path);
-    }
-    if (! res)
-    {
         // .'@'.'|'.1
         res = json_is_string(val);
         if (unlikely(! res))
@@ -38,18 +35,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'@'.'|']", path);
-    }
-    if (likely(res))
-    {
         res = jm_check_constraint(val, op_ge, &(jm_constant_t) { cst_is_integer, { .i = 10 } }, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'@'.'|']", path);
     }
     return res;
 }

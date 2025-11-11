@@ -31,7 +31,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex05a [.'$ex5'.'|'.0]", path))
-    if not res:
         # .'$ex5'.'|'.1
         res = json_model_6(val, path, rep)
         if not res:
@@ -59,7 +58,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex05a [.'$__external_0'.'|'.0]", path))
-    if not res:
         # .'$__external_0'.'|'.1
         res = json_model_9(val, path, rep)
         if not res:
@@ -78,20 +76,20 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # .0
         res = json_model_5(val[0], lpath_0 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $ex5#Ex05a [.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0 = (path + [ 1 ]) if path is not None else None
             # .1
             res = json_model_9(val[1], lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $__external_0#Ex05b [.1]", lpath_0 if path is not None else None))
             if res:
                 lpath_0 = (path + [ 2 ]) if path is not None else None
                 # .2
                 res = json_model_3(val[2], lpath_0 if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $Ex07 [.2]", lpath_0 if path is not None else None))
+            else:
+                rep is None or rep.append(("unexpected $__external_0#Ex05b [.1]", lpath_0 if path is not None else None))
+        else:
+            rep is None or rep.append(("unexpected $ex5#Ex05a [.0]", lpath_0 if path is not None else None))
     if not res:
         rep is None or rep.append(("not array or unexpected array [.]", path))
     return res

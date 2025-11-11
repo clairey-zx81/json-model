@@ -167,22 +167,18 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = val is None
     if not res:
         rep is None or rep.append(("not null [.'$atomic'.'|'.0]", path))
-    if not res:
         # .'$atomic'.'|'.1
         res = isinstance(val, bool)
         if not res:
             rep is None or rep.append(("not a bool [.'$atomic'.'|'.1]", path))
-        if not res:
             # .'$atomic'.'|'.2
             res = isinstance(val, int) and not isinstance(val, bool)
             if not res:
                 rep is None or rep.append(("not a -1 strict int [.'$atomic'.'|'.2]", path))
-            if not res:
                 # .'$atomic'.'|'.3
                 res = isinstance(val, float)
                 if not res:
                     rep is None or rep.append(("not a -1.0 strict float [.'$atomic'.'|'.3]", path))
-                if not res:
                     # .'$atomic'.'|'.4
                     res = isinstance(val, str)
                     if not res:
@@ -614,7 +610,6 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$type-or-ref'.'|'.0]", path))
-    if not res:
         # .'$type-or-ref'.'|'.1
         res = json_model_3(val, path, rep)
         if not res:

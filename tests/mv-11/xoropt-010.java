@@ -152,10 +152,6 @@ public class xoropt_010 extends ModelChecker
         // ^ to |
         // .
         boolean res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
-        }
         if (res)
         {
             // .'|'.0
@@ -163,9 +159,6 @@ public class xoropt_010 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'|'.0]", path);
-            }
-            if (! res)
-            {
                 // .'|'.1
                 res = _jm_obj_0(val, path, rep);
                 if (! res)
@@ -181,6 +174,10 @@ public class xoropt_010 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("no model matched [.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
         }
         return res;
     }
