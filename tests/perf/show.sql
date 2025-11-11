@@ -20,7 +20,7 @@ FROM ShowPerfSummary ORDER BY ordre;
 .print 3 is jsonp/johnzon), the lower the better, **1.0** is best.
 .print
 .print RLRRCRRRRRRR
-.width -2 16 -5 -7 5 -6 -6 -6 -6 -6 -6 -6
+.width -2 16 -5 -7 17 -6 -6 -6 -6 -6 -6 -6
 SELECT * FROM ShowPerfPerCase ORDER BY 1;
 
 .print
