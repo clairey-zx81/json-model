@@ -10,159 +10,18 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static INLINE bool _jm_cst_0_str_test(const char *);
+static jm_constant_t _jm_cst_0[128];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-static INLINE bool _jm_cst_0_str_test(const char *s)
-{
-    uint32_t hash = (*((uint32_t *) (s))) & 0xffffff;
-    return
-           (hash <= 0x3737) ? (
-        (hash <= 0x3337) ? (
-           jm_str_eq_3(s, 0x00003030)  // "00"
-        || jm_str_eq_3(s, 0x00003130)  // "01"
-        || jm_str_eq_3(s, 0x00003230)  // "02"
-        || jm_str_eq_3(s, 0x00003330)  // "03"
-        || jm_str_eq_3(s, 0x00003031)  // "10"
-        || jm_str_eq_3(s, 0x00003131)  // "11"
-        || jm_str_eq_3(s, 0x00003231)  // "12"
-        || jm_str_eq_3(s, 0x00003331)  // "13"
-        || jm_str_eq_3(s, 0x00003032)  // "20"
-        || jm_str_eq_3(s, 0x00003132)  // "21"
-        || jm_str_eq_3(s, 0x00003232)  // "22"
-        || jm_str_eq_3(s, 0x00003332)  // "23"
-        || jm_str_eq_3(s, 0x00003033)  // "30"
-        || jm_str_eq_3(s, 0x00003133)  // "31"
-        || jm_str_eq_3(s, 0x00003233)  // "32"
-        || jm_str_eq_3(s, 0x00003333)  // "33"
-        || jm_str_eq_3(s, 0x00003034)  // "40"
-        || jm_str_eq_3(s, 0x00003134)  // "41"
-        || jm_str_eq_3(s, 0x00003234)  // "42"
-        || jm_str_eq_3(s, 0x00003334)  // "43"
-        || jm_str_eq_3(s, 0x00003035)  // "50"
-        || jm_str_eq_3(s, 0x00003135)  // "51"
-        || jm_str_eq_3(s, 0x00003235)  // "52"
-        || jm_str_eq_3(s, 0x00003335)  // "53"
-        || jm_str_eq_3(s, 0x00003036)  // "60"
-        || jm_str_eq_3(s, 0x00003136)  // "61"
-        || jm_str_eq_3(s, 0x00003236)  // "62"
-        || jm_str_eq_3(s, 0x00003336)  // "63"
-        || jm_str_eq_3(s, 0x00003037)  // "70"
-        || jm_str_eq_3(s, 0x00003137)  // "71"
-        || jm_str_eq_3(s, 0x00003237)  // "72"
-        || jm_str_eq_3(s, 0x00003337)  // "73"
-        ) : (
-           jm_str_eq_3(s, 0x00003430)  // "04"
-        || jm_str_eq_3(s, 0x00003530)  // "05"
-        || jm_str_eq_3(s, 0x00003630)  // "06"
-        || jm_str_eq_3(s, 0x00003730)  // "07"
-        || jm_str_eq_3(s, 0x00003431)  // "14"
-        || jm_str_eq_3(s, 0x00003531)  // "15"
-        || jm_str_eq_3(s, 0x00003631)  // "16"
-        || jm_str_eq_3(s, 0x00003731)  // "17"
-        || jm_str_eq_3(s, 0x00003432)  // "24"
-        || jm_str_eq_3(s, 0x00003532)  // "25"
-        || jm_str_eq_3(s, 0x00003632)  // "26"
-        || jm_str_eq_3(s, 0x00003732)  // "27"
-        || jm_str_eq_3(s, 0x00003433)  // "34"
-        || jm_str_eq_3(s, 0x00003533)  // "35"
-        || jm_str_eq_3(s, 0x00003633)  // "36"
-        || jm_str_eq_3(s, 0x00003733)  // "37"
-        || jm_str_eq_3(s, 0x00003434)  // "44"
-        || jm_str_eq_3(s, 0x00003534)  // "45"
-        || jm_str_eq_3(s, 0x00003634)  // "46"
-        || jm_str_eq_3(s, 0x00003734)  // "47"
-        || jm_str_eq_3(s, 0x00003435)  // "54"
-        || jm_str_eq_3(s, 0x00003535)  // "55"
-        || jm_str_eq_3(s, 0x00003635)  // "56"
-        || jm_str_eq_3(s, 0x00003735)  // "57"
-        || jm_str_eq_3(s, 0x00003436)  // "64"
-        || jm_str_eq_3(s, 0x00003536)  // "65"
-        || jm_str_eq_3(s, 0x00003636)  // "66"
-        || jm_str_eq_3(s, 0x00003736)  // "67"
-        || jm_str_eq_3(s, 0x00003437)  // "74"
-        || jm_str_eq_3(s, 0x00003537)  // "75"
-        || jm_str_eq_3(s, 0x00003637)  // "76"
-        || jm_str_eq_3(s, 0x00003737)  // "77"
-        )) : (
-        (hash <= 0x6237) ? (
-           jm_str_eq_3(s, 0x00003830)  // "08"
-        || jm_str_eq_3(s, 0x00003930)  // "09"
-        || jm_str_eq_3(s, 0x00006130)  // "0a"
-        || jm_str_eq_3(s, 0x00006230)  // "0b"
-        || jm_str_eq_3(s, 0x00003831)  // "18"
-        || jm_str_eq_3(s, 0x00003931)  // "19"
-        || jm_str_eq_3(s, 0x00006131)  // "1a"
-        || jm_str_eq_3(s, 0x00006231)  // "1b"
-        || jm_str_eq_3(s, 0x00003832)  // "28"
-        || jm_str_eq_3(s, 0x00003932)  // "29"
-        || jm_str_eq_3(s, 0x00006132)  // "2a"
-        || jm_str_eq_3(s, 0x00006232)  // "2b"
-        || jm_str_eq_3(s, 0x00003833)  // "38"
-        || jm_str_eq_3(s, 0x00003933)  // "39"
-        || jm_str_eq_3(s, 0x00006133)  // "3a"
-        || jm_str_eq_3(s, 0x00006233)  // "3b"
-        || jm_str_eq_3(s, 0x00003834)  // "48"
-        || jm_str_eq_3(s, 0x00003934)  // "49"
-        || jm_str_eq_3(s, 0x00006134)  // "4a"
-        || jm_str_eq_3(s, 0x00006234)  // "4b"
-        || jm_str_eq_3(s, 0x00003835)  // "58"
-        || jm_str_eq_3(s, 0x00003935)  // "59"
-        || jm_str_eq_3(s, 0x00006135)  // "5a"
-        || jm_str_eq_3(s, 0x00006235)  // "5b"
-        || jm_str_eq_3(s, 0x00003836)  // "68"
-        || jm_str_eq_3(s, 0x00003936)  // "69"
-        || jm_str_eq_3(s, 0x00006136)  // "6a"
-        || jm_str_eq_3(s, 0x00006236)  // "6b"
-        || jm_str_eq_3(s, 0x00003837)  // "78"
-        || jm_str_eq_3(s, 0x00003937)  // "79"
-        || jm_str_eq_3(s, 0x00006137)  // "7a"
-        || jm_str_eq_3(s, 0x00006237)  // "7b"
-        ) : (
-           jm_str_eq_3(s, 0x00006330)  // "0c"
-        || jm_str_eq_3(s, 0x00006430)  // "0d"
-        || jm_str_eq_3(s, 0x00006530)  // "0e"
-        || jm_str_eq_3(s, 0x00006630)  // "0f"
-        || jm_str_eq_3(s, 0x00006331)  // "1c"
-        || jm_str_eq_3(s, 0x00006431)  // "1d"
-        || jm_str_eq_3(s, 0x00006531)  // "1e"
-        || jm_str_eq_3(s, 0x00006631)  // "1f"
-        || jm_str_eq_3(s, 0x00006332)  // "2c"
-        || jm_str_eq_3(s, 0x00006432)  // "2d"
-        || jm_str_eq_3(s, 0x00006532)  // "2e"
-        || jm_str_eq_3(s, 0x00006632)  // "2f"
-        || jm_str_eq_3(s, 0x00006333)  // "3c"
-        || jm_str_eq_3(s, 0x00006433)  // "3d"
-        || jm_str_eq_3(s, 0x00006533)  // "3e"
-        || jm_str_eq_3(s, 0x00006633)  // "3f"
-        || jm_str_eq_3(s, 0x00006334)  // "4c"
-        || jm_str_eq_3(s, 0x00006434)  // "4d"
-        || jm_str_eq_3(s, 0x00006534)  // "4e"
-        || jm_str_eq_3(s, 0x00006634)  // "4f"
-        || jm_str_eq_3(s, 0x00006335)  // "5c"
-        || jm_str_eq_3(s, 0x00006435)  // "5d"
-        || jm_str_eq_3(s, 0x00006535)  // "5e"
-        || jm_str_eq_3(s, 0x00006635)  // "5f"
-        || jm_str_eq_3(s, 0x00006336)  // "6c"
-        || jm_str_eq_3(s, 0x00006436)  // "6d"
-        || jm_str_eq_3(s, 0x00006536)  // "6e"
-        || jm_str_eq_3(s, 0x00006636)  // "6f"
-        || jm_str_eq_3(s, 0x00006337)  // "7c"
-        || jm_str_eq_3(s, 0x00006437)  // "7d"
-        || jm_str_eq_3(s, 0x00006537)  // "7e"
-        || jm_str_eq_3(s, 0x00006637)  // "7f"
-        ))
-    ;
-}
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // 256 string constants to partition…
     // .
-    return json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
+    return json_is_string(val) && jm_search_cst(&(jm_constant_t) { strlen(json_string_value(val)) + 1, { .s = json_string_value(val) } }, _jm_cst_0, 128);
 }
 
 jm_check_fun_t check_model_map(const char *pname)
@@ -178,6 +37,136 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
+        // initialize sorted set _jm_cst_0
+        _jm_cst_0[0] = (jm_constant_t) { 3, { .s = "00" } };
+        _jm_cst_0[1] = (jm_constant_t) { 3, { .s = "01" } };
+        _jm_cst_0[2] = (jm_constant_t) { 3, { .s = "02" } };
+        _jm_cst_0[3] = (jm_constant_t) { 3, { .s = "03" } };
+        _jm_cst_0[4] = (jm_constant_t) { 3, { .s = "04" } };
+        _jm_cst_0[5] = (jm_constant_t) { 3, { .s = "05" } };
+        _jm_cst_0[6] = (jm_constant_t) { 3, { .s = "06" } };
+        _jm_cst_0[7] = (jm_constant_t) { 3, { .s = "07" } };
+        _jm_cst_0[8] = (jm_constant_t) { 3, { .s = "08" } };
+        _jm_cst_0[9] = (jm_constant_t) { 3, { .s = "09" } };
+        _jm_cst_0[10] = (jm_constant_t) { 3, { .s = "0a" } };
+        _jm_cst_0[11] = (jm_constant_t) { 3, { .s = "0b" } };
+        _jm_cst_0[12] = (jm_constant_t) { 3, { .s = "0c" } };
+        _jm_cst_0[13] = (jm_constant_t) { 3, { .s = "0d" } };
+        _jm_cst_0[14] = (jm_constant_t) { 3, { .s = "0e" } };
+        _jm_cst_0[15] = (jm_constant_t) { 3, { .s = "0f" } };
+        _jm_cst_0[16] = (jm_constant_t) { 3, { .s = "10" } };
+        _jm_cst_0[17] = (jm_constant_t) { 3, { .s = "11" } };
+        _jm_cst_0[18] = (jm_constant_t) { 3, { .s = "12" } };
+        _jm_cst_0[19] = (jm_constant_t) { 3, { .s = "13" } };
+        _jm_cst_0[20] = (jm_constant_t) { 3, { .s = "14" } };
+        _jm_cst_0[21] = (jm_constant_t) { 3, { .s = "15" } };
+        _jm_cst_0[22] = (jm_constant_t) { 3, { .s = "16" } };
+        _jm_cst_0[23] = (jm_constant_t) { 3, { .s = "17" } };
+        _jm_cst_0[24] = (jm_constant_t) { 3, { .s = "18" } };
+        _jm_cst_0[25] = (jm_constant_t) { 3, { .s = "19" } };
+        _jm_cst_0[26] = (jm_constant_t) { 3, { .s = "1a" } };
+        _jm_cst_0[27] = (jm_constant_t) { 3, { .s = "1b" } };
+        _jm_cst_0[28] = (jm_constant_t) { 3, { .s = "1c" } };
+        _jm_cst_0[29] = (jm_constant_t) { 3, { .s = "1d" } };
+        _jm_cst_0[30] = (jm_constant_t) { 3, { .s = "1e" } };
+        _jm_cst_0[31] = (jm_constant_t) { 3, { .s = "1f" } };
+        _jm_cst_0[32] = (jm_constant_t) { 3, { .s = "20" } };
+        _jm_cst_0[33] = (jm_constant_t) { 3, { .s = "21" } };
+        _jm_cst_0[34] = (jm_constant_t) { 3, { .s = "22" } };
+        _jm_cst_0[35] = (jm_constant_t) { 3, { .s = "23" } };
+        _jm_cst_0[36] = (jm_constant_t) { 3, { .s = "24" } };
+        _jm_cst_0[37] = (jm_constant_t) { 3, { .s = "25" } };
+        _jm_cst_0[38] = (jm_constant_t) { 3, { .s = "26" } };
+        _jm_cst_0[39] = (jm_constant_t) { 3, { .s = "27" } };
+        _jm_cst_0[40] = (jm_constant_t) { 3, { .s = "28" } };
+        _jm_cst_0[41] = (jm_constant_t) { 3, { .s = "29" } };
+        _jm_cst_0[42] = (jm_constant_t) { 3, { .s = "2a" } };
+        _jm_cst_0[43] = (jm_constant_t) { 3, { .s = "2b" } };
+        _jm_cst_0[44] = (jm_constant_t) { 3, { .s = "2c" } };
+        _jm_cst_0[45] = (jm_constant_t) { 3, { .s = "2d" } };
+        _jm_cst_0[46] = (jm_constant_t) { 3, { .s = "2e" } };
+        _jm_cst_0[47] = (jm_constant_t) { 3, { .s = "2f" } };
+        _jm_cst_0[48] = (jm_constant_t) { 3, { .s = "30" } };
+        _jm_cst_0[49] = (jm_constant_t) { 3, { .s = "31" } };
+        _jm_cst_0[50] = (jm_constant_t) { 3, { .s = "32" } };
+        _jm_cst_0[51] = (jm_constant_t) { 3, { .s = "33" } };
+        _jm_cst_0[52] = (jm_constant_t) { 3, { .s = "34" } };
+        _jm_cst_0[53] = (jm_constant_t) { 3, { .s = "35" } };
+        _jm_cst_0[54] = (jm_constant_t) { 3, { .s = "36" } };
+        _jm_cst_0[55] = (jm_constant_t) { 3, { .s = "37" } };
+        _jm_cst_0[56] = (jm_constant_t) { 3, { .s = "38" } };
+        _jm_cst_0[57] = (jm_constant_t) { 3, { .s = "39" } };
+        _jm_cst_0[58] = (jm_constant_t) { 3, { .s = "3a" } };
+        _jm_cst_0[59] = (jm_constant_t) { 3, { .s = "3b" } };
+        _jm_cst_0[60] = (jm_constant_t) { 3, { .s = "3c" } };
+        _jm_cst_0[61] = (jm_constant_t) { 3, { .s = "3d" } };
+        _jm_cst_0[62] = (jm_constant_t) { 3, { .s = "3e" } };
+        _jm_cst_0[63] = (jm_constant_t) { 3, { .s = "3f" } };
+        _jm_cst_0[64] = (jm_constant_t) { 3, { .s = "40" } };
+        _jm_cst_0[65] = (jm_constant_t) { 3, { .s = "41" } };
+        _jm_cst_0[66] = (jm_constant_t) { 3, { .s = "42" } };
+        _jm_cst_0[67] = (jm_constant_t) { 3, { .s = "43" } };
+        _jm_cst_0[68] = (jm_constant_t) { 3, { .s = "44" } };
+        _jm_cst_0[69] = (jm_constant_t) { 3, { .s = "45" } };
+        _jm_cst_0[70] = (jm_constant_t) { 3, { .s = "46" } };
+        _jm_cst_0[71] = (jm_constant_t) { 3, { .s = "47" } };
+        _jm_cst_0[72] = (jm_constant_t) { 3, { .s = "48" } };
+        _jm_cst_0[73] = (jm_constant_t) { 3, { .s = "49" } };
+        _jm_cst_0[74] = (jm_constant_t) { 3, { .s = "4a" } };
+        _jm_cst_0[75] = (jm_constant_t) { 3, { .s = "4b" } };
+        _jm_cst_0[76] = (jm_constant_t) { 3, { .s = "4c" } };
+        _jm_cst_0[77] = (jm_constant_t) { 3, { .s = "4d" } };
+        _jm_cst_0[78] = (jm_constant_t) { 3, { .s = "4e" } };
+        _jm_cst_0[79] = (jm_constant_t) { 3, { .s = "4f" } };
+        _jm_cst_0[80] = (jm_constant_t) { 3, { .s = "50" } };
+        _jm_cst_0[81] = (jm_constant_t) { 3, { .s = "51" } };
+        _jm_cst_0[82] = (jm_constant_t) { 3, { .s = "52" } };
+        _jm_cst_0[83] = (jm_constant_t) { 3, { .s = "53" } };
+        _jm_cst_0[84] = (jm_constant_t) { 3, { .s = "54" } };
+        _jm_cst_0[85] = (jm_constant_t) { 3, { .s = "55" } };
+        _jm_cst_0[86] = (jm_constant_t) { 3, { .s = "56" } };
+        _jm_cst_0[87] = (jm_constant_t) { 3, { .s = "57" } };
+        _jm_cst_0[88] = (jm_constant_t) { 3, { .s = "58" } };
+        _jm_cst_0[89] = (jm_constant_t) { 3, { .s = "59" } };
+        _jm_cst_0[90] = (jm_constant_t) { 3, { .s = "5a" } };
+        _jm_cst_0[91] = (jm_constant_t) { 3, { .s = "5b" } };
+        _jm_cst_0[92] = (jm_constant_t) { 3, { .s = "5c" } };
+        _jm_cst_0[93] = (jm_constant_t) { 3, { .s = "5d" } };
+        _jm_cst_0[94] = (jm_constant_t) { 3, { .s = "5e" } };
+        _jm_cst_0[95] = (jm_constant_t) { 3, { .s = "5f" } };
+        _jm_cst_0[96] = (jm_constant_t) { 3, { .s = "60" } };
+        _jm_cst_0[97] = (jm_constant_t) { 3, { .s = "61" } };
+        _jm_cst_0[98] = (jm_constant_t) { 3, { .s = "62" } };
+        _jm_cst_0[99] = (jm_constant_t) { 3, { .s = "63" } };
+        _jm_cst_0[100] = (jm_constant_t) { 3, { .s = "64" } };
+        _jm_cst_0[101] = (jm_constant_t) { 3, { .s = "65" } };
+        _jm_cst_0[102] = (jm_constant_t) { 3, { .s = "66" } };
+        _jm_cst_0[103] = (jm_constant_t) { 3, { .s = "67" } };
+        _jm_cst_0[104] = (jm_constant_t) { 3, { .s = "68" } };
+        _jm_cst_0[105] = (jm_constant_t) { 3, { .s = "69" } };
+        _jm_cst_0[106] = (jm_constant_t) { 3, { .s = "6a" } };
+        _jm_cst_0[107] = (jm_constant_t) { 3, { .s = "6b" } };
+        _jm_cst_0[108] = (jm_constant_t) { 3, { .s = "6c" } };
+        _jm_cst_0[109] = (jm_constant_t) { 3, { .s = "6d" } };
+        _jm_cst_0[110] = (jm_constant_t) { 3, { .s = "6e" } };
+        _jm_cst_0[111] = (jm_constant_t) { 3, { .s = "6f" } };
+        _jm_cst_0[112] = (jm_constant_t) { 3, { .s = "70" } };
+        _jm_cst_0[113] = (jm_constant_t) { 3, { .s = "71" } };
+        _jm_cst_0[114] = (jm_constant_t) { 3, { .s = "72" } };
+        _jm_cst_0[115] = (jm_constant_t) { 3, { .s = "73" } };
+        _jm_cst_0[116] = (jm_constant_t) { 3, { .s = "74" } };
+        _jm_cst_0[117] = (jm_constant_t) { 3, { .s = "75" } };
+        _jm_cst_0[118] = (jm_constant_t) { 3, { .s = "76" } };
+        _jm_cst_0[119] = (jm_constant_t) { 3, { .s = "77" } };
+        _jm_cst_0[120] = (jm_constant_t) { 3, { .s = "78" } };
+        _jm_cst_0[121] = (jm_constant_t) { 3, { .s = "79" } };
+        _jm_cst_0[122] = (jm_constant_t) { 3, { .s = "7a" } };
+        _jm_cst_0[123] = (jm_constant_t) { 3, { .s = "7b" } };
+        _jm_cst_0[124] = (jm_constant_t) { 3, { .s = "7c" } };
+        _jm_cst_0[125] = (jm_constant_t) { 3, { .s = "7d" } };
+        _jm_cst_0[126] = (jm_constant_t) { 3, { .s = "7e" } };
+        _jm_cst_0[127] = (jm_constant_t) { 3, { .s = "7f" } };
+        jm_sort_cst(_jm_cst_0, 128);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }

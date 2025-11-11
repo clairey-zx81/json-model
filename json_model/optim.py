@@ -288,6 +288,13 @@ def const_prop(jm: JsonModel):
 
     return changes > 0
 
+# TODO normalization?
+ANY_PROP = [
+    "",
+    "$STRING",
+    "/.*$/s", "/.*$/", "/.*/s", "/^.*/s", "/^.*/", "/^.*$/s", "/.*/", "//s", "//",
+]
+
 def partial_eval(jm: JsonModel):
     """Model partial evaluation."""
 
@@ -507,6 +514,29 @@ def partial_eval(jm: JsonModel):
                             changes += 1
                             del model["!="]
                 # TODO could do other cases about str?
+            else:  # simple object
+                anys = list(filter(lambda p: p in ANY_PROP, model.keys()))
+                if len(anys) > 1:
+                    log.warning(f"multiple concurrent catch-all properties")
+                # beware of masking { "$STRING": "$NONE", "": "$ANY" }
+                kept = None
+                for prop in ANY_PROP:  # we must rescan for priority
+                    if prop in model:
+                        if model[prop] == "$NONE":
+                            changes += 1
+                            del model[prop]
+                            if kept is not None:
+                                del model[kept]
+                                kept = None
+                        else:
+                            if kept is not None:
+                                changes += 1
+                                del model[kept]
+                            kept = prop
+                # normalize to catch-all, but no changes counted
+                if kept is not None and kept != "":
+                    model[""] = model[kept]
+                    del model[kept]
         return model
 
     jm._model = recModel(jm._model, allFlt, evalRwt)

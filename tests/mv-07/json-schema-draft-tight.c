@@ -24,9 +24,9 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static INLINE bool _jm_cst_1_str_test(const char *);
 static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -484,42 +484,8 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$objectKeywords'.patternProperties
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$objectKeywords'.patternProperties]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_3 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$objectKeywords'.patternProperties.'$REGEX'
-            res = json_model_25(pval, (path ? &lpath_3 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$objectKeywords'.patternProperties.'$REGEX']", (path ? &lpath_3 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$objectKeywords'.patternProperties]", (path ? &lpath_3 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$objectKeywords'.properties
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -531,13 +497,47 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$objectKeywords'.properties.''
-        res = json_model_25(pval, (path ? &lpath_4 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_3 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$objectKeywords'.properties.'']", (path ? &lpath_4 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$objectKeywords'.properties.'']", (path ? &lpath_3 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$objectKeywords'.patternProperties
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$objectKeywords'.patternProperties]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_regex(prop, false, (path ? &lpath_4 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$objectKeywords'.patternProperties.'$REGEX'
+            res = json_model_25(pval, (path ? &lpath_4 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$objectKeywords'.patternProperties.'$REGEX']", (path ? &lpath_4 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$objectKeywords'.patternProperties]", (path ? &lpath_4 : NULL));
             return false;
         }
     }
@@ -567,7 +567,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may properties property
                 // .'$objectKeywords'.properties
-                res = _jm_obj_1(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_0(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$objectKeywords'.properties]", (path ? &lpath_2 : NULL));
@@ -664,7 +664,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may patternProperties property
                 // .'$objectKeywords'.patternProperties
-                res = _jm_obj_0(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_1(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$objectKeywords'.patternProperties]", (path ? &lpath_2 : NULL));
@@ -1070,58 +1070,6 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$String'.'$defs'
-static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$String'.'$defs']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$String'.'$defs'.''
-        res = json_model_25(pval, (path ? &lpath_11 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$String'.'$defs'.'']", (path ? &lpath_11 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$String'.definitions
-static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$String'.definitions]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        // handle other props
-        // .'$String'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_12 : NULL), rep);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$String'.definitions.'']", (path ? &lpath_12 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 static INLINE bool _jm_cst_1_str_test(const char *s)
 {
     return
@@ -1157,7 +1105,7 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
 }
 
 // object .'$String'.'$vocabulary'
-static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1169,21 +1117,73 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_13 : NULL), rep)))
+        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_11 : NULL), rep)))
         {
             // handle 1 key props
             // .'$String'.'$vocabulary'.'$URI'
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.'$vocabulary'.'$URI']", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$String'.'$vocabulary'.'$URI']", (path ? &lpath_11 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$String'.'$vocabulary']", (path ? &lpath_13 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$String'.'$vocabulary']", (path ? &lpath_11 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$String'.'$defs'
+static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$String'.'$defs']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$String'.'$defs'.''
+        res = json_model_25(pval, (path ? &lpath_12 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$String'.'$defs'.'']", (path ? &lpath_12 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$String'.definitions
+static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$String'.definitions]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$String'.definitions.''
+        res = json_model_25(pval, (path ? &lpath_13 : NULL), rep);
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$String'.definitions.'']", (path ? &lpath_13 : NULL));
             return false;
         }
     }
@@ -1255,7 +1255,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may $defs property
                     // .'$String'.'$defs'
-                    res = _jm_obj_5(pval, (path ? &lpath_10 : NULL), rep);
+                    res = _jm_obj_6(pval, (path ? &lpath_10 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.'$defs']", (path ? &lpath_10 : NULL));
@@ -1314,7 +1314,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may definitions property
                     // .'$String'.definitions
-                    res = _jm_obj_6(pval, (path ? &lpath_10 : NULL), rep);
+                    res = _jm_obj_7(pval, (path ? &lpath_10 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.definitions]", (path ? &lpath_10 : NULL));
@@ -1414,7 +1414,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may $vocabulary property
                     // .'$String'.'$vocabulary'
-                    res = _jm_obj_7(pval, (path ? &lpath_10 : NULL), rep);
+                    res = _jm_obj_5(pval, (path ? &lpath_10 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$String'.'$vocabulary']", (path ? &lpath_10 : NULL));
@@ -1970,42 +1970,8 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$Object'.'$vocabulary'
-static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.'$vocabulary']", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_is_valid_url(prop, (path ? &lpath_19 : NULL), rep)))
-        {
-            // handle 1 key props
-            // .'$Object'.'$vocabulary'.'$URI'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Object'.'$vocabulary'.'$URI']", (path ? &lpath_19 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Object'.'$vocabulary']", (path ? &lpath_19 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
 // object .'$Object'.properties
-static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2017,13 +1983,13 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Object'.properties.''
-        res = json_model_25(pval, (path ? &lpath_20 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_19 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.properties.'']", (path ? &lpath_20 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.properties.'']", (path ? &lpath_19 : NULL));
             return false;
         }
     }
@@ -2031,7 +1997,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$Object'.definitions
-static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2043,13 +2009,47 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Object'.definitions.''
-        res = json_model_25(pval, (path ? &lpath_21 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_20 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.definitions.'']", (path ? &lpath_21 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Object'.definitions.'']", (path ? &lpath_20 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$Object'.'$vocabulary'
+static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Object'.'$vocabulary']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_is_valid_url(prop, (path ? &lpath_21 : NULL), rep)))
+        {
+            // handle 1 key props
+            // .'$Object'.'$vocabulary'.'$URI'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Object'.'$vocabulary'.'$URI']", (path ? &lpath_21 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Object'.'$vocabulary']", (path ? &lpath_21 : NULL));
             return false;
         }
     }
@@ -2308,7 +2308,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may properties property
                     // .'$Object'.properties
-                    res = _jm_obj_12(pval, (path ? &lpath_18 : NULL), rep);
+                    res = _jm_obj_11(pval, (path ? &lpath_18 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.properties]", (path ? &lpath_18 : NULL));
@@ -2321,7 +2321,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may definitions property
                     // .'$Object'.definitions
-                    res = _jm_obj_13(pval, (path ? &lpath_18 : NULL), rep);
+                    res = _jm_obj_12(pval, (path ? &lpath_18 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.definitions]", (path ? &lpath_18 : NULL));
@@ -2408,7 +2408,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may $vocabulary property
                     // .'$Object'.'$vocabulary'
-                    res = _jm_obj_11(pval, (path ? &lpath_18 : NULL), rep);
+                    res = _jm_obj_13(pval, (path ? &lpath_18 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object'.'$vocabulary']", (path ? &lpath_18 : NULL));

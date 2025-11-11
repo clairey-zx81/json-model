@@ -12,6 +12,7 @@
 - [x] c-backend: replace `strcmp` with `memcmp` in runtime
 - [x] backend: improve if patterns in some cases
 - [x] pr: add explicit winner column to per case perf
+- [x] model: simplify `{"": "$NONE"}`
 - [ ] static: xor acceleration based on distinct mandatory props
 - [ ] static: merge partial mandatory prop discriminants
 - [ ] static: merge may/must property handling, or not?
@@ -21,7 +22,6 @@
 - [ ] perf: test partitioning for js, java, perl, python…
 - [ ] perf: investigate best settings for js, java and python
 - [ ] perf: allow to run with any docker image
-- [ ] model: simplify `{"": "$NONE"}`
 - [ ] model: avoid dead code in `mv-0f/dedup-002`
 - [ ] static: maybe skip must checks if all must props already seen
 - [ ] backend: cleanup unused assigned variable, see `mv-08/openapi-311.c`

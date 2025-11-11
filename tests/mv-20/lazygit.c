@@ -53,14 +53,14 @@ static INLINE bool _jm_cst_10_str_test(const char *);
 static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_11_str_test(const char *);
-static INLINE bool _jm_cst_12_str_test(const char *);
 static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_12_str_test(const char *);
 static INLINE bool _jm_cst_13_str_test(const char *);
-static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_2_re2 = NULL;
 static int _jm_re_2_nn = 0;
@@ -2057,6 +2057,133 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
 static INLINE bool _jm_cst_11_str_test(const char *s)
 {
     return
+           jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
+        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
+
+    ;
+}
+
+// object .git.paging
+static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.git.paging]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_6(prop, 0x0000007265676170LL)))
+        {
+            // handle may pager property
+            // .git.paging.pager
+            // .git.paging.pager.'@'
+            res = json_is_string(pval);
+            if (likely(res))
+            {
+                const char * sval_1 = json_string_value(pval);
+                res = (jm_str_ne_0(sval_1));
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "constraints failed [.git.paging.pager]", (path ? &lpath_17 : NULL));
+                }
+            }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.git.paging.pager.'@']", (path ? &lpath_17 : NULL));
+            }
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.pager]", (path ? &lpath_17 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (jm_str_eq_8(prop, 0x677241726f6c6f63LL) && jm_str_eq_0(prop + 8))
+        {
+            // handle may colorArg property
+            // .git.paging.colorArg
+            res = json_is_string(pval) && _jm_cst_11_str_test(json_string_value(pval));
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.colorArg]", (path ? &lpath_17 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (likely(jm_str_eq_8(prop, 0x69666e6f43657375LL) && jm_str_eq_2(prop + 8, 0x00000067)))
+        {
+            // handle may useConfig property
+            // .git.paging.useConfig
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.paging.useConfig]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.useConfig]", (path ? &lpath_17 : NULL));
+                return false;
+            }
+            continue;
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.paging]", (path ? &lpath_17 : NULL));
+        return false;
+    }
+    return true;
+}
+
+// object .git.merging
+static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.git.merging]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_5(prop, 0x0000000073677261LL))
+        {
+            // handle may args property
+            // .git.merging.args
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.git.merging.args]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.args]", (path ? &lpath_18 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (likely(jm_str_eq_8(prop, 0x6f436c61756e616dLL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL)))
+        {
+            // handle may manualCommit property
+            // .git.merging.manualCommit
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.merging.manualCommit]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.manualCommit]", (path ? &lpath_18 : NULL));
+                return false;
+            }
+            continue;
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.merging]", (path ? &lpath_18 : NULL));
+        return false;
+    }
+    return true;
+}
+
+static INLINE bool _jm_cst_12_str_test(const char *s)
+{
+    return
            jm_str_eq_8(s, 0x00746c7561666564LL)  // "default"
         || jm_str_eq_8(s, 0x64726f2d65746164LL) && jm_str_eq_3(s + 8, 0x00007265)  // "date-order"
         || jm_str_eq_8(s, 0x64726f2d6f706f74LL) && jm_str_eq_3(s + 8, 0x00007265)  // "topo-order"
@@ -2065,7 +2192,7 @@ static INLINE bool _jm_cst_11_str_test(const char *s)
     ;
 }
 
-static INLINE bool _jm_cst_12_str_test(const char *s)
+static INLINE bool _jm_cst_13_str_test(const char *s)
 {
     return
            jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
@@ -2076,7 +2203,7 @@ static INLINE bool _jm_cst_12_str_test(const char *s)
 }
 
 // object .git.log
-static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2088,16 +2215,16 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
         if (unlikely(jm_str_eq_6(prop, 0x000000726564726fLL)))
         {
             // handle may order property
             // .git.log.order
-            res = json_is_string(pval) && _jm_cst_11_str_test(json_string_value(pval));
+            res = json_is_string(pval) && _jm_cst_12_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.order]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.order]", (path ? &lpath_19 : NULL));
                 return false;
             }
             continue;
@@ -2106,11 +2233,11 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may showGraph property
             // .git.log.showGraph
-            res = json_is_string(pval) && _jm_cst_12_str_test(json_string_value(pval));
+            res = json_is_string(pval) && _jm_cst_13_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showGraph]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showGraph]", (path ? &lpath_19 : NULL));
                 return false;
             }
             continue;
@@ -2122,20 +2249,20 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.log.showWholeGraph]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showWholeGraph]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.log.showWholeGraph]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showWholeGraph]", (path ? &lpath_19 : NULL));
                 return false;
             }
             continue;
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.log]", (path ? &lpath_17 : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.log]", (path ? &lpath_19 : NULL));
         return false;
     }
     return true;
 }
 
 // object .git.commit
-static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2147,7 +2274,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
         if (likely(jm_str_eq_8(prop, 0x0066664f6e676973LL)))
         {
             // handle may signOff property
@@ -2155,20 +2282,20 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.commit.signOff]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit.signOff]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.commit.signOff]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit.signOff]", (path ? &lpath_20 : NULL));
                 return false;
             }
             continue;
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commit]", (path ? &lpath_18 : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commit]", (path ? &lpath_20 : NULL));
         return false;
     }
     return true;
 }
 
 // object .git.commitPrefixes.'/./'
-static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2181,17 +2308,17 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
         if (jm_str_eq_8(prop, 0x006e726574746170LL))
         {
             // handle must pattern property
             must_count += 1;
             // .git.commitPrefixes.'/./'.pattern
-            res = json_model_8(pval, (path ? &lpath_20 : NULL), rep);
+            res = json_model_8(pval, (path ? &lpath_22 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_20 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_22 : NULL));
                 return false;
             }
             continue;
@@ -2201,16 +2328,16 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must replace property
             must_count += 1;
             // .git.commitPrefixes.'/./'.replace
-            res = json_model_8(pval, (path ? &lpath_20 : NULL), rep);
+            res = json_model_8(pval, (path ? &lpath_22 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_20 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_22 : NULL));
                 return false;
             }
             continue;
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes.'/./']", (path ? &lpath_20 : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes.'/./']", (path ? &lpath_22 : NULL));
         return false;
     }
     if (unlikely(must_count != 2))
@@ -2232,7 +2359,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .git.commitPrefixes
-static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2244,150 +2371,23 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
         if (likely(_jm_re_1(prop, path, rep)))
         {
             // handle 1 re props
             // .git.commitPrefixes.'/./'
-            res = _jm_obj_19(pval, (path ? &lpath_19 : NULL), rep);
+            res = _jm_obj_21(pval, (path ? &lpath_21 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes.'/./']", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes.'/./']", (path ? &lpath_21 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes]", (path ? &lpath_19 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes]", (path ? &lpath_21 : NULL));
             return false;
         }
-    }
-    return true;
-}
-
-static INLINE bool _jm_cst_13_str_test(const char *s)
-{
-    return
-           jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
-        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
-
-    ;
-}
-
-// object .git.paging
-static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.git.paging]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_6(prop, 0x0000007265676170LL)))
-        {
-            // handle may pager property
-            // .git.paging.pager
-            // .git.paging.pager.'@'
-            res = json_is_string(pval);
-            if (likely(res))
-            {
-                const char * sval_1 = json_string_value(pval);
-                res = (jm_str_ne_0(sval_1));
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "constraints failed [.git.paging.pager]", (path ? &lpath_21 : NULL));
-                }
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.paging.pager.'@']", (path ? &lpath_21 : NULL));
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.pager]", (path ? &lpath_21 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (jm_str_eq_8(prop, 0x677241726f6c6f63LL) && jm_str_eq_0(prop + 8))
-        {
-            // handle may colorArg property
-            // .git.paging.colorArg
-            res = json_is_string(pval) && _jm_cst_13_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_21 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.colorArg]", (path ? &lpath_21 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (likely(jm_str_eq_8(prop, 0x69666e6f43657375LL) && jm_str_eq_2(prop + 8, 0x00000067)))
-        {
-            // handle may useConfig property
-            // .git.paging.useConfig
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.paging.useConfig]", (path ? &lpath_21 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.useConfig]", (path ? &lpath_21 : NULL));
-                return false;
-            }
-            continue;
-        }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.paging]", (path ? &lpath_21 : NULL));
-        return false;
-    }
-    return true;
-}
-
-// object .git.merging
-static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.git.merging]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_5(prop, 0x0000000073677261LL))
-        {
-            // handle may args property
-            // .git.merging.args
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.merging.args]", (path ? &lpath_22 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.args]", (path ? &lpath_22 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (likely(jm_str_eq_8(prop, 0x6f436c61756e616dLL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL)))
-        {
-            // handle may manualCommit property
-            // .git.merging.manualCommit
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.merging.manualCommit]", (path ? &lpath_22 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.manualCommit]", (path ? &lpath_22 : NULL));
-                return false;
-            }
-            continue;
-        }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.merging]", (path ? &lpath_22 : NULL));
-        return false;
     }
     return true;
 }
@@ -2415,7 +2415,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may log property
                     // .git.log
-                    res = _jm_obj_16(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_18(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.log]", (path ? &lpath_16 : NULL));
@@ -2470,7 +2470,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may paging property
                     // .git.paging
-                    res = _jm_obj_20(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_16(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.paging]", (path ? &lpath_16 : NULL));
@@ -2483,7 +2483,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may merging property
                     // .git.merging
-                    res = _jm_obj_21(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_17(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.merging]", (path ? &lpath_16 : NULL));
@@ -2515,7 +2515,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may commit property
                     // .git.commit
-                    res = _jm_obj_17(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_19(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.commit]", (path ? &lpath_16 : NULL));
@@ -2554,7 +2554,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may commitPrefixes property
                     // .git.commitPrefixes
-                    res = _jm_obj_18(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_20(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes]", (path ? &lpath_16 : NULL));
