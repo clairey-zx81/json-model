@@ -1918,10 +1918,15 @@ def xstatic_compile(
     # set default threshold for may-must-open scheme
     MAY_MUST_OPEN_THRESHOLD: dict[str, int] = {
         "c": 0,        # never good enough vs unroll, but faster than map
-        "js": 256,     # no cutoff? better than unroll and map
-        "py": 256,     # much better than unroll, slightly better than map
-        "pl": 256,     # idem py
-        "java": 128,   # better than map < 256
+        # FIXME this is only beneficial the number of value props is significant on mays?
+        # there is no cutoff in that case, but otherwise it reduces performance
+        # TODO decision process should also involve may/must ratio or take into account
+        # likelyhood of may props…
+        # 256, 256, 256, 128 -> 16, 16, 16, 8 for now
+        "js": 16,     # no cutoff? better than unroll and map *if* significant may numbers
+        "py": 16,     # much better than unroll, slightly better than map
+        "pl": 16,     # idem py
+        "java": 8,   # better than map < 256
         "sql": 0,      # FIXME not tested
         "plpgsql": 0,  # FIXME not tested
     }
@@ -1931,7 +1936,8 @@ def xstatic_compile(
     # set default map threshold depending on target language
     MAP_THRESHOLD: dict[str, int] = {
         "c": 256,      # NOTE the actual cutoff is _very_ far, probably over 1000/1300
-        "js": 40,
+        # FIXME unclear… 40 -> 20 for now
+        "js": 20,
         "py": 10,
         "pl": 8,
         "java": 12,
