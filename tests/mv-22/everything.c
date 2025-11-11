@@ -4183,7 +4183,7 @@ const char *check_model_init(void)
         _jm_cst_2[2] = (jm_constant_t) { cst_is_integer, { .i = 204 } };
         jm_sort_cst(_jm_cst_2, 3);
         // initialize sorted set _jm_cst_4
-        _jm_cst_4[0] = (jm_constant_t) { cst_is_string, { .s = "Susie" } };
+        _jm_cst_4[0] = (jm_constant_t) { 6, { .s = "Susie" } };
         _jm_cst_4[1] = (jm_constant_t) { cst_is_integer, { .i = 42 } };
         _jm_cst_4[2] = (jm_constant_t) { cst_is_bool, { .b = true } };
         _jm_cst_4[3] = (jm_constant_t) { cst_is_null, { .s = NULL } };

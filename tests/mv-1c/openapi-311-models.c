@@ -6369,10 +6369,10 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_3_re2))
             return cre2_error_string(_jm_re_3_re2);
         _jm_re_3_nn = cre2_num_capturing_groups(_jm_re_3_re2) + 1;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "apiKey" } }, _jm_obj_34 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "http" } }, _jm_obj_35 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "oauth2" } }, _jm_obj_37 };
-        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "openIdConnect" } }, _jm_obj_38 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { 7, { .s = "apiKey" } }, _jm_obj_34 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { 5, { .s = "http" } }, _jm_obj_35 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { 7, { .s = "oauth2" } }, _jm_obj_37 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { 14, { .s = "openIdConnect" } }, _jm_obj_38 };
         jm_sort_constmap(_jm_map_0_tab, 4);
         _jm_re_4_re2 = cre2_new("^(<=|>=|<|>)$", strlen("^(<=|>=|<|>)$"), NULL);
         if (cre2_error_code(_jm_re_4_re2))

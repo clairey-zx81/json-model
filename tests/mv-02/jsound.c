@@ -1085,10 +1085,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "atomic" } }, json_model_6 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "object" } }, json_model_7 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "array" } }, json_model_9 };
-        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "union" } }, json_model_10 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { 7, { .s = "atomic" } }, json_model_6 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { 7, { .s = "object" } }, json_model_7 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { 6, { .s = "array" } }, json_model_9 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { 6, { .s = "union" } }, json_model_10 };
         jm_sort_constmap(_jm_map_0_tab, 4);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
         check_model_map_tab[1] = (jm_propmap_t) { "Schema", json_model_2 };

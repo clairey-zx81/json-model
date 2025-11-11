@@ -671,7 +671,7 @@ class CLangJansson(Language):
         elif vtype is float:
             return f"(jm_constant_t) {{ cst_is_float, {{ .f = {self.value(var, float)} }} }}"
         elif vtype is str:
-            return f"(jm_constant_t) {{ cst_is_string, {{ .s = {self.value(var, str)} }} }}"
+            return f"(jm_constant_t) {{ strlen({self.value(var, str)}) + 1, {{ .s = {self.value(var, str)} }} }}"
         else:
             raise NotImplementedError(f"type {vtype}")
 
@@ -698,7 +698,8 @@ class CLangJansson(Language):
             case float(f):
                 return f"(jm_constant_t) {{ cst_is_float, {{ .f = {f} }} }}"
             case str(s):
-                return f"(jm_constant_t) {{ cst_is_string, {{ .s = {self.esc(s)} }} }}"
+                bs = s.encode("UTF-8")
+                return f"(jm_constant_t) {{ {len(bs) + 1}, {{ .s = {self.esc(s)} }} }}"
             case _:
                 raise Exception(f"unexpected constant value: {value}")
 

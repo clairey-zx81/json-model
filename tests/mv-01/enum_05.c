@@ -51,7 +51,7 @@ const char *check_model_init(void)
         jm_version_string = JSON_MODEL_VERSION;
         // initialize sorted set _jm_cst_0
         _jm_cst_0[0] = (jm_constant_t) { cst_is_integer, { .i = 200 } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "Susie" } };
+        _jm_cst_0[1] = (jm_constant_t) { 6, { .s = "Susie" } };
         _jm_cst_0[2] = (jm_constant_t) { cst_is_null, { .s = NULL } };
         _jm_cst_0[3] = (jm_constant_t) { cst_is_float, { .f = 3.1415927 } };
         jm_sort_cst(_jm_cst_0, 4);

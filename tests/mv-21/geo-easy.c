@@ -1295,16 +1295,16 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Point" } }, json_model_5 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPoint" } }, json_model_6 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "LineString" } }, json_model_7 };
-        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiLineString" } }, json_model_8 };
-        _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Polygon" } }, json_model_9 };
-        _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPolygon" } }, json_model_10 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { 6, { .s = "Point" } }, json_model_5 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { 11, { .s = "MultiPoint" } }, json_model_6 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { 11, { .s = "LineString" } }, json_model_7 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { 16, { .s = "MultiLineString" } }, json_model_8 };
+        _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { 8, { .s = "Polygon" } }, json_model_9 };
+        _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { 13, { .s = "MultiPolygon" } }, json_model_10 };
         jm_sort_constmap(_jm_map_0_tab, 6);
-        _jm_map_1_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "GeometryCollection" } }, json_model_12 };
-        _jm_map_1_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Feature" } }, json_model_13 };
-        _jm_map_1_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "FeatureCollection" } }, json_model_14 };
+        _jm_map_1_tab[0] = (jm_constmap_t) { (jm_constant_t) { 19, { .s = "GeometryCollection" } }, json_model_12 };
+        _jm_map_1_tab[1] = (jm_constmap_t) { (jm_constant_t) { 8, { .s = "Feature" } }, json_model_13 };
+        _jm_map_1_tab[2] = (jm_constmap_t) { (jm_constant_t) { 18, { .s = "FeatureCollection" } }, json_model_14 };
         jm_sort_constmap(_jm_map_1_tab, 3);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "position", json_model_2 };

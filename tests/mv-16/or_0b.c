@@ -55,8 +55,8 @@ const char *check_model_init(void)
         _jm_cst_0[2] = (jm_constant_t) { cst_is_integer, { .i = 42 } };
         _jm_cst_0[3] = (jm_constant_t) { cst_is_float, { .f = 3.14159 } };
         _jm_cst_0[4] = (jm_constant_t) { cst_is_float, { .f = 1e+101 } };
-        _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "Susie" } };
-        _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "Calvin" } };
+        _jm_cst_0[5] = (jm_constant_t) { 6, { .s = "Susie" } };
+        _jm_cst_0[6] = (jm_constant_t) { 7, { .s = "Calvin" } };
         jm_sort_cst(_jm_cst_0, 7);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);

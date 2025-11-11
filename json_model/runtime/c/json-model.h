@@ -115,11 +115,11 @@ extern jm_check_fun_t jm_search_propmap(const char *, const jm_propmap_t *, int)
  * set of scalar constants
  */
 typedef enum {
-    cst_is_null,
-    cst_is_bool,
-    cst_is_integer,
-    cst_is_float,
-    cst_is_string
+    cst_is_null = -4,
+    cst_is_bool = -3,
+    cst_is_integer = -2,
+    cst_is_float = -1
+    // cst_is_string = 1 > 0 => string length, including trailing null
     // cst_is_array + const json_t * + free
     // cst_is_object + const json_t * + free
 } jm_constant_tag;
@@ -183,7 +183,7 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
                     jm_path_t *, jm_report_t *);
 
 /*
- * Variable to constant string comparison depending on constant length.
+ * Variable to constant string comparison depending on known length.
  */
 #define jm_str_eq(s1, s2) (strcmp(s1, s2) == 0)
 #define jm_str_ne(s1, s2) (strcmp(s1, s2) != 0)

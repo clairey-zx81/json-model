@@ -9,6 +9,7 @@
 - [x] c-backend: partition inlined str cset
 - [x] static: or acceleration based on full or partial distinct mandatory props
 - [x] static: set default C partition threshold to _6_
+- [x] c-backend: replace `strcmp` with `memcmp` in runtime
 - [ ] static: xor acceleration based on distinct mandatory props
 - [ ] backend: improve if patterns, see `mv-00/dst_00.py` line 97
 - [ ] static: merge partial mandatory prop discriminants

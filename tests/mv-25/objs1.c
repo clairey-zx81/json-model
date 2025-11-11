@@ -200,8 +200,8 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "table" } }, json_model_4 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "chair" } }, json_model_5 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { 6, { .s = "table" } }, json_model_4 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { 6, { .s = "chair" } }, json_model_5 };
         jm_sort_constmap(_jm_map_0_tab, 2);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "objs0", json_model_3 };

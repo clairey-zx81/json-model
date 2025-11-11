@@ -292,7 +292,8 @@ jm_set_cst(jm_constant_t *c, const json_t *val)
     switch (json_typeof(val))
     {
         case JSON_STRING:
-            *c = (jm_constant_t) { cst_is_string, { .s = json_string_value(val) } };
+            const char * s = json_string_value(val);
+            *c = (jm_constant_t) { strlen(s) + 1, { .s = s } };
             break;
         case JSON_INTEGER:
             *c = (jm_constant_t) { cst_is_integer, { .i = json_integer_value(val) } };
@@ -320,17 +321,20 @@ jm_dbg_cst(const jm_constant_t *c, const char *describe)
 {
     fprintf(stderr, "%s (%s): %s\n",
             describe,
-            c->tag == cst_is_string ? "string" : "?",
-            c->tag == cst_is_string ? c->val.s : "?");
+            c->tag > 0 ? "string" : "?",
+            c->tag > 0 ? c->val.s : "?");
 }
 
 static int
 jm_cmp_cst(const jm_constant_t *c1, const jm_constant_t *c2)
 {
-    // sort by types: null < bool < int < float < string
+    // sort by types: null < bool < int < float < strings by length
     if (c1->tag != c2->tag)
       return c2->tag - c1->tag;
-    // else compare values
+    // else compare actual values
+    if (c1->tag > 0)
+        return memcmp(c1->val.s, c2->val.s, c1->tag);
+    // other types
     switch (c1->tag)
     {
     case cst_is_null:
@@ -343,8 +347,6 @@ jm_cmp_cst(const jm_constant_t *c1, const jm_constant_t *c2)
     case cst_is_float:
         double f1 = c1->val.f, f2 = c2->val.f;
         return f1 < f2 ? -1 : f1 == f2 ? 0 : 1;
-    case cst_is_string:
-        return strcmp(c1->val.s, c2->val.s);
     default:  // internal error?!
         return 0;
     }
@@ -1095,8 +1097,9 @@ jm_check_constraint(const json_t * val, jm_constraint_op_t op, const jm_constant
             jm_report_add_entry(rep, "invalid float constraint", path);
         return res;
     }
-    else if (cst->tag == cst_is_string)
+    else if (cst->tag > 0)
     {
+        int sclen = cst->tag;
         const char *scst = cst->val.s;
         if (!json_is_string(val))
         {
@@ -1108,22 +1111,22 @@ jm_check_constraint(const json_t * val, jm_constraint_op_t op, const jm_constant
         const char *sval = json_string_value(val);
         switch (op) {
             case op_eq:
-                res = strcmp(sval, scst) == 0;
+                res = memcmp(sval, scst, cst->tag) == 0;
                 break;
             case op_ne:
-                res = strcmp(sval, scst) != 0;
+                res = memcmp(sval, scst, cst->tag) != 0;
                 break;
             case op_le:
-                res = strcmp(sval, scst) <= 0;
+                res = memcmp(sval, scst, cst->tag) <= 0;
                 break;
             case op_lt:
-                res = strcmp(sval, scst) < 0;
+                res = memcmp(sval, scst, cst->tag) < 0;
                 break;
             case op_ge:
-                res = strcmp(sval, scst) >= 0;
+                res = memcmp(sval, scst, cst->tag) >= 0;
                 break;
             case op_gt:
-                res = strcmp(sval, scst) > 0;
+                res = memcmp(sval, scst, cst->tag) > 0;
                 break;
         }
         if (!res && rep)
