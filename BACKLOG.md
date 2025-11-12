@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] tests: check how clang compares to gcc (maybe a few pc better)
 - [x] static: partition long lists of properties based on first bytes
 - [x] static: use more bytes for str hashing depending on min len
 - [x] static: generate hexa constants for partition limits tests
@@ -14,6 +15,8 @@
 - [x] pr: add explicit winner column to per case perf
 - [x] model: simplify `{"": "$NONE"}`
 - [x] ~model: avoid dead code in `mv-0f/dedup-002`~ (simple pair ok, multiple seldom useful)
+- [ ] test: improve output determinism
+- [ ] perf: compute performance overhead globally instead of per run
 - [ ] static: xor acceleration based on distinct mandatory props
 - [ ] static: merge partial mandatory prop discriminants
 - [ ] static: merge may/must property handling, or not?
@@ -33,18 +36,17 @@
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
 - [ ] backend: simplify assignment patterns with ternary operator when available?
-- [ ] backend: consider applying language-specific formatting tools? `clang-format`, `flake8`…
+- [ ] backend: consider applying language-specific formatting tools? `clang-format`, `black`…
 - [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] c-backend: strcmp to const inlining and unrolling for all instances
 - [ ] c-backend: more typed cset optimizations?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
-- [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
+- [ ] tests: drop language outputs for IR only?!
 - [ ] tests: add pytest ir tests
 - [ ] tests: add generated ir model check
-- [ ] tests: drop language outputs for IR only?!
 - [ ] tests: check generated IR with IR model
 - [ ] static: close may/must? merge with open?
 - [ ] static: add a dynamic test for different strategies in object checking
@@ -52,7 +54,6 @@
 - [ ] command: add direct ir to lang conversion
 - [ ] artifact: make work with dind (docker compose?)
 - [ ] static: recognize already compile objects and reuse function esp under no-reporting?
-- [ ] tests: check how clang compares to gcc
 - [ ] tests: add non regression tests to docker build
 - [ ] service: json to lang conversion API
 - [ ] api: web interface with caching and security
