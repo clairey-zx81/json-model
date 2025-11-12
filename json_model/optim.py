@@ -38,6 +38,7 @@ def normalizeModels(models: list[ModelType]) -> int:
             if model == "":
                 pass
             elif model == "$STRING":
+                # NOTE could also absorb some regex, but masking issue
                 nmodel = ""
             elif model in ("$INT", "$INTEGER", "$I32", "$I64"):
                 nmodel = -1
@@ -406,7 +407,9 @@ def partial_eval(jm: JsonModel):
                 changes += normalizeModels(lxor)
                 if len(lxor) == 2:
                     if same_model(lxor[0], lxor[1]):
+                        changes += 1
                         return "$NONE"
+                    # NOTE could be generalized to only pairs, but this makes little sense
                 if len(lxor) == 0:
                     changes += 1
                     return "$NONE"
