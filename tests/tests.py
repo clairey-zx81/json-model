@@ -234,11 +234,11 @@ EXPECT: dict[str, int] = {
     "jsts-files": 311,
     # tests json models of json schema versions
     "draft3:jsts": 105,
-    "draft4:jsts": 159,
-    "draft6:jsts": 231,
-    "draft7:jsts": 254,
-    "draft2019-09:jsts": 363,
-    "draft2020-12:jsts": 371,
+    "draft4:jsts": 161,
+    "draft6:jsts": 233,
+    "draft7:jsts": 256,
+    "draft2019-09:jsts": 366,
+    "draft2020-12:jsts": 374,
     "draft-next:jsts": 368,
 }
 
