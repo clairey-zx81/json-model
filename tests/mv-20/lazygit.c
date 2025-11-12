@@ -35,17 +35,17 @@ static jm_constmap_t _jm_map_0_tab[4];
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_3_str_test(const char *);
 static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_1_re2 = NULL;
-static int _jm_re_1_nn = 0;
-static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_4_str_test(const char *);
-static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_5_str_test(const char *);
 static INLINE bool _jm_cst_6_str_test(const char *);
 static INLINE bool _jm_cst_7_str_test(const char *);
+static cre2_regexp_t *_jm_re_1_re2 = NULL;
+static int _jm_re_1_nn = 0;
+static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_8_str_test(const char *);
+static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_9_str_test(const char *);
 static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -53,14 +53,14 @@ static INLINE bool _jm_cst_10_str_test(const char *);
 static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_11_str_test(const char *);
+static INLINE bool _jm_cst_12_str_test(const char *);
 static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static INLINE bool _jm_cst_12_str_test(const char *);
-static INLINE bool _jm_cst_13_str_test(const char *);
-static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_13_str_test(const char *);
 static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_2_re2 = NULL;
 static int _jm_re_2_nn = 0;
@@ -1185,91 +1185,8 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
-{
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_1_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
-}
-
-// object .gui.branchColors
-static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.gui.branchColors]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(_jm_re_1(prop, path, rep)))
-        {
-            // handle 1 re props
-            // .gui.branchColors.'/./'
-            res = json_model_2(pval, (path ? &lpath_10 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.branchColors.'/./']", (path ? &lpath_10 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.branchColors]", (path ? &lpath_10 : NULL));
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .gui.commitLength
-static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.gui.commitLength]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_str_eq_5(prop, 0x00000000776f6873LL)))
-        {
-            // handle may show property
-            // .gui.commitLength.show
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.gui.commitLength.show]", (path ? &lpath_11 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commitLength.show]", (path ? &lpath_11 : NULL));
-                return false;
-            }
-            continue;
-        }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.commitLength]", (path ? &lpath_11 : NULL));
-        return false;
-    }
-    return true;
-}
-
-static INLINE bool _jm_cst_4_str_test(const char *s)
-{
-    return
-           jm_str_eq_8(s, 0x656c626978656c66LL) && jm_str_eq_0(s + 8)  // "flexible"
-        || jm_str_eq_8(s, 0x6c61636974726576LL) && jm_str_eq_0(s + 8)  // "vertical"
-        || jm_str_eq_8(s, 0x746e6f7a69726f68LL) && jm_str_eq_3(s + 8, 0x00006c61)  // "horizontal"
-
-    ;
-}
-
 // object .gui.theme
-static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1281,7 +1198,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_10 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_1 = *((uint32_t *) (prop));
         if (hash_1 <= 0x656c6573)
         {
@@ -1289,11 +1206,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may defaultFgColor property
                 // .gui.theme.defaultFgColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.defaultFgColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.defaultFgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.defaultFgColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.defaultFgColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1302,11 +1219,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may inactiveBorderColor property
                 // .gui.theme.inactiveBorderColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.inactiveBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.inactiveBorderColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1315,11 +1232,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may selectedLineBgColor property
                 // .gui.theme.selectedLineBgColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedLineBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedLineBgColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1328,11 +1245,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may selectedRangeBgColor property
                 // .gui.theme.selectedRangeBgColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1344,11 +1261,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may optionsTextColor property
                 // .gui.theme.optionsTextColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.optionsTextColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.optionsTextColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.optionsTextColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.optionsTextColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1357,11 +1274,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may activeBorderColor property
                 // .gui.theme.activeBorderColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.activeBorderColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.activeBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.activeBorderColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.activeBorderColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1370,11 +1287,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may unstagedChangesColor property
                 // .gui.theme.unstagedChangesColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.unstagedChangesColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.unstagedChangesColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1383,11 +1300,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may cherryPickedCommitBgColor property
                 // .gui.theme.cherryPickedCommitBgColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1396,11 +1313,11 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may cherryPickedCommitFgColor property
                 // .gui.theme.cherryPickedCommitFgColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
@@ -1409,23 +1326,23 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may searchingActiveBorderColor property
                 // .gui.theme.searchingActiveBorderColor
-                res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
+                res = json_model_3(pval, (path ? &lpath_10 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_12 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_10 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_10 : NULL));
                     return false;
                 }
                 continue;
             }
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.theme]", (path ? &lpath_12 : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.theme]", (path ? &lpath_10 : NULL));
         return false;
     }
     return true;
 }
 
-static INLINE bool _jm_cst_5_str_test(const char *s)
+static INLINE bool _jm_cst_4_str_test(const char *s)
 {
     return
            jm_str_eq_7(s, 0x0000656c62756f64LL)  // "double"
@@ -1436,7 +1353,7 @@ static INLINE bool _jm_cst_5_str_test(const char *s)
     ;
 }
 
-static INLINE bool _jm_cst_6_str_test(const char *s)
+static INLINE bool _jm_cst_5_str_test(const char *s)
 {
     return
            jm_str_eq_3(s, 0x00006e65)  // "en"
@@ -1452,7 +1369,7 @@ static INLINE bool _jm_cst_6_str_test(const char *s)
     ;
 }
 
-static INLINE bool _jm_cst_7_str_test(const char *s)
+static INLINE bool _jm_cst_6_str_test(const char *s)
 {
     return
            jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
@@ -1461,7 +1378,7 @@ static INLINE bool _jm_cst_7_str_test(const char *s)
     ;
 }
 
-static INLINE bool _jm_cst_8_str_test(const char *s)
+static INLINE bool _jm_cst_7_str_test(const char *s)
 {
     return
            jm_str_eq_5(s, 0x000000006c6c7566LL)  // "full"
@@ -1471,8 +1388,14 @@ static INLINE bool _jm_cst_8_str_test(const char *s)
     ;
 }
 
+static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_1_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
 // object .gui.authorColors
-static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1484,23 +1407,99 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
         if (likely(_jm_re_1(prop, path, rep)))
         {
             // handle 1 re props
             // .gui.authorColors.'/./'
-            res = json_model_2(pval, (path ? &lpath_13 : NULL), rep);
+            res = json_model_2(pval, (path ? &lpath_11 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.authorColors.'/./']", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.authorColors.'/./']", (path ? &lpath_11 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.authorColors]", (path ? &lpath_13 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.authorColors]", (path ? &lpath_11 : NULL));
             return false;
         }
+    }
+    return true;
+}
+
+static INLINE bool _jm_cst_8_str_test(const char *s)
+{
+    return
+           jm_str_eq_2(s, 0x00000032)  // "2"
+        || jm_str_eq_2(s, 0x00000033)  // "3"
+
+    ;
+}
+
+// object .gui.branchColors
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.gui.branchColors]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(_jm_re_1(prop, path, rep)))
+        {
+            // handle 1 re props
+            // .gui.branchColors.'/./'
+            res = json_model_2(pval, (path ? &lpath_12 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.branchColors.'/./']", (path ? &lpath_12 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.branchColors]", (path ? &lpath_12 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .gui.commitLength
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.gui.commitLength]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
+        if (likely(jm_str_eq_5(prop, 0x00000000776f6873LL)))
+        {
+            // handle may show property
+            // .gui.commitLength.show
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.gui.commitLength.show]", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commitLength.show]", (path ? &lpath_13 : NULL));
+                return false;
+            }
+            continue;
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.gui.commitLength]", (path ? &lpath_13 : NULL));
+        return false;
     }
     return true;
 }
@@ -1508,8 +1507,9 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
 static INLINE bool _jm_cst_9_str_test(const char *s)
 {
     return
-           jm_str_eq_2(s, 0x00000032)  // "2"
-        || jm_str_eq_2(s, 0x00000033)  // "3"
+           jm_str_eq_8(s, 0x656c626978656c66LL) && jm_str_eq_0(s + 8)  // "flexible"
+        || jm_str_eq_8(s, 0x6c61636974726576LL) && jm_str_eq_0(s + 8)  // "vertical"
+        || jm_str_eq_8(s, 0x746e6f7a69726f68LL) && jm_str_eq_3(s + 8, 0x00006c61)  // "horizontal"
 
     ;
 }
@@ -1537,7 +1537,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may theme property
                     // .gui.theme
-                    res = _jm_obj_11(pval, (path ? &lpath_9 : NULL), rep);
+                    res = _jm_obj_9(pval, (path ? &lpath_9 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.gui.theme]", (path ? &lpath_9 : NULL));
@@ -1550,7 +1550,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may border property
                     // .gui.border
-                    res = json_is_string(pval) && _jm_cst_5_str_test(json_string_value(pval));
+                    res = json_is_string(pval) && _jm_cst_4_str_test(json_string_value(pval));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.border.'|']", (path ? &lpath_9 : NULL));
@@ -1563,7 +1563,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may language property
                     // .gui.language
-                    res = json_is_string(pval) && _jm_cst_6_str_test(json_string_value(pval));
+                    res = json_is_string(pval) && _jm_cst_5_str_test(json_string_value(pval));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.language.'|']", (path ? &lpath_9 : NULL));
@@ -1576,7 +1576,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may splitDiff property
                     // .gui.splitDiff
-                    res = json_is_string(pval) && _jm_cst_7_str_test(json_string_value(pval));
+                    res = json_is_string(pval) && _jm_cst_6_str_test(json_string_value(pval));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.splitDiff.'|']", (path ? &lpath_9 : NULL));
@@ -1602,7 +1602,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may windowSize property
                     // .gui.windowSize
-                    res = json_is_string(pval) && _jm_cst_8_str_test(json_string_value(pval));
+                    res = json_is_string(pval) && _jm_cst_7_str_test(json_string_value(pval));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.windowSize.'|']", (path ? &lpath_9 : NULL));
@@ -1615,7 +1615,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may authorColors property
                     // .gui.authorColors
-                    res = _jm_obj_12(pval, (path ? &lpath_9 : NULL), rep);
+                    res = _jm_obj_10(pval, (path ? &lpath_9 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.gui.authorColors]", (path ? &lpath_9 : NULL));
@@ -1667,7 +1667,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may nerdFontsVersion property
                     // .gui.nerdFontsVersion
-                    res = json_is_string(pval) && _jm_cst_9_str_test(json_string_value(pval));
+                    res = json_is_string(pval) && _jm_cst_8_str_test(json_string_value(pval));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.nerdFontsVersion.'|']", (path ? &lpath_9 : NULL));
@@ -1718,7 +1718,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may branchColors property
                     // .gui.branchColors
-                    res = _jm_obj_9(pval, (path ? &lpath_9 : NULL), rep);
+                    res = _jm_obj_11(pval, (path ? &lpath_9 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.gui.branchColors]", (path ? &lpath_9 : NULL));
@@ -1731,7 +1731,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may commitLength property
                     // .gui.commitLength
-                    res = _jm_obj_10(pval, (path ? &lpath_9 : NULL), rep);
+                    res = _jm_obj_12(pval, (path ? &lpath_9 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.gui.commitLength]", (path ? &lpath_9 : NULL));
@@ -1757,7 +1757,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // handle may mainPanelSplitMode property
                     // .gui.mainPanelSplitMode
-                    res = json_is_string(pval) && _jm_cst_4_str_test(json_string_value(pval));
+                    res = json_is_string(pval) && _jm_cst_9_str_test(json_string_value(pval));
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.mainPanelSplitMode.'|']", (path ? &lpath_9 : NULL));
@@ -2057,133 +2057,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
 static INLINE bool _jm_cst_11_str_test(const char *s)
 {
     return
-           jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
-        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
-
-    ;
-}
-
-// object .git.paging
-static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.git.paging]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_6(prop, 0x0000007265676170LL)))
-        {
-            // handle may pager property
-            // .git.paging.pager
-            // .git.paging.pager.'@'
-            res = json_is_string(pval);
-            if (likely(res))
-            {
-                const char * sval_1 = json_string_value(pval);
-                res = (jm_str_ne_0(sval_1));
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "constraints failed [.git.paging.pager]", (path ? &lpath_17 : NULL));
-                }
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.paging.pager.'@']", (path ? &lpath_17 : NULL));
-            }
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.pager]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (jm_str_eq_8(prop, 0x677241726f6c6f63LL) && jm_str_eq_0(prop + 8))
-        {
-            // handle may colorArg property
-            // .git.paging.colorArg
-            res = json_is_string(pval) && _jm_cst_11_str_test(json_string_value(pval));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.colorArg]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (likely(jm_str_eq_8(prop, 0x69666e6f43657375LL) && jm_str_eq_2(prop + 8, 0x00000067)))
-        {
-            // handle may useConfig property
-            // .git.paging.useConfig
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.paging.useConfig]", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.useConfig]", (path ? &lpath_17 : NULL));
-                return false;
-            }
-            continue;
-        }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.paging]", (path ? &lpath_17 : NULL));
-        return false;
-    }
-    return true;
-}
-
-// object .git.merging
-static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.git.merging]", path);
-        return false;
-    }
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_5(prop, 0x0000000073677261LL))
-        {
-            // handle may args property
-            // .git.merging.args
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.merging.args]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.args]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (likely(jm_str_eq_8(prop, 0x6f436c61756e616dLL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL)))
-        {
-            // handle may manualCommit property
-            // .git.merging.manualCommit
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.merging.manualCommit]", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.manualCommit]", (path ? &lpath_18 : NULL));
-                return false;
-            }
-            continue;
-        }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.merging]", (path ? &lpath_18 : NULL));
-        return false;
-    }
-    return true;
-}
-
-static INLINE bool _jm_cst_12_str_test(const char *s)
-{
-    return
            jm_str_eq_8(s, 0x00746c7561666564LL)  // "default"
         || jm_str_eq_8(s, 0x64726f2d65746164LL) && jm_str_eq_3(s + 8, 0x00007265)  // "date-order"
         || jm_str_eq_8(s, 0x64726f2d6f706f74LL) && jm_str_eq_3(s + 8, 0x00007265)  // "topo-order"
@@ -2192,7 +2065,7 @@ static INLINE bool _jm_cst_12_str_test(const char *s)
     ;
 }
 
-static INLINE bool _jm_cst_13_str_test(const char *s)
+static INLINE bool _jm_cst_12_str_test(const char *s)
 {
     return
            jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
@@ -2203,7 +2076,7 @@ static INLINE bool _jm_cst_13_str_test(const char *s)
 }
 
 // object .git.log
-static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2215,16 +2088,16 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
         if (unlikely(jm_str_eq_6(prop, 0x000000726564726fLL)))
         {
             // handle may order property
             // .git.log.order
-            res = json_is_string(pval) && _jm_cst_12_str_test(json_string_value(pval));
+            res = json_is_string(pval) && _jm_cst_11_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_19 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.order]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.order]", (path ? &lpath_17 : NULL));
                 return false;
             }
             continue;
@@ -2233,11 +2106,11 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may showGraph property
             // .git.log.showGraph
-            res = json_is_string(pval) && _jm_cst_13_str_test(json_string_value(pval));
+            res = json_is_string(pval) && _jm_cst_12_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_19 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showGraph]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showGraph]", (path ? &lpath_17 : NULL));
                 return false;
             }
             continue;
@@ -2249,20 +2122,20 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.log.showWholeGraph]", (path ? &lpath_19 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showWholeGraph]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.log.showWholeGraph]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showWholeGraph]", (path ? &lpath_17 : NULL));
                 return false;
             }
             continue;
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.log]", (path ? &lpath_19 : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.log]", (path ? &lpath_17 : NULL));
         return false;
     }
     return true;
 }
 
 // object .git.commit
-static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2274,7 +2147,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
         if (likely(jm_str_eq_8(prop, 0x0066664f6e676973LL)))
         {
             // handle may signOff property
@@ -2282,20 +2155,20 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.git.commit.signOff]", (path ? &lpath_20 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit.signOff]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.commit.signOff]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit.signOff]", (path ? &lpath_18 : NULL));
                 return false;
             }
             continue;
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commit]", (path ? &lpath_20 : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commit]", (path ? &lpath_18 : NULL));
         return false;
     }
     return true;
 }
 
 // object .git.commitPrefixes.'/./'
-static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2308,17 +2181,17 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
         if (jm_str_eq_8(prop, 0x006e726574746170LL))
         {
             // handle must pattern property
             must_count += 1;
             // .git.commitPrefixes.'/./'.pattern
-            res = json_model_8(pval, (path ? &lpath_22 : NULL), rep);
+            res = json_model_8(pval, (path ? &lpath_20 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_22 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_20 : NULL));
                 return false;
             }
             continue;
@@ -2328,16 +2201,16 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must replace property
             must_count += 1;
             // .git.commitPrefixes.'/./'.replace
-            res = json_model_8(pval, (path ? &lpath_22 : NULL), rep);
+            res = json_model_8(pval, (path ? &lpath_20 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_22 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_20 : NULL));
                 return false;
             }
             continue;
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes.'/./']", (path ? &lpath_22 : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes.'/./']", (path ? &lpath_20 : NULL));
         return false;
     }
     if (unlikely(must_count != 2))
@@ -2359,7 +2232,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .git.commitPrefixes
-static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2371,23 +2244,150 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
         if (likely(_jm_re_1(prop, path, rep)))
         {
             // handle 1 re props
             // .git.commitPrefixes.'/./'
-            res = _jm_obj_21(pval, (path ? &lpath_21 : NULL), rep);
+            res = _jm_obj_19(pval, (path ? &lpath_19 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes.'/./']", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes.'/./']", (path ? &lpath_19 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes]", (path ? &lpath_21 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.git.commitPrefixes]", (path ? &lpath_19 : NULL));
             return false;
         }
+    }
+    return true;
+}
+
+static INLINE bool _jm_cst_13_str_test(const char *s)
+{
+    return
+           jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
+        || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
+
+    ;
+}
+
+// object .git.paging
+static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.git.paging]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_6(prop, 0x0000007265676170LL)))
+        {
+            // handle may pager property
+            // .git.paging.pager
+            // .git.paging.pager.'@'
+            res = json_is_string(pval);
+            if (likely(res))
+            {
+                const char * sval_1 = json_string_value(pval);
+                res = (jm_str_ne_0(sval_1));
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "constraints failed [.git.paging.pager]", (path ? &lpath_21 : NULL));
+                }
+            }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.git.paging.pager.'@']", (path ? &lpath_21 : NULL));
+            }
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.pager]", (path ? &lpath_21 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (jm_str_eq_8(prop, 0x677241726f6c6f63LL) && jm_str_eq_0(prop + 8))
+        {
+            // handle may colorArg property
+            // .git.paging.colorArg
+            res = json_is_string(pval) && _jm_cst_13_str_test(json_string_value(pval));
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.colorArg]", (path ? &lpath_21 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (likely(jm_str_eq_8(prop, 0x69666e6f43657375LL) && jm_str_eq_2(prop + 8, 0x00000067)))
+        {
+            // handle may useConfig property
+            // .git.paging.useConfig
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.paging.useConfig]", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.useConfig]", (path ? &lpath_21 : NULL));
+                return false;
+            }
+            continue;
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.paging]", (path ? &lpath_21 : NULL));
+        return false;
+    }
+    return true;
+}
+
+// object .git.merging
+static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.git.merging]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_5(prop, 0x0000000073677261LL))
+        {
+            // handle may args property
+            // .git.merging.args
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.git.merging.args]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.args]", (path ? &lpath_22 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (likely(jm_str_eq_8(prop, 0x6f436c61756e616dLL) && jm_str_eq_5(prop + 8, 0x0000000074696d6dLL)))
+        {
+            // handle may manualCommit property
+            // .git.merging.manualCommit
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.git.merging.manualCommit]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.manualCommit]", (path ? &lpath_22 : NULL));
+                return false;
+            }
+            continue;
+        }
+        if (rep) jm_report_add_entry(rep, "unexpected prop [.git.merging]", (path ? &lpath_22 : NULL));
+        return false;
     }
     return true;
 }
@@ -2415,7 +2415,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may log property
                     // .git.log
-                    res = _jm_obj_18(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_16(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.log]", (path ? &lpath_16 : NULL));
@@ -2470,7 +2470,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may paging property
                     // .git.paging
-                    res = _jm_obj_16(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_20(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.paging]", (path ? &lpath_16 : NULL));
@@ -2483,7 +2483,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may merging property
                     // .git.merging
-                    res = _jm_obj_17(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_21(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.merging]", (path ? &lpath_16 : NULL));
@@ -2515,7 +2515,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may commit property
                     // .git.commit
-                    res = _jm_obj_19(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_17(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.commit]", (path ? &lpath_16 : NULL));
@@ -2554,7 +2554,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may commitPrefixes property
                     // .git.commitPrefixes
-                    res = _jm_obj_20(pval, (path ? &lpath_16 : NULL), rep);
+                    res = _jm_obj_18(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes]", (path ? &lpath_16 : NULL));
