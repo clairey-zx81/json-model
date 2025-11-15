@@ -79,7 +79,7 @@ RUN /app/venv/bin/pip install -e ./json-schema-utils
 # java runtime, direct download with hardcoded version
 ENV java=/app/json-model/json_model/runtime/java
 ENV gson=2.13.2
-ENV jackson=2.20.0
+ENV jackson=2.20.1
 ENV jackson_ann=2.20
 ENV jakarta=2.1.3
 ENV johnzon=2.0.2

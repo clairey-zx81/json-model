@@ -52,7 +52,7 @@
     <maven.compiler.version>3.13.0</maven.compiler.version>
     <getopt.version>1.0.13</getopt.version>
     <gson.version>2.13.2</gson.version>
-    <jackson.version>2.20.0</jackson.version>
+    <jackson.version>2.20.1</jackson.version>
     <jakarta.version>2.1.3</jakarta.version>
     <johnzon.version>2.0.2</johnzon.version>
   </properties>
