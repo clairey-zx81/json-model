@@ -16,6 +16,7 @@
 - [x] model: simplify `{"": "$NONE"}`
 - [x] ~model: avoid dead code in `mv-0f/dedup-002`~ (simple pair ok, multiple seldom useful)
 - [ ] test: improve output determinism
+- [ ] static: make regex groups non capturing when appropriate?
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] static: xor acceleration based on distinct mandatory props
 - [ ] static: merge partial mandatory prop discriminants
