@@ -264,8 +264,7 @@ or deselect tools for easier comparisons.
 - **cpu cores:** $cpu_count
 - **jmc version:** $(jmc --version)
 - **jsonschema version:** $(js-cli --version)
-- **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD),
-  $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) uniq tests
+- **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD), $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) unique tests
 - **duration:** $SECONDS seconds
 
 ## Parameters
