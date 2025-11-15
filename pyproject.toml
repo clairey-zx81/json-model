@@ -24,7 +24,7 @@ version = "2.0b36"
 dependencies = [
   "requests", "google-re2", "pyyaml", "validators",
   # "JsonSchemaUtils@git+https://github.com/zx80/json-schema-utils"
-  "json-schema-utils>=0.8.5"
+  "json-schema-utils>=0.8.6"
 ]
 
 [project.optional-dependencies]
