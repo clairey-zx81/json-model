@@ -95,6 +95,7 @@
 
           // sorting criterion for each cases
           function key(data, i) {
+            // this exits because one tool has the best 1.0 performance for case i
             for (let rank = 0; rank < winners.length; rank++) {
               const tool = winners[rank]
               if (data[tool].data[i] === 1.0)
@@ -102,18 +103,21 @@
             }
           }
 
+          // sort cases according to previous function criterion
           const keys = indexes.map(i => key(data, i))
           indexes.sort( (i, j) => keys[j] - keys[i] )
         }
 
-        // extract needed data in order
+        // extract needed data in computed order
         data.forEach(o => {
           o.data = indexes.map(i => o.data[i])
         })
 
-        // TODO improve chart size and resize management?
+        // labels start from 1
         const labels = indexes.map(i => i + 1)
         const ctx = document.getElementById(display).getContext('2d')
+
+        // create actual radar with prepared data
         const radar = new Chart(ctx, {
           type: 'radar',
           data: { labels: labels, datasets: data },
@@ -121,12 +125,13 @@
             plugins: {
               legend: {
                 // when a dataset is hidden or shown, adjust values wrt the fastest visible tool
+                // this is done by overriding the default "onClick" legend chart function
                 onClick: (e, item, legend) => {
                   const datasets = radar.data.datasets
                   const dataset = datasets[item.datasetIndex]
                   // toggle clicked dataset visibility
                   dataset.hidden = !dataset.hidden
-                  // adjust data
+                  // adjust data values so that the best visible is 1.0
                   for (let idx = 0; idx < dataset.data.length; idx++) {
                     // compute visible fastest for this case
                     let maxi = 0.0
@@ -138,7 +143,7 @@
                       for (let ds = 0; ds < datasets.length; ds++)
                         datasets[ds].data[idx] /= maxi
                   }
-                  // redraw radar to show updated data with an animation
+                  // redraw radar to show updated data with a nice free animation
                   radar.update()
                 }
               }
@@ -149,8 +154,9 @@
                 max: 1.0
               }
             },
-            aspectRatio: window.innerWidth < window.innerHeight ? 1 : 1.8,
+            // attempt at improving responsiveness for phone vs tablet/computer screens
             responsive: true,
+            aspectRatio: window.innerWidth < window.innerHeight ? 1 : 1.8,
             maintainAspectRatio: false,
           }
         });
