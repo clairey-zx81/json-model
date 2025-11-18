@@ -75,3 +75,26 @@ the following caveats, and others:
   model definitions compared to lax schemas…
 - it is unclear whether JIT optimizations (Java and JS) may work around the
   benchmarking loops and report undue very fast performances, eg on the GeoJSON case.
+
+## Other Artifacts
+
+[Sourcemeta](https://sourcemeta.com)
+[JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark)
+also provides
+[benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
+which includes 15 JSON Schema validation tools and our JSON Model Compiler with
+C, JS and Python backends.
+Overall, JMC-C comes ahead of Blaze C++ on 2/3 of the test cases (as of 2025-11-18).
+
+It should be noted that benchmarking conditions are quite different:
+
+1. There is no loop to compute an average performance, but an initial _cold_ one-shot measure,
+   a warming phase loop and a _hot_ one-shot measure: This may tend to mask effects from occasional
+   GC runs.
+2. The benchmark focuses on schema conformance, including (buggy) schemas which
+   are mostly dead code: It rejects tools which do not validate all strictly conformant values,
+   even if these value would not allowed by the target application.
+
+These few special cases explain the non 100% validation results displayed JMC for
+ansible meta, cypress and yamlling tests: the model translation or native models are stricter
+than the original schemas.
