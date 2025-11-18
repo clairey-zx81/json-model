@@ -73,3 +73,5 @@ the following caveats, and others:
 - due to intrinsic limitations of the underlying libraries and the quality of models or schemas,
   some results may differ, mostly for good reasons: regex incompatibilities, stricter
   model definitions compared to lax schemas…
+- it is unclear whether JIT optimizations (Java and JS) may work around the
+  benchmarking loops and report undue very fast performances, eg on the GeoJSON case.
