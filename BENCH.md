@@ -60,10 +60,16 @@ the following caveats, and others:
 
 - test cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
-- compilers, libraries and other updates can have dramatic effects.
+- the overall load on the host can impact measures.
+- compilers, libraries and other design and updates can have dramatic effects:
+  for faster parsing, a library may use linked-list for properties, which means
+  that retrieving a given property value will cost more than a library which uses
+  a hash table which is more costly to build.
 - blaze does _not_ implement checking string values (eg dates, url…),
   so these checks may be disactivated (see `JMC_OPTS`) for fairness.
-- the overall load on the host can impact measures.
-- due to intrinsic limitations of the underlying libraries and the quality of models,
+- blaze uses its own special-purpose JSON representation: if interfaced from another
+  ecosystem, the cost of translating the JSON representation should be taken into account;
+  jmc uses native JSON representation and generate validation code around it.
+- due to intrinsic limitations of the underlying libraries and the quality of models or schemas,
   some results may differ, mostly for good reasons: regex incompatibilities, stricter
-  definitions…
+  model definitions compared to lax schemas…
