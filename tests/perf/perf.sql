@@ -114,7 +114,7 @@ CREATE TABLE Result AS
   FROM OrderedRawResult
   WHERE ordering = 1;
 
--- all results
+-- all results, set to 0 if missing
 CREATE TABLE ResultRate AS
   SELECT
     c.name,
@@ -283,6 +283,7 @@ CREATE TABLE ShowCases AS WITH
   ORDER BY 1;
 
 -- relative execution time comparison per cases
+-- display nothing on failures
 CREATE TABLE ShowPerfPerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
@@ -290,13 +291,13 @@ CREATE TABLE ShowPerfPerCase AS
     cases AS "cases",
     ROUND(best, 1) AS "best µs",
     tool AS ":1st_place_medal:",
-    FORMAT('%.02f', blaze) AS blaze,
-    FORMAT('%.02f', c) AS c,
-    FORMAT('%.02f', js) AS js,
-    FORMAT('%.02f', jv1) AS jv1,
-    FORMAT('%.02f', jv2) AS jv2,
-    FORMAT('%.02f', jv3) AS jv3,
-    FORMAT('%.02f', py) AS py
+    CASE blaze <> 0.0 THEN FORMAT('%.02f', blaze) ELSE NULL END AS blaze,
+    CASE c     <> 0.0 THEN FORMAT('%.02f', c)     ELSE NULL END AS c,
+    CASE js    <> 0.0 THEN FORMAT('%.02f', js)    ELSE NULL END AS js,
+    CASE jv1   <> 0.0 THEN FORMAT('%.02f', jv1)   ELSE NULL END AS jv1,
+    CASE jv2   <> 0.0 THEN FORMAT('%.02f', jv2)   ELSE NULL END AS jv2,
+    CASE jv3   <> 0.0 THEN FORMAT('%.02f', jv3)   ELSE NULL END AS jv3,
+    CASE py    <> 0.0 THEN FORMAT('%.02f', py)    ELSE NULL END AS py
   FROM RelativeComparison
   ORDER BY 1 ASC;
 
@@ -322,23 +323,23 @@ CREATE TABLE ShowPerfSummary AS WITH
   SELECT
     1 AS ordre, 'best count' AS summary,
     COUNT(*) FILTER (WHERE blaze = 1.0) AS blaze,
-    COUNT(*) FILTER (WHERE c = 1.0) AS c,
-    COUNT(*) FILTER (WHERE js = 1.0) AS js,
-    COUNT(*) FILTER (WHERE jv1 = 1.0) AS jv1,
-    COUNT(*) FILTER (WHERE jv2 = 1.0) AS jv2,
-    COUNT(*) FILTER (WHERE jv3 = 1.0) AS jv3,
-    COUNT(*) FILTER (WHERE py = 1.0) AS py
+    COUNT(*) FILTER (WHERE c     = 1.0) AS c,
+    COUNT(*) FILTER (WHERE js    = 1.0) AS js,
+    COUNT(*) FILTER (WHERE jv1   = 1.0) AS jv1,
+    COUNT(*) FILTER (WHERE jv2   = 1.0) AS jv2,
+    COUNT(*) FILTER (WHERE jv3   = 1.0) AS jv3,
+    COUNT(*) FILTER (WHERE py    = 1.0) AS py
   FROM RelativeComparison
   UNION
   SELECT
     2, 'broken count',
     COUNT(*) FILTER (WHERE blaze IS NULL),
-    COUNT(*) FILTER (WHERE c IS NULL),
-    COUNT(*) FILTER (WHERE js IS NULL),
-    COUNT(*) FILTER (WHERE jv1 IS NULL),
-    COUNT(*) FILTER (WHERE jv2 IS NULL),
-    COUNT(*) FILTER (WHERE jv3 IS NULL),
-    COUNT(*) FILTER (WHERE py IS NULL)
+    COUNT(*) FILTER (WHERE c     IS NULL),
+    COUNT(*) FILTER (WHERE js    IS NULL),
+    COUNT(*) FILTER (WHERE jv1   IS NULL),
+    COUNT(*) FILTER (WHERE jv2   IS NULL),
+    COUNT(*) FILTER (WHERE jv3   IS NULL),
+    COUNT(*) FILTER (WHERE py    IS NULL)
   FROM RelativeComparison
   UNION
   SELECT
@@ -391,11 +392,11 @@ CREATE TABLE ShowCompilePerCase AS
     RANK() OVER (ORDER BY name) AS "#",
     name,
     ROUND(blaze, 1) AS blaze,
-    ROUND(s2m, 1) AS s2m,
-    ROUND(c, 1) AS c,
-    ROUND(js, 1) AS js,
-    ROUND(jv, 1) AS jv,
-    ROUND(py, 1) AS py
+    ROUND(s2m,   1) AS s2m,
+    ROUND(c,     1) AS c,
+    ROUND(js,    1) AS js,
+    ROUND(jv,    1) AS jv,
+    ROUND(py,    1) AS py
   FROM CompilePerfCompare
   ORDER BY 1;
 
@@ -404,34 +405,34 @@ CREATE TABLE ShowCompileSummary AS
   SELECT
     'min compile time (s)' AS data,
     ROUND(MIN(blaze), 1) AS blaze,
-    ROUND(MIN(s2m), 1) AS s2m,
-    ROUND(MIN(c), 1) AS c,
-    ROUND(MIN(js), 1) AS js,
-    ROUND(MIN(jv), 1) AS jv,
-    ROUND(MIN(py), 1) AS py
+    ROUND(MIN(s2m),   1) AS s2m,
+    ROUND(MIN(c),     1) AS c,
+    ROUND(MIN(js),    1) AS js,
+    ROUND(MIN(jv),    1) AS jv,
+    ROUND(MIN(py),    1) AS py
   FROM CompilePerfCompare
   UNION
   SELECT
     'avg compile time (s)',
     ROUND(AVG(blaze), 1),
-    ROUND(AVG(s2m), 1),
-    ROUND(AVG(c), 1),
-    ROUND(AVG(js), 1),
-    ROUND(AVG(jv), 1),
-    ROUND(AVG(py), 1)
+    ROUND(AVG(s2m),   1),
+    ROUND(AVG(c),     1),
+    ROUND(AVG(js),    1),
+    ROUND(AVG(jv),    1),
+    ROUND(AVG(py),    1)
   FROM CompilePerfCompare
   UNION
   SELECT
     'max compile time (s)',
     ROUND(MAX(blaze), 1),
-    ROUND(MAX(s2m), 1),
-    ROUND(MAX(c), 1),
-    ROUND(MAX(js), 1),
-    ROUND(MAX(jv), 1),
-    ROUND(MAX(py), 1)
+    ROUND(MAX(s2m),   1),
+    ROUND(MAX(c),     1),
+    ROUND(MAX(js),    1),
+    ROUND(MAX(jv),    1),
+    ROUND(MAX(py),    1)
   FROM CompilePerfCompare;
 
--- only bad results
+-- show only bad results
 CREATE TABLE ShowBadResults AS
   SELECT *
   FROM ResultComparison

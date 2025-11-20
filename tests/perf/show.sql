@@ -17,7 +17,7 @@ FROM ShowPerfSummary ORDER BY ordre;
 .print
 .print For each case: number and name, number of test cases, best cumulated median performance (µs),
 .print best tool, performance slowdown ratio for blaze and jmc variants (java 1 is gson, 2 is jackson,
-.print 3 is jsonp/johnzon), the lower the better, **1.0** is best.
+.print 3 is jsonp/johnzon), the lower the better, **1.0** is best, empty denotes a tool failure.
 .print
 .print <!-- RLRRCRRRRRRR -->
 .width -2 16 -5 -7 17 -6 -6 -6 -6 -6 -6 -6

@@ -95,8 +95,8 @@ It should be noted that benchmarking conditions are quite different:
    GC runs.
 2. The benchmark focuses on schema conformance, including (buggy) schemas which
    are mostly dead code: It rejects tools which do not validate all strictly conformant values,
-   even if these value would not allowed by the target application.
+   even if these values would be rejected by the target application.
 
-These few special cases explain the non 100% validation results displayed JMC for
-ansible meta, cypress and yamlling tests: the model translation or native models are stricter
-than the original schemas.
+This latest point explains the under 100% validation results displayed JMC for
+_ansible-meta_, _cypress_ and _yamllint_ tests: the model translation or native models
+are more accurate than the original schemas due to bug fixes or more rigorous descriptions.
