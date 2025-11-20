@@ -7,7 +7,7 @@
 .print For each tool: number of best performance, number of case failures, overall
 .print validation speed in bytes per µs, maximum/geometrical average/minimum performance ratio.
 .print
-.print LRRRRRRR
+.print <!-- LRRRRRRR -->
 .width 0 -5 -5 -5 -5 -5 -5 -5
 SELECT summary, blaze, c, js, jv1, jv2, jv3, py
 FROM ShowPerfSummary ORDER BY ordre;
@@ -19,7 +19,7 @@ FROM ShowPerfSummary ORDER BY ordre;
 .print best tool, performance slowdown ratio for blaze and jmc variants (java 1 is gson, 2 is jackson,
 .print 3 is jsonp/johnzon), the lower the better, **1.0** is best.
 .print
-.print RLRRCRRRRRRR
+.print <!-- RLRRCRRRRRRR -->
 .width -2 16 -5 -7 17 -6 -6 -6 -6 -6 -6 -6
 SELECT * FROM ShowPerfPerCase ORDER BY 1;
 
@@ -28,7 +28,7 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 .print
 .print For each tool and cases with a partial success rate, percent of test cases validated.
 .print
-.print RLRRRRRRR
+.print <!-- RLRRRRRRR -->
 .width -2 16 -5 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowBadResults ORDER BY 1;
 
@@ -38,7 +38,7 @@ SELECT * FROM ShowBadResults ORDER BY 1;
 .print For each tool and case, compilation time in second.
 .print Tool `s2m` is initial schema-to-model conversion.
 .print
-.print RLRRRRRR
+.print <!-- RLRRRRRR -->
 .width -2 16 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompilePerCase ORDER BY 1;
 
@@ -48,7 +48,7 @@ SELECT * FROM ShowCompilePerCase ORDER BY 1;
 .print For each tool, average/max/min compilation time in seconds.
 .print Tool `s2m` is initial schema-to-model conversion.
 .print
-.print LRRRRRR
+.print <!-- LRRRRRR -->
 .width 0 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompileSummary ORDER BY 1;
 
@@ -58,6 +58,6 @@ SELECT * FROM ShowCompileSummary ORDER BY 1;
 .print For each case and a summary: the schema and model sizes (number of lines, model size 1
 .print denotes a reference to a predefined model), number/min/average/max size of test values.
 .print
-.print RLRRRRRR
+.print <!-- RLRRRRRR -->
 .width -2, 0 -6, -6, -5 -8 -8 -8
 SELECT * FROM ShowCases ORDER BY 1;

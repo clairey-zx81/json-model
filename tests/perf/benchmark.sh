@@ -162,7 +162,7 @@ export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
 # check for scripts
-for cmd in run.sh jmc js-cli run-to-csv.sh compile-to-csv.sh res-to-csv.sh ; do
+for cmd in run.sh jmc js-cli run-to-csv.sh compile-to-csv.sh res-to-csv.sh mdalign.py ; do
   type $cmd || err 5 "script $cmd not found"
 done
 
@@ -282,8 +282,8 @@ or deselect tools for easier comparisons.
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
 
-# for markdown
-sqlite3 -markdown perf.db < $script_dir/show.sql >> "$ID.md"
+# for markdown, including table alignment filter
+sqlite3 -markdown perf.db < $script_dir/show.sql | mdalign.py >> "$ID.md"
 
 # for latex
 sqlite3 -csv perf.db < $script_dir/show.sql > "$ID.csv"
