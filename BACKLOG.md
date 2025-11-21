@@ -15,6 +15,8 @@
 - [x] pr: add explicit winner column to per case perf
 - [x] model: simplify `{"": "$NONE"}`
 - [x] ~model: avoid dead code in `mv-0f/dedup-002`~ (simple pair ok, multiple seldom useful)
+- [ ] export: java classes
+- [ ] export: go interfaces
 - [ ] test: improve output determinism
 - [ ] static: make regex groups non capturing when appropriate?
 - [ ] perf: compute performance overhead globally instead of per run
