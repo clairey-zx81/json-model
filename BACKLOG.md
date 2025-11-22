@@ -2,19 +2,6 @@
 
 ## Current Tasks
 
-- [x] tests: check how clang compares to gcc (maybe a few pc better)
-- [x] static: partition long lists of properties based on first bytes
-- [x] static: use more bytes for str hashing depending on min len
-- [x] static: generate hexa constants for partition limits tests
-- [x] static: use `continue` instead of long multi-if statements
-- [x] c-backend: partition inlined str cset
-- [x] static: or acceleration based on full or partial distinct mandatory props
-- [x] static: set default C partition threshold to _6_
-- [x] c-backend: replace `strcmp` with `memcmp` in runtime
-- [x] backend: improve if patterns in some cases
-- [x] pr: add explicit winner column to per case perf
-- [x] model: simplify `{"": "$NONE"}`
-- [x] ~model: avoid dead code in `mv-0f/dedup-002`~ (simple pair ok, multiple seldom useful)
 - [ ] export: java classes
 - [ ] export: go interfaces
 - [ ] test: improve output determinism
@@ -745,3 +732,16 @@
 - [x] perf: test max strcmp cset to set default default
 - [x] pr: move out schema-to-model conversion
 - [x] pr: adjust radar display to visible datasets
+- [x] tests: check how clang compares to gcc (maybe a few pc better)
+- [x] static: partition long lists of properties based on first bytes
+- [x] static: use more bytes for str hashing depending on min len
+- [x] static: generate hexa constants for partition limits tests
+- [x] static: use `continue` instead of long multi-if statements
+- [x] c-backend: partition inlined str cset
+- [x] static: or acceleration based on full or partial distinct mandatory props
+- [x] static: set default C partition threshold to _6_
+- [x] c-backend: replace `strcmp` with `memcmp` in runtime
+- [x] backend: improve if patterns in some cases
+- [x] pr: add explicit winner column to per case perf
+- [x] model: simplify `{"": "$NONE"}`
+- [x] ~model: avoid dead code in `mv-0f/dedup-002`~ (simple pair ok, multiple seldom useful)
