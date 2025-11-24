@@ -291,13 +291,13 @@ CREATE TABLE ShowPerfPerCase AS
     cases AS "cases",
     ROUND(best, 1) AS "best µs",
     tool AS ":1st_place_medal:",
-    CASE blaze <> 0.0 THEN FORMAT('%.02f', blaze) ELSE NULL END AS blaze,
-    CASE c     <> 0.0 THEN FORMAT('%.02f', c)     ELSE NULL END AS c,
-    CASE js    <> 0.0 THEN FORMAT('%.02f', js)    ELSE NULL END AS js,
-    CASE jv1   <> 0.0 THEN FORMAT('%.02f', jv1)   ELSE NULL END AS jv1,
-    CASE jv2   <> 0.0 THEN FORMAT('%.02f', jv2)   ELSE NULL END AS jv2,
-    CASE jv3   <> 0.0 THEN FORMAT('%.02f', jv3)   ELSE NULL END AS jv3,
-    CASE py    <> 0.0 THEN FORMAT('%.02f', py)    ELSE NULL END AS py
+    CASE WHEN blaze <> 0.0 THEN FORMAT('%.02f', blaze) ELSE NULL END AS blaze,
+    CASE WHEN c     <> 0.0 THEN FORMAT('%.02f', c)     ELSE NULL END AS c,
+    CASE WHEN js    <> 0.0 THEN FORMAT('%.02f', js)    ELSE NULL END AS js,
+    CASE WHEN jv1   <> 0.0 THEN FORMAT('%.02f', jv1)   ELSE NULL END AS jv1,
+    CASE WHEN jv2   <> 0.0 THEN FORMAT('%.02f', jv2)   ELSE NULL END AS jv2,
+    CASE WHEN jv3   <> 0.0 THEN FORMAT('%.02f', jv3)   ELSE NULL END AS jv3,
+    CASE WHEN py    <> 0.0 THEN FORMAT('%.02f', py)    ELSE NULL END AS py
   FROM RelativeComparison
   ORDER BY 1 ASC;
 
