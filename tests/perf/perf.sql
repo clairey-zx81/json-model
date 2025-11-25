@@ -126,9 +126,9 @@ CREATE TABLE ResultRate AS
   CROSS JOIN Tools AS t
   LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool);
 
--- show simple pc
+-- show rounded pc
 UPDATE ResultRate
-  SET pc = REPLACE(TRUNC(rate), '.0', '');
+  SET pc = ROUND(rate, 1);
 
 -- cumulated perf per case/tool
 CREATE TABLE CumulatedPerf AS
@@ -436,5 +436,5 @@ CREATE TABLE ShowCompileSummary AS
 CREATE TABLE ShowBadResults AS
   SELECT *
   FROM ResultComparison
-  WHERE blaze <> '100' OR c <> '100' OR js <> '100' OR jv1 <> '100'
-     OR jv2 <> '100' OR jv3 <> '100' OR py <> '100';
+  WHERE blaze <> 100.0 OR c <> 100.0 OR js <> 100.0 OR jv1 <> 100.0
+     OR jv2 <> 100.0 OR jv3 <> 100.0 OR py <> 100.0;
