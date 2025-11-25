@@ -31,6 +31,12 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 .print <!-- RLRRRRRRR -->
 .width -2 16 -5 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowBadResults ORDER BY 1;
+.print
+.print As of November 2025, the JMC results for `ansible-meta`, `cypress` and `yamllint` are
+.print not 100.0% because validation checks are stricter and some
+.print [malformed values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
+.print are rightfully rejected.
+.print The `geoson` failure for Java/GSON is related to a corner case issue with GSON.
 
 .print
 .print ## Compilation Per Case
