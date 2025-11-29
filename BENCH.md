@@ -84,9 +84,9 @@ the following caveats, and others:
 [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark)
 also provides
 [benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
-which includes 15 JSON Schema validation tools and our JSON Model Compiler with
+which includes 15 JSON Schema validation tools including our JSON Model Compiler with
 C, JS and Python backends.
-Overall, JMC comes ahead of Blaze C++ about 2/3 of the test cases (as of 2025-11-25).
+Overall, JMC comes ahead of Blaze C++ about 2/3 of the test cases (as of 2025-11-29).
 
 It should be noted that benchmarking conditions are quite different:
 
