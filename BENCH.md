@@ -27,7 +27,7 @@ for comparison using the Blaze CLI.
 
 It is typically started on a large host with the
 [`start_bench.sh` script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/start_bench.sh)
-which will span the necessary dockers:
+which will spawn the necessary dockers:
 
 ```sh
 JMC=latest JMC_OPTS="--no-predef --cc=clang-20" \
