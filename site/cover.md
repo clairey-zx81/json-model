@@ -4,4 +4,4 @@
 
 # A compact and intuitive JSON syntax to describe JSON data structures
 
-[Getting Started](README.md)
+[Get Started](README.md)
