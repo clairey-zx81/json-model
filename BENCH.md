@@ -8,6 +8,7 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 
 ## Recent Artifacts
 
+- [2025120700](benchmarks/2025120700.md) clang, no predefs, jmc 2.0b36 vs jsc 12.10.1, 11 runs, 1000 iterations.
 - [2025120503](benchmarks/2025120503.md) clang, no predefs, jmc 2.0b36 vs jsc 12.10.0, 11 runs, 1000 iterations.
 - [2025120303](benchmarks/2025120303.md) clang, no predefs, jmc 2.0b36 vs jsc 12.8.1, 11 runs, 1000 iterations.
 - [2025112503](benchmarks/2025112503.md) clang, no predefs, jmc 2.0b36 vs jsc 12.7.1, 3 runs, 1000 iterations.
@@ -88,7 +89,7 @@ also provides
 [benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
 which includes 15 JSON Schema validation tools including our JSON Model Compiler with
 C, JS and Python backends.
-Overall, JMC comes ahead of Blaze C++ about 2/3 of the test cases (as of 2025-11-29).
+Overall, JMC comes ahead of Blaze C++ on 2/3 of the test cases (as of 2025-12-07).
 
 It should be noted that benchmarking conditions are quite different:
 
