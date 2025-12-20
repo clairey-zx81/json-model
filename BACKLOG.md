@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [ ] docker: enable user remap
 - [ ] export: java classes
 - [ ] export: go interfaces
 - [ ] test: improve output determinism
