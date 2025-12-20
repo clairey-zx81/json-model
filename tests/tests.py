@@ -231,14 +231,14 @@ EXPECT: dict[str, int] = {
     "mv-28:values": 159,
     # miscellaneous tests
     "bads:models": 58,
-    "jsts-files": 311,
+    "jsts-files": 310,
     # tests json models of json schema versions
-    "draft3:jsts": 105,
-    "draft4:jsts": 161,
-    "draft6:jsts": 233,
-    "draft7:jsts": 256,
-    "draft2019-09:jsts": 366,
-    "draft2020-12:jsts": 374,
+    "draft3:jsts": 104,
+    "draft4:jsts": 160,
+    "draft6:jsts": 232,
+    "draft7:jsts": 255,
+    "draft2019-09:jsts": 365,
+    "draft2020-12:jsts": 375,
     "draft-next:jsts": 368,
 }
 
