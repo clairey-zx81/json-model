@@ -4,6 +4,7 @@
 #
 
 version=$(jmc --version)
+branch=$(git rev-parse --abbrev-ref HEAD)
 githash=$(git show --pretty=format:"%h" --no-patch)
 
 cat <<EOF
@@ -11,8 +12,8 @@ cat <<EOF
 
 JSON Model is an on-going [research project](PUBS.md).
 
-The following statistics for version **$version** ($githash) show that the compiler,
-code generator and runtimes are quite small, but still heavily tested:
+The following statistics for version **$version** ($branch $githash) show that the compiler,
+code generator and runtimes are quite small, but still heavily tested.
 
 ## Compiler Source Code
 
