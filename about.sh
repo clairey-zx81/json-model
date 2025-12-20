@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# Generate a markdown report about the compiler
+# Generate a markdown report about the compiler sources
 #
 
 version=$(jmc --version)
@@ -12,7 +12,7 @@ cat <<EOF
 
 JSON Model is an on-going [research project](PUBS.md).
 
-The following statistics for version **$version** ($branch $githash) show that the compiler,
+The following statistics for version **$version** (\`$branch\` \`$githash\`) show that the compiler,
 code generator and runtimes are quite small, but still heavily tested.
 
 ## Compiler Source Code
@@ -130,8 +130,8 @@ Test models cover the various features of JSON Model.
 Each model is tested for each target language (Python, C, JavaScript, PL/pgSQL, Perl, Java)
 on a set of test vectors.
 
-- number of JSON models: $n_models
-- total JSON model locs: $model_locs
-- number of test vector JSON values: $n_values
-- all tested JSON values (including models, generated schemas and test suite schemas): $all_values
+- number of JSON models: _${n_models}_
+- total JSON model locs: _${model_locs}_
+- number of test vector JSON values: _${n_values}_
+- all tested JSON values (including models, generated schemas and test suite schemas): _${all_values}_
 EOF
