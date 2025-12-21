@@ -11,8 +11,9 @@
 FROM alpinelinux/docker-cli:latest
 LABEL description="JSON Model compiler benchmarking artifact"
 RUN apk add git bash bash-completion sqlite jq lscpu pythonispython3
-RUN mkdir /app /workspace
+RUN mkdir /app /workspace && chmod a+rx /app /workspace
 COPY . /app
+RUN chmod a+r /app/* && chmod a+x /app/*.sh /app/*.py /app/jmc /app/js-cli
 ENV PATH=$PATH:/app
 WORKDIR /workspace
 ENTRYPOINT [ "/app/benchmark.sh" ]
