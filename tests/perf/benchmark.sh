@@ -79,7 +79,7 @@ done
 # check option integer values
 [ $PARA -ge 1 ] || err 1 "unexpected parallel value, must be >= 1: $PARA"
 [ $LOOP -ge 1 ] || err 1 "unexpected loop value, must be >= 1: $LOOP"
-[ $RUNS -ge 1 -a $(( $RUNS % 2 )) -eq 1 ] || err 1 "unexpected runs value, must be >= 1 and odd: $RUNS"
+[ $RUNS -ge 3 -a $(( $RUNS % 2 )) -eq 1 ] || err 1 "unexpected runs value, must be >= 1 and odd: $RUNS"
 
 echo "# $$ benchmarking parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=$JMC_ENV"
 
