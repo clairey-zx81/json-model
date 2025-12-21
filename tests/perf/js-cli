@@ -6,16 +6,16 @@
 
 docker_image="ghcr.io/sourcemeta/jsonschema:${JSC:-latest}"
 docker_root="docker run --name blaze_cli_$$ -v ${WORKDIR:-.}:/workspace --rm --hostname=$(hostname)"
-docker_user="$docker_root --user $(id -u):$(id -g)"
+docker_user="$docker_root --user $(id -u):$(id -g) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro"
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | shell | root ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
   shift 1
-  exec $docker_user -i --entrypoint /bin/bash $docker_image "$@"
+  exec $docker_user -it --entrypoint /bin/bash $docker_image "$@"
 elif [ "$#" -ge 1 -a "$1" = "root" ] ; then
   shift 1
-  exec $docker_root -i --entrypoint /bin/bash $docker_image "$@"
+  exec $docker_root -it --entrypoint /bin/bash $docker_image "$@"
 elif [ "$#" -ge 1 -a "$1" = "run" ] ; then
   shift 1
   exec $docker_user $docker_image "$@"
