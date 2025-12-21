@@ -20,7 +20,7 @@ script_dir=$(dirname $0)
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap_py=1 debug=
-export JMC=latest JSC=latest JMC_ENV=$JMC_ENV JMC_BENCH_TIME_FMT='%e'
+export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
 while [[ "$1" == -* ]] ; do
@@ -42,9 +42,6 @@ while [[ "$1" == -* ]] ; do
       echo " --cap-py: reduce loop iterations for python (default)"
       echo " --no-cap-py: do not reduce loop iterations for python"
       echo " --env|-e VARS: environment variables to export to jmc docker"
-      # NOTE setting %U does not work through docker and with subprocesses
-      # there is no simple way to collect cumulated user and system cpu usage through docker
-      echo " --time|-t FMT: time format for performance collection, default is '%e'"
       echo " --task|-T TASK: comparisons to perform ($TASK)"
       exit 0
       ;;
@@ -67,8 +64,6 @@ while [[ "$1" == -* ]] ; do
     --jsc=*) JSC=${opt#*=} ;;
     --env=*) JMC_ENV=${opt#*=} ;;
     -e|--env) JMC_ENV=$1 ; shift ;;
-    --time=*) JMC_BENCH_TIME_FMT=${opt#*=} ;;
-    --time|-t) JMC_BENCH_TIME_FMT=$1 ; shift ;;
     --cap-py) cap_py=1 ;;
     --no-cap-py) cap_py= ;;
     -d|--debug) debug=1 ;;
@@ -276,7 +271,6 @@ or deselect tools for easier comparisons.
 - **number of case iterations:** $LOOP
 - **cap python:** $cap_py (whether to reduce iterations for python runs)
 - **debug:** $debug
-- **format:** $JMC_BENCH_TIME_FMT
 - **tasks:** $tasks
 - **exported environment variables:** \`$JMC_ENV\`
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)

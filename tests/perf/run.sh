@@ -10,8 +10,7 @@
 # - dirs: jsb schema directories to process
 #
 # env:
-# - JMC_BENCH_DEBUG: enable debug (FIXME unused)
-# - JMC_BENCH_TIME_FMT: time format performance to report (default %e)
+# - JMC_BENCH_DEBUG: enable debug (FIXME currently unused)
 
 export PATH=$PATH:.
 export TMPDIR=.
@@ -21,7 +20,6 @@ jmc=jmc
 js_cli=js-cli
 jsu_model="$jmc exec jsu-model"
 jsu_simpler="$jmc exec jsu-simpler"
-time_fmt=${JMC_BENCH_TIME_FMT:-%e}
 
 now=$(date +%Y%m%d%H%M%S.$$)
 debug=$JMC_BENCH_DEBUG
@@ -72,7 +70,7 @@ function ctime()
   shift 3
   local compile_csv="${prefix}_${tool}_compile.csv"
   echo -n "$case" >> "$compile_csv"
-  /usr/bin/time -f "$time_fmt" -a -o "$compile_csv" "$@"
+  /usr/bin/time -f "%e" -a -o "$compile_csv" "$@"
 }
 
 for dir ; do
