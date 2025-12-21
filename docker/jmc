@@ -22,6 +22,10 @@ done
 docker_user=("${docker_root[@]}")
 docker_user+=(--user "$(id -u):$(id -g)")
 
+if [ -f /etc/passwd ] ; then
+  docker_user+=(-v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro)
+fi
+
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | exec | shell | root ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
