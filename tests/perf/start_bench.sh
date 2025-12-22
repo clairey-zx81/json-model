@@ -72,11 +72,10 @@ echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
 docker pull zx80/jmc-bench:$bench
 
 # run
-# -u $(id -u) -g $(id -g) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro
+# --user $(id -u):$(id -g)
 exec docker run --rm --name jmcbench_$bench_id \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v .:/workspace \
-  --user $(id -u):$(id -g) \
   -v /etc/passwd:/etc/passwd:ro \
   -v /etc/group:/etc/group:ro \
   -e WORKDIR="$PWD" \
