@@ -1,5 +1,13 @@
 # JSON Model Developer Stuff
 
+## Contributions
+
+Beware that the developer documentation is scarce. PR are always welcome, eg:
+
+- new language or library support implementations
+- new exporters
+- possibly new models
+
 ## Publication Accounts
 
 See `publish.*` targets in `Makefile`.
@@ -8,7 +16,7 @@ See `publish.*` targets in `Makefile`.
 - Python Package on [PyPI](https://pypi.org/user/zx80/)
 - JavaScript module on [npmjs](https://www.npmjs.com/~calvin-5432)
 - Perl module on [CPAN](https://metacpan.org/author/ZXHZ)
-- Java Jar on [Maven Central](https://central.sonatype.com/account)
+- Java Jar on [Maven Central](https://central.sonatype.com/artifact/org.json-model/json-model)
 - Postgres extension on [PGXN](https://pgxn.org/user/fabien)
 - Docker image on [Docker](https://hub.docker.com/u/zx80)
 - Website on [CRI Web](https://www.cri.minesparis.psl.eu/)
