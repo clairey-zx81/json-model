@@ -103,9 +103,9 @@ for all possible values for that type.
     environment, other variant may be used which should support at least the RE2 subset.
     For portability, models should only rely on regex features available in the RE2 subset.
 
-  - JSON Model regular expressions are extended with option `X` (capital letter x) to allow
-    _references_ to string models with the following syntax: `($name:regex)`, where the regular
-    expression after the `:` must match the named string model.
+  - **EXPERIMENTAL** JSON Model regular expressions are extended with option `X` (capital letter x)
+    to allow _references_ to string models with the following syntax: `($name:regex)`, where the
+    regular expression after the `:` must match the named string model.
     Syntax `($name)` is a shortcut for `($name:.*)`.
 
 - **Predefined Models**
@@ -139,7 +139,7 @@ for all possible values for that type.
   - `"$EMAIL"`: an email address, eg _susie@json-model.org_.
   - `"$JSON"`: a valid JSON value, eg _123_ or _{"Susie": "Derkins"}_.
   - `"$REGEX"`: a valid regular expression, eg _^[a-z]+$_.
-  - `"$EXREG"`: an extended regular expression.
+  - `"$EXREG"`: an extended regular expression (**EXPERIMENTAL**).
 
   Any other all-capital ASCII character and digit names must be rejected as they
   are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).
@@ -447,7 +447,7 @@ A reference is a string which begins with the `$` character.
 
 Implementation should detect external reference cycles which are errors and should be rejected.
 
-## (Experimental) Model Transformations
+## (EXPERIMENTAL) Model Transformations
 
 Symbol `%` at the root of the model defines a model transformation object, which
 may include symbol renamings, model importations and model editions.
