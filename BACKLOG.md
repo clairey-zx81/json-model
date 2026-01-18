@@ -2,6 +2,9 @@
 
 ## Current Tasks
 
+- [ ] doc: improve developer documentation
+- [ ] test: add test categories (mark?)
+- [ ] test: allow to skip some tests by category
 - [ ] docker: enable user remap
 - [ ] export: java classes
 - [ ] export: go interfaces
