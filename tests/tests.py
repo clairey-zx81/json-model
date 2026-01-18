@@ -236,9 +236,9 @@ EXPECT: dict[str, int] = {
     "draft3:jsts": 104,
     "draft4:jsts": 160,
     "draft6:jsts": 232,
-    "draft7:jsts": 255,
-    "draft2019-09:jsts": 365,
-    "draft2020-12:jsts": 375,
+    "draft7:jsts": 257,
+    "draft2019-09:jsts": 367,
+    "draft2020-12:jsts": 377,
     "draft-next:jsts": 368,
 }
 
