@@ -14,7 +14,8 @@ clean:
 	$(MAKE) TARGET=clean $(D.clean)
 	$(RM) -r __pycache__ .pytest_cache
 
-PYTEST  = pytest --log-level=debug --capture=tee-sys --durations=5
+LOGLEVEL = info
+PYTEST  = pytest --log-level=$(LOGLEVEL) --capture=tee-sys --durations=5
 PYTOPT	= -n auto
 
 .PHONY: check.pytest
