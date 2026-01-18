@@ -129,6 +129,9 @@ schema: $(F.EO)
 # C Backend
 #
 # regular expression library for C generated code
+.PHONY: c
+c: $(F.c)
+
 RELIB    = re2
 
 %.c: %.model.json
