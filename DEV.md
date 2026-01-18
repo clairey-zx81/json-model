@@ -30,3 +30,25 @@ See `publish.*` targets in `Makefile`.
 - [js](./json_model/runtime/js/package.json)
 - docker tag is extracted from `jmc`
 - git tag?
+
+## Setup
+
+To setup a local developer environment, run at the root of the project:
+
+```sh
+# for Python
+make dev
+source venv/bin/activate
+# for JS
+npm install
+# for Perl
+source $PWD/json_model/runtime/pl/env.bash
+# for Java
+# get needed dependency jars (see pom.xml)
+make -C json_model/runtime/java jar
+source $PWD/json_model/runtime/java/env.bash
+# for C
+# install pcre2, cre2, gnu getopt, jansson
+# for SQL
+# have psql to connect to a local Postgres
+```
