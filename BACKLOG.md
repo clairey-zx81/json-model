@@ -2,13 +2,13 @@
 
 ## Current Tasks
 
+- [ ] test: improve output determinism
 - [ ] doc: improve developer documentation
 - [ ] test: add test categories (mark?)
 - [ ] test: allow to skip some tests by category
 - [ ] docker: enable user remap
 - [ ] export: java classes
 - [ ] export: go interfaces
-- [ ] test: improve output determinism
 - [ ] static: make regex groups non capturing when appropriate?
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] static: xor acceleration based on distinct mandatory props
