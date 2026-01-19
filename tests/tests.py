@@ -300,6 +300,7 @@ def tmp_dir():
     # could cleanup
 
 
+# TODO allow to restrict to a subset
 @pytest.fixture(params=["py", "c", "js", "sql"])
 def language(request):
     return request.param

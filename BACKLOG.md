@@ -3,8 +3,8 @@
 ## Current Tasks
 
 - [ ] test: improve output determinism
-- [ ] doc: improve developer documentation
 - [ ] test: add test categories (mark?)
+- [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
 - [ ] docker: enable user remap
 - [ ] export: java classes
