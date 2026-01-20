@@ -15,6 +15,8 @@ using a [docker](DOCKER.md) [image](https://hub.docker.com/r/zx80/jmc) for easy 
 
 See [how-to](HOWTO.md) for common tasks to integrate JSON Model seamlessly in a project.
 
+See [development](DEV.md) for contributing.
+
 ## References
 
 JSON Model [specification](SPEC.md),
