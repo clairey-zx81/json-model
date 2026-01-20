@@ -61,3 +61,9 @@ source $PWD/json_model/runtime/java/env.bash
 # for SQL
 # have psql ready to connect to a local Postgres
 ```
+
+## Code Doc
+
+Read sources…
+The magically-generated [deepwiki](https://deepwiki.com/clairey-zx81/json-model)
+Section _The jmc Compiler_ is not too bad for an initial understanding.
