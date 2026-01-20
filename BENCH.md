@@ -8,6 +8,7 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 
 ## Recent Artifacts
 
+- [2026012000](benchmarks/2026012000.md) clang, no predefs, jmc 2.0b36 vs jsc 14.1.0, 11 runs, 1000 iterations.
 - [2026011500](benchmarks/2026011500.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.4, 11 runs, 1000 iterations.
 - [2026010900](benchmarks/2026010900.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.3, 11 runs, 1000 iterations.
 - [2026010600](benchmarks/2026010600.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.2, 11 runs, 1000 iterations.
@@ -20,13 +21,6 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 - [2025120700](benchmarks/2025120700.md) clang, no predefs, jmc 2.0b36 vs jsc 12.10.1, 11 runs, 1000 iterations.
 - [2025120503](benchmarks/2025120503.md) clang, no predefs, jmc 2.0b36 vs jsc 12.10.0, 11 runs, 1000 iterations.
 - [2025120303](benchmarks/2025120303.md) clang, no predefs, jmc 2.0b36 vs jsc 12.8.1, 11 runs, 1000 iterations.
-- [2025112503](benchmarks/2025112503.md) clang, no predefs, jmc 2.0b36 vs jsc 12.7.1, 3 runs, 1000 iterations.
-- [2025112002](benchmarks/2025112002.md) clang, no predefs, jmc 2.0b36 vs jsc 12.6.0, 11 runs, 1000 iterations.
-- [2025111900](benchmarks/2025111900.md) clang, no predefs, jmc 2.0b36 vs jsc 12.5.0, 3 runs, 1000 iterations.
-- [2025111804](benchmarks/2025111804.md) clang, no predefs, jmc 2.0b36 vs jsc 12.3.0, 3 runs, 1000 iterations.
-- [202511150e](benchmarks/202511150e.md) clang, no predefs, jmc 2.0b36 vs jsc 12.2.1, 3 runs, 1000 iterations.
-- [2025110500](benchmarks/2025110500.md) clang, no predefs, jmc 2.0b36 vs jsc 12.2.0, 3 runs, 1000 iterations.
-- [2025110100](benchmarks/2025110100.md) clang, no predefs, jmc 2.0b35 vs jsc 12.2.0, 3 runs, 1000 iterations.
 
 ## Benchmarking Script
 
