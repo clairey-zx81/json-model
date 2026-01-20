@@ -801,7 +801,7 @@ class CodeGenerator:
 
             if len(must) <= self._map_threshold:  # unroll property checks
 
-                props = set(must.keys())
+                props = list(must.keys())
                 if self._partition_threshold:
                     partitioning = partition(props, self._partition_threshold, gen._byte_order)
                 else:
@@ -910,7 +910,7 @@ class CodeGenerator:
 
             if len(may) <= self._map_threshold:  # simple few-property code
 
-                props = set(may.keys())
+                props = list(may.keys())
                 if self._partition_threshold:
                     partitioning = partition(props, self._partition_threshold, gen._byte_order)
                 else:

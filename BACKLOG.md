@@ -2,7 +2,7 @@
 
 ## Current Tasks
 
-- [ ] test: improve output determinism
+- [x] test: improve output determinism
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
