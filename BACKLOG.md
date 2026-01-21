@@ -75,6 +75,7 @@
 - [ ] static: shorten xor exit?
 - [ ] perf: profile some cases
 - [ ] c-backend: use vector instructions for larger strcmp?
+- [ ] export: sqlalchemy
 
 ## Re Do
 
