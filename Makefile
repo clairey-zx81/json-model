@@ -91,6 +91,7 @@ jmc.1: json_model/data/jmc.pod dev
 
 .PHONY: www
 www: build.site
+	# http://localhost:3000
 	cd site && $(PYTHON) -m http.server 3000
 
 #
