@@ -57,19 +57,20 @@
       /*
        * Generate an interactive dynamic radar chart about tool performance on a bench.
        */
-      async function showRadar(display, source, sort = true) {
+      async function showRadar(display, source, sort = true)
+      {
         const resp = await fetch(source)
         const res = await resp.json()
         // data model: [ {"label": "", "data": [0.0]} ]
         const data = res.map((x) => { return {...x, fill: true} })
 
-        // only keep used case indexes
+        // only keep used bench indexes
         let indexes = []
 
-        for (let i = 0; i < data[0].data.length; i++)
-          for (let t = 0; t < data.length; t++)
-            if (data[t].data[i] > 0.0) {
-              indexes.push(i)
+        for (let bench = 0; bench < data[0].data.length; bench++)
+          for (let tool = 0; tool < data.length; tool++)
+            if (data[tool].data[bench] > 0.0) {
+              indexes.push(bench)
               break
             }
 
@@ -77,12 +78,12 @@
           // count wins and adjust with overall performance
           let wins = [], winners = []
 
-          for (let t = 0; t < data.length; t++) {
+          for (let tool = 0; tool < data.length; tool++) {
               // number of wins, aka ranked first
-              wins[t] = data[t].data.filter(s => s === 1.0).length
-              wins[t] && winners.push(t)
+              wins[tool] = data[tool].data.filter(s => s === 1.0).length
+              wins[tool] && winners.push(tool)
               // add a fractionnal part to avoid ties
-              wins[t] += data[t].data.filter(s => s !== null).reduce((a, v) => a + v, 0.0) / data[t].data.length
+              wins[tool] += data[tool].data.filter(s => s !== null).reduce((a, v) => a + v, 0.0) / data[tool].data.length
           }
 
           // ensure that we have a secondary sort criterion
@@ -96,12 +97,12 @@
           winners.sort( (i, j) => wins[j] - wins[i] )
 
           // sorting criterion for each cases
-          function key(data, i) {
-            // this exits because one tool has the best 1.0 performance for case i
+          function key(data, bench) {
+            // this exits because one tool has the best 1.0 performance for bench
             for (let rank = 0; rank < winners.length; rank++) {
               const tool = winners[rank]
-              if (data[tool].data[i] === 1.0)
-                return (winners.length - rank) + data[winners[(rank ? 0 : 1) % tools.length]].data[i]
+              if (data[tool].data[bench] === 1.0)
+                return (winners.length - rank) + data[winners[(rank ? 0 : 1) % tools.length]].data[bench]
             }
           }
 
@@ -117,39 +118,49 @@
 
         // labels start from 1
         const labels = indexes.map(i => i + 1)
-        const ctx = document.getElementById(display).getContext('2d')
+        const ctx = document.getElementById(display).getContext("2d")
+
+        // when a dataset is hidden or shown, adjust values wrt the fastest visible tool
+        // this is done by overriding the default "onClick" legend chart function
+        function updateVisible(ev, item, legend)
+        {
+          const datasets = ev.chart.data.datasets
+          const dataset = datasets[item.datasetIndex]
+          // toggle clicked dataset visibility
+          dataset.hidden = !dataset.hidden
+          // adjust data values so that the best visible is 1.0
+          for (let bench = 0; bench < dataset.data.length; bench++) {
+            // compute visible fastest for this case
+            let maxi = 0.0
+            for (let tool = 0; tool < datasets.length; tool++)
+              if (!datasets[tool].hidden && datasets[tool].data[bench] > maxi)
+                maxi = datasets[tool].data[bench]
+            // update data according to fastest
+            if (maxi !== 1.0 && maxi !== 0.0)
+              for (let tool = 0; tool < datasets.length; tool++)
+                datasets[tool].data[bench] /= maxi
+          }
+          // redraw radar to show updated data with a nice free animation
+          radar.update()
+        }
 
         // create actual radar with prepared data
         const radar = new Chart(ctx, {
-          type: 'radar',
+          type: "radar",
           data: { labels: labels, datasets: data },
           options: {
+            // slower animation on click
+            animation: {
+              duration: 1500,
+              easing: "linear"
+            },
+            // rescale chart on legend clicks
             plugins: {
               legend: {
-                // when a dataset is hidden or shown, adjust values wrt the fastest visible tool
-                // this is done by overriding the default "onClick" legend chart function
-                onClick: (e, item, legend) => {
-                  const datasets = radar.data.datasets
-                  const dataset = datasets[item.datasetIndex]
-                  // toggle clicked dataset visibility
-                  dataset.hidden = !dataset.hidden
-                  // adjust data values so that the best visible is 1.0
-                  for (let idx = 0; idx < dataset.data.length; idx++) {
-                    // compute visible fastest for this case
-                    let maxi = 0.0
-                    for (let ds = 0; ds < datasets.length; ds++)
-                      if (!datasets[ds].hidden && datasets[ds].data[idx] > maxi)
-                        maxi = datasets[ds].data[idx]
-                    // update data according to fastest
-                    if (maxi !== 1.0 && maxi !== 0.0)
-                      for (let ds = 0; ds < datasets.length; ds++)
-                        datasets[ds].data[idx] /= maxi
-                  }
-                  // redraw radar to show updated data with a nice free animation
-                  radar.update()
-                }
+                onClick: updateVisible
               }
             },
+            // ensure display in [0.0-1.0]
             scales: {
               r: {
                 beginAtZero: true,
