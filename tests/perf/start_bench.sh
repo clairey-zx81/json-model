@@ -1,17 +1,20 @@
 #! /bin/bash
 
+# FIXME docker-in-docker makes little sense with podman?
+
 if [ $1 = "-h" -o $1 = "--help" ] ; then
   cat <<EOF
-Standalone command to start the jmc benchmark using docker-in-doocker.
+Standalone command to start the jmc benchmark using docker-in-docker.
 
 Arguments:
-- TAG: (zx80/jmc-bench docker tag, defaults to "latest")
+- TAG: (docker.io/zx80/jmc-bench docker tag, defaults to "latest")
 - others: passed to "benchmark.sh"
 
 Environment:
+- POD: container command, "docker" or "podman"
 - JMC_OPTS: options for jmc
-- JMC: zx80/jmc docker tag
-- JSC: ghcr.io/sourcemeta/jsonschema docker tag
+- JMC: docker.io/zx80/jmc docker tag
+- JSC: ghcr.io/sourcemeta/jsonschema container tag
 
 Example:
 
@@ -31,7 +34,8 @@ function err()
   exit $status
 }
 
-docker_opts=(--hostname=$(hostname))
+pod=${POD:-docker}
+container_opts=(--hostname=$(hostname))
 bench_opts=()
 
 let count=0 now=$(date +%Y%m%d)
@@ -46,7 +50,7 @@ mkdir $bench_id || err 2 "cannot create directory: $bench_id"
 cd $bench_id || err 3 "cannot change directory: $bench_id"
 
 if [ "$JMC_OPTS" ] ; then
-  docker_opts+=(-e "JMC_OPTS=$JMC_OPTS")
+  container_opts+=(-e "JMC_OPTS=$JMC_OPTS")
   bench_opts+=(--env JMC_OPTS)
 fi
 
@@ -65,20 +69,20 @@ else
   bench=latest
 fi
 
-echo "# docker options: ${docker_opts[@]}"
+echo "# container options: ${container_opts[@]}"
 echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
 
 # check latest version
-docker pull zx80/jmc-bench:$bench
+$pod pull docker.io/zx80/jmc-bench:$bench
 
 # run
 # --user $(id -u):$(id -g)
-exec docker run --rm --name jmcbench_$bench_id \
+exec $pod run --rm --name jmcbench_$bench_id \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v .:/workspace \
   -v /etc/passwd:/etc/passwd:ro \
   -v /etc/group:/etc/group:ro \
   -e WORKDIR="$PWD" \
-  "${docker_opts[@]}" \
-    zx80/jmc-bench:$bench \
+  "${container_opts[@]}" \
+    docker.io/zx80/jmc-bench:$bench \
       --id=$bench_id "${bench_opts[@]}" "$@" > $bench_id.output 2>&1

@@ -1,24 +1,26 @@
 #! /bin/bash
 #
-# run jsonschema command in docker
+# run jsonschema command in a container
 #
 # 2025-09-27: latest=v11.8.3
 
-docker_image="ghcr.io/sourcemeta/jsonschema:${JSC:-latest}"
-docker_root="docker run --name blaze_cli_$$ -v ${WORKDIR:-.}:/workspace --rm --hostname=$(hostname)"
-docker_user="$docker_root --user $(id -u):$(id -g) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro"
+pod=${POD:-docker}
+
+container_image="ghcr.io/sourcemeta/jsonschema:${JSC:-latest}"
+container_root="$pod run --name blaze_cli_$$ -v ${WORKDIR:-.}:/workspace --rm --hostname=$(hostname)"
+container_user="$container_root --user $(id -u):$(id -g) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro"
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | shell | root ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
   shift 1
-  exec $docker_user -it --entrypoint /bin/bash $docker_image "$@"
+  exec $container_user -it --entrypoint /bin/bash $container_image "$@"
 elif [ "$#" -ge 1 -a "$1" = "root" ] ; then
   shift 1
-  exec $docker_root -it --entrypoint /bin/bash $docker_image "$@"
+  exec $container_root -it --entrypoint /bin/bash $container_image "$@"
 elif [ "$#" -ge 1 -a "$1" = "run" ] ; then
   shift 1
-  exec $docker_user $docker_image "$@"
+  exec $container_user $container_image "$@"
 else
-  exec $docker_user $docker_image "$@"
+  exec $container_user $container_image "$@"
 fi

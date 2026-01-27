@@ -28,26 +28,27 @@ To simplify handling these dependencies, we provide an Ubuntu-based **Docker ima
 **Python venv** (following subsection) and possibly additional system packages when needed.
 
 Both environments work for most of the tutorial sections below, so feel free to choose whichever
-seems more familiar. The docker image include the necessary environment run directly generated
+seems more familiar. The container image include the necessary environment run directly generated
 C, Python, JS, Perl and Java codes, which explains its size.
 Running the PL/pgSQL code requires a working Postgres server, which is _not_ discussed here.
 
 ### First Installation Option: Docker Image
 
-For the wary user, download and start the `zx80/jmc` docker image, from your docker
-desktop client or from a terminal:
+For the wary user, download and start the `docker.io/zx80/jmc` container image,
+from your desktop client or from a terminal (`$POD` is either `docker` or `podman`):
 
 ```sh
-docker pull zx80/jmc:latest
+$POD pull docker.io/zx80/jmc:latest
 # for linux, consider adding: --user $(id -u):$(id -g)
-docker run --name awesome_jmc -v .:/app/workspace --rm -it --entrypoint /bin/bash zx80/jmc
+$POD run --name awesome_jmc -v .:/app/workspace --rm -it --entrypoint /bin/bash docker.io/zx80/jmc
 ```
 
 This should give your a shell prompt open in the current directory with your own permissions.
-Check that the `jmc` command is available and works:
+Check that the `jmc` command is available and works, use environment variable `POD` to set
+your container command (`docker` by default, `podman` should work as well):
 
 ```sh
-# inside the docker shell
+# inside the container shell
 jmc --version  # show version
 jmc --man      # show manual page
 ```

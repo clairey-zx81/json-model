@@ -1,6 +1,6 @@
 # JSON Model Docker
 
-This ubuntu-based [docker image](https://hub.docker.com/r/zx80/jmc)
+This ubuntu-based [container image](https://hub.docker.com/r/zx80/jmc)
 provides the `jmc` (JSON Model Compiler) command.
 It allows to preprocess, compile, export and execute models through
 the `jmc` convenient shell wrapper.
@@ -8,17 +8,17 @@ the `jmc` convenient shell wrapper.
 ## Pull or Build
 
 ```sh
-docker pull zx80/jmc
+docker pull docker.io/zx80/jmc
 docker build -t zx80/jmc .
 ```
 
 ## Convenient `jmc` Wrapper
 
-Copy this [script](https://raw.githubusercontent.com/clairey-zx81/json-model/refs/heads/main/docker/jmc)
+Copy this [script](https://raw.githubusercontent.com/clairey-zx81/json-model/refs/heads/main/container/jmc)
 somewhere in your path with executable permissions:
 
 ```sh
-curl -o ./jmc https://raw.githubusercontent.com/clairey-zx81/json-model/refs/heads/main/docker/jmc
+curl -o ./jmc https://raw.githubusercontent.com/clairey-zx81/json-model/refs/heads/main/container/jmc
 chmod a+rx ./jmc
 ```
 
@@ -37,14 +37,14 @@ The wrapper script allows 4 modes:
   ```
 
   :warning: Only run with relative downward path under the current directory
-  so that files are found through the virtual mount inside the docker:
+  so that files are found through the virtual mount inside the container:
 
   :warning: note that generated executable and scripts require dependencies (dynamic libraries,
   Python, JS or Perl packages…) that may or may not be available on the host.
 
   :+1: invoking the compilation is also triggered with `run`: `./jmc run model.json hobbes.json`
 
-- :arrow_forward: **execution**: execute generated code in the docker environment,
+- :arrow_forward: **execution**: execute generated code in the container environment,
   where dependencies are readily available:
 
   ```sh
@@ -72,9 +72,9 @@ The wrapper script allows 4 modes:
   exit
   ```
 
-- :computer: **root**: start a shell in the docker with root permissions.
+- :computer: **root**: start a shell in the container with root permissions (docker only).
 
-## Direct Docker Commands
+## Direct Container Commands
 
 The `jmc` wrapper runs the following commands:
 

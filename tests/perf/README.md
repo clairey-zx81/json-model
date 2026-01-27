@@ -6,14 +6,15 @@ The `start_bench.sh` starts a benchmark into an empty subdirectory.
 
 Arguments:
 
-- TAG: `zx80/jmc-bench` docker tag, defaults to `latest`
-- ...: all others arguments passed to `benchmark.sh`
+- `TAG`: `docker.io/zx80/jmc-bench` container tag, defaults to `latest`
+- ...: all others arguments or options are passed to `benchmark.sh`
 
 Environment:
 
+- `POD`: container command, eg "docker" or maybe "podman"
 - `JMC_OPTS`: options for jmc, for instance `--no-predef`
-- `JMC`: `zx80/jmc` docker tag
-- `JSC`: `ghcr.io/sourcemeta/jsonschema` docker tag
+- `JMC`: `docker.io/zx80/jmc` container tag
+- `JSC`: `ghcr.io/sourcemeta/jsonschema` container tag
 
 Example usage:
 
@@ -26,14 +27,15 @@ JMC=dev JMC_OPTS=--no-predef \
 ## DooD
 
 ```sh
+pod=docker
 # in tests/perf
-docker build -t jmc-bench -f Dockerfile .
-docker tag jmc-bench zx80/jmc-bench
-docker push zx80/jmc-bench
+$pod build -t jmc-bench -f Containerfile .
+$pod tag jmc-bench docker.io/zx80/jmc-bench
+$pod push docker.io/zx80/jmc-bench
 # in an empty directory
 # possibly -e JMC_OPTS=$JMC_OPTS ## --env=JMC_OPTS
-docker run --rm --name imperial_jmcbench -v /var/run/docker.sock:/var/run/docker.sock \
-    -e WORKDIR=$PWD -v .:/workspace zx80/jmc-bench:latest -p 20 -l 10000 -r 5 --cap-py
+$pod run --rm --name imperial_jmcbench -v /var/run/docker.sock:/var/run/docker.sock \
+    -e WORKDIR=$PWD -v .:/workspace docker.io/zx80/jmc-bench:latest -p 20 -l 10000 -r 5 --cap-py
 ```
 
 ## DinD

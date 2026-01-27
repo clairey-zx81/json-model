@@ -116,9 +116,9 @@ publish.py: dev
 	twine check dist/*
 	echo "# twine upload dist/*"
 
-.PHONY: publish.docker
-publish.docker:
-	$(MAKE) -C docker docker.push
+.PHONY: publish.container
+publish.container:
+	$(MAKE) -C container pod.push
 
 RT.dir  = ./json_model/runtime
 

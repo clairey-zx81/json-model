@@ -24,15 +24,15 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 ## Benchmarking Script
 
 The [benchmarking script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/benchmark.sh)
-is provided as docker image [zx80/jmc-bench](https://hub.docker.com/repository/docker/zx80/jmc-bench).
+is provided as docker image [docker.io/zx80/jmc-bench](https://hub.docker.com/repository/docker/zx80/jmc-bench).
 It downloads the benchmark schemas and test values, and runs through docker-in-docker
-[zx80/jmc](https://hub.docker.com/repository/docker/zx80/jmc) for JMC runs and
-[sourcemeta/jsonschema](https://github.com/sourcemeta/jsonschema/pkgs/container/jsonschema)
+[docker.io/zx80/jmc](https://hub.docker.com/repository/docker/zx80/jmc) for JMC runs and
+[ghcr.io/sourcemeta/jsonschema](https://github.com/sourcemeta/jsonschema/pkgs/container/jsonschema)
 for comparison using the Blaze CLI.
 
 It is typically started on a large host with the
 [`start_bench.sh` script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/start_bench.sh)
-which will spawn the necessary dockers:
+which will spawn the necessary containers:
 
 ```sh
 JMC=latest JMC_OPTS="--no-predef --cc=clang-20" \

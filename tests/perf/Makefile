@@ -12,24 +12,29 @@ endif
 
 .PHONY: clean
 clean:
-	$(RM) .docker-build.*
+	$(RM) .docker-build.* .podman-build.*
 
 #
-# DOCKER
+# CONTAINER
 #
-.PHONY: docker.push
-docker.push: docker.tag
-	docker push -a zx80/jmc-bench
 
-.PHONY: docker.tag
-docker.tag: .docker-build.$(BRANCH)
-	docker tag jmc-bench zx80/jmc-bench:$(TAG)
-	docker tag jmc-bench zx80/jmc-bench:$(VERSION)
-	docker tag jmc-bench zx80/jmc-bench:$$(git rev-parse --short HEAD)
+# POD   = podman
+POD = docker
+ZX80    = docker.io/zx80
 
-.PHONY: docker.build
-docker.build: .docker-build.$(BRANCH)
+.PHONY: pod.push
+pod.push: pod.tag
+	$(POD) push -a $(ZX80)/jmc-bench
 
-.docker-build.$(BRANCH):
-	docker build -t jmc-bench -f Dockerfile .
+.PHONY: pod.tag
+pod.tag: .$(POD)-build.$(BRANCH)
+	$(POD) tag jmc-bench $(ZX80)/jmc-bench:$(TAG)
+	$(POD) tag jmc-bench $(ZX80)/jmc-bench:$(VERSION)
+	$(POD) tag jmc-bench $(ZX80)/jmc-bench:$$(git rev-parse --short HEAD)
+
+.PHONY: pod.build
+pod.build: .$(POD)-build.$(BRANCH)
+
+.$(POD)-build.$(BRANCH):
+	$(POD) build -t jmc-bench -f Containerfile .
 	touch $@

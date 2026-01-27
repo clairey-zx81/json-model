@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] test: improve output determinism
+- [x] container: allow to use `podman` instead of `docker`
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
