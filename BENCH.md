@@ -8,6 +8,7 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 
 ## Recent Artifacts
 
+- [2026012700](benchmarks/2026012700.md) clang, no predefs, jmc 2.0b36 vs jsc 14.5.0, 11 runs, 1000 iterations.
 - [2026012400](benchmarks/2026012400.md) clang, no predefs, jmc 2.0b36 vs jsc 14.4.0, 11 runs, 1000 iterations.
 - [2026012200](benchmarks/2026012200.md) clang, no predefs, jmc 2.0b36 vs jsc 14.2.0, 11 runs, 1000 iterations.
 - [2026012000](benchmarks/2026012000.md) clang, no predefs, jmc 2.0b36 vs jsc 14.1.0, 11 runs, 1000 iterations.
