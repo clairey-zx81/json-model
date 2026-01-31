@@ -27,10 +27,11 @@ for var in $JMC_ENV ; do
 done
 
 container_user=("${container_root[@]}")
-container_user+=(--user "$(id -u):$(id -g)")
-
-if [ -f /etc/passwd ] ; then
-  container_user+=(-v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro)
+if [ "$pod" = "docker" ] ; then
+  container_user+=(--user "$(id -u):$(id -g)")
+  if [ -f /etc/passwd ] ; then
+    container_user+=(-v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro)
+  fi
 fi
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
