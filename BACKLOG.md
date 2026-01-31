@@ -7,6 +7,7 @@
 - [x] perf: estimate measure overhead over 100 iterations
 - [x] perf: share overhead estimation between tests
 - [x] perf: try to prevent performance loops from being optimized out with some computation
+- [x] container: add podman-in-podman or docker-in-docker
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
