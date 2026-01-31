@@ -1,13 +1,17 @@
 #! /bin/bash
+#
+# start bench
+#
 
-# FIXME docker-in-docker makes little sense with podman?
+export POD=${POD:-docker}
 
 if [ $1 = "-h" -o $1 = "--help" ] ; then
   cat <<EOF
-Standalone command to start the jmc benchmark using docker-in-docker.
+
+Standalone command to start the jmc benchmark with docker-in-docker or podman-in-podman.
 
 Arguments:
-- TAG: (docker.io/zx80/jmc-bench docker tag, defaults to "latest")
+- TAG: (docker.io/zx80/jmc-bench-$POD docker tag, defaults to "latest")
 - others: passed to "benchmark.sh"
 
 Environment:
@@ -34,7 +38,6 @@ function err()
   exit $status
 }
 
-pod=${POD:-docker}
 container_opts=(--hostname=$(hostname))
 bench_opts=()
 
@@ -49,11 +52,14 @@ done
 mkdir $bench_id || err 2 "cannot create directory: $bench_id"
 cd $bench_id || err 3 "cannot change directory: $bench_id"
 
-if [ "$pod" = "docker" ] ; then
+if [ "$POD" = "docker" ] ; then
   # docker-in-docker
   container_opts+=(-v /var/run/docker.sock:/var/run/docker.sock)
-else
+elif [ "$POD" = "podman" ] ; then
+  # podman-in-podman
   container_opts+=(--privileged)
+else
+  err 4 "unexpected container command: $POD"
 fi
 
 if [ "$JMC_OPTS" ] ; then
@@ -76,11 +82,13 @@ else
   bench=latest
 fi
 
+image="docker.io/zx80/jmc-bench-$POD:$bench"
+
 echo "# container options: ${container_opts[@]}"
 echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
 
 # check latest version
-$pod pull docker.io/zx80/jmc-bench:$bench
+$POD pull $image
 
 # run
 # --user $(id -u):$(id -g)
@@ -89,6 +97,7 @@ exec $pod run --rm --name jmcbench_$bench_id \
   -v /etc/passwd:/etc/passwd:ro \
   -v /etc/group:/etc/group:ro \
   -e WORKDIR="$PWD" \
+  -e POD="$POD" \
   "${container_opts[@]}" \
-    docker.io/zx80/jmc-bench-$pod:$bench \
+    "$image" \
       --id=$bench_id "${bench_opts[@]}" "$@" > $bench_id.output 2>&1
