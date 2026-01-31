@@ -1099,8 +1099,6 @@ jm_check_constraint(const json_t * val, jm_constraint_op_t op, const jm_constant
     }
     else if (cst->tag > 0)
     {
-        int sclen = cst->tag;
-        const char *scst = cst->val.s;
         if (!json_is_string(val))
         {
             if (rep)
@@ -1109,24 +1107,27 @@ jm_check_constraint(const json_t * val, jm_constraint_op_t op, const jm_constant
         }
 
         const char *sval = json_string_value(val);
+        const char *scst = cst->val.s;
+        int sclen = cst->tag;  // size include final 0
+
         switch (op) {
             case op_eq:
-                res = memcmp(sval, scst, cst->tag) == 0;
+                res = memcmp(sval, scst, sclen) == 0;
                 break;
             case op_ne:
-                res = memcmp(sval, scst, cst->tag) != 0;
+                res = memcmp(sval, scst, sclen) != 0;
                 break;
             case op_le:
-                res = memcmp(sval, scst, cst->tag) <= 0;
+                res = memcmp(sval, scst, sclen) <= 0;
                 break;
             case op_lt:
-                res = memcmp(sval, scst, cst->tag) < 0;
+                res = memcmp(sval, scst, sclen) < 0;
                 break;
             case op_ge:
-                res = memcmp(sval, scst, cst->tag) >= 0;
+                res = memcmp(sval, scst, sclen) >= 0;
                 break;
             case op_gt:
-                res = memcmp(sval, scst, cst->tag) > 0;
+                res = memcmp(sval, scst, sclen) > 0;
                 break;
         }
         if (!res && rep)
