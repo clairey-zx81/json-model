@@ -4,6 +4,9 @@
 
 - [x] test: improve output determinism
 - [x] container: allow to use `podman` instead of `docker`
+- [x] perf: estimate measure overhead over 100 iterations
+- [x] perf: share overhead estimation between tests
+- [x] perf: try to prevent performance loops from being optimized out with some computation
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
@@ -11,7 +14,6 @@
 - [ ] export: java classes
 - [ ] export: go interfaces
 - [ ] static: make regex groups non capturing when appropriate?
-- [ ] perf: compute performance overhead globally instead of per run
 - [ ] static: xor acceleration based on distinct mandatory props
 - [ ] static: merge partial mandatory prop discriminants
 - [ ] static: merge may/must property handling, or not?

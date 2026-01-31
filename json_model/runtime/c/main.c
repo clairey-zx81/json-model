@@ -28,23 +28,29 @@ static INLINE double now(void)
     return 1000000.0 * ts.tv_sec + 0.001 * ts.tv_nsec;
 }
 
-// overhead estimation µs
-static double empty_run(int loop)
+#define NEXT_STUFF(v, pi) v = frexp(3.141592653589793 * v + 2.718281828459045, pi)
+
+// overhead estimation µs on a nearly empty loop
+static double overhead_estimation(int loop, double *value)
 {
-    double empty = 0.0;
+    double empty = 0.0, v = *value;
+    int exponent;
+
     for (int i = loop; i; i--)
     {
         double start = now();
+        NEXT_STUFF(v, &exponent);
         empty += now() - start;
     }
-    empty /= loop;
-    return empty;
+
+    *value = v;
+    return empty / loop;
 }
 
 // check value and report if there was some error wrt expectations
 static bool
 process_value(const char *name, const json_t * value,
-    const char *fname, size_t index, process_mode_t mode, bool report, int loop)
+    const char *fname, size_t index, process_mode_t mode, bool report, int loop, double empty)
 {
     // get checker function
     const jm_check_fun_t checker = CHECK_fun(name);
@@ -56,30 +62,22 @@ process_value(const char *name, const json_t * value,
 
     // check value against model, fast (no path nor reasons)
     bool valid = true;
-    double empty = 0.0;
+    int exponent;
+    double v = frexp(loop / 13.0, &exponent);
 
     // performance loop in µs
     if (loop > 1)
     {
-        // minimize overhead estimation over 10 runs
-        empty = empty_run(loop);
-        for (int i = 1; i < 10; i++)
-        {
-            double e = empty_run(loop);
-            if (e < empty)
-                empty = e;
-        }
-
         // validation estimation
         double sum = 0.0, sum2 = 0.0;
 
         for (int i = loop; i; i--)
         {
             double start = now();
-
+            NEXT_STUFF(v, &exponent);
             valid = checker(value, NULL, NULL);
-
             double delay = now() - start - empty;
+
             sum += delay;
             sum2 += delay * delay;
         }
@@ -122,6 +120,7 @@ process_value(const char *name, const json_t * value,
             {
                 double start = now();
 
+                NEXT_STUFF(v, &exponent);
                 path = (jm_path_t) { "", 0, NULL, NULL };
                 report = (jm_report_t) { NULL };
                 valid2 = checker(value, &path, &report);
@@ -368,6 +367,21 @@ int main(int argc, char* argv[])
         return 0;
     }
 
+    // minimal overhead estimation
+    double empty = 0.0;
+    if (loop > 1)
+    {
+        int exponent;
+        double v = frexp(loop / 13.0, &exponent);
+        empty = overhead_estimation(loop, &v);
+        for (int i = 1; i < 100; i++)
+        {
+            double e = overhead_estimation(loop, &v);
+            if (e < empty)
+                empty = e;
+        }
+    }
+
     int errors = 0;
 
     if (jsonschema_benchmark)
@@ -402,7 +416,7 @@ int main(int argc, char* argv[])
                                        JSON_DISABLE_EOF_CHECK|JSON_DECODE_ANY|JSON_ALLOW_NUL,
                                        &error)))
             {
-                if (!process_value(name, value, argv[i], count, expect_anything, report, loop))
+                if (!process_value(name, value, argv[i], count, expect_anything, report, loop, empty))
                     errors++;
                 count++;
                 json_decref(value);
@@ -477,14 +491,14 @@ int main(int argc, char* argv[])
                     const json_t *value = size == 3 ? json_array_get(val, 2) : second;
                     process_mode_t mode = json_is_true(first) ? expect_pass : expect_fail;
 
-                    if (!process_value(tname, value, argv[i], index, mode, report, loop))
+                    if (!process_value(tname, value, argv[i], index, mode, report, loop, empty))
                         errors++;
 
                     index++;
                 }
             }
             else
-                if (!process_value(name, value, argv[i], 0, expect_nothing, report, loop))
+                if (!process_value(name, value, argv[i], 0, expect_nothing, report, loop, empty))
                     errors++;
 
             // free json value

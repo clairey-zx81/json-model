@@ -84,10 +84,28 @@ public class Main
         return errors;
     }
 
+    static double overhead(int time)
+    {
+        // performance measure minimal average overhead estimation in µs
+        double empty = 0.0, v = time / 13.0 % 1.0;
+        for (int n = 100; n > 0; n--) {
+            double e = 0.0;
+            for (int i = time; i > 0; i--) {
+                long start = System.nanoTime();
+                v = (3.141592653589793 * v + 2.718281828459045) % 1.0;
+                e += 0.001 * (System.nanoTime() - start);
+            }
+            e /= time;
+            if (empty == 0.0 || e < empty)
+                empty = e;
+        }
+        return empty;
+    }
+
     /** Process one value and report */
     static boolean process(
         Object value, String display, String name, ModelChecker checker,
-        Boolean expect, int time, boolean report)
+        Boolean expect, int time, double empty, boolean report)
             throws JSON.Exception
     {
         Checker check = checker.get(name);
@@ -105,18 +123,12 @@ public class Main
         if (time <= 0)
             return expect != null && expect != valid;
 
-        // performance measure overhead estimation
-        double empty = 0.0;  // µs
-        for (int i = time; i > 0; i--) {
-            long start = System.nanoTime();
-            empty += 0.001 * (System.nanoTime() - start);
-        }
-        empty /= time;
-
         // performance loop
         double sum = 0.0, sum2 = 0.0;
+        double v = time / 13.0 % 1.0;
         for (int i = time; i > 0; i--) {
             long start = System.nanoTime();
+            v = (3.141592653589793 * v + 2.718281828459045) % 1.0;
             if (report) rep.clearEntries();
             check.call(value, rep);
             double delay = 0.001 * (System.nanoTime() - start) - empty;
@@ -261,6 +273,8 @@ public class Main
         // process arguments
         int errors = 0;
 
+        double empty = overhead(time);
+
         for (int idx = g.getOptind(); idx < args.length; idx++)
         {
             String fname = args[idx];
@@ -293,7 +307,7 @@ public class Main
                     for (int i = 0; i < values.length; i++)
                     {
                         String display = fname + "[" + (i+1) + "]";
-                        if (process(values[i], display, "", checker, null, time, report))
+                        if (process(values[i], display, "", checker, null, time, empty, report))
                             errors += 1;
                     }
                 }
@@ -350,13 +364,13 @@ public class Main
                             val = vector[2];
                         }
                         String display = fname + "[" + index + "]";
-                        if (process(val, display, name, checker, expect, time, report))
+                        if (process(val, display, name, checker, expect, time, empty, report))
                             errors++;
                     }
                 }
                 else
                 {
-                    if (process(value, fname, model_name, checker, null, time, report))
+                    if (process(value, fname, model_name, checker, null, time, empty, report))
                         errors++;
                 }
             }

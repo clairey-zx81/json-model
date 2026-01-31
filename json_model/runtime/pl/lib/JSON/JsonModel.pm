@@ -457,9 +457,33 @@ sub jsonschema_benchmark($$$$)
     return $errors;
 }
 
-sub jm_process($$$$$$$)
+# minimal empty loop measure overhead
+sub jm_overhead_estimation($$)
 {
-    my ($checker, $name, $json, $display, $report, $expect, $time) = @_;
+    my ($time, $v) = @_;
+    my $empty = 0.0;
+    my ($start, $stop);
+    my $m = 100;
+    while ($m--) {
+        my $n = $time;
+        my $e = 0.0;
+        while ($n--) {
+            $start = time;
+            $v = (3.141592653589793 * $v + 2.718281828459045) % 1.0;
+            $stop = time;
+            $e += 1_000_000 * ($stop - $start);  # µs
+        }
+        $e /= $time;
+        if ($empty == 0.0 || $e < $empty) {
+            $empty = $e;
+        }
+    }
+    return ($empty, $v);
+}
+
+sub jm_process($$$$$$$$$)
+{
+    my ($checker, $name, $json, $display, $report, $expect, $time, $empty, $v) = @_;
     my $rep = $report ? [] : undef;
     my $valid = &$checker($json, $name, $rep) ? 1 : 0;
 
@@ -482,25 +506,15 @@ sub jm_process($$$$$$$)
     # performance
     if ($time)
     {
-        # empty loop measure overhead
-        my $n = $time;
-        my $empty = 0.0;
-        my ($start, $stop);
-        while ($n--) {
-            $start = time;
-            $stop = time;
-            $empty += 1_000_000 * ($stop - $start);  # µs
-        }
-        $empty /= $time;
-
         # performance loop
         my $ok;
-        $n = $time;
+        my $n = $time;
         my ($sum, $sum2) = (0.0, 0.0);
         while ($n--) {
-            $start = time;
+            my $start = time;
+            $v = (3.141592653589793 * $v + 2.718281828459045) % 1.0;
             $ok = &$checker($json, $name, $rep);
-            $stop = time;
+            my $stop = time;
             my $delay = 1_000_000 * ($stop - $start) - $empty;  # µs
             $sum += $delay;
             $sum2 += $delay * $delay;
@@ -702,6 +716,12 @@ sub jm_main($$$)
     $jsonl = 1 if $js_bench;  # jsb => jsonl
     warn "$0: option --report is not implemented yet\n" if $report;
 
+    # empty loop measure overhead
+    my $v = $time / 13.0 % 1.0;
+    my $empty = 0.0;
+
+    ($empty, $v) = jm_overhead_estimation($time, $v) if $time > 1;
+
     # loop over value files
     for my $file (@ARGV)
     {
@@ -776,7 +796,7 @@ sub jm_main($$$)
             }
             my $display = $test ? "$file\[$index\]" : $file;
 
-            $errors++ unless jm_process($checker, $n, $j, $display, $report, $e, $time);
+            $errors++ unless jm_process($checker, $n, $j, $display, $report, $e, $time, $empty, $v);
             $index++;
         }
     }
