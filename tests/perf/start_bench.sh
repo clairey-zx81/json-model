@@ -82,6 +82,11 @@ else
   bench=latest
 fi
 
+if [ "$POD" = "docker" ] ; then
+  # --user $(id -u):$(id -g)
+  container_opts+=(-v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro)
+fi
+
 image="docker.io/zx80/jmc-bench-$POD:$bench"
 
 echo "# container options: ${container_opts[@]}"
@@ -90,12 +95,9 @@ echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
 # check latest version
 $POD pull $image
 
-# run
-# --user $(id -u):$(id -g)
-exec $pod run --rm --name jmcbench_$bench_id \
+# start container
+exec $POD run --rm --name jmcbench_$bench_id \
   -v .:/workspace \
-  -v /etc/passwd:/etc/passwd:ro \
-  -v /etc/group:/etc/group:ro \
   -e WORKDIR="$PWD" \
   -e POD="$POD" \
   "${container_opts[@]}" \
