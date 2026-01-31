@@ -6,7 +6,8 @@
 # eg: $0 --par 12 --runs 5 --loop 1000 --jmc latest --jsc latest --env JMC_OPTS
 #
 
-pod=${POD:-docker}
+# expected by jmc and js-cli wrappers
+export POD=${POD:-docker}
 
 # error handling
 function err()
@@ -36,6 +37,7 @@ while [[ "$1" == -* ]] ; do
       echo " --debug|-d: set debugging messages"
       echo " --version|-v: show jmc version"
       echo " --id ID: benchmark identifier"
+      echo " --container|-C POD: command (current is $POD)"
       echo " --parallel|-p N: benchmark parallelism, eg half available cores ($PARA)"
       echo " --loop|-l L: number of run iterations for performance figures ($LOOP)"
       echo " --runs|-r R: number of runs ($RUNS)"
@@ -54,6 +56,8 @@ while [[ "$1" == -* ]] ; do
       ;;
     --id=*) ID=${opt#*=} ;;
     --id) ID=$1 ; shift ;;
+    --container=*) POD=${opt#*=} ;;
+    --container|-C) POD=$1 ; shift ;;
     -p|--para|--par|--parallel) PARA=$1 ; shift ;;
     --par=*|--para=*|--parallel=*) PARA=${opt#*=} ;;
     -l|--loop) LOOP=$1 ; shift ;;
@@ -83,7 +87,7 @@ done
 [ $LOOP -ge 1 ] || err 1 "unexpected loop value, must be >= 1: $LOOP"
 [ $RUNS -ge 3 -a $(( $RUNS % 2 )) -eq 1 ] || err 1 "unexpected runs value, must be >= 1 and odd: $RUNS"
 
-echo "# $$ benchmarking parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=$JMC_ENV"
+echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=$JMC_ENV"
 
 #
 # PARA RUNS
@@ -125,7 +129,7 @@ trap do_status SIGUSR1
 # SANITY COMMANDS END FILES
 #
 echo "# sanity check"
-for cmd in git $pod sqlite3 jq id basename grep sed wc /bin/bash /usr/bin/time ; do
+for cmd in git $POD sqlite3 jq id basename grep sed wc /bin/bash /usr/bin/time ; do
   type $cmd || err 2 "command not found: $cmd"
 done
 
@@ -136,9 +140,9 @@ done
 #
 # SETUP
 #
-echo "# $pod images"
+echo "# $POD images"
 for img in docker.io/zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC ; do
-  $pod pull $img || err 4 "cannot $pod pull $img"
+  $POD pull $img || err 4 "cannot $POD pull $img"
 done
 
 echo "# cloning repos"
@@ -232,7 +236,7 @@ cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
 
 function pod_id()
 {
-    $pod inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
+  $POD inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
 }
 
 #
@@ -266,6 +270,7 @@ or deselect tools for easier comparisons.
 
 ## Parameters
 
+- **container command:** $POD
 - **jmc container version:** $JMC ($(pod_id docker.io/zx80/jmc:$JMC))
 - **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))
 - **benchmark parallelism:** $PARA
