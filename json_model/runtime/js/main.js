@@ -20,7 +20,7 @@ function reporting(rep)
 }
 
 // process one value
-function processing(source, value, checker, name, expected, report, times, empty)
+function processing(source, value, checker, name, expected, report, times, overhead)
 {
     // do it once for the result
     let rep = report ? [] : null
@@ -40,19 +40,22 @@ function processing(source, value, checker, name, expected, report, times, empty
         let sum = 0.0
         let sum2 = 0.0
         let n = times
+        let v = overhead.value
         while (n--) {
             let rep = report ? [] : null
             const start = performance.now()
+            v = (3.141592653589793 * v + 2.718281828459045) % 1.0
             checker(value, '', rep)
             rep && (rep.length = 0)
-            let delay = (1000.0 * (performance.now() - start)) - empty  // µs
+            let delay = (1000.0 * (performance.now() - start)) - overhead.empty  // µs
             sum += delay
             sum2 += delay * delay
         }
+        overhead.value = v
         const avg = sum / times
         const stdev = Math.sqrt(sum2 / times - avg * avg)
         console.warn(`${source}: ${report ? 'rep' : 'nop'} ${valid ? 'PASS' : 'FAIL'}`,
-                     `${avg.toFixed(3)} ± ${stdev.toFixed(3)} µs (${empty.toFixed(3)})`)
+                     `${avg.toFixed(3)} ± ${stdev.toFixed(3)} µs (${overhead.empty.toFixed(3)})`)
     }
 
     return error
@@ -103,8 +106,8 @@ function jsonschema_benchmark(values, checker, times)
     process.exit(errors ? 1 : 0)
 }
 
-// evaluate measure overhead
-function eval_empty(times)
+// evaluate measure overhead in µs
+function eval_empty(times, value)
 {
     let empty = 0.0
     if (times >= 1)
@@ -113,11 +116,12 @@ function eval_empty(times)
         while (n--)
         {
             const start = performance.now()
+            value = (3.141592653589793 * value + 2.718281828459045) % 1.0
             empty += 1000.0 * (performance.now() - start)
         }
         empty /= times
     }
-    return empty
+    return { empty, value }
 }
 
 export default async function main(checker_init, checker, checker_free)
@@ -162,11 +166,17 @@ export default async function main(checker_init, checker, checker_free)
     if (args.values.re2)
         jm_set_rx(require('re2'))
 
-    // overhead estimation… we need the jit to kick in
-    const empty = Math.min(
-        eval_empty(times), eval_empty(times), eval_empty(times),
-        eval_empty(times), eval_empty(times), eval_empty(times)
-    )
+    // minimal average overhead estimation: we need the jit to kick in…
+    let value = times / 13.0 % 1.0
+    let overhead = eval_empty(times, value)
+    for (let n = 100; n; n--)
+    {
+        const o = eval_empty(times, overhead.value)
+        if (o.empty < overhead.empty)
+            overhead = o
+        else
+            overhead.value = o.value
+    }
 
     for (const fname of args.positionals)
     {
@@ -220,14 +230,14 @@ export default async function main(checker_init, checker, checker_free)
                     }
 
                     errors += processing(display, val, checker, name,
-                                         expect, args.values.report, times, empty)
+                                         expect, args.values.report, times, overhead)
 
                     index += 1
                 }
             }
             else
                 errors += processing(fname, value, checker, '',
-                                     null, args.values.report, times, empty)
+                                     null, args.values.report, times, overhead)
         }
         catch (e) {
             errors++

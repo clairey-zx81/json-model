@@ -376,6 +376,21 @@ def main(jm_fun, jm_map, jmc_version):
     if args.jsonschema_benchmark:
         args.jsonl = True
 
+    # evaluate minimal average overhead
+    v: float = args.time / 13.0 % 1.0
+    empty: float = 0.0
+
+    if args.time > 1:
+        for _ in range(100):
+            e: float = 0.0
+            for _ in range(args.time - 1):
+                start = time.clock_gettime(0)
+                v = (3.141592653589793 * v + 2.718281828459045) % 1.0
+                end = time.clock_gettime(0)
+                e += 1000000.0 * (end - start)
+            e /= args.time
+            empty = e if not empty or e < empty else empty
+
     errors = 0
 
     for fn in args.values:
@@ -464,22 +479,16 @@ def main(jm_fun, jm_map, jmc_version):
                     continue
 
                 valid: bool
-                empty, sum1, sum2 = 0.0, 0.0, 0.0
+                sum1, sum2 = 0.0, 0.0
                 mode = "rep" if args.report else "nop"
 
                 if args.time > 1:
-
-                    # evaluate average overhead
-                    for _ in range(args.time - 1):
-                        start = time.clock_gettime(0)
-                        end = time.clock_gettime(0)
-                        empty += 1000000.0 * (end - start)
-                    empty /= args.time
 
                     # evaluate validation time
                     if args.report:
                         for _ in range(args.time):
                             start = time.clock_gettime(0)
+                            v = (3.141592653589793 * v + 2.718281828459045) % 1.0
                             reasons, path = [], []
                             valid = checker(val, path, reasons)
                             del reasons
@@ -491,6 +500,7 @@ def main(jm_fun, jm_map, jmc_version):
                     else:
                         for _ in range(args.time):
                             start = time.clock_gettime(0)
+                            v = (3.141592653589793 * v + 2.718281828459045) % 1.0
                             valid = checker(val, None, None)
                             end = time.clock_gettime(0)
                             delay = 1000000.0 * (end - start) - empty
