@@ -49,6 +49,13 @@ done
 mkdir $bench_id || err 2 "cannot create directory: $bench_id"
 cd $bench_id || err 3 "cannot change directory: $bench_id"
 
+if [ "$pod" = "docker" ] ; then
+  # docker-in-docker
+  container_opts+=(-v /var/run/docker.sock:/var/run/docker.sock)
+else
+  container_opts+=(--privileged)
+fi
+
 if [ "$JMC_OPTS" ] ; then
   container_opts+=(-e "JMC_OPTS=$JMC_OPTS")
   bench_opts+=(--env JMC_OPTS)
@@ -78,11 +85,10 @@ $pod pull docker.io/zx80/jmc-bench:$bench
 # run
 # --user $(id -u):$(id -g)
 exec $pod run --rm --name jmcbench_$bench_id \
-  -v /var/run/docker.sock:/var/run/docker.sock \
   -v .:/workspace \
   -v /etc/passwd:/etc/passwd:ro \
   -v /etc/group:/etc/group:ro \
   -e WORKDIR="$PWD" \
   "${container_opts[@]}" \
-    docker.io/zx80/jmc-bench:$bench \
+    docker.io/zx80/jmc-bench-$pod:$bench \
       --id=$bench_id "${bench_opts[@]}" "$@" > $bench_id.output 2>&1
