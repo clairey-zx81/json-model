@@ -15,7 +15,7 @@
 export PATH=$PATH:.
 export TMPDIR=.
 
-# docker wrappers
+# container wrappers
 jmc=jmc
 js_cli=js-cli
 jsu_model="$jmc exec jsu-model"
