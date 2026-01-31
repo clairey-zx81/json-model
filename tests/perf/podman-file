@@ -1,0 +1,19 @@
+#
+# Podman-in-podman example image run, try --help to see available options:
+#
+# podman run --rm --name imperial_jmcbench --privileged \
+#   -e WORKDIR=$PWD -v .:/workspace \
+#   -e JMC_OPTS=--no-predef \
+#       zx80/jmc-bench:latest \
+#           -p 20 -l 10000 --env JMC_OPTS --jmc=latest --cap-py
+#
+FROM docker.io/mgoltzsche/podman:latest
+LABEL description="JSON Model compiler benchmarking artifact (podman-in-podman)"
+RUN apk add git bash bash-completion sqlite jq lscpu pythonispython3
+RUN mkdir /app /workspace && chmod a+rx /app /workspace
+COPY . /app
+RUN chmod a+r /app/* && chmod a+x /app/*.sh /app/*.py /app/jmc /app/js-cli
+ENV PATH=$PATH:/app
+WORKDIR /workspace
+ENV POD=podman
+ENTRYPOINT [ "/app/benchmark.sh" ]
