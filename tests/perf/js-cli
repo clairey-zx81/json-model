@@ -2,21 +2,32 @@
 #
 # run jsonschema command in a container
 #
-# 2025-09-27: latest=v11.8.3
 
 pod=${POD:-docker}
 
 container_image="ghcr.io/sourcemeta/jsonschema:${JSC:-latest}"
-container_root="$pod run --name blaze_cli_$$ -v ${WORKDIR:-.}:/workspace --rm --hostname=$(hostname)"
+container_root="$pod run --rm --name blaze_cli_$$ -v ${WORKDIR:-.}:/workspace"
+
+if [ "$pod" = "docker" ] ; then
+  container_root+=" --hostname=$(hostname)"
+elif [ "$pod" = "podman" ] ; then
+  container_root+=" -e HOSTNAME=$(hostname)"
+else
+  echo "unexpected container command: $pod" >&2
+  exit 1
+fi
+
 container_user="$container_root --user $(id -u):$(id -g) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro"
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | shell | root ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
   shift 1
+  # FIXME -t may be a bad idea
   exec $container_user -it --entrypoint /bin/bash $container_image "$@"
 elif [ "$#" -ge 1 -a "$1" = "root" ] ; then
   shift 1
+  # FIXME -t may be a bad idea
   exec $container_root -it --entrypoint /bin/bash $container_image "$@"
 elif [ "$#" -ge 1 -a "$1" = "run" ] ; then
   shift 1
