@@ -53,7 +53,7 @@ pod.list:
 
 .PHONY: tag
 tag: .$(POD)-$(VARIANT)-build.$(BRANCH)
-	$(POD) tag jmc-bench-$(POD) $(ZX80)/jmc-bench-$(VARIANT):$(TAG)
+	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(TAG)
 	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(BRANCH)
 	if [ "$(BRANCH)" = "main" ] ; then
 	  $(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(VERSION)
