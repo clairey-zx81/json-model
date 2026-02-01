@@ -18,7 +18,7 @@ GITREV  = $(shell git rev-parse --short HEAD)
 ifeq ($(BRANCH), main)
 TAG = latest
 else
-TAG =
+TAG = test
 endif
 
 .PHONY: clean
@@ -53,12 +53,12 @@ pod.list:
 
 .PHONY: tag
 tag: .$(POD)-$(VARIANT)-build.$(BRANCH)
-	if [ "$(TAG)" ] ; then
-	  $(POD) tag jmc-bench-$(POD) $(ZX80)/jmc-bench-$(VARIANT):$(TAG)
+	$(POD) tag jmc-bench-$(POD) $(ZX80)/jmc-bench-$(VARIANT):$(TAG)
+	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(BRANCH)
+	if [ "$(BRANCH)" = "main" ] ; then
 	  $(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(VERSION)
 	  # $(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(GITREV)
 	fi
-	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(BRANCH)
 	$(POD) image ls
 
 .PHONY: pod.build
