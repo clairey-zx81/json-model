@@ -66,6 +66,9 @@ the run stops as soon as possible.
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
 
+- do you value latency or throuput or resource consumption? the answer is not so obvious,
+  probably you should prefer a high throuput _if_ the latency is good enough, but these
+  benchmark actually measure raw latency.
 - test cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
 - the overall load on the host can impact measures.
@@ -77,12 +80,16 @@ the following caveats, and others:
   so these checks may be disactivated (see `JMC_OPTS`) for fairness.
 - blaze uses its own special-purpose JSON representation: if interfaced from another
   ecosystem, the cost of translating the JSON representation should be taken into account;
-  jmc uses native JSON representation and generate validation code around it.
+  jmc uses native JSON representations and generate validation code around it.
 - due to intrinsic limitations of the underlying libraries and the quality of models or schemas,
   some results may differ, mostly for good reasons: regex incompatibilities, stricter
   model definitions compared to lax schemas…
-- it is unclear whether JIT optimizations (Java and JS) may work around the
+- it is unclear whether JIT optimizations (eg Java and JS) may work around the
   benchmarking loops and report undue very fast performances, eg on the GeoJSON case.
+- some execution environment (eg Java) may take advantage of parallelism with threads,
+  which may or may not be a blessing: it can reduce the apparent latency (eg the gc runs
+  in another thread) but have a detrimental overall effect on throughput as more cpu ressources
+  are spent on the same task.
 
 ## Other Artifacts
 
