@@ -68,7 +68,7 @@ pod.build: docker.build podman.build
 build: .$(POD)-$(VARIANT)-build.$(BRANCH)
 
 .$(POD)-$(VARIANT)-build.$(BRANCH): $(VARIANT)-file
-	$(POD) build -t jmc-bench-$(VARIANT) -f $(VARIANT)-file . && touch $@
+	$(POD) build -t jmc-bench-$(VARIANT) -f $(VARIANT)-file . && date -Iseconds > $@
 
 .PHONY: docker.build
 docker.build:

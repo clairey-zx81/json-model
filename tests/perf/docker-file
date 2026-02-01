@@ -3,7 +3,8 @@
 #
 # docker run --rm --name imperial_jmcbench \
 #   -v /var/run/docker.sock:/var/run/docker.sock \
-#   -e WORKDIR=$PWD -v .:/workspace \
+#   -v .:/workspace \
+#   -e WORKDIR=$PWD \
 #   -e JMC_OPTS=--no-predef \
 #       zx80/jmc-bench:latest \
 #           -p 20 -l 10000 --env JMC_OPTS --jmc=latest --cap-py
