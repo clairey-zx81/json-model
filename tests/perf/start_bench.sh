@@ -17,6 +17,7 @@ Arguments:
 
 Environment:
 - POD: container command, "docker" or "podman"
+- JMC_BENCH_IMAGE: overide default docker.io/zx80/jmc-bench-$POD image for testing
 - JMC_OPTS: options for jmc
 - JMC: docker.io/zx80/jmc container tag, default is "latest"
 - JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest"
@@ -91,7 +92,7 @@ else
   err 4 "unexpected container command: $POD"
 fi
 
-image="docker.io/zx80/jmc-bench-$POD:$bench"
+image="${JMC_BENCH_IMAGE:-docker.io/zx80/jmc-bench-$POD}:$bench"
 
 echo "# container options: ${container_opts[@]}"
 echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
