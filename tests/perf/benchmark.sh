@@ -31,7 +31,7 @@ while [[ "$1" == -* ]] ; do
   shift
   case $opt in
     -h|--help)
-      echo "$0 [-h] [-v] [-p 8] [-c 5] [-l 1000] [--jmc=latest] [--jsc=latest] [--cap-py]"
+      echo "$0 [-h] [-v] [-p 8] [-c 5] [-l 1000] [-T $TASK] [--jmc=latest] [--jsc=latest]"
       echo "Options and defaults:"
       echo " --help|-h: this help"
       echo " --debug|-d: set debugging messages"
@@ -46,7 +46,7 @@ while [[ "$1" == -* ]] ; do
       echo " --cap-py: reduce loop iterations for python (default)"
       echo " --no-cap-py: do not reduce loop iterations for python"
       echo " --env|-e VARS: environment variables to export to jmc container"
-      echo " --task|-T TASK: comparisons to perform ($TASK)"
+      echo " --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python)"
       exit 0
       ;;
     -v|--version)
