@@ -23,7 +23,7 @@ Environment:
 
 Example:
 
-  JMC_OPTS=--no-predef JMC=dev $0 dev -p 8 -l 1000 -r 5
+  JMC_OPTS=--no-predef JMC=dev $0 dev -p 8 -l 1000 -r 3 -T bc
 
 For further details: https://json-model.org/#/BENCH
 
