@@ -11,7 +11,8 @@ container_root="$pod run --rm --name blaze_cli_$$ -v ${WORKDIR:-.}:/workspace"
 if [ "$pod" = "docker" ] ; then
   container_root+=" --hostname=$(hostname)"
 elif [ "$pod" = "podman" ] ; then
-  container_root+=" -e HOSTNAME=$(hostname)"
+  # container_root+=" -e HOSTNAME=$(hostname)"
+  container_root+=" --uts=private --hostname=$(hostname)"
 else
   echo "unexpected container command: $pod" >&2
   exit 1
