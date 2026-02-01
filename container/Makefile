@@ -53,7 +53,7 @@ pod.build: .build
 
 .build: Containerfile jmc
 	$(POD) build $(NOCACHE) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
-	    -t jmc -f Containerfile . && touch $@
+	    -t jmc -f Containerfile . && date -Iseconds > $@
 
 .PHONY: pod.run
 pod.run: .build
@@ -79,7 +79,7 @@ pod.tag: .build
 	export POD=$(POD)
 	$(POD) tag jmc $(ZX80)/jmc:$(TAG)
 	$(POD) tag jmc $(ZX80)/jmc:$(BRANCH)
-	$(POD) tag jmc $(ZX80)/jmc:$(GITVERS)
+	# $(POD) tag jmc $(ZX80)/jmc:$(GITVERS)
 	$(POD) tag jmc $(ZX80)/jmc:$$(JMC=$(BRANCH) ./jmc --version)
 
 .PHONY: pod.push
