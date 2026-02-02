@@ -1,0 +1,18 @@
+xoropt-012.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'xoropt-012.*.false.json' (OS Error: No such file or directory, errno = 2))
+xoropt-012.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'xoropt-012.*.true.json' (OS Error: No such file or directory, errno = 2))
+xoropt-012.values.json[0]: PASS
+xoropt-012.values.json[1]: PASS
+xoropt-012.values.json[2]: PASS
+xoropt-012.values.json[3]: PASS
+xoropt-012.values.json[4]: PASS
+xoropt-012.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.4]; .a: unexpected value for mandatory prop <a> [.'|'.4]; .a: unexpected =false [.'|'.4.a]; .: unexpected element [.'|'.3]; .a: unexpected value for mandatory prop <a> [.'|'.3]; .a: unexpected =true [.'|'.3.a]; .: unexpected element [.'|'.2]; .a: unexpected value for mandatory prop <a> [.'|'.2]; .a: unexpected =1.0 [.'|'.2.a]; .: unexpected element [.'|'.1]; .a: unexpected value for mandatory prop <a> [.'|'.1]; .a: unexpected =10.0 [.'|'.1.a]; .: unexpected element [.'|'.0]; .a: unexpected value for mandatory prop <a> [.'|'.0]; .a: unexpected =null [.'|'.0.a])
+xoropt-012.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.4]; .: bad property count [.'|'.4]; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xoropt-012.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.4]; .: bad property count [.'|'.4]; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xoropt-012.values.json[8]: FAIL (.: unexpected type [.'|'])
+xoropt-012.values.json[9]: FAIL (.: unexpected type [.'|'])
+xoropt-012.values.json[10]: FAIL (.: unexpected type [.'|'])
+xoropt-012.values.json[11]: FAIL (.: unexpected type [.'|'])
+xoropt-012.values.json[12]: FAIL (.: unexpected type [.'|'])
+xoropt-012.values.json[13]: FAIL (.: unexpected type [.'|'])
+xoropt-012.values.json[14]: FAIL (.: unexpected type [.'|'])
+xoropt-012.values.json[15]: FAIL (.: unexpected type [.'|'])

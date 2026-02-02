@@ -1,0 +1,25 @@
+xor_ob00.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'xor_ob00.*.false.json' (OS Error: No such file or directory, errno = 2))
+xor_ob00.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'xor_ob00.*.true.json' (OS Error: No such file or directory, errno = 2))
+xor_ob00.values.json[0]: PASS
+xor_ob00.values.json[1]: PASS
+xor_ob00.values.json[2]: PASS
+xor_ob00.values.json[3]: PASS
+xor_ob00.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: missing mandatory prop <b> [.'|'.3]; .: unexpected element [.'|'.2]; .: missing mandatory prop <b> [.'|'.2]; .: unexpected element [.'|'.1]; .: missing mandatory prop <d> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <c> [.'|'.0])
+xor_ob00.values.json[8]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: missing mandatory prop <d> [.'|'.3]; .: unexpected element [.'|'.2]; .: missing mandatory prop <c> [.'|'.2]; .: unexpected element [.'|'.1]; .: missing mandatory prop <d> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <c> [.'|'.0])
+xor_ob00.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[10]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[11]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[12]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[13]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[14]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xor_ob00.values.json[15]: FAIL (.: unexpected type [.'|'])
+xor_ob00.values.json[16]: FAIL (.: unexpected type [.'|'])
+xor_ob00.values.json[17]: FAIL (.: unexpected type [.'|'])
+xor_ob00.values.json[18]: FAIL (.: unexpected type [.'|'])
+xor_ob00.values.json[19]: FAIL (.: unexpected type [.'|'])
+xor_ob00.values.json[20]: FAIL (.: unexpected type [.'|'])
+xor_ob00.values.json[21]: FAIL (.: unexpected type [.'|'])
+xor_ob00.values.json[22]: FAIL (.: unexpected type [.'|'])

@@ -1,0 +1,22 @@
+uniq_2.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'uniq_2.*.false.json' (OS Error: No such file or directory, errno = 2))
+uniq_2.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'uniq_2.*.true.json' (OS Error: No such file or directory, errno = 2))
+uniq_2.values.json[0]: PASS
+uniq_2.values.json[1]: PASS
+uniq_2.values.json[2]: PASS
+uniq_2.values.json[3]: PASS
+uniq_2.values.json[4]: PASS
+uniq_2.values.json[5]: PASS
+uniq_2.values.json[6]: PASS
+uniq_2.values.json[7]: PASS
+uniq_2.values.json[8]: PASS
+uniq_2.values.json[9]: PASS
+uniq_2.values.json[10]: FAIL (.: constraints failed [.]; .: Array elements are not unique)
+uniq_2.values.json[11]: FAIL (.: constraints failed [.]; .: Array elements are not unique)
+uniq_2.values.json[12]: FAIL (.: constraints failed [.]; .: Array elements are not unique)
+uniq_2.values.json[13]: FAIL (.: constraints failed [.]; .: Array elements are not unique)
+uniq_2.values.json[14]: FAIL (.: constraints failed [.]; .: Array elements are not unique)
+uniq_2.values.json[15]: FAIL (.: constraints failed [.]; .: Array elements are not unique)
+uniq_2.values.json[16]: FAIL (.: not array or unexpected array [.'@'])
+uniq_2.values.json[17]: FAIL (.: not array or unexpected array [.'@'])
+uniq_2.values.json[18]: FAIL (.: not array or unexpected array [.'@'])
+uniq_2.values.json[19]: FAIL (.: not array or unexpected array [.'@'])

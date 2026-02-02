@@ -28,6 +28,7 @@ LANG = {
   "plpgsql": "PL/pgSQL",
   "pl": "Perl",
   "java": "Java",
+  "dart": "Dart",
   "json": "IR",
 }
 
@@ -524,6 +525,10 @@ def jmc_script():
                 log.error(f"java class files cannot contain '-': {args.output}")
                 sys.exit(1)
             args.entry = args.entry or Path(args.output).stem.replace("-", "_")
+        elif args.output.endswith(".dart"):
+            args.format = args.format or "dart"
+            args.op = args.op or "C"
+            args.gen = args.gen or "exec"
         elif args.output.endswith(".schema.json"):
             args.format = args.format or "json"
             args.op = args.op or "E"
@@ -548,7 +553,7 @@ def jmc_script():
         args.reporting = False if args.format == "plpgsql" else True
 
     if args.op is None:
-        args.op = "C" if args.format in ("c", "py", "js", "java", "plpgsql", "pl") else "P"
+        args.op = "C" if args.format in ("c", "py", "js", "java", "plpgsql", "pl", "dart") else "P"
 
     # update op-dependent default
     if args.gen is None:

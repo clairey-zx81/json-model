@@ -1,0 +1,13 @@
+or_0a.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_0a.*.false.json' (OS Error: No such file or directory, errno = 2))
+or_0a.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_0a.*.true.json' (OS Error: No such file or directory, errno = 2))
+or_0a.values.json[0]: PASS
+or_0a.values.json[1]: PASS
+or_0a.values.json[2]: PASS
+or_0a.values.json[3]: PASS
+or_0a.values.json[4]: FAIL (.: value not in enum [.'|'])
+or_0a.values.json[5]: FAIL (.: value not in enum [.'|'])
+or_0a.values.json[6]: FAIL (.: value not in enum [.'|'])
+or_0a.values.json[7]: FAIL (.: value not in enum [.'|'])
+or_0a.values.json[8]: FAIL (.: value not in enum [.'|'])
+or_0a.values.json[9]: FAIL (.: value not in enum [.'|'])
+or_0a.values.json[10]: FAIL (.: value not in enum [.'|'])

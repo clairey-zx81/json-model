@@ -1,0 +1,13 @@
+over-01.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'over-01.*.false.json' (OS Error: No such file or directory, errno = 2))
+over-01.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'over-01.*.true.json' (OS Error: No such file or directory, errno = 2))
+over-01.values.json[0]: PASS
+over-01.values.json[1]: FAIL (.foo: invalid optional prop value [.'$over#Foo'.foo]; .foo: unexpected _rewritten foo [.'$over#Foo'.foo])
+over-01.values.json[2]: PASS
+over-01.values.json[3]: FAIL (.un: unexpected prop [.'$over#Foo'])
+over-01.values.json[4]: FAIL (.: not an object [.'$over#Foo'])
+over-01.values.json[5]: FAIL (.: not an object [.'$over#Foo'])
+over-01.values.json[6]: FAIL (.: not an object [.'$over#Foo'])
+over-01.values.json[7]: FAIL (.: not an object [.'$over#Foo'])
+over-01.values.json[8]: FAIL (.: not an object [.'$over#Foo'])
+over-01.values.json[9]: FAIL (.: not an object [.'$over#Foo'])
+over-01.values.json[10]: FAIL (.: not an object [.'$over#Foo'])
