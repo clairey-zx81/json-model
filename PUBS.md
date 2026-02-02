@@ -44,7 +44,7 @@ each language ecosystem:
 
   Ready to use JSON Model compiler and runtime for a Python environment, from _PyPI_.
 
-- [JSON Model Compiler Docker Image](https://hub.docker.com/r/zx80/jmc)
+- [JSON Model Compiler Container Image `docker.io/zx80/jmc`](https://hub.docker.com/r/zx80/jmc)
 
   Ready to use JSON Model compiler and runtimes (Python, C, JavaScript, Perl, Java)
   as a Docker image, from _Docker Hub_.

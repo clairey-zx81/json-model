@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] test: improve output determinism
+- [x] container: allow to use `podman` instead of `docker`
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
@@ -75,6 +76,7 @@
 - [ ] static: shorten xor exit?
 - [ ] perf: profile some cases
 - [ ] c-backend: use vector instructions for larger strcmp?
+- [ ] export: sqlalchemy
 
 ## Re Do
 

@@ -91,6 +91,7 @@ jmc.1: json_model/data/jmc.pod dev
 
 .PHONY: www
 www: build.site
+	# http://localhost:3000
 	cd site && $(PYTHON) -m http.server 3000
 
 #
@@ -115,9 +116,9 @@ publish.py: dev
 	twine check dist/*
 	echo "# twine upload dist/*"
 
-.PHONY: publish.docker
-publish.docker:
-	$(MAKE) -C docker docker.push
+.PHONY: publish.container
+publish.container:
+	$(MAKE) -C container pod.push
 
 RT.dir  = ./json_model/runtime
 

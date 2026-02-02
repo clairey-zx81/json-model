@@ -6,6 +6,8 @@
 # eg: $0 --par 12 --runs 5 --loop 1000 --jmc latest --jsc latest --env JMC_OPTS
 #
 
+pod=${POD:-docker}
+
 # error handling
 function err()
 {
@@ -37,16 +39,16 @@ while [[ "$1" == -* ]] ; do
       echo " --parallel|-p N: benchmark parallelism, eg half available cores ($PARA)"
       echo " --loop|-l L: number of run iterations for performance figures ($LOOP)"
       echo " --runs|-r R: number of runs ($RUNS)"
-      echo " --jmc=TAG: docker tag for JSON Model Compiler docker image ($JMC)"
-      echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image ($JSC)"
+      echo " --jmc=TAG: container tag for JSON Model Compiler container image ($JMC)"
+      echo " --jsc=TAG: container tag for JSON Schema CLI (Blaze) container image ($JSC)"
       echo " --cap-py: reduce loop iterations for python (default)"
       echo " --no-cap-py: do not reduce loop iterations for python"
-      echo " --env|-e VARS: environment variables to export to jmc docker"
+      echo " --env|-e VARS: environment variables to export to jmc container"
       echo " --task|-T TASK: comparisons to perform ($TASK)"
       exit 0
       ;;
     -v|--version)
-      # NOTE depends on zx80/jmc docker image
+      # NOTE depends on docker.io/zx80/jmc container image
       jmc --version
       exit 0
       ;;
@@ -123,7 +125,7 @@ trap do_status SIGUSR1
 # SANITY COMMANDS END FILES
 #
 echo "# sanity check"
-for cmd in git docker sqlite3 jq id basename grep sed wc /bin/bash /usr/bin/time ; do
+for cmd in git $pod sqlite3 jq id basename grep sed wc /bin/bash /usr/bin/time ; do
   type $cmd || err 2 "command not found: $cmd"
 done
 
@@ -134,9 +136,9 @@ done
 #
 # SETUP
 #
-echo "# docker images"
-for img in zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC ; do
-  docker pull $img || err 4 "cannot docker pull $img"
+echo "# $pod images"
+for img in docker.io/zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC ; do
+  $pod pull $img || err 4 "cannot $pod pull $img"
 done
 
 echo "# cloning repos"
@@ -228,9 +230,9 @@ sqlite3 perf.db < $script_dir/perf.sql
 cpu_model=$(lscpu --extended=MODELNAME | sed -n 2p)
 cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
 
-function docker_id()
+function pod_id()
 {
-    docker inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
+    $pod inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
 }
 
 #
@@ -264,8 +266,8 @@ or deselect tools for easier comparisons.
 
 ## Parameters
 
-- **jmc docker version:** $JMC ($(docker_id zx80/jmc:$JMC))
-- **jsc docker version:** $JSC ($(docker_id ghcr.io/sourcemeta/jsonschema:$JSC))
+- **jmc container version:** $JMC ($(pod_id docker.io/zx80/jmc:$JMC))
+- **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))
 - **benchmark parallelism:** $PARA
 - **number of runs:** $RUNS
 - **number of case iterations:** $LOOP

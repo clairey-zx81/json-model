@@ -8,6 +8,10 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 
 ## Recent Artifacts
 
+- [2026012700](benchmarks/2026012700.md) clang, no predefs, jmc 2.0b36 vs jsc 14.5.0, 11 runs, 1000 iterations.
+- [2026012400](benchmarks/2026012400.md) clang, no predefs, jmc 2.0b36 vs jsc 14.4.0, 11 runs, 1000 iterations.
+- [2026012200](benchmarks/2026012200.md) clang, no predefs, jmc 2.0b36 vs jsc 14.2.0, 11 runs, 1000 iterations.
+- [2026012000](benchmarks/2026012000.md) clang, no predefs, jmc 2.0b36 vs jsc 14.1.0, 11 runs, 1000 iterations.
 - [2026011500](benchmarks/2026011500.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.4, 11 runs, 1000 iterations.
 - [2026010900](benchmarks/2026010900.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.3, 11 runs, 1000 iterations.
 - [2026010600](benchmarks/2026010600.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.2, 11 runs, 1000 iterations.
@@ -17,29 +21,19 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 - [2025122300](benchmarks/2025122300.md) clang, no predefs, jmc 2.0b36 vs jsc 13.4.0, 3 runs, 1000 iterations.
 - [2025121900](benchmarks/2025121900.md) clang, no predefs, jmc 2.0b36 vs jsc 13.3.0, 11 runs, 1000 iterations.
 - [2025121800](benchmarks/2025121800.md) clang, no predefs, jmc 2.0b36 vs jsc 13.2.0, 11 runs, 1000 iterations.
-- [2025120700](benchmarks/2025120700.md) clang, no predefs, jmc 2.0b36 vs jsc 12.10.1, 11 runs, 1000 iterations.
-- [2025120503](benchmarks/2025120503.md) clang, no predefs, jmc 2.0b36 vs jsc 12.10.0, 11 runs, 1000 iterations.
-- [2025120303](benchmarks/2025120303.md) clang, no predefs, jmc 2.0b36 vs jsc 12.8.1, 11 runs, 1000 iterations.
-- [2025112503](benchmarks/2025112503.md) clang, no predefs, jmc 2.0b36 vs jsc 12.7.1, 3 runs, 1000 iterations.
-- [2025112002](benchmarks/2025112002.md) clang, no predefs, jmc 2.0b36 vs jsc 12.6.0, 11 runs, 1000 iterations.
-- [2025111900](benchmarks/2025111900.md) clang, no predefs, jmc 2.0b36 vs jsc 12.5.0, 3 runs, 1000 iterations.
-- [2025111804](benchmarks/2025111804.md) clang, no predefs, jmc 2.0b36 vs jsc 12.3.0, 3 runs, 1000 iterations.
-- [202511150e](benchmarks/202511150e.md) clang, no predefs, jmc 2.0b36 vs jsc 12.2.1, 3 runs, 1000 iterations.
-- [2025110500](benchmarks/2025110500.md) clang, no predefs, jmc 2.0b36 vs jsc 12.2.0, 3 runs, 1000 iterations.
-- [2025110100](benchmarks/2025110100.md) clang, no predefs, jmc 2.0b35 vs jsc 12.2.0, 3 runs, 1000 iterations.
 
 ## Benchmarking Script
 
 The [benchmarking script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/benchmark.sh)
-is provided as docker image [zx80/jmc-bench](https://hub.docker.com/repository/docker/zx80/jmc-bench).
+is provided as docker image [docker.io/zx80/jmc-bench](https://hub.docker.com/repository/docker/zx80/jmc-bench).
 It downloads the benchmark schemas and test values, and runs through docker-in-docker
-[zx80/jmc](https://hub.docker.com/repository/docker/zx80/jmc) for JMC runs and
-[sourcemeta/jsonschema](https://github.com/sourcemeta/jsonschema/pkgs/container/jsonschema)
+[docker.io/zx80/jmc](https://hub.docker.com/repository/docker/zx80/jmc) for JMC runs and
+[ghcr.io/sourcemeta/jsonschema](https://github.com/sourcemeta/jsonschema/pkgs/container/jsonschema)
 for comparison using the Blaze CLI.
 
 It is typically started on a large host with the
 [`start_bench.sh` script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/start_bench.sh)
-which will spawn the necessary dockers:
+which will spawn the necessary containers:
 
 ```sh
 JMC=latest JMC_OPTS="--no-predef --cc=clang-20" \
@@ -72,6 +66,9 @@ the run stops as soon as possible.
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
 
+- do you value latency or throuput or resource consumption? the answer is not so obvious,
+  probably you should prefer a high throuput _if_ the latency is good enough, but these
+  benchmark actually measure raw latency.
 - test cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
 - the overall load on the host can impact measures.
@@ -83,12 +80,16 @@ the following caveats, and others:
   so these checks may be disactivated (see `JMC_OPTS`) for fairness.
 - blaze uses its own special-purpose JSON representation: if interfaced from another
   ecosystem, the cost of translating the JSON representation should be taken into account;
-  jmc uses native JSON representation and generate validation code around it.
+  jmc uses native JSON representations and generate validation code around it.
 - due to intrinsic limitations of the underlying libraries and the quality of models or schemas,
   some results may differ, mostly for good reasons: regex incompatibilities, stricter
   model definitions compared to lax schemas…
-- it is unclear whether JIT optimizations (Java and JS) may work around the
+- it is unclear whether JIT optimizations (eg Java and JS) may work around the
   benchmarking loops and report undue very fast performances, eg on the GeoJSON case.
+- some execution environment (eg Java) may take advantage of parallelism with threads,
+  which may or may not be a blessing: it can reduce the apparent latency (eg the gc runs
+  in another thread) but have a detrimental overall effect on throughput as more cpu ressources
+  are spent on the same task.
 
 ## Other Artifacts
 
@@ -98,7 +99,7 @@ also provides
 [benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
 which includes 15 JSON Schema validation tools including our JSON Model Compiler with
 C, JS and Python backends.
-Overall, JMC comes ahead of Blaze C++ on 2/3 of the test cases (as of 2025-12-07).
+Overall, JMC comes ahead of Blaze C++ on about 2/3 of the test cases (as of 2026-01-22).
 
 It should be noted that benchmarking conditions are quite different:
 

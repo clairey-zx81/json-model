@@ -12,7 +12,7 @@ It is dedicated to the _Public Domain_.
 
 JSON Model optimizing compiler (`jmc`) can be installed as a
 [Python package](https://pypi.org/project/json-model-compiler/) or a
-[Docker image](https://hub.docker.com/r/zx80/jmc), see
+[Container image `docker.io/zx80/jmc`](https://hub.docker.com/r/zx80/jmc), see
 [Installation HOWTO](HOWTO.md#installing-json-model-compiler).
 
 Command `jmc` options include:
@@ -142,7 +142,7 @@ and links to [research papers](PAPERS.md) for explanations about the design.
 ## JSON Model Distribution
 
 - [PYPI Package](https://pypi.org/project/json-model-compiler/)
-- [Docker Image](https://hub.docker.com/r/zx80/jmc)
+- [Container Image `docker.io/zx80/jmc`](https://hub.docker.com/r/zx80/jmc)
 - [JS Runtime](https://www.npmjs.com/package/json_model_runtime)
 - [Postgres Runtime](https://pgxn.org/dist/json_model/)
 - [Perl Runtime](https://metacpan.org/pod/JSON::JsonModel)
