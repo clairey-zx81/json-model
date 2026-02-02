@@ -1,0 +1,9 @@
+bool_s.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'bool_s.*.false.json' (OS Error: No such file or directory, errno = 2))
+bool_s.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'bool_s.*.true.json' (OS Error: No such file or directory, errno = 2))
+bool_s.values.json[0]: PASS
+bool_s.values.json[1]: PASS
+bool_s.values.json[2]: FAIL (.: unexpected $BOOL [.])
+bool_s.values.json[3]: FAIL (.: unexpected $BOOL [.])
+bool_s.values.json[4]: FAIL (.: unexpected $BOOL [.])
+bool_s.values.json[5]: FAIL (.: unexpected $BOOL [.])
+bool_s.values.json[6]: FAIL (.: unexpected $BOOL [.])

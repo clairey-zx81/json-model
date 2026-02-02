@@ -1,0 +1,15 @@
+no_bracket.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'no_bracket.*.false.json' (OS Error: No such file or directory, errno = 2))
+no_bracket.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'no_bracket.*.true.json' (OS Error: No such file or directory, errno = 2))
+no_bracket.values.json[0]: PASS
+no_bracket.values.json[1]: PASS
+no_bracket.values.json[2]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[3]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[4]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[5]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[6]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[7]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[8]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[9]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[10]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[11]: FAIL (.: unexpected /^[^\[\]]*$/ [.])
+no_bracket.values.json[12]: FAIL (.: unexpected /^[^\[\]]*$/ [.])

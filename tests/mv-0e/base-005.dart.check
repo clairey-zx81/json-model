@@ -1,0 +1,16 @@
+base-005.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'base-005.*.false.json' (OS Error: No such file or directory, errno = 2))
+base-005.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'base-005.*.true.json' (OS Error: No such file or directory, errno = 2))
+base-005.values.json[0]: PASS
+base-005.values.json[1]: PASS
+base-005.values.json[2]: FAIL (.: missing mandatory prop <b> [.])
+base-005.values.json[3]: FAIL (.: not an object [.])
+base-005.values.json[4]: FAIL (.: not an object [.])
+base-005.values.json[5]: FAIL (.: not an object [.])
+base-005.values.json[6]: FAIL (.: not an object [.])
+base-005.values.json[7]: FAIL (.: not an object [.])
+base-005.values.json[8]: FAIL (.: not an object [.])
+base-005.values.json[9]: FAIL (.: not an object [.])
+base-005.values.json[10]: FAIL (.: not an object [.])
+base-005.values.json[11]: FAIL (.: not an object [.])
+base-005.values.json[12]: FAIL (.un: unexpected prop [.])
+base-005.values.json[13]: FAIL (.un: unexpected prop [.])

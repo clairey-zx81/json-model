@@ -1,0 +1,16 @@
+may_open.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'may_open.*.false.json' (OS Error: No such file or directory, errno = 2))
+may_open.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'may_open.*.true.json' (OS Error: No such file or directory, errno = 2))
+may_open.values.json[0]: PASS
+may_open.values.json[1]: PASS
+may_open.values.json[2]: PASS
+may_open.values.json[3]: PASS
+may_open.values.json[4]: FAIL (.hello: unexpected value for optional prop <hello> [.]; .hello: unexpected string [.hello])
+may_open.values.json[5]: FAIL (.: not an object [.])
+may_open.values.json[6]: FAIL (.: not an object [.])
+may_open.values.json[7]: FAIL (.: not an object [.])
+may_open.values.json[8]: FAIL (.: not an object [.])
+may_open.values.json[9]: FAIL (.: not an object [.])
+may_open.values.json[10]: FAIL (.: not an object [.])
+may_open.values.json[11]: FAIL (.: not an object [.])
+may_open.values.json[12]: FAIL (.: not an object [.])
+may_open.values.json[13]: FAIL (.: not an object [.])

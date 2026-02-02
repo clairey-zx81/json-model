@@ -1,0 +1,34 @@
+prop_discriminant_3.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'prop_discriminant_3.*.false.json' (OS Error: No such file or directory, errno = 2))
+prop_discriminant_3.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'prop_discriminant_3.*.true.json' (OS Error: No such file or directory, errno = 2))
+prop_discriminant_3.values.json[0]: PASS
+prop_discriminant_3.values.json[1]: PASS
+prop_discriminant_3.values.json[2]: PASS
+prop_discriminant_3.values.json[3]: PASS
+prop_discriminant_3.values.json[4]: PASS
+prop_discriminant_3.values.json[5]: PASS
+prop_discriminant_3.values.json[6]: PASS
+prop_discriminant_3.values.json[7]: PASS
+prop_discriminant_3.values.json[8]: PASS
+prop_discriminant_3.values.json[9]: PASS
+prop_discriminant_3.values.json[10]: PASS
+prop_discriminant_3.values.json[11]: PASS
+prop_discriminant_3.values.json[12]: PASS
+prop_discriminant_3.values.json[13]: PASS
+prop_discriminant_3.values.json[14]: PASS
+prop_discriminant_3.values.json[15]: PASS
+prop_discriminant_3.values.json[16]: PASS
+prop_discriminant_3.values.json[17]: PASS
+prop_discriminant_3.values.json[18]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.4]; .: missing mandatory prop <e> [.'|'.4]; .: missing mandatory prop <c> [.'|'.4]; .: unexpected element [.'|'.3]; .: missing mandatory prop <e> [.'|'.3]; .: unexpected element [.'|'.2]; .: missing mandatory prop <d> [.'|'.2]; .: unexpected element [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <b> [.'|'.0])
+prop_discriminant_3.values.json[19]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.4]; .b: unexpected prop [.'|'.4]; .: unexpected element [.'|'.3]; .b: unexpected prop [.'|'.3]; .: unexpected element [.'|'.2]; .b: unexpected prop [.'|'.2]; .: unexpected element [.'|'.1]; .b: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .c: unexpected prop [.'|'.0])
+prop_discriminant_3.values.json[20]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.4]; .d: unexpected prop [.'|'.4]; .: unexpected element [.'|'.3]; .d: unexpected prop [.'|'.3]; .: unexpected element [.'|'.2]; .e: unexpected prop [.'|'.2]; .: unexpected element [.'|'.1]; .d: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .d: unexpected prop [.'|'.0])
+prop_discriminant_3.values.json[21]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.4]; .: missing mandatory prop <e> [.'|'.4]; .: missing mandatory prop <c> [.'|'.4]; .: missing mandatory prop <a> [.'|'.4]; .: unexpected element [.'|'.3]; .: missing mandatory prop <e> [.'|'.3]; .: missing mandatory prop <a> [.'|'.3]; .: unexpected element [.'|'.2]; .: missing mandatory prop <d> [.'|'.2]; .: missing mandatory prop <a> [.'|'.2]; .: unexpected element [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <b> [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+prop_discriminant_3.values.json[22]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.4]; .hello: unexpected prop [.'|'.4]; .: unexpected element [.'|'.3]; .hello: unexpected prop [.'|'.3]; .: unexpected element [.'|'.2]; .hello: unexpected prop [.'|'.2]; .: unexpected element [.'|'.1]; .hello: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .hello: unexpected prop [.'|'.0])
+prop_discriminant_3.values.json[23]: FAIL (.: unexpected type [.'|'])
+prop_discriminant_3.values.json[24]: FAIL (.: unexpected type [.'|'])
+prop_discriminant_3.values.json[25]: FAIL (.: unexpected type [.'|'])
+prop_discriminant_3.values.json[26]: FAIL (.: unexpected type [.'|'])
+prop_discriminant_3.values.json[27]: FAIL (.: unexpected type [.'|'])
+prop_discriminant_3.values.json[28]: FAIL (.: unexpected type [.'|'])
+prop_discriminant_3.values.json[29]: FAIL (.: unexpected type [.'|'])
+prop_discriminant_3.values.json[30]: FAIL (.: unexpected type [.'|'])
+prop_discriminant_3.values.json[31]: FAIL (.: unexpected type [.'|'])

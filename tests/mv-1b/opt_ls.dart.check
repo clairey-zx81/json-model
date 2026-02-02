@@ -1,0 +1,11 @@
+opt_ls.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'opt_ls.*.false.json' (OS Error: No such file or directory, errno = 2))
+opt_ls.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'opt_ls.*.true.json' (OS Error: No such file or directory, errno = 2))
+opt_ls.values.json[0]: PASS
+opt_ls.values.json[1]: PASS
+opt_ls.values.json[2]: FAIL (.f: unexpected value for mandatory prop <f> [.]; .f: not a -1.0 strict float [.f])
+opt_ls.values.json[3]: FAIL (.f: unexpected value for mandatory prop <f> [.]; .f: not a -1.0 strict float [.f])
+opt_ls.values.json[4]: FAIL (.: not an object [.])
+opt_ls.values.json[5]: FAIL (.: not an object [.])
+opt_ls.values.json[6]: FAIL (.: not an object [.])
+opt_ls.values.json[7]: FAIL (.: not an object [.])
+opt_ls.values.json[8]: FAIL (.: bad property count [.])

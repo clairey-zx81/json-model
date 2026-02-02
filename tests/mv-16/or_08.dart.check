@@ -1,0 +1,11 @@
+or_08.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_08.*.false.json' (OS Error: No such file or directory, errno = 2))
+or_08.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_08.*.true.json' (OS Error: No such file or directory, errno = 2))
+or_08.values.json[0]: PASS
+or_08.values.json[1]: PASS
+or_08.values.json[2]: PASS
+or_08.values.json[3]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[4]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[5]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[6]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[7]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[8]: FAIL (.: not a -1 strict int [.])

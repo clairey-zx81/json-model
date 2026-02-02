@@ -1,0 +1,15 @@
+ex_07.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'ex_07.*.false.json' (OS Error: No such file or directory, errno = 2))
+ex_07.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'ex_07.*.true.json' (OS Error: No such file or directory, errno = 2))
+ex_07.values.json[0]: PASS
+ex_07.values.json[1]: PASS
+ex_07.values.json[2]: PASS
+ex_07.values.json[3]: PASS
+ex_07.values.json[4]: PASS
+ex_07.values.json[5]: PASS
+ex_07.values.json[6]: FAIL (.: unexpected /[a-z]/ [.'$Ex07'])
+ex_07.values.json[7]: FAIL (.: unexpected /[a-z]/ [.'$Ex07'])
+ex_07.values.json[8]: FAIL (.: unexpected /[a-z]/ [.'$Ex07'])
+ex_07.values.json[9]: FAIL (.: not array or unexpected array [.])
+ex_07.values.json[10]: FAIL (.: not array or unexpected array [.])
+ex_07.values.json[11]: FAIL (.: not array or unexpected array [.])
+ex_07.values.json[12]: FAIL (.: not array or unexpected array [.]; .2: unexpected $Ex07 [.2]; .2: unexpected /[a-z]/ [.'$Ex07'])

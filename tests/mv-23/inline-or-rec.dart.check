@@ -1,0 +1,18 @@
+inline-or-rec.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'inline-or-rec.*.false.json' (OS Error: No such file or directory, errno = 2))
+inline-or-rec.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'inline-or-rec.*.true.json' (OS Error: No such file or directory, errno = 2))
+inline-or-rec.values.json[0]: PASS
+inline-or-rec.values.json[1]: PASS
+inline-or-rec.values.json[2]: FAIL (.: bad property count [.'$ab'.'|'.0])
+inline-or-rec.values.json[3]: FAIL (.: tag prop <t> is missing [.'$ab'.'|'])
+inline-or-rec.values.json[4]: FAIL (.: tag prop <t> is missing [.'$ab'.'|'])
+inline-or-rec.values.json[5]: FAIL (.: bad property count [.'$ab'.'|'.0])
+inline-or-rec.values.json[6]: FAIL (.: tag prop <t> is missing [.'$ab'.'|'])
+inline-or-rec.values.json[7]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[8]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[9]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[10]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[11]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[12]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[13]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[14]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[15]: FAIL (.: value is not an object [.'$ab'.'|'])

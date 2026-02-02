@@ -1,0 +1,13 @@
+or_10.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_10.*.false.json' (OS Error: No such file or directory, errno = 2))
+or_10.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_10.*.true.json' (OS Error: No such file or directory, errno = 2))
+or_10.values.json[0]: PASS
+or_10.values.json[1]: PASS
+or_10.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: expecting empty object [.'|'.0])
+or_10.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: missing mandatory prop <name> [.'|'.1]; .: unexpected element [.'|'.0]; .: expecting empty object [.'|'.0])
+or_10.values.json[4]: FAIL (.: unexpected type [.'|'])
+or_10.values.json[5]: FAIL (.: unexpected type [.'|'])
+or_10.values.json[6]: FAIL (.: unexpected type [.'|'])
+or_10.values.json[7]: FAIL (.: unexpected type [.'|'])
+or_10.values.json[8]: FAIL (.: unexpected type [.'|'])
+or_10.values.json[9]: FAIL (.: unexpected type [.'|'])
+or_10.values.json[10]: FAIL (.: unexpected type [.'|'])

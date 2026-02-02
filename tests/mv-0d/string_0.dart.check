@@ -1,0 +1,13 @@
+string_0.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'string_0.*.false.json' (OS Error: No such file or directory, errno = 2))
+string_0.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'string_0.*.true.json' (OS Error: No such file or directory, errno = 2))
+string_0.values.json[0]: PASS
+string_0.values.json[1]: PASS
+string_0.values.json[2]: PASS
+string_0.values.json[3]: FAIL (.: unexpected string [.])
+string_0.values.json[4]: FAIL (.: unexpected string [.])
+string_0.values.json[5]: FAIL (.: unexpected string [.])
+string_0.values.json[6]: FAIL (.: unexpected string [.])
+string_0.values.json[7]: FAIL (.: unexpected string [.])
+string_0.values.json[8]: FAIL (.: unexpected string [.])
+string_0.values.json[9]: FAIL (.: unexpected string [.])
+string_0.values.json[10]: FAIL (.: unexpected string [.])
