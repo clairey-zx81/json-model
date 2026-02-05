@@ -1988,6 +1988,10 @@ def xstatic_compile(
                                 max_strcmp_cset=max_strcmp_cset,
                                 partition_threshold=strcmp_cset_partition_threshold
         )
+    elif lang == "cpp":
+        from .cpp import Cpp
+        language = Cpp(debug=debug, with_path=report, with_report=report,
+                                with_predef=predef, relib=relib or "re")
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report, with_path=report,

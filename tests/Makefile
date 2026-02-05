@@ -8,6 +8,7 @@ D.check = $(D.subs:%=%.check)
 D.clean = $(D.subs:%=%.clean)
 D.gen = $(D.subs:%=%.gen)
 D.java = $(D.subs:%=%.java)
+D.cpp = $(D.subs:%=%.cpp)
 
 .PHONY: clean
 clean:
@@ -41,3 +42,7 @@ gen:
 .PHONY: java
 java:
 	$(MAKE) TARGET=java $(D.java)
+
+.PHONY: cpp
+cpp:
+	$(MAKE) TARGET=cpp $(D.cpp)

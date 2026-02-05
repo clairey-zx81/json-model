@@ -32,9 +32,11 @@ F.EO    = $(F.root:%=%.schema.json)
 
 # code generation
 F.c     = $(F.root:%=%.c)
+F.cpp   = $(F.root:%=%.cpp)
 F.py    = $(F.root:%=%.py)
 F.js    = $(F.root:%=%.js)
 F.out   = $(F.root:%=%.out)
+F.cppout= $(F.root:%=%.cppout)
 F.sql   = $(F.root:%=%.sql)
 F.pl    = $(F.root:%=%.pl)
 F.java  = $(F.root:%=%.java)
@@ -42,6 +44,7 @@ F.class = $(F.root:%=%.class)
 F.ir    = $(F.root:%=%.ir.json)
 # test results
 F.cc    = $(F.root:%=%.c.check)
+F.cppc  = $(F.root:%=%.cpp.check)
 F.pyc   = $(F.root:%=%.py.check)
 F.jsc   = $(F.root:%=%.js.check)
 F.sqlc  = $(F.root:%=%.sql.check)
@@ -55,7 +58,7 @@ FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
 # TODO F.ir
 F.gen   = \
     $(F.json) $(F.UO) $(F.PO) $(F.EO) \
-    $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) \
+    $(F.c) $(F.cpp) $(F.py) $(F.cc) $(F.cppc) $(F.sql) $(F.pl) $(F.java) \
     $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc)
 
 .PHONY: all
@@ -175,6 +178,56 @@ $(F.out): json-model.o main.o
 	if [ -f $*.values.json ] ; then
 	    $< -tr $*.values.json >> $@
 	fi
+
+#
+# C++ Backend
+#
+# regular expression library for C++ generated code
+.PHONY: cpp
+cpp: $(F.cpp)
+
+RELIB    = re
+
+%.cpp: %.model.json
+	$(JMC.cmd) -re $(RELIB) -o $@ ./$<
+
+RT.cpp    = ../../json_model/runtime/cpp
+
+CXX        = g++
+CXXFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I$(RT.cpp) \
+			-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function \
+            -Wno-parentheses -Ofast
+
+# ifeq ($(RELIB), pcre2)
+# CPPFLAGS  += -DREGEX_ENGINE_PCRE2
+# LDFLAGS   = json-model.o -ljansson -lpcre2-8 main.o -lm
+# else
+# CPPFLAGS  += -I/usr/local/include -DREGEX_ENGINE_RE2
+# LDFLAGS   = -L/usr/local/lib json-model.o -ljansson -lcre2 -lpthread -lre2 main.o -lm
+# endif
+
+%.cpp.o: $(RT.cpp)/%.cpp
+	$(CXX) $(CXXFLAGS) -o $@ -c $<
+
+
+RT.cppo = misc.cpp.o path.cpp.o report.cpp.o main.cpp.o
+$(F.cppout): $(RT.cppo)
+
+%.cppout: $(RT.cppo)
+
+%.cppout: %.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+%.cpp.check: %.cppout %.values.json
+	shopt -s nullglob
+	set -o pipefail
+	$< -r $*.*.{true,false}.json | sort > $@
+	if [ -f $*.values.json ] ; then
+	    $< -tr $*.values.json >> $@
+	fi
+
+clean.cpp:
+	$(RM) *.cpp *.cpp.o *.cppout *.cpp.check
 
 #
 # JSON IR

@@ -44,7 +44,7 @@ class Language:
             eoi: str = "", isep: str = "\n", indent: str = "    ",
             lcom: str = "#", relib: str = "re2",
             true: str = "True", false: str = "False", null: str = "None",
-            check_t: str = "CheckFun", json_t: str = "Jsonable", path_t: str = "Path",
+            check_t: str = "CheckFun", json_t: str = "Jsonable", path_t: str = "Path", report_t: str = "Report",
             match_t: str|None = None, hash_t: str = "int",
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
@@ -93,6 +93,7 @@ class Language:
         self._check_t = check_t
         self._json_t = json_t
         self._path_t = path_t
+        self._report_t = report_t
         self._match_t = match_t
         self._bool_t = bool_t
         self._int_t = int_t

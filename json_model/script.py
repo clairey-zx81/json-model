@@ -24,6 +24,7 @@ from .export import model2python
 LANG = {
   "py": "Python",
   "c": "C",
+  "cpp": "C++",
   "js": "JavaScript",
   "plpgsql": "PL/pgSQL",
   "pl": "Perl",
@@ -338,7 +339,7 @@ def jmc_script():
         help="do not generate anything")
 
     # TODO cpp ts rs go…
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js", "plpgsql", "pl", "java"],
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "cpp", "js", "plpgsql", "pl", "java"],
         default=None, help="output language")
 
     # C-specific options
@@ -473,6 +474,10 @@ def jmc_script():
             args.format = args.format or "c"
             args.op = args.op or "C"
             args.gen = args.gen or "source"
+        elif args.output.endswith(".cpp"):
+            args.format = args.format or "cpp"
+            args.op = args.op or "C"
+            args.gen = args.gen or "source"
         elif args.output.endswith(".o"):
             args.format = args.format or "c"
             args.op = args.op or "C"
@@ -548,7 +553,7 @@ def jmc_script():
         args.reporting = False if args.format == "plpgsql" else True
 
     if args.op is None:
-        args.op = "C" if args.format in ("c", "py", "js", "java", "plpgsql", "pl") else "P"
+        args.op = "C" if args.format in ("c", "cpp", "py", "js", "java", "plpgsql", "pl") else "P"
 
     # update op-dependent default
     if args.gen is None:
