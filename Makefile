@@ -30,8 +30,8 @@ clean.site:
 
 .PHONY: clean.dev
 clean.dev: clean
-	$(RM) -r venv $(MODULE).egg-info build dist node_modules
-	$(RM) package-lock.json
+	$(RM) -r venv $(MODULE).egg-info build dist node_modules .dart_tool
+	$(RM) package-lock.json pubspec.lock
 
 .PHONY: check.src
 check.src: check.ruff check.pyright

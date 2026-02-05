@@ -7,7 +7,7 @@ SHELL   = /bin/bash
 #
 # cleanup
 #
-clean: sql.clean clean.local java.clean pl.clean js.clean c.clean
+clean: sql.clean clean.local java.clean pl.clean js.clean c.clean dart.clean
 
 %.clean:
 	test -f $*/Makefile && $(MAKE) -C $* clean
