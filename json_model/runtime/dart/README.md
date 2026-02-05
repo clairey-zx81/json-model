@@ -5,5 +5,6 @@
 In the json-model root directory (where `pubspec.yaml` named `json_model_dart` is located):
 
 ```bash 
+dart --disable-analytics
 dart pub get
 ```

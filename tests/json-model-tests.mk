@@ -39,7 +39,7 @@ F.sql   = $(F.root:%=%.sql)
 F.pl    = $(F.root:%=%.pl)
 F.java  = $(F.root:%=%.java)
 F.class = $(F.root:%=%.class)
-F.dart = $(F.root:%=%.dart)
+F.dart  = $(F.root:%=%.dart)
 F.ir    = $(F.root:%=%.ir.json)
 # test results
 F.cc    = $(F.root:%=%.c.check)
@@ -335,7 +335,6 @@ clean.dart:
 		test -f $*.errors.json && status=0; \
 	fi;
 	exit $$status
-
 
 #
 # Generated JSON Schema checks

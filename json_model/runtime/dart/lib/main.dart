@@ -19,6 +19,12 @@ typedef ValidatorCallback = bool Function(
 /// Free resources
 typedef FreeCallback = void Function();
 
+// a wrapper for passing a float by reference.
+class Value {
+  double value = 0.0;
+  Value(this.value);
+}
+
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
@@ -44,18 +50,21 @@ String formatReport(List<dynamic>? rep) {
 }
 
 /// Measures the overhead of an empty loop to subtract from timing stats
-double evalEmpty(int times) {
+double evalEmpty(int times, Value val) {
   if (times < 1) return 0.0;
   double empty = 0.0;
+  double v = val.value;
   final sw = Stopwatch();
   int n = times;
   while (n-- > 0) {
     sw.reset();
     sw.start();
-    // Empty operation
+    // nearly empty operation
+    v = pi * v + e % 1.0;
     sw.stop();
     empty += sw.elapsedMicroseconds;
   }
+  val.value = v;
   return empty / times;
 }
 
@@ -72,6 +81,7 @@ int processing(
   bool report,
   int times,
   double emptyOverhead,
+  Value val,
 ) {
   // 1. Single run for correctness
   List<dynamic>? rep = report ? [] : null;
@@ -93,11 +103,13 @@ int processing(
     double sum = 0.0;
     double sum2 = 0.0;
     final sw = Stopwatch();
+    double v = val.value;
 
     for (int i = 0; i < times; i++) {
       List<dynamic>? loopRep = report ? [] : null;
       sw.reset();
       sw.start();
+      v = pi * v + e % 1.0;
       checker(value, [], loopRep);
       sw.stop();
       if (loopRep != null) loopRep.clear(); // mimic rep.length = 0
@@ -107,6 +119,8 @@ int processing(
       sum += delay;
       sum2 += delay * delay;
     }
+
+    val.value = v;
 
     double avg = sum / times;
     double variance = (sum2 / times) - (avg * avg);
@@ -251,17 +265,15 @@ Future<void> runValidation(
   // --- Overhead Estimation ---
   // We need the JIT to kick in, so we run evalEmpty multiple times
   double emptyOverhead = 0.0;
+  Value vx = Value(times / 13.0 % 1.0);
+
   if (times > 1) {
-    List<double> samples = [
-      evalEmpty(times),
-      evalEmpty(times),
-      evalEmpty(times),
-      evalEmpty(times),
-      evalEmpty(times),
-      evalEmpty(times),
-    ];
-    samples.sort();
-    emptyOverhead = samples.first;
+    for (int i = 0; i < 100; i++) {
+      double empty = evalEmpty(times, vx);
+      // print("empty = ${empty}, overhead=${emptyOverhead}");
+      if (emptyOverhead == 0.0 || empty != 0.0 && empty < emptyOverhead)
+         emptyOverhead = empty;
+    }
   }
 
   int totalErrors = 0;
@@ -357,6 +369,7 @@ Future<void> runValidation(
             report,
             times,
             emptyOverhead,
+            vx,
           );
           index++;
         }
@@ -372,6 +385,7 @@ Future<void> runValidation(
           report,
           times,
           emptyOverhead,
+          vx,
         );
       }
     } catch (e) {
