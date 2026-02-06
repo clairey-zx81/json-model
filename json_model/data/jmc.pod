@@ -24,7 +24,7 @@ B<jmc> - JSON Model Compiler
      [--partition-threshold THRESHOLD] [--or-must-prop THRESHOLD]
      [--max-strcmp-cset SIZE] [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
-     [--output OUTPUT] model [values ...]
+     [--output OUTPUT] (--model MODEL | MODEL) [VALUES ...]
 
 =head1 DESCRIPTION
 
@@ -93,6 +93,10 @@ set debug mode, which is very verbose.
 =head2 Input
 
 =over 4
+
+=item B<--model MODEL">
+
+provide the mode with an option instead of a parameter.
 
 =item B<--maps "URL PATH">/B<-m …>
 
