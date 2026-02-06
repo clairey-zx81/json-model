@@ -447,7 +447,8 @@ def jmc_script():
     arg("--cache-clear", default=False, action="store_true", help="cleanup cache contents and exit")
 
     # parameters
-    arg("model", default="-", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
+    arg("--model", dest="model_option", type=str, help="JSON model as an option")
+    arg("model", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
     args = ap.parse_args()
 
@@ -466,6 +467,15 @@ def jmc_script():
             f = "Pod::Text::Termcap" if args.doc == "man" else "Pod::Text"
             subprocess.run(["pod2usage", "-v", v, "-formatter", f], input=pod.encode("utf8"))
         sys.exit(0)
+
+    # manage model option vs model parameter
+    if args.model_option is None:
+        if args.model is None:
+            args.model = "-"
+    else:
+        if args.model is not None:
+            args.values.insert(0, args.model)
+        args.model = args.model_option
 
     # format/operation/gen guessing
     if args.output != "-":
