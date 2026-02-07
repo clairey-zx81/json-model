@@ -467,7 +467,7 @@ def test_lang(directory, language):
     mod_opts = dict(EXPECT.get(f"{directory}:mod-opts", {}))
     cmp_opts = dict(EXPECT.get(f"{directory}:cmp-opts", {}))
     suffix = f".{language}"
-
+    
     # defaults are different for PL/pgSQL
     if "report" not in cmp_opts:
         cmp_opts["report"] = language != "sql"
@@ -596,6 +596,11 @@ def test_sta_java(directory, tmp_dir):
     """Check generated Java programs with test value files."""
     check_values(directory, "sta-java", ".java", ".java.check",
                  lambda f: f"./test_java.sh {f}", "-r")
+    
+@pytest.mark.skipif(not has_exec("dart"), reason="missing dart")  
+def test_sta_dart(directory):  
+    """Check generated Dart scripts with test value files."""  
+    check_values(directory, "sta-dart", ".dart", ".dart.check", lambda f: f)
 
 #
 # DYNAMIC CHECKS AGAINST VALUES

@@ -1,0 +1,8 @@
+or_04.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_04.*.false.json' (OS Error: No such file or directory, errno = 2))
+or_04.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_04.*.true.json' (OS Error: No such file or directory, errno = 2))
+or_04.values.json[0]: PASS
+or_04.values.json[1]: PASS
+or_04.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected /[a-z]/ [.'|'.1]; .: unexpected /[0-9]/ [.'|'.0]; .: value not in enum [.'|'])
+or_04.values.json[3]: FAIL (.: unexpected type [.'|']; .: value not in enum [.'|'])
+or_04.values.json[4]: FAIL (.: unexpected type [.'|']; .: value not in enum [.'|'])
+or_04.values.json[5]: FAIL (.: unexpected type [.'|']; .: value not in enum [.'|'])

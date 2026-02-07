@@ -1,0 +1,5 @@
+jsound.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'jsound.*.false.json' (OS Error: No such file or directory, errno = 2))
+jsound.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'jsound.*.true.json' (OS Error: No such file or directory, errno = 2))
+jsound.values.json[0]: PASS
+jsound.values.json[1]: PASS
+jsound.values.json[2]: FAIL (.: missing mandatory prop <types> [.'$Schema'])

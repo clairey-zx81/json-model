@@ -1,0 +1,10 @@
+at_bool.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'at_bool.*.false.json' (OS Error: No such file or directory, errno = 2))
+at_bool.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'at_bool.*.true.json' (OS Error: No such file or directory, errno = 2))
+at_bool.values.json[0]: PASS
+at_bool.values.json[1]: PASS
+at_bool.values.json[2]: FAIL (.: not a bool [.])
+at_bool.values.json[3]: FAIL (.: not a bool [.])
+at_bool.values.json[4]: FAIL (.: not a bool [.])
+at_bool.values.json[5]: FAIL (.: not a bool [.])
+at_bool.values.json[6]: FAIL (.: not a bool [.])
+at_bool.values.json[7]: FAIL (.: not a bool [.])

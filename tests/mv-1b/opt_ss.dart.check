@@ -1,0 +1,7 @@
+opt_ss.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'opt_ss.*.false.json' (OS Error: No such file or directory, errno = 2))
+opt_ss.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'opt_ss.*.true.json' (OS Error: No such file or directory, errno = 2))
+opt_ss.values.json[0]: PASS
+opt_ss.values.json[1]: FAIL (.i: unexpected value for mandatory prop <i> [.]; .i: not a -1 strict int [.i])
+opt_ss.values.json[2]: FAIL (.f: unexpected value for mandatory prop <f> [.]; .f: not a -1.0 strict float [.f])
+opt_ss.values.json[3]: FAIL (.i: unexpected value for mandatory prop <i> [.]; .i: not a -1 strict int [.i])
+opt_ss.values.json[4]: FAIL (.i: unexpected value for mandatory prop <i> [.]; .i: not a -1 strict int [.i])

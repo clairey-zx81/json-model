@@ -1,0 +1,6 @@
+enum_04.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'enum_04.*.false.json' (OS Error: No such file or directory, errno = 2))
+enum_04.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'enum_04.*.true.json' (OS Error: No such file or directory, errno = 2))
+enum_04.values.json[0]: PASS
+enum_04.values.json[1]: FAIL (.: value not in enum [.'|'])
+enum_04.values.json[2]: FAIL (.: value not in enum [.'|'])
+enum_04.values.json[3]: FAIL (.: value not in enum [.'|'])

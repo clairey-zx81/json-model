@@ -1,0 +1,5 @@
+eq_42.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'eq_42.*.false.json' (OS Error: No such file or directory, errno = 2))
+eq_42.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'eq_42.*.true.json' (OS Error: No such file or directory, errno = 2))
+eq_42.values.json[0]: PASS
+eq_42.values.json[1]: FAIL (.: unexpected =42 [.])
+eq_42.values.json[2]: FAIL (.: unexpected =42 [.])

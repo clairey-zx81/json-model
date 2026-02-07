@@ -1,0 +1,24 @@
+objs5.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'objs5.*.false.json' (OS Error: No such file or directory, errno = 2))
+objs5.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'objs5.*.true.json' (OS Error: No such file or directory, errno = 2))
+objs5.values.json[0]: PASS
+objs5.values.json[1]: PASS
+objs5.values.json[2]: PASS
+objs5.values.json[3]: PASS
+objs5.values.json[4]: PASS
+objs5.values.json[5]: PASS
+objs5.values.json[6]: PASS
+objs5.values.json[7]: PASS
+objs5.values.json[8]: PASS
+objs5.values.json[9]: PASS
+objs5.values.json[10]: PASS
+objs5.values.json[11]: PASS
+objs5.values.json[12]: FAIL
+objs5.values.json[13]: FAIL
+objs5.values.json[14]: FAIL
+objs5.values.json[15]: FAIL
+objs5.values.json[16]: FAIL
+objs5.values.json[17]: FAIL
+objs5.values.json[18]: FAIL
+objs5.values.json[19]: FAIL
+objs5.values.json[20]: FAIL
+objs5.values.json[21]: FAIL

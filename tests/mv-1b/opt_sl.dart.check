@@ -1,0 +1,7 @@
+opt_sl.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'opt_sl.*.false.json' (OS Error: No such file or directory, errno = 2))
+opt_sl.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'opt_sl.*.true.json' (OS Error: No such file or directory, errno = 2))
+opt_sl.values.json[0]: PASS
+opt_sl.values.json[1]: PASS
+opt_sl.values.json[2]: FAIL (.i: unexpected value for mandatory prop <i> [.]; .i: not a -1 strict int [.i])
+opt_sl.values.json[3]: FAIL (.i: unexpected value for mandatory prop <i> [.]; .i: not a -1 strict int [.i])
+opt_sl.values.json[4]: FAIL (.i: unexpected value for mandatory prop <i> [.]; .i: not a -1 strict int [.i])

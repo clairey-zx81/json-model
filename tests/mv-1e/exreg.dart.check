@@ -1,0 +1,19 @@
+exreg.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'exreg.*.false.json' (OS Error: No such file or directory, errno = 2))
+exreg.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'exreg.*.true.json' (OS Error: No such file or directory, errno = 2))
+exreg.values.json[0]: PASS
+exreg.values.json[1]: PASS
+exreg.values.json[2]: PASS
+exreg.values.json[3]: PASS
+exreg.values.json[4]: PASS
+exreg.values.json[5]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[6]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[7]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[8]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[9]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[10]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[11]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[12]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[13]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[14]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[15]: FAIL (.: unexpected $EXREG [.])
+exreg.values.json[16]: FAIL (.: unexpected $EXREG [.])

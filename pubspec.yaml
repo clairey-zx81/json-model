@@ -1,0 +1,8 @@
+name: json_model_dart
+
+environment:
+  sdk: '^3.10.0'
+
+dependencies:
+  json_model_runtime:
+    path: ./json_model/runtime/dart

@@ -15,3 +15,8 @@ site/MODELS.md
 site/JMC.md
 site/ABOUT.md
 local.mk
+# Specific to Dart
+.dart_tool
+pubspec.lock
+#Specific to Mac
+.DS_Store

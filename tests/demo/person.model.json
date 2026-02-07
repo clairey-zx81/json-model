@@ -1,5 +1,12 @@
 {
-  "#": "A person with a birth date",
-  "name": "/^[a-z]+$/i",
-  "born": "$DATE"
+  "#": "Model for a person",
+  "$": {
+    "Name": "/^\\w+([-' ]\\w+)*$/",
+    "Person": {
+      "name": "$Name",
+      "birth": "$DATE",
+      "?friends": [ "$Name" ]
+    }
+  },
+  "@": "$Person"
 }

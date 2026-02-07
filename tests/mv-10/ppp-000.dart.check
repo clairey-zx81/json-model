@@ -1,0 +1,17 @@
+ppp-000.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'ppp-000.*.false.json' (OS Error: No such file or directory, errno = 2))
+ppp-000.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'ppp-000.*.true.json' (OS Error: No such file or directory, errno = 2))
+ppp-000.values.json[0]: PASS
+ppp-000.values.json[1]: PASS
+ppp-000.values.json[2]: FAIL (.: bad property count [.])
+ppp-000.values.json[3]: FAIL (.: bad property count [.])
+ppp-000.values.json[4]: FAIL (.: bad property count [.])
+ppp-000.values.json[5]: FAIL (.: bad property count [.])
+ppp-000.values.json[6]: FAIL (.: not an object [.])
+ppp-000.values.json[7]: FAIL (.: not an object [.])
+ppp-000.values.json[8]: FAIL (.: not an object [.])
+ppp-000.values.json[9]: FAIL (.: not an object [.])
+ppp-000.values.json[10]: FAIL (.: not an object [.])
+ppp-000.values.json[11]: FAIL (.: not an object [.])
+ppp-000.values.json[12]: FAIL (.: not an object [.])
+ppp-000.values.json[13]: FAIL (.: not an object [.])
+ppp-000.values.json[14]: FAIL (.: not an object [.])

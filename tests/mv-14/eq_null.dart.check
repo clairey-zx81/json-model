@@ -1,0 +1,6 @@
+eq_null.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'eq_null.*.false.json' (OS Error: No such file or directory, errno = 2))
+eq_null.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'eq_null.*.true.json' (OS Error: No such file or directory, errno = 2))
+eq_null.values.json[0]: PASS
+eq_null.values.json[1]: FAIL (.: unexpected =null [.])
+eq_null.values.json[2]: FAIL (.: unexpected =null [.])
+eq_null.values.json[3]: FAIL (.: unexpected =null [.])

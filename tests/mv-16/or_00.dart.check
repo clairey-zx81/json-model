@@ -1,0 +1,9 @@
+or_00.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_00.*.false.json' (OS Error: No such file or directory, errno = 2))
+or_00.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'or_00.*.true.json' (OS Error: No such file or directory, errno = 2))
+or_00.values.json[0]: PASS
+or_00.values.json[1]: PASS
+or_00.values.json[2]: FAIL (.: not a 0 strict int [.])
+or_00.values.json[3]: FAIL (.: not a 0 strict int [.])
+or_00.values.json[4]: FAIL (.: not a 0 strict int [.])
+or_00.values.json[5]: FAIL (.: not a 0 strict int [.])
+or_00.values.json[6]: FAIL (.: not a 0 strict int [.])

@@ -1,0 +1,15 @@
+objs3.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'objs3.*.false.json' (OS Error: No such file or directory, errno = 2))
+objs3.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'objs3.*.true.json' (OS Error: No such file or directory, errno = 2))
+objs3.values.json[0]: PASS
+objs3.values.json[1]: PASS
+objs3.values.json[2]: PASS
+objs3.values.json[3]: FAIL
+objs3.values.json[4]: FAIL
+objs3.values.json[5]: FAIL
+objs3.values.json[6]: FAIL
+objs3.values.json[7]: FAIL
+objs3.values.json[8]: FAIL
+objs3.values.json[9]: FAIL
+objs3.values.json[10]: FAIL
+objs3.values.json[11]: FAIL
+objs3.values.json[12]: FAIL

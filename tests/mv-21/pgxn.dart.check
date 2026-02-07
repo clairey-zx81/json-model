@@ -1,0 +1,14 @@
+pgxn.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'pgxn.*.false.json' (OS Error: No such file or directory, errno = 2))
+pgxn.0.true.json: PASS
+pgxn.values.json[0]: PASS
+pgxn.values.json[1]: FAIL (.: not an object [.])
+pgxn.values.json[2]: FAIL (.: not an object [.])
+pgxn.values.json[3]: FAIL (.: not an object [.])
+pgxn.values.json[4]: FAIL (.: not an object [.])
+pgxn.values.json[5]: FAIL (.: not an object [.])
+pgxn.values.json[6]: FAIL (.: not an object [.])
+pgxn.values.json[7]: FAIL (.: not an object [.])
+pgxn.values.json[8]: FAIL (.: not an object [.])
+pgxn.values.json[9]: FAIL (.: not an object [.])
+pgxn.values.json[10]: FAIL (.: missing mandatory prop <version> [.]; .: missing mandatory prop <provides> [.]; .: missing mandatory prop <name> [.]; .: missing mandatory prop <meta-spec> [.]; .: missing mandatory prop <maintainer> [.]; .: missing mandatory prop <license> [.]; .: missing mandatory prop <abstract> [.])
+pgxn.values.json[11]: FAIL (.un: unexpected prop [.])

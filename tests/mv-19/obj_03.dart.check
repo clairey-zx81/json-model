@@ -1,0 +1,16 @@
+obj_03.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'obj_03.*.false.json' (OS Error: No such file or directory, errno = 2))
+obj_03.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'obj_03.*.true.json' (OS Error: No such file or directory, errno = 2))
+obj_03.values.json[0]: PASS
+obj_03.values.json[1]: PASS
+obj_03.values.json[2]: PASS
+obj_03.values.json[3]: PASS
+obj_03.values.json[4]: FAIL (.x: unexpected prop [.])
+obj_03.values.json[5]: FAIL (.0: not a 0 strict int [.'/^[0-9]+$/'])
+obj_03.values.json[6]: FAIL (.0: not a 0 strict int [.'/^[0-9]+$/'])
+obj_03.values.json[7]: FAIL (.: not an object [.])
+obj_03.values.json[8]: FAIL (.: not an object [.])
+obj_03.values.json[9]: FAIL (.: not an object [.])
+obj_03.values.json[10]: FAIL (.: not an object [.])
+obj_03.values.json[11]: FAIL (.: not an object [.])
+obj_03.values.json[12]: FAIL (.: not an object [.])
+obj_03.values.json[13]: FAIL (.: not an object [.])

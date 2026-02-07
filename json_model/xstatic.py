@@ -1911,6 +1911,7 @@ def xstatic_compile(
         "java": 256,   # GSON
         "sql": 0,      # FIXME not tested
         "plpgsql": 0,  # FIXME not tested
+        "dart": 256,   # FIXME no idea
     }
     if must_only_threshold is None:
         must_only_threshold = MUST_ONLY_THRESHOLD.get(lang, 8)
@@ -1929,6 +1930,7 @@ def xstatic_compile(
         "java": 8,   # better than map < 256
         "sql": 0,      # FIXME not tested
         "plpgsql": 0,  # FIXME not tested
+        "dart": 16,   # FIXME no idea
     }
     if may_must_open_threshold is None:
        may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(lang, 16)
@@ -1943,6 +1945,7 @@ def xstatic_compile(
         "java": 12,
         "sql": 8,      # FIXME not tested
         "plpgsql": 8,  # FIXME not tested
+        "dart": 12,    # FIXME no idea 
     }
     if map_threshold is None:
         map_threshold = MAP_THRESHOLD.get(lang, 12)
@@ -1968,6 +1971,7 @@ def xstatic_compile(
         # UNTESTED
         "sql": 0,
         "plpgsql": 0,
+        "dart": 0, # FIXME no idea
     }
     if or_must_prop is None:
         or_must_prop = OR_MUST_PROP.get(lang, 0)
@@ -2006,6 +2010,9 @@ def xstatic_compile(
         from .java import Java
         language = Java(debug=debug, with_report=report, with_path=report, with_predef=predef,
                         relib=relib or "re", with_package=package is not None)
+    elif lang == "dart":
+        from .dart import Dart
+        language = Dart()
     elif lang == "json":
         language = None
     else:

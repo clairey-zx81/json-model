@@ -1,0 +1,12 @@
+uniq_1.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'uniq_1.*.false.json' (OS Error: No such file or directory, errno = 2))
+uniq_1.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'uniq_1.*.true.json' (OS Error: No such file or directory, errno = 2))
+uniq_1.values.json[0]: PASS
+uniq_1.values.json[1]: PASS
+uniq_1.values.json[2]: PASS
+uniq_1.values.json[3]: PASS
+uniq_1.values.json[4]: FAIL (.: not array or unexpected array [.]; .0: unexpected string [.0])
+uniq_1.values.json[5]: FAIL (.: not array or unexpected array [.])
+uniq_1.values.json[6]: FAIL (.: not array or unexpected array [.])
+uniq_1.values.json[7]: FAIL (.: not array or unexpected array [.])
+uniq_1.values.json[8]: FAIL (.: not array or unexpected array [.])
+uniq_1.values.json[9]: FAIL (.: not array or unexpected array [.])

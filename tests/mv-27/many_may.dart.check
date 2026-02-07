@@ -1,0 +1,23 @@
+many_may.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'many_may.*.false.json' (OS Error: No such file or directory, errno = 2))
+many_may.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'many_may.*.true.json' (OS Error: No such file or directory, errno = 2))
+many_may.values.json[0]: PASS
+many_may.values.json[1]: PASS
+many_may.values.json[2]: PASS
+many_may.values.json[3]: PASS
+many_may.values.json[4]: PASS
+many_may.values.json[5]: PASS
+many_may.values.json[6]: PASS
+many_may.values.json[7]: PASS
+many_may.values.json[8]: PASS
+many_may.values.json[9]: PASS
+many_may.values.json[10]: FAIL (.un: unexpected prop [.])
+many_may.values.json[11]: FAIL (.bla: unexpected prop [.])
+many_may.values.json[12]: FAIL (.: not an object [.])
+many_may.values.json[13]: FAIL (.: not an object [.])
+many_may.values.json[14]: FAIL (.: not an object [.])
+many_may.values.json[15]: FAIL (.: not an object [.])
+many_may.values.json[16]: FAIL (.: not an object [.])
+many_may.values.json[17]: FAIL (.: not an object [.])
+many_may.values.json[18]: FAIL (.: not an object [.])
+many_may.values.json[19]: FAIL (.: not an object [.])
+many_may.values.json[20]: FAIL (.: not an object [.])

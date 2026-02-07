@@ -1,0 +1,5 @@
+hello4.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'hello4.*.false.json' (OS Error: No such file or directory, errno = 2))
+hello4.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'hello4.*.true.json' (OS Error: No such file or directory, errno = 2))
+hello4.values.json[0]: PASS
+hello4.values.json[1]: PASS
+hello4.values.json[2]: FAIL (.world: unexpected value for mandatory prop <world> [.]; .world: not a bool [.world])

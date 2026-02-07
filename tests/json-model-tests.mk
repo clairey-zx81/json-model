@@ -39,6 +39,7 @@ F.sql   = $(F.root:%=%.sql)
 F.pl    = $(F.root:%=%.pl)
 F.java  = $(F.root:%=%.java)
 F.class = $(F.root:%=%.class)
+F.dart = $(F.root:%=%.dart)
 F.ir    = $(F.root:%=%.ir.json)
 # test results
 F.cc    = $(F.root:%=%.c.check)
@@ -47,6 +48,7 @@ F.jsc   = $(F.root:%=%.js.check)
 F.sqlc  = $(F.root:%=%.sql.check)
 F.plc   = $(F.root:%=%.pl.check)
 F.jvc   = $(F.root:%=%.java.check)
+F.dartc   = $(F.root:%=%.dart.check)
 
 DASHED  = $(wildcard *-*.model.json)
 FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
@@ -56,7 +58,8 @@ FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
 F.gen   = \
     $(F.json) $(F.UO) $(F.PO) $(F.EO) \
     $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) \
-    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc)
+    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc) \
+	$(F.dart) $(F.dartc)
 
 .PHONY: all
 all: $(F.gen)
@@ -309,6 +312,32 @@ java: $(F.java) $(F.jvc)
 	exit $$status
 
 #
+# Dart Backend 
+# 
+DART 	= dart 
+
+.PHONY: dart clean.dart
+dart: $(F.dart) $(F.dartc)
+
+clean.dart:
+	$(RM) $(F.dart) $(F.dartc)
+
+%.dart: %.model.json
+	$(JMC.cmd) -o $@ ./$<
+
+%.dart.check : %.dart %.values.json 
+# 	shopt -s nullglob 
+	set -o pipefail
+	$(DART) run $*.dart $(J.opt) $*.*.{true,false}.json | sort > $@
+	$(DART) run $*.dart -t $*.values.json >> $@
+	status=$$?
+	if [ $$status -ne 0 ] ; then \
+		test -f $*.errors.json && status=0; \
+	fi;
+	exit $$status
+
+
+#
 # Generated JSON Schema checks
 #
 F.schema    = $(F.root:%=%.schema.json)
@@ -324,7 +353,8 @@ check.schema: $(F.sXc)
 	    $*.js $*.js.check \
 	    $*.sql $*.sql.check \
 	    $*.pl $*.pl.check \
-	    $*.java $*.java.check
+	    $*.java $*.java.check \
+		$*.dart $*.dart.check
 
 %.CLEAN:
 	$(RM) $*.schema.json \
@@ -333,6 +363,7 @@ check.schema: $(F.sXc)
 	    $*.js $*.js.check \
 	    $*.sql $*.sql.check \
 	    $*.pl $*.pl.check \
-	    $*.java $*.java.check
+	    $*.java $*.java.check \
+		$*.dart $*.dart.check
 
 # TODO JSON Schema checks on test values?

@@ -8,6 +8,8 @@ D.check = $(D.subs:%=%.check)
 D.clean = $(D.subs:%=%.clean)
 D.gen = $(D.subs:%=%.gen)
 D.java = $(D.subs:%=%.java)
+D.dart = $(D.subs:%=%.dart)
+D.clean.dart = $(D.subs:%=%.clean.dart)
 
 .PHONY: clean
 clean:
@@ -41,3 +43,11 @@ gen:
 .PHONY: java
 java:
 	$(MAKE) TARGET=java $(D.java)
+
+.PHONY: dart
+dart:
+	$(MAKE) TARGET=dart $(D.dart)
+
+.PHONY: clean.dart
+clean.dart:
+	$(MAKE) TARGET=clean.dart $(D.clean.dart)

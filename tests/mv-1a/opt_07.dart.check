@@ -1,0 +1,34 @@
+opt_07.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'opt_07.*.false.json' (OS Error: No such file or directory, errno = 2))
+opt_07.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'opt_07.*.true.json' (OS Error: No such file or directory, errno = 2))
+opt_07.values.json[0]: PASS
+opt_07.values.json[1]: PASS
+opt_07.values.json[2]: PASS
+opt_07.values.json[3]: PASS
+opt_07.values.json[4]: PASS
+opt_07.values.json[5]: PASS
+opt_07.values.json[6]: FAIL (.: tag <d> value not found [.'|'])
+opt_07.values.json[7]: FAIL (.: tag <d> value not found [.'|'])
+opt_07.values.json[8]: FAIL (.: tag <d> value not found [.'|'])
+opt_07.values.json[9]: FAIL (.: bad property count [.'|'.0])
+opt_07.values.json[10]: FAIL (.: bad property count [.'|'.0])
+opt_07.values.json[11]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.0]; .val: not a -1 strict int [.'|'.0.val])
+opt_07.values.json[12]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.0]; .val: not a -1 strict int [.'|'.0.val])
+opt_07.values.json[13]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.0]; .val: not a -1 strict int [.'|'.0.val])
+opt_07.values.json[14]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.1]; .val: unexpected string [.'|'.1.val])
+opt_07.values.json[15]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.1]; .val: unexpected string [.'|'.1.val])
+opt_07.values.json[16]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.1]; .val: unexpected string [.'|'.1.val])
+opt_07.values.json[17]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.2]; .val: not a bool [.'|'.2.val])
+opt_07.values.json[18]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.2]; .val: not a bool [.'|'.2.val])
+opt_07.values.json[19]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.2]; .val: not a bool [.'|'.2.val])
+opt_07.values.json[20]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.2]; .val: not a bool [.'|'.2.val])
+opt_07.values.json[21]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.2]; .val: not a bool [.'|'.2.val])
+opt_07.values.json[22]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.0]; .val: not a -1 strict int [.'|'.0.val])
+opt_07.values.json[23]: FAIL (.val: unexpected value for mandatory prop <val> [.'|'.0]; .val: not a -1 strict int [.'|'.0.val])
+opt_07.values.json[24]: FAIL (.: tag prop <d> is missing [.'|'])
+opt_07.values.json[25]: FAIL (.: value is not an object [.'|'])
+opt_07.values.json[26]: FAIL (.: value is not an object [.'|'])
+opt_07.values.json[27]: FAIL (.: value is not an object [.'|'])
+opt_07.values.json[28]: FAIL (.: value is not an object [.'|'])
+opt_07.values.json[29]: FAIL (.: tag prop <d> is missing [.'|'])
+opt_07.values.json[30]: FAIL (.: value is not an object [.'|'])
+opt_07.values.json[31]: FAIL (.: value is not an object [.'|'])

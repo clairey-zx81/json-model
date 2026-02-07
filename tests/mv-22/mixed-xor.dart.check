@@ -1,0 +1,18 @@
+mixed-xor.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'mixed-xor.*.false.json' (OS Error: No such file or directory, errno = 2))
+mixed-xor.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'mixed-xor.*.true.json' (OS Error: No such file or directory, errno = 2))
+mixed-xor.values.json[0]: PASS (.: value is not an object [.'|'])
+mixed-xor.values.json[1]: PASS (.: value is not an object [.'|'])
+mixed-xor.values.json[2]: PASS (.: not a bool [.'|'.2]; .: tag <t> value not found [.'|'])
+mixed-xor.values.json[3]: PASS (.: not a bool [.'|'.2]; .: tag <t> value not found [.'|'])
+mixed-xor.values.json[4]: PASS
+mixed-xor.values.json[5]: PASS
+mixed-xor.values.json[6]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[7]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[8]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[9]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[10]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[11]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[12]: FAIL (.: value is not an object [.'$cs'.'|']; .: not a bool [.'|'.2]; .: value is not an object [.'|'])
+mixed-xor.values.json[13]: FAIL (.: tag prop <t> is missing [.'$cs'.'|']; .: not a bool [.'|'.2]; .: tag prop <t> is missing [.'|'])
+mixed-xor.values.json[14]: FAIL (.: tag <t> value not found [.'$cs'.'|']; .: not a bool [.'|'.2]; .: tag <t> value not found [.'|'])
+mixed-xor.values.json[15]: FAIL (.: tag prop <t> is missing [.'$cs'.'|']; .: not a bool [.'|'.2]; .: tag prop <t> is missing [.'|'])

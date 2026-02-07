@@ -1,0 +1,20 @@
+jm_tests.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'jm_tests.*.false.json' (OS Error: No such file or directory, errno = 2))
+jm_tests.0.true.json: PASS
+jm_tests.values.json[0]: PASS
+jm_tests.values.json[1]: PASS
+jm_tests.values.json[2]: PASS
+jm_tests.values.json[3]: FAIL (.: not array or unexpected array [.]; .0: no model matched [.0.'|']; .0: not array or unexpected array [.0.'|'.2]; .0: not array or unexpected array [.0.'|'.1]; .0: unexpected string [.0.'|'.0])
+jm_tests.values.json[4]: FAIL (.: not array or unexpected array [.]; .0: no model matched [.0.'|']; .0: not array or unexpected array [.0.'|'.2]; .0: not array or unexpected array [.0.'|'.1]; .0: unexpected string [.0.'|'.0])
+jm_tests.values.json[5]: FAIL (.: not array or unexpected array [.])
+jm_tests.values.json[6]: FAIL (.: not array or unexpected array [.])
+jm_tests.values.json[7]: FAIL (.: not array or unexpected array [.])
+jm_tests.values.json[8]: FAIL (.: not array or unexpected array [.])
+jm_tests.values.json[9]: PASS
+jm_tests.values.json[10]: PASS
+jm_tests.values.json[11]: PASS
+jm_tests.values.json[12]: FAIL (.: not array or unexpected array [.]; .0: no model matched [.0.'|']; .0: not array or unexpected array [.0.'|'.2]; .0: not array or unexpected array [.0.'|'.1]; .0: unexpected string [.0.'|'.0])
+jm_tests.values.json[13]: FAIL (.: not array or unexpected array [.]; .0: no model matched [.0.'|']; .0: not array or unexpected array [.0.'|'.2]; .0: not array or unexpected array [.0.'|'.1]; .0: unexpected string [.0.'|'.0])
+jm_tests.values.json[14]: FAIL (.: not array or unexpected array [.])
+jm_tests.values.json[15]: FAIL (.: not array or unexpected array [.])
+jm_tests.values.json[16]: FAIL (.: not array or unexpected array [.])
+jm_tests.values.json[17]: FAIL (.: not array or unexpected array [.])

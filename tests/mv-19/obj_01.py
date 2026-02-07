@@ -32,6 +32,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$Xxx'.'|']", path))
+        print(rep)
     return res
 
 

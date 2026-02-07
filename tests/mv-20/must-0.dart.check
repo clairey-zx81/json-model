@@ -1,0 +1,16 @@
+must-0.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'must-0.*.false.json' (OS Error: No such file or directory, errno = 2))
+must-0.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'must-0.*.true.json' (OS Error: No such file or directory, errno = 2))
+must-0.values.json[0]: PASS
+must-0.values.json[1]: PASS
+must-0.values.json[2]: FAIL (.: missing mandatory prop <born> [.])
+must-0.values.json[3]: FAIL (.: missing mandatory prop <name> [.])
+must-0.values.json[4]: FAIL (.: missing mandatory prop <name> [.])
+must-0.values.json[5]: FAIL (.: missing mandatory prop <name> [.])
+must-0.values.json[6]: FAIL (.: not an object [.])
+must-0.values.json[7]: FAIL (.: not an object [.])
+must-0.values.json[8]: FAIL (.: not an object [.])
+must-0.values.json[9]: FAIL (.: not an object [.])
+must-0.values.json[10]: FAIL (.: not an object [.])
+must-0.values.json[11]: FAIL (.: not an object [.])
+must-0.values.json[12]: FAIL (.: not an object [.])
+must-0.values.json[13]: FAIL (.: not an object [.])
