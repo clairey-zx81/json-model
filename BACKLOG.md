@@ -8,6 +8,7 @@
 - [x] perf: share overhead estimation between tests
 - [x] perf: try to prevent performance loops from being optimized out with some computation
 - [x] container: add podman-in-podman or docker-in-docker
+- [ ] jsu: implement extensions for jsu compilation backend: .mo .in?
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
