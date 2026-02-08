@@ -12,8 +12,11 @@
 - [x] optim: fix inappriopriate model deduplication in or-lists
 - [x] dynamic: allow arbitrary options to dynamic interfaces
 - [x] lang: extend list of predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION
-  [x] bug: fix unwise regex optimization
-- [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (regex?)
+- [x] bug: fix unwise regex optimization
+- [x] python-backend: add support for `.mo`
+- [ ] python-backend: fix precision issue with modulo: _0.0075 % 0.0001 != 0.0_
+- [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
+- [ ] \*-backend:: add support for `.mo` and `.in` extensions
 - [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
 - [ ] doc: add _known limitations_ stuff
 - [ ] jsu: implement extensions for jsu compilation backend: .mo .in?

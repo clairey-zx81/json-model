@@ -248,10 +248,11 @@ class CodeGenerator:
         assert tmodel in (bool, int, float, str, list, dict, type(None), None)
 
         # get which props are set
-        cmp_props = set(filter(lambda k: k in {"<", ">", "=", "!=", ">=", "<="}, model.keys()))
+        cmp_props = set(filter(lambda k: k in {"<", ">", "=", "!=", ">=", "<=", ".mo"}, model.keys()))
         has_unique = "!" in model
         if has_unique and not isinstance(model["!"], bool):  # should not get there
             raise ModelError("unique constraint value must be a boolean")
+        has_in = ".in" in model
 
         # simplify non empty string check based on length
         if (tmodel is str and len(cmp_props) == 1 and
@@ -277,7 +278,7 @@ class CodeGenerator:
             elim += gen.lcom("cannot mix float and string constraints")
 
         # per model type
-        if tmodel in (bool, type(None)) and (cmp_props or has_unique):
+        if tmodel in (bool, type(None)) and (cmp_props or has_unique or has_in):
             elim += gen.lcom("no constraint allowed on bool or null")
             # else type check will be enough, standard case below
         elif tmodel in (dict, list) and (has_flt or has_str):
@@ -303,7 +304,7 @@ class CodeGenerator:
                                          constrained=len(cmp_props) > 0)
 
         # shortcut if nothing to check
-        if not cmp_props and not has_unique:
+        if not cmp_props and not has_unique and not has_in:
             return code
 
         checks: list[BoolExpr] = []
@@ -349,7 +350,9 @@ class CodeGenerator:
                 assert tmodel is str  # redundant sanity check
                 sval = gen.ident("sval")
                 cvars += gen.str_var(sval, gen.value(val, str), declare=True)
-            for op in sorted(cmp_props):  # FIXME looseness?
+
+            # FIXME looseness??
+            for op in sorted(cmp_props):
                 vop = model[op]
                 if isinstance(vop, int):
                     if tmodel is float:
@@ -360,6 +363,9 @@ class CodeGenerator:
                     checks.append(gen.str_cmp(sval, op, gen.const(vop)))  # type: ignore
                 elif isinstance(vop, float):
                     checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # type: ignore
+
+            if has_in:
+                log.warning(f"constraint operator '.in' not implemented yet")
 
         assert checks
         if self._debug:
