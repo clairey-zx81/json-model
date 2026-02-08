@@ -14,6 +14,7 @@
 - [x] lang: extend list of predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION
 - [x] bug: fix unwise regex optimization
 - [x] python-backend: add support for `.mo`
+- [x] optim: remove bad transform _A & (T ^ B)) != A ^ B_
 - [ ] python-backend: fix precision issue with modulo: _0.0075 % 0.0001 != 0.0_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
 - [ ] \*-backend:: add support for `.mo` and `.in` extensions
