@@ -10,7 +10,7 @@ B<jmc> - JSON Model Compiler
 
  jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,syn,help,man}] [--man]
      [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
-     [--allow-duplicates] [--loose-int] [--strict-int] [--loose-float]
+     [--allow-duplicates] [-[-no]-extend] [--loose-int] [--strict-int] [--loose-float]
      [--strict-float] [--loose-number] [--strict-number] [--loose] [--check]
      [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
      [--format {json,yaml,py,c,js,plpgsql,pl,java}] [-[-no]-sort] [--indent INDENT]
@@ -110,7 +110,13 @@ infer url to path mapping from declared model URL (C<.$."">).
 
 whether to check the model for errors at various stages.
 
-=item B<--allow-duplicates>: accept JSON with objects containing duplicated properties.
+=item B<--allow-duplicates>
+
+accept JSON with objects containing duplicated properties.
+
+=item B<--extend>
+
+allow some extensions to help with JSU back-end implementation.
 
 =back
 

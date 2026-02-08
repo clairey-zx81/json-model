@@ -81,10 +81,21 @@ def check(jm: JsonModel, assertion: ModelFilter, what: str = "?", short: bool = 
     return okay
 
 # FIXME must tell why it is unhappy!
-def valid(jm: JsonModel, path: ModelPath = [], root: bool = True) -> bool:
+def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool = False) -> bool:
     """Check JSON Model structural (and slightly more) validity."""
 
     is_valid = True
+
+    # allowed keywords
+    AB_KW = {"@", "!", "=", "!=", "<", "<=", ">=", ">", "#", "$", "%", "~"}
+    if extend: # multiple-of: number, contains: model
+        AB_KW.add(".mo")
+        AB_KW.add(".in")
+
+    # numerical keywords
+    NUM_AB_KW = {"=", "!=", "<", "<=", ">", ">="}
+    if extend:
+        NUM_AB_KW.add(".mo")
 
     def finiteRef(model: str) -> bool:
         ref, recref, recid, ljm = model, [], [], jm
@@ -132,13 +143,11 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True) -> bool:
                 if "@" in model:
                     if "!" in model:
                         is_valid &= isinstance(model["!"], bool)
-                    for op in ("=", "!=", "<", "<=", ">", ">="):
+                    for op in NUM_AB_KW:
                         if op in model:
                             is_valid &= isinstance(model[op], (int, float, str))
-                    # TODO reject any other props! TODO allow .mo and other extensions?
                     for k in model.keys():
-                        is_valid &= \
-                            k in ("@", "!", "=", "!=", "<", "<=", ">=", ">", "#", "$", "%", "~")
+                        is_valid &= k in AB_KW
                 elif "|" in model:
                     is_valid &= isinstance(model["|"], list)
                     # no other keys in recurse

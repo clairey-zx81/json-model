@@ -329,6 +329,8 @@ def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: Path, r
         cmp = cval >= cst  # pyright: ignore
     elif op == ">":
         cmp = cval > cst  # pyright: ignore
+    elif op == ".mo":
+        cmp = cval % cst == 0  # pyright: ignore
     else:
         assert False, f"unexpected operator: {op}"
     if not cmp and rep is not None:
