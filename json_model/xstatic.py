@@ -1528,8 +1528,8 @@ class CodeGenerator:
                     expr = gen.and_op(expr, compare) if expr else compare
                     code += gen.bool_var(res, expr)
                 if self._report:
-                    smodel = model if model else "string"
-                    code += self._gen_report(res, f"unexpected {smodel} [{smpath}]", vpath)
+                    smodel = gen._lang.esc(model)
+                    code += self._gen_report(res, f"unexpected value for model {smodel} [{smpath}]", vpath)
 
             case list():
                 expr: BoolExpr|None = gen.is_a(val, list)

@@ -8,6 +8,9 @@
 - [x] perf: share overhead estimation between tests
 - [x] perf: try to prevent performance loops from being optimized out with some computation
 - [x] container: add podman-in-podman or docker-in-docker
+- [x] python-backend: add support for embedded nul characters in strings
+- [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
+- [ ] doc: add _known limitations_ stuff
 - [ ] jsu: implement extensions for jsu compilation backend: .mo .in?
 - [ ] jsu: implement stupid any type but one constrained optimization
 - [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
