@@ -84,35 +84,6 @@ def _simple_open_object(model: ModelType, jm: JsonModel, path: ModelPath) -> lis
     else:
         return None
 
-def and_not_simpler(jm: JsonModel) -> bool:
-    """Change and(X, xor(ANY, ...)) to xor(X, ...)."""
-
-    changes = 0
-
-    def ansRwt(model: ModelType, path: ModelPath) -> ModelType:
-        nonlocal changes
-        if isinstance(model, dict) and "&" in model:
-            ands = model["&"]
-            if not len(ands) == 2:
-                return model
-            idx: int|None = None
-            for i, m in enumerate(ands):
-                if isinstance(m, dict) and "^" in m and "$ANY" in m["^"]:
-                    idx = i
-                    break
-            if idx is None:
-                return model
-            changes += 1
-            contain, notm = ands[1-idx], ands[idx]
-            del model["&"]
-            model["^"] = list(map(lambda i: contain if i == "$ANY" else i, m["^"]))
-        return model
-
-    jm._model = recModel(jm._model, builtFlt, ansRwt)
-
-    log.debug(f"{jm._id}: ans {changes}")
-    return changes > 0
-
 def and_to_merge(jm: JsonModel) -> bool:
     """Change and to less costly merge if possible."""
 
@@ -745,12 +716,12 @@ def optimize(jm: JsonModel, *, debug: bool = False):
     """Optimize model, probably not very efficient."""
     changed = True
     while changed:
+        # print(f"model: {jm._model}")
         changed = False
         changed |= const_prop(jm)
         changed |= simplify(jm)
         changed |= partial_eval(jm)
         changed |= flatten(jm)
-        changed |= and_not_simpler(jm)
         changed |= and_to_merge(jm)
         changed |= xor_to_or(jm)
         changed |= notor_to_not(jm)

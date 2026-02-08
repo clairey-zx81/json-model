@@ -643,24 +643,24 @@ def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath, partial:
 
         if mt in (type(None), bool, int, float, list):
             if mt in types:
-                log.debug(f"- multiple type {mt.__name__}")
+                # log.debug(f"- multiple type {mt.__name__}")
                 return None
             kept.append(m0)
             types.add(mt)
         elif isinstance(m, str):
             if m == "" or m[0] == "/":  # generic string
                 if str in types or strings:
-                    log.debug("- multiple strings")
+                    # log.debug("- multiple strings")
                     failed.append(m)
                     continue
                 types.add(str)
             elif m[0] == "=":
-                log.debug("- non string constant (TODO)")
+                # log.debug("- non string constant (TODO)")
                 failed.append(m0)
                 continue
             else:  # constant string
                 if str in types:
-                    log.debug("- constant strings")
+                    # log.debug("- constant strings")
                     failed.append(m0)
                     continue
                 if m[0] == "_":
@@ -668,7 +668,7 @@ def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath, partial:
                 # ???
                 if m in strings:
                     log.warning(f"repeated constant: {m} {mpath}")
-                    log.debug("- repeated constant strings")
+                    # log.debug("- repeated constant strings")
                     failed.append(m0)
                     continue
                 strings.add(m)
