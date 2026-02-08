@@ -140,6 +140,12 @@ class JsonModel:
         "URI": r"^\w+:.*$/",  # TODO improve
         "EMAIL": r"^(?i)[a-z0-9_.]+@[a-z0-9_.]+$",
         "JSON": "",
+        # TODO
+        "IP4": "",
+        "IP6": "",
+        "DURATION": "",
+        "JSONPT": "",
+        "HOSTNAME": "",
         # to be continued…
         # o = optional
         "oBOOL": {"|": [None, "$BOOL"]},
