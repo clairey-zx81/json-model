@@ -24,6 +24,7 @@ MODEL_PREDEFS = {
     "$URL", "$REGEX", "$EXREG", "$UUID",
     "$URI", "$EMAIL", "$JSON",
     # TODO $URI-REF, $DOMAIN…
+    "$IP4", "$IP6", "$DURATION", "$JSONPT", "$HOSTNAME",
 }
 
 ANY_STR_RE = r"(?s).*"

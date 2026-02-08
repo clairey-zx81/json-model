@@ -197,6 +197,8 @@ _UTYPE = {
     "$REGEX": str, "$EXREG": str,
     "$DATE": str, "$TIME": str, "$DATETIME": str,
     "$UUID": str, "$JSON": str,
+    # TODO
+    "$IP4": str, "$IP6": str, "$DURATION": str, "$JSONPT": str, "$HOSTNAME": str,
 }
 
 def _ultimate_type(jm: JsonModel, model: ModelType, names: set[str]) -> type|None:
@@ -275,6 +277,11 @@ _UMODEL = {
     "$URI": "$URI",
     "$EMAIL": "$EMAIL",
     "$JSON": "$JSON",
+    "$IP4": "$IP4",
+    "$IP6": "$IP6",
+    "$DURATION": "$DURATION",
+    "$JSONPT": "$JSONPT",
+    "$HOSTNAME": "$HOSTNAME",
     # to be continued…
 }
 
