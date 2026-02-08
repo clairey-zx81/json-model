@@ -180,8 +180,12 @@ class Language:
 
     def str_content_predef(self, name: str) -> bool:
         """Predef (probably costly) about string contents."""
-        return name in ("$DATE", "$TIME", "$DATETIME",
-            "$URL", "$REGEX", "$EXREG", "$UUID", "$URI", "$EMAIL", "$JSON")
+        return name in (
+            "$DATE", "$TIME", "$DATETIME",
+            "$URL", "$REGEX", "$EXREG", "$UUID", "$URI", "$EMAIL", "$JSON",
+            # to be implemented, possibly as regex
+            "$IP4", "$IP6", "$DURATION", "$HOSTNAME", "$JSONPT",
+        )
 
     #
     # predefs
@@ -217,9 +221,12 @@ class Language:
         elif name == "$NUMBER":
             return self.is_a(var, Number)  # type: ignore
         elif name == "$STRING":
-            return self.is_a(var, str)
-        elif str_content_predef(name):
-            raise NotImplementedError(f"predef: {name}")
+            return self.is_a(var, str) if not is_str else selt.true()
+        elif self.str_content_predef(name):
+            if self._with_predef:
+                raise NotImplementedError(f"predef: {name}")
+            else:  # just check for string
+                return self.is_a(var, str) if not is_str else selt.true()
         else:
             raise NotImplementedError(f"unexpected predef {name}")
 
