@@ -9,6 +9,7 @@
 - [x] perf: try to prevent performance loops from being optimized out with some computation
 - [x] container: add podman-in-podman or docker-in-docker
 - [x] python-backend: add support for embedded nul characters in strings
+- [x] optim: fix inappriopriate model deduplication in or-lists
 - [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
 - [ ] doc: add _known limitations_ stuff
 - [ ] jsu: implement extensions for jsu compilation backend: .mo .in?

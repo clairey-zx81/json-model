@@ -5,23 +5,20 @@ import copy
 
 from .mtypes import ModelPath, ModelType
 from .utils import log, is_cst, _structurally_distinct_models
-from .utils import constant_values, same_model, model_in_models, is_a_simple_object
+from .utils import constant_values, same_model, model_in_models, is_a_simple_object, model_eq
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .analyze import ultimate_type
 from .runtime import ConstSet
 
-def real_equal(i, j) -> bool:  # avoid True == 1 and 0.0 == 0…
-    return type(i) is type(j) and i == j
-
 def minl(model: ModelType, models: list[ModelType]) -> bool:
-    return any(map(lambda m: real_equal(m, model), models))
+    return any(map(lambda m: model_eq(m, model), models))
 
 # remove one occurence from list of models
 def mdell(model: ModelType, models: list[ModelType]) -> bool:
     index = -1
     for i, m in enumerate(models):
-        if real_equal(m, model):
+        if model_eq(m, model):
             index = i
     if index != -1:
         del models[index]
@@ -310,7 +307,7 @@ def partial_eval(jm: JsonModel):
         # TODO use an extended ConstSet?
         n = []
         for i in lv:
-            if not any(map(lambda x: real_equal(x, i), n)):
+            if not any(map(lambda x: model_eq(x, i), n)):
                 n.append(i)
         return n
 
