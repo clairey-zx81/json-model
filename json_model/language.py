@@ -40,7 +40,7 @@ class Language:
             # operators, separators, types…
             eq: str = "==", ne: str = "!=",
             ge: str = ">=", gt: str = ">", le: str = "<=", lt: str = "<",
-            not_op: str = "not", and_op: str = "and", or_op: str = "or",
+            not_op: str = "not", and_op: str = "and", or_op: str = "or", mod_op: str = "%",
             eoi: str = "", isep: str = "\n", indent: str = "    ",
             lcom: str = "#", relib: str = "re2",
             true: str = "True", false: str = "False", null: str = "None",
@@ -76,6 +76,7 @@ class Language:
         self._gt = gt
         self._le = le
         self._lt = lt
+        self._mod = mod_op
         # logical operators
         self._not = not_op
         self._and = and_op
@@ -383,7 +384,7 @@ class Language:
     #
     def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False) -> BoolExpr:
         """Numerical comparison."""
-        assert op in ("=", "!=", "<", "<=", ">=", ">")
+        assert op in ("=", "!=", "<", "<=", ">=", ">", ".mo")
         if hexa and isinstance(e2, int):
             e2 = hex(e2)
         if op == "=":
@@ -398,6 +399,8 @@ class Language:
             return f"{e1} {self._ge} {e2}"
         elif op == ">":
             return f"{e1} {self._gt} {e2}"
+        elif op == ".mo":
+            return f"({e1} {self._mod} {e2}) {self._eq} 0"
         else:
             raise Exception(f"num_cmp unexpected op {op}")
 

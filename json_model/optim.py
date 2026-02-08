@@ -513,6 +513,14 @@ def partial_eval(jm: JsonModel):
                         if gev is not None and nev < gev or lev is not None and lev < nev:
                             changes += 1
                             del model["!="]
+                # .mo
+                if ".mo" in model:
+                    mo = model[".mo"]
+                    if isinstance(mo, (int, float)) and isinstance(model["@"], int):
+                        if 1.0 / mo == int(1.0 / mo):
+                            changes += 1
+                            del model[".mo"]
+                # .in?
                 # TODO could do other cases about str?
             else:  # simple object
                 anys = list(filter(lambda p: p in ANY_PROP, model.keys()))
