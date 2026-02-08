@@ -140,8 +140,8 @@ def model_from_str(mstring: str, *, auto: bool = False,
 
 
 # it is unclear if this tricks actually works
-def _model_checker(jm: JsonModel, *, debug: bool = False):
-    code = xstatic_compile(jm, lang="py", debug=debug)
+def _model_checker(jm: JsonModel, *, debug: bool = False, **options):
+    code = xstatic_compile(jm, lang="py", debug=debug, **options)
     env = {}
     exec(str(code), env)
     env["check_model_init"]()
@@ -149,31 +149,33 @@ def _model_checker(jm: JsonModel, *, debug: bool = False):
     env["check_model_free"]()
 
 
-def model_checker(jm: JsonModel, *, debug: bool = False) -> EntryCheckFun:
+def model_checker(jm: JsonModel, *, debug: bool = False, **options) -> EntryCheckFun:
     """Return an executable model checker from a JsonModel."""
-    return next(_model_checker(jm, debug=debug))
+    return next(_model_checker(jm, debug=debug, **options))
 
 
 def model_checker_from_json(
             mjson: Jsonable, *, auto: bool = False, debug: int = 0,
             resolver: Resolver|None = None,
             loose_int: bool|None = None, loose_float: bool|None = None,
+            **options,
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver,
                          loose_int=loose_int, loose_float=loose_float)
-    return model_checker(jm, debug=debug > 0)
+    return model_checker(jm, debug=debug > 0, **options)
 
 
 def model_checker_from_url(
             murl: str, *, auto: bool = False, debug: int = 0,
             resolver: Resolver|None = None, follow: bool = True,
-            loose_int: bool|None = None, loose_float: bool|None = None
+            loose_int: bool|None = None, loose_float: bool|None = None,
+            **options,
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
                         loose_int=loose_int, loose_float=loose_float)
-    return model_checker(jm, debug=debug > 0)
+    return model_checker(jm, debug=debug > 0, **options)
 
 
 def create_model(murl: str, resolver: Resolver, *,
