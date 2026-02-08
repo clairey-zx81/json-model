@@ -201,7 +201,7 @@ class CodeGenerator:
         sval: StrExpr = val if is_str else gen.value(val, str)  # type: ignore
 
         # optimized versions
-        if re.match(r"^/\^?.\*\$?/[mis]?$", regex):
+        if re.match(r"^/\^?\.\*\$?/[mis]?$", regex):
             return gen.true()
         elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
             return gen.num_cmp(gen.str_len(sval), ">", gen.const(0))
