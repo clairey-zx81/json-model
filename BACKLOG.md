@@ -12,6 +12,7 @@
 - [x] optim: fix inappriopriate model deduplication in or-lists
 - [x] dynamic: allow arbitrary options to dynamic interfaces
 - [x] lang: extend list of predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION
+  [x] bug: fix unwise regex optimization
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (regex?)
 - [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
 - [ ] doc: add _known limitations_ stuff
