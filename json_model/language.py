@@ -534,7 +534,17 @@ class Language:
         # log.warning(f"esc: {s}")
         if isinstance(s, bool):
             s = "true" if s else "false"
-        return '"' + s.replace("\\", "\\\\").replace('"', r'\"').replace("\x00", r"\x00") + '"'
+        return (
+            '"' +
+            s.replace("\\", "\\\\")
+             .replace('"', r'\"')
+             .replace("\x00", r"\x00")
+             .replace("\n", r"\n")
+             .replace("\r", r"\r")
+             .replace("\t", r"\t")
+             .replace("\f", r"\f") +
+            '"'
+        )
 
     def skip(self) -> Block:
         """Skip one line."""
