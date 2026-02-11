@@ -104,11 +104,17 @@ which includes 15 JSON Schema validation tools including our JSON Model Compiler
 C, JS and Python backends.
 Overall, JMC comes ahead of Blaze C++ on about 2/3 of the test cases (as of 2026-01-22).
 
+On Feb 5, 2026 the JMC-based implementations on this benchmark have been
+[removed](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/67dc4dfc7ad2d4a8e92a920b71fb813d8f3fb6a4)
+without prior notice nor discussion by the benchmark maintainers, in order to focus on
+comparisons with JSON Schema direct implementations, which make their own tool stand out
+prominently and avoids questions.
+
 It should be noted that benchmarking conditions are quite different:
 
 1. There is no loop to compute an average performance, but an initial _cold_ one-shot measure,
-   a warming phase loop and a _hot_ one-shot measure: This may tend to mask effects from occasional
-   GC runs.
+   a warming phase loop and a _hot_ one-shot measure: This may tend to mask effects from
+   occasional GC runs.
 2. The benchmark focuses on schema conformance, including (buggy) schemas which
    are mostly dead code: It rejects tools which do not validate all strictly conformant values,
    even if these values would be rejected by the target application.
