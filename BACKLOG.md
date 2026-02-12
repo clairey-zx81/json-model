@@ -20,12 +20,12 @@
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
 - [ ] \*-backend:: add support for `.mo` and `.in` extensions
 - [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
+- [ ] tests: test `.mo` and test `.in`
 - [ ] doc: add _known limitations_ stuff
 - [ ] jsu: implement extensions for jsu compilation backend: .mo .in?
-- [ ] jsu: implement stupid any type but one constrained optimization
+- [ ] optim: implement stupid any type but one constrained optimization (jsu)
 - [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
 - [ ] optim: merge `&` list when possible, eg inclusions or compatibility
-- [ ] optim: optimize "any value but one type which is constrained"
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
