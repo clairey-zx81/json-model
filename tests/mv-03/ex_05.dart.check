@@ -1,0 +1,8 @@
+ex_05.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'ex_05.*.false.json' (OS Error: No such file or directory, errno = 2))
+ex_05.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'ex_05.*.true.json' (OS Error: No such file or directory, errno = 2))
+ex_05.values.json[0]: PASS
+ex_05.values.json[1]: PASS
+ex_05.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected $Ex05b [.'|'.1]; .: unexpected string [.'$Ex05b']; .: unexpected $Ex05a [.'|'.0]; .: not a 0 strict int [.'$Ex05a'])
+ex_05.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected $Ex05b [.'|'.1]; .: unexpected string [.'$Ex05b']; .: unexpected $Ex05a [.'|'.0]; .: not a 0 strict int [.'$Ex05a'])
+ex_05.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected $Ex05b [.'|'.1]; .: unexpected string [.'$Ex05b']; .: unexpected $Ex05a [.'|'.0]; .: not a 0 strict int [.'$Ex05a'])
+ex_05.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected $Ex05b [.'|'.1]; .: unexpected string [.'$Ex05b']; .: unexpected $Ex05a [.'|'.0]; .: not a 0 strict int [.'$Ex05a'])

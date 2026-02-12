@@ -1,0 +1,10 @@
+loose.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'loose.*.false.json' (OS Error: No such file or directory, errno = 2))
+loose.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'loose.*.true.json' (OS Error: No such file or directory, errno = 2))
+loose.values.json[0]: PASS
+loose.values.json[1]: PASS
+loose.values.json[2]: FAIL (.li: unexpected value for mandatory prop <li> [.]; .li: not a 0 loose int [.li])
+loose.values.json[3]: FAIL (.li: unexpected value for mandatory prop <li> [.]; .li: not a 0 loose int [.li])
+loose.values.json[4]: FAIL (.li: unexpected value for mandatory prop <li> [.]; .li: not a 0 loose int [.li])
+loose.values.json[5]: FAIL (.li: unexpected value for mandatory prop <li> [.]; .li: not a 0 loose int [.li])
+loose.values.json[6]: FAIL (.li: unexpected value for mandatory prop <li> [.]; .li: not a 0 loose int [.li])
+loose.values.json[7]: FAIL (.li: unexpected value for mandatory prop <li> [.]; .li: not a 0 loose int [.li])

@@ -1,0 +1,15 @@
+explicit_close.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'explicit_close.*.false.json' (OS Error: No such file or directory, errno = 2))
+explicit_close.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'explicit_close.*.true.json' (OS Error: No such file or directory, errno = 2))
+explicit_close.values.json[0]: PASS
+explicit_close.values.json[1]: PASS
+explicit_close.values.json[2]: PASS
+explicit_close.values.json[3]: FAIL (.hello: not a 0 strict int [.''])
+explicit_close.values.json[4]: FAIL (.: not an object [.])
+explicit_close.values.json[5]: FAIL (.: not an object [.])
+explicit_close.values.json[6]: FAIL (.: not an object [.])
+explicit_close.values.json[7]: FAIL (.: not an object [.])
+explicit_close.values.json[8]: FAIL (.: not an object [.])
+explicit_close.values.json[9]: FAIL (.: not an object [.])
+explicit_close.values.json[10]: FAIL (.: not an object [.])
+explicit_close.values.json[11]: FAIL (.: not an object [.])
+explicit_close.values.json[12]: FAIL (.: not an object [.])

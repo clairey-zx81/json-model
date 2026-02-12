@@ -1,0 +1,19 @@
+must_only.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'must_only.*.false.json' (OS Error: No such file or directory, errno = 2))
+must_only.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'must_only.*.true.json' (OS Error: No such file or directory, errno = 2))
+must_only.values.json[0]: PASS
+must_only.values.json[1]: PASS
+must_only.values.json[2]: PASS
+must_only.values.json[3]: PASS
+must_only.values.json[4]: PASS
+must_only.values.json[5]: FAIL (.oops: unexpected prop [.])
+must_only.values.json[6]: FAIL (.mo0: invalid optional prop value [.mo0]; .mo0: unexpected element [.mo0]; .mo0: expecting empty object [.mo0])
+must_only.values.json[7]: FAIL (.mo1: invalid optional prop value [.mo1]; .mo1: unexpected element [.mo1]; .mo1: bad property count [.mo1])
+must_only.values.json[8]: FAIL (.mo2: invalid optional prop value [.mo2]; .mo2: unexpected element [.mo2]; .mo2: bad property count [.mo2])
+must_only.values.json[9]: FAIL (.mo3: invalid optional prop value [.mo3]; .mo3: unexpected element [.mo3]; .mo3: bad property count [.mo3])
+must_only.values.json[10]: FAIL (.: not an object [.])
+must_only.values.json[11]: FAIL (.: not an object [.])
+must_only.values.json[12]: FAIL (.: not an object [.])
+must_only.values.json[13]: FAIL (.: not an object [.])
+must_only.values.json[14]: FAIL (.: not an object [.])
+must_only.values.json[15]: FAIL (.: not an object [.])
+must_only.values.json[16]: FAIL (.: not an object [.])

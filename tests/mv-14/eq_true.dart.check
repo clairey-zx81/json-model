@@ -1,0 +1,10 @@
+eq_true.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'eq_true.*.false.json' (OS Error: No such file or directory, errno = 2))
+eq_true.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'eq_true.*.true.json' (OS Error: No such file or directory, errno = 2))
+eq_true.values.json[0]: PASS
+eq_true.values.json[1]: FAIL (.: unexpected =true [.])
+eq_true.values.json[2]: FAIL (.: unexpected =true [.])
+eq_true.values.json[3]: FAIL (.: unexpected =true [.])
+eq_true.values.json[4]: FAIL (.: unexpected =true [.])
+eq_true.values.json[5]: FAIL (.: unexpected =true [.])
+eq_true.values.json[6]: FAIL (.: unexpected =true [.])
+eq_true.values.json[7]: FAIL (.: unexpected =true [.])

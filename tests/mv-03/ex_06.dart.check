@@ -1,0 +1,15 @@
+ex_06.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'ex_06.*.false.json' (OS Error: No such file or directory, errno = 2))
+ex_06.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'ex_06.*.true.json' (OS Error: No such file or directory, errno = 2))
+ex_06.values.json[0]: PASS
+ex_06.values.json[1]: PASS
+ex_06.values.json[2]: PASS
+ex_06.values.json[3]: PASS
+ex_06.values.json[4]: PASS
+ex_06.values.json[5]: PASS
+ex_06.values.json[6]: PASS
+ex_06.values.json[7]: FAIL (.: not a bool [.'$Ex06'])
+ex_06.values.json[8]: FAIL (.: not a bool [.'$Ex06'])
+ex_06.values.json[9]: FAIL (.: not array or unexpected array [.])
+ex_06.values.json[10]: FAIL (.: not array or unexpected array [.])
+ex_06.values.json[11]: FAIL (.: not array or unexpected array [.])
+ex_06.values.json[12]: FAIL (.: not array or unexpected array [.])

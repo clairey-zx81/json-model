@@ -1,0 +1,11 @@
+json-schema-draft-tighter-loose.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'json-schema-draft-tighter-loose.*.false.json' (OS Error: No such file or directory, errno = 2))
+json-schema-draft-tighter-loose.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'json-schema-draft-tighter-loose.*.true.json' (OS Error: No such file or directory, errno = 2))
+json-schema-draft-tighter-loose.values.json[0]: PASS
+json-schema-draft-tighter-loose.values.json[1]: FAIL (.: not all model match [.'$tight#RootSchema'.'&']; .: unexpected element [.'$tight#RootSchema'.'&'.0]; .: not an object [.'$tight#RootSchema'.'&'.0])
+json-schema-draft-tighter-loose.values.json[2]: FAIL (.: not all model match [.'$tight#RootSchema'.'&']; .: unexpected element [.'$tight#RootSchema'.'&'.0]; .: not an object [.'$tight#RootSchema'.'&'.0])
+json-schema-draft-tighter-loose.values.json[3]: FAIL (.: not all model match [.'$tight#RootSchema'.'&']; .: unexpected element [.'$tight#RootSchema'.'&'.0]; .: not an object [.'$tight#RootSchema'.'&'.0])
+json-schema-draft-tighter-loose.values.json[4]: FAIL (.: not all model match [.'$tight#RootSchema'.'&']; .: unexpected element [.'$tight#RootSchema'.'&'.0]; .: not an object [.'$tight#RootSchema'.'&'.0])
+json-schema-draft-tighter-loose.values.json[5]: FAIL (.: not all model match [.'$tight#RootSchema'.'&']; .: unexpected element [.'$tight#RootSchema'.'&'.0]; .: not an object [.'$tight#RootSchema'.'&'.0])
+json-schema-draft-tighter-loose.values.json[6]: FAIL (.: not all model match [.'$tight#RootSchema'.'&']; .: unexpected element [.'$tight#RootSchema'.'&'.0]; .: not an object [.'$tight#RootSchema'.'&'.0])
+json-schema-draft-tighter-loose.values.json[7]: FAIL (.: not all model match [.'$tight#RootSchema'.'&']; .: unexpected element [.'$tight#RootSchema'.'&'.0]; .: not an object [.'$tight#RootSchema'.'&'.0])
+json-schema-draft-tighter-loose.values.json[8]: FAIL (.: not all model match [.'$tight#RootSchema'.'&']; .: unexpected element [.'$tight#RootSchema'.'&'.0]; .: not an object [.'$tight#RootSchema'.'&'.0])

@@ -1,0 +1,10 @@
+dst_01.*.false.json: ERROR (PathNotFoundException: Cannot open file, path = 'dst_01.*.false.json' (OS Error: No such file or directory, errno = 2))
+dst_01.*.true.json: ERROR (PathNotFoundException: Cannot open file, path = 'dst_01.*.true.json' (OS Error: No such file or directory, errno = 2))
+dst_01.values.json[0]: PASS
+dst_01.values.json[1]: FAIL (.: unexpected type [.'|'])
+dst_01.values.json[2]: FAIL (.: unexpected type [.'|'])
+dst_01.values.json[3]: FAIL (.: unexpected type [.'|'])
+dst_01.values.json[4]: FAIL (.: unexpected type [.'|'])
+dst_01.values.json[5]: FAIL (.: unexpected type [.'|'])
+dst_01.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.5]; .: bad property count [.'|'.5]; .: unexpected element [.'|'.4]; .: bad property count [.'|'.4]; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+dst_01.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.5]; .: bad property count [.'|'.5]; .: unexpected element [.'|'.4]; .: bad property count [.'|'.4]; .: unexpected element [.'|'.3]; .: bad property count [.'|'.3]; .: unexpected element [.'|'.2]; .: bad property count [.'|'.2]; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
