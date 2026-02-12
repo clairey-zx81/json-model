@@ -25,6 +25,7 @@
 - [ ] jsu: implement stupid any type but one constrained optimization
 - [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
 - [ ] optim: merge `&` list when possible, eg inclusions or compatibility
+- [ ] optim: optimize "any value but one type which is constrained"
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
