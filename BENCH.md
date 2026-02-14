@@ -8,6 +8,7 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 
 ## Recent Artifacts
 
+- [2026021300](benchmarks/2026021300.md) clang, no predefs, jmc 2.0b36 vs jsc 14.10.0, 11 runs, 1000 iterations.
 - [2026021000](benchmarks/2026021000.md) clang, no predefs, jmc 2.0b36 vs jsc 14.7.2, 11 runs, 1000 iterations.
 - [2026020600](benchmarks/2026020600.md) clang, no predefs, jmc 2.0b36 vs jsc 14.7.1, 11 runs, 1000 iterations.
 - [2026020500](benchmarks/2026020500.md) clang, no predefs, jmc 2.0b36 vs jsc 14.6.1, 11 runs, 1000 iterations.
@@ -18,12 +19,6 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 - [2026011500](benchmarks/2026011500.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.4, 11 runs, 1000 iterations.
 - [2026010900](benchmarks/2026010900.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.3, 11 runs, 1000 iterations.
 - [2026010600](benchmarks/2026010600.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.2, 11 runs, 1000 iterations.
-- [2025123100](benchmarks/2025123100.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.1, 11 runs, 1000 iterations.
-- [2025122700](benchmarks/2025122700.md) clang, no predefs, jmc 2.0b36 vs jsc 13.6.0, 11 runs, 1000 iterations.
-- [2025122500](benchmarks/2025122500.md) clang, no predefs, jmc 2.0b36 vs jsc 13.5.0, 11 runs, 1000 iterations.
-- [2025122300](benchmarks/2025122300.md) clang, no predefs, jmc 2.0b36 vs jsc 13.4.0, 3 runs, 1000 iterations.
-- [2025121900](benchmarks/2025121900.md) clang, no predefs, jmc 2.0b36 vs jsc 13.3.0, 11 runs, 1000 iterations.
-- [2025121800](benchmarks/2025121800.md) clang, no predefs, jmc 2.0b36 vs jsc 13.2.0, 11 runs, 1000 iterations.
 
 ## Benchmarking Script
 
@@ -106,9 +101,10 @@ Overall, JMC comes ahead of Blaze C++ on about 2/3 of the test cases (as of 2026
 
 On Feb 5, 2026 the JMC-based implementations on this benchmark have been
 [removed](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/67dc4dfc7ad2d4a8e92a920b71fb813d8f3fb6a4)
-without prior notice nor discussion by the benchmark maintainers, in order to focus on
-comparisons with JSON Schema direct implementations, which make their own tool stand out
-prominently and avoids questions.
+without prior notice nor discussion.
+The maintainer wants to focus on comparisons with JSON Schema direct implementations only
+and thus avoid some confusion.
+As a side effect, their Blaze C++ tool took back the performance leadership.
 
 It should be noted that benchmarking conditions are quite different:
 
