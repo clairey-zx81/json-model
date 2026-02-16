@@ -386,6 +386,11 @@ CREATE TABLE ShowPerfSummary AS WITH
   FROM RelativeComparison
   ORDER BY 1;
 
+-- cleanup broken count row if empty
+DELETE FROM RelativeComparison
+WHERE ordre = 2
+  AND blaze + c + js + jv1 + jv2 + jv3 + py = 0;
+
 -- compile time per case
 CREATE TABLE ShowCompilePerCase AS
   SELECT
