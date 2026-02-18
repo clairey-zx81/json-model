@@ -1,5 +1,5 @@
 from .language import Language, Block, Var, PropMap, ConstList
-from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr
+from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr, NumExpr
 from .mtypes import Number, TestHint, Conditionals
 # from .utils import log
 
@@ -82,6 +82,7 @@ class Python(Language):
         code: Block = self.file_load("python_exe.py") if exe else []
         code += super().file_header(exe)
         code += [
+            r"import math",
             r"from typing import Callable",
             f"import {self._relib} as re",
             r"from json_model.runtime import *",
@@ -121,6 +122,12 @@ class Python(Language):
 
     def str_end(self, val: str, end: str) -> BoolExpr:
         return f"{val}.endswith({self.esc(end)})"
+
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False) -> BoolExpr:
+        if op == ".mo":
+            # this is a pain, % is not stable enough, / has infinity issues
+            return f"int({e1} / {e2}) == {e1} / {e2} if {e1} / {e2} not in (math.inf, -math.inf) else False"
+        return super().num_cmp(e1, op, e2, hexa)
 
     def any_len(self, var: Var) -> IntExpr:
         return f"len({var})"
