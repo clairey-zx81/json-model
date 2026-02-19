@@ -291,6 +291,8 @@ class CodeGenerator:
         # per unique
         if has_unique and tmodel is not list:
             elim += gen.lcom(f"no unique constraint on {tname(tmodel)}")
+        if has_in and tmodel is not list:
+            elim += gen.lcom(f"in constraint on {tname(tmodel)}")
 
         # TODO value-based elimination
 
@@ -365,7 +367,14 @@ class CodeGenerator:
                     checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # type: ignore
 
             if has_in:
-                log.warning(f"constraint operator '.in' not implemented yet")
+                # .in without comparisons for now (draft7)
+                # if res and is_an_array(val):
+                #     res = False
+                #     for v in val:
+                #         res = has_in_type(v)
+                #         if res; break;
+                in_code = []
+                pass
 
         assert checks
         if self._debug:
