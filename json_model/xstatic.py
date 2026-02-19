@@ -288,7 +288,7 @@ class CodeGenerator:
         elif tmodel in (int, float) and has_str:
             elim += gen.lcom("no string constraints on numbers")
 
-        # per unique
+        # NOTE ! and .in require a known array type
         if has_unique and tmodel is not list:
             elim += gen.lcom(f"no unique constraint on {tname(tmodel)}")
         if has_in and tmodel is not list:
@@ -307,6 +307,34 @@ class CodeGenerator:
 
         # shortcut if nothing to check
         if not cmp_props and not has_unique and not has_in:
+            return code
+
+        if has_in:
+            # .in without comparisons for now (draft7)
+            # if res:
+            #     res = False
+            #     for v in val:
+            #         res = has_in_model(v)
+            #         if res; break;
+            arrayid = gen.ident("arr")
+            idx, item, lpath = f"{arrayid}_idx", f"{arrayid}_item", f"{arrayid}_lpath"
+            code +=  (
+                gen.lcom(f".in at {smpath}") +
+                gen.if_stmt(res,
+                    gen.bool_var(res, gen.false()) +
+                    gen.arr_loop(
+                        val, idx, item,
+                        gen.path_var(lpath, gen.path_val(vpath, idx, False, True), True) +
+                        self._compileModel(jm, model[".in"], mpath + [".in"],
+                                           res, item,
+                                           gen.path_lvar(lpath, vpath)) +  # type: ignore
+                        gen.if_stmt(res, gen.brk(), likely=False)
+                    )
+                )
+            )
+
+        # shorcut after .in check
+        if not cmp_props and not has_unique:
             return code
 
         checks: list[BoolExpr] = []
@@ -366,15 +394,6 @@ class CodeGenerator:
                 elif isinstance(vop, float):
                     checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # type: ignore
 
-            if has_in:
-                # .in without comparisons for now (draft7)
-                # if res and is_an_array(val):
-                #     res = False
-                #     for v in val:
-                #         res = has_in_type(v)
-                #         if res; break;
-                in_code = []
-                pass
 
         assert checks
         if self._debug:

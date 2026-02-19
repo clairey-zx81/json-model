@@ -1,0 +1,5 @@
+{
+  "#": "an array of string with one starting with an a",
+  "@": [ "" ],
+  ".in": "/^a/"
+}

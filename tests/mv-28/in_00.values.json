@@ -1,0 +1,17 @@
+[
+  [ true,  ["a"] ],
+  [ true,  ["boo", "aku", "foo"] ],
+  [ false, [] ],
+  [ false, ["bcd"] ],
+  [ false, ["bcd", "efg"] ],
+  [ false, [42, "aaa"] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, -3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

@@ -18,6 +18,7 @@
 - [x] python-backend: escape more strange characters in string constants
 - [x] perf: do not report broken count if nothing is broken
 - [x] python-backend: numerical workarounds for .mo extension implementation
+- [x] backend: add support for `.in` extension without other constraints
 - [ ] tests: rerun with updated JSTS before release
 - [ ] python-backend: fix precision issue with modulo: _0.0075 % 0.0001 != 0.0_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
