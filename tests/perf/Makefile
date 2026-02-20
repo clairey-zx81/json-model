@@ -5,6 +5,10 @@
 SHELL   = /bin/bash
 .ONESHELL:
 
+#
+# DOCKER/PODMAN IMAGE MANAGEMENT
+#
+
 # names
 # docker or podman
 POD     = docker
@@ -24,6 +28,7 @@ endif
 .PHONY: clean
 clean:
 	$(RM) .*-*-build.*
+	$(RM) -rf jsb/ tmp/
 
 #
 # CONTAINER
@@ -78,3 +83,16 @@ docker.build:
 .PHONY: podman.build
 podman.build:
 	$(MAKE) POD=podman VARIANT=podman build
+
+#
+# LOCAL SANITY TESTING
+#
+jsb:
+	git clone git@github.com:sourcemeta-research/jsonschema-benchmark.git $@
+
+tmp:
+	mkdir $@
+
+run: jsb tmp
+	PATH=.:$$PATH
+	./run.sh 1000 ./tmp/ all all ./jsb/schemas/ansible-meta

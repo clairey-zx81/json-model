@@ -10,7 +10,8 @@
 # - dirs: jsb schema directories to process
 #
 # env:
-# - JMC_BENCH_DEBUG: enable debug (FIXME currently unused)
+# - JMC: json-model container tag
+# - PATH: where to find "jmc" and "js-cli" wrappers
 
 export PATH=$PATH:.
 export TMPDIR=.
@@ -18,11 +19,10 @@ export TMPDIR=.
 # container wrappers
 jmc=jmc
 js_cli=js-cli
+jsu_compile="$jmc exec jsu-compile"
 jsu_model="$jmc exec jsu-model"
-jsu_simpler="$jmc exec jsu-simpler"
 
 now=$(date +%Y%m%d%H%M%S.$$)
-debug=$JMC_BENCH_DEBUG
 
 function err()
 {
@@ -36,7 +36,7 @@ function err()
 # handle arguments
 #
 
-[ $# -ge 4 ] || err 1 "usage: $0 loop prefix task target"
+[ $# -ge 4 ] || err 1 "usage: $0 loop prefix task target dirs..."
 
 LOOP=$1 PREFIX=$2 TASK=$3 TARGET=$4
 shift 4
@@ -70,6 +70,7 @@ function ctime()
   shift 3
   local compile_csv="${prefix}_${tool}_compile.csv"
   echo -n "$case" >> "$compile_csv"
+  # echo /usr/bin/time -f "%e" -a -o "$compile_csv" "$@" >&2
   /usr/bin/time -f "%e" -a -o "$compile_csv" "$@"
 }
 
@@ -87,6 +88,8 @@ for dir ; do
   jsum_opts=
   jmc_c_opt="--loose --no-reporting"
   jmc_x_opt=$jmc_c_opt
+
+  # regex is not compatible with re2
   if [ $name = "ui5-manifest" ] ; then
     jmc_c_opt+=" -re pcre2"
     jmc_x_opt+=" -re re"
@@ -98,7 +101,9 @@ for dir ; do
   fi
 
   for trg in $targets ; do
+
     echo "# considering $dir $trg ($name)"
+
     #
     # COMPILE
     #
@@ -106,6 +111,7 @@ for dir ; do
     jmc_js_ko=9 jmc_py_ko=9 jmc_pl_ko=9
     jmc_java_ko=9 jmc_class_ko=9
 
+    # blaze compilation
     [ "$do_cmp" -a $trg = "blaze" ] && {
       echo "## $dir blaze compile"
       ctime "$name,blaze,$now," "$prefix" blaze \
@@ -113,52 +119,67 @@ for dir ; do
       blaze_ko=$?
       echo "## blaze ko: $blaze_ko"
     }
+
+    # schema to model
     [ "$do_cmp" -a "$trg" = "jsu" ] && {
       echo "## $dir jsu compile"
-      ctime "$name,jsu-simpler,$now," "$prefix" jsu \
-        $jsu_simpler $dir/schema.json > ${prefix}_schema-simpler.json
-      echo -n "$name,jsu-model,$now," >> $compile_csv
       ctime "$name,jsu-model,$now," "$prefix" jsu \
-        $jsu_model --quiet --id --loose --no-fix $jsum_opts ${prefix}_schema-simpler.json > ${prefix}_model.json
+        $jsu_model --quiet --id --loose --no-fix $jsum_opts $dir/schema.json > ${prefix}_model.json
     }
+
+    # schema to C and executable
     [ "$do_cmp" -a "$trg" = "jmc-c" ] && {
       echo "## $dir jmc-c compile"
       ctime "$name,jmc-c-src,$now," "$prefix" jmc-c \
-        $jmc $jmc_c_opt -o ${prefix}_model.c ${prefix}_model.json
+        $jsu_compile --quiet --id --loose --no-fix $jsum_opts $dir/schema.json \
+          -- $jmc_c_opt -o ${prefix}_model.c
       jmc_c_ko=$?
       ctime "$name,jmc-c-out,$now," "$prefix" jmc-c \
-        $jmc $jmc_c_opt -o ${prefix}_model.out ${prefix}_model.json
+        $jsu_compile --quiet --id --loose --no-fix $jsum_opts $dir/schema.json \
+          -- $jmc_c_opt -o ${prefix}_model.out
       jmc_out_ko=$?
       echo "## jmc out ko: $jmc_out_ko"
       # rename to avoid .out
       mv ${prefix}_model.out ${prefix}_model.exe
     }
+
+    # schema to JS
     [ "$do_cmp" -a "$trg" = "jmc-js" ] && {
       echo "## $dir jmc-js compile"
-      # echo "### $jmc $jmc_x_opt -o ${prefix}_model.js ${prefix}_model.json"
       ctime "$name,jmc-js,$now," "$prefix" jmc-js \
-        $jmc $jmc_x_opt -o ${prefix}_model.js ${prefix}_model.json
+        $jsu_compile --quiet --id --loose --no-fix $jsum_opts $dir/schema.json \
+          -- $jmc_x_opt -o ${prefix}_model.js
       jmc_js_ko=$?
     }
+
+    # schema to Python
     [ "$do_cmp" -a "$trg" = "jmc-py" ] && {
       echo "## $dir jmc-py compile"
       ctime "$name,jmc-py,$now," "$prefix" jmc-py \
-        $jmc $jmc_x_opt -o ${prefix}_model.py ${prefix}_model.json
+        $jsu_compile --quiet --id --loose --no-fix $jsum_opts $dir/schema.json \
+          -- $jmc_x_opt -o ${prefix}_model.py
       jmc_py_ko=$?
     }
+
+    # schema to Java and class
     [ "$do_cmp" -a "$trg" = "jmc-java" ] && {
       echo "## $dir jmc-java compile"
       ctime "$name,jmc-java-src,$now," "$prefix" jmc-java \
-        $jmc $jmc_x_opt -o ${sprefix}_model.java ${prefix}_model.json
+        $jsu_compile --quiet --id --loose --no-fix $jsum_opts $dir/schema.json \
+          -- $jmc_x_opt -o ${sprefix}_model.java
       jmc_java_ko=$?
       ctime "$name,jmc-java-class,$now," "$prefix" jmc-java \
-        $jmc $jmc_x_opt -o ${sprefix}_model.class ${prefix}_model.json
+        $jsu_compile --quiet --id --loose --no-fix $jsum_opts $dir/schema.json \
+          -- $jmc_x_opt -o ${sprefix}_model.class
       jmc_class_ko=$?
     }
+
+    # schema to Perl
     [ "$do_cmp" -a "$trg" = "jmc-pl" ] && {
       echo "## $dir jmc-pl compile"
       ctime "$dir,jmc-pl,$now," "$prefix" jmc-pl \
-        $jmc $jmc_x_opt -o ${prefix}_model.pl $dir/model.json
+        $jsu_compile --quiet --id --loose --no-fix $jsum_opts $dir/schema.json \
+          -- $jmc_x_opt -o ${prefix}_model.pl
       jmc_pl_ko=$?
     }
 
