@@ -212,8 +212,6 @@ CREATE TABLE CompilePerfCase AS
   SELECT
     c.name,
     (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'blaze') AS blaze,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jsu-simpler') AS jsu_s,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jsu-model') AS jsu_m,
     (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-c-src') AS jmc_c,
     (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-c-out') AS jmc_out,
     (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-js') AS jmc_js,
@@ -227,7 +225,6 @@ CREATE TABLE CompilePerfCompare AS
   SELECT
     name,
     blaze,
-    jsu_s + jsu_m AS s2m,
     jmc_out AS c,
     jmc_js AS js,
     jmc_py AS py,
@@ -397,7 +394,6 @@ CREATE TABLE ShowCompilePerCase AS
     RANK() OVER (ORDER BY name) AS "#",
     name,
     ROUND(blaze, 1) AS blaze,
-    ROUND(s2m,   1) AS s2m,
     ROUND(c,     1) AS c,
     ROUND(js,    1) AS js,
     ROUND(jv,    1) AS jv,
@@ -410,7 +406,6 @@ CREATE TABLE ShowCompileSummary AS
   SELECT
     'min compile time (s)' AS data,
     ROUND(MIN(blaze), 1) AS blaze,
-    ROUND(MIN(s2m),   1) AS s2m,
     ROUND(MIN(c),     1) AS c,
     ROUND(MIN(js),    1) AS js,
     ROUND(MIN(jv),    1) AS jv,
@@ -420,7 +415,6 @@ CREATE TABLE ShowCompileSummary AS
   SELECT
     'avg compile time (s)',
     ROUND(AVG(blaze), 1),
-    ROUND(AVG(s2m),   1),
     ROUND(AVG(c),     1),
     ROUND(AVG(js),    1),
     ROUND(AVG(jv),    1),
@@ -430,7 +424,6 @@ CREATE TABLE ShowCompileSummary AS
   SELECT
     'max compile time (s)',
     ROUND(MAX(blaze), 1),
-    ROUND(MAX(s2m),   1),
     ROUND(MAX(c),     1),
     ROUND(MAX(js),    1),
     ROUND(MAX(jv),    1),
