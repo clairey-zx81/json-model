@@ -93,6 +93,33 @@ jsb:
 tmp:
 	mkdir $@
 
+TASK    = all
+TARGET  = jmc-c
+RUN.d   = $(wildcard ./jsb/schemas/*)
+
+.PHONY: run.params
+run.params: jsb
+	@# show run parameters
+	echo "# JMC=$(JMC)"
+	echo "# TASK=$(TASK)"
+	echo "# TARGET=$(TARGET)"
+	echo "# RUN.d=$(RUN.d)"
+
+.PHONY: run.clean
+run.clean:
+	$(RM) -r tmp
+
+.PHONY: run
 run: jsb tmp
-	PATH=.:$$PATH
-	./run.sh 1000 ./tmp/ all all ./jsb/schemas/ansible-meta
+	# test setup
+	dir=./tmp/$$(date +%Y%m%d%H%M%S)
+	mkdir $$dir
+	echo "# running in $$dir"
+	$(MAKE) run.params
+	# use local jmc wrapper
+	export PATH=.:$$PATH
+	./run.sh 1000 $$dir/ $(TASK) $(TARGET) $(RUN.d) > $$dir/run.output 2>&1
+	# extract data
+	./run-to-csv.sh $$dir/*.out > $$dir/perf.csv
+	./res-to-csv.sh $$dir/*.out > $$dir/result.csv
+	./compile-to-csv.sh $$dir/*_compile.csv > $$dir/compile.csv
