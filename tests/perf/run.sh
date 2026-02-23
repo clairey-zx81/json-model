@@ -87,11 +87,11 @@ for dir ; do
   # JSU compiler options:
   #  - `--quiet`: reduce compiler verbosity
   #  - `--id`: use custom models when available
-  #  - `--loose`: just warn about some ill-defined schemas
+  #  - `--no-strict`: just warn about some ill-defined schemas
   #  - `--fix`: fix common schema issues (missing types, misplaced keywords)
   #             improving both accuracy and performance
   #  - `--no-format`: do not check formats
-  jsu_opts="--quiet --id --loose --fix"
+  jsu_opts="--quiet --id --no-strict --fix"
 
   # JMC compiler options:
   #  - `--loose`: assume loose integers (42.0 is an int) and floats (42 is a float)
