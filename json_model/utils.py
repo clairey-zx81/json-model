@@ -868,3 +868,49 @@ def partition(names: set[str], limit: int, byte_order: str) -> tuple[int, dict[i
             part_names[limits[mini+1]] |= part_names[limits[mini]]
             del part_names[limits[mini]]
     return hash_size, part_names
+
+def same_types(lt: list[tuple[bool, type|None]]) -> bool:
+    """Are types all the same in the list."""
+    if not lt:
+        return True
+    t0 = lt[0]
+    if t0[0] is False:
+        return False
+    for t in lt[1:]:
+        if t != t0:
+            return False
+    return True
+
+def is_base_model(m: ModelType) -> type|None:
+    """Wheter m is a base model, that is a model for basic json types."""
+    if m is None:
+        return type(None)
+    elif isinstance(m, bool):
+        return bool
+    elif isinstance(m, int):
+        return int if m == -1 else None
+    elif isinstance(m, float):
+        return float if m == -1.0 else None
+    elif isinstance(m, list):
+        return list if m == [ "$ANY" ] else None
+    elif isinstance(m, dict):
+        return dict if m == {"": "$ANY"} else None
+    elif isinstance(m, str):
+        if m in ("", "$STRING"):
+            return str
+        elif m == "$NULL":
+            return type(None)
+        elif m in ("$BOOL", "$BOOLEAN"):
+            return bool
+        elif m in ("$INT", "$INTEGER"):
+            return int
+        elif m == "$FLOAT":
+            return float
+        # elif m == "$OBJECT":
+        #     return dict
+        # elif m == "$ARRAY":
+        #     return list
+        else:
+            return None
+    else:
+        raise ModelError(f"unexpected model type")

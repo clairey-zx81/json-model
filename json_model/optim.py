@@ -4,7 +4,7 @@
 import copy
 
 from .mtypes import ModelPath, ModelType
-from .utils import log, is_cst, _structurally_distinct_models
+from .utils import log, is_cst, _structurally_distinct_models, model_type, same_types, is_base_model
 from .utils import constant_values, same_model, model_in_models, is_a_simple_object, model_eq
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
@@ -83,6 +83,52 @@ def _simple_open_object(model: ModelType, jm: JsonModel, path: ModelPath) -> lis
         return props if is_open else None
     else:
         return None
+
+def and_not_simpler(jm: JsonModel) -> bool:
+    """Change and(T, xor(ANY, …)) to xor(T, and(T, …))."""
+    # this does not generalize, the idea is to forward the type to both sides
+
+    changes = 0
+
+    def ansRwt(model: ModelType, path: ModelPath) -> ModelType:
+        nonlocal changes
+        if isinstance(model, dict) and "&" in model:
+            ands = model["&"]
+            if len(ands) != 2:
+                return model
+            idx: int|None = None
+            for i, m in enumerate(ands):
+                if isinstance(m, dict) and "^" in m and "$ANY" in m["^"]:
+                    idx = i
+                    # ensure that $ANY is in front
+                    if m["^"][0] != "$ANY":
+                        m["^"].remove("$ANY")
+                        m["^"] = ["$ANY"] + m["^"]
+                    break
+            if idx is None:
+                return model
+            contain, notm = ands[1-idx], ands[idx]
+            # FIXME model eq
+            if contain != "" and not (isinstance(contain, (int, float)) or contain == -1):
+                return model
+            tcontain = type(contain)
+
+            def _same_type(m) -> bool:
+                ok, tm = model_type(m, path)
+                return ok and tm is tcontain
+
+            if not all(map(_same_type, notm["^"][1:])):
+                return model
+
+            changes += 1
+            del model["&"]
+            model["^"] = [ contain ] + notm["^"][1:]
+        return model
+
+    jm._model = recModel(jm._model, builtFlt, ansRwt)
+
+    log.debug(f"{jm._id}: ans {changes}")
+    return changes > 0
 
 def and_to_merge(jm: JsonModel) -> bool:
     """Change and to less costly merge if possible."""
@@ -364,10 +410,24 @@ def partial_eval(jm: JsonModel):
                 if len(land) == 1:
                     changes += 1
                     return land[0]
+
                 # if ultimates types are distinct, no value can match
                 utypes = set(ultimate_type(jm, m) for m in land)
                 if None not in utypes and len(utypes) > 1 or None in utypes and len(utypes) > 2:
                     return "$NONE"
+
+                # &( T, <T>...) -> &(<T>...)
+                tland = list(map(lambda m: model_type(m, path), land))
+                log.debug(f"tland = {tland}")
+                if same_types(tland):
+                    remove = []
+                    for m in land:
+                        if is_base_model(m):
+                            remove.append(m)
+                    if remove:
+                        changes += 1
+                        for m in remove:
+                            land.remove(m)
 
             elif "^" in model:  # optimize XOR
                 lxor = model["^"]
@@ -722,6 +782,7 @@ def optimize(jm: JsonModel, *, debug: bool = False):
         changed |= simplify(jm)
         changed |= partial_eval(jm)
         changed |= flatten(jm)
+        changed |= and_not_simpler(jm)
         changed |= and_to_merge(jm)
         changed |= xor_to_or(jm)
         changed |= notor_to_not(jm)
